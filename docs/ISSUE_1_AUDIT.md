@@ -48,6 +48,33 @@ and verified estimates should accelerate the next extraction/calibration pass.
 Do not close #1, merge this as a completed issue, start unsupported downstream
 mechanisms, or mark any #27 checkbox on the strength of this evidence audit alone.
 
+## Identified data-access constraint
+
+The [BioLINCC ARIC study page](https://biolincc.nhlbi.nih.gov/studies/aric/)
+was inspected on 2026-09-26. It lists longitudinal examinations and event follow-up,
+but obtaining those records requires a registered researcher request. The page
+specifies that the data cannot be used commercially. The
+[January 2026 BioLINCC guide](https://biolincc.nhlbi.nih.gov/media/BioLINCC_User_Guide_05Jan2026.pdf)
+requires a responsible investigator and research-materials agreement before access.
+No researcher account, approved data agreement, or cohort records were supplied in
+this run. This blocks **that data route**; it does not establish that ARIC is the
+only possible source. Do not assume open-source publication confers data-use rights.
+
+An authorized researcher must establish permitted access/use for ARIC, or supply an
+alternative longitudinal evidence package. The minimum useful package has compatible
+baseline and follow-up state definitions, age/sex denominators, progression and
+regression events, time at risk, competing deaths, censoring/attrition handling, and
+separate estimation and validation populations or periods. Published aggregate
+transition tables can also be evaluated if they identify these quantities. Raw
+restricted records must not be committed to this public repository.
+
+Cross-sectional prevalence alone cannot solve the gap: even in a simplified
+stationary living population, `a H = (b + c) P` admits multiple progression `a`
+and regression `b` hazards for fixed healthy stock `H`, prediabetes stock `P`, and
+diabetes hazard `c`. Adding a dietary coefficient does not resolve that ambiguity.
+The chosen national parameterization needs longitudinal identification and explicit
+transport assumptions, followed by a genuinely independent holdout.
+
 ## Verification and next action
 
 Run the full verification commands in README, both new evidence commands, and
