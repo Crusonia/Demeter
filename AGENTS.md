@@ -6,6 +6,12 @@ Demeter is a computational systems model of food, health, agriculture, longevity
 
 The codebase exists to make causal claims explicit, testable, evidence-linked, uncertainty-aware, and reproducible. It is not a narrative model and it must never manufacture precision.
 
+## Program context
+
+Before making architectural decisions, read `docs/PROJECT_VISION.md`. It is the canonical program-level description of Demeter's long-term system architecture, modeling philosophy, open-source tool stack, development/compute split, and phased roadmap.
+
+Phase-specific objective documents may intentionally narrow scope. Do not interpret a narrow current phase as a change to the long-term program architecture unless the project vision is explicitly updated.
+
 ## v0.1 boundary
 
 Build and validate one complete health vertical slice:
@@ -107,7 +113,7 @@ A v0.1 release is not complete until all of the following are true:
 
 ## Working method for autonomous Codex runs
 
-1. Read this file, README, the v0.1 objective, evidence schema, and existing tests first.
+1. Read this file, `docs/PROJECT_VISION.md`, README, the active phase objective, evidence schema, and existing tests first.
 2. Inspect the repository before changing architecture.
 3. Make the smallest coherent change that advances an acceptance criterion.
 4. Run targeted tests after each meaningful change.
