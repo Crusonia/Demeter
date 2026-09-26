@@ -65,6 +65,7 @@ Responsibilities:
 Initial states:
 
 - metabolically healthy / normoglycemic
+- **PreChronic**: early metabolic dysfunction before formal chronic-disease capture
 - insulin resistant / prediabetes
 - type 2 diabetes
 
@@ -103,6 +104,16 @@ Responsibilities:
 
 Candidate stocks include major acreage classes, fruit/vegetable acreage, pasture, regenerative acres, conventional acres, soil organic carbon, soil fertility, farm capital, and livestock inventories.
 
+### Intervention / treatment dynamics
+
+Responsibilities:
+
+- represent major therapies or interventions that materially change health-state transitions
+- distinguish eligibility, initiation, persistence, discontinuation, access, and heterogeneous response
+- support exogenous adoption shocks and policy/coverage effects
+
+GLP-1 therapies are the first major intervention class Demeter should model explicitly because they can affect appetite, weight, metabolic progression, disease burden, food demand, payer spending, and eventually agricultural demand.
+
 ### Economics and policy
 
 Responsibilities:
@@ -113,6 +124,10 @@ Responsibilities:
 - healthcare expenditure
 - payer/employer incentives
 - subsidy and reimbursement structures
+- chronic-disease utilization
+- hospital / health-system revenue
+- provider contribution margin and fixed-cost exposure
+- payer mix and service-line response
 
 This layer closes the loop between health outcomes and the incentives that shape food production and consumption.
 
@@ -128,6 +143,23 @@ Likely agent types:
 - insurers / payers
 
 Mesa is the preferred open-source ABM framework unless a later evaluation identifies a better fit.
+
+### Observability and visualization layer
+
+Visualization is part of scientific model instrumentation.
+
+Responsibilities:
+
+- stock-and-flow diagrams
+- causal-loop and dependency graphs
+- cohort/state trajectories
+- observed-versus-predicted backtest charts
+- uncertainty bands
+- sensitivity rankings
+- residual diagnostics
+- evidence-strength overlays
+
+Preferred open-source tools include Plotly, NetworkX, Graphviz, and Marimo/Jupyter. Browser-specific visualization libraries may be introduced later for Demeter Simulator.
 
 ## Mature repository/module architecture
 
@@ -172,7 +204,10 @@ Demeter/
     agriculture/
     economics/
     policy/
+    interventions/
+    providers/
     agents/
+    visualization/
     evidence/
     data/
     scenarios/
@@ -197,7 +232,10 @@ Early phases may implement only a subset.
 - `agriculture/` — acreage, production, soil, livestock, supply response
 - `economics/` — prices, elasticities, healthcare costs, budget constraints
 - `policy/` — subsidies, incentives, reimbursement scenarios, regulatory levers
+- `interventions/` — GLP-1 and later therapies/interventions, adoption, persistence, coverage
+- `providers/` — utilization, hospital/health-system revenue, fixed/variable cost, service-line response
 - `agents/` — heterogeneous actors where aggregate equations are insufficient
+- `visualization/` — model observability, backtest diagnostics, causal graphs, scenario plots
 - `evidence/` — typed parameter registry, provenance, evidence grades
 - `data/` — reproducible fetch/transforms and data manifests
 - `calibration/` — statistical estimation and calibration, likely using PyMC later
@@ -331,3 +369,14 @@ The full Demeter Model remains the source of truth.
 8. Treat uncertainty and validation as product requirements.
 9. Preserve future interfaces for agriculture, economics, behavior, and policy.
 10. Never encode a desired Food is Health conclusion as a model assumption.
+
+
+## Historical reconstruction and backtesting
+
+Backtesting is a first-class architectural requirement.
+
+Demeter should reconstruct multiple decades of U.S. history and use rolling-origin and era-holdout forecasts to test whether the causal structure predicts periods that were not used for calibration.
+
+See `docs/BACKTESTING_STRATEGY.md` for the canonical validation protocol.
+
+Major upstream modules should not be treated as validated simply because they improve present-day fit.
