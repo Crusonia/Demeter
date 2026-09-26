@@ -7,6 +7,8 @@ This document defines the program vision and roadmap. Use these companion docume
 - [SYSTEM_ARCHITECTURE.md](SYSTEM_ARCHITECTURE.md) — canonical mature module/runtime architecture, product naming, and price/quality behavioral mechanism
 - [SCENARIO_CATALOG.md](SCENARIO_CATALOG.md) — scenario families and integrated north-star experiments
 - [CODEX_V0_1_OBJECTIVE.md](CODEX_V0_1_OBJECTIVE.md) — current Phase 1 implementation objective
+- [POST_V0_1_ROADMAP.md](POST_V0_1_ROADMAP.md) — recommended sequence after the health core is validated
+- [BACKTESTING_STRATEGY.md](BACKTESTING_STRATEGY.md) — multi-decade historical reconstruction and validation protocol
 
 ---
 
