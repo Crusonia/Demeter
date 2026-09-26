@@ -1,5 +1,15 @@
 # Demeter — Project Vision, Architecture, Tooling, and Roadmap
 
+## Companion architecture documents
+
+This document defines the program vision and roadmap. Use these companion documents for more specific long-term design intent:
+
+- [SYSTEM_ARCHITECTURE.md](SYSTEM_ARCHITECTURE.md) — canonical mature module/runtime architecture, product naming, and price/quality behavioral mechanism
+- [SCENARIO_CATALOG.md](SCENARIO_CATALOG.md) — scenario families and integrated north-star experiments
+- [CODEX_V0_1_OBJECTIVE.md](CODEX_V0_1_OBJECTIVE.md) — current Phase 1 implementation objective
+
+---
+
 ## 1. What Demeter is
 
 Demeter is intended to become a **computable version of the Food is Health thesis**.
