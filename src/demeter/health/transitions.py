@@ -2,6 +2,29 @@ from __future__ import annotations
 
 import numpy as np
 
+STATES = ("healthy", "insulin_resistant", "t2d")
+# Canonical description of the implemented flows, exported by the engine.
+TRANSITIONS = (
+    {
+        "source": "healthy",
+        "target": "insulin_resistant",
+        "flow": "healthy_to_ir",
+        "parameter": "h_to_ir_rate",
+    },
+    {
+        "source": "insulin_resistant",
+        "target": "healthy",
+        "flow": "ir_to_healthy",
+        "parameter": "ir_to_h_rate",
+    },
+    {
+        "source": "insulin_resistant",
+        "target": "t2d",
+        "flow": "ir_to_t2d",
+        "parameter": "ir_to_t2d_rate",
+    },
+)
+
 
 def transition_survivors(
     stocks: np.ndarray, progression: float, regression: float, diabetes: float, adult_age: int

@@ -59,3 +59,15 @@ Comparison requires the same horizon, sex, source year, and execution mode. Outp
 ## Validation boundary
 
 Mortality reconstruction tolerance is 0.001 years at every age. Conservation tolerance is a small numerical residual, not a statistical fit. The historical persistence benchmark uses the 2022 schedule to predict 2023 without using holdout mortality in the prediction. Prevalence checks expose discrepancies and definition mismatches instead of counting synthetic shares as a successful calibration. Scientific mode is disabled in this alpha even if evidence labels are edited.
+
+## Instrumentation
+
+`simulate(..., diagnostics=True)` additionally emits annual age-cell stocks,
+state-specific death counts, the exact period life tables and the implemented
+transition/dependency structure with evidence metadata. The optional recording
+path does not change equations or the order of operations. In the open 100+ group,
+`annual_death_probability` is the mixed one-year mortality probability, while
+life-table `qx` is 1 over the full remaining open interval. These must not be
+interchanged in plots. Parameter uncertainty can record annual quantiles and
+actual sampled inputs. Renderers consume these outputs without recomputing model
+logic; see `OBSERVABILITY.md`.

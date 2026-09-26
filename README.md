@@ -148,3 +148,14 @@ uv run demeter historical-backtest --output outputs/historical-backtest.json
 This covers 13 NCHS/NHIS/USDA series with explicit holdouts, residuals, empirical
 forecast intervals and comparability breaks. It evaluates historical benchmarks;
 it does not validate causal dietary effects. See [the historical contract](docs/HISTORICAL_BACKTESTS.md).
+
+Generate the scientific observability report (34 interactive views, offline):
+
+```bash
+uv run demeter observe scenarios/reduce_upf_30.yaml --seed 42
+```
+
+Open `outputs/observability/index.html`. Saved diagnostics can be re-rendered
+without running the model. See [observability](docs/OBSERVABILITY.md) and the
+[exploration notebook](notebooks/observability.ipynb). Charts retain evidence
+status and validation-only labels; they do not establish causal dietary effects.

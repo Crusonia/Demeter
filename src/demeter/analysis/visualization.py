@@ -1,0 +1,423 @@
+"""Scientific views of canonical output dictionaries; no simulation equations here."""
+
+from __future__ import annotations
+
+import html
+import json
+from pathlib import Path
+
+import networkx as nx
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+
+COLORS = ["#176b91", "#b26a00", "#ae365c", "#343b47"]
+
+
+def styled(fig: go.Figure, title: str, x: str = "", y: str = "") -> go.Figure:
+    fig.update_layout(
+        template="plotly_white",
+        title=title,
+        xaxis_title=x,
+        yaxis_title=y,
+        font=dict(family="Arial", size=13),
+        margin=dict(t=85, b=65),
+        legend=dict(orientation="h", y=-0.22),
+        height=470,
+    )
+    return fig
+
+
+def graph_figure(structure: dict, kind: str, annual: dict) -> go.Figure:
+    """NetworkX lays out the canonical engine graph; edge meaning comes from output."""
+    transitions = kind == "transitions"
+    edges = structure["transitions"] if transitions else structure["dependencies"]
+    graph = nx.DiGraph()
+    graph.add_edges_from((e["source"], e["target"]) for e in edges)
+    positions = nx.spring_layout(graph, seed=0, k=1.7)
+    fig = go.Figure()
+    evidence = structure["evidence"]
+    for edge in edges:
+        keys = (
+            [edge["parameter"]]
+            if transitions and edge["parameter"]
+            else ([] if transitions else edge["parameters"])
+        )
+        records = [evidence[k] for k in keys]
+        synthetic = any(p["status"] == "synthetic" for p in records)
+        color = "#b26a00" if synthetic else "#64748b"
+        a, b = positions[edge["source"]], positions[edge["target"]]
+        label = edge.get("flow", "dependency")
+        if transitions:
+            label += f": {annual.get(edge['flow'], 0):,.0f} people/year"
+        detail = "<br>".join(
+            [label]
+            + [
+                f"{html.escape(p['key'])}: {p['status']}, grade {p['evidence_grade']}<br>"
+                f"{html.escape(p['source'])}"
+                for p in records
+            ]
+        )
+        if not records:
+            detail += "<br>Model arithmetic / sourced baseline; no separate causal grade"
+        fig.add_trace(
+            go.Scatter(
+                x=[float(a[0]), float(b[0])],
+                y=[float(a[1]), float(b[1])],
+                mode="lines",
+                line=dict(color=color, dash="dash" if synthetic else "solid"),
+                text=[detail, detail],
+                hoverinfo="text",
+                showlegend=False,
+            )
+        )
+        fig.add_annotation(
+            x=float(b[0] * 0.8 + a[0] * 0.2),
+            y=float(b[1] * 0.8 + a[1] * 0.2),
+            ax=float(b[0] * 0.6 + a[0] * 0.4),
+            ay=float(b[1] * 0.6 + a[1] * 0.4),
+            xref="x",
+            yref="y",
+            axref="x",
+            ayref="y",
+            text="",
+            showarrow=True,
+            arrowhead=2,
+            arrowcolor=color,
+        )
+    nodes = list(graph)
+    fig.add_trace(
+        go.Scatter(
+            x=[float(positions[n][0]) for n in nodes],
+            y=[float(positions[n][1]) for n in nodes],
+            mode="markers+text",
+            marker=dict(size=17, color=COLORS[0]),
+            text=[n.replace("_", " ") for n in nodes],
+            textposition="top center",
+            hoverinfo="text",
+            showlegend=False,
+        )
+    )
+    styled(
+        fig,
+        ("State transitions / annual flows" if transitions else "Implemented dependency graph")
+        + " — VALIDATION ONLY",
+    )
+    fig.update_xaxes(visible=False, range=[-1.45, 1.45])
+    fig.update_yaxes(visible=False, range=[-1.3, 1.3])
+    fig.update_layout(height=600)
+    return fig
+
+
+def model_figures(payload: dict) -> dict[str, go.Figure]:
+    sim, unc, sensitivity = payload["simulation"], payload["uncertainty"], payload["sensitivity"]
+    diag = sim["diagnostics"]
+    if not diag or "annual_intervals" not in unc:
+        raise ValueError("Instrumented simulation and uncertainty outputs required")
+    figures = {}
+    annual = sim["annual"]
+    states = [s for s in diag["structure"]["states"] if s != "dead"]
+    years = [r["year"] for r in annual]
+    fig = go.Figure()
+    for i, state in enumerate(states):
+        fig.add_trace(
+            go.Scatter(
+                x=years,
+                y=[r[state] for r in annual],
+                name=state,
+                stackgroup="living",
+                line=dict(color=COLORS[i]),
+            )
+        )
+    figures["stocks"] = styled(fig, "Living stocks — VALIDATION ONLY", "Model year", "People")
+    fig = go.Figure()
+    for edge in diag["structure"]["transitions"]:
+        fig.add_trace(
+            go.Scatter(x=years, y=[r.get(edge["flow"], 0) for r in annual], name=edge["flow"])
+        )
+    figures["flows"] = styled(fig, "Annual flows — VALIDATION ONLY", "Model year", "People / year")
+    for kind in ("transitions", "dependencies"):
+        figures[kind] = graph_figure(diag["structure"], kind, annual[-1])
+    history = diag["history"]
+    for state in states:
+        fig = go.Figure(
+            go.Heatmap(
+                x=list(range(101)),
+                y=[r["year"] for r in history],
+                z=[[c[state] for c in r["cohorts"]] for r in history],
+                colorscale="Viridis",
+                colorbar=dict(title="People"),
+            )
+        )
+        figures["cohort_" + state] = styled(
+            fig,
+            f"Age-cell trajectories: {state} — VALIDATION ONLY",
+            "Age (100 = pooled 100+)",
+            "Model year",
+        )
+    for field, label, unit in (
+        ("annual_death_probability", "Annual mortality probability", "Probability/year"),
+        ("survivors", "Period life-table survivorship", "Survivors per 100000 births"),
+        ("life_expectancy", "Period remaining life expectancy", "Years"),
+    ):
+        fig = go.Figure()
+        for snapshot in (history[0], history[-1]):
+            table = snapshot["life_table"]
+            fig.add_trace(
+                go.Scatter(
+                    x=[r["start_age"] for r in table],
+                    y=[r[field] for r in table],
+                    name=f"Year {snapshot['year']}",
+                )
+            )
+        figures[field] = styled(fig, label + " — VALIDATION ONLY", "Age (100+ pooled)", unit)
+    for metric, rows in unc["annual_intervals"].items():
+        x = [r["year"] for r in rows]
+        fig = go.Figure()
+        fig.add_trace(go.Scatter(x=x, y=[r["p2_5"] for r in rows], name="2.5%", line=dict(width=0)))
+        fig.add_trace(
+            go.Scatter(
+                x=x,
+                y=[r["p97_5"] for r in rows],
+                name="97.5%",
+                fill="tonexty",
+                line=dict(width=0),
+                fillcolor="rgba(23,107,145,.18)",
+            )
+        )
+        fig.add_trace(go.Scatter(x=x, y=[r["median"] for r in rows], name="Median"))
+        figures["uncertainty_" + metric] = styled(
+            fig,
+            metric.replace("_", " ") + " — synthetic 95% sampling interval",
+            "Model year",
+            "People" if metric == "cumulative_deaths" else "Years",
+        )
+    evidence = diag["structure"]["evidence"]
+    indices = sensitivity["indices"]
+    fig = go.Figure(
+        go.Bar(
+            x=[r["total_order"] for r in indices],
+            y=[r["parameter"] for r in indices],
+            orientation="h",
+            error_x=dict(type="data", array=[r["total_order_conf_half_width"] for r in indices]),
+            marker_color=[
+                "#b26a00" if evidence[r["parameter"]]["status"] == "synthetic" else COLORS[0]
+                for r in indices
+            ],
+            customdata=[
+                [evidence[r["parameter"]]["status"], evidence[r["parameter"]]["evidence_grade"]]
+                for r in indices
+            ],
+            hovertemplate="%{y}: %{x}<br>%{customdata[0]}, grade %{customdata[1]}<extra></extra>",
+        )
+    )
+    figures["sensitivity"] = styled(
+        fig,
+        f"Sobol total-order: {sensitivity['outcome']} — synthetic ranges",
+        "Variance fraction (may be noisy; no clipping)",
+        "Parameter",
+    )
+    figures["sensitivity"].update_yaxes(autorange="reversed")
+    for key, draws in unc["parameter_draws"].items():
+        p = evidence[key]
+        figures["parameter_" + key] = styled(
+            go.Figure(go.Histogram(x=draws, name="Actual sampled values", nbinsx=20)),
+            f"{key} — {p['status']}, grade {p['evidence_grade']}",
+            p["unit"],
+            "Draw count",
+        )
+    return figures
+
+
+def historical_figures(report: dict) -> dict[str, go.Figure]:
+    figures = {}
+    for series in report["series"]:
+        fig = make_subplots(
+            rows=2,
+            cols=1,
+            shared_xaxes=True,
+            subplot_titles=(
+                "Observed and held-out predictions",
+                "Residual: observed minus predicted",
+            ),
+        )
+        obs = series["observations"]
+        # Separate segments so a line never implies continuity across a definition break.
+        segments = list(dict.fromkeys(r["segment"] for r in obs))
+        for segment in segments:
+            subset = [r for r in obs if r["segment"] == segment]
+            fig.add_trace(
+                go.Scatter(
+                    x=[r["year"] for r in subset],
+                    y=[r["value"] for r in subset],
+                    name="Observed: " + segment,
+                    line=dict(color="#17212e", width=2),
+                ),
+                row=1,
+                col=1,
+            )
+        groups = sorted({(r["method"], r["horizon"], r["segment"]) for r in series["folds"]})
+        for group_index, (method, horizon, segment) in enumerate(groups):
+            color = COLORS[group_index % len(COLORS)]
+            rgb = [int(color[i : i + 2], 16) for i in (1, 3, 5)]
+            rows = sorted(
+                [
+                    r
+                    for r in series["folds"]
+                    if (r["method"], r["horizon"], r["segment"]) == (method, horizon, segment)
+                ],
+                key=lambda r: r["target_year"],
+            )
+            x = [r["target_year"] for r in rows]
+            name = f"{method}, +{horizon}, {segment}"
+            fig.add_trace(
+                go.Scatter(
+                    x=x,
+                    y=[r["predicted"] for r in rows],
+                    mode="lines+markers",
+                    line=dict(color=color),
+                    name=name,
+                    legendgroup=name,
+                    customdata=[[r["origin"], ", ".join(r["shock_flags"])] for r in rows],
+                    hovertemplate="Year %{x}: %{y}<br>Origin %{customdata[0]}<br>%{customdata[1]}<extra></extra>",
+                ),
+                row=1,
+                col=1,
+            )
+            fig.add_trace(
+                go.Scatter(
+                    x=x,
+                    y=[r["lower"] for r in rows],
+                    mode="lines",
+                    line=dict(width=0),
+                    name=name + " lower",
+                    legendgroup=name,
+                    showlegend=False,
+                    connectgaps=False,
+                ),
+                row=1,
+                col=1,
+            )
+            fig.add_trace(
+                go.Scatter(
+                    x=x,
+                    y=[r["upper"] for r in rows],
+                    mode="lines",
+                    line=dict(width=0),
+                    fill="tonexty",
+                    fillcolor=f"rgba({rgb[0]},{rgb[1]},{rgb[2]},.08)",
+                    name=name + " interval",
+                    legendgroup=name,
+                    showlegend=False,
+                    connectgaps=False,
+                ),
+                row=1,
+                col=1,
+            )
+            fig.add_trace(
+                go.Scatter(
+                    x=x,
+                    y=[r["residual"] for r in rows],
+                    line=dict(color=color),
+                    name=name,
+                    legendgroup=name,
+                    showlegend=False,
+                    mode="lines+markers",
+                ),
+                row=2,
+                col=1,
+            )
+        fig.add_hline(y=0, line_dash="dot", row=2, col=1)
+        for shock in report["structural_breaks"]:
+            if (
+                shock["domain"] in ("all", series["domain"])
+                and obs[0]["year"] <= shock["start"] <= obs[-1]["year"]
+            ):
+                fig.add_vline(x=shock["start"], line_dash="dot", line_color="#b26a00")
+        styled(fig, series["label"] + " — historical benchmarks")
+        fig.update_yaxes(title_text=series["unit"], row=1, col=1)
+        fig.update_yaxes(title_text="Residual (same units)", row=2, col=1)
+        fig.update_xaxes(title_text="Calendar year", row=2, col=1)
+        fig.update_layout(height=740, legend=dict(orientation="h", y=-0.18))
+        figures["history_" + series["id"]] = fig
+    return figures
+
+
+def build_figures(payload: dict) -> dict[str, go.Figure]:
+    if payload.get("kind") != "demeter_observability" or payload.get("schema_version") != 1:
+        raise ValueError("Expected canonical Demeter observability schema version 1")
+    return {**model_figures(payload), **historical_figures(payload["historical"])}
+
+
+def render_report(payload: dict, destination: Path) -> dict:
+    """Export a self-contained offline HTML report and reproducible Plotly JSON."""
+    figures = build_figures(payload)
+    destination.mkdir(parents=True, exist_ok=True)
+    fragments = []
+    for i, (name, fig) in enumerate(figures.items()):
+        fig.write_json(destination / (name + ".plotly.json"))
+        fragments.append(
+            f'<section id="{html.escape(name)}"><h2>{html.escape(name.replace("_", " "))}</h2>'
+            + fig.to_html(
+                full_html=False,
+                include_plotlyjs=i == 0,
+                div_id="plot-" + name,
+                config={"responsive": True},
+            )
+            + "</section>"
+        )
+    sim = payload["simulation"]
+    notes = "".join(f"<li>{html.escape(note)}</li>" for note in sim["metadata"]["limitations"])
+    nav = " | ".join(
+        f'<a href="#{name}">{html.escape(name.replace("_", " "))}</a>' for name in figures
+    )
+    metrics_html = []
+    for s in payload["historical"]["series"]:
+        metrics_html.append(
+            f"<h3>{html.escape(s['label'])}</h3><pre>"
+            + html.escape(json.dumps(s["metrics"], indent=2))
+            + "</pre>"
+        )
+    document = (
+        '<!doctype html><html lang="en"><head><meta charset="utf-8">'
+        '<meta name="viewport" content="width=device-width, initial-scale=1">'
+        "<title>Demeter scientific observability</title><style>"
+        "body{font:16px Arial;margin:2rem auto;max-width:1150px;padding:0 1rem;color:#17212e}"
+        ".notice{background:#fff3d8;padding:1rem;border-left:5px solid #b26a00}"
+        "section{margin:2rem 0;border-top:1px solid #ccc}pre{overflow:auto;font-size:12px}"
+        "nav{line-height:1.8}a{color:#176b91}</style></head><body>"
+        "<h1>Demeter · Scientific observability</h1>"
+        '<p class="notice"><strong>VALIDATION ONLY — NOT SCIENTIFIC FINDINGS.</strong> '
+        "Model pathways and parameter ranges remain synthetic. Historical observations "
+        "are sourced; their benchmark forecasts do not validate dietary effects.</p>"
+        f"<p>Scenario: {html.escape(sim['scenario'])}. Horizon: {sim['years']} years. "
+        f"Parameter draws: {payload['uncertainty']['draws']}; seed: {payload['uncertainty']['seed']}.</p>"
+        "<details><summary>Definitions, provenance and limitations</summary><ul>"
+        + notes
+        + "</ul><p>Heatmaps show age cells, not identified birth cohorts. The 100+ cell pools ages. "
+        "Dashed amber graph links depend on synthetic evidence; neutral links include "
+        "arithmetic and sourced inputs, not proof of causality. Hover for evidence details.</p><pre>"
+        + html.escape(json.dumps(sim["metadata"], indent=2))
+        + "</pre></details>"
+        "<p>Historical forecast bands use earlier same-horizon errors; missing bands mean "
+        "insufficient history. Nominal coverage is not guaranteed. Definition breaks are "
+        "not joined. Dotted vertical lines flag redesign/shock dates. Fold roles, skipped "
+        "origins and all observations are available in the adjacent diagnostics.json.</p>"
+        "<details><summary>Jump to a chart</summary><nav>"
+        + nav
+        + "</nav></details>"
+        + "".join(fragments)
+        + "<h2>Historical errors and achieved coverage</h2>"
+        + "".join(metrics_html)
+        + "</body></html>"
+    )
+    (destination / "index.html").write_text(document, encoding="utf-8")
+    (destination / "diagnostics.json").write_text(
+        json.dumps(payload, indent=2, allow_nan=False) + "\n"
+    )
+    return {
+        "report": str(destination / "index.html"),
+        "canonical_data": str(destination / "diagnostics.json"),
+        "figures": len(figures),
+        "validation_only": True,
+        "offline": True,
+    }

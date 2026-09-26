@@ -18,6 +18,8 @@ dependencies = [
   "typer>=0.12",
   "openpyxl>=3.1,<4",
   "SALib>=1.5,<2",
+  "plotly>=6,<7",
+  "networkx>=3.4,<4",
 ]
 
 [project.optional-dependencies]
@@ -48,4 +50,8 @@ target-version = "py311"
 select = ["E4", "E7", "E9", "F", "B"]
 
 [dependency-groups]
-dev = ["pytest>=8.3", "ruff>=0.8"]
+dev = [
+    "playwright==1.51.0",
+    "pytest>=8.3",
+    "ruff>=0.8",
+]

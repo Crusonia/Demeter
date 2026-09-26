@@ -10,6 +10,7 @@ from demeter.analysis.experiments import compare as compare_runs
 from demeter.analysis.experiments import sensitivity as sensitivity_run
 from demeter.analysis.experiments import uncertainty as uncertainty_run
 from demeter.analysis.historical import historical_backtest
+from demeter.analysis.observability import observe
 from demeter.analysis.validation import mortality_backtest, validate as validation_report
 from demeter.data.ingest import rebuild
 from demeter.data.historical import rebuild_history
@@ -107,6 +108,35 @@ def historical_benchmarks(
         ),
         output,
     )
+
+
+@app.command("observe")
+def observe_scenario(
+    scenario: Annotated[Path, typer.Argument(exists=True, readable=True)],
+    evidence: Path = DEFAULT_EVIDENCE,
+    destination: Path = Path("outputs/observability"),
+    draws: int = 64,
+    samples: int = 32,
+    seed: int = 0,
+) -> None:
+    """Generate canonical diagnostics and a self-contained scientific HTML report."""
+    from demeter.analysis.visualization import render_report
+
+    payload = observe(
+        registry(evidence), Scenario.from_yaml(scenario), draws=draws, samples=samples, seed=seed
+    )
+    emit(render_report(payload, destination))
+
+
+@app.command("visualize")
+def visualize_outputs(
+    diagnostics: Annotated[Path, typer.Argument(exists=True, readable=True)],
+    destination: Path = Path("outputs/observability-rendered"),
+) -> None:
+    """Re-render an existing canonical diagnostics file without running the model."""
+    from demeter.analysis.visualization import render_report
+
+    emit(render_report(json.loads(diagnostics.read_text()), destination))
 
 
 @app.command("simulate")

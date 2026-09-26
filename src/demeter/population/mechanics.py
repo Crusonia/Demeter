@@ -43,7 +43,9 @@ def calibrate_mortality(rows: list[dict], reference: np.ndarray, ratios: np.ndar
     return hazards
 
 
-def period_outcomes(rows: list[dict], shares: np.ndarray, hazards: np.ndarray) -> dict:
+def period_outcomes(
+    rows: list[dict], shares: np.ndarray, hazards: np.ndarray, *, include_table: bool = False
+) -> dict:
     q = (shares * -np.expm1(-hazards)).sum(axis=1)
     terminal_years = float(np.sum(shares[-1] / hazards[-1]))
     intervals = [AgeInterval(r["age"], 1, float(q[i]), r["ax"]) for i, r in enumerate(rows[:-1])]
@@ -52,7 +54,19 @@ def period_outcomes(rows: list[dict], shares: np.ndarray, hazards: np.ndarray) -
     healthy_years = (
         sum(r.person_years * shares[i, 0] for i, r in enumerate(table)) / table[0].survivors
     )
-    return {
+    result = {
         "life_expectancy": table[0].life_expectancy,
         "metabolically_healthy_life_expectancy": float(healthy_years),
     }
+    if include_table:
+        from dataclasses import asdict
+
+        result["life_table"] = [
+            {
+                **asdict(row),
+                "qx": float(q[i]) if i < 100 else 1.0,
+                "annual_death_probability": float(q[i]),
+            }
+            for i, row in enumerate(table)
+        ]
+    return result
