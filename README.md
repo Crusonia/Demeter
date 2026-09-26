@@ -1,8 +1,34 @@
 # Demeter
 
-**Demeter is a systems model of food, health, agriculture, and longevity.**
+**Demeter is an open-source project from [Food is Health](https://foodishealth.substack.com/) to model the market dynamics connecting food, agriculture, health, and capital.**
 
-The project is intended to make the Food is Health thesis computable: explicit causal relationships, auditable evidence, quantified uncertainty, reproducible scenarios, and traceable downstream effects across population health, agriculture, economics, and policy.
+The project translates questions explored in the Food is Health Substack into explicit causal relationships, auditable evidence, and reproducible scenarios. Its long-term purpose is to show where change can influence the system, what constrains that change, who benefits, and how strategic options gain or lose value as key trends shift.
+
+Food prices, treatment access, consumer behavior, production costs, and reimbursement can change together. Demeter aims to trace those changes through food demand, supply, metabolic health, healthcare economics, and the incentives that feed back into the market. The model must be able to challenge a Food is Health hypothesis as well as support it.
+
+**Start here:** [Public guide and wiki source pages](docs/wiki/Home.md) · [Levers and scenarios](docs/wiki/Levers-and-Scenarios.md) · [Real options and strategic value](docs/wiki/Real-Options-and-Strategic-Value.md) · [Tornado diagrams](docs/wiki/Visualization-and-Tornado-Diagrams.md) · [Model status](docs/V0_1_STATUS.md) · [Contribute](docs/wiki/Contributing.md)
+
+## What Demeter is intended to reveal
+
+| Question | Intended analysis |
+| --- | --- |
+| Which changes matter most? | Trace a controllable lever through adoption, substitution, delays, health effects, and economic feedback. |
+| What prevents change? | Locate constraints in affordability, consumer persistence, evidence, reimbursement, supply, or capital. |
+| What if a major trend changes? | Compare slow, fast, stalled, and reversing paths for food prices, GLP-1 access, prevention adoption, and production economics. |
+| Who receives the value? | Separate health gains, household spending, payer savings, provider economics, farm income, and enterprise cash flows. |
+| What is worth keeping open? | Compare committing now with piloting, waiting, expanding, switching, or exiting as new information arrives. |
+
+For example, a food producer might face uncertain demand from broader GLP-1 access and changing consumer preferences. Demeter should eventually help compare a dedicated facility with a smaller pilot and the ability to expand or switch products. The useful result is a map of the conditions under which each choice works, including the cost of waiting and the risk that competitors or bottlenecks close the opportunity.
+
+These market and real-options capabilities are **planned research directions**. The current release establishes a narrower health-model foundation; it does not yet value businesses, forecast food markets, or estimate validated dietary health effects.
+
+Tornado diagrams are a planned core diagnostic: rank how much specified changes in each input move an outcome, show direction and uncertainty ranges, and connect each bar to its causal path and evidence. Decision-focused versions should show which assumptions change the relative value of acting, waiting, expanding, or exiting. These charts describe model sensitivity; causal interpretation depends on the underlying evidence.
+
+## An open project under Food is Health
+
+The [Substack](https://foodishealth.substack.com/) is the home for the broader conversation. This repository is the home for inspectable code, evidence, assumptions, and model revisions. Readers, researchers, operators, clinicians, economists, and developers can help turn a thesis into a testable question, supply evidence, or identify a missing mechanism.
+
+Demeter is released under the [MIT License](LICENSE). Contributions should preserve reproducibility, document uncertainty, and make disagreement testable. See the [contribution guide](docs/wiki/Contributing.md).
 
 ## Project vision
 

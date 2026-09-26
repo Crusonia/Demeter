@@ -12,6 +12,10 @@ This document defines the program vision and roadmap. Use these companion docume
 
 ## 1. What Demeter is
 
+Demeter is an open-source project under the [Food is Health Substack](https://foodishealth.substack.com/). Its public mission is to model the market dynamics linking food, agriculture, health, and capital: identify consequential levers, trace constraints and feedback, and examine how strategic options change as underlying trends move.
+
+The [public guide](wiki/Home.md) explains that mission. [Real options and strategic value](wiki/Real-Options-and-Strategic-Value.md) describes a future decision-analysis layer for piloting, waiting, scaling, switching, and exiting under uncertainty. This layer must remain downstream of the evidence-backed scientific model. Documenting it does not expand the current v0.1 implementation boundary or authorize investment conclusions from synthetic outputs.
+
 Demeter is intended to become a **computable version of the Food is Health thesis**.
 
 The long-term question is not simply:
@@ -1115,6 +1119,8 @@ Example:
 Example:
 
 > Which five parameters explain most of the variance in healthy life expectancy?
+
+Use tornado diagrams to show the direction and magnitude of output changes across explicit input ranges, with a baseline, units, horizon, and evidence status. Pair them with causal-path inspection, global sensitivity, and interaction analysis. Decision-focused tornado diagrams should also reveal which assumptions change the advantage of acting, waiting, scaling, switching, or exiting. See the [visualization specification](wiki/Visualization-and-Tornado-Diagrams.md). These are planned diagnostics; a sensitivity ranking alone does not establish a causal effect or an actionable intervention.
 
 ### Constraint output
 
