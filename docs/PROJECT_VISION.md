@@ -1,5 +1,15 @@
 # Demeter — Project Vision, Architecture, Tooling, and Roadmap
 
+## Companion architecture documents
+
+This document defines the program vision and roadmap. Use these companion documents for more specific long-term design intent:
+
+- [SYSTEM_ARCHITECTURE.md](SYSTEM_ARCHITECTURE.md) — canonical mature module/runtime architecture, product naming, and price/quality behavioral mechanism
+- [SCENARIO_CATALOG.md](SCENARIO_CATALOG.md) — scenario families and integrated north-star experiments
+- [CODEX_V0_1_OBJECTIVE.md](CODEX_V0_1_OBJECTIVE.md) — current Phase 1 implementation objective
+
+---
+
 ## 1. What Demeter is
 
 Demeter is intended to become a **computable version of the Food is Health thesis**.
@@ -111,6 +121,44 @@ Demeter spans:
 The architecture must make these time scales explicit rather than implicitly forcing everything onto one clock.
 
 ---
+
+
+## North-star leverage questions
+
+Demeter exists to understand **system leverage, feedback, delays, and unintended consequences** across food, health, agriculture, and economics. The model should eventually be able to test questions such as:
+
+- How does the price elasticity of demand for higher-quality food change dietary behavior, metabolic disease incidence, and long-run healthcare burden?
+- At what relative price does healthier food become behaviorally competitive with cheap calorie-dense food for different household segments?
+- How do commodity-crop economics, subsidies, processing infrastructure, and scale economies lower the price of calories relative to nutrient-dense foods?
+- How does nutrient density affect taste, satiety, food preference, consumption, and downstream metabolic outcomes?
+- Which parts of the relationship between soil health, farming practice, crop nutrient density, food quality, and human health are strongly evidenced, weakly evidenced, or merely hypothesized?
+- Under what conditions could regenerative or other production practices materially change chronic-disease burden through nutrient quality, food composition, chemical exposure, price, availability, or other pathways?
+- Which intervention points produce the largest downstream health benefit per dollar, per acre, or per unit of behavioral change?
+- Where are the dominant delays, bottlenecks, reinforcing loops, and balancing loops that make food-system change slow or nonlinear?
+- Which apparent levers matter little once the whole system is modeled, and which second-order effects dominate outcomes?
+- What fraction of chronic-disease burden is plausibly addressable through food-system change, through which causal pathways, and with what uncertainty?
+
+These are **research questions, not encoded conclusions**. Demeter must represent the intermediate causal links explicitly and allow the evidence to determine whether a hypothesized pathway is material.
+
+The implementation sequence should therefore distinguish between:
+
+```text
+NORTH STAR
+understand leverage across the whole food-health system
+
+        ↓ implemented in stages
+
+PHASE 1
+nutrition exposure → metabolic health → disease → mortality
+
+PHASE 2+
+prices / quality / agriculture / behavior → nutrition exposure
+
+PHASE 3+
+feedback from health economics / policy / markets → agriculture and food supply
+```
+
+The purpose of the phased roadmap is to make the eventual system-level conclusions more credible, not to narrow Demeter into a health-only model.
 
 ## 3. Primary model domains
 
