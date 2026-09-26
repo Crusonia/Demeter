@@ -69,10 +69,14 @@ def simulate(registry: EvidenceRegistry, scenario: Scenario) -> SimulationResult
         h_to_ir = survivors["healthy"] * _bounded_rate(
             registry.value("h_to_ir_rate") * progression_multiplier
         )
-        ir_to_h = survivors["insulin_resistant"] * _bounded_rate(registry.value("ir_to_h_rate"))
-        ir_to_t2d = survivors["insulin_resistant"] * _bounded_rate(
-            registry.value("ir_to_t2d_rate") * progression_multiplier
-        )
+        ir_to_h_rate = _bounded_rate(registry.value("ir_to_h_rate"))
+        ir_to_t2d_rate = _bounded_rate(registry.value("ir_to_t2d_rate") * progression_multiplier)
+        # Competing exits cannot move more people than survive in this state.
+        # Preserve their relative hazards if their combined annual probability exceeds one.
+        total_exit = ir_to_h_rate + ir_to_t2d_rate
+        scale = min(1.0, 1.0 / total_exit) if total_exit else 1.0
+        ir_to_h = survivors["insulin_resistant"] * ir_to_h_rate * scale
+        ir_to_t2d = survivors["insulin_resistant"] * ir_to_t2d_rate * scale
         t2d_to_ir = survivors["t2d"] * _bounded_rate(registry.value("t2d_to_ir_rate"))
 
         stocks = {
