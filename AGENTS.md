@@ -8,7 +8,7 @@ The codebase exists to make causal claims explicit, testable, evidence-linked, u
 
 ## Program context
 
-Before making architectural decisions, read `docs/PROJECT_VISION.md`, `docs/SYSTEM_ARCHITECTURE.md`, and `docs/SCENARIO_CATALOG.md`. `PROJECT_VISION.md` is the canonical program rationale and phased roadmap; `SYSTEM_ARCHITECTURE.md` defines the mature module/runtime architecture and naming; `SCENARIO_CATALOG.md` preserves the intended future scenario surface.
+Before making architectural decisions, read `docs/PROJECT_VISION.md`, `docs/SYSTEM_ARCHITECTURE.md`, and `docs/SCENARIO_CATALOG.md`. `PROJECT_VISION.md` is the canonical program rationale and phased roadmap; `SYSTEM_ARCHITECTURE.md` defines the mature module/runtime architecture and naming; `SCENARIO_CATALOG.md` preserves the intended future scenario surface. For work after v0.1, also read `docs/POST_V0_1_ROADMAP.md`; for calibration or validation work, `docs/BACKTESTING_STRATEGY.md` is authoritative.
 
 Phase-specific objective documents may intentionally narrow scope. Do not interpret a narrow current phase as a change to the long-term program architecture unless the project vision is explicitly updated.
 
@@ -113,7 +113,7 @@ A v0.1 release is not complete until all of the following are true:
 
 ## Working method for autonomous Codex runs
 
-1. Read this file, `docs/PROJECT_VISION.md`, `docs/SYSTEM_ARCHITECTURE.md`, `docs/SCENARIO_CATALOG.md`, README, the active phase objective, evidence schema, and existing tests first.
+1. Read this file, `docs/PROJECT_VISION.md`, `docs/SYSTEM_ARCHITECTURE.md`, `docs/SCENARIO_CATALOG.md`, and any active roadmap/backtesting specification relevant to the task, then README, the active phase objective, evidence schema, and existing tests.
 2. Inspect the repository before changing architecture.
 3. Make the smallest coherent change that advances an acceptance criterion.
 4. Run targeted tests after each meaningful change.
