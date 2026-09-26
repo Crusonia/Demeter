@@ -569,6 +569,16 @@ parameters:
         column_index: 3
         scale: 0.01
 datasets:
+  historical_observations:
+    status: observed
+    source: CDC/NCHS NVSS, CDC USDSS/NHIS, USDA ERS
+    unit: Per-series years, age-adjusted mortality, diagnosed diabetes percent, availability pounds
+    vintages: [2020-09-08, 2026-06-23, 2024-09-27]
+    manifest: src/demeter/data/bundled/historical_manifest.json
+    transformation: demeter.data.historical.transform; national series, no interpolation
+    uncertainty: NHIS published confidence limits retained; forecast intervals use pre-origin errors
+    model_role: benchmark_only
+    limitations: Aggregate histories are not individual exposures or causal transition hazards
   us_mortality:
     status: observed
     source: CDC/NCHS U.S. life tables, Tables 1–3

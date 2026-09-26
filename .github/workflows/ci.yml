@@ -30,5 +30,7 @@ jobs:
         run: |
           uv run demeter simulate scenarios/baseline.yaml --output outputs/baseline.json
           uv run demeter compare scenarios/baseline.yaml scenarios/reduce_upf_30.yaml
+      - name: Historical holdout diagnostics
+        run: uv run demeter historical-backtest --output outputs/historical-backtest.json
       - name: Build package
         run: uv build

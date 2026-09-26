@@ -69,7 +69,7 @@
       "source": "leadr_koyama_2022"
     }
   ],
-  "evidence_sha256": "c7c10ecf6b23445e52748fd3fa1de98774d5a4d242833538dac426885cae6496",
+  "evidence_sha256": "82870aac5a40e936065e2ce2ab9c5c7dab8c1991be7495966d8e8471c23013aa",
   "interpretation": "Verifies extraction only; not causal identification or national transportability.",
   "passed": true
 }

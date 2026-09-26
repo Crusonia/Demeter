@@ -1,6 +1,13 @@
 # Basic Food → Healthspan Dynamics: execution checkpoint
 
-Milestone **not complete**. No issue was closed and no PR was merged in this run.
+Milestone **not complete**. Update after resumption: PR #29 merged at
+`892587f9562fc23127dd274ce2d401919b4443f7`; its CI passed and Codex review
+reported no major issues. The earlier decision to stop all work at issue #1's
+scientific gaps is superseded. Independent historical/observability infrastructure
+can advance while scientific gates stay closed. See `HISTORICAL_BACKTESTS.md` for
+the issue #6 implementation and exact remaining scientific scope.
+
+The sections below preserve the initial run checkpoint, not current PR status.
 
 ## Repository state
 
