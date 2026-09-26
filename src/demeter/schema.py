@@ -37,14 +37,14 @@ class EvidenceRegistry(BaseModel):
     parameters: dict[str, EvidenceParameter]
 
     @model_validator(mode="after")
-    def keys_match(self) -> "EvidenceRegistry":
+    def keys_match(self) -> EvidenceRegistry:
         for key, parameter in self.parameters.items():
             if parameter.key != key:
                 raise ValueError(f"registry key {key!r} does not match parameter.key {parameter.key!r}")
         return self
 
     @classmethod
-    def from_yaml(cls, path: str | Path) -> "EvidenceRegistry":
+    def from_yaml(cls, path: str | Path) -> EvidenceRegistry:
         raw = yaml.safe_load(Path(path).read_text(encoding="utf-8"))
         return cls.model_validate(raw)
 
@@ -63,12 +63,12 @@ class Scenario(BaseModel):
     exposures: dict[str, float]
 
     @classmethod
-    def from_yaml(cls, path: str | Path) -> "Scenario":
+    def from_yaml(cls, path: str | Path) -> Scenario:
         raw = yaml.safe_load(Path(path).read_text(encoding="utf-8"))
         return cls.model_validate(raw)
 
     @model_validator(mode="after")
-    def exposure_values_are_positive(self) -> "Scenario":
+    def exposure_values_are_positive(self) -> Scenario:
         bad = {k: v for k, v in self.exposures.items() if v <= 0}
         if bad:
             raise ValueError(f"exposure multipliers must be positive: {bad}")
