@@ -1,0 +1,107 @@
+{
+  "bundle_sha256": "f830711b211e8bdd7e2f9f9707f1b8a86dca245e058a05730be8c0eb48f74ed3",
+  "license": "U.S. federal government data",
+  "output_schema": "mortality[year][sex][age]: qx,lx,dx,Lx,Tx,ex,ax; population[year][sex][age]: people",
+  "schema_version": 1,
+  "sources": {
+    "census_2025.csv": {
+      "publisher": "U.S. Census Bureau",
+      "retrieved_at": "2026-09-26T02:18:20.265271+00:00",
+      "sha256": "6436d4f6972d415caf14cb20776807bc031fc9f1bfc9d6ff26055d592a2b0230",
+      "title": "Resident population by single year of age and sex, Vintage 2025",
+      "url": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/national/asrh/nc-est2025-agesex-res.csv",
+      "vintage": "2025 (using 2022\u20132024 estimates)"
+    },
+    "nchs_2022_all.xlsx": {
+      "publisher": "CDC/NCHS",
+      "retrieved_at": "2026-09-26T02:18:20.198630+00:00",
+      "sex": "all",
+      "sha256": "04e961f8668f1e863ca5bcd53586eec4b65735c89eb1a4301361f71d35a9d0fd",
+      "title": "United States Life Tables, 2022, Table 1",
+      "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Publications/NVSR/74-02/table01.xlsx",
+      "vintage": "2022",
+      "year": 2022
+    },
+    "nchs_2022_female.xlsx": {
+      "publisher": "CDC/NCHS",
+      "retrieved_at": "2026-09-26T02:18:20.214558+00:00",
+      "sex": "female",
+      "sha256": "d00c7ddf1b945918c67126f03f77a89e8ea9168500195e94679b4ab43ed412ed",
+      "title": "United States Life Tables, 2022, Table 3",
+      "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Publications/NVSR/74-02/table03.xlsx",
+      "vintage": "2022",
+      "year": 2022
+    },
+    "nchs_2022_male.xlsx": {
+      "publisher": "CDC/NCHS",
+      "retrieved_at": "2026-09-26T02:18:20.207667+00:00",
+      "sex": "male",
+      "sha256": "3b4be1cd02973474d59a30a3cceb0fe8bae88add78ff478b79ca7c9105b2e227",
+      "title": "United States Life Tables, 2022, Table 2",
+      "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Publications/NVSR/74-02/table02.xlsx",
+      "vintage": "2022",
+      "year": 2022
+    },
+    "nchs_2023_all.xlsx": {
+      "publisher": "CDC/NCHS",
+      "retrieved_at": "2026-09-26T02:18:20.221741+00:00",
+      "sex": "all",
+      "sha256": "9626e4b04280b843f20ead87ae8c4d99a385fe368e836ea1ef54d897c1f7a4cf",
+      "title": "United States Life Tables, 2023, Table 1",
+      "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Publications/NVSR/74-06/Table01.xlsx",
+      "vintage": "2023",
+      "year": 2023
+    },
+    "nchs_2023_female.xlsx": {
+      "publisher": "CDC/NCHS",
+      "retrieved_at": "2026-09-26T02:18:20.236778+00:00",
+      "sex": "female",
+      "sha256": "15b2dfe31dbefdeba17ca2d26d8684c821d18ca4a74252b57623299ecc15e8d6",
+      "title": "United States Life Tables, 2023, Table 3",
+      "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Publications/NVSR/74-06/Table03.xlsx",
+      "vintage": "2023",
+      "year": 2023
+    },
+    "nchs_2023_male.xlsx": {
+      "publisher": "CDC/NCHS",
+      "retrieved_at": "2026-09-26T02:18:20.229267+00:00",
+      "sex": "male",
+      "sha256": "80dda2d2a8109e7c1221c6dd5f6adcda75b819f383088e6aca05eec5a9e31015",
+      "title": "United States Life Tables, 2023, Table 2",
+      "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Publications/NVSR/74-06/Table02.xlsx",
+      "vintage": "2023",
+      "year": 2023
+    },
+    "nchs_2024_all.xlsx": {
+      "publisher": "CDC/NCHS",
+      "retrieved_at": "2026-09-26T02:18:20.243522+00:00",
+      "sex": "all",
+      "sha256": "d9ce5588403433666c26eaf178ed7afd0cd591c65b3b08dcba2b76fcf5dcdd3c",
+      "title": "United States Life Tables, 2024, Table 1",
+      "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Publications/NVSR/75-05/Table01.xlsx",
+      "vintage": "2024",
+      "year": 2024
+    },
+    "nchs_2024_female.xlsx": {
+      "publisher": "CDC/NCHS",
+      "retrieved_at": "2026-09-26T02:18:20.258552+00:00",
+      "sex": "female",
+      "sha256": "3024d85dc0566dfad80a4ea76dc988694f7a276a6f15e6b2316ad5e9cf5477ef",
+      "title": "United States Life Tables, 2024, Table 3",
+      "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Publications/NVSR/75-05/Table03.xlsx",
+      "vintage": "2024",
+      "year": 2024
+    },
+    "nchs_2024_male.xlsx": {
+      "publisher": "CDC/NCHS",
+      "retrieved_at": "2026-09-26T02:18:20.250937+00:00",
+      "sex": "male",
+      "sha256": "f7908e92f47f6250308d671abb0a30b74f86aa5d3e6d402a5d092054ed8a5ea0",
+      "title": "United States Life Tables, 2024, Table 2",
+      "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Publications/NVSR/75-05/Table02.xlsx",
+      "vintage": "2024",
+      "year": 2024
+    }
+  },
+  "transform": "demeter.data.ingest.rebuild"
+}

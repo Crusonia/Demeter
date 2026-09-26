@@ -1,12 +1,48 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
-from math import exp
+from dataclasses import asdict, dataclass
+from math import exp, isfinite
 
+import numpy as np
+
+from demeter import __version__
+from demeter.data.baseline import population_counts, source_rows
+from demeter.data.ingest import BUNDLE
+from demeter.health.transitions import transition_survivors
+from demeter.population.mechanics import (
+    age_survivors,
+    calibrate_mortality,
+    period_outcomes,
+    state_shares,
+)
 from demeter.schema import EvidenceRegistry, Scenario
 
-
 STATES = ("healthy", "insulin_resistant", "t2d")
+REQUIRED_UNITS = {
+    "initial_healthy_share": "fraction",
+    "initial_ir_share": "fraction",
+    "initial_t2d_share": "fraction",
+    "h_to_ir_rate": "hazard_per_year",
+    "ir_to_h_rate": "hazard_per_year",
+    "ir_to_t2d_rate": "hazard_per_year",
+    "mortality_ir_ratio": "hazard_ratio",
+    "mortality_t2d_ratio": "hazard_ratio",
+    "beta_upf_progression": "log_multiplier_per_relative_exposure",
+    "diet_lag_years": "years",
+    "adult_age": "years",
+    "upf_min_multiplier": "relative_exposure",
+    "upf_max_multiplier": "relative_exposure",
+}
+LIMITATIONS = [
+    "VALIDATION ONLY — NOT A SCIENTIFIC ESTIMATE: metabolic inputs remain synthetic.",
+    "Closed population: births and migration are zero; this is not a U.S. population forecast.",
+    "Initial adult state fractions are constant across ages/sex; pediatric metabolic disease is omitted.",
+    "The IR state is a synthetic prediabetes proxy; normoglycemia does not establish overall metabolic health.",
+    "Period life expectancy freezes the current mortality schedule; it is not predicted cohort lifespan.",
+    "Metabolically healthy years use a Sullivan prevalence weighting; this is not overall HALE.",
+    "The 100+ tail holds state membership fixed and assumes exponential mortality within states.",
+    "Mortality and population source uncertainty, structural uncertainty, and correlated parameters are not propagated.",
+]
 
 
 @dataclass(frozen=True)
@@ -18,102 +54,163 @@ class SimulationResult:
     ending_population: float
     cumulative_deaths: float
     ending_state_shares: dict[str, float]
-    annual: list[dict[str, float]]
+    annual: list[dict]
+    cohorts: list[dict]
+    metadata: dict
+
+    def to_dict(self) -> dict:
+        return asdict(self)
 
 
-def _bounded_rate(value: float) -> float:
-    return min(max(value, 0.0), 1.0)
+def validate_inputs(registry: EvidenceRegistry, scenario: Scenario) -> tuple[np.ndarray, bool]:
+    for key, unit in REQUIRED_UNITS.items():
+        if key not in registry.parameters or registry.parameters[key].unit != unit:
+            raise ValueError(f"Missing parameter or wrong units: {key} requires {unit}")
+        value = registry.value(key)
+        if value < 0 or not isfinite(value):
+            raise ValueError(f"Invalid model parameter: {key}")
+    shares = np.array(
+        [
+            registry.value(k)
+            for k in ("initial_healthy_share", "initial_ir_share", "initial_t2d_share")
+        ]
+    )
+    if (shares > 1).any() or not np.isclose(shares.sum(), 1, atol=1e-10, rtol=0):
+        raise ValueError("initial health-state shares must sum to 1")
+    if (
+        registry.value("diet_lag_years") <= 0
+        or min(registry.value("mortality_ir_ratio"), registry.value("mortality_t2d_ratio")) <= 0
+    ):
+        raise ValueError("lag and mortality hazard ratios must be positive")
+    adult = registry.value("adult_age")
+    if not adult.is_integer() or not 1 <= adult <= 100:
+        raise ValueError("adult_age must be an integer in [1,100]")
+    upf = scenario.exposures.get("upf", 1)
+    extrapolated = (
+        not registry.value("upf_min_multiplier") <= upf <= registry.value("upf_max_multiplier")
+    )
+    if extrapolated and not scenario.allow_extrapolation:
+        raise ValueError(
+            "UPF exposure is outside the registered envelope; explicit allow_extrapolation required"
+        )
+    if scenario.mode == "scientific":
+        audit = registry.audit()
+        if any(
+            audit[k]
+            for k in (
+                "synthetic",
+                "unresolved",
+                "missing_uncertainty",
+                "missing_provenance",
+                "scientific_blockers",
+            )
+        ):
+            raise ValueError(
+                "Scientific mode blocked: run demeter evidence audit; unresolved scientific gates remain"
+            )
+        raise ValueError(
+            "Scientific mode blocked in 0.1.0a1: health calibration and validation are not implemented"
+        )
+    return shares, extrapolated
 
 
 def simulate(registry: EvidenceRegistry, scenario: Scenario) -> SimulationResult:
-    """Run a transparent closed-cohort validation model.
-
-    This engine intentionally does not claim to be the final Demeter v0.1 health model.
-    It proves scenario parsing, evidence lookup, stock/flow conservation, and reproducible
-    simulation mechanics while all parameters remain explicitly synthetic.
-    """
-    population = registry.value("initial_population")
-    shares = {
-        "healthy": registry.value("initial_healthy_share"),
-        "insulin_resistant": registry.value("initial_ir_share"),
-        "t2d": registry.value("initial_t2d_share"),
-    }
-
-    if abs(sum(shares.values()) - 1.0) > 1e-9:
-        raise ValueError("initial health-state shares must sum to 1")
-
-    stocks = {state: population * share for state, share in shares.items()}
-    starting_population = sum(stocks.values())
-    cumulative_deaths = 0.0
-    annual: list[dict[str, float]] = []
-
-    upf = scenario.exposures.get("upf", 1.0)
-    fiber = scenario.exposures.get("fiber", 1.0)
-    fruit_veg = scenario.exposures.get("fruit_veg", 1.0)
-
-    progression_multiplier = exp(
-        registry.value("beta_upf_progression") * (upf - 1.0)
-        - registry.value("beta_fiber_progression") * (fiber - 1.0)
-        - registry.value("beta_fruit_veg_progression") * (fruit_veg - 1.0)
+    """Age-structured annual validation model on observed U.S. demographic inputs."""
+    initial_shares, extrapolated = validate_inputs(registry, scenario)
+    adult = int(registry.value("adult_age"))
+    reference = np.tile(initial_shares, (101, 1))
+    reference[:adult] = [1, 0, 0]
+    stocks = population_counts(scenario.baseline_year, scenario.sex)[:, None] * reference
+    rows = source_rows(scenario.baseline_year, scenario.sex)
+    ratios = np.array(
+        [1, registry.value("mortality_ir_ratio"), registry.value("mortality_t2d_ratio")]
     )
+    hazards = calibrate_mortality(rows, reference, ratios)
+    starting = float(stocks.sum())
+    cumulative, applied_log_effect = 0.0, 0.0
+    annual = []
+    target = registry.value("beta_upf_progression") * (scenario.exposures.get("upf", 1) - 1)
+    if abs(target) > 50:
+        raise ValueError("Scenario log effect is numerically unsupported")
+    relaxation = -np.expm1(-1 / registry.value("diet_lag_years"))
 
+    def snapshot(year, deaths=0.0, flows=None):
+        shares = state_shares(stocks, reference)
+        return dict(
+            year=year,
+            population=float(stocks.sum()),
+            deaths=deaths,
+            cumulative_deaths=cumulative,
+            births=0.0,
+            net_migration=0.0,
+            healthy=float(stocks[:, 0].sum()),
+            insulin_resistant=float(stocks[:, 1].sum()),
+            t2d=float(stocks[:, 2].sum()),
+            applied_progression_multiplier=exp(applied_log_effect),
+            empty_age_groups_using_reference=int((stocks.sum(axis=1) == 0).sum()),
+            **period_outcomes(rows, shares, hazards),
+            **(flows or {}),
+        )
+
+    annual.append(snapshot(0))
     for year in range(1, scenario.years + 1):
-        deaths = {
-            "healthy": stocks["healthy"] * _bounded_rate(registry.value("mortality_healthy")),
-            "insulin_resistant": stocks["insulin_resistant"]
-            * _bounded_rate(registry.value("mortality_ir")),
-            "t2d": stocks["t2d"] * _bounded_rate(registry.value("mortality_t2d")),
-        }
-        survivors = {state: stocks[state] - deaths[state] for state in STATES}
-
-        h_to_ir = survivors["healthy"] * _bounded_rate(
-            registry.value("h_to_ir_rate") * progression_multiplier
+        applied_log_effect += relaxation * (target - applied_log_effect)
+        deaths = stocks * -np.expm1(-hazards)
+        survivors = stocks - deaths
+        moved, flows = transition_survivors(
+            survivors,
+            registry.value("h_to_ir_rate") * exp(applied_log_effect),
+            registry.value("ir_to_h_rate"),
+            registry.value("ir_to_t2d_rate") * exp(applied_log_effect),
+            adult,
         )
-        ir_to_h_rate = _bounded_rate(registry.value("ir_to_h_rate"))
-        ir_to_t2d_rate = _bounded_rate(registry.value("ir_to_t2d_rate") * progression_multiplier)
-        # Competing exits cannot move more people than survive in this state.
-        # Preserve their relative hazards if their combined annual probability exceeds one.
-        total_exit = ir_to_h_rate + ir_to_t2d_rate
-        scale = min(1.0, 1.0 / total_exit) if total_exit else 1.0
-        ir_to_h = survivors["insulin_resistant"] * ir_to_h_rate * scale
-        ir_to_t2d = survivors["insulin_resistant"] * ir_to_t2d_rate * scale
-        t2d_to_ir = survivors["t2d"] * _bounded_rate(registry.value("t2d_to_ir_rate"))
-
-        stocks = {
-            "healthy": survivors["healthy"] - h_to_ir + ir_to_h,
-            "insulin_resistant": (
-                survivors["insulin_resistant"] + h_to_ir - ir_to_h - ir_to_t2d + t2d_to_ir
-            ),
-            "t2d": survivors["t2d"] + ir_to_t2d - t2d_to_ir,
+        stocks = age_survivors(moved)
+        cumulative += float(deaths.sum())
+        if stocks.min() < -1e-7 or not np.isclose(
+            stocks.sum() + cumulative, starting, rtol=1e-12, atol=1e-5
+        ):
+            raise ArithmeticError("population conservation or nonnegativity failed")
+        annual.append(snapshot(year, float(deaths.sum()), flows))
+    total = float(stocks.sum())
+    cohorts = [
+        {
+            "age": age,
+            "sex": scenario.sex,
+            **{state: float(stocks[age, i]) for i, state in enumerate(STATES)},
         }
+        for age in range(101)
+    ]
+    import json
 
-        year_deaths = sum(deaths.values())
-        cumulative_deaths += year_deaths
-        alive = sum(stocks.values())
-
-        annual.append(
-            {
-                "year": float(year),
-                "population": alive,
-                "deaths": year_deaths,
-                "healthy": stocks["healthy"],
-                "insulin_resistant": stocks["insulin_resistant"],
-                "t2d": stocks["t2d"],
-            }
-        )
-
-    ending_population = sum(stocks.values())
-    ending_state_shares = {
-        state: (stocks[state] / ending_population if ending_population else 0.0) for state in STATES
+    source_manifest = json.loads((BUNDLE / "manifest.json").read_text())
+    audit = registry.audit()
+    validation_only = scenario.mode == "validation"
+    metadata = {
+        "model_version": __version__,
+        "scenario": scenario.model_dump(),
+        "evidence_sha256": registry.content_hash,
+        "source_bundle_sha256": source_manifest["bundle_sha256"],
+        "mortality_vintage": scenario.baseline_year,
+        "population_vintage": "Census 2025",
+        "status": "VALIDATION ONLY — NOT A SCIENTIFIC ESTIMATE"
+        if validation_only
+        else "scientific",
+        "extrapolation": extrapolated,
+        "parameter_status_counts": audit["status_counts"],
+        "synthetic_parameters": audit["synthetic"],
+        "unresolved_parameters": audit["unresolved"],
+        "scientific_blockers": registry.scientific_blockers,
+        "limitations": LIMITATIONS,
     }
-
     return SimulationResult(
-        scenario=scenario.name,
-        years=scenario.years,
-        validation_only=registry.contains_synthetic,
-        starting_population=starting_population,
-        ending_population=ending_population,
-        cumulative_deaths=cumulative_deaths,
-        ending_state_shares=ending_state_shares,
-        annual=annual,
+        scenario.name,
+        scenario.years,
+        validation_only,
+        starting,
+        total,
+        cumulative,
+        {s: float(stocks[:, i].sum() / total) if total else 0 for i, s in enumerate(STATES)},
+        annual,
+        cohorts,
+        metadata,
     )

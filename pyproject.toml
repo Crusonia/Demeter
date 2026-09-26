@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "demeter-model"
-version = "0.1.0a0"
+version = "0.1.0a1"
 description = "A systems model of food, health, agriculture, and longevity"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -16,6 +16,8 @@ dependencies = [
   "pydantic>=2.9,<3",
   "PyYAML>=6.0",
   "typer>=0.12",
+  "openpyxl>=3.1,<4",
+  "SALib>=1.5,<2",
 ]
 
 [project.optional-dependencies]
@@ -44,3 +46,6 @@ target-version = "py311"
 
 [tool.ruff.lint]
 select = ["E4", "E7", "E9", "F", "B"]
+
+[dependency-groups]
+dev = ["pytest>=8.3", "ruff>=0.8"]
