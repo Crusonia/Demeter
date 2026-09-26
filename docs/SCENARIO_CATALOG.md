@@ -41,6 +41,23 @@ Each scenario should declare:
 - targeted intervention in prediabetes
 - insurer/employer nutrition intervention
 
+### PreChronic
+- earlier identification of metabolic risk
+- reduced transition into prediabetes
+- reversal from PreChronic toward lower-risk states
+- delayed progression scenarios
+- alternative operational definitions tested as model structures, not assumed facts
+
+### GLP-1
+- alternative eligibility criteria
+- adoption / initiation rates
+- persistence and discontinuation
+- access and coverage expansion
+- price changes
+- heterogeneous response
+- post-discontinuation dynamics
+- food-demand effects from large-scale GLP-1 adoption
+
 ## Agriculture and food-system scenarios
 
 ### Production
@@ -93,6 +110,16 @@ Each scenario should declare:
 - targeted diabetes/prediabetes prevention
 - prevention-versus-treatment spending shifts
 
+### Provider economics
+- chronic-disease admission decline
+- procedure-volume decline
+- outpatient chronic-care decline
+- hospital revenue exposure by service line
+- fixed-cost pressure under declining utilization
+- payer-mix sensitivity
+- value-based versus fee-for-service response
+- capacity reallocation / induced demand scenarios
+
 ### Agriculture / food policy
 - subsidy redesign
 - nutrient-density incentives
@@ -133,3 +160,18 @@ scenarios/
   policy/
   integrated/
 ```
+
+
+## Historical reconstruction and backtest scenarios
+
+Demeter should preserve scenario definitions used for historical validation.
+
+Examples:
+
+- freeze model/evidence at historical year T and forecast T+5 / T+10
+- reconstruct food, metabolic-health, and mortality trajectories across successive eras
+- hold out entire periods from calibration
+- test structural shocks such as smoking decline, statin adoption, recessions, COVID, and GLP-1 uptake
+- compare alternative model structures by held-out predictive performance rather than in-sample fit
+
+Backtest scenarios must clearly distinguish calibration targets, holdout targets, and exogenous inputs.
