@@ -10,6 +10,22 @@ The full program architecture, open-source tool choices, development/compute mod
 
 Demeter is designed as a hybrid system: system dynamics for aggregate stocks/flows and feedback loops, with agent-based modeling added selectively where heterogeneous behavior matters. The scientific model remains locally reproducible; Codex Cloud is used for bounded autonomous engineering; Vercel is reserved for a later interactive interface rather than the core model runtime.
 
+## North-star questions
+
+Demeter is ultimately intended to identify **system leverage**: which upstream changes materially alter downstream health and economic outcomes, through what pathways, with what delays, feedbacks, and uncertainty.
+
+Examples include:
+
+- How does consumer price elasticity for higher-quality food affect dietary behavior and type 2 diabetes incidence?
+- How do commodity-crop economics and processing scale create cheap calories relative to nutrient-dense food?
+- How does nutrient density affect taste, satiety, food choice, and metabolic outcomes?
+- Which links between agricultural practice, soil health, food composition, and chronic disease are strongly evidenced versus merely hypothesized?
+- Under what conditions could regenerative or other production practices materially reduce chronic-disease burden?
+- Which intervention points have the largest downstream impact per dollar, per acre, or per unit of behavioral change?
+- Where do delays, reinforcing loops, balancing loops, and bottlenecks dominate the system?
+
+These are research questions, not assumptions. Demeter should make the intermediate causal links explicit and allow the evidence and sensitivity analysis to determine which levers are material.
+
 ## Initial scope
 
 Version 0.1 deliberately starts narrow:
