@@ -27,4 +27,8 @@ The 2024 life-table reconstruction differs from the source by less than 0.00002 
 
 ## Release gate
 
+The [current issue #1 audit](ISSUE_1_AUDIT.md) and [clinical evidence appraisal](CLINICAL_EVIDENCE.md)
+record six additional source-checked observational benchmarks. They remain separate
+from active engine inputs and do not resolve the scientific gates in this table.
+
 `uv run demeter validate --scientific-required` must fail for this alpha. Completing v0.1 requires the matched health evidence and calibration described in [EVIDENCE_GAPS.md](EVIDENCE_GAPS.md), plus an independent historical health validation. Do not tag a final 0.1.0 release based only on passing software tests.

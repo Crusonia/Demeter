@@ -14,8 +14,7 @@ parameters:
     upper_bound: 1
     uncertainty:
       kind: fixed
-      rationale: Held fixed in software sensitivity experiment; empirical distribution
-        unresolved
+      rationale: Held fixed in software sensitivity experiment; empirical distribution unresolved
   initial_ir_share:
     key: initial_ir_share
     value: 0.2
@@ -31,8 +30,7 @@ parameters:
     upper_bound: 1
     uncertainty:
       kind: fixed
-      rationale: Held fixed in software sensitivity experiment; empirical distribution
-        unresolved
+      rationale: Held fixed in software sensitivity experiment; empirical distribution unresolved
   initial_t2d_share:
     key: initial_t2d_share
     value: 0.1
@@ -48,8 +46,7 @@ parameters:
     upper_bound: 1
     uncertainty:
       kind: fixed
-      rationale: Held fixed in software sensitivity experiment; empirical distribution
-        unresolved
+      rationale: Held fixed in software sensitivity experiment; empirical distribution unresolved
   h_to_ir_rate:
     key: h_to_ir_rate
     value: 0.035
@@ -301,8 +298,276 @@ parameters:
     time_period: 2021–2023; webpage updated September 16, 2026
     outcome_definition: Prediabetes, not all insulin resistance
     model_role: benchmark_only
-    notes: No confidence interval transcribed from the summary; audit reports missing
-      uncertainty.
+    notes: No confidence interval transcribed from the summary; audit reports missing uncertainty.
+  aric_hba1c_prediabetes_diabetes_incidence:
+    key: aric_hba1c_prediabetes_diabetes_incidence
+    value: 0.0228
+    unit: cases_per_person_year
+    status: estimated
+    evidence_grade: C
+    source: Rooney MR et al. JAMA Internal Medicine. 2021;181(4):511-519.
+    source_url: https://pmc.ncbi.nlm.nih.gov/articles/PMC7871207/
+    citation: doi:10.1001/jamainternmed.2020.8774
+    source_id: aric_rooney_2021_corrected
+    population: ARIC visit-5 participants without diabetes; ages 71-90 at baseline; community cohort.
+    geography: United States
+    time_period: 2011-2013 baseline; follow-up through 2017
+    exposure_definition: HbA1c-defined prediabetes
+    outcome_definition: Incident total diabetes; diagnosed or lab/medication defined
+    model_role: benchmark_only
+    lower_bound: 0
+    uncertainty:
+      kind: interval
+      low: 0.0189
+      high: 0.0275
+      rationale: Published 95% confidence interval; not a sampling distribution or transport uncertainty.
+    transformation: Table 2 point estimate and CI multiplied by 0.001; no conversion to a model transition
+      hazard.
+    applicability:
+      candidate_for:
+      - ir_to_t2d_rate
+      estimand: Incidence density from baseline glycemic group
+      source_locator: Table 2; Prediabetes (HbA1c 5.7%-6.4%); matching row occurrence 1; column 3
+      source_population: ARIC visit-5 participants without diabetes; ages 71-90 at baseline; community
+        cohort.
+      transport_status: benchmark_only
+      blockers:
+      - ARIC older community cohort is not a national all-age/sex population.
+      - Glycemic criteria are not the model's broad insulin-resistance proxy.
+      - Total diabetes endpoint is not type-specific.
+      - Baseline-group incidence density does not identify a current-state Markov hazard with regression
+        and competing mortality.
+      extraction:
+        table_index: 1
+        row_label: Prediabetes (HbA1c 5.7%-6.4%)
+        row_occurrence: 0
+        column_index: 2
+        scale: 0.001
+  aric_hba1c_prediabetes_mortality_hr:
+    key: aric_hba1c_prediabetes_mortality_hr
+    value: 1.07
+    unit: hazard_ratio
+    status: estimated
+    evidence_grade: C
+    source: Rooney MR et al. JAMA Internal Medicine. 2021;181(4):511-519.
+    source_url: https://pmc.ncbi.nlm.nih.gov/articles/PMC7871207/
+    citation: doi:10.1001/jamainternmed.2020.8774
+    source_id: aric_rooney_2021_corrected
+    population: ARIC visit-5 participants without diabetes; ages 71-90 at baseline; community cohort.
+    geography: United States
+    time_period: 2011-2013 baseline; follow-up through 2017
+    exposure_definition: Prediabetes (HbA1c 5.7%-6.4%)
+    outcome_definition: All-cause mortality compared with corresponding normoglycemic group
+    model_role: benchmark_only
+    lower_bound: 0
+    uncertainty:
+      kind: interval
+      low: 0.88
+      high: 1.29
+      rationale: Published 95% confidence interval; not a sampling distribution or transport uncertainty.
+    transformation: Table 2 point estimate and CI multiplied by 1.0; no conversion to a model transition
+      hazard.
+    applicability:
+      candidate_for:
+      - mortality_ir_ratio
+      estimand: Age-, sex-, race-center-adjusted Cox hazard ratio
+      source_locator: Table 2; Prediabetes (HbA1c 5.7%-6.4%); matching row occurrence 3; column 4
+      source_population: ARIC visit-5 participants without diabetes; ages 71-90 at baseline; community
+        cohort.
+      transport_status: benchmark_only
+      blockers:
+      - ARIC older community cohort is not a national all-age/sex population.
+      - Glycemic criteria are not the model's broad insulin-resistance proxy.
+      - Observational adjusted association is not the causal mortality effect of changing state.
+      - Pooled older-adult estimate does not identify age-specific excess mortality hazards.
+      extraction:
+        table_index: 1
+        row_label: Prediabetes (HbA1c 5.7%-6.4%)
+        row_occurrence: 2
+        column_index: 3
+        scale: 1.0
+  aric_ifg_mortality_hr:
+    key: aric_ifg_mortality_hr
+    value: 0.83
+    unit: hazard_ratio
+    status: estimated
+    evidence_grade: C
+    source: Rooney MR et al. JAMA Internal Medicine. 2021;181(4):511-519.
+    source_url: https://pmc.ncbi.nlm.nih.gov/articles/PMC7871207/
+    citation: doi:10.1001/jamainternmed.2020.8774
+    source_id: aric_rooney_2021_corrected
+    population: ARIC visit-5 participants without diabetes; ages 71-90 at baseline; community cohort.
+    geography: United States
+    time_period: 2011-2013 baseline; follow-up through 2017
+    exposure_definition: Prediabetes (FG 100-125 mg/dL)
+    outcome_definition: All-cause mortality compared with corresponding normoglycemic group
+    model_role: benchmark_only
+    lower_bound: 0
+    uncertainty:
+      kind: interval
+      low: 0.68
+      high: 1.0
+      rationale: Published 95% confidence interval; not a sampling distribution or transport uncertainty.
+    transformation: Table 2 point estimate and CI multiplied by 1.0; no conversion to a model transition
+      hazard.
+    applicability:
+      candidate_for:
+      - mortality_ir_ratio
+      estimand: Age-, sex-, race-center-adjusted Cox hazard ratio
+      source_locator: Table 2; Prediabetes (FG 100-125 mg/dL); matching row occurrence 3; column
+        4
+      source_population: ARIC visit-5 participants without diabetes; ages 71-90 at baseline; community
+        cohort.
+      transport_status: benchmark_only
+      blockers:
+      - ARIC older community cohort is not a national all-age/sex population.
+      - Glycemic criteria are not the model's broad insulin-resistance proxy.
+      - Observational adjusted association is not the causal mortality effect of changing state.
+      - Pooled older-adult estimate does not identify age-specific excess mortality hazards.
+      extraction:
+        table_index: 1
+        row_label: Prediabetes (FG 100-125 mg/dL)
+        row_occurrence: 2
+        column_index: 3
+        scale: 1.0
+  leadr_diabetes_progression_overall:
+    key: leadr_diabetes_progression_overall
+    value: 0.053
+    unit: cases_per_person_year
+    status: estimated
+    evidence_grade: C
+    source: Koyama AK et al. JAMA Network Open. 2022;5(4):e228158.
+    source_url: https://pmc.ncbi.nlm.nih.gov/articles/PMC9021905/
+    citation: doi:10.1001/jamanetworkopen.2022.8158
+    source_id: leadr_koyama_2022
+    population: LEADR outpatients age 65+ with HbA1c 5.7%-6.4%, no kidney failure, and at least 3
+      months follow-up.
+    geography: United States
+    time_period: EHR observations 2010-2018; analysis October 2021
+    exposure_definition: Baseline HbA1c; Table 2 row Overall
+    outcome_definition: Incident diabetes; type 1 and type 2 not distinguished
+    model_role: benchmark_only
+    lower_bound: 0
+    uncertainty:
+      kind: interval
+      low: 0.051
+      high: 0.054000000000000006
+      rationale: Published 95% confidence interval; not a sampling distribution or transport uncertainty.
+    transformation: Table 2 point estimate and CI multiplied by 0.01; no conversion to a model transition
+      hazard.
+    applicability:
+      candidate_for:
+      - ir_to_t2d_rate
+      estimand: Published annualized progression rate based on cases and follow-up
+      source_locator: Table 2; Overall; matching row occurrence 1; column 4
+      source_population: LEADR outpatients age 65+ with HbA1c 5.7%-6.4%, no kidney failure, and at
+        least 3 months follow-up.
+      transport_status: benchmark_only
+      blockers:
+      - Selected clinical population is not representative of all U.S. adults.
+      - Baseline glycemic group and unknown prior duration do not identify current-state competing
+        transition hazards.
+      - Endpoint does not distinguish type 1 from type 2 diabetes.
+      - Progression alone does not identify regression or mortality; subgroup estimates are alternatives,
+        not independent effects.
+      extraction:
+        table_index: 1
+        row_label: Overall
+        row_occurrence: 0
+        column_index: 3
+        scale: 0.01
+  leadr_diabetes_progression_hba1c_low:
+    key: leadr_diabetes_progression_hba1c_low
+    value: 0.027999999999999997
+    unit: cases_per_person_year
+    status: estimated
+    evidence_grade: C
+    source: Koyama AK et al. JAMA Network Open. 2022;5(4):e228158.
+    source_url: https://pmc.ncbi.nlm.nih.gov/articles/PMC9021905/
+    citation: doi:10.1001/jamanetworkopen.2022.8158
+    source_id: leadr_koyama_2022
+    population: LEADR outpatients age 65+ with HbA1c 5.7%-6.4%, no kidney failure, and at least 3
+      months follow-up.
+    geography: United States
+    time_period: EHR observations 2010-2018; analysis October 2021
+    exposure_definition: Baseline HbA1c; Table 2 row 5.7-5.9
+    outcome_definition: Incident diabetes; type 1 and type 2 not distinguished
+    model_role: benchmark_only
+    lower_bound: 0
+    uncertainty:
+      kind: interval
+      low: 0.027000000000000003
+      high: 0.028999999999999998
+      rationale: Published 95% confidence interval; not a sampling distribution or transport uncertainty.
+    transformation: Table 2 point estimate and CI multiplied by 0.01; no conversion to a model transition
+      hazard.
+    applicability:
+      candidate_for:
+      - ir_to_t2d_rate
+      estimand: Published annualized progression rate based on cases and follow-up
+      source_locator: Table 2; 5.7-5.9; matching row occurrence 1; column 4
+      source_population: LEADR outpatients age 65+ with HbA1c 5.7%-6.4%, no kidney failure, and at
+        least 3 months follow-up.
+      transport_status: benchmark_only
+      blockers:
+      - Selected clinical population is not representative of all U.S. adults.
+      - Baseline glycemic group and unknown prior duration do not identify current-state competing
+        transition hazards.
+      - Endpoint does not distinguish type 1 from type 2 diabetes.
+      - Progression alone does not identify regression or mortality; subgroup estimates are alternatives,
+        not independent effects.
+      extraction:
+        table_index: 1
+        row_label: 5.7-5.9
+        row_occurrence: 0
+        column_index: 3
+        scale: 0.01
+  leadr_diabetes_progression_hba1c_high:
+    key: leadr_diabetes_progression_hba1c_high
+    value: 0.08199999999999999
+    unit: cases_per_person_year
+    status: estimated
+    evidence_grade: C
+    source: Koyama AK et al. JAMA Network Open. 2022;5(4):e228158.
+    source_url: https://pmc.ncbi.nlm.nih.gov/articles/PMC9021905/
+    citation: doi:10.1001/jamanetworkopen.2022.8158
+    source_id: leadr_koyama_2022
+    population: LEADR outpatients age 65+ with HbA1c 5.7%-6.4%, no kidney failure, and at least 3
+      months follow-up.
+    geography: United States
+    time_period: EHR observations 2010-2018; analysis October 2021
+    exposure_definition: Baseline HbA1c; Table 2 row 6.0-6.4
+    outcome_definition: Incident diabetes; type 1 and type 2 not distinguished
+    model_role: benchmark_only
+    lower_bound: 0
+    uncertainty:
+      kind: interval
+      low: 0.079
+      high: 0.084
+      rationale: Published 95% confidence interval; not a sampling distribution or transport uncertainty.
+    transformation: Table 2 point estimate and CI multiplied by 0.01; no conversion to a model transition
+      hazard.
+    applicability:
+      candidate_for:
+      - ir_to_t2d_rate
+      estimand: Published annualized progression rate based on cases and follow-up
+      source_locator: Table 2; 6.0-6.4; matching row occurrence 1; column 4
+      source_population: LEADR outpatients age 65+ with HbA1c 5.7%-6.4%, no kidney failure, and at
+        least 3 months follow-up.
+      transport_status: benchmark_only
+      blockers:
+      - Selected clinical population is not representative of all U.S. adults.
+      - Baseline glycemic group and unknown prior duration do not identify current-state competing
+        transition hazards.
+      - Endpoint does not distinguish type 1 from type 2 diabetes.
+      - Progression alone does not identify regression or mortality; subgroup estimates are alternatives,
+        not independent effects.
+      extraction:
+        table_index: 1
+        row_label: 6.0-6.4
+        row_occurrence: 0
+        column_index: 3
+        scale: 0.01
 datasets:
   us_mortality:
     status: observed
@@ -325,13 +590,33 @@ datasets:
     - 2024
     manifest: src/demeter/data/bundled/manifest.json
     transformation: Select SEX 0/1/2, AGE 0..100, POPESTIMATE year; 100 is open group
-    uncertainty: Published estimates treated as fixed; demographic uncertainty not
-      propagated
+    uncertainty: Published estimates treated as fixed; demographic uncertainty not propagated
 scientific_blockers:
 - National age-specific metabolic transition hazards are unresolved.
-- Age-specific T2D/prediabetes initial prevalence is not calibrated; CDC total diabetes
-  includes other types.
+- Age-specific T2D/prediabetes initial prevalence is not calibrated; CDC total diabetes includes
+  other types.
 - Dietary causal coefficient, dose scale, lag, and supported population are unresolved.
 - State mortality hazard ratios remain synthetic.
-- No historical end-to-end dietary-effect validation; mortality persistence backtest
-  is a limited benchmark.
+- No historical end-to-end dietary-effect validation; mortality persistence backtest is a limited
+  benchmark.
+sources:
+  aric_rooney_2021_corrected:
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC7871207/
+    citation: Rooney MR et al. JAMA Internal Medicine. 2021;181(4):511-519.
+    doi: 10.1001/jamainternmed.2020.8774
+    raw_filename: aric.html
+    sha256: 8fcfc3b18a8972b4321264b42cd60914f74bcd61728871450185d8099e3a971e
+    retrieved_at: '2026-09-26T03:10:55.299833+00:00'
+    license: Copyright 2021 American Medical Association; raw article fetch-only, not redistributed.
+    correction_url: https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2778331
+    correction_note: April 5, 2021 correction, DOI 10.1001/jamainternmed.2021.1321. Corrected incidence
+      rates in article and Table 2 verified against the publisher; PMC snapshot includes the correction
+      notice.
+  leadr_koyama_2022:
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC9021905/
+    citation: Koyama AK et al. JAMA Network Open. 2022;5(4):e228158.
+    doi: 10.1001/jamanetworkopen.2022.8158
+    raw_filename: leadr.html
+    sha256: 11f57aa0827c0d26a096c046268aad39c70512b969da4659423458684ccfd085
+    retrieved_at: '2026-09-26T03:10:59.458462+00:00'
+    license: CC-BY; authors and publication attributed; raw article not bundled.
