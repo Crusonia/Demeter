@@ -31,7 +31,7 @@ def validate(evidence: Path = DEFAULT_EVIDENCE) -> None:
         typer.echo("VALIDATION ONLY: synthetic parameters are present.")
 
 
-@app.command()
+@app.command("simulate")
 def simulate_scenario(
     scenario: Path = typer.Argument(..., exists=True, readable=True),
     evidence: Path = DEFAULT_EVIDENCE,
