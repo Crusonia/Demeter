@@ -9,8 +9,10 @@ import typer
 from demeter.analysis.experiments import compare as compare_runs
 from demeter.analysis.experiments import sensitivity as sensitivity_run
 from demeter.analysis.experiments import uncertainty as uncertainty_run
+from demeter.analysis.historical import historical_backtest
 from demeter.analysis.validation import mortality_backtest, validate as validation_report
 from demeter.data.ingest import rebuild
+from demeter.data.historical import rebuild_history
 from demeter.evidence.appraisal import applicability_report, verify_sources
 from demeter.model import simulate
 from demeter.schema import EvidenceRegistry, Scenario
@@ -76,6 +78,35 @@ def evidence_sources(
 @data_app.command("rebuild")
 def rebuild_data(raw: Path = Path("data/raw")) -> None:
     emit(rebuild(raw))
+
+
+@data_app.command("rebuild-history")
+def rebuild_historical_data(
+    raw: Path = Path("data/raw/historical"),
+    download: bool = False,
+) -> None:
+    """Rebuild historical observations; reject changed source bytes."""
+    emit(rebuild_history(raw, download=download))
+
+
+@app.command("historical-backtest")
+def historical_benchmarks(
+    evidence: Path = DEFAULT_EVIDENCE,
+    window: int = 10,
+    origin: int | None = None,
+    coverage: float = 0.9,
+    output: Path | None = None,
+) -> None:
+    """Run rolling 5/10-year benchmarks, or freeze a single calendar origin."""
+    emit(
+        historical_backtest(
+            registry(evidence),
+            window=window,
+            origins=(origin,) if origin is not None else None,
+            coverage=coverage,
+        ),
+        output,
+    )
 
 
 @app.command("simulate")

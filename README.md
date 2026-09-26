@@ -138,3 +138,13 @@ correction handling, reproducible table extraction, and transport limitations.
 The original [post-v0.1 roadmap](docs/POST_V0_1_ROADMAP.md) and
 [backtesting strategy](docs/BACKTESTING_STRATEGY.md) are preserved from the existing
 documentation branch; their implementation remains subject to the scientific gates.
+
+Historical observations and rolling-origin diagnostics are available offline:
+
+```bash
+uv run demeter historical-backtest --output outputs/historical-backtest.json
+```
+
+This covers 13 NCHS/NHIS/USDA series with explicit holdouts, residuals, empirical
+forecast intervals and comparability breaks. It evaluates historical benchmarks;
+it does not validate causal dietary effects. See [the historical contract](docs/HISTORICAL_BACKTESTS.md).

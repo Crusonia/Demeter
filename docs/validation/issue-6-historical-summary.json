@@ -1,0 +1,1044 @@
+{
+  "causal_policy": "Univariate benchmarks only. No food coefficient can absorb omitted shocks. Food series are external historical context, not individual exposure.",
+  "configuration": {
+    "horizons": [
+      5,
+      10
+    ],
+    "interval_nominal_coverage": 0.9,
+    "origins": null,
+    "random_seed": null,
+    "window": 10
+  },
+  "integrated_health_model_validated": false,
+  "interval_method": "Same-horizon past absolute errors, order ceil((n+1)*coverage); null if too few errors. No exchangeability guarantee for serial history.",
+  "kind": "historical_benchmarks",
+  "limitations": [
+    "Revised vintages: not a recreation of information available at the origin.",
+    "No age-specific historical cohort reconstruction or causal attribution yet.",
+    "Survey estimates are noisy; coverage evaluates their point estimates.",
+    "Intervals can fail under trends or structural breaks; failures are retained.",
+    "Long-history mortality ends before COVID; no missing-year interpolation.",
+    "Parameter/sensitivity drift of the integrated health model remains unvalidated."
+  ],
+  "metadata": {
+    "data_sha256": "8bff8e32d7503b1f6cfad292b19c82a4b97e2455966bd8190b00cb189a2962a3",
+    "evidence_sha256": "82870aac5a40e936065e2ce2ab9c5c7dab8c1991be7495966d8e8471c23013aa",
+    "git_commit": "d6c87816b85cd8ab25fd86870c5aceb414d95f5c",
+    "manifest_sha256": "f6398e9eebfa8745325d60b233c165051c452995da853870aaaa291ac4d335f1",
+    "model_version": "0.1.0a1",
+    "python_source_sha256": "6de697438010a75a10217864ce0bea378cf2598f69bb93163ea2fa1dd4648a58",
+    "sources": {
+      "nchs_life_expectancy.csv": {
+        "documentation": "https://data.cdc.gov/d/w9j2-ggv5",
+        "license": "Public Domain U.S. Government",
+        "publisher": "CDC/NCHS, NVSS",
+        "retrieved_at": "2026-09-26T12:18:29.759871+00:00",
+        "sha256": "c2473acf4bcc22c876ebd67abf131e89ea46c3ed35f1cdf23025301ac39b3bdf",
+        "url": "https://data.cdc.gov/api/views/w9j2-ggv5/rows.csv?accessType=DOWNLOAD",
+        "vintage": "2020-09-08 data revision"
+      },
+      "nhis_diabetes.csv": {
+        "documentation": "https://usdss.cdc.gov/diabetes/data/socrata/National_Burden_Magnitude_methods.html",
+        "license": "U.S. federal government data; public access",
+        "publisher": "CDC, U.S. Diabetes Surveillance System / NHIS",
+        "retrieved_at": "2026-09-26T12:18:29.759925+00:00",
+        "sha256": "a410a56fa5d602cdb74d200b66e90fea24f138b7c56a09b524179c3d4eee517e",
+        "url": "https://data.cdc.gov/resource/c9xs-vhst.csv?%24where=indicator%3D%27Diagnosed+Diabetes%27+AND+unit%3D%27Percentage%27+AND+race%3D%27All%27+AND+education%3D%27All%27+AND+sex%3D%27All%27+AND+population%3D%27Adults+Aged+18%2B+Years%27&%24limit=50000&%24order=year%2Cage",
+        "vintage": "2026-06-23 data revision"
+      },
+      "sweeteners.csv": {
+        "documentation": "https://www.ers.usda.gov/data-products/food-availability-per-capita-data-system/food-availability-documentation",
+        "license": "U.S. federal government data; public access",
+        "publisher": "USDA ERS",
+        "retrieved_at": "2026-09-26T12:18:29.760744+00:00",
+        "sha256": "bd96e269175ecac4c4b411f69171bc31cb4a2fc6cb00c35a1ab7e8919a8fd1ce",
+        "url": "https://www.ers.usda.gov/media/5365/sugar-and-sweeteners-added.csv?v=30567",
+        "vintage": "2024-09-27"
+      }
+    },
+    "vintage_policy": "Retrospective revised observations, not real-time vintage forecasts",
+    "working_tree_dirty": false
+  },
+  "role_policy": "Earlier interval-validation observations may later enter calibration; they are not independent validation of the final fit. Outer holdout never enters its fit.",
+  "schema_version": 1,
+  "scientific_validation_of_diet": false,
+  "series": [
+    {
+      "domain": "mortality",
+      "fold_count": 130,
+      "id": "e0_both_sexes",
+      "label": "Average Life Expectancy (Years): Both Sexes",
+      "limitations": [
+        "Published rounded aggregate; no age-specific schedule.",
+        "Death-rate folds cannot cross the 1999 standardization boundary."
+      ],
+      "metrics": [
+        {
+          "bias": -0.2941645021645034,
+          "calibration_rmse": 0.14220905589102797,
+          "coverage": 1.0,
+          "holdout_minus_calibration_rmse": 0.4772175661997534,
+          "horizon": 5,
+          "interval_n": 22,
+          "mae": 0.44464069264069267,
+          "mape_percent": 0.5814365081772671,
+          "method": "linear_trend",
+          "n": 35,
+          "rmse": 0.6194266220907814,
+          "segment": "national"
+        },
+        {
+          "bias": -0.4436363636363661,
+          "calibration_rmse": 0.14745479832611877,
+          "coverage": 1.0,
+          "holdout_minus_calibration_rmse": 0.8896630086644768,
+          "horizon": 10,
+          "interval_n": 12,
+          "mae": 0.7745858585858575,
+          "mape_percent": 1.012035628148347,
+          "method": "linear_trend",
+          "n": 30,
+          "rmse": 1.0371178069905955,
+          "segment": "national"
+        },
+        {
+          "bias": 0.6514285714285718,
+          "calibration_rmse": 0.9432019529418453,
+          "coverage": 0.8636363636363636,
+          "holdout_minus_calibration_rmse": -0.20718953068642854,
+          "horizon": 5,
+          "interval_n": 22,
+          "mae": 0.6685714285714287,
+          "mape_percent": 0.8697949272304226,
+          "method": "persistence",
+          "n": 35,
+          "rmse": 0.7360124222554167,
+          "segment": "national"
+        },
+        {
+          "bias": 1.413333333333333,
+          "calibration_rmse": 0.9498021297834671,
+          "coverage": 0.9166666666666666,
+          "holdout_minus_calibration_rmse": 0.5160309666728331,
+          "horizon": 10,
+          "interval_n": 12,
+          "mae": 1.413333333333333,
+          "mape_percent": 1.8280464904006435,
+          "method": "persistence",
+          "n": 30,
+          "rmse": 1.4658330964563002,
+          "segment": "national"
+        }
+      ],
+      "population": "U.S., all races, Both Sexes",
+      "skipped_count": 24,
+      "source": "nchs_life_expectancy.csv",
+      "unit": "years"
+    },
+    {
+      "domain": "mortality",
+      "fold_count": 64,
+      "id": "death_rate_both_sexes",
+      "label": "Age-adjusted Death Rate: Both Sexes",
+      "limitations": [
+        "Published rounded aggregate; no age-specific schedule.",
+        "Death-rate folds cannot cross the 1999 standardization boundary."
+      ],
+      "metrics": [
+        {
+          "bias": 50.21878787878787,
+          "calibration_rmse": 6.7906626478102865,
+          "coverage": null,
+          "holdout_minus_calibration_rmse": 45.75986386051708,
+          "horizon": 5,
+          "interval_n": 0,
+          "mae": 50.21878787878787,
+          "mape_percent": 6.887672518802078,
+          "method": "linear_trend",
+          "n": 6,
+          "rmse": 52.550526508327366,
+          "segment": "2000_standard"
+        },
+        {
+          "bias": 34.17248484848484,
+          "calibration_rmse": 13.816933308478912,
+          "coverage": 1.0,
+          "holdout_minus_calibration_rmse": 47.63329923338401,
+          "horizon": 5,
+          "interval_n": 2,
+          "mae": 43.504363636363614,
+          "mape_percent": 4.50032538861884,
+          "method": "linear_trend",
+          "n": 15,
+          "rmse": 61.45023254186292,
+          "segment": "historical_standard"
+        },
+        {
+          "bias": 76.37515151515152,
+          "calibration_rmse": 6.7789638968762524,
+          "coverage": null,
+          "holdout_minus_calibration_rmse": 69.59618761827527,
+          "horizon": 10,
+          "interval_n": 0,
+          "mae": 76.37515151515152,
+          "mape_percent": 10.55488550513426,
+          "method": "linear_trend",
+          "n": 1,
+          "rmse": 76.37515151515152,
+          "segment": "2000_standard"
+        },
+        {
+          "bias": 88.49199999999993,
+          "calibration_rmse": 15.941303781851634,
+          "coverage": null,
+          "holdout_minus_calibration_rmse": 105.76632282627084,
+          "horizon": 10,
+          "interval_n": 0,
+          "mae": 99.27672727272723,
+          "mape_percent": 10.741601471855255,
+          "method": "linear_trend",
+          "n": 10,
+          "rmse": 121.70762660812247,
+          "segment": "historical_standard"
+        },
+        {
+          "bias": -17.26666666666665,
+          "calibration_rmse": 62.41446087896114,
+          "coverage": null,
+          "holdout_minus_calibration_rmse": -40.45555987428121,
+          "horizon": 5,
+          "interval_n": 0,
+          "mae": 17.26666666666665,
+          "mape_percent": 2.367752528341439,
+          "method": "persistence",
+          "n": 6,
+          "rmse": 21.958901004679927,
+          "segment": "2000_standard"
+        },
+        {
+          "bias": -37.79999999999999,
+          "calibration_rmse": 65.20552154389054,
+          "coverage": 1.0,
+          "holdout_minus_calibration_rmse": -24.569035475333877,
+          "horizon": 5,
+          "interval_n": 2,
+          "mae": 37.79999999999999,
+          "mape_percent": 4.079556548975809,
+          "method": "persistence",
+          "n": 15,
+          "rmse": 40.636486068556664,
+          "segment": "historical_standard"
+        },
+        {
+          "bias": -51.299999999999955,
+          "calibration_rmse": 63.79709241023451,
+          "coverage": null,
+          "holdout_minus_calibration_rmse": -12.497092410234558,
+          "horizon": 10,
+          "interval_n": 0,
+          "mae": 51.299999999999955,
+          "mape_percent": 7.089552238805965,
+          "method": "persistence",
+          "n": 1,
+          "rmse": 51.299999999999955,
+          "segment": "2000_standard"
+        },
+        {
+          "bias": -81.91,
+          "calibration_rmse": 74.13098937399775,
+          "coverage": null,
+          "holdout_minus_calibration_rmse": 8.963890131300289,
+          "horizon": 10,
+          "interval_n": 0,
+          "mae": 81.91,
+          "mape_percent": 9.025350133516227,
+          "method": "persistence",
+          "n": 10,
+          "rmse": 83.09487950529804,
+          "segment": "historical_standard"
+        }
+      ],
+      "population": "U.S., all races, Both Sexes",
+      "skipped_count": 48,
+      "source": "nchs_life_expectancy.csv",
+      "unit": "deaths per 100000 standard population"
+    },
+    {
+      "domain": "mortality",
+      "fold_count": 130,
+      "id": "e0_male",
+      "label": "Average Life Expectancy (Years): Male",
+      "limitations": [
+        "Published rounded aggregate; no age-specific schedule.",
+        "Death-rate folds cannot cross the 1999 standardization boundary."
+      ],
+      "metrics": [
+        {
+          "bias": -0.2875844155844151,
+          "calibration_rmse": 0.13771482872334206,
+          "coverage": 0.8636363636363636,
+          "holdout_minus_calibration_rmse": 0.5625915827280841,
+          "horizon": 5,
+          "interval_n": 22,
+          "mae": 0.5799480519480487,
+          "mape_percent": 0.785639740981214,
+          "method": "linear_trend",
+          "n": 35,
+          "rmse": 0.7003064114514261,
+          "segment": "national"
+        },
+        {
+          "bias": -0.41907070707070965,
+          "calibration_rmse": 0.14407191865959074,
+          "coverage": 1.0,
+          "holdout_minus_calibration_rmse": 0.9342738311663807,
+          "horizon": 10,
+          "interval_n": 12,
+          "mae": 0.9589090909090904,
+          "mape_percent": 1.295953744824913,
+          "method": "linear_trend",
+          "n": 30,
+          "rmse": 1.0783457498259714,
+          "segment": "national"
+        },
+        {
+          "bias": 0.8314285714285713,
+          "calibration_rmse": 1.1421445389240215,
+          "coverage": 0.7727272727272727,
+          "holdout_minus_calibration_rmse": -0.19421446314235935,
+          "horizon": 5,
+          "interval_n": 22,
+          "mae": 0.865714285714286,
+          "mape_percent": 1.1710475855299762,
+          "method": "persistence",
+          "n": 35,
+          "rmse": 0.9479300757816621,
+          "segment": "national"
+        },
+        {
+          "bias": 1.8066666666666669,
+          "calibration_rmse": 1.1536031960542288,
+          "coverage": 1.0,
+          "holdout_minus_calibration_rmse": 0.7250488029422146,
+          "horizon": 10,
+          "interval_n": 12,
+          "mae": 1.8066666666666669,
+          "mape_percent": 2.4258784555355994,
+          "method": "persistence",
+          "n": 30,
+          "rmse": 1.8786519989964434,
+          "segment": "national"
+        }
+      ],
+      "population": "U.S., all races, Male",
+      "skipped_count": 24,
+      "source": "nchs_life_expectancy.csv",
+      "unit": "years"
+    },
+    {
+      "domain": "mortality",
+      "fold_count": 64,
+      "id": "death_rate_male",
+      "label": "Age-adjusted Death Rate: Male",
+      "limitations": [
+        "Published rounded aggregate; no age-specific schedule.",
+        "Death-rate folds cannot cross the 1999 standardization boundary."
+      ],
+      "metrics": [
+        {
+          "bias": 68.17060606060609,
+          "calibration_rmse": 7.696992641153575,
+          "coverage": null,
+          "holdout_minus_calibration_rmse": 62.47905728709684,
+          "horizon": 5,
+          "interval_n": 0,
+          "mae": 68.17060606060609,
+          "mape_percent": 7.920942151428136,
+          "method": "linear_trend",
+          "n": 6,
+          "rmse": 70.17604992825042,
+          "segment": "2000_standard"
+        },
+        {
+          "bias": 26.307757575757492,
+          "calibration_rmse": 15.688684857289783,
+          "coverage": 1.0,
+          "holdout_minus_calibration_rmse": 45.34358885990255,
+          "horizon": 5,
+          "interval_n": 2,
+          "mae": 47.29806060606056,
+          "mape_percent": 3.856355621490192,
+          "method": "linear_trend",
+          "n": 15,
+          "rmse": 61.03227371719233,
+          "segment": "historical_standard"
+        },
+        {
+          "bias": 119.61333333333346,
+          "calibration_rmse": 7.0850641022740986,
+          "coverage": null,
+          "holdout_minus_calibration_rmse": 112.52826923105935,
+          "horizon": 10,
+          "interval_n": 0,
+          "mae": 119.61333333333346,
+          "mape_percent": 13.981687122540439,
+          "method": "linear_trend",
+          "n": 1,
+          "rmse": 119.61333333333346,
+          "segment": "2000_standard"
+        },
+        {
+          "bias": 71.8239393939393,
+          "calibration_rmse": 17.932194044154087,
+          "coverage": null,
+          "holdout_minus_calibration_rmse": 98.40115802464376,
+          "horizon": 10,
+          "interval_n": 0,
+          "mae": 100.01569696969688,
+          "mape_percent": 8.559377162889017,
+          "method": "linear_trend",
+          "n": 10,
+          "rmse": 116.33335206879785,
+          "segment": "historical_standard"
+        },
+        {
+          "bias": -22.98333333333331,
+          "calibration_rmse": 83.24935470254961,
+          "coverage": null,
+          "holdout_minus_calibration_rmse": -53.89420183290851,
+          "horizon": 5,
+          "interval_n": 0,
+          "mae": 22.98333333333331,
+          "mape_percent": 2.6707231276288836,
+          "method": "persistence",
+          "n": 6,
+          "rmse": 29.3551528696411,
+          "segment": "2000_standard"
+        },
+        {
+          "bias": -64.38666666666668,
+          "calibration_rmse": 86.39798943705105,
+          "coverage": 0.5,
+          "holdout_minus_calibration_rmse": -19.164773439797628,
+          "horizon": 5,
+          "interval_n": 2,
+          "mae": 64.38666666666668,
+          "mape_percent": 5.499632336404884,
+          "method": "persistence",
+          "n": 15,
+          "rmse": 67.23321599725342,
+          "segment": "historical_standard"
+        },
+        {
+          "bias": -63.299999999999955,
+          "calibration_rmse": 90.0243355987702,
+          "coverage": null,
+          "holdout_minus_calibration_rmse": -26.72433559877024,
+          "horizon": 10,
+          "interval_n": 0,
+          "mae": 63.299999999999955,
+          "mape_percent": 7.399181765049673,
+          "method": "persistence",
+          "n": 1,
+          "rmse": 63.299999999999955,
+          "segment": "2000_standard"
+        },
+        {
+          "bias": -134.02,
+          "calibration_rmse": 93.79986948024326,
+          "coverage": null,
+          "holdout_minus_calibration_rmse": 42.191100808228484,
+          "horizon": 10,
+          "interval_n": 0,
+          "mae": 134.02,
+          "mape_percent": 11.734960682573814,
+          "method": "persistence",
+          "n": 10,
+          "rmse": 135.99097028847174,
+          "segment": "historical_standard"
+        }
+      ],
+      "population": "U.S., all races, Male",
+      "skipped_count": 48,
+      "source": "nchs_life_expectancy.csv",
+      "unit": "deaths per 100000 standard population"
+    },
+    {
+      "domain": "mortality",
+      "fold_count": 130,
+      "id": "e0_female",
+      "label": "Average Life Expectancy (Years): Female",
+      "limitations": [
+        "Published rounded aggregate; no age-specific schedule.",
+        "Death-rate folds cannot cross the 1999 standardization boundary."
+      ],
+      "metrics": [
+        {
+          "bias": -0.25731601731601433,
+          "calibration_rmse": 0.14553184575343384,
+          "coverage": 1.0,
+          "holdout_minus_calibration_rmse": 0.4942523891600765,
+          "horizon": 5,
+          "interval_n": 22,
+          "mae": 0.4559307359307358,
+          "mape_percent": 0.5733405713667247,
+          "method": "linear_trend",
+          "n": 35,
+          "rmse": 0.6397842349135103,
+          "segment": "national"
+        },
+        {
+          "bias": -0.3558383838383833,
+          "calibration_rmse": 0.15502061998296549,
+          "coverage": 1.0,
+          "holdout_minus_calibration_rmse": 0.887039064919625,
+          "horizon": 10,
+          "interval_n": 12,
+          "mae": 0.7139797979797928,
+          "mape_percent": 0.8982093842633013,
+          "method": "linear_trend",
+          "n": 30,
+          "rmse": 1.0420596849025905,
+          "segment": "national"
+        },
+        {
+          "bias": 0.47428571428571414,
+          "calibration_rmse": 0.7225745464535451,
+          "coverage": 0.8181818181818182,
+          "holdout_minus_calibration_rmse": -0.16502890450380936,
+          "horizon": 5,
+          "interval_n": 22,
+          "mae": 0.4800000000000003,
+          "mape_percent": 0.6013437118563792,
+          "method": "persistence",
+          "n": 35,
+          "rmse": 0.5575456419497358,
+          "segment": "national"
+        },
+        {
+          "bias": 1.0266666666666666,
+          "calibration_rmse": 0.7055695000929973,
+          "coverage": 0.6666666666666666,
+          "holdout_minus_calibration_rmse": 0.3671218192839545,
+          "horizon": 10,
+          "interval_n": 12,
+          "mae": 1.0266666666666666,
+          "mape_percent": 1.2814141217205275,
+          "method": "persistence",
+          "n": 30,
+          "rmse": 1.0726913193769518,
+          "segment": "national"
+        }
+      ],
+      "population": "U.S., all races, Female",
+      "skipped_count": 24,
+      "source": "nchs_life_expectancy.csv",
+      "unit": "years"
+    },
+    {
+      "domain": "mortality",
+      "fold_count": 64,
+      "id": "death_rate_female",
+      "label": "Age-adjusted Death Rate: Female",
+      "limitations": [
+        "Published rounded aggregate; no age-specific schedule.",
+        "Death-rate folds cannot cross the 1999 standardization boundary."
+      ],
+      "metrics": [
+        {
+          "bias": 37.450000000000045,
+          "calibration_rmse": 6.255250813083464,
+          "coverage": null,
+          "holdout_minus_calibration_rmse": 33.491573533115535,
+          "horizon": 5,
+          "interval_n": 0,
+          "mae": 37.450000000000045,
+          "mape_percent": 6.053817827759419,
+          "method": "linear_trend",
+          "n": 6,
+          "rmse": 39.746824346199,
+          "segment": "2000_standard"
+        },
+        {
+          "bias": 33.48226262626266,
+          "calibration_rmse": 12.355476792086375,
+          "coverage": 1.0,
+          "holdout_minus_calibration_rmse": 45.530879116111706,
+          "horizon": 5,
+          "interval_n": 2,
+          "mae": 42.44468686868687,
+          "mape_percent": 5.518630082812552,
+          "method": "linear_trend",
+          "n": 15,
+          "rmse": 57.886355908198084,
+          "segment": "historical_standard"
+        },
+        {
+          "bias": 48.51393939393927,
+          "calibration_rmse": 6.658980720983082,
+          "coverage": null,
+          "holdout_minus_calibration_rmse": 41.85495867295619,
+          "horizon": 10,
+          "interval_n": 0,
+          "mae": 48.51393939393927,
+          "mape_percent": 7.936191623415552,
+          "method": "linear_trend",
+          "n": 1,
+          "rmse": 48.51393939393927,
+          "segment": "2000_standard"
+        },
+        {
+          "bias": 82.53690909090915,
+          "calibration_rmse": 14.303570089561527,
+          "coverage": null,
+          "holdout_minus_calibration_rmse": 97.67183559736219,
+          "horizon": 10,
+          "interval_n": 0,
+          "mae": 88.15278787878792,
+          "mape_percent": 11.847413471185874,
+          "method": "linear_trend",
+          "n": 10,
+          "rmse": 111.97540568692372,
+          "segment": "historical_standard"
+        },
+        {
+          "bias": -16.566666666666645,
+          "calibration_rmse": 50.436285641353216,
+          "coverage": null,
+          "holdout_minus_calibration_rmse": -31.086005712284166,
+          "horizon": 5,
+          "interval_n": 0,
+          "mae": 16.566666666666645,
+          "mape_percent": 2.6738452374911237,
+          "method": "persistence",
+          "n": 6,
+          "rmse": 19.35027992906905,
+          "segment": "2000_standard"
+        },
+        {
+          "bias": -20.019999999999996,
+          "calibration_rmse": 46.979731778281476,
+          "coverage": 1.0,
+          "holdout_minus_calibration_rmse": -22.104858244264594,
+          "horizon": 5,
+          "interval_n": 2,
+          "mae": 20.019999999999996,
+          "mape_percent": 2.6789928716163436,
+          "method": "persistence",
+          "n": 15,
+          "rmse": 24.87487353401688,
+          "segment": "historical_standard"
+        },
+        {
+          "bias": -48.700000000000045,
+          "calibration_rmse": 49.08697383216855,
+          "coverage": null,
+          "holdout_minus_calibration_rmse": -0.38697383216850767,
+          "horizon": 10,
+          "interval_n": 0,
+          "mae": 48.700000000000045,
+          "mape_percent": 7.9666284966465,
+          "method": "persistence",
+          "n": 1,
+          "rmse": 48.700000000000045,
+          "segment": "2000_standard"
+        },
+        {
+          "bias": -47.63000000000001,
+          "calibration_rmse": 54.48181491879175,
+          "coverage": null,
+          "holdout_minus_calibration_rmse": -5.768315763013575,
+          "horizon": 10,
+          "interval_n": 0,
+          "mae": 47.63000000000001,
+          "mape_percent": 6.463431874057609,
+          "method": "persistence",
+          "n": 10,
+          "rmse": 48.71349915577817,
+          "segment": "historical_standard"
+        }
+      ],
+      "population": "U.S., all races, Female",
+      "skipped_count": 48,
+      "source": "nchs_life_expectancy.csv",
+      "unit": "deaths per 100000 standard population"
+    },
+    {
+      "domain": "diabetes",
+      "fold_count": 10,
+      "id": "diabetes_18-44",
+      "label": "Diagnosed diabetes: 18-44",
+      "limitations": [
+        "Self-reported diagnosed diabetes of all types, not total T2D.",
+        "No forecasts cross the 2019 questionnaire/weighting redesign.",
+        "Published survey confidence limits are observation uncertainty, not forecast intervals."
+      ],
+      "metrics": [
+        {
+          "bias": -0.37563636363636344,
+          "calibration_rmse": 0.22295605213789962,
+          "coverage": null,
+          "holdout_minus_calibration_rmse": 0.39691999815173795,
+          "horizon": 5,
+          "interval_n": 0,
+          "mae": 0.5487272727272726,
+          "mape_percent": 22.044849650910255,
+          "method": "linear_trend",
+          "n": 5,
+          "rmse": 0.6198760502896375,
+          "segment": "nhis_pre2019"
+        },
+        {
+          "bias": 0.05999999999999996,
+          "calibration_rmse": 0.4543829962796119,
+          "coverage": null,
+          "holdout_minus_calibration_rmse": 0.016785763295977918,
+          "horizon": 5,
+          "interval_n": 0,
+          "mae": 0.45999999999999996,
+          "mape_percent": 17.427849927849927,
+          "method": "persistence",
+          "n": 5,
+          "rmse": 0.4711687595755898,
+          "segment": "nhis_pre2019"
+        }
+      ],
+      "population": "U.S. civilian noninstitutionalized adults 18+; 18-44",
+      "skipped_count": 30,
+      "source": "nhis_diabetes.csv",
+      "unit": "percent"
+    },
+    {
+      "domain": "diabetes",
+      "fold_count": 10,
+      "id": "diabetes_45-64",
+      "label": "Diagnosed diabetes: 45-64",
+      "limitations": [
+        "Self-reported diagnosed diabetes of all types, not total T2D.",
+        "No forecasts cross the 2019 questionnaire/weighting redesign.",
+        "Published survey confidence limits are observation uncertainty, not forecast intervals."
+      ],
+      "metrics": [
+        {
+          "bias": -1.9301818181818178,
+          "calibration_rmse": 0.38860928667768857,
+          "coverage": null,
+          "holdout_minus_calibration_rmse": 1.5641445833140408,
+          "horizon": 5,
+          "interval_n": 0,
+          "mae": 1.9301818181818178,
+          "mape_percent": 15.624021494795636,
+          "method": "linear_trend",
+          "n": 5,
+          "rmse": 1.9527538699917293,
+          "segment": "nhis_pre2019"
+        },
+        {
+          "bias": 0.11999999999999993,
+          "calibration_rmse": 1.8353660525350022,
+          "coverage": null,
+          "holdout_minus_calibration_rmse": -1.4353660525350018,
+          "horizon": 5,
+          "interval_n": 0,
+          "mae": 0.31999999999999995,
+          "mape_percent": 2.5686235420335843,
+          "method": "persistence",
+          "n": 5,
+          "rmse": 0.40000000000000024,
+          "segment": "nhis_pre2019"
+        }
+      ],
+      "population": "U.S. civilian noninstitutionalized adults 18+; 45-64",
+      "skipped_count": 30,
+      "source": "nhis_diabetes.csv",
+      "unit": "percent"
+    },
+    {
+      "domain": "diabetes",
+      "fold_count": 10,
+      "id": "diabetes_65-74",
+      "label": "Diagnosed diabetes: 65-74",
+      "limitations": [
+        "Self-reported diagnosed diabetes of all types, not total T2D.",
+        "No forecasts cross the 2019 questionnaire/weighting redesign.",
+        "Published survey confidence limits are observation uncertainty, not forecast intervals."
+      ],
+      "metrics": [
+        {
+          "bias": -2.2366060606060594,
+          "calibration_rmse": 0.5132151428739574,
+          "coverage": null,
+          "holdout_minus_calibration_rmse": 2.0737164558388352,
+          "horizon": 5,
+          "interval_n": 0,
+          "mae": 2.2366060606060594,
+          "mape_percent": 10.8789318719104,
+          "method": "linear_trend",
+          "n": 5,
+          "rmse": 2.5869315987127925,
+          "segment": "nhis_pre2019"
+        },
+        {
+          "bias": 0.220000000000001,
+          "calibration_rmse": 2.329160387284868,
+          "coverage": null,
+          "holdout_minus_calibration_rmse": -1.30837637487088,
+          "horizon": 5,
+          "interval_n": 0,
+          "mae": 0.8600000000000001,
+          "mape_percent": 4.143474799825735,
+          "method": "persistence",
+          "n": 5,
+          "rmse": 1.020784012413988,
+          "segment": "nhis_pre2019"
+        }
+      ],
+      "population": "U.S. civilian noninstitutionalized adults 18+; 65-74",
+      "skipped_count": 30,
+      "source": "nhis_diabetes.csv",
+      "unit": "percent"
+    },
+    {
+      "domain": "diabetes",
+      "fold_count": 10,
+      "id": "diabetes_75plus",
+      "label": "Diagnosed diabetes: 75+",
+      "limitations": [
+        "Self-reported diagnosed diabetes of all types, not total T2D.",
+        "No forecasts cross the 2019 questionnaire/weighting redesign.",
+        "Published survey confidence limits are observation uncertainty, not forecast intervals."
+      ],
+      "metrics": [
+        {
+          "bias": -2.715272727272726,
+          "calibration_rmse": 0.8837984843354001,
+          "coverage": null,
+          "holdout_minus_calibration_rmse": 2.0047277555287675,
+          "horizon": 5,
+          "interval_n": 0,
+          "mae": 2.715272727272726,
+          "mape_percent": 13.917030572033113,
+          "method": "linear_trend",
+          "n": 5,
+          "rmse": 2.888526239864168,
+          "segment": "nhis_pre2019"
+        },
+        {
+          "bias": 0.120000000000001,
+          "calibration_rmse": 3.3078995785221017,
+          "coverage": null,
+          "holdout_minus_calibration_rmse": -2.843141576977211,
+          "horizon": 5,
+          "interval_n": 0,
+          "mae": 0.36000000000000015,
+          "mape_percent": 1.7611072093353826,
+          "method": "persistence",
+          "n": 5,
+          "rmse": 0.46475800154489066,
+          "segment": "nhis_pre2019"
+        }
+      ],
+      "population": "U.S. civilian noninstitutionalized adults 18+; 75+",
+      "skipped_count": 30,
+      "source": "nhis_diabetes.csv",
+      "unit": "percent"
+    },
+    {
+      "domain": "diabetes",
+      "fold_count": 10,
+      "id": "diabetes_age-adjusted",
+      "label": "Diagnosed diabetes: Age-Adjusted",
+      "limitations": [
+        "Self-reported diagnosed diabetes of all types, not total T2D.",
+        "No forecasts cross the 2019 questionnaire/weighting redesign.",
+        "Published survey confidence limits are observation uncertainty, not forecast intervals."
+      ],
+      "metrics": [
+        {
+          "bias": -1.2006060606060611,
+          "calibration_rmse": 0.20234018342753216,
+          "coverage": null,
+          "holdout_minus_calibration_rmse": 1.0285012870454855,
+          "horizon": 5,
+          "interval_n": 0,
+          "mae": 1.2006060606060611,
+          "mape_percent": 13.980745691090524,
+          "method": "linear_trend",
+          "n": 5,
+          "rmse": 1.2308414704730177,
+          "segment": "nhis_pre2019"
+        },
+        {
+          "bias": 0.08000000000000007,
+          "calibration_rmse": 1.2114559852552793,
+          "coverage": null,
+          "holdout_minus_calibration_rmse": -1.0016942156212492,
+          "horizon": 5,
+          "interval_n": 0,
+          "mae": 0.15999999999999978,
+          "mape_percent": 1.8258995906054705,
+          "method": "persistence",
+          "n": 5,
+          "rmse": 0.20976176963403023,
+          "segment": "nhis_pre2019"
+        }
+      ],
+      "population": "U.S. civilian noninstitutionalized adults 18+; Age-Adjusted",
+      "skipped_count": 30,
+      "source": "nhis_diabetes.csv",
+      "unit": "percent"
+    },
+    {
+      "domain": "diabetes",
+      "fold_count": 10,
+      "id": "diabetes_crude",
+      "label": "Diagnosed diabetes: Crude",
+      "limitations": [
+        "Self-reported diagnosed diabetes of all types, not total T2D.",
+        "No forecasts cross the 2019 questionnaire/weighting redesign.",
+        "Published survey confidence limits are observation uncertainty, not forecast intervals."
+      ],
+      "metrics": [
+        {
+          "bias": -1.1705454545454537,
+          "calibration_rmse": 0.21165261481850672,
+          "coverage": null,
+          "holdout_minus_calibration_rmse": 0.995982447030848,
+          "horizon": 5,
+          "interval_n": 0,
+          "mae": 1.1705454545454537,
+          "mape_percent": 12.412814817820175,
+          "method": "linear_trend",
+          "n": 5,
+          "rmse": 1.2076350618493548,
+          "segment": "nhis_pre2019"
+        },
+        {
+          "bias": 0.41999999999999993,
+          "calibration_rmse": 1.545358294219199,
+          "coverage": null,
+          "holdout_minus_calibration_rmse": -1.0575058575131806,
+          "horizon": 5,
+          "interval_n": 0,
+          "mae": 0.41999999999999993,
+          "mape_percent": 4.339542616404233,
+          "method": "persistence",
+          "n": 5,
+          "rmse": 0.48785243670601847,
+          "segment": "nhis_pre2019"
+        }
+      ],
+      "population": "U.S. civilian noninstitutionalized adults 18+; Crude",
+      "skipped_count": 30,
+      "source": "nhis_diabetes.csv",
+      "unit": "percent"
+    },
+    {
+      "domain": "food_environment",
+      "fold_count": 150,
+      "id": "sweetener_availability",
+      "label": "Total caloric sweetener availability",
+      "limitations": [
+        "Supply/disappearance proxy, not individual consumption or UPF exposure.",
+        "Includes losses; not loss-adjusted.",
+        "Exogenous context only; no fitted food-to-disease coefficient."
+      ],
+      "metrics": [
+        {
+          "bias": -0.7714433004242401,
+          "calibration_rmse": 1.8540542875771897,
+          "coverage": 0.7407407407407407,
+          "holdout_minus_calibration_rmse": 8.297403978191007,
+          "horizon": 5,
+          "interval_n": 27,
+          "mae": 7.9590579389393925,
+          "mape_percent": 5.786268387313733,
+          "method": "linear_trend",
+          "n": 40,
+          "rmse": 10.151458265768197,
+          "segment": "availability"
+        },
+        {
+          "bias": -3.2430269240865752,
+          "calibration_rmse": 1.9185940602443525,
+          "coverage": 0.5882352941176471,
+          "holdout_minus_calibration_rmse": 19.038579829304798,
+          "horizon": 10,
+          "interval_n": 17,
+          "mae": 16.975793908502155,
+          "mape_percent": 12.491484375360242,
+          "method": "linear_trend",
+          "n": 35,
+          "rmse": 20.95717388954915,
+          "segment": "availability"
+        },
+        {
+          "bias": 0.7743275450000002,
+          "calibration_rmse": 7.267088367821262,
+          "coverage": 0.9259259259259259,
+          "holdout_minus_calibration_rmse": 0.8128442597857672,
+          "horizon": 5,
+          "interval_n": 27,
+          "mae": 7.03672833,
+          "mape_percent": 5.118038209703561,
+          "method": "persistence",
+          "n": 40,
+          "rmse": 8.079932627607029,
+          "segment": "availability"
+        },
+        {
+          "bias": 1.4483158285714293,
+          "calibration_rmse": 7.749151087267549,
+          "coverage": 1.0,
+          "holdout_minus_calibration_rmse": 6.602834334036913,
+          "horizon": 10,
+          "interval_n": 17,
+          "mae": 12.866212097142855,
+          "mape_percent": 9.297882778640702,
+          "method": "persistence",
+          "n": 35,
+          "rmse": 14.351985421304462,
+          "segment": "availability"
+        }
+      ],
+      "population": "U.S. population",
+      "skipped_count": 24,
+      "source": "sweeteners.csv",
+      "unit": "pounds dry weight per person per year"
+    }
+  ],
+  "structural_breaks": [
+    {
+      "domain": "diabetes",
+      "end": null,
+      "id": "nhis_redesign",
+      "source": "https://usdss.cdc.gov/diabetes/data/socrata/National_Burden_Magnitude_methods.html",
+      "start": 2019,
+      "treatment": "Comparability boundary: never train or score across it."
+    },
+    {
+      "domain": "all",
+      "end": 2022,
+      "id": "covid",
+      "source": "https://www.cdc.gov/nchs/data/databriefs/db456.pdf",
+      "start": 2020,
+      "treatment": "Flag affected holdouts; no post-origin shock magnitude fitted."
+    },
+    {
+      "domain": "all",
+      "end": null,
+      "id": "glp1_obesity_regime",
+      "source": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/215256s000lbl.pdf",
+      "start": 2021,
+      "treatment": "Post-Wegovy approval context; adoption/effects unresolved in issue #9."
+    }
+  ],
+  "unmodeled_exogenous_factors": [
+    "Smoking trends",
+    "Antihypertensive and lipid-lowering medication use",
+    "Diagnostic/testing changes",
+    "Demographic aging",
+    "Opioids and other non-food mortality"
+  ]
+}
