@@ -26,3 +26,28 @@ Grades do not replace study-level appraisal and must not be converted mechanical
 ## Rule
 
 Never invent a value or citation to make the model run. An unresolved parameter is a valid state; a fabricated parameter is not.
+
+## Clinical candidate appraisals
+
+`sources` contains source URLs, DOIs, raw-byte SHA-256 receipts, retrieval times,
+licenses, and correction notes. Appraised parameters carry `source_id`, an explicit
+table locator and unit scale, the reported confidence interval, the intended model
+input, and unresolved mapping problems. They must have `model_role: benchmark_only`.
+The engine rejects benchmark records used in a required input slot, even when their
+key and unit have been renamed. A published interval does not become a sampling
+distribution automatically.
+
+```bash
+uv run demeter evidence applicability --output outputs/applicability.json
+uv run demeter evidence verify-sources --download
+```
+
+The second command fetches missing source HTML into ignored `data/raw/clinical/`,
+checks pinned hashes, and repeats the table extraction. It never updates the
+registry or overwrites an existing raw file. HTML drift, unavailable sources,
+missing artifacts, or changed extracted values fail explicitly. Without `--download`
+it is entirely offline. Fresh downloads may fail a byte-level pin if the publisher
+changes page markup; a reviewed source-receipt update is then required. The original
+raw retrieval and six extraction results are recorded in
+`docs/validation/issue-1-clinical-sources.json`. Only small factual estimates and
+receipts are committed; full articles are not redistributed.

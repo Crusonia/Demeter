@@ -75,6 +75,7 @@ Use Python 3.11+ and [uv](https://docs.astral.sh/uv/). Run these commands from t
 uv sync --locked
 uv run demeter validate
 uv run demeter evidence audit
+uv run demeter evidence applicability
 uv run demeter simulate scenarios/baseline.yaml --output outputs/baseline.json
 uv run demeter simulate scenarios/reduce_upf_30.yaml --output outputs/reduce_upf_30.json
 uv run demeter compare scenarios/baseline.yaml scenarios/reduce_upf_30.yaml
@@ -128,3 +129,12 @@ The manifest records exact URLs, retrieval times, publisher, vintage, hashes, tr
 ## Next scientific gate
 
 Resolve state definitions and age-specific baseline prevalence, fit defensible transition hazards and mortality ratios, encode study-compatible dietary doses and uncertainty, and evaluate an independent historical health holdout. Until then, the software reports validation-only results and remains a prerelease. Agriculture, agent behavior, policy, economics, and a public simulator follow the phases in the program vision.
+
+The [issue #1 audit](docs/ISSUE_1_AUDIT.md) records the remaining acceptance criteria.
+Corrected ARIC and LEADR clinical estimates are registered as **benchmarks only**;
+`demeter evidence applicability` shows why they cannot replace national model inputs.
+See [clinical evidence extraction](docs/CLINICAL_EVIDENCE.md) for source receipts,
+correction handling, reproducible table extraction, and transport limitations.
+The original [post-v0.1 roadmap](docs/POST_V0_1_ROADMAP.md) and
+[backtesting strategy](docs/BACKTESTING_STRATEGY.md) are preserved from the existing
+documentation branch; their implementation remains subject to the scientific gates.

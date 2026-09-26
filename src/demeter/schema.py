@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 from collections import Counter
+from datetime import datetime
 from pathlib import Path
 from typing import Literal
 
@@ -33,6 +34,52 @@ class Uncertainty(StrictModel):
         return self
 
 
+class EvidenceSource(StrictModel):
+    """Pinned source receipt; article bytes stay in ignored raw storage."""
+
+    url: str
+    citation: str
+    doi: str
+    raw_filename: str
+    sha256: str = Field(pattern=r"^[0-9a-f]{64}$")
+    retrieved_at: datetime
+    license: str
+    correction_url: str | None = None
+    correction_note: str = ""
+
+    @model_validator(mode="after")
+    def safe_artifact(self):
+        if Path(self.raw_filename).name != self.raw_filename or self.raw_filename in (
+            "",
+            ".",
+            "..",
+        ):
+            raise ValueError("source raw_filename must be a filename, not a path")
+        if self.retrieved_at.utcoffset() is None:
+            raise ValueError("source retrieval time must include timezone")
+        return self
+
+
+class TableExtraction(StrictModel):
+    table_index: int = Field(ge=0, strict=True)
+    row_label: str
+    row_occurrence: int = Field(default=0, ge=0, strict=True)
+    column_index: int = Field(ge=1, strict=True)
+    scale: float = Field(gt=0)
+
+
+class EvidenceApplicability(StrictModel):
+    """Record why a published estimate cannot yet replace an engine input."""
+
+    candidate_for: list[str] = Field(min_length=1)
+    estimand: str = Field(min_length=1)
+    source_locator: str = Field(min_length=1)
+    source_population: str = Field(min_length=1)
+    transport_status: Literal["benchmark_only"] = "benchmark_only"
+    blockers: list[str] = Field(min_length=1)
+    extraction: TableExtraction
+
+
 class EvidenceParameter(StrictModel):
     key: str
     value: float | None
@@ -49,14 +96,20 @@ class EvidenceParameter(StrictModel):
     outcome_definition: str | None = None
     uncertainty: Uncertainty | None = None
     transformation: str | None = None
-    model_role: str = "health_model"
+    model_role: Literal["health_model", "benchmark_only"] = "health_model"
     notes: str | None = None
     unresolved: bool = False
     lower_bound: float | None = None
     upper_bound: float | None = None
+    source_id: str | None = None
+    applicability: EvidenceApplicability | None = None
 
     @model_validator(mode="after")
     def valid_value(self):
+        if self.applicability and (not self.source_id or self.model_role != "benchmark_only"):
+            raise ValueError(
+                "appraised candidate evidence requires a source and benchmark_only role"
+            )
         if self.value is None and not self.unresolved:
             raise ValueError("missing value must be marked unresolved")
         if self.status == "synthetic" and self.evidence_grade != "E":
@@ -79,12 +132,24 @@ class EvidenceRegistry(StrictModel):
     parameters: dict[str, EvidenceParameter]
     datasets: dict[str, dict] = Field(default_factory=dict)
     scientific_blockers: list[str] = Field(default_factory=list)
+    sources: dict[str, EvidenceSource] = Field(default_factory=dict)
 
     @model_validator(mode="after")
     def keys_match(self):
         for key, parameter in self.parameters.items():
             if key != parameter.key:
                 raise ValueError(f"registry key {key!r} does not match parameter.key")
+            if parameter.source_id and parameter.source_id not in self.sources:
+                raise ValueError(f"{key}: missing source receipt {parameter.source_id}")
+            if (
+                parameter.source_id
+                and parameter.source_url != self.sources[parameter.source_id].url
+            ):
+                raise ValueError(f"{key}: source URL does not match the pinned receipt")
+            if parameter.applicability:
+                for target in parameter.applicability.candidate_for:
+                    if target not in self.parameters:
+                        raise ValueError(f"{key}: unknown candidate target {target}")
         return self
 
     @classmethod
@@ -103,7 +168,9 @@ class EvidenceRegistry(StrictModel):
 
     @property
     def content_hash(self) -> str:
-        return hashlib.sha256(json.dumps(self.model_dump(), sort_keys=True).encode()).hexdigest()
+        return hashlib.sha256(
+            json.dumps(self.model_dump(mode="json"), sort_keys=True).encode()
+        ).hexdigest()
 
     def audit(self) -> dict:
         p = self.parameters
@@ -122,6 +189,11 @@ class EvidenceRegistry(StrictModel):
                 and not all((v.source_url, v.population, v.geography, v.time_period))
             ],
             "scientific_blockers": self.scientific_blockers,
+            "benchmark_only": [k for k, v in p.items() if v.model_role == "benchmark_only"],
+            "source_receipts": len(self.sources),
+            "appraised_candidates": {
+                k: v.applicability.model_dump() for k, v in p.items() if v.applicability is not None
+            },
         }
 
 

@@ -11,6 +11,7 @@ from demeter.analysis.experiments import sensitivity as sensitivity_run
 from demeter.analysis.experiments import uncertainty as uncertainty_run
 from demeter.analysis.validation import mortality_backtest, validate as validation_report
 from demeter.data.ingest import rebuild
+from demeter.evidence.appraisal import applicability_report, verify_sources
 from demeter.model import simulate
 from demeter.schema import EvidenceRegistry, Scenario
 
@@ -50,6 +51,26 @@ def validate(evidence: Path = DEFAULT_EVIDENCE, scientific_required: bool = Fals
 @evidence_app.command("audit")
 def evidence_audit(evidence: Path = DEFAULT_EVIDENCE) -> None:
     emit(registry(evidence).audit())
+
+
+@evidence_app.command("applicability")
+def evidence_applicability(evidence: Path = DEFAULT_EVIDENCE, output: Path | None = None) -> None:
+    """Show candidate estimates and unresolved population/endpoint mappings."""
+    emit(applicability_report(registry(evidence)), output)
+
+
+@evidence_app.command("verify-sources")
+def evidence_sources(
+    evidence: Path = DEFAULT_EVIDENCE,
+    raw: Path = Path("data/raw/clinical"),
+    download: bool = False,
+    output: Path | None = None,
+) -> None:
+    """Re-extract pinned clinical tables; fail on drift without altering parameters."""
+    report = verify_sources(registry(evidence), raw, download)
+    emit(report, output)
+    if not report["passed"]:
+        raise typer.Exit(1)
 
 
 @data_app.command("rebuild")

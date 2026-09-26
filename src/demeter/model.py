@@ -66,6 +66,8 @@ def validate_inputs(registry: EvidenceRegistry, scenario: Scenario) -> tuple[np.
     for key, unit in REQUIRED_UNITS.items():
         if key not in registry.parameters or registry.parameters[key].unit != unit:
             raise ValueError(f"Missing parameter or wrong units: {key} requires {unit}")
+        if registry.parameters[key].model_role != "health_model":
+            raise ValueError(f"Benchmark-only evidence cannot drive model input: {key}")
         value = registry.value(key)
         if value < 0 or not isfinite(value):
             raise ValueError(f"Invalid model parameter: {key}")

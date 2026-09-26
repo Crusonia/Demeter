@@ -1,0 +1,75 @@
+{
+  "checks": [
+    {
+      "parameters": [
+        {
+          "extracted": [
+            0.0228,
+            0.0189,
+            0.0275
+          ],
+          "parameter": "aric_hba1c_prediabetes_diabetes_incidence",
+          "passed": true
+        },
+        {
+          "extracted": [
+            1.07,
+            0.88,
+            1.29
+          ],
+          "parameter": "aric_hba1c_prediabetes_mortality_hr",
+          "passed": true
+        },
+        {
+          "extracted": [
+            0.83,
+            0.68,
+            1.0
+          ],
+          "parameter": "aric_ifg_mortality_hr",
+          "passed": true
+        }
+      ],
+      "passed": true,
+      "sha256": "8fcfc3b18a8972b4321264b42cd60914f74bcd61728871450185d8099e3a971e",
+      "source": "aric_rooney_2021_corrected"
+    },
+    {
+      "parameters": [
+        {
+          "extracted": [
+            0.053,
+            0.051,
+            0.054000000000000006
+          ],
+          "parameter": "leadr_diabetes_progression_overall",
+          "passed": true
+        },
+        {
+          "extracted": [
+            0.027999999999999997,
+            0.027000000000000003,
+            0.028999999999999998
+          ],
+          "parameter": "leadr_diabetes_progression_hba1c_low",
+          "passed": true
+        },
+        {
+          "extracted": [
+            0.08199999999999999,
+            0.079,
+            0.084
+          ],
+          "parameter": "leadr_diabetes_progression_hba1c_high",
+          "passed": true
+        }
+      ],
+      "passed": true,
+      "sha256": "11f57aa0827c0d26a096c046268aad39c70512b969da4659423458684ccfd085",
+      "source": "leadr_koyama_2022"
+    }
+  ],
+  "evidence_sha256": "c7c10ecf6b23445e52748fd3fa1de98774d5a4d242833538dac426885cae6496",
+  "interpretation": "Verifies extraction only; not causal identification or national transportability.",
+  "passed": true
+}
