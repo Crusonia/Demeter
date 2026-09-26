@@ -1,0 +1,7 @@
+name: baseline_validation
+description: Synthetic baseline used only to verify model mechanics.
+years: 25
+exposures:
+  upf: 1.0
+  fiber: 1.0
+  fruit_veg: 1.0
