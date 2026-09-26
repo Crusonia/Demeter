@@ -8,7 +8,7 @@ import numpy as np
 from demeter import __version__
 from demeter.data.baseline import population_counts, source_rows
 from demeter.data.ingest import BUNDLE
-from demeter.health.transitions import transition_survivors
+from demeter.health.transitions import STATES, TRANSITIONS, transition_survivors
 from demeter.population.mechanics import (
     age_survivors,
     calibrate_mortality,
@@ -17,7 +17,6 @@ from demeter.population.mechanics import (
 )
 from demeter.schema import EvidenceRegistry, Scenario
 
-STATES = ("healthy", "insulin_resistant", "t2d")
 REQUIRED_UNITS = {
     "initial_healthy_share": "fraction",
     "initial_ir_share": "fraction",
@@ -57,6 +56,7 @@ class SimulationResult:
     annual: list[dict]
     cohorts: list[dict]
     metadata: dict
+    diagnostics: dict | None = None
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -116,7 +116,9 @@ def validate_inputs(registry: EvidenceRegistry, scenario: Scenario) -> tuple[np.
     return shares, extrapolated
 
 
-def simulate(registry: EvidenceRegistry, scenario: Scenario) -> SimulationResult:
+def simulate(
+    registry: EvidenceRegistry, scenario: Scenario, *, diagnostics: bool = False
+) -> SimulationResult:
     """Age-structured annual validation model on observed U.S. demographic inputs."""
     initial_shares, extrapolated = validate_inputs(registry, scenario)
     adult = int(registry.value("adult_age"))
@@ -130,7 +132,7 @@ def simulate(registry: EvidenceRegistry, scenario: Scenario) -> SimulationResult
     hazards = calibrate_mortality(rows, reference, ratios)
     starting = float(stocks.sum())
     cumulative, applied_log_effect = 0.0, 0.0
-    annual = []
+    annual, history = [], []
     target = registry.value("beta_upf_progression") * (scenario.exposures.get("upf", 1) - 1)
     if abs(target) > 50:
         raise ValueError("Scenario log effect is numerically unsupported")
@@ -138,6 +140,21 @@ def simulate(registry: EvidenceRegistry, scenario: Scenario) -> SimulationResult
 
     def snapshot(year, deaths=0.0, flows=None):
         shares = state_shares(stocks, reference)
+        outcomes = period_outcomes(rows, shares, hazards, include_table=diagnostics)
+        if diagnostics:
+            history.append(
+                {
+                    "year": year,
+                    "cohorts": [
+                        {
+                            "age": age,
+                            **{state: float(stocks[age, i]) for i, state in enumerate(STATES)},
+                        }
+                        for age in range(101)
+                    ],
+                    "life_table": outcomes.pop("life_table"),
+                }
+            )
         return dict(
             year=year,
             population=float(stocks.sum()),
@@ -150,7 +167,7 @@ def simulate(registry: EvidenceRegistry, scenario: Scenario) -> SimulationResult
             t2d=float(stocks[:, 2].sum()),
             applied_progression_multiplier=exp(applied_log_effect),
             empty_age_groups_using_reference=int((stocks.sum(axis=1) == 0).sum()),
-            **period_outcomes(rows, shares, hazards),
+            **outcomes,
             **(flows or {}),
         )
 
@@ -167,6 +184,10 @@ def simulate(registry: EvidenceRegistry, scenario: Scenario) -> SimulationResult
             adult,
         )
         stocks = age_survivors(moved)
+        if diagnostics:
+            flows.update(
+                {f"{state}_deaths": float(deaths[:, i].sum()) for i, state in enumerate(STATES)}
+            )
         cumulative += float(deaths.sum())
         if stocks.min() < -1e-7 or not np.isclose(
             stocks.sum() + cumulative, starting, rtol=1e-12, atol=1e-5
@@ -215,4 +236,61 @@ def simulate(registry: EvidenceRegistry, scenario: Scenario) -> SimulationResult
         annual,
         cohorts,
         metadata,
+        {
+            "history": history,
+            "structure": model_structure(registry),
+            "state_definitions": {
+                "healthy": "Synthetic normoglycemic/healthy proxy, not absence of all disease",
+                "insulin_resistant": "Synthetic IR/prediabetes proxy, not separately measured PreChronic",
+                "t2d": "Synthetic T2D state; no remission pathway implemented",
+            },
+            "cohort_semantics": "Age cells after each annual step; 100+ is pooled, not a birth cohort",
+        }
+        if diagnostics
+        else None,
     )
+
+
+def model_structure(registry: EvidenceRegistry) -> dict:
+    """Describe the implemented dependency graph; edges are not causal validation."""
+    transitions = [dict(t) for t in TRANSITIONS]
+    transitions.extend(
+        {
+            "source": s,
+            "target": "dead",
+            "flow": f"{s}_deaths",
+            "parameter": {
+                "insulin_resistant": "mortality_ir_ratio",
+                "t2d": "mortality_t2d_ratio",
+            }.get(s),
+        }
+        for s in STATES
+    )
+    dependencies = [
+        {
+            "source": "upf_exposure",
+            "target": "lagged_response",
+            "parameters": ["beta_upf_progression", "diet_lag_years"],
+        },
+        {"source": "lagged_response", "target": "healthy_to_ir", "parameters": ["h_to_ir_rate"]},
+        {"source": "lagged_response", "target": "ir_to_t2d", "parameters": ["ir_to_t2d_rate"]},
+        {"source": "healthy_to_ir", "target": "state_shares", "parameters": []},
+        {"source": "ir_to_t2d", "target": "state_shares", "parameters": []},
+        {"source": "ir_to_healthy", "target": "state_shares", "parameters": ["ir_to_h_rate"]},
+        {
+            "source": "state_shares",
+            "target": "mortality_schedule",
+            "parameters": ["mortality_ir_ratio", "mortality_t2d_ratio"],
+        },
+        {"source": "nchs_mortality", "target": "mortality_schedule", "parameters": []},
+        {"source": "mortality_schedule", "target": "life_expectancy", "parameters": []},
+        {"source": "mortality_schedule", "target": "healthy_years", "parameters": []},
+        {"source": "state_shares", "target": "healthy_years", "parameters": []},
+    ]
+    return {
+        "states": list(STATES) + ["dead"],
+        "transitions": transitions,
+        "dependencies": dependencies,
+        "evidence": {k: registry.parameters[k].model_dump(mode="json") for k in REQUIRED_UNITS},
+        "interpretation": "Implemented dependencies and state transitions; synthetic edges are not established causal effects",
+    }

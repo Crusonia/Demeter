@@ -32,5 +32,12 @@ jobs:
           uv run demeter compare scenarios/baseline.yaml scenarios/reduce_upf_30.yaml
       - name: Historical holdout diagnostics
         run: uv run demeter historical-backtest --output outputs/historical-backtest.json
+      - name: Scientific observability smoke
+        run: uv run demeter observe scenarios/reduce_upf_30.yaml --draws 4 --samples 8 --destination outputs/observability
+      - name: Render report in offline Chromium
+        if: matrix.python-version == '3.12'
+        run: |
+          uv run playwright install --with-deps chromium
+          uv run python scripts/verify_observability_browser.py
       - name: Build package
         run: uv build

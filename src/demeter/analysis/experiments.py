@@ -63,7 +63,12 @@ def compare(registry: EvidenceRegistry, left: Scenario, right: Scenario) -> dict
 
 
 def uncertainty(
-    registry: EvidenceRegistry, scenario: Scenario, draws: int = 128, seed: int = 0
+    registry: EvidenceRegistry,
+    scenario: Scenario,
+    draws: int = 128,
+    seed: int = 0,
+    *,
+    diagnostics: bool = False,
 ) -> dict:
     if not 2 <= draws <= 10000 or seed < 0:
         raise ValueError("draws must be 2–10000 and seed nonnegative")
@@ -72,6 +77,8 @@ def uncertainty(
     baseline = scenario.model_copy(update={"name": "paired_baseline", "exposures": {"upf": 1.0}})
     collected = {key: [] for key in OUTCOMES}
     deltas = {key: [] for key in OUTCOMES}
+    trajectories = {key: [] for key in OUTCOMES}
+    parameter_draws = {key: [] for key in keys}
     metadata = simulate(registry, scenario).metadata
     for _ in range(draws):
         values = {}
@@ -83,6 +90,11 @@ def uncertainty(
             )
         draw = with_values(registry, values)
         a, b = simulate(draw, baseline), simulate(draw, scenario)
+        if diagnostics:
+            for key in keys:
+                parameter_draws[key].append(float(values[key]))
+            for key in OUTCOMES:
+                trajectories[key].append([r[key] for r in b.annual])
         for key in OUTCOMES:
             collected[key].append(b.annual[-1][key])
             deltas[key].append(b.annual[-1][key] - a.annual[-1][key])
@@ -91,7 +103,7 @@ def uncertainty(
         low, median, high = np.quantile(values, [0.025, 0.5, 0.975])
         return {"median": float(median), "p2_5": float(low), "p97_5": float(high)}
 
-    return {
+    result = {
         "metadata": metadata,
         "validation_only": scenario.mode == "validation",
         "seed": seed,
@@ -103,6 +115,16 @@ def uncertainty(
         "outcomes": {k: summarize(v) for k, v in collected.items()},
         "paired_deltas": {k: summarize(v) for k, v in deltas.items()},
     }
+    if diagnostics:
+        result["parameter_draws"] = parameter_draws
+        result["annual_intervals"] = {
+            k: [
+                {"year": year, **summarize(np.array(v)[:, year])}
+                for year in range(scenario.years + 1)
+            ]
+            for k, v in trajectories.items()
+        }
+    return result
 
 
 def sensitivity(
