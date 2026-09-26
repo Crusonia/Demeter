@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+from typing import Annotated
 
 import typer
 
@@ -33,7 +34,7 @@ def validate(evidence: Path = DEFAULT_EVIDENCE) -> None:
 
 @app.command("simulate")
 def simulate_scenario(
-    scenario: Path = typer.Argument(..., exists=True, readable=True),
+    scenario: Annotated[Path, typer.Argument(exists=True, readable=True)],
     evidence: Path = DEFAULT_EVIDENCE,
 ) -> None:
     """Run one scenario and emit machine-readable JSON."""
@@ -58,8 +59,8 @@ def simulate_scenario(
 
 @app.command()
 def compare(
-    baseline: Path = typer.Argument(..., exists=True, readable=True),
-    intervention: Path = typer.Argument(..., exists=True, readable=True),
+    baseline: Annotated[Path, typer.Argument(exists=True, readable=True)],
+    intervention: Annotated[Path, typer.Argument(exists=True, readable=True)],
     evidence: Path = DEFAULT_EVIDENCE,
 ) -> None:
     """Compare two scenarios using the same evidence registry."""
