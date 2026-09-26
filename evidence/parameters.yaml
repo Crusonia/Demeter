@@ -1,0 +1,125 @@
+# Demeter validation registry
+#
+# IMPORTANT: Every value in this file is synthetic and exists only to exercise
+# the software architecture. None of these values is a scientific finding.
+# Codex v0.1 must replace or retire them through documented evidence/calibration.
+
+parameters:
+  initial_population:
+    key: initial_population
+    value: 1000000
+    unit: people
+    status: synthetic
+    evidence_grade: E
+    source: synthetic software-validation placeholder
+    geography: synthetic
+    notes: Closed validation cohort; not U.S. population.
+
+  initial_healthy_share:
+    key: initial_healthy_share
+    value: 0.70
+    unit: fraction
+    status: synthetic
+    evidence_grade: E
+    source: synthetic software-validation placeholder
+
+  initial_ir_share:
+    key: initial_ir_share
+    value: 0.20
+    unit: fraction
+    status: synthetic
+    evidence_grade: E
+    source: synthetic software-validation placeholder
+
+  initial_t2d_share:
+    key: initial_t2d_share
+    value: 0.10
+    unit: fraction
+    status: synthetic
+    evidence_grade: E
+    source: synthetic software-validation placeholder
+
+  h_to_ir_rate:
+    key: h_to_ir_rate
+    value: 0.035
+    unit: fraction_per_year
+    status: synthetic
+    evidence_grade: E
+    source: synthetic software-validation placeholder
+    uncertainty: {kind: range, low: 0.02, high: 0.05}
+
+  ir_to_h_rate:
+    key: ir_to_h_rate
+    value: 0.020
+    unit: fraction_per_year
+    status: synthetic
+    evidence_grade: E
+    source: synthetic software-validation placeholder
+
+  ir_to_t2d_rate:
+    key: ir_to_t2d_rate
+    value: 0.050
+    unit: fraction_per_year
+    status: synthetic
+    evidence_grade: E
+    source: synthetic software-validation placeholder
+    uncertainty: {kind: range, low: 0.03, high: 0.07}
+
+  t2d_to_ir_rate:
+    key: t2d_to_ir_rate
+    value: 0.010
+    unit: fraction_per_year
+    status: synthetic
+    evidence_grade: E
+    source: synthetic software-validation placeholder
+
+  mortality_healthy:
+    key: mortality_healthy
+    value: 0.006
+    unit: fraction_per_year
+    status: synthetic
+    evidence_grade: E
+    source: synthetic software-validation placeholder
+
+  mortality_ir:
+    key: mortality_ir
+    value: 0.009
+    unit: fraction_per_year
+    status: synthetic
+    evidence_grade: E
+    source: synthetic software-validation placeholder
+
+  mortality_t2d:
+    key: mortality_t2d
+    value: 0.016
+    unit: fraction_per_year
+    status: synthetic
+    evidence_grade: E
+    source: synthetic software-validation placeholder
+
+  beta_upf_progression:
+    key: beta_upf_progression
+    value: 0.45
+    unit: log_multiplier_per_relative_exposure
+    status: synthetic
+    evidence_grade: E
+    source: synthetic software-validation placeholder
+    notes: Architecture test only; not a causal estimate.
+
+  beta_fiber_progression:
+    key: beta_fiber_progression
+    value: 0.20
+    unit: log_multiplier_per_relative_exposure
+    status: synthetic
+    evidence_grade: E
+    source: synthetic software-validation placeholder
+    notes: Architecture test only; not a causal estimate.
+
+  beta_fruit_veg_progression:
+    key: beta_fruit_veg_progression
+    value: 0.15
+    unit: log_multiplier_per_relative_exposure
+    status: synthetic
+    evidence_grade: E
+    source: synthetic software-validation placeholder
+    notes: Architecture test only; not a causal estimate.
