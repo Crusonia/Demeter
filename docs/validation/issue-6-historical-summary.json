@@ -24,7 +24,7 @@
   "metadata": {
     "data_sha256": "8bff8e32d7503b1f6cfad292b19c82a4b97e2455966bd8190b00cb189a2962a3",
     "evidence_sha256": "82870aac5a40e936065e2ce2ab9c5c7dab8c1991be7495966d8e8471c23013aa",
-    "git_commit": "892587f9562fc23127dd274ce2d401919b4443f7",
+    "git_commit": "d6c87816b85cd8ab25fd86870c5aceb414d95f5c",
     "manifest_sha256": "f6398e9eebfa8745325d60b233c165051c452995da853870aaaa291ac4d335f1",
     "model_version": "0.1.0a1",
     "python_source_sha256": "6de697438010a75a10217864ce0bea378cf2598f69bb93163ea2fa1dd4648a58",
@@ -58,7 +58,7 @@
       }
     },
     "vintage_policy": "Retrospective revised observations, not real-time vintage forecasts",
-    "working_tree_dirty": true
+    "working_tree_dirty": false
   },
   "role_policy": "Earlier interval-validation observations may later enter calibration; they are not independent validation of the final fit. Outer holdout never enters its fit.",
   "schema_version": 1,
