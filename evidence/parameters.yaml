@@ -1,102 +1,109 @@
-# Demeter validation registry
-#
-# IMPORTANT: Every value in this file is synthetic and exists only to exercise
-# the software architecture. None of these values is a scientific finding.
-# Codex v0.1 must replace or retire them through documented evidence/calibration.
-
 parameters:
-  initial_population:
-    key: initial_population
-    value: 1000000
-    unit: people
-    status: synthetic
-    evidence_grade: E
-    source: synthetic software-validation placeholder
-    geography: synthetic
-    notes: Closed validation cohort; not U.S. population.
-
   initial_healthy_share:
     key: initial_healthy_share
-    value: 0.70
+    value: 0.7
     unit: fraction
     status: synthetic
     evidence_grade: E
     source: synthetic software-validation placeholder
-
+    population: Synthetic adult metabolic-state allocation; not calibrated to NHANES
+    geography: United States model scaffold
+    time_period: Validation fixture, no empirical vintage
+    model_role: health_model
+    lower_bound: 0
+    upper_bound: 1
+    uncertainty:
+      kind: fixed
+      rationale: Held fixed in software sensitivity experiment; empirical distribution
+        unresolved
   initial_ir_share:
     key: initial_ir_share
-    value: 0.20
+    value: 0.2
     unit: fraction
     status: synthetic
     evidence_grade: E
     source: synthetic software-validation placeholder
-
+    population: Synthetic adult metabolic-state allocation; not calibrated to NHANES
+    geography: United States model scaffold
+    time_period: Validation fixture, no empirical vintage
+    model_role: health_model
+    lower_bound: 0
+    upper_bound: 1
+    uncertainty:
+      kind: fixed
+      rationale: Held fixed in software sensitivity experiment; empirical distribution
+        unresolved
   initial_t2d_share:
     key: initial_t2d_share
-    value: 0.10
+    value: 0.1
     unit: fraction
     status: synthetic
     evidence_grade: E
     source: synthetic software-validation placeholder
-
+    population: Synthetic adult metabolic-state allocation; not calibrated to NHANES
+    geography: United States model scaffold
+    time_period: Validation fixture, no empirical vintage
+    model_role: health_model
+    lower_bound: 0
+    upper_bound: 1
+    uncertainty:
+      kind: fixed
+      rationale: Held fixed in software sensitivity experiment; empirical distribution
+        unresolved
   h_to_ir_rate:
     key: h_to_ir_rate
     value: 0.035
-    unit: fraction_per_year
+    unit: hazard_per_year
     status: synthetic
     evidence_grade: E
     source: synthetic software-validation placeholder
-    uncertainty: {kind: range, low: 0.02, high: 0.05}
-
+    uncertainty:
+      kind: uniform
+      low: 0.0175
+      high: 0.052500000000000005
+      rationale: Synthetic stress range, not a confidence interval
+    population: Synthetic adult metabolic-state allocation; not calibrated to NHANES
+    geography: United States model scaffold
+    time_period: Validation fixture, no empirical vintage
+    model_role: health_model
+    lower_bound: 0
+    upper_bound: 10
   ir_to_h_rate:
     key: ir_to_h_rate
-    value: 0.020
-    unit: fraction_per_year
+    value: 0.02
+    unit: hazard_per_year
     status: synthetic
     evidence_grade: E
     source: synthetic software-validation placeholder
-
+    population: Synthetic adult metabolic-state allocation; not calibrated to NHANES
+    geography: United States model scaffold
+    time_period: Validation fixture, no empirical vintage
+    model_role: health_model
+    lower_bound: 0
+    upper_bound: 10
+    uncertainty:
+      kind: uniform
+      low: 0.01
+      high: 0.03
+      rationale: Synthetic stress range, not a confidence interval
   ir_to_t2d_rate:
     key: ir_to_t2d_rate
-    value: 0.050
-    unit: fraction_per_year
+    value: 0.05
+    unit: hazard_per_year
     status: synthetic
     evidence_grade: E
     source: synthetic software-validation placeholder
-    uncertainty: {kind: range, low: 0.03, high: 0.07}
-
-  t2d_to_ir_rate:
-    key: t2d_to_ir_rate
-    value: 0.010
-    unit: fraction_per_year
-    status: synthetic
-    evidence_grade: E
-    source: synthetic software-validation placeholder
-
-  mortality_healthy:
-    key: mortality_healthy
-    value: 0.006
-    unit: fraction_per_year
-    status: synthetic
-    evidence_grade: E
-    source: synthetic software-validation placeholder
-
-  mortality_ir:
-    key: mortality_ir
-    value: 0.009
-    unit: fraction_per_year
-    status: synthetic
-    evidence_grade: E
-    source: synthetic software-validation placeholder
-
-  mortality_t2d:
-    key: mortality_t2d
-    value: 0.016
-    unit: fraction_per_year
-    status: synthetic
-    evidence_grade: E
-    source: synthetic software-validation placeholder
-
+    uncertainty:
+      kind: uniform
+      low: 0.025
+      high: 0.07500000000000001
+      rationale: Synthetic stress range, not a confidence interval
+    population: Synthetic adult metabolic-state allocation; not calibrated to NHANES
+    geography: United States model scaffold
+    time_period: Validation fixture, no empirical vintage
+    model_role: health_model
+    lower_bound: 0
+    upper_bound: 10
   beta_upf_progression:
     key: beta_upf_progression
     value: 0.45
@@ -105,21 +112,226 @@ parameters:
     evidence_grade: E
     source: synthetic software-validation placeholder
     notes: Architecture test only; not a causal estimate.
-
-  beta_fiber_progression:
-    key: beta_fiber_progression
-    value: 0.20
-    unit: log_multiplier_per_relative_exposure
+    population: Synthetic adult metabolic-state allocation; not calibrated to NHANES
+    geography: United States model scaffold
+    time_period: Validation fixture, no empirical vintage
+    model_role: health_model
+    lower_bound: 0
+    upper_bound: 10
+    uncertainty:
+      kind: uniform
+      low: 0.225
+      high: 0.675
+      rationale: Synthetic stress range, not a confidence interval
+  mortality_ir_ratio:
+    key: mortality_ir_ratio
+    value: 1.3
+    unit: hazard_ratio
     status: synthetic
     evidence_grade: E
-    source: synthetic software-validation placeholder
-    notes: Architecture test only; not a causal estimate.
-
-  beta_fruit_veg_progression:
-    key: beta_fruit_veg_progression
-    value: 0.15
-    unit: log_multiplier_per_relative_exposure
+    source: Synthetic software-validation fixture
+    population: Uncalibrated model population
+    geography: United States model scaffold
+    time_period: No empirical vintage
+    model_role: health_model
+    notes: ''
+    lower_bound: 0
+    uncertainty:
+      kind: uniform
+      low: 1.1
+      high: 1.5
+      rationale: Synthetic parameter range; not empirical uncertainty
+  mortality_t2d_ratio:
+    key: mortality_t2d_ratio
+    value: 2.0
+    unit: hazard_ratio
     status: synthetic
     evidence_grade: E
-    source: synthetic software-validation placeholder
-    notes: Architecture test only; not a causal estimate.
+    source: Synthetic software-validation fixture
+    population: Uncalibrated model population
+    geography: United States model scaffold
+    time_period: No empirical vintage
+    model_role: health_model
+    notes: ''
+    lower_bound: 0
+    uncertainty:
+      kind: uniform
+      low: 1.5
+      high: 2.5
+      rationale: Synthetic parameter range; not empirical uncertainty
+  diet_lag_years:
+    key: diet_lag_years
+    value: 5.0
+    unit: years
+    status: synthetic
+    evidence_grade: E
+    source: Synthetic software-validation fixture
+    population: Uncalibrated model population
+    geography: United States model scaffold
+    time_period: No empirical vintage
+    model_role: health_model
+    notes: ''
+    lower_bound: 0
+    uncertainty:
+      kind: uniform
+      low: 2.0
+      high: 10.0
+      rationale: Synthetic parameter range; not empirical uncertainty
+  adult_age:
+    key: adult_age
+    value: 18
+    unit: years
+    status: synthetic
+    evidence_grade: E
+    source: Synthetic software-validation fixture
+    population: Uncalibrated model population
+    geography: United States model scaffold
+    time_period: No empirical vintage
+    model_role: health_model
+    notes: No modeled pediatric metabolic disease; limitation, not an observation
+    lower_bound: 0
+    uncertainty:
+      kind: fixed
+      rationale: Fixed scaffold assumption; not an empirical estimate
+  upf_min_multiplier:
+    key: upf_min_multiplier
+    value: 0.5
+    unit: relative_exposure
+    status: synthetic
+    evidence_grade: E
+    source: Synthetic software-validation fixture
+    population: Uncalibrated model population
+    geography: United States model scaffold
+    time_period: No empirical vintage
+    model_role: health_model
+    notes: Software validation envelope, not a study-supported range
+    lower_bound: 0
+    uncertainty:
+      kind: fixed
+      rationale: Fixed scaffold assumption; not an empirical estimate
+  upf_max_multiplier:
+    key: upf_max_multiplier
+    value: 1.5
+    unit: relative_exposure
+    status: synthetic
+    evidence_grade: E
+    source: Synthetic software-validation fixture
+    population: Uncalibrated model population
+    geography: United States model scaffold
+    time_period: No empirical vintage
+    model_role: health_model
+    notes: Software validation envelope, not a study-supported range
+    lower_bound: 0
+    uncertainty:
+      kind: fixed
+      rationale: Fixed scaffold assumption; not an empirical estimate
+  observed_diabetes_20_39:
+    key: observed_diabetes_20_39
+    value: 0.036
+    unit: fraction
+    status: observed
+    evidence_grade: C
+    source: NCHS Data Brief 516, Table 2
+    source_url: https://www.cdc.gov/nchs/products/databriefs/db516.htm
+    population: U.S. civilian noninstitutionalized adults; age band in parameter key
+    geography: United States
+    time_period: August 2021–August 2023
+    outcome_definition: Total diabetes, all types; diagnosed or lab-defined undiagnosed
+    model_role: benchmark_only
+    notes: Not a T2D-specific calibration target. Report definition mismatch explicitly.
+    lower_bound: 0
+    upper_bound: 1
+    uncertainty:
+      kind: interval
+      low: 0.02
+      high: 0.059
+      rationale: Published 95% confidence interval, not a sampling distribution
+  observed_diabetes_40_59:
+    key: observed_diabetes_40_59
+    value: 0.177
+    unit: fraction
+    status: observed
+    evidence_grade: C
+    source: NCHS Data Brief 516, Table 2
+    source_url: https://www.cdc.gov/nchs/products/databriefs/db516.htm
+    population: U.S. civilian noninstitutionalized adults; age band in parameter key
+    geography: United States
+    time_period: August 2021–August 2023
+    outcome_definition: Total diabetes, all types; diagnosed or lab-defined undiagnosed
+    model_role: benchmark_only
+    notes: Not a T2D-specific calibration target. Report definition mismatch explicitly.
+    lower_bound: 0
+    upper_bound: 1
+    uncertainty:
+      kind: interval
+      low: 0.147
+      high: 0.21
+      rationale: Published 95% confidence interval, not a sampling distribution
+  observed_diabetes_60_plus:
+    key: observed_diabetes_60_plus
+    value: 0.273
+    unit: fraction
+    status: observed
+    evidence_grade: C
+    source: NCHS Data Brief 516, Table 2
+    source_url: https://www.cdc.gov/nchs/products/databriefs/db516.htm
+    population: U.S. civilian noninstitutionalized adults; age band in parameter key
+    geography: United States
+    time_period: August 2021–August 2023
+    outcome_definition: Total diabetes, all types; diagnosed or lab-defined undiagnosed
+    model_role: benchmark_only
+    notes: Not a T2D-specific calibration target. Report definition mismatch explicitly.
+    lower_bound: 0
+    upper_bound: 1
+    uncertainty:
+      kind: interval
+      low: 0.23
+      high: 0.319
+      rationale: Published 95% confidence interval, not a sampling distribution
+  observed_prediabetes_65_plus:
+    key: observed_prediabetes_65_plus
+    value: 0.521
+    unit: fraction
+    status: observed
+    evidence_grade: C
+    source: CDC National Diabetes Statistics Report
+    source_url: https://www.cdc.gov/diabetes/php/data-research/index.html
+    population: U.S. adults age 65 and older
+    geography: United States
+    time_period: 2021–2023; webpage updated September 16, 2026
+    outcome_definition: Prediabetes, not all insulin resistance
+    model_role: benchmark_only
+    notes: No confidence interval transcribed from the summary; audit reports missing
+      uncertainty.
+datasets:
+  us_mortality:
+    status: observed
+    source: CDC/NCHS U.S. life tables, Tables 1–3
+    unit: annual probability and life-table person-years
+    vintages:
+    - 2022
+    - 2023
+    - 2024
+    manifest: src/demeter/data/bundled/manifest.json
+    transformation: demeter.data.ingest.transform_life_table; ax derived from Lx,lx,dx
+    uncertainty: Published qx treated as fixed; sampling uncertainty not propagated
+  us_population:
+    status: observed
+    source: Census Vintage 2025 resident population estimates
+    unit: people by single age and sex
+    vintages:
+    - 2022
+    - 2023
+    - 2024
+    manifest: src/demeter/data/bundled/manifest.json
+    transformation: Select SEX 0/1/2, AGE 0..100, POPESTIMATE year; 100 is open group
+    uncertainty: Published estimates treated as fixed; demographic uncertainty not
+      propagated
+scientific_blockers:
+- National age-specific metabolic transition hazards are unresolved.
+- Age-specific T2D/prediabetes initial prevalence is not calibrated; CDC total diabetes
+  includes other types.
+- Dietary causal coefficient, dose scale, lag, and supported population are unresolved.
+- State mortality hazard ratios remain synthetic.
+- No historical end-to-end dietary-effect validation; mortality persistence backtest
+  is a limited benchmark.
