@@ -18,6 +18,7 @@ Release identifier: **0.1.0a1**. Engineering functionality is implemented; scien
 | Historical backtest | Limited benchmark implemented | Frozen 2022 mortality predicts 2023; no diet-effect validation |
 | Uncertainty propagation | Implemented | Seeded independent draws and paired scenario deltas |
 | Sensitivity | Implemented | SALib Sobol indices with confidence half-widths |
+| Food leverage and pathway attribution | Engineering implemented; scientific effects unresolved | Exact dietary-hazard Shapley allocation, paired sensitivity, sampling intervals and evidence overlays; [method and limits](LEVERAGE.md) |
 | Tests and CI | Implemented | Offline test suite, lint, registry, CLI, and locked installation |
 | Output provenance and restrictions | Implemented | Version/hash/vintage/flags; scientific mode disabled |
 | Documentation and phase boundary | Implemented | Model spec, source pipeline, evidence gaps, full program vision |

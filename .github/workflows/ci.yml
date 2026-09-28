@@ -71,6 +71,8 @@ jobs:
           uv run demeter simulate scenarios/glp1_access.yaml --output outputs/glp1.json
       - name: Historical holdout diagnostics
         run: uv run demeter historical-backtest --output outputs/historical-backtest.json
+      - name: Food leverage and pathway attribution
+        run: uv run demeter leverage --scenario scenarios/diet_dynamics.yaml --draws 2 --samples 8 --seed 42 --destination outputs/leverage
       - name: Scientific observability smoke
         run: uv run demeter observe scenarios/reduce_upf_30.yaml --draws 4 --samples 8 --destination outputs/observability
       - name: Render report in offline Chromium
@@ -84,5 +86,6 @@ jobs:
           uv run python scripts/verify_observability_browser.py --report outputs/diet-dynamics-report/index.html --figures 57
           uv run demeter observe scenarios/glp1_access.yaml --draws 4 --samples 8 --destination outputs/glp1-report
           uv run python scripts/verify_observability_browser.py --report outputs/glp1-report/index.html --figures 65
+          uv run python scripts/verify_observability_browser.py --report outputs/leverage/index.html --figures 26
       - name: Build package
         run: uv build

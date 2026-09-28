@@ -98,7 +98,9 @@ inputs, structural assumptions, and correlations remain outside that uncertainty
 Comparison exports absolute/relative healthspan differences, state person-year
 differences, and cumulative transition differences. These connect later food
 scenarios to inspectable state changes, but do not uniquely decompose causal
-pathways. Full intervention attribution remains the work of issue #26.
+pathways. The [food-leverage report](LEVERAGE.md) adds an explicit counterfactual
+pathway allocation with sampling intervals; it does not identify biological
+mediation or establish empirical causal effects.
 Evidence hashes, source vintages, scenario assumptions, metric definitions and
 validation-only labels travel with the outputs.
 

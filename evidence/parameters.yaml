@@ -1,4 +1,19 @@
 parameters:
+  leverage_upf_scale:
+    key: leverage_upf_scale
+    value: 1.0
+    unit: scenario_contrast_multiplier
+    status: synthetic
+    evidence_grade: E
+    model_role: benchmark_only
+    source: Analysis-design assumption for the leverage report, not an empirical effect
+    population: Same adult cohort and dietary definition as the selected scenarios
+    geography: United States validation scaffold
+    time_period: Scenario horizon, not an observed vintage
+    lower_bound: 0
+    uncertainty: {kind: uniform, low: 0.0, high: 1.5, rationale: "Synthetic range of intervention strength, including no diet change; not an empirical confidence interval"}
+    transformation: At each year interpolate relative UPF as reference + scale * (intervention - reference); preserve timing and reference policy
+    notes: Analysis-only input. Zero removes the food contrast; one reproduces it. Support is checked at both range endpoints before sampling. Never passed as a health-model coefficient.
   glp1_eligible_fraction:
     key: glp1_eligible_fraction
     value: 0.4

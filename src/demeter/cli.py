@@ -230,6 +230,31 @@ def diet_timing_sensitivity(
     )
 
 
+@app.command("leverage")
+def food_leverage(
+    scenario: Path = Path("scenarios/diet_dynamics.yaml"),
+    baseline: Path | None = None,
+    evidence: Path = DEFAULT_EVIDENCE,
+    draws: int = 32,
+    samples: int = 64,
+    seed: int = 0,
+    destination: Path = Path("outputs/leverage"),
+) -> None:
+    """Explain food contrasts with exact pathway allocation, sensitivity and evidence context."""
+    from demeter.analysis.leverage import leverage
+    from demeter.analysis.leverage_visualization import render_leverage
+
+    payload = leverage(
+        registry(evidence),
+        Scenario.from_yaml(scenario),
+        baseline=Scenario.from_yaml(baseline) if baseline else None,
+        draws=draws,
+        samples=samples,
+        seed=seed,
+    )
+    emit(render_leverage(payload, destination))
+
+
 @app.command("historical-backtest")
 def historical_benchmarks(
     evidence: Path = DEFAULT_EVIDENCE,

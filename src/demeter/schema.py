@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 from collections import Counter
+from collections.abc import Iterable
 from datetime import datetime
 from pathlib import Path
 from typing import Literal
@@ -172,8 +173,16 @@ class EvidenceRegistry(StrictModel):
             json.dumps(self.model_dump(mode="json"), sort_keys=True).encode()
         ).hexdigest()
 
-    def audit(self) -> dict:
-        p = self.parameters
+    def audit(self, *, parameter_keys: Iterable[str] | None = None) -> dict:
+        """Audit all parameters, or declared dependencies of one model run.
+
+        The content hash and scientific blockers retain registry-wide scope.
+        """
+        p = (
+            self.parameters
+            if parameter_keys is None
+            else {key: self.parameters[key] for key in parameter_keys}
+        )
         return {
             "parameter_count": len(p),
             "content_sha256": self.content_hash,

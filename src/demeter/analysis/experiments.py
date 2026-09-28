@@ -95,7 +95,7 @@ def compare(registry: EvidenceRegistry, left: Scenario, right: Scenario) -> dict
             - sum(r.get(flow, 0) for r in base.annual)
             for flow in base.metadata["transition_flows"]
         },
-        "attribution_scope": "Paired state-time and transition accounting; unique causal/pathway decomposition belongs to issue #26",
+        "attribution_scope": "Paired state-time and transition accounting, not additive pathway attribution. Use demeter leverage for explicit counterfactual Shapley allocation.",
     }
 
 
