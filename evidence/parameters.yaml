@@ -1,4 +1,289 @@
 parameters:
+  glp1_eligible_fraction:
+    key: glp1_eligible_fraction
+    value: 0.4
+    unit: fraction
+    status: synthetic
+    evidence_grade: E
+    model_role: health_model
+    source: Explicit GLP-1 software fixture; no empirical estimate or calibration
+    population: Uncalibrated adult model; fixed indication and response strata
+    geography: United States scaffold
+    time_period: No empirical vintage
+    lower_bound: 0
+    uncertainty:
+      kind: uniform
+      low: 0.2
+      high: 0.6
+      rationale: Synthetic software sensitivity range; not clinical confidence interval
+    notes: See datasets.glp1_benchmarks and docs/GLP1.md for source applicability;
+      never transport benchmark estimates automatically.
+    upper_bound: 1
+    source_url: https://clinicaltrials.gov/study/NCT03548987
+  glp1_initiation_rate:
+    key: glp1_initiation_rate
+    value: 0.5
+    unit: hazard_per_year
+    status: synthetic
+    evidence_grade: E
+    model_role: health_model
+    source: Explicit GLP-1 software fixture; no empirical estimate or calibration
+    population: Uncalibrated adult model; fixed indication and response strata
+    geography: United States scaffold
+    time_period: No empirical vintage
+    lower_bound: 0
+    uncertainty:
+      kind: uniform
+      low: 0.1
+      high: 1
+      rationale: Synthetic software sensitivity range; not clinical confidence interval
+    notes: See datasets.glp1_benchmarks and docs/GLP1.md for source applicability;
+      never transport benchmark estimates automatically.
+    source_url: https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2829779
+  glp1_reinitiation_rate:
+    key: glp1_reinitiation_rate
+    value: 0.4
+    unit: hazard_per_year
+    status: synthetic
+    evidence_grade: E
+    model_role: health_model
+    source: Explicit GLP-1 software fixture; no empirical estimate or calibration
+    population: Uncalibrated adult model; fixed indication and response strata
+    geography: United States scaffold
+    time_period: No empirical vintage
+    lower_bound: 0
+    uncertainty:
+      kind: uniform
+      low: 0.1
+      high: 0.8
+      rationale: Synthetic software sensitivity range; not clinical confidence interval
+    notes: See datasets.glp1_benchmarks and docs/GLP1.md for source applicability;
+      never transport benchmark estimates automatically.
+    source_url: https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2829779
+  glp1_discontinuation_rate:
+    key: glp1_discontinuation_rate
+    value: 0.7
+    unit: hazard_per_year
+    status: synthetic
+    evidence_grade: E
+    model_role: health_model
+    source: Explicit GLP-1 software fixture; no empirical estimate or calibration
+    population: Uncalibrated adult model; fixed indication and response strata
+    geography: United States scaffold
+    time_period: No empirical vintage
+    lower_bound: 0
+    uncertainty:
+      kind: uniform
+      low: 0.2
+      high: 1.4
+      rationale: Synthetic software sensitivity range; not clinical confidence interval
+    notes: See datasets.glp1_benchmarks and docs/GLP1.md for source applicability;
+      never transport benchmark estimates automatically.
+    source_url: https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2829779
+  glp1_discontinuation_t2d_rate:
+    key: glp1_discontinuation_t2d_rate
+    value: 0.5
+    unit: hazard_per_year
+    status: synthetic
+    evidence_grade: E
+    model_role: health_model
+    source: Explicit GLP-1 software fixture; no empirical estimate or calibration
+    population: Uncalibrated adult model; fixed indication and response strata
+    geography: United States scaffold
+    time_period: No empirical vintage
+    lower_bound: 0
+    uncertainty:
+      kind: uniform
+      low: 0.1
+      high: 1
+      rationale: Synthetic software sensitivity range; not clinical confidence interval
+    notes: See datasets.glp1_benchmarks and docs/GLP1.md for source applicability;
+      never transport benchmark estimates automatically.
+    source_url: https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2829779
+  glp1_affordability_scale:
+    key: glp1_affordability_scale
+    value: 300
+    unit: USD_per_month
+    status: synthetic
+    evidence_grade: E
+    model_role: health_model
+    source: Explicit GLP-1 software fixture; no empirical estimate or calibration
+    population: Uncalibrated adult model; fixed indication and response strata
+    geography: United States scaffold
+    time_period: No empirical vintage
+    lower_bound: 0
+    uncertainty:
+      kind: uniform
+      low: 100
+      high: 600
+      rationale: Synthetic software sensitivity range; not clinical confidence interval
+    notes: See datasets.glp1_benchmarks and docs/GLP1.md for source applicability;
+      never transport benchmark estimates automatically.
+    source_url: https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2829779
+  glp1_low_response_share:
+    key: glp1_low_response_share
+    value: 0.3
+    unit: fraction
+    status: synthetic
+    evidence_grade: E
+    model_role: health_model
+    source: Explicit GLP-1 software fixture; no empirical estimate or calibration
+    population: Uncalibrated adult model; fixed indication and response strata
+    geography: United States scaffold
+    time_period: No empirical vintage
+    lower_bound: 0
+    uncertainty:
+      kind: uniform
+      low: 0.1
+      high: 0.5
+      rationale: Synthetic software sensitivity range; not clinical confidence interval
+    notes: See datasets.glp1_benchmarks and docs/GLP1.md for source applicability;
+      never transport benchmark estimates automatically.
+    upper_bound: 1
+    source_url: https://clinicaltrials.gov/study/NCT03548987
+  glp1_low_response_factor:
+    key: glp1_low_response_factor
+    value: 0.25
+    unit: fraction
+    status: synthetic
+    evidence_grade: E
+    model_role: health_model
+    source: Explicit GLP-1 software fixture; no empirical estimate or calibration
+    population: Uncalibrated adult model; fixed indication and response strata
+    geography: United States scaffold
+    time_period: No empirical vintage
+    lower_bound: 0
+    uncertainty:
+      kind: uniform
+      low: 0
+      high: 0.5
+      rationale: Synthetic software sensitivity range; not clinical confidence interval
+    notes: See datasets.glp1_benchmarks and docs/GLP1.md for source applicability;
+      never transport benchmark estimates automatically.
+    upper_bound: 1
+    source_url: https://clinicaltrials.gov/study/NCT03548987
+  glp1_response_lag:
+    key: glp1_response_lag
+    value: 0.5
+    unit: years
+    status: synthetic
+    evidence_grade: E
+    model_role: health_model
+    source: Explicit GLP-1 software fixture; no empirical estimate or calibration
+    population: Uncalibrated adult model; fixed indication and response strata
+    geography: United States scaffold
+    time_period: No empirical vintage
+    lower_bound: 0
+    uncertainty:
+      kind: uniform
+      low: 0.2
+      high: 1.5
+      rationale: Synthetic software sensitivity range; not clinical confidence interval
+    notes: See datasets.glp1_benchmarks and docs/GLP1.md for source applicability;
+      never transport benchmark estimates automatically.
+    source_url: https://clinicaltrials.gov/study/NCT03548987
+  glp1_washout_lag:
+    key: glp1_washout_lag
+    value: 1
+    unit: years
+    status: synthetic
+    evidence_grade: E
+    model_role: health_model
+    source: Explicit GLP-1 software fixture; no empirical estimate or calibration
+    population: Uncalibrated adult model; fixed indication and response strata
+    geography: United States scaffold
+    time_period: No empirical vintage
+    lower_bound: 0
+    uncertainty:
+      kind: uniform
+      low: 0.3
+      high: 2
+      rationale: Synthetic software sensitivity range; not clinical confidence interval
+    notes: See datasets.glp1_benchmarks and docs/GLP1.md for source applicability;
+      never transport benchmark estimates automatically.
+    source_url: https://clinicaltrials.gov/study/NCT03548987
+  glp1_weight_loss:
+    key: glp1_weight_loss
+    value: 0.12
+    unit: fraction_of_initial_weight
+    status: synthetic
+    evidence_grade: E
+    model_role: health_model
+    source: Explicit GLP-1 software fixture; no empirical estimate or calibration
+    population: Uncalibrated adult model; fixed indication and response strata
+    geography: United States scaffold
+    time_period: No empirical vintage
+    lower_bound: 0
+    uncertainty:
+      kind: uniform
+      low: 0
+      high: 0.2
+      rationale: Synthetic software sensitivity range; not clinical confidence interval
+    notes: See datasets.glp1_benchmarks and docs/GLP1.md for source applicability;
+      never transport benchmark estimates automatically.
+    upper_bound: 1
+    source_url: https://clinicaltrials.gov/study/NCT03548987
+  glp1_intake_reduction:
+    key: glp1_intake_reduction
+    value: 0.1
+    unit: fraction_of_reference_intake
+    status: synthetic
+    evidence_grade: E
+    model_role: health_model
+    source: Explicit GLP-1 software fixture; no empirical estimate or calibration
+    population: Uncalibrated adult model; fixed indication and response strata
+    geography: United States scaffold
+    time_period: No empirical vintage
+    lower_bound: 0
+    uncertainty:
+      kind: uniform
+      low: 0
+      high: 0.2
+      rationale: Synthetic software sensitivity range; not clinical confidence interval
+    notes: See datasets.glp1_benchmarks and docs/GLP1.md for source applicability;
+      never transport benchmark estimates automatically.
+    upper_bound: 1
+    source_url: https://clinicaltrials.gov/study/NCT03548987
+  glp1_progression_beta:
+    key: glp1_progression_beta
+    value: 2
+    unit: log_hazard_per_weight_fraction
+    status: synthetic
+    evidence_grade: E
+    model_role: health_model
+    source: Explicit GLP-1 software fixture; no empirical estimate or calibration
+    population: Uncalibrated adult model; fixed indication and response strata
+    geography: United States scaffold
+    time_period: No empirical vintage
+    lower_bound: 0
+    uncertainty:
+      kind: uniform
+      low: 0
+      high: 4
+      rationale: Synthetic software sensitivity range; not clinical confidence interval
+    notes: See datasets.glp1_benchmarks and docs/GLP1.md for source applicability;
+      never transport benchmark estimates automatically.
+    source_url: https://clinicaltrials.gov/study/NCT03548987
+  glp1_recovery_beta:
+    key: glp1_recovery_beta
+    value: 2
+    unit: log_hazard_per_weight_fraction
+    status: synthetic
+    evidence_grade: E
+    model_role: health_model
+    source: Explicit GLP-1 software fixture; no empirical estimate or calibration
+    population: Uncalibrated adult model; fixed indication and response strata
+    geography: United States scaffold
+    time_period: No empirical vintage
+    lower_bound: 0
+    uncertainty:
+      kind: uniform
+      low: 0
+      high: 4
+      rationale: Synthetic software sensitivity range; not clinical confidence interval
+    notes: See datasets.glp1_benchmarks and docs/GLP1.md for source applicability;
+      never transport benchmark estimates automatically.
+    source_url: https://clinicaltrials.gov/study/NCT03548987
   diet_improvement_lag_years:
     key: diet_improvement_lag_years
     value: 2.0
@@ -803,6 +1088,37 @@ parameters:
         column_index: 3
         scale: 0.01
 datasets:
+  glp1_benchmarks:
+    model_role: benchmark_only
+    evidence_appraisal:
+      trials:
+        evidence_grade: A
+        design: Randomized treatment comparisons for trial-specific weight endpoints
+        scope: Causal interpretation limited to the randomized contrast, regimen, trial population and estimand; no metabolic-hazard or mortality transport
+      persistence:
+        evidence_grade: C
+        design: Retrospective EHR dispensing cohort; Kaplan-Meier first-event probabilities
+        scope: Descriptive utilization evidence, not a randomized price/access effect; selected reinitiation cohort
+    trial_ids:
+    - NCT03548935
+    - NCT03548987
+    outcome_title:
+      NCT03548935: Change in Body Weight (%)
+      NCT03548987: Change From Randomisation to Week 68 in Body Weight (%)
+    population: Trial-specific adults with overweight/obesity; STEP trials exclude
+      diabetes; persistence study includes T2D/non-T2D strata
+    geography: Multinational trials; US observational persistence
+    source_urls:
+    - https://clinicaltrials.gov/api/v2/studies/NCT03548935
+    - https://clinicaltrials.gov/api/v2/studies/NCT03548987
+    - https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2829779
+    limitations:
+    - No clinical calibration, drug-class pooling, BMI eligibility transport or mortality
+      inference.
+    - Trial available-case mean/SD and treatment-policy difference/CI are distinct
+      estimands.
+    - No direct bridge from body-weight percent to Demeter metabolic hazards has been
+      validated.
   diet_response_challenge:
     status: derived
     evidence_grade: B

@@ -42,6 +42,13 @@ Food is Health thesis. Current dietary scenario outputs remain **validation-only
 
 ## What Demeter is intended to reveal
 
+The optional [GLP-1 experiment](docs/GLP1.md) now models eligibility, access,
+capacity, treatment persistence, interruption, restart and response/washout in
+joint health stocks. Its [example scenario](scenarios/glp1_access.yaml) is
+validation-only. Official ClinicalTrials.gov JSON records ship in the repository
+as reloadable benchmarks; clinical effects and population transport remain
+uncalibrated.
+
 | Question | Intended analysis |
 | --- | --- |
 | Which changes matter most? | Trace a controllable lever through adoption, substitution, delays, health effects, and economic feedback. |

@@ -443,6 +443,84 @@ def diet_figures(payload: dict) -> dict[str, go.Figure]:
     return result
 
 
+def glp1_figures(payload: dict) -> dict[str, go.Figure]:
+    annual = payload["simulation"]["annual"]
+    if "glp1" not in annual[0]:
+        return {}
+    years, rows = [r["year"] for r in annual], [r["glp1"] for r in annual]
+    figures = {}
+    for key, title, unit in (
+        ("treatment_stocks", "Treatment history and response stocks", "People"),
+        ("flows", "Initiation, discontinuation and re-initiation", "People per annual step"),
+    ):
+        fig = go.Figure()
+        for field in rows[0][key]:
+            fig.add_trace(go.Scatter(x=years, y=[r[key][field] for r in rows], name=field))
+        figures["glp1_" + key] = styled(fig, title + " — VALIDATION ONLY", "Model year", unit)
+    fig = go.Figure()
+    for field, label in (
+        ("population_mean_weight_reduction_fraction", "Weight reduction proxy"),
+        ("population_mean_intake_reduction_fraction", "Intake reduction proxy"),
+    ):
+        fig.add_trace(go.Scatter(x=years, y=[r[field] for r in rows], name=label))
+    figures["glp1_response"] = styled(
+        fig,
+        "Delayed response and washout — synthetic proxies",
+        "Model year",
+        "Population mean fractional reduction",
+    )
+    fig = go.Figure()
+    fig.add_trace(
+        go.Scatter(
+            x=years, y=[r["on_treatment"] for r in rows], name="Treated survivors at year end"
+        )
+    )
+    fig.add_trace(
+        go.Scatter(
+            x=years,
+            y=[r["allocation"]["capacity"] if r["allocation"] else 0 for r in rows],
+            name="Slots at annual allocation",
+            line_shape="hv",
+        )
+    )
+    fig.add_trace(
+        go.Scatter(
+            x=years,
+            y=[r["allocation"]["unfilled_start_requests"] if r["allocation"] else 0 for r in rows],
+            name="Starts denied by capacity",
+        )
+    )
+    figures["glp1_capacity"] = styled(
+        fig, "Exogenous treatment supply and allocation", "Model year", "People / slots"
+    )
+    benchmark = payload.get("glp1_benchmarks")
+    if benchmark:
+        fig = go.Figure()
+        for trial in benchmark["trials"]:
+            # Display one explicit estimand; SDs for available-case means are separate in the JSON.
+            a = next(a for a in trial["analyses"] if a["estimand"] == "Treatment policy estimand")
+            fig.add_trace(
+                go.Bar(
+                    x=[trial["nct_id"] + "<br>" + trial["timeframe"]],
+                    y=[a["value"]],
+                    name=trial["nct_id"],
+                    error_y=dict(
+                        type="data",
+                        symmetric=False,
+                        array=[a["high"] - a["value"]],
+                        arrayminus=[a["value"] - a["low"]],
+                    ),
+                )
+            )
+        figures["glp1_trial_benchmarks"] = styled(
+            fig,
+            "Trial weight contrasts — benchmarks, NOT model effects",
+            "Distinct trials and follow-up periods",
+            "Percentage-point difference (95% CI)",
+        )
+    return figures
+
+
 def build_figures(payload: dict) -> dict[str, go.Figure]:
     if payload.get("kind") != "demeter_observability" or payload.get("schema_version") != 1:
         raise ValueError("Expected canonical Demeter observability schema version 1")
@@ -450,6 +528,7 @@ def build_figures(payload: dict) -> dict[str, go.Figure]:
         **model_figures(payload),
         **historical_figures(payload["historical"]),
         **diet_figures(payload),
+        **glp1_figures(payload),
     }
 
 

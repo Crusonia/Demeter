@@ -1,0 +1,325 @@
+{
+  "engine_parameters_updated": false,
+  "evidence_appraisal": {
+    "persistence": {
+      "design": "Retrospective EHR dispensing cohort; Kaplan-Meier first-event probabilities",
+      "evidence_grade": "C",
+      "scope": "Descriptive utilization evidence, not a randomized price/access effect; selected reinitiation cohort"
+    },
+    "trials": {
+      "design": "Randomized treatment comparisons for trial-specific weight endpoints",
+      "evidence_grade": "A",
+      "scope": "Causal interpretation limited to the randomized contrast, regimen, trial population and estimand; no metabolic-hazard or mortality transport"
+    }
+  },
+  "limitations": [
+    "No clinical calibration, drug-class pooling, BMI eligibility transport or mortality inference.",
+    "Trial available-case mean/SD and treatment-policy difference/CI are distinct estimands.",
+    "No direct bridge from body-weight percent to Demeter metabolic hazards has been validated."
+  ],
+  "model_role": "benchmark_only",
+  "persistence": {
+    "citation": "Rodriguez et al. JAMA Network Open. 2025;8(1):e2457349.",
+    "doi": "10.1001/jamanetworkopen.2024.57349",
+    "format": "Demeter factual extraction; not official publisher JSON",
+    "license": "Article CC-BY; extracted numeric facts with attribution",
+    "limitations": [
+      "Observational dispensing histories; not randomized access effects or national eligibility estimates.",
+      "Reinitiation analysis selected people with weight recorded around discontinuation and after; not all discontinuers.",
+      "Annual model also applies access and supply interruptions; importing aggregate discontinuation as a separate clinical hazard would double count barriers."
+    ],
+    "outcome": "Kaplan-Meier first-event probability by 1 year; discontinuation = >=60 days without medication; reinitiation = first fill after discontinuation",
+    "population": "US adults with BMI >=27 initiating liraglutide, injectable semaglutide or tirzepatide in 2018-2023; follow-up through 2024-11-05",
+    "rows": [
+      {
+        "event": "discontinuation",
+        "high": 0.469,
+        "low": 0.462,
+        "n": 76524,
+        "t2d": true,
+        "value": 0.465,
+        "year": 1
+      },
+      {
+        "event": "discontinuation",
+        "high": 0.652,
+        "low": 0.644,
+        "n": 48950,
+        "t2d": false,
+        "value": 0.648,
+        "year": 1
+      },
+      {
+        "event": "reinitiation",
+        "high": 0.48,
+        "low": 0.466,
+        "n": 22869,
+        "t2d": true,
+        "value": 0.473,
+        "year": 1
+      },
+      {
+        "event": "reinitiation",
+        "high": 0.37,
+        "low": 0.356,
+        "n": 18923,
+        "t2d": false,
+        "value": 0.363,
+        "year": 1
+      }
+    ],
+    "schema_version": 1,
+    "source_locator": "Abstract Results; Figure 1; Tables 1 and 2",
+    "source_url": "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2829779",
+    "uncertainty": "95% confidence intervals, not independent sampling distributions"
+  },
+  "provenance": {
+    "definition_sha256": "5b6313ff741f0caacdff2f7597a4de2024f8618650b9c09b4c8183c606134208",
+    "sources": {
+      "NCT03548935.json": {
+        "bytes": 228737,
+        "format": "official JSON",
+        "publisher": "ClinicalTrials.gov / NIH NLM; sponsor-submitted results",
+        "retrieved_at": "2026-09-28T02:31:44.885648+00:00",
+        "sha256": "977217a7de412721d84fd42ab8c48d806aba8dcc18a7141950f4aa2d93fec1a3",
+        "terms": "Public ClinicalTrials.gov record; preserve attribution and sponsor-submitted status",
+        "url": "https://clinicaltrials.gov/api/v2/studies/NCT03548935"
+      },
+      "NCT03548987.json": {
+        "bytes": 173737,
+        "format": "official JSON",
+        "publisher": "ClinicalTrials.gov / NIH NLM; sponsor-submitted results",
+        "retrieved_at": "2026-09-28T02:31:44.885648+00:00",
+        "sha256": "9ea3d4279ca4044d2a6566dbb908bd1ba7391ab16909fab5c334cefe96f0a7ab",
+        "terms": "Public ClinicalTrials.gov record; preserve attribution and sponsor-submitted status",
+        "url": "https://clinicaltrials.gov/api/v2/studies/NCT03548987"
+      },
+      "persistence-extract.json": {
+        "bytes": 1913,
+        "format": "JSON factual extraction",
+        "publisher": "Demeter factual extraction from Rodriguez et al., JAMA Network Open",
+        "retrieved_at": "2026-09-28T02:31:44.886364+00:00",
+        "sha256": "55da3dd05f1383a5c0f7eba7012785ddc0a597cc2ac2729a033e4d16c2980370",
+        "terms": "Article CC-BY; extracted numeric facts with attribution",
+        "url": "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2829779"
+      }
+    },
+    "transform": "demeter.data.glp1.rebuild_glp1"
+  },
+  "schema_version": 1,
+  "scientific_release_ready": false,
+  "trials": [
+    {
+      "analyses": [
+        {
+          "confidence_percent": 95.0,
+          "estimand": "Treatment policy estimand",
+          "high": -11.51,
+          "low": -13.37,
+          "method": "ANCOVA",
+          "value": -12.44
+        },
+        {
+          "confidence_percent": 95.0,
+          "estimand": "Hypothetical estimand",
+          "high": -13.55,
+          "low": -15.29,
+          "method": "ANCOVA",
+          "value": -14.42
+        }
+      ],
+      "eligibility": {
+        "eligibilityCriteria": "Inclusion Criteria:\n\nMain phase:\n\n* Male or female, age greater than or equal to 18 years at the time of signing informed consent\n* Body mass index (BMI) greater than or equal to 30.0 kg/sqm or greater than or equal to 27.0 kg/sqm with the presence of at least one of the following weight-related comorbidities (treated or untreated): hypertension, dyslipidaemia, obstructive sleep apnoea or cardiovascular disease\n* History of at least one self-reported unsuccessful dietary effort to lose body weight\n\nExtension phase:\n\n* Informed consent for the extension phase obtained before any trial related activities for the extension phase\n* On randomised treatment on the target dose at week 68, i.e. treated with 2.4 mg semaglutide once-weekly or semaglutide placebo\n\nExclusion Criteria:\n\nMain phase:\n\n* Glycated haemoglobin (HbA1C) greater than or equal to 48 mmol/mol (6.5%) as measured by the central laboratory at screening\n* A self-reported change in body weight greater than 5 kg (11 lbs) within 90 days before screening irrespective of medical records\n\nExtension phase:\n\n* Female who is pregnant or intends to become pregnant during the extension phase\n* Any disorder, unwillingness or inability, not covered by any of the other exclusion criteria, which in the investigator's opinion, might jeopardise the subject's compliance with the extension of the trial",
+        "healthyVolunteers": false,
+        "minimumAge": "18 Years",
+        "sex": "ALL",
+        "stdAges": [
+          "ADULT",
+          "OLDER_ADULT"
+        ]
+      },
+      "nct_id": "NCT03548935",
+      "observation_definition": "Change in body weight from baseline (week 0) to week 68 is presented. The endpoint was evaluated based on the data from both in-trial and on-treatment observation periods. In-trial observation period: the uninterrupted time interval from date of randomization (week 0) to date of last contact with trial site (week 75). On-treatment observation period: includes all time intervals in which participants are considered to be on treatment from the first (week 0) to last trial product administration (week 68), including 2 weeks of follow-up. It excludes any period of temporary treatment interruption. Temporary treatment interruption is defined as more than 2 consecutive missed doses (off-treatment period).",
+      "outcome": "Change in Body Weight (%)",
+      "rows": [
+        {
+          "arm": "Semaglutide 2.4 mg",
+          "n": 1212,
+          "period": "In-trial observation period",
+          "sd": 10.1,
+          "value": -15.6
+        },
+        {
+          "arm": "Placebo",
+          "n": 577,
+          "period": "In-trial observation period",
+          "sd": 6.5,
+          "value": -2.8
+        },
+        {
+          "arm": "Semaglutide 2.4 mg",
+          "n": 1059,
+          "period": "On-treatment observation period",
+          "sd": 9.4,
+          "value": -16.9
+        },
+        {
+          "arm": "Placebo",
+          "n": 499,
+          "period": "On-treatment observation period",
+          "sd": 6.4,
+          "value": -3.1
+        }
+      ],
+      "source_url": "https://clinicaltrials.gov/api/v2/studies/NCT03548935",
+      "timeframe": "Baseline (week 0) to week 68",
+      "title": "STEP 1: Research Study Investigating How Well Semaglutide Works in People Suffering From Overweight or Obesity",
+      "unit": "Percentage point",
+      "vintage": {
+        "completionDateStruct": {
+          "date": "2021-03-05",
+          "type": "ACTUAL"
+        },
+        "dispFirstPostDateStruct": {
+          "date": "2021-08-11",
+          "type": "ACTUAL"
+        },
+        "dispFirstSubmitDate": "2021-03-03",
+        "dispFirstSubmitQcDate": "2021-07-20",
+        "expandedAccessInfo": {
+          "hasExpandedAccess": false
+        },
+        "lastUpdatePostDateStruct": {
+          "date": "2021-11-19",
+          "type": "ACTUAL"
+        },
+        "lastUpdateSubmitDate": "2021-11-18",
+        "overallStatus": "COMPLETED",
+        "primaryCompletionDateStruct": {
+          "date": "2020-03-30",
+          "type": "ACTUAL"
+        },
+        "resultsFirstPostDateStruct": {
+          "date": "2021-08-11",
+          "type": "ACTUAL"
+        },
+        "resultsFirstSubmitDate": "2021-06-16",
+        "resultsFirstSubmitQcDate": "2021-07-20",
+        "startDateStruct": {
+          "date": "2018-06-04",
+          "type": "ACTUAL"
+        },
+        "statusVerifiedDate": "2021-11",
+        "studyFirstPostDateStruct": {
+          "date": "2018-06-07",
+          "type": "ACTUAL"
+        },
+        "studyFirstSubmitDate": "2018-05-25",
+        "studyFirstSubmitQcDate": "2018-05-25"
+      }
+    },
+    {
+      "analyses": [
+        {
+          "confidence_percent": 95.0,
+          "estimand": "Treatment policy estimand",
+          "high": -13.5,
+          "low": -16.0,
+          "method": "ANCOVA",
+          "value": -14.75
+        },
+        {
+          "confidence_percent": 95.0,
+          "estimand": "Hypothetical estimand",
+          "high": -14.13,
+          "low": -16.52,
+          "method": "MMRM (mixed model repeated measurement)",
+          "value": -15.33
+        }
+      ],
+      "eligibility": {
+        "eligibilityCriteria": "Inclusion Criteria:\n\n* Male or female, age greater than or equal to 18 years at the time of signing informed consent\n* Body mass index greater than or equal to 30 kg/sqm or greater than or equal to 27 kg/sqm with the presence of at least one of the following weight related comorbidities (treated or untreated): hypertension, dyslipidaemia, obstructive sleep apnoea or cardiovascular disease\n* History of at least one self-reported unsuccessful dietary effort to lose body weight\n\nExclusion Criteria:\n\n* Haemoglobin A1c greater than or equal to 48 mmol/mol (6.5%) as measured by central laboratory at screening\n* A self-reported change in body weight more than 5 kg (11 lbs) within 90 days before screening irrespective of medical records",
+        "healthyVolunteers": false,
+        "minimumAge": "18 Years",
+        "sex": "ALL",
+        "stdAges": [
+          "ADULT",
+          "OLDER_ADULT"
+        ]
+      },
+      "nct_id": "NCT03548987",
+      "observation_definition": "Change in body weight from baseline (week 20) to week 68 is presented. The endpoint was evaluated based on the data from both in-trial and on-treatment observation periods. In-trial observation period: the uninterrupted time interval from start of run-in (week 0) to last trial-related subject-site contact (week 75). On-treatment observation period: includes all time intervals in which participants are considered to be on treatment from the first (week 0) to last trial product administration (week 68) including 2 weeks of follow-up. It excludes any period of temporary treatment interruption. Temporary treatment interruption is defined as more than 2 consecutive missed doses (off-treatment period).",
+      "outcome": "Change From Randomisation to Week 68 in Body Weight (%)",
+      "rows": [
+        {
+          "arm": "Semaglutide 2.4 mg",
+          "n": 535,
+          "period": "In-trial",
+          "sd": 8.1,
+          "value": -8.3
+        },
+        {
+          "arm": "Placebo",
+          "n": 268,
+          "period": "In-trial",
+          "sd": 7.7,
+          "value": 6.5
+        },
+        {
+          "arm": "Semaglutide 2.4 mg",
+          "n": 495,
+          "period": "On-treatment",
+          "sd": 7.8,
+          "value": -8.8
+        },
+        {
+          "arm": "Placebo",
+          "n": 234,
+          "period": "On-treatment",
+          "sd": 7.7,
+          "value": 6.1
+        }
+      ],
+      "source_url": "https://clinicaltrials.gov/api/v2/studies/NCT03548987",
+      "timeframe": "Randomisation (week 20) to week 68",
+      "title": "Research Study Investigating How Well Semaglutide Works in People Suffering From Overweight or Obesity",
+      "unit": "Percentage point",
+      "vintage": {
+        "completionDateStruct": {
+          "date": "2020-03-20",
+          "type": "ACTUAL"
+        },
+        "expandedAccessInfo": {
+          "hasExpandedAccess": false
+        },
+        "lastUpdatePostDateStruct": {
+          "date": "2022-01-19",
+          "type": "ACTUAL"
+        },
+        "lastUpdateSubmitDate": "2022-01-07",
+        "overallStatus": "COMPLETED",
+        "primaryCompletionDateStruct": {
+          "date": "2020-02-22",
+          "type": "ACTUAL"
+        },
+        "resultsFirstPostDateStruct": {
+          "date": "2021-03-15",
+          "type": "ACTUAL"
+        },
+        "resultsFirstSubmitDate": "2021-02-19",
+        "resultsFirstSubmitQcDate": "2021-02-19",
+        "startDateStruct": {
+          "date": "2018-06-04",
+          "type": "ACTUAL"
+        },
+        "statusVerifiedDate": "2022-01",
+        "studyFirstPostDateStruct": {
+          "date": "2018-06-07",
+          "type": "ACTUAL"
+        },
+        "studyFirstSubmitDate": "2018-05-25",
+        "studyFirstSubmitQcDate": "2018-05-25"
+      }
+    }
+  ]
+}

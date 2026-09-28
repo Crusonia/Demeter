@@ -95,6 +95,14 @@ Mortality reconstruction tolerance is 0.001 years at every age. Conservation tol
 
 ## Instrumentation
 
+An optional [GLP-1 treatment experiment](GLP1.md) augments health stocks with
+persistent indication, response group and treatment-history strata. Its annual
+treatment allocation and response/washout operator precedes mortality and the
+existing competing metabolic transitions. Treatment changes those transition
+hazards through an explicitly synthetic weight-response bridge; intake is a
+diagnostic proxy. No direct mortality or T2D-remission effect is added. Paired
+uncertainty baselines clear treatment as well as dietary changes.
+
 `simulate(..., diagnostics=True)` additionally emits annual age-cell stocks,
 state-specific death counts, the exact period life tables and the implemented
 transition/dependency structure with evidence metadata. The optional recording

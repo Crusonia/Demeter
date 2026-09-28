@@ -118,6 +118,7 @@ def uncertainty(
             "exposures": {"upf": 1.0},
             "diet": {},
             "upf_schedule": [],
+            "glp1": None,
         }
     )
     collected = {key: [] for key in outcomes}

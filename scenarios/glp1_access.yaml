@@ -1,0 +1,11 @@
+name: glp1_access_interruption_and_restart
+description: Synthetic GLP-1 adoption, capacity expansion, interruption and restart; no clinical calibration.
+years: 15
+mode: validation
+health_structure: risk_1
+glp1:
+  access_schedule:
+    - {start_year: 2, access_fraction: 0.8, coverage_fraction: 0.6, monthly_price_usd: 900, monthly_copay_usd: 50, supply_fraction: 0.03}
+    - {start_year: 5, access_fraction: 0.9, coverage_fraction: 0.8, monthly_price_usd: 600, monthly_copay_usd: 25, supply_fraction: 0.1}
+    - {start_year: 9, access_fraction: 0, coverage_fraction: 0.8, monthly_price_usd: 600, monthly_copay_usd: 25, supply_fraction: 0}
+    - {start_year: 12, access_fraction: 0.9, coverage_fraction: 0.8, monthly_price_usd: 600, monthly_copay_usd: 25, supply_fraction: 0.1}

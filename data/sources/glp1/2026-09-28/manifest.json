@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "sources": {
+    "NCT03548935.json": {
+      "url": "https://clinicaltrials.gov/api/v2/studies/NCT03548935",
+      "publisher": "ClinicalTrials.gov / NIH NLM; sponsor-submitted results",
+      "format": "official JSON",
+      "retrieved_at": "2026-09-28T02:31:44.885648+00:00",
+      "sha256": "977217a7de412721d84fd42ab8c48d806aba8dcc18a7141950f4aa2d93fec1a3",
+      "bytes": 228737,
+      "terms": "Public ClinicalTrials.gov record; preserve attribution and sponsor-submitted status"
+    },
+    "NCT03548987.json": {
+      "url": "https://clinicaltrials.gov/api/v2/studies/NCT03548987",
+      "publisher": "ClinicalTrials.gov / NIH NLM; sponsor-submitted results",
+      "format": "official JSON",
+      "retrieved_at": "2026-09-28T02:31:44.885648+00:00",
+      "sha256": "9ea3d4279ca4044d2a6566dbb908bd1ba7391ab16909fab5c334cefe96f0a7ab",
+      "bytes": 173737,
+      "terms": "Public ClinicalTrials.gov record; preserve attribution and sponsor-submitted status"
+    },
+    "persistence-extract.json": {
+      "url": "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2829779",
+      "publisher": "Demeter factual extraction from Rodriguez et al., JAMA Network Open",
+      "format": "JSON factual extraction",
+      "retrieved_at": "2026-09-28T02:31:44.886364+00:00",
+      "sha256": "55da3dd05f1383a5c0f7eba7012785ddc0a597cc2ac2729a033e4d16c2980370",
+      "bytes": 1913,
+      "terms": "Article CC-BY; extracted numeric facts with attribution"
+    }
+  }
+}

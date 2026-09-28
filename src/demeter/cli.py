@@ -174,6 +174,26 @@ def dietary_evidence(evidence: Path = DEFAULT_EVIDENCE, output: Path | None = No
     emit(load_dietary(registry(evidence)), output)
 
 
+@data_app.command("rebuild-glp1")
+def rebuild_glp1_data(
+    evidence: Path = DEFAULT_EVIDENCE,
+    source: Path = Path("data/sources/glp1/2026-09-28"),
+    destination: Path = Path("outputs/glp1-rebuilt"),
+) -> None:
+    """Rebuild clinical benchmarks from archived official JSON and labeled extraction."""
+    from demeter.data.glp1 import rebuild_glp1
+
+    emit(rebuild_glp1(registry(evidence), source, destination))
+
+
+@evidence_app.command("glp1")
+def glp1_evidence(evidence: Path = DEFAULT_EVIDENCE, output: Path | None = None) -> None:
+    """Inspect trial and persistence benchmarks without calibrating model effects."""
+    from demeter.data.glp1 import load_glp1
+
+    emit(load_glp1(registry(evidence)), output)
+
+
 @app.command("food-exposures")
 def food_exposures(evidence: Path = DEFAULT_EVIDENCE, output: Path | None = None) -> None:
     """List canonical food/nutrient definitions, units, overlap and activation boundaries."""

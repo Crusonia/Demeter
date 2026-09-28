@@ -249,6 +249,27 @@ class DietResponse(StrictModel):
         return self
 
 
+class GLP1AccessStep(StrictModel):
+    """Exogenous access assumptions, not an insurance or price forecast."""
+
+    start_year: int = Field(ge=1, strict=True)
+    access_fraction: float = Field(ge=0, le=1)
+    coverage_fraction: float = Field(ge=0, le=1)
+    monthly_price_usd: float = Field(ge=0)
+    monthly_copay_usd: float = Field(ge=0)
+    supply_fraction: float = Field(ge=0, le=1)
+
+    @model_validator(mode="after")
+    def valid_prices(self):
+        if self.monthly_copay_usd > self.monthly_price_usd:
+            raise ValueError("GLP-1 copay cannot exceed full monthly price")
+        return self
+
+
+class GLP1Intervention(StrictModel):
+    access_schedule: list[GLP1AccessStep] = Field(min_length=1)
+
+
 class Scenario(StrictModel):
     name: str = Field(min_length=1)
     description: str = ""
@@ -257,6 +278,7 @@ class Scenario(StrictModel):
     diet: dict[ExposureId, DietaryChange] = Field(default_factory=dict)
     upf_schedule: list[UPFStep] = Field(default_factory=list)
     diet_response: DietResponse = Field(default_factory=DietResponse)
+    glp1: GLP1Intervention | None = None
     baseline_year: Literal[2022, 2023, 2024] = 2024
     sex: Literal["all", "male", "female"] = "all"
     mode: Literal["validation", "scientific"] = "validation"
@@ -269,6 +291,10 @@ class Scenario(StrictModel):
 
     @model_validator(mode="after")
     def valid_exposures(self):
+        if self.glp1:
+            starts = [s.start_year for s in self.glp1.access_schedule]
+            if starts != sorted(set(starts)) or any(y > self.years for y in starts):
+                raise ValueError("GLP-1 schedule requires unique increasing years within horizon")
         if self.upf_schedule and ("upf" in self.exposures or "upf" in self.diet):
             raise ValueError("UPF schedule cannot be combined with a static UPF declaration")
         starts = [step.start_year for step in self.upf_schedule]
