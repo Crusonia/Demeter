@@ -4,6 +4,7 @@
 
 This document defines the program vision and roadmap. Use these companion documents for more specific long-term design intent:
 
+- [WHY_DEMETER.md](WHY_DEMETER.md) — background essay connecting the name, systems purpose, software principles, and open contribution; the phased roadmap remains in this document
 - [SYSTEM_ARCHITECTURE.md](SYSTEM_ARCHITECTURE.md) — canonical mature module/runtime architecture, product naming, and price/quality behavioral mechanism
 - [SCENARIO_CATALOG.md](SCENARIO_CATALOG.md) — scenario families and integrated north-star experiments
 - [Model-design inputs](design/README.md) — problem boundary, causal loops, externalities, input packages, and formulation/test requirements; proposed mechanisms remain explicit premises

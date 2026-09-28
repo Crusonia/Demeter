@@ -4,6 +4,9 @@
 
 The project translates questions explored in the Food is Health Substack into explicit causal relationships, auditable evidence, and reproducible scenarios. Its long-term purpose is to show where change can influence the system, what constrains that change, who benefits, and how strategic options gain or lose value as key trends shift.
 
+[Why Demeter](docs/WHY_DEMETER.md) brings together the project's purpose, the
+stories behind its name, its approach to software, and the invitation to contribute.
+
 Demeter is intended for **participants at every stage of the value chain** to see
 how a change they make creates value elsewhere, and what allows them to capture
 a share. For example, a producer adding a regenerative practice should be able
