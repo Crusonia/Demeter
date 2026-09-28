@@ -13,7 +13,7 @@ Release identifier: **0.1.0a1**. Engineering functionality is implemented; scien
 | Evidence-linked dietary effects | Plumbing implemented; scientific gate open | All inputs registered; coefficients/lag remain synthetic |
 | Evidence completeness | Auditable | Status, unit, uncertainty, source metadata; missing entries reported |
 | Authoritative mortality calibration | Pass | All-age e_x error below 0.001 year |
-| U.S. diabetes/prediabetes prevalence | Fail / unresolved | Reported discrepancies and definition mismatch; not silently calibrated |
+| U.S. diabetes/prediabetes prevalence | Benchmarks reconstructed; engine mapping unresolved | NHANES age/sex shares with survey uncertainty and 12 published cross-checks; total diabetes and glycemic states not silently relabeled as T2D/metabolic health |
 | Historical backtest | Limited benchmark implemented | Frozen 2022 mortality predicts 2023; no diet-effect validation |
 | Uncertainty propagation | Implemented | Seeded independent draws and paired scenario deltas |
 | Sensitivity | Implemented | SALib Sobol indices with confidence half-widths |

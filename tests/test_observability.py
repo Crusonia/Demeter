@@ -94,10 +94,10 @@ def test_rendering_is_offline_and_repeatable_without_changing_payload(payload, t
     a = render_report(payload, tmp_path / "a")
     b = render_report(payload, tmp_path / "b")
     assert a["figures"] >= 30
-    page = Path(a["report"]).read_text()
+    page = Path(a["report"]).read_text(encoding="utf-8")
     assert "VALIDATION ONLY" in page and "Plotly.newPlot" in page
     assert "<script src=" not in page  # Plotly must be embedded, no CDN runtime dependency.
-    assert page == Path(b["report"]).read_text()
+    assert page == Path(b["report"]).read_text(encoding="utf-8")
     assert json.dumps(payload, sort_keys=True) == before
     assert json.loads(Path(a["canonical_data"]).read_text()) == payload
 

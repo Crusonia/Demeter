@@ -46,6 +46,11 @@ jobs:
         run: uv run python scripts/verify_source_archive.py --rebuild
       - name: Validate evidence and authoritative baselines
         run: uv run demeter validate
+      - name: Verify repository datasets and reload NHANES offline
+        run: |
+          uv run demeter data verify-store
+          uv run demeter data rebuild-nhanes --destination outputs/nhanes-rebuilt
+          uv run demeter evidence population --output outputs/population-evidence.json
       - name: Run baseline and scenario comparison
         run: |
           uv run demeter simulate scenarios/baseline.yaml --output outputs/baseline.json

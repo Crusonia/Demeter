@@ -4,8 +4,8 @@ The data pipeline and model mechanics are usable. These remaining issues are sci
 
 | Gate | Evidence available | Required resolution |
 | --- | --- | --- |
-| Age-specific baseline states | [NCHS Data Brief 516](https://www.cdc.gov/nchs/products/databriefs/db516.htm) reports diabetes by age, including diagnosed and undiagnosed cases | Define states and distinguish T2D from other diabetes types; derive age/sex distributions with compatible survey weights and uncertainty |
-| Prediabetes definition | [CDC National Diabetes Statistics Report](https://www.cdc.gov/diabetes/php/data-research/index.html) | Choose A1c, fasting glucose, or joint criteria; do not equate all insulin resistance with prediabetes |
+| Age-specific baseline states | [Reloadable NHANES reconstruction](NHANES_PREVALENCE.md) supplies 2017-March 2020 adult age/sex glycemic shares, survey uncertainty, and 12 published diabetes cross-checks | Separate T2D from other diabetes; define observation-to-engine mapping, pediatric coverage, single-age interpolation and temporal transport |
+| Prediabetes definition | The NHANES benchmark uses registered joint A1c/fasting-glucose criteria, with prior diagnosis taking precedence | Survey prediabetes does not identify all insulin resistance or broader metabolic health; resolve engine semantics explicitly |
 | Transitions | [Rooney et al., 2021, ARIC](https://pubmed.ncbi.nlm.nih.gov/33555311/) follows older adults with several prediabetes definitions | Review corrected results and competing deaths; estimate hazards for the matched population, then obtain evidence for other ages |
 | Diet effects | [Chen et al., 2023](https://pubmed.ncbi.nlm.nih.gov/36854188/) examines UPF and incident T2D in prospective cohorts | Match dose units, population, endpoint, covariates and lag; identify what is association versus a transportable causal effect |
 | State mortality ratios | Aggregate NCHS mortality is available and reproduced | Source age/state-specific excess hazards; evaluate confounding and model identification |
