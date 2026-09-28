@@ -56,6 +56,17 @@ def transitions_for(scenario) -> tuple[dict, ...]:
     return TRANSITIONS if scenario.health_structure == "legacy" else PRECHRONIC_TRANSITIONS
 
 
+def dietary_pathways(scenario) -> tuple[dict, ...]:
+    """Flows whose hazards the chosen dietary response can modify."""
+    states = states_for(scenario)
+    return tuple(
+        edge
+        for edge in transitions_for(scenario)
+        if scenario.diet_response.kind == "dynamic"
+        or states.index(edge["target"]) > states.index(edge["source"])
+    )
+
+
 def prechronic_transitions(stocks, *rates, adult_age, by_row=False):
     """One endpoint transition per annual step; exits compete for source survivors."""
     stocks = np.asarray(stocks, dtype=float)

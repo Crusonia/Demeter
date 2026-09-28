@@ -122,7 +122,7 @@ def validate_inputs(registry: EvidenceRegistry, scenario: Scenario) -> tuple[np.
             "UPF exposure is outside the registered envelope; explicit allow_extrapolation required"
         )
     if scenario.mode == "scientific":
-        audit = registry.audit()
+        audit = registry.audit(parameter_keys=required_units(scenario))
         if any(
             audit[k]
             for k in (
@@ -143,10 +143,31 @@ def validate_inputs(registry: EvidenceRegistry, scenario: Scenario) -> tuple[np.
 
 
 def simulate(
-    registry: EvidenceRegistry, scenario: Scenario, *, diagnostics: bool = False
+    registry: EvidenceRegistry,
+    scenario: Scenario,
+    *,
+    diagnostics: bool = False,
+    dietary_reference: Scenario | None = None,
+    dietary_paths: tuple[str, ...] | None = None,
 ) -> SimulationResult:
     """Age-structured annual validation model on observed U.S. demographic inputs."""
     initial_shares, extrapolated = validate_inputs(registry, scenario)
+    if (dietary_reference is None) != (dietary_paths is None):
+        raise ValueError("Dietary routing needs both reference scenario and selected paths")
+    reference_response, reference_diet = None, None
+    if dietary_reference is not None:
+        from demeter.health.structure import dietary_pathways
+
+        omitted = {"name", "description", "exposures", "diet", "upf_schedule"}
+        if scenario.model_dump(exclude=omitted) != dietary_reference.model_dump(exclude=omitted):
+            raise ValueError("Dietary attribution requires identical non-diet assumptions")
+        available = {e["flow"] for e in dietary_pathways(scenario)}
+        if len(set(dietary_paths)) != len(dietary_paths) or set(dietary_paths) - available:
+            raise ValueError("Dietary routing requires distinct implemented dietary paths")
+        _, reference_extrapolated = validate_inputs(registry, dietary_reference)
+        extrapolated = extrapolated or reference_extrapolated
+        reference_response = DietaryResponse(registry, dietary_reference)
+        reference_diet = resolve_diet(registry, dietary_reference)
     states = states_for(scenario)
     mover = partial(move, structure=scenario.health_structure)
     prechronic_enabled = scenario.health_structure != "legacy"
@@ -247,6 +268,24 @@ def simulate(
             dietary_state["applied_progression_multiplier"],
             dietary_state["applied_recovery_multiplier"],
         )
+        if reference_response is not None:
+            ref_state = reference_response.advance(reference_diet["annual_upf"][year - 1])
+            ref_rates = rates_for(
+                registry,
+                scenario,
+                ref_state["applied_progression_multiplier"],
+                ref_state["applied_recovery_multiplier"],
+            )
+            rates = tuple(
+                rate if edge["flow"] in dietary_paths else ref_rate
+                for edge, rate, ref_rate in zip(
+                    transitions_for(scenario), rates, ref_rates, strict=True
+                )
+            )
+            dietary_state["routed_base_transition_hazards_per_year"] = {
+                edge["flow"]: float(rate)
+                for edge, rate in zip(transitions_for(scenario), rates, strict=True)
+            }
         if scenario.glp1:
             plan = cohort_time.plan(year, adult)
             cohort_time.advance(year, hazards, rates, adult, plan=plan)
@@ -287,7 +326,7 @@ def simulate(
     import json
 
     source_manifest = json.loads((BUNDLE / "manifest.json").read_text())
-    audit = registry.audit()
+    audit = registry.audit(parameter_keys=required_units(scenario))
     validation_only = scenario.mode == "validation"
     metadata = {
         "model_version": __version__,
@@ -335,6 +374,17 @@ def simulate(
         "healthspan_metric": metric_contract(scenario.health_structure),
         "health_structure": scenario.health_structure,
         "active_parameters": list(required_units(scenario)),
+        **(
+            {
+                "dietary_routing": {
+                    "reference_scenario": dietary_reference.model_dump(),
+                    "intervention_paths": list(dietary_paths),
+                    "interpretation": "Counterfactual hybrid: only selected dietary hazard modifiers use intervention exposure; other paths retain reference exposure. No flows are removed.",
+                }
+            }
+            if dietary_reference is not None
+            else {}
+        ),
         **(
             {
                 "glp1": {
