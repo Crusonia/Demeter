@@ -128,6 +128,10 @@ The core library and existing CLI/report commands work without the `studio` extr
 or Node. This interface adds no model equations and does not relax the scientific
 release gate.
 
+The [architecture decision record](decisions/ADR-20-local-educational-explorer.md)
+documents alternatives, persistence and comparison invariants, completed software
+checks and the remaining maintainer review. The public simulator remains future work.
+
 Contributor checks:
 
 ```text
