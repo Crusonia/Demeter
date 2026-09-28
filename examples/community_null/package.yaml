@@ -1,0 +1,31 @@
+schema_version: 1
+version: 1.0.0
+authors:
+- Demeter contributors (AI-assisted package example)
+license: MIT
+model_versions:
+- 0.1.0a1
+module_api: '1.0'
+health_structures:
+- legacy
+- risk_1
+- risk_2
+evidence_status: mixed
+validation_status: software_tested
+validation_notes: Repository CI checks arithmetic and reproducibility; no clinical
+  calibration or scientific approval.
+limitations:
+- Metabolic inputs remain synthetic; all scenarios are validation-only.
+- Compatibility declares software behavior, not scientific equivalence.
+package_id: community.null
+description: Third-party loading demonstration of the existing no-diet-effect alternative.
+scenarios:
+  reduce_upf_30: scenario.yaml
+modules:
+  'null':
+    file: module.py
+    factory: CommunityNull
+files:
+  module.py: 3fea601637fe27d3e5971e9f4cf3498faf253587947b953cace59d395e68354e
+  scenario.yaml: e0cb310a71028523541bb468c4b652b57777a70de52676b9e0e9a22508c87843
+  LICENSE: 4300eaaa17936b5ebda410f093317061472b601c18adc329262e7f56c4dd2e78

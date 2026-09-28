@@ -422,6 +422,15 @@ def simulate(
         "healthspan_metric": metric_contract(scenario.health_structure),
         "health_structure": scenario.health_structure,
         "active_parameters": list(active_parameters),
+        "extension_provenance": {
+            "schema_version": 1,
+            "core_model_version": __version__,
+            "active_packages": [],
+            "scenario_origin": "unregistered; see the explicit scenario and evidence hashes",
+            "equations": "unregistered_module" if binding else "canonical_engine",
+            "unregistered_module": binding.provenance if binding else None,
+            "registration_note": "Direct API/import execution has no verified author, license or package identity. Use the extension registry to record package provenance.",
+        },
         **({"transition_module": binding.provenance} if binding else {}),
         **(
             {
