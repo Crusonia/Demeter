@@ -29,9 +29,56 @@ from demeter.schema import EvidenceRegistry, Scenario
 app = typer.Typer(no_args_is_help=True, help="Demeter evidence-aware health model.")
 evidence_app = typer.Typer(help="Inspect parameter provenance and unresolved science.")
 data_app = typer.Typer(help="Rebuild pinned government source inputs.")
+release_app = typer.Typer(help="Build, verify and replay inspectable engineering release bundles.")
 app.add_typer(evidence_app, name="evidence")
 app.add_typer(data_app, name="data")
+app.add_typer(release_app, name="release")
 DEFAULT_EVIDENCE = Path("evidence/parameters.yaml")
+
+
+@release_app.command("build")
+def release_build(
+    destination: Path,
+    draws: int = 128,
+    samples: int = 64,
+    seed: int = 42,
+    allow_dirty: bool = False,
+) -> None:
+    from demeter.releases import RunSettings, build
+
+    emit(
+        build(
+            destination,
+            RunSettings(draws=draws, samples=samples, seed=seed),
+            allow_dirty=allow_dirty,
+        )
+    )
+
+
+@release_app.command("verify")
+def release_verify(bundle: Path) -> None:
+    from demeter.releases import verify
+
+    emit(verify(bundle))
+
+
+@release_app.command("extract")
+def release_extract(bundle: Path, destination: Annotated[Path, typer.Option()]) -> None:
+    from demeter.releases import extract
+
+    emit(extract(bundle, destination))
+
+
+@release_app.command("replay")
+def release_replay(bundle: Path, output: Path | None = None) -> None:
+    from demeter.releases import replay
+
+    if output and output.resolve().is_relative_to(bundle.resolve()):
+        raise typer.BadParameter("Write replay reports outside the immutable bundle")
+    result = replay(bundle)
+    emit(result, output)
+    if not result["passed"]:
+        raise typer.Exit(1)
 
 
 def emit(payload: dict, output: Path | None = None) -> None:
