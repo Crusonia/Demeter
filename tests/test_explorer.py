@@ -284,3 +284,30 @@ def test_teaching_families_and_comparison_guards(completed):
     assert right["code"] == code_fingerprint()
     with pytest.raises(ValueError, match="fingerprint"):
         compare_payloads(left, right)
+
+
+def test_bundled_data_changes_invalidate_the_engine_fingerprint(tmp_path):
+    bundle = tmp_path / "data/bundled/baseline.json"
+    bundle.parent.mkdir(parents=True)
+    bundle.write_text('{"population": 1}')
+    before = code_fingerprint(tmp_path)
+    bundle.write_text('{"population": 2}')
+    assert code_fingerprint(tmp_path) != before
+
+
+def test_saved_reference_rejects_a_changed_source_registry(completed, monkeypatch):
+    import demeter.explorer.experiments as module
+
+    directory, key = completed
+    base = registry_for(ROOT).model_dump()
+    base["parameters"]["beta_upf_progression"]["value"] = 0.5
+    changed = module.EvidenceRegistry.model_validate(base)
+    monkeypatch.setattr(module, "registry_for", lambda _: changed)
+    request = request_for(years=2)
+    request.reference_id = key
+    jobs = Jobs(ROOT, directory)
+    try:
+        with pytest.raises(ValueError, match="different source evidence"):
+            jobs.validate(request)
+    finally:
+        jobs.close()

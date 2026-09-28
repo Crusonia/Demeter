@@ -110,9 +110,9 @@ def verify() -> None:
                 assert "healthy" in (artifacts / "stocks.csv").read_text()
                 views.get_by_role("button", name="Sources", exact=True).click()
                 expect(page.locator(".chart-pane .source").first).to_be_visible()
-                page.get_by_label("Your explanation & next question", exact=True).fill(
-                    "I will challenge the lag next."
-                )
+                page.get_by_role(
+                    "textbox", name="Your explanation & next question", exact=True
+                ).fill("I will challenge the lag next.")
                 page.get_by_role("button", name="Save reflection", exact=True).click()
                 expect(
                     page.get_by_text("Reflection saved alongside this experiment.")
@@ -154,20 +154,24 @@ def verify() -> None:
                 page.locator(".saved-card").filter(has_text="Browser first experiment").click()
                 try:
                     expect(
-                        page.get_by_label("Your explanation & next question", exact=True)
+                        page.get_by_role(
+                            "textbox", name="Your explanation & next question", exact=True
+                        )
                     ).to_have_value("I will challenge the lag next.")
                     # Reopening the already selected run must refresh it as well.
                     nav.get_by_role("button", name="Saved runs", exact=True).click()
                     page.locator(".saved-card").filter(has_text="Browser first experiment").click()
                     expect(
-                        page.get_by_label("Your explanation & next question", exact=True)
+                        page.get_by_role(
+                            "textbox", name="Your explanation & next question", exact=True
+                        )
                     ).to_have_value("I will challenge the lag next.")
                 except AssertionError as exc:
                     page.screenshot(path=str(artifacts / "reopen-failure.png"))
                     raise AssertionError(
-                        page.locator("body").inner_text()[:3000] + str(errors)
+                        page.locator("body").inner_text()[-3000:] + str(errors)
                     ) from exc
-                page.get_by_label("Question / chart", exact=True).select_option(
+                page.get_by_role("combobox", name="Question / chart", exact=True).select_option(
                     "uncertainty_life_expectancy"
                 )
                 page.wait_for_function("document.querySelector('.js-plotly-plot')?._fullLayout")
@@ -176,14 +180,16 @@ def verify() -> None:
                 page.screenshot(path=str(artifacts / "chart-mobile.png"))
                 assert page.evaluate("document.documentElement.scrollWidth <= innerWidth + 1")
                 nav.get_by_role("button", name="Experiment", exact=True).click()
-                page.get_by_label("Model / scenario", exact=True).select_option(
+                page.get_by_role("combobox", name="Model / scenario", exact=True).select_option(
                     label="Experimental · Glp1 access"
                 )
                 expect(page.get_by_label("Access (%) · step 1", exact=True)).to_be_visible()
-                page.get_by_label("Model / scenario", exact=True).select_option(
+                page.get_by_role("combobox", name="Model / scenario", exact=True).select_option(
                     label="Experimental · Diet dynamics"
                 )
-                expect(page.get_by_label("Response shape", exact=True)).to_be_visible()
+                expect(
+                    page.get_by_role("combobox", name="Response shape", exact=True)
+                ).to_be_visible()
                 page.screenshot(path=str(artifacts / "experiment-mobile.png"))
                 assert page.evaluate("document.documentElement.scrollWidth <= innerWidth + 1")
                 assert not errors, errors

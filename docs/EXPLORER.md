@@ -97,7 +97,8 @@ community Python extensions from a browser request.
   ranking. The seed is saved. Changing a nominal value alone keeps the original
   sampling distribution; edit both bounds explicitly to change a uniform range.
 - **Reference:** a no-intervention run using original evidence, or a compatible
-  completed run. Saved references require the same engine source fingerprint,
+  completed run. Saved references require the same base evidence registry, engine
+  source and bundled-data fingerprint,
   horizon, vintage, sex, mode and health structure. Comparisons show absolute and
   relative nominal changes. Independent uncertainty bands are never subtracted
   to manufacture an interval for the difference.

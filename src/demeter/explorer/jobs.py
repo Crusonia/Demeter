@@ -53,10 +53,13 @@ def read_json(path: Path) -> dict:
     return json.loads(path.read_bytes())
 
 
-def code_fingerprint() -> str:
-    root = Path(__file__).resolve().parents[1]
+def code_fingerprint(root: Path | None = None) -> str:
+    root = root or Path(__file__).resolve().parents[1]
     digest = hashlib.sha256()
-    for path in sorted(root.rglob("*.py")):
+    paths = list(root.rglob("*.py")) + [
+        path for path in (root / "data/bundled").rglob("*") if path.is_file()
+    ]
+    for path in sorted(paths):
         if "static" not in path.relative_to(root).parts:
             digest.update(path.relative_to(root).as_posix().encode())
             digest.update(path.read_bytes())
@@ -193,15 +196,18 @@ class Jobs:
         registry, metadata = resolve_experiment(self.root, request)
         if request.reference_id:
             reference = self.path(request.reference_id)
-            if read_json(reference / "run.json")["status"] != "complete":
+            receipt = read_json(reference / "run.json")
+            if receipt["status"] != "complete":
                 raise ValueError("Choose a completed reference run")
+            if receipt["base_evidence_sha256"] != metadata["base_evidence_sha256"]:
+                raise ValueError("Reference uses different source evidence; run a new reference")
             saved = read_json(reference / "result.json")
             from demeter.analysis.experiments import compatible
 
             compatible(Scenario.model_validate(saved["scenario"]), request.scenario)
             if saved["code"] != code_fingerprint():
                 raise ValueError(
-                    "Reference was produced by different engine source; run a new reference"
+                    "Reference was produced by different engine source or bundled data; run a new reference"
                 )
         return registry, metadata
 
