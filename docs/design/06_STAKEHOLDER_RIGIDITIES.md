@@ -26,7 +26,11 @@ all of them does not justify a model that represents all of them at once.
 - **Held:** how firmly the stakeholder holds the belief.
 - **Assessed:** a provisional design judgment of how rigid the constraint
   actually is. It is not measured evidence and must be revised as evidence is
-  appraised.
+  appraised. **Reversed** marks a belief that a lever works easily where the
+  evidence points the other way; the rigidity is the belief itself.
+- **Direction:** most beliefs claim a change is impossible. A few (B-24, B-31,
+  B-32, B-33, B-44) instead claim a fix or outcome is easy or assured; these
+  are tested for whether the claimed lever holds.
 - **Type:** the source of rigidity.
   - **Bio:** biological or physical. Hardest to move.
   - **Econ:** prices, costs, and scale. Moves with cost curves or demand.
@@ -78,7 +82,7 @@ units, and uncertainty before it affects a model result.
 | ID | Stakeholder | Belief | Held | Assessed | Type | What would move it | Tested through |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | B-19 | Consumers | Healthy food is more expensive. | High | Medium | Econ | Depends on the price unit: nutrient-dense foods often cost more per calorie but not per portion or weight (Carlson and Frazão, USDA ERS EIB-96, 2012). Time, preparation, and spoilage risk are real costs. | L-07, I-05 |
-| B-20 | Consumers and public commentary | People are addicted to junk food. | High | Medium | Bio, Mind | Ultra-processed diets caused higher energy intake in an inpatient randomized trial ([Hall et al., Cell Metabolism, 2019](https://doi.org/10.1016/j.cmet.2019.05.008)), and a minority meet food-addiction criteria (Gearhardt et al., BMJ, 2022). For most people, habit and environment dominate and preferences adapt. | I-05, I-06 |
+| B-20 | Consumers and public commentary | People are addicted to junk food. | High | Medium | Bio, Mind | Ultra-processed diets caused higher energy intake in an inpatient randomized trial ([Hall et al., Cell Metabolism, 2019](https://doi.org/10.1016/j.cmet.2019.05.008)), and a minority meet food-addiction criteria (Gearhardt et al., "Social, clinical, and policy implications of ultra-processed food addiction," BMJ, 2023). For most people, habit and environment dominate and preferences adapt. | I-05, I-06 |
 | B-21 | Consumers | There is no time to cook. | High | Medium–high | Econ | Minimally processed convenience food; time poverty is real. | L-07, I-05 |
 | B-22 | Consumers | Healthy food does not taste good. | Medium | Low | Mind, Bio | Repeated exposure and gradual default changes. | I-05, I-06 |
 | B-23 | Consumers | Metabolic disease is genetic. | Medium | Low–medium | Bio | Genetic risk interacts with environment and diet. | I-07 |
@@ -94,7 +98,7 @@ units, and uncertainty before it affects a model result.
 | B-28 | Self-insured employers | Health is not our business, and turnover erases any return. | Medium | Medium | Mind, Econ | Absenteeism and on-the-job productivity effects that pay back faster than claims. | P-02, I-09 |
 | B-29 | Hospitals paid fee-for-service | We are paid to treat disease. | High | High | Inst | Value-based payment and capitation. | P-02, L-12, I-08 |
 | B-30 | Physicians | Patients will not change their diet. | High | Low–medium | Mind | Intensive lifestyle intervention reduced diabetes incidence ([Diabetes Prevention Program, NEJM, 2002](https://doi.org/10.1056/NEJMoa012512)); a weight-management program achieved diabetes remission in a substantial share of participants ([DiRECT, Lancet, 2018](https://doi.org/10.1016/S0140-6736(17)33102-1)). Training and reimbursement are the binding constraints. | I-07, I-08 |
-| B-31 | GLP-1 manufacturers and investors | Drugs make food irrelevant. | Rising | Low–medium | Mind | Appetite suppression may create a window for dietary change and raise demand for nutrient density; drugs and diet may be complements. | I-05, I-07 |
+| B-31 | GLP-1 manufacturers and investors | Drugs make food irrelevant. | Medium, rising | Low–medium | Mind | Appetite suppression may create a window for dietary change and raise demand for nutrient density; drugs and diet may be complements. | I-05, I-07 |
 | B-32 | Public-health agencies | Education changes behavior. | Medium | Reversed | Mind | Evidence that defaults, prices, and environments outperform information alone. | I-05, I-06 |
 | B-33 | Health-system planners | Less chronic disease means less healthcare demand. | Medium | Reversed | Mind, Bio | Reallocation toward acute events, refractory and previously undiagnosed conditions, and care in added years of life; many preventive interventions add net cost ([Cohen, Neumann, and Weinstein, NEJM, 2008](https://doi.org/10.1056/NEJMp0708558)). The rigidity is the assumption that prevention always saves money. | P-02, P-04, I-08 |
 
@@ -106,7 +110,7 @@ units, and uncertainty before it affects a model result.
 | B-35 | Federal budget scoring | Prevention does not pay back within the scoring window. | High | High | Inst | Longer-window or dynamic scoring; benefits beyond the window receive little weight. | P-02, L-10, L-12 |
 | B-36 | Nutrition-assistance administrators | Purchases cannot be steered. | Medium | Medium | Inst | Produce incentives and state purchase-restriction pilots. | L-07, I-05 |
 | B-37 | Food regulators | Labels do not change industry behavior. | Medium | Medium | Inst | Labeling that induces reformulation even when consumer response is small. | I-03 |
-| B-38 | Legislators | Food policy is politically unwinnable. | Medium | Falling | Mind | Bipartisan attention to food and chronic disease. | L-10 |
+| B-38 | Legislators | Food policy is politically unwinnable. | Medium | Medium, falling | Mind | Bipartisan attention to food and chronic disease. | L-10 |
 | B-39 | Defense establishment | Recruit fitness is a recruiting problem. | Medium | Low | Mind | Framing military readiness as a food-system outcome; Department of Defense estimates show most young Americans are ineligible to serve, with overweight a leading disqualifier. | I-09 |
 
 ## G. Capital
@@ -115,7 +119,7 @@ units, and uncertainty before it affects a model result.
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | B-40 | Venture capital | Food and agriculture are low-margin, low-multiple categories, and food tech has failed. | High | Medium | Econ, Mind | Business models that capture value through payers, outcomes, or verified attributes. | P-01, P-02, I-09 |
 | B-41 | Private equity and packaged-food acquirers | Buy brands, not systems. | High | Medium–high | Econ | Systems that capture measurable, contractible value. | P-01, I-09 |
-| B-42 | Public-market analysts | GLP-1 drugs are a threat to packaged food. | Rising | Medium | Econ | Evidence that changed demand favors nutrient-dense products. | I-03, I-05 |
+| B-42 | Public-market analysts | GLP-1 drugs are a threat to packaged food. | Medium, rising | Medium | Econ | Evidence that changed demand favors nutrient-dense products. | I-03, I-05 |
 | B-43 | ESG and impact investors | Health and climate are separate investment buckets. | Medium | Low | Mind | Coupled accounting showing where health and climate outcomes reinforce or trade off. | P-03, X-P02, X-N02 |
 | B-44 | Carbon-market participants | Soil carbon credits are a reliable revenue stream. | Low | High | Inst, Bio | Verification, additionality, permanence, and reversal risk are binding; the rigidity is underestimated rather than overestimated. | L-13, X-P02, X-N02, I-10 |
 | B-45 | Philanthropy | Fund programs, not markets. | Medium | Low | Mind | Market mechanisms that persist after grants end. | I-09 |
@@ -131,10 +135,13 @@ units, and uncertainty before it affects a model result.
 
 ## Patterns to test
 
-| Held \ Assessed | Assessed movable | Assessed rigid |
+The matrix classifies each belief by what it claims (rows) and the assessed
+evidence (columns). Firmness (**Held**) is recorded separately in the tables.
+
+| Belief claims \ Assessment | Claim does not hold | Claim holds |
 | --- | --- | --- |
-| **Held rigid** | Misperceived constraints; the main opportunity. Examples: B-07, B-09, B-20, B-22, B-30, B-43. | Structural locks requiring institutional design rather than persuasion. Examples: B-05, B-11, B-15, B-25, B-29, B-34, B-35. |
-| **Held movable** | Already moving. Examples: B-26, B-31, B-38. | Traps where optimism exceeds evidence. Examples: B-24, B-32, B-33, B-44. |
+| **Change is impossible** | Misperceived constraints; the main opportunity. Examples: B-07, B-09, B-20, B-22, B-30, B-43. Some are already eroding: B-26, B-38. | Structural locks requiring institutional design rather than persuasion. Examples: B-05, B-11, B-15, B-25, B-29, B-34, B-35. |
+| **A fix or outcome is easy or assured** | Traps where optimism exceeds evidence. Examples: B-24, B-31, B-32, B-33, B-44. | Accurate optimism; not a rigidity, and not registered here. |
 
 Two cross-cutting hypotheses explain many structural locks and should be tested
 explicitly:

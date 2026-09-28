@@ -13,12 +13,12 @@ The full register, with stable IDs (B-01 to B-49) and links to the mechanisms th
 | Institutional | Rules, contracts, subsidies, budget scoring, payment models | When the institution changes. |
 | Belief | Narrative, habit, professional norms | With evidence and experience. |
 
-## Believed versus actual
+## What a belief claims versus what the evidence shows
 
-| | Actually movable | Actually rigid |
+| The belief claims | Claim does not hold | Claim holds |
 | --- | --- | --- |
-| **Believed rigid** | **Misperceived constraints**, the main opportunity. Examples: reformulation kills sales; patients won't change their diet; health and climate are separate problems. | **Structural locks** that need new contracts, payment models, or rules rather than persuasion. Examples: insurer member turnover; fee-for-service payment; ten-year budget scoring. |
-| **Believed movable** | **Already moving.** Examples: food benefits in Medicaid and Medicare Advantage; demand shifts among GLP-1 users. | **Traps** where optimism runs ahead of evidence. Examples: soil carbon credits as reliable revenue; access alone fixing diets; prevention always saving money. |
+| **Change is impossible** | **Misperceived constraints**, the main opportunity. Examples: reformulation kills sales; patients won't change their diet; health and climate are separate problems. Some are already eroding: "food isn't a medical benefit" is weakening as Medicaid and Medicare Advantage add food benefits. | **Structural locks** that need new contracts, payment models, or rules rather than persuasion. Examples: insurer member turnover; fee-for-service payment; ten-year budget scoring. |
+| **A fix or outcome is easy or assured** | **Traps** where optimism runs ahead of evidence. Examples: soil carbon credits as reliable revenue; access alone fixing diets; prevention always saving money; drugs making food irrelevant. | Accurate optimism, which is not a rigidity. |
 
 ## Two patterns behind many locks
 

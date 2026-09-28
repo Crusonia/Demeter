@@ -64,7 +64,7 @@ The headline metric hierarchy is defined in `docs/PROJECT_VISION.md` §11:
 - Tier 1 is reported at the macro level. Tier 2 reports the same measures by industry (output, value added, employment, revenue mix, productivity) and the distribution of costs and benefits across actors. Model reallocation, not just loss: for example, health care may lose chronic-disease volume while gaining acute, refractory, previously undiagnosed, and added-years demand. Never assume prevention produces net savings.
 - Tier 3: the mechanisms that explain each headline change.
 
-Only healthy longevity is computable in v0.1. Do not compute TFP, GDP, or emissions metrics from synthetic or placeholder inputs, and never optimize raw GDP. Report every headline metric with uncertainty.
+Only healthy longevity is computable in v0.1. Do not compute TFP, GDP, industry, emissions, or land-use metrics from synthetic or placeholder inputs, and never optimize raw GDP. Report every headline metric with uncertainty.
 
 ## Architecture
 
