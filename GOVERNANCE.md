@@ -13,12 +13,13 @@ The intended live configuration is recorded in
 | Control on `main` | Setting |
 | --- | --- |
 | Who may update/merge | `jcarterwil`; no other users, teams, or apps on the allowlist. |
-| Contributor reviews | One approval and code-owner review; Carter owns all paths. Approvals become stale when the reviewed diff changes. |
-| Carter's own PRs | Carter can bypass the PR review requirement, avoiding a self-approval deadlock. |
+| Pull requests | Required for everyone, including Carter; no PR bypass actors. |
+| Contributor reviews | CODEOWNERS requests Carter's review. Only Carter can merge; a separate approval click is optional. Existing approvals become stale when the reviewed diff changes. |
+| Carter's own PRs | No separate approving reviewer is required, so the normal merge command works. |
 | Required checks | `test (3.11)`, `test (3.12)`, `test (macOS)`, `test (Windows)`, from GitHub Actions. |
 | Branch freshness | Must be up to date with `main`. |
 | Review conversations | Must be resolved. |
-| Admin enforcement | Enabled; Carter's PR-review exception does not waive required checks. |
+| Admin enforcement | Enabled; required checks and PRs apply to Carter too. |
 | Force push / deletion of `main` | Disabled. |
 
 CODEOWNERS routes reviews; it does not itself protect a branch. The GitHub API
@@ -27,10 +28,12 @@ access, but cannot merge into `main` under these restrictions. Repository/organi
 administrators can change protection settings, so administrative access remains
 trusted and should be reviewed when maintainers change.
 
-The PR-review bypass is scoped by GitHub to an actor, not to PR authorship. Carter
-can use it on any PR and could use it for direct updates that satisfy the other
-checks. Project policy is to use PRs for all ordinary changes, including Carter's,
-and record review before merging others' contributions. No bot auto-merges PRs.
+The enforced gate is Carter's merge decision. Requiring another approval on every
+PR would block a sole maintainer's own contributions. Instead, the rule requires
+a PR with zero mandatory approval votes and restricts all updates to Carter.
+Carter reviews community changes before merging and can record an explicit
+approval or review comments. Contributors cannot merge even if somebody else
+approves their PR. No bot auto-merges PRs.
 
 ## Carter: create and merge a PR
 
@@ -58,7 +61,8 @@ gh pr view NUMBER --repo Crusonia/Demeter --web
 gh pr merge NUMBER --repo Crusonia/Demeter --squash --delete-branch
 ```
 
-For another contributor's PR, review its changes and record your approval first.
+For another contributor's PR, review its changes first; record an approval or
+review comments when useful.
 Your own PR does not need somebody else's approval. If the branch is behind,
 update it and let CI rerun. Do not use `--admin` to get around failed checks.
 The browser's **Squash and merge** button is an alternative to the last command.
