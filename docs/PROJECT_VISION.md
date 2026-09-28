@@ -1187,12 +1187,30 @@ economic inputs.
 | --- | --- |
 | **Net lifecycle greenhouse-gas emissions and land use** of the modeled food system, relative to the reference scenario | Health-improving changes can raise or lower emissions. A scenario that improves the north-star metrics while worsening this guardrail must show the trade-off explicitly; it may not be hidden or netted away. Future; see P-03, X-P02, X-N02, and X-N03 in the [design registers](design/README.md). |
 
-**Tier 2 — who bears and captures the value**
+Tier 1 metrics are reported at the **macro** level for the modeled economy.
 
-Tier 1 aggregates hide incidence. Each scenario should also report distribution
-across actors, including payer net spending, farm income, household food
-affordability, employer productivity, and public budgets. Value creation, value
-capture, and uncompensated effects remain distinct accounts.
+**Tier 2 — industries and actors: who bears and captures the value**
+
+Macro aggregates hide reallocation between industries and incidence between
+actors. Each scenario should also report:
+
+- **Industry accounts** for each modeled industry, including agriculture and its
+  input suppliers, food manufacturing, distribution and retail, food service,
+  health care delivery, pharmaceuticals, insurance, and the wider labor market:
+  gross output, value added, employment, revenue mix, and industry productivity
+  on the same definitions as the macro metrics where data allow.
+- **Actor accounts**, including payer net spending, farm income, household food
+  affordability, employer productivity, and public budgets.
+
+Industries reallocate rather than simply gain or lose. Health care, for example,
+may lose chronic-disease volume while gaining demand from acute events,
+refractory conditions, previously undiagnosed disease, and care in added years
+of life. Net lifetime healthcare spending from prevention can therefore rise or
+fall; many preventive interventions add net cost even when they add health
+([Cohen, Neumann, and Weinstein, 2008](https://doi.org/10.1056/NEJMp0708558)).
+The model must represent these offsetting flows rather than assume savings.
+Value creation, value capture, and uncompensated effects remain distinct
+accounts.
 
 **Tier 3 — mechanism**
 
