@@ -1,0 +1,54 @@
+{
+  "bundle_sha256": "b8ef99a39f8122816cbd0a3a0d91612d602d5dc5a1a290ad47ec60e627734dd0",
+  "dataset_definition_sha256": "5555efe1532ca8cda5113d0e2a38ee13c075ed720ec30ae5a405d2f23fae006f",
+  "model_role": "benchmark_only",
+  "schema_version": 1,
+  "source_store": "data/sources/nhanes/2017-2020",
+  "sources": {
+    "P_DEMO.xpt": {
+      "documentation": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_DEMO.htm",
+      "format": "SAS XPORT",
+      "publisher": "CDC/NCHS",
+      "retrieved_at": "2026-09-27T23:44:56.308480+00:00",
+      "sha256": "2e46c6c26bf77cd8989f64011ace12cbf42c0f3e03414eb59acc5328c8f87913",
+      "title": "Demographics and survey design",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_DEMO.xpt",
+      "use_terms": "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+      "vintage": "2017-March 2020; published May 2021"
+    },
+    "P_DIQ.xpt": {
+      "documentation": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_DIQ.htm",
+      "format": "SAS XPORT",
+      "publisher": "CDC/NCHS",
+      "retrieved_at": "2026-09-27T23:44:57.239854+00:00",
+      "sha256": "79153f799fc2171792771c4aa250029c62807f14915f1f81405b03233b1e5ae3",
+      "title": "Diabetes questionnaire",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_DIQ.xpt",
+      "use_terms": "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+      "vintage": "2017-March 2020; published May 2021"
+    },
+    "P_GHB.xpt": {
+      "documentation": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_GHB.htm",
+      "format": "SAS XPORT",
+      "publisher": "CDC/NCHS",
+      "retrieved_at": "2026-09-27T23:44:57.486688+00:00",
+      "sha256": "dac9e423f56041c2ec46486cb16be16d3347e0a81a575985882ffad5a60e1195",
+      "title": "Glycohemoglobin",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_GHB.xpt",
+      "use_terms": "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+      "vintage": "2017-March 2020; published May 2021"
+    },
+    "P_GLU.xpt": {
+      "documentation": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_GLU.htm",
+      "format": "SAS XPORT",
+      "publisher": "CDC/NCHS",
+      "retrieved_at": "2026-09-27T23:44:57.698973+00:00",
+      "sha256": "91b83c46fb4707c431838159135e93693a0572bce54074f5a890f0ee104732b3",
+      "title": "Fasting plasma glucose",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_GLU.xpt",
+      "use_terms": "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+      "vintage": "2017-March 2020; published May 2021"
+    }
+  },
+  "transform": "demeter.data.nhanes.rebuild_nhanes"
+}

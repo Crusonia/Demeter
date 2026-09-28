@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "sources": {
+    "cdc_diabetes.json": {
+      "retrieved_at": "2026-09-27T23:56:27.679228+00:00",
+      "role": "official_json_snapshot",
+      "sha256": "2d4f5cd15718c86e85ab1e37a1eaf35d460bcf841637db7713c0105745b63a02",
+      "url": "https://data.cdc.gov/resource/c9xs-vhst.json?%24where=indicator%3D%27Diagnosed+Diabetes%27+AND+unit%3D%27Percentage%27+AND+race%3D%27All%27+AND+education%3D%27All%27+AND+sex%3D%27All%27+AND+population%3D%27Adults+Aged+18%2B+Years%27&%24limit=50000&%24order=year%2Cage",
+      "used_by_engine": false
+    },
+    "cdc_mortality.json": {
+      "retrieved_at": "2026-09-27T23:56:27.289239+00:00",
+      "role": "official_json_snapshot",
+      "sha256": "eb15c9f323d746b5a326f37960c35912efa213842e6ea19a528a91ea9b0203da",
+      "url": "https://data.cdc.gov/resource/w9j2-ggv5.json?$where=race=%27All%20Races%27&$limit=5000&$order=year,sex",
+      "used_by_engine": false
+    },
+    "census_age_sex_metadata.json": {
+      "retrieved_at": "2026-09-27T23:56:28.191239+00:00",
+      "role": "discovery_metadata",
+      "sha256": "16a70b511baaa452445337f234ecc4f31b01324dbffe3e6b568b633a4fa3c78a",
+      "url": "https://api.census.gov/data/2024/acs/acs1/groups/B01001.json",
+      "used_by_engine": false
+    },
+    "census_population_estimates_metadata.json": {
+      "retrieved_at": "2026-09-27T23:56:28.708591+00:00",
+      "role": "discovery_metadata",
+      "sha256": "45f43c587c4aa15ac2d8291480ee200a62eaf17f157b91509189f405783116aa",
+      "url": "https://api.census.gov/data/2023/pep/charv/variables.json",
+      "used_by_engine": false
+    }
+  }
+}

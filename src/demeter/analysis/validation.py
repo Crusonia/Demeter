@@ -3,6 +3,7 @@ from __future__ import annotations
 import numpy as np
 
 from demeter.data.baseline import baseline_validation, source_rows
+from demeter.data.nhanes import load_nhanes
 from demeter.model import simulate
 from demeter.schema import EvidenceRegistry, Scenario
 
@@ -62,6 +63,7 @@ def prevalence_checks(registry: EvidenceRegistry) -> list[dict]:
 
 def validate(registry: EvidenceRegistry) -> dict:
     audit = registry.audit()
+    population_evidence = load_nhanes(registry)
     mortality = [
         baseline_validation(year, sex)
         for year in (2022, 2023, 2024)
@@ -76,13 +78,21 @@ def validate(registry: EvidenceRegistry) -> dict:
         False  # Alpha release has no independently validated health parameterization.
     )
     return {
-        "software_checks_passed": all(r["passed"] for r in mortality) and max_residual < 1e-5,
+        "software_checks_passed": all(r["passed"] for r in mortality)
+        and max_residual < 1e-5
+        and population_evidence["published_reconstruction"]["passed"],
         "scientific_release_ready": scientific_ready,
         "model_version": base.metadata["model_version"],
         "evidence": audit,
         "mortality_reconstruction": mortality,
         "max_population_accounting_error_people": max_residual,
         "prevalence": prevalence_checks(registry),
+        "population_evidence": {
+            "model_role": population_evidence["model_role"],
+            "provenance": population_evidence["provenance"],
+            "published_reconstruction": population_evidence["published_reconstruction"],
+            "engine_state_mapping_resolved": False,
+        },
         "historical_backtest": mortality_backtest(),
         "status": "VALIDATION ONLY — NOT A SCIENTIFIC ESTIMATE",
     }

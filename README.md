@@ -100,6 +100,7 @@ Implemented:
 - Independent period life tables, plus a Sullivan-style measure of years in the modeled healthy state.
 - Evidence registry, source checksums, dose-envelope checks, lags, and provenance on every simulation.
 - Scenario comparison, paired Monte Carlo uncertainty, SALib Sobol sensitivity, prevalence discrepancy report, and historical mortality persistence backtest.
+- Versioned source datasets and official JSON links, plus an offline NHANES age/sex glycemic-prevalence reconstruction with survey uncertainty.
 
 See [acceptance status](docs/V0_1_STATUS.md), [model specification](docs/MODEL_SPEC.md), and [evidence gaps](docs/EVIDENCE_GAPS.md).
 
@@ -160,15 +161,18 @@ Core equations use transparent NumPy arrays. BPTK-Py remains available for later
 
 ## Source data travel with the model
 
-The repository contains the 13 small public source artifacts used by the current
-baseline and historical pipelines, as well as the model-ready bundles. See the
+The repository contains 21 public source files: baseline and historical inputs,
+NHANES survey files, and official JSON snapshots, plus the derived bundles. See the
 [data catalog and contribution policy](data/README.md) for locations, source terms,
 and the distinction between raw observations, derived inputs, and assumptions.
-Verify the archive and reproduce both bundles without network access or changes
+Verify the archive and reproduce the bundles without network access or changes
 to committed files:
 
 ```bash
 uv run python scripts/verify_source_archive.py --rebuild
+uv run demeter data verify-store
+uv run demeter data rebuild-nhanes --destination outputs/nhanes-rebuilt
+uv run demeter evidence population --output outputs/population-evidence.json
 ```
 
 Curated immutable source snapshots live in `data/sources/`. Scratch downloads in
@@ -176,8 +180,10 @@ Curated immutable source snapshots live in `data/sources/`. Scratch downloads in
 command is for intentional source-pipeline maintenance and writes the bundle;
 beginners do not need it. A changed upstream file requires a reviewed source update.
 Bundles and manifests live in `src/demeter/data/bundled/` and also ship in the wheel.
+The [machine-readable catalog](data/catalog.json) links official CDC JSON data
+and Census JSON services, with verified access requirements.
 
-The manifest records exact URLs, retrieval times, publisher, vintage, hashes, transform, and output schema. Observed data families are registered in `evidence/parameters.yaml`. Public federal data are used; no personal health data are included.
+The manifests record source URLs, retrieval times, vintages, hashes, and transforms. Dataset definitions are registered in `evidence/parameters.yaml`. NHANES inputs are deidentified public-use survey records; source data-use terms remain applicable. The [NHANES reconstruction](docs/NHANES_PREVALENCE.md) matches 12 published diabetes prevalence cells and their sample sizes, but remains a benchmark: all-type diabetes does not identify the engine's T2D stock, and same-source agreement is not an independent health holdout.
 
 ## Interpret outputs correctly
 

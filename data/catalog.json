@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "path_base": "data/",
+  "stores": [
+    {
+      "id": "us_baseline",
+      "manifest": "sources/baseline/2026-09-26/manifest.json",
+      "publisher": "U.S. Census Bureau; CDC/NCHS",
+      "description": "Census Vintage 2025 single-age population counts and NCHS 2022-2024 life tables",
+      "format": ["CSV", "XLSX"],
+      "derived_bundle": "../src/demeter/data/bundled/us_baseline.json",
+      "reload": "uv run demeter data rebuild --raw data/sources/baseline/2026-09-26"
+    },
+    {
+      "id": "historical",
+      "manifest": "sources/historical/2026-09-26/manifest.json",
+      "publisher": "CDC/NCHS; USDA ERS",
+      "description": "Historical life expectancy, NHIS diagnosed diabetes, and sweetener availability",
+      "format": ["CSV"],
+      "derived_bundle": "../src/demeter/data/bundled/historical.json",
+      "reload": "uv run demeter data rebuild-history --raw data/sources/historical/2026-09-26"
+    },
+    {
+      "id": "nhanes_2017_2020",
+      "manifest": "sources/nhanes/2017-2020/manifest.json",
+      "publisher": "CDC/NCHS",
+      "description": "Deidentified public-use demographics, diabetes interview, A1c, and fasting glucose",
+      "format": ["SAS XPORT"],
+      "derived_bundle": "../src/demeter/data/bundled/nhanes_prevalence.json",
+      "model_role": "benchmark_only",
+      "reload": "uv run demeter data rebuild-nhanes --destination outputs/nhanes-rebuilt"
+    },
+    {
+      "id": "official_json_2026_09_27",
+      "manifest": "sources/official-json/2026-09-27/manifest.json",
+      "publisher": "CDC/NCHS; U.S. Census Bureau",
+      "description": "Official CDC data responses and Census API metadata responses; each source receipt distinguishes data from metadata",
+      "format": ["JSON"],
+      "model_role": "discovery_reference_only"
+    }
+  ],
+  "official_json_services": [
+    {
+      "id": "cdc_life_expectancy",
+      "url": "https://data.cdc.gov/resource/w9j2-ggv5.json?$where=race=%27All%20Races%27&$limit=5000&$order=year,sex",
+      "contains": "Historical mortality and life expectancy aggregates; not single-age life tables",
+      "checked_on": "2026-09-27",
+      "unauthenticated_result": "JSON data; snapshot stored"
+    },
+    {
+      "id": "cdc_nhis_diabetes",
+      "url": "https://data.cdc.gov/resource/c9xs-vhst.json?$limit=1",
+      "contains": "NHIS diagnosed diabetes; not all diabetes or specifically T2D",
+      "checked_on": "2026-09-27",
+      "unauthenticated_result": "JSON data; filtered full-query snapshot in source manifest"
+    },
+    {
+      "id": "census_acs_population",
+      "url": "https://api.census.gov/data/2024/acs/acs1?get=NAME,B01001_001E&for=us:*",
+      "metadata_url": "https://api.census.gov/data/2024/acs/acs1/groups/B01001.json",
+      "contains": "ACS 2024 population query and age/sex variable metadata; different vintage and methodology from the model's PEP 2025 counts",
+      "checked_on": "2026-09-27",
+      "unauthenticated_result": "Data query redirected to missing_key.html; metadata returned JSON",
+      "authentication": "Append a Census API key privately for data queries; never commit credentials"
+    },
+    {
+      "id": "census_pep_age_sex",
+      "metadata_url": "https://api.census.gov/data/2023/pep/charv/variables.json",
+      "contains": "Population Estimates Program 2023 variable metadata, not population observations",
+      "checked_on": "2026-09-27",
+      "unauthenticated_result": "JSON metadata; snapshot stored"
+    }
+  ]
+}
