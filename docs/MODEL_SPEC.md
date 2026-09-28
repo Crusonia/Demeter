@@ -95,6 +95,14 @@ Mortality reconstruction tolerance is 0.001 years at every age. Conservation tol
 
 ## Instrumentation
 
+The [food-leverage analysis](LEVERAGE.md) can route reference versus intervention
+dietary modifiers separately to each existing transition. Baseline hazards,
+competing flows, mortality and non-diet assumptions remain intact. Its exact
+Shapley allocation explains the resulting model contrast; it is not identified
+biological mediation. A registered analysis-only UPF contrast coordinate adds
+exposure variation to paired global sensitivity without becoming a model hazard
+coefficient. Ordinary simulation behavior is unchanged when routing is absent.
+
 An optional [GLP-1 treatment experiment](GLP1.md) augments health stocks with
 persistent indication, response group and treatment-history strata. Its annual
 treatment allocation and response/washout operator precedes mortality and the

@@ -43,7 +43,7 @@ SHOCKS = [
         "start": 2021,
         "end": None,
         "domain": "all",
-        "treatment": "Post-Wegovy approval context; adoption/effects unresolved in issue #9.",
+        "treatment": "Post-Wegovy approval context; optional GLP-1 mechanics exist, but historical adoption/effects remain uncalibrated and are not fitted by these benchmarks.",
         "source": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/215256s000lbl.pdf",
     },
 ]

@@ -42,6 +42,12 @@ Food is Health thesis. Current dietary scenario outputs remain **validation-only
 
 ## What Demeter is intended to reveal
 
+The [food-leverage report](docs/LEVERAGE.md) now explains modeled healthspan and
+T2D-entry changes through explicit dietary hazard pathways. It includes paired
+sensitivity, sampling intervals, evidence status and historical context, with
+offline plots and machine-readable output. This explains current software
+behavior; it does not establish calibrated food-policy findings.
+
 The optional [GLP-1 experiment](docs/GLP1.md) now models eligibility, access,
 capacity, treatment persistence, interruption, restart and response/washout in
 joint health stocks. Its [example scenario](scenarios/glp1_access.yaml) is
