@@ -1,9 +1,10 @@
 # New to Demeter?
 
-Demeter is an open community project for exploring how food, health, agriculture,
-and economics interact. We want people to be able to ask a question, inspect its
-causal assumptions, run an experiment, and see what evidence would change the
-answer. The model should become more useful as the community improves its parts.
+Demeter is an open community project for participants throughout the agriculture,
+food, and health value chain. Its purpose is to help each participant understand
+the value added by changes in the system: what they can change, how the effects
+reach other participants, and what enables them to capture a share of the value.
+The model should become more useful as the community improves its parts.
 
 The ambition is large. Each contribution should be small enough to understand,
 test, and review. You do not need to understand the whole future system to help.
@@ -27,6 +28,13 @@ decision simulator is a later phase. We will earn that scope through validation.
 
 ## What can I do now, and what comes later?
 
+The flagship future exercise is a [shift toward real food](REAL_FOOD_VALUE_CHAIN.md).
+A participant should learn the levers connecting agriculture, food, and health.
+For example, how could a producer's regenerative practice create value at retail,
+and how much could return to the producer? On the health side, could targeting
+people at earlier metabolic risk—the proposed PreChronic population—reduce net
+healthcare costs? These are questions the staged model is being built to test.
+
 | Stage | What it contributes | Status |
 | --- | --- | --- |
 | Foundation and Phase 1: health | Trace exposure through metabolic states, mortality, and life tables; test conservation, evidence, uncertainty, and historical comparisons. | Software runs. Scientific v0.1 is incomplete. |
@@ -42,6 +50,11 @@ The [program vision](PROJECT_VISION.md) is the canonical roadmap. The
 the [scenario catalog](SCENARIO_CATALOG.md) describes future experiments.
 Neither document means those capabilities already exist.
 
+For the reasoning behind a proposed mechanism, use the [design inputs](design/README.md):
+a table of causal loops, a register of positive and negative externalities,
+and the inputs/equations/tests needed to evaluate them. These are hypotheses to
+inspect and improve, not a list of established benefits.
+
 ## Questions a new reader should be able to answer
 
 **What is the project trying to improve?** The quality of analysis: make causal
@@ -49,10 +62,25 @@ paths, feedback, delays, constraints, and uncertainty visible so people can test
 their reasoning. Supporting a preferred Food is Health conclusion is not an
 acceptance criterion. Evidence that contradicts a hypothesis belongs here.
 
-**Who is it for?** Curious readers and contributors can begin with a guided
-exercise. Researchers can inspect evidence and validation. Operators and policy
-analysts can help define future decisions and constraints. No coding is needed
-to ask a useful question or explain why a proposed mechanism might fail.
+**Who is it for?** Every element of the value chain: farmers and their suppliers,
+processors, food companies, distributors, retailers, households, clinicians,
+providers, payers, employers, public programs, and capital providers. Each should
+be able to explore its own decisions within the same connected system. Researchers
+and community contributors help make those pathways testable. No coding is needed
+to propose a decision, identify a constraint, or challenge a mechanism.
+
+**What does "value" mean here?** Report it for a specific participant. Retail
+sales, farmer margin, household health, and payer savings are different outcomes.
+Trace the costs and payment arrangements connecting them. Adding a feature such
+as a regenerative practice does not automatically mean its creator captures a
+retail premium or a health benefit; the model should help investigate when that
+connection exists and when it fails.
+
+**What does the real-food exercise need to define?** The foods and quantities that
+replace the reference basket, actual intake, access, affordability, and relevant
+product attributes. "Real food" is the direction of inquiry; an executable scenario
+needs measurable inputs. Likewise, PreChronic requires validated earlier-risk
+inclusion criteria. Neither term supplies an assumed health effect or cost saving.
 
 **Why start with health if the goal spans agriculture and economics?** One complete,
 testable causal path is a foundation for linking modules. A broad model with
@@ -98,13 +126,16 @@ See [governance](../GOVERNANCE.md) and [contributing](../CONTRIBUTING.md).
 These are open design questions, not settled model features. Contributors can
 help answer them in issues before proposing implementation:
 
-- Which person or organization makes the decision, and what can they control?
+- For each participant, what can they change and what mechanism lets them capture value?
+- Which specific food basket and substitutions define the real-food transition?
+- Which earlier-risk population and intervention define the PreChronic comparison?
 - What would they learn from a simulation that a static spreadsheet hides?
 - Which time horizon and population matter, and who may experience different effects?
 - Which feedback or delay could make an initially sensible decision disappoint?
 - What observation would distinguish the proposed mechanism from a competing explanation?
 - What evidence would justify moving from a learning exercise to decision support?
 
-A future example is: if higher-quality food becomes more affordable, how much do
-households substitute, can producers respond, and what health effects follow?
-That is a connected research question in the roadmap, not a result of today's model.
+The [flagship brief](REAL_FOOD_VALUE_CHAIN.md) brings these questions into one
+learning sequence: choose a role, predict the effects of a lever, trace value
+through the chain, inspect the health/cost pathway, and identify the next evidence
+that would improve the decision. It describes the destination of the staged model.

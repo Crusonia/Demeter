@@ -4,6 +4,17 @@
 
 Our central question is: **When the economics of food and health change, which levers matter, where does value move, and which choices become worth making?**
 
+The intended users are participants at every stage of the value chain. Each
+should be able to explore how a feature or action they add creates value elsewhere
+and what enables them to capture a share. A producer tracing a regenerative
+practice's potential value through retail is one example.
+
+The flagship future exercise is a [shift toward real food](../REAL_FOOD_VALUE_CHAIN.md).
+It focuses learning on the levers connecting agriculture, food, and health, and
+on whether earlier intervention in the proposed PreChronic population can reduce
+net healthcare costs. Commercial returns and health savings remain questions to
+test through the staged model and its evidence requirements.
+
 Food is Health explores ideas about that changing system. Demeter aims to make the underlying hypotheses inspectable: identify the mechanism, attach evidence, model the delay, test competing explanations, and show what would change our conclusion. Contributions that overturn an appealing hypothesis are valuable.
 
 ## Why model a connected market?
@@ -31,6 +42,8 @@ and [the PR process](../../CONTRIBUTING.md) are part of that shared foundation.
 
 | Page | What it covers |
 | --- | --- |
+| [Real-food value-chain scenario](../REAL_FOOD_VALUE_CHAIN.md) | The flagship future exercise: decisions, value creation/capture, regenerative-to-retail pathways, and PreChronic prevention. |
+| [Model-design inputs](../design/README.md) | Causal-loop and externality tables, input requirements, and formulation/tests that turn premises into reviewable model design. |
 | [Market dynamics](Market-Dynamics.md) | Stocks, flows, feedback, prices, incentives, delays, and value distribution. |
 | [Levers and scenarios](Levers-and-Scenarios.md) | Actionable controls, external trends, causal pathways, and experiments. |
 | [Real options and strategic value](Real-Options-and-Strategic-Value.md) | Contingent decisions, trigger conditions, learning, downside, and value capture. |

@@ -23,6 +23,16 @@ Each row requires multiple estimated links. A plausible story is the starting hy
 
 ## Trend scenarios that could change the opportunity set
 
+### Flagship: the shift toward real food
+
+Compare specified food baskets and substitution patterns, with adoption,
+affordability, supply, and consumption made explicit. Let each participant explore
+a feasible action and trace value creation and capture through the chain. A
+regenerative production feature reaching retail and a targeted PreChronic food
+intervention are two connected lines of inquiry. See [the scenario brief](../REAL_FOOD_VALUE_CHAIN.md).
+These priorities span future modules; today's UPF multiplier exercise is a narrow
+software foundation and does not represent the full transition.
+
 ### GLP-1 price, access, and persistence
 
 Compare conditional paths for eligibility, effective out-of-pocket price, coverage, initiation, persistence, discontinuation, and treatment response. Examine food quantity and category demand separately. Link direct treatment effects and changes mediated through diet without double counting them.
@@ -38,6 +48,12 @@ Compare scenarios where nutrient-dense options become more affordable, remain at
 Explore an earlier-risk population before diagnosed chronic disease. **PreChronic is a proposed modeling concept**, requiring explicit and validated inclusion criteria for each analysis. It is not yet a separate state in the current engine or a universal clinical diagnosis.
 
 Test detection, enrollment, sustained engagement, progression, and supported reversal. More screening need not mean more effective prevention. Report misclassification, access, participation cost, and the time until a potential benefit reaches a payer or provider.
+
+A priority question is whether this earlier intervention can reduce net healthcare
+costs. Compare gross utilization/spending changes with identification, food,
+delivery, and ongoing support costs, under a defined counterfactual and horizon.
+Trace who funds the intervention and who retains any savings; leave unsupported
+health effects and payment links unresolved.
 
 ### Reimbursement and the allocation of savings
 

@@ -58,12 +58,20 @@ Changing food demand can alter producer margins and investment incentives. Acrea
 
 Demeter should report outcomes by actor and time period. Combining all benefits into one headline number can hide the incentive problem.
 
+This is central to the intended use of the model: each element of the value chain
+should see the value added by system changes and how it could capture a share.
+The [flagship real-food scenario](../REAL_FOOD_VALUE_CHAIN.md) follows a regenerative
+production feature through retail economics and back through procurement terms
+to producer returns. It separately examines the PreChronic health and healthcare-cost
+pathway. The links between commercial and health value must be made explicit.
+
 | Perspective | Outcomes to keep distinct |
 | --- | --- |
 | Individual or household | Health, out-of-pocket spending, food spending, time, access, and burden of participation. |
 | Payer or employer | Intervention cost, eligible utilization changes, retention, payment obligations, and timing. |
 | Provider | Volume, revenue, contribution margin, fixed costs, replacement activity, and capacity. |
 | Farmer or food company | Price, volume, yield, input costs, capital needs, working capital, and margins. |
+| Distributor, retailer, or food-service operator | Delivered cost, availability, assortment, repeat purchases, substitution, spoilage, and retained margin. |
 | Public sector | Program costs, fiscal effects, population outcomes, and distribution across groups. |
 | Enterprise or investor | Contractual share of value, competitive response, capital requirements, and risk. |
 
