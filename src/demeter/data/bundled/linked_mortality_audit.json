@@ -1,0 +1,965 @@
+{
+  "analysis": {
+    "dataset": {
+      "baseline_definition": "Inherit nhanes_glycemic_prevalence.analysis cutoffs, adult age, pregnancy exclusion, age domains, and interval level; do not inherit its period or weights",
+      "cycle": "2011-2012",
+      "definition_source": "https://www.cdc.gov/nchs/data/datalinkage/public-use-linked-mortality-file-description.pdf",
+      "evidence_grade": "C",
+      "followup": "PERMTH_EXM; missing and zero months reported explicitly",
+      "geography": "United States",
+      "layout_source": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/R_ReadInProgramAllSurveys.R",
+      "limitations": [
+        "Baseline-state mortality association cannot identify current-state causal mortality effects or progression/reversal.",
+        "Public-use follow-up times may be perturbed; adult vital status is not perturbed.",
+        "Age is top-coded at 80; no pediatric mortality observations in the public release.",
+        "This inspected cycle is development data; independent validation cycles and fitting criteria remain to be declared before fitting."
+      ],
+      "model_role": "feasibility_only",
+      "mortality_definition": "MORTSTAT for ELIGSTAT=1 only; ineligible linkage is missing, never alive",
+      "population": "U.S. civilian noninstitutionalized adults with positive fasting subsample weight; complete glycemic observations",
+      "source_store": "data/sources/nhanes-mortality/2011-2012",
+      "status": "derived",
+      "time_period": "Baseline 2011-2012; mortality follow-up through December 31, 2019",
+      "title": "NHANES glycemic baseline and public-use linked mortality feasibility",
+      "transformation": "demeter.data.linked_mortality.audit",
+      "uncertainty": "Survey-design Taylor ratio standard errors and logit-t intervals for linkage eligibility only; event counts are descriptive and have no fitted hazard interval",
+      "unit": "unweighted record counts, months, and survey-weighted linkage eligibility fractions",
+      "weight": "WTSAF2YR"
+    },
+    "glycemic_analysis": {
+      "adult_age_min": 20,
+      "age_groups": [
+        {
+          "id": "20_plus",
+          "max": null,
+          "min": 20
+        },
+        {
+          "id": "20_39",
+          "max": 39,
+          "min": 20
+        },
+        {
+          "id": "40_59",
+          "max": 59,
+          "min": 40
+        },
+        {
+          "id": "60_plus",
+          "max": null,
+          "min": 60
+        }
+      ],
+      "confidence_level": 0.95,
+      "definition_status": "derived",
+      "glucose_diabetes_min": 126,
+      "glucose_prediabetes_min": 100,
+      "glucose_unit": "mg/dL",
+      "hba1c_diabetes_min": 6.5,
+      "hba1c_prediabetes_min": 5.7,
+      "hba1c_unit": "percent",
+      "pregnancy_exclusion_age_max": 44
+    }
+  },
+  "counts": {
+    "adult_nonpregnant_n": 2294,
+    "complete_baseline_n": 2287,
+    "ineligible_complete_n": 3,
+    "linked_complete_n": 2284,
+    "missing_glycemic_n": 7,
+    "positive_fasting_weight_n": 2842,
+    "source_n": 9756
+  },
+  "design": {
+    "psu": "SDMVPSU",
+    "stratum": "SDMVSTRA",
+    "weight": "WTSAF2YR",
+    "weight_adjusted_for_linkage": false
+  },
+  "domains": [
+    {
+      "age_group": "20_plus",
+      "baseline_state": "normoglycemia",
+      "complete_baseline_n": 893,
+      "deaths_n": 39,
+      "exam_followup_missing_n": 0,
+      "exam_followup_months_max": 111.0,
+      "exam_followup_months_min": 3.0,
+      "exam_followup_zero_n": 0,
+      "ineligible_n": 1,
+      "linkage_eligibility": {
+        "degrees_of_freedom": 17,
+        "estimate": 0.999655225251,
+        "interval": {
+          "high": 0.999959544383,
+          "level": 0.95,
+          "low": 0.99706843861,
+          "method": "Taylor-linearized logit-t; domain degrees of freedom"
+        },
+        "n": 893,
+        "standard_error": 0.00035007522696,
+        "status": "estimated"
+      },
+      "linked_n": 892,
+      "sex": "all"
+    },
+    {
+      "age_group": "20_plus",
+      "baseline_state": "prediabetes",
+      "complete_baseline_n": 960,
+      "deaths_n": 93,
+      "exam_followup_missing_n": 0,
+      "exam_followup_months_max": 110.0,
+      "exam_followup_months_min": 2.0,
+      "exam_followup_zero_n": 0,
+      "ineligible_n": 1,
+      "linkage_eligibility": {
+        "degrees_of_freedom": 17,
+        "estimate": 0.999853336083,
+        "interval": {
+          "high": 0.999982663618,
+          "level": 0.95,
+          "low": 0.998760435001,
+          "method": "Taylor-linearized logit-t; domain degrees of freedom"
+        },
+        "n": 960,
+        "standard_error": 0.000148425218783,
+        "status": "estimated"
+      },
+      "linked_n": 959,
+      "sex": "all"
+    },
+    {
+      "age_group": "20_plus",
+      "baseline_state": "diabetes_any_type",
+      "complete_baseline_n": 434,
+      "deaths_n": 96,
+      "exam_followup_missing_n": 0,
+      "exam_followup_months_max": 109.0,
+      "exam_followup_months_min": 2.0,
+      "exam_followup_zero_n": 0,
+      "ineligible_n": 1,
+      "linkage_eligibility": {
+        "degrees_of_freedom": 17,
+        "estimate": 0.999011233082,
+        "interval": {
+          "high": 0.999879840589,
+          "level": 0.95,
+          "low": 0.991914417052,
+          "method": "Taylor-linearized logit-t; domain degrees of freedom"
+        },
+        "n": 434,
+        "standard_error": 0.000987177270119,
+        "status": "estimated"
+      },
+      "linked_n": 433,
+      "sex": "all"
+    },
+    {
+      "age_group": "20_plus",
+      "baseline_state": "normoglycemia",
+      "complete_baseline_n": 373,
+      "deaths_n": 15,
+      "exam_followup_missing_n": 0,
+      "exam_followup_months_max": 110.0,
+      "exam_followup_months_min": 14.0,
+      "exam_followup_zero_n": 0,
+      "ineligible_n": 1,
+      "linkage_eligibility": {
+        "degrees_of_freedom": 17,
+        "estimate": 0.999178033795,
+        "interval": {
+          "high": 0.999903651816,
+          "level": 0.95,
+          "low": 0.993025753361,
+          "method": "Taylor-linearized logit-t; domain degrees of freedom"
+        },
+        "n": 373,
+        "standard_error": 0.000834775365055,
+        "status": "estimated"
+      },
+      "linked_n": 372,
+      "sex": "male"
+    },
+    {
+      "age_group": "20_plus",
+      "baseline_state": "prediabetes",
+      "complete_baseline_n": 541,
+      "deaths_n": 64,
+      "exam_followup_missing_n": 0,
+      "exam_followup_months_max": 110.0,
+      "exam_followup_months_min": 2.0,
+      "exam_followup_zero_n": 0,
+      "ineligible_n": 1,
+      "linkage_eligibility": {
+        "degrees_of_freedom": 17,
+        "estimate": 0.999727513613,
+        "interval": {
+          "high": 0.999967603515,
+          "level": 0.95,
+          "low": 0.997712191641,
+          "method": "Taylor-linearized logit-t; domain degrees of freedom"
+        },
+        "n": 541,
+        "standard_error": 0.000274989725643,
+        "status": "estimated"
+      },
+      "linked_n": 540,
+      "sex": "male"
+    },
+    {
+      "age_group": "20_plus",
+      "baseline_state": "diabetes_any_type",
+      "complete_baseline_n": 231,
+      "deaths_n": 59,
+      "exam_followup_missing_n": 0,
+      "exam_followup_months_max": 109.0,
+      "exam_followup_months_min": 2.0,
+      "exam_followup_zero_n": 0,
+      "ineligible_n": 1,
+      "linkage_eligibility": {
+        "degrees_of_freedom": 17,
+        "estimate": 0.998068392217,
+        "interval": {
+          "high": 0.999761735689,
+          "level": 0.95,
+          "low": 0.984526722554,
+          "method": "Taylor-linearized logit-t; domain degrees of freedom"
+        },
+        "n": 231,
+        "standard_error": 0.00191381106424,
+        "status": "estimated"
+      },
+      "linked_n": 230,
+      "sex": "male"
+    },
+    {
+      "age_group": "20_plus",
+      "baseline_state": "normoglycemia",
+      "complete_baseline_n": 520,
+      "deaths_n": 24,
+      "exam_followup_missing_n": 0,
+      "exam_followup_months_max": 111.0,
+      "exam_followup_months_min": 3.0,
+      "exam_followup_zero_n": 0,
+      "ineligible_n": 0,
+      "linkage_eligibility": {
+        "degrees_of_freedom": 17,
+        "estimate": 1.0,
+        "interval": null,
+        "n": 520,
+        "standard_error": 1.70871153135e-17,
+        "status": "boundary_or_insufficient_variance"
+      },
+      "linked_n": 520,
+      "sex": "female"
+    },
+    {
+      "age_group": "20_plus",
+      "baseline_state": "prediabetes",
+      "complete_baseline_n": 419,
+      "deaths_n": 29,
+      "exam_followup_missing_n": 0,
+      "exam_followup_months_max": 108.0,
+      "exam_followup_months_min": 3.0,
+      "exam_followup_zero_n": 0,
+      "ineligible_n": 0,
+      "linkage_eligibility": {
+        "degrees_of_freedom": 17,
+        "estimate": 1.0,
+        "interval": null,
+        "n": 419,
+        "standard_error": 2.32646365371e-17,
+        "status": "boundary_or_insufficient_variance"
+      },
+      "linked_n": 419,
+      "sex": "female"
+    },
+    {
+      "age_group": "20_plus",
+      "baseline_state": "diabetes_any_type",
+      "complete_baseline_n": 203,
+      "deaths_n": 37,
+      "exam_followup_missing_n": 0,
+      "exam_followup_months_max": 108.0,
+      "exam_followup_months_min": 3.0,
+      "exam_followup_zero_n": 0,
+      "ineligible_n": 0,
+      "linkage_eligibility": {
+        "degrees_of_freedom": 17,
+        "estimate": 1.0,
+        "interval": {
+          "high": 1.0,
+          "level": 0.95,
+          "low": 1.0,
+          "method": "Taylor-linearized logit-t; domain degrees of freedom"
+        },
+        "n": 203,
+        "standard_error": 5.99515019056e-17,
+        "status": "estimated"
+      },
+      "linked_n": 203,
+      "sex": "female"
+    },
+    {
+      "age_group": "20_39",
+      "baseline_state": "normoglycemia",
+      "complete_baseline_n": 493,
+      "deaths_n": 5,
+      "exam_followup_missing_n": 0,
+      "exam_followup_months_max": 111.0,
+      "exam_followup_months_min": 25.0,
+      "exam_followup_zero_n": 0,
+      "ineligible_n": 1,
+      "linkage_eligibility": {
+        "degrees_of_freedom": 17,
+        "estimate": 0.999337516568,
+        "interval": {
+          "high": 0.999918571073,
+          "level": 0.95,
+          "low": 0.994632473264,
+          "method": "Taylor-linearized logit-t; domain degrees of freedom"
+        },
+        "n": 493,
+        "standard_error": 0.000657974866154,
+        "status": "estimated"
+      },
+      "linked_n": 492,
+      "sex": "all"
+    },
+    {
+      "age_group": "20_39",
+      "baseline_state": "prediabetes",
+      "complete_baseline_n": 270,
+      "deaths_n": 6,
+      "exam_followup_missing_n": 0,
+      "exam_followup_months_max": 110.0,
+      "exam_followup_months_min": 36.0,
+      "exam_followup_zero_n": 0,
+      "ineligible_n": 0,
+      "linkage_eligibility": {
+        "degrees_of_freedom": 17,
+        "estimate": 1.0,
+        "interval": {
+          "high": 1.0,
+          "level": 0.95,
+          "low": 1.0,
+          "method": "Taylor-linearized logit-t; domain degrees of freedom"
+        },
+        "n": 270,
+        "standard_error": 1.05539877546e-17,
+        "status": "estimated"
+      },
+      "linked_n": 270,
+      "sex": "all"
+    },
+    {
+      "age_group": "20_39",
+      "baseline_state": "diabetes_any_type",
+      "complete_baseline_n": 38,
+      "deaths_n": 0,
+      "exam_followup_missing_n": 0,
+      "exam_followup_months_max": 103.0,
+      "exam_followup_months_min": 84.0,
+      "exam_followup_zero_n": 0,
+      "ineligible_n": 0,
+      "linkage_eligibility": {
+        "degrees_of_freedom": 6,
+        "estimate": 1.0,
+        "interval": null,
+        "n": 38,
+        "standard_error": 4.71659085242e-17,
+        "status": "boundary_or_insufficient_variance"
+      },
+      "linked_n": 38,
+      "sex": "all"
+    },
+    {
+      "age_group": "20_39",
+      "baseline_state": "normoglycemia",
+      "complete_baseline_n": 213,
+      "deaths_n": 4,
+      "exam_followup_missing_n": 0,
+      "exam_followup_months_max": 110.0,
+      "exam_followup_months_min": 25.0,
+      "exam_followup_zero_n": 0,
+      "ineligible_n": 1,
+      "linkage_eligibility": {
+        "degrees_of_freedom": 17,
+        "estimate": 0.99843835751,
+        "interval": {
+          "high": 0.999809769034,
+          "level": 0.95,
+          "low": 0.98730570667,
+          "method": "Taylor-linearized logit-t; domain degrees of freedom"
+        },
+        "n": 213,
+        "standard_error": 0.0015568473975,
+        "status": "estimated"
+      },
+      "linked_n": 212,
+      "sex": "male"
+    },
+    {
+      "age_group": "20_39",
+      "baseline_state": "prediabetes",
+      "complete_baseline_n": 176,
+      "deaths_n": 4,
+      "exam_followup_missing_n": 0,
+      "exam_followup_months_max": 110.0,
+      "exam_followup_months_min": 58.0,
+      "exam_followup_zero_n": 0,
+      "ineligible_n": 0,
+      "linkage_eligibility": {
+        "degrees_of_freedom": 17,
+        "estimate": 1.0,
+        "interval": null,
+        "n": 176,
+        "standard_error": 0.0,
+        "status": "boundary_or_insufficient_variance"
+      },
+      "linked_n": 176,
+      "sex": "male"
+    },
+    {
+      "age_group": "20_39",
+      "baseline_state": "diabetes_any_type",
+      "complete_baseline_n": 20,
+      "deaths_n": 0,
+      "exam_followup_missing_n": 0,
+      "exam_followup_months_max": 103.0,
+      "exam_followup_months_min": 86.0,
+      "exam_followup_zero_n": 0,
+      "ineligible_n": 0,
+      "linkage_eligibility": {
+        "degrees_of_freedom": 4,
+        "estimate": 1.0,
+        "interval": null,
+        "n": 20,
+        "standard_error": 0.0,
+        "status": "boundary_or_insufficient_variance"
+      },
+      "linked_n": 20,
+      "sex": "male"
+    },
+    {
+      "age_group": "20_39",
+      "baseline_state": "normoglycemia",
+      "complete_baseline_n": 280,
+      "deaths_n": 1,
+      "exam_followup_missing_n": 0,
+      "exam_followup_months_max": 111.0,
+      "exam_followup_months_min": 53.0,
+      "exam_followup_zero_n": 0,
+      "ineligible_n": 0,
+      "linkage_eligibility": {
+        "degrees_of_freedom": 17,
+        "estimate": 1.0,
+        "interval": {
+          "high": 1.0,
+          "level": 0.95,
+          "low": 1.0,
+          "method": "Taylor-linearized logit-t; domain degrees of freedom"
+        },
+        "n": 280,
+        "standard_error": 2.08546908451e-17,
+        "status": "estimated"
+      },
+      "linked_n": 280,
+      "sex": "female"
+    },
+    {
+      "age_group": "20_39",
+      "baseline_state": "prediabetes",
+      "complete_baseline_n": 94,
+      "deaths_n": 2,
+      "exam_followup_missing_n": 0,
+      "exam_followup_months_max": 108.0,
+      "exam_followup_months_min": 36.0,
+      "exam_followup_zero_n": 0,
+      "ineligible_n": 0,
+      "linkage_eligibility": {
+        "degrees_of_freedom": 14,
+        "estimate": 1.0,
+        "interval": {
+          "high": 1.0,
+          "level": 0.95,
+          "low": 1.0,
+          "method": "Taylor-linearized logit-t; domain degrees of freedom"
+        },
+        "n": 94,
+        "standard_error": 2.6359539823e-17,
+        "status": "estimated"
+      },
+      "linked_n": 94,
+      "sex": "female"
+    },
+    {
+      "age_group": "20_39",
+      "baseline_state": "diabetes_any_type",
+      "complete_baseline_n": 18,
+      "deaths_n": 0,
+      "exam_followup_missing_n": 0,
+      "exam_followup_months_max": 103.0,
+      "exam_followup_months_min": 84.0,
+      "exam_followup_zero_n": 0,
+      "ineligible_n": 0,
+      "linkage_eligibility": {
+        "degrees_of_freedom": 3,
+        "estimate": 1.0,
+        "interval": null,
+        "n": 18,
+        "standard_error": 0.0,
+        "status": "boundary_or_insufficient_variance"
+      },
+      "linked_n": 18,
+      "sex": "female"
+    },
+    {
+      "age_group": "40_59",
+      "baseline_state": "normoglycemia",
+      "complete_baseline_n": 275,
+      "deaths_n": 13,
+      "exam_followup_missing_n": 0,
+      "exam_followup_months_max": 109.0,
+      "exam_followup_months_min": 10.0,
+      "exam_followup_zero_n": 0,
+      "ineligible_n": 0,
+      "linkage_eligibility": {
+        "degrees_of_freedom": 17,
+        "estimate": 1.0,
+        "interval": null,
+        "n": 275,
+        "standard_error": 2.75491253752e-17,
+        "status": "boundary_or_insufficient_variance"
+      },
+      "linked_n": 275,
+      "sex": "all"
+    },
+    {
+      "age_group": "40_59",
+      "baseline_state": "prediabetes",
+      "complete_baseline_n": 338,
+      "deaths_n": 12,
+      "exam_followup_missing_n": 0,
+      "exam_followup_months_max": 108.0,
+      "exam_followup_months_min": 2.0,
+      "exam_followup_zero_n": 0,
+      "ineligible_n": 0,
+      "linkage_eligibility": {
+        "degrees_of_freedom": 17,
+        "estimate": 1.0,
+        "interval": {
+          "high": 1.0,
+          "level": 0.95,
+          "low": 1.0,
+          "method": "Taylor-linearized logit-t; domain degrees of freedom"
+        },
+        "n": 338,
+        "standard_error": 2.82414408151e-17,
+        "status": "estimated"
+      },
+      "linked_n": 338,
+      "sex": "all"
+    },
+    {
+      "age_group": "40_59",
+      "baseline_state": "diabetes_any_type",
+      "complete_baseline_n": 158,
+      "deaths_n": 15,
+      "exam_followup_missing_n": 0,
+      "exam_followup_months_max": 109.0,
+      "exam_followup_months_min": 10.0,
+      "exam_followup_zero_n": 0,
+      "ineligible_n": 1,
+      "linkage_eligibility": {
+        "degrees_of_freedom": 17,
+        "estimate": 0.997587087729,
+        "interval": {
+          "high": 0.999708746862,
+          "level": 0.95,
+          "low": 0.980314354229,
+          "method": "Taylor-linearized logit-t; domain degrees of freedom"
+        },
+        "n": 158,
+        "standard_error": 0.00241474087217,
+        "status": "estimated"
+      },
+      "linked_n": 157,
+      "sex": "all"
+    },
+    {
+      "age_group": "40_59",
+      "baseline_state": "normoglycemia",
+      "complete_baseline_n": 108,
+      "deaths_n": 6,
+      "exam_followup_missing_n": 0,
+      "exam_followup_months_max": 108.0,
+      "exam_followup_months_min": 14.0,
+      "exam_followup_zero_n": 0,
+      "ineligible_n": 0,
+      "linkage_eligibility": {
+        "degrees_of_freedom": 16,
+        "estimate": 1.0,
+        "interval": {
+          "high": 1.0,
+          "level": 0.95,
+          "low": 1.0,
+          "method": "Taylor-linearized logit-t; domain degrees of freedom"
+        },
+        "n": 108,
+        "standard_error": 1.73632099618e-17,
+        "status": "estimated"
+      },
+      "linked_n": 108,
+      "sex": "male"
+    },
+    {
+      "age_group": "40_59",
+      "baseline_state": "prediabetes",
+      "complete_baseline_n": 182,
+      "deaths_n": 8,
+      "exam_followup_missing_n": 0,
+      "exam_followup_months_max": 108.0,
+      "exam_followup_months_min": 2.0,
+      "exam_followup_zero_n": 0,
+      "ineligible_n": 0,
+      "linkage_eligibility": {
+        "degrees_of_freedom": 17,
+        "estimate": 1.0,
+        "interval": null,
+        "n": 182,
+        "standard_error": 0.0,
+        "status": "boundary_or_insufficient_variance"
+      },
+      "linked_n": 182,
+      "sex": "male"
+    },
+    {
+      "age_group": "40_59",
+      "baseline_state": "diabetes_any_type",
+      "complete_baseline_n": 84,
+      "deaths_n": 7,
+      "exam_followup_missing_n": 0,
+      "exam_followup_months_max": 109.0,
+      "exam_followup_months_min": 10.0,
+      "exam_followup_zero_n": 0,
+      "ineligible_n": 1,
+      "linkage_eligibility": {
+        "degrees_of_freedom": 14,
+        "estimate": 0.995760877886,
+        "interval": {
+          "high": 0.99951224921,
+          "level": 0.95,
+          "low": 0.96419078094,
+          "method": "Taylor-linearized logit-t; domain degrees of freedom"
+        },
+        "n": 84,
+        "standard_error": 0.00426303399323,
+        "status": "estimated"
+      },
+      "linked_n": 83,
+      "sex": "male"
+    },
+    {
+      "age_group": "40_59",
+      "baseline_state": "normoglycemia",
+      "complete_baseline_n": 167,
+      "deaths_n": 7,
+      "exam_followup_missing_n": 0,
+      "exam_followup_months_max": 109.0,
+      "exam_followup_months_min": 10.0,
+      "exam_followup_zero_n": 0,
+      "ineligible_n": 0,
+      "linkage_eligibility": {
+        "degrees_of_freedom": 16,
+        "estimate": 1.0,
+        "interval": null,
+        "n": 167,
+        "standard_error": 0.0,
+        "status": "boundary_or_insufficient_variance"
+      },
+      "linked_n": 167,
+      "sex": "female"
+    },
+    {
+      "age_group": "40_59",
+      "baseline_state": "prediabetes",
+      "complete_baseline_n": 156,
+      "deaths_n": 4,
+      "exam_followup_missing_n": 0,
+      "exam_followup_months_max": 107.0,
+      "exam_followup_months_min": 27.0,
+      "exam_followup_zero_n": 0,
+      "ineligible_n": 0,
+      "linkage_eligibility": {
+        "degrees_of_freedom": 16,
+        "estimate": 1.0,
+        "interval": null,
+        "n": 156,
+        "standard_error": 3.78909227268e-17,
+        "status": "boundary_or_insufficient_variance"
+      },
+      "linked_n": 156,
+      "sex": "female"
+    },
+    {
+      "age_group": "40_59",
+      "baseline_state": "diabetes_any_type",
+      "complete_baseline_n": 74,
+      "deaths_n": 8,
+      "exam_followup_missing_n": 0,
+      "exam_followup_months_max": 108.0,
+      "exam_followup_months_min": 14.0,
+      "exam_followup_zero_n": 0,
+      "ineligible_n": 0,
+      "linkage_eligibility": {
+        "degrees_of_freedom": 16,
+        "estimate": 1.0,
+        "interval": null,
+        "n": 74,
+        "standard_error": 3.4114430367e-17,
+        "status": "boundary_or_insufficient_variance"
+      },
+      "linked_n": 74,
+      "sex": "female"
+    },
+    {
+      "age_group": "60_plus",
+      "baseline_state": "normoglycemia",
+      "complete_baseline_n": 125,
+      "deaths_n": 21,
+      "exam_followup_missing_n": 0,
+      "exam_followup_months_max": 107.0,
+      "exam_followup_months_min": 3.0,
+      "exam_followup_zero_n": 0,
+      "ineligible_n": 0,
+      "linkage_eligibility": {
+        "degrees_of_freedom": 16,
+        "estimate": 1.0,
+        "interval": null,
+        "n": 125,
+        "standard_error": 3.56284241284e-17,
+        "status": "boundary_or_insufficient_variance"
+      },
+      "linked_n": 125,
+      "sex": "all"
+    },
+    {
+      "age_group": "60_plus",
+      "baseline_state": "prediabetes",
+      "complete_baseline_n": 352,
+      "deaths_n": 75,
+      "exam_followup_missing_n": 0,
+      "exam_followup_months_max": 109.0,
+      "exam_followup_months_min": 3.0,
+      "exam_followup_zero_n": 0,
+      "ineligible_n": 1,
+      "linkage_eligibility": {
+        "degrees_of_freedom": 17,
+        "estimate": 0.999568847163,
+        "interval": {
+          "high": 0.999949119249,
+          "level": 0.95,
+          "low": 0.996356855718,
+          "method": "Taylor-linearized logit-t; domain degrees of freedom"
+        },
+        "n": 352,
+        "standard_error": 0.000436593032693,
+        "status": "estimated"
+      },
+      "linked_n": 351,
+      "sex": "all"
+    },
+    {
+      "age_group": "60_plus",
+      "baseline_state": "diabetes_any_type",
+      "complete_baseline_n": 238,
+      "deaths_n": 81,
+      "exam_followup_missing_n": 0,
+      "exam_followup_months_max": 109.0,
+      "exam_followup_months_min": 2.0,
+      "exam_followup_zero_n": 0,
+      "ineligible_n": 0,
+      "linkage_eligibility": {
+        "degrees_of_freedom": 17,
+        "estimate": 1.0,
+        "interval": {
+          "high": 1.0,
+          "level": 0.95,
+          "low": 1.0,
+          "method": "Taylor-linearized logit-t; domain degrees of freedom"
+        },
+        "n": 238,
+        "standard_error": 5.29137265719e-17,
+        "status": "estimated"
+      },
+      "linked_n": 238,
+      "sex": "all"
+    },
+    {
+      "age_group": "60_plus",
+      "baseline_state": "normoglycemia",
+      "complete_baseline_n": 52,
+      "deaths_n": 5,
+      "exam_followup_missing_n": 0,
+      "exam_followup_months_max": 106.0,
+      "exam_followup_months_min": 40.0,
+      "exam_followup_zero_n": 0,
+      "ineligible_n": 0,
+      "linkage_eligibility": {
+        "degrees_of_freedom": 11,
+        "estimate": 1.0,
+        "interval": null,
+        "n": 52,
+        "standard_error": 0.0,
+        "status": "boundary_or_insufficient_variance"
+      },
+      "linked_n": 52,
+      "sex": "male"
+    },
+    {
+      "age_group": "60_plus",
+      "baseline_state": "prediabetes",
+      "complete_baseline_n": 183,
+      "deaths_n": 52,
+      "exam_followup_missing_n": 0,
+      "exam_followup_months_max": 109.0,
+      "exam_followup_months_min": 3.0,
+      "exam_followup_zero_n": 0,
+      "ineligible_n": 1,
+      "linkage_eligibility": {
+        "degrees_of_freedom": 17,
+        "estimate": 0.999020290545,
+        "interval": {
+          "high": 0.999881630869,
+          "level": 0.95,
+          "low": 0.991941721569,
+          "method": "Taylor-linearized logit-t; domain degrees of freedom"
+        },
+        "n": 183,
+        "standard_error": 0.000980834552551,
+        "status": "estimated"
+      },
+      "linked_n": 182,
+      "sex": "male"
+    },
+    {
+      "age_group": "60_plus",
+      "baseline_state": "diabetes_any_type",
+      "complete_baseline_n": 127,
+      "deaths_n": 52,
+      "exam_followup_missing_n": 0,
+      "exam_followup_months_max": 109.0,
+      "exam_followup_months_min": 2.0,
+      "exam_followup_zero_n": 0,
+      "ineligible_n": 0,
+      "linkage_eligibility": {
+        "degrees_of_freedom": 16,
+        "estimate": 1.0,
+        "interval": null,
+        "n": 127,
+        "standard_error": 4.28861995015e-17,
+        "status": "boundary_or_insufficient_variance"
+      },
+      "linked_n": 127,
+      "sex": "male"
+    },
+    {
+      "age_group": "60_plus",
+      "baseline_state": "normoglycemia",
+      "complete_baseline_n": 73,
+      "deaths_n": 16,
+      "exam_followup_missing_n": 0,
+      "exam_followup_months_max": 107.0,
+      "exam_followup_months_min": 3.0,
+      "exam_followup_zero_n": 0,
+      "ineligible_n": 0,
+      "linkage_eligibility": {
+        "degrees_of_freedom": 15,
+        "estimate": 1.0,
+        "interval": null,
+        "n": 73,
+        "standard_error": 4.16507951372e-17,
+        "status": "boundary_or_insufficient_variance"
+      },
+      "linked_n": 73,
+      "sex": "female"
+    },
+    {
+      "age_group": "60_plus",
+      "baseline_state": "prediabetes",
+      "complete_baseline_n": 169,
+      "deaths_n": 23,
+      "exam_followup_missing_n": 0,
+      "exam_followup_months_max": 108.0,
+      "exam_followup_months_min": 3.0,
+      "exam_followup_zero_n": 0,
+      "ineligible_n": 0,
+      "linkage_eligibility": {
+        "degrees_of_freedom": 16,
+        "estimate": 1.0,
+        "interval": {
+          "high": 1.0,
+          "level": 0.95,
+          "low": 1.0,
+          "method": "Taylor-linearized logit-t; domain degrees of freedom"
+        },
+        "n": 169,
+        "standard_error": 5.89551304057e-17,
+        "status": "estimated"
+      },
+      "linked_n": 169,
+      "sex": "female"
+    },
+    {
+      "age_group": "60_plus",
+      "baseline_state": "diabetes_any_type",
+      "complete_baseline_n": 111,
+      "deaths_n": 29,
+      "exam_followup_missing_n": 0,
+      "exam_followup_months_max": 108.0,
+      "exam_followup_months_min": 3.0,
+      "exam_followup_zero_n": 0,
+      "ineligible_n": 0,
+      "linkage_eligibility": {
+        "degrees_of_freedom": 17,
+        "estimate": 1.0,
+        "interval": null,
+        "n": 111,
+        "standard_error": 3.9808651486e-17,
+        "status": "boundary_or_insufficient_variance"
+      },
+      "linked_n": 111,
+      "sex": "female"
+    }
+  ],
+  "independent_holdout": false,
+  "limitations": [
+    "Feasibility audit only: no fitted hazards, mortality ratios, or clinical validation.",
+    "Baseline glycemic states are not repeated observations; progression and reversal are unidentified.",
+    "All-type diabetes is not T2D; normoglycemia is not overall metabolic health.",
+    "Public-use follow-up times may be perturbed; vital status is not perturbed.",
+    "Missing linkage is not survival. Original fasting weights are not adjusted for linkage ineligibility.",
+    "Complete-case selection and linkage eligibility can bias subsequent mortality estimates.",
+    "Public age is top-coded at 80; single-age elderly hazards are not identified.",
+    "This inspected cycle is development data, not an untouched independent holdout.",
+    "Observed follow-up deaths are counts, not age-adjusted, causal or annual mortality rates."
+  ],
+  "model_role": "feasibility_only",
+  "provenance": {
+    "dataset_definition_sha256": "37b03eb073466c8bb2551bccf5e22b99f4735468c0687de3c4545802e00848e6",
+    "source_manifest_sha256": "6ffd7d68459f6df42132d18d5018ee6c9ca8898aab9af3f80f0480ddc1044c53",
+    "source_sha256": {
+      "DEMO_G.xpt": "eaf0525d1952626885af3e935415a1f66ad62c18698080e7354789c125af252d",
+      "DIQ_G.xpt": "a9d5475e0cd66d6a7bc30230345ed0172a9abcbc0a7a4145a35025c827a52a87",
+      "GHB_G.xpt": "8ff7cc95461fdfd47d2c9640b944a2bcd45926a3c0e64c98a09a4cef6c0f88d7",
+      "GLU_G.xpt": "e9c3816dbdfc21cd53a23d63c3610d2550662ee41a21df0a5b72c4a16cd1a8fd",
+      "NHANES_2011_2012_MORT_2019_PUBLIC.dat": "ff98b6c87172643426b1c6d20f76495592bebd618ea18f742d98a44b84456b30"
+    },
+    "transform": "demeter.data.linked_mortality.audit",
+    "transform_version": 1
+  },
+  "schema_version": 1,
+  "scientific_release_ready": false
+}

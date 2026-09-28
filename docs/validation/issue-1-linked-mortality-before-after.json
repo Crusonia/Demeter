@@ -1,0 +1,27 @@
+{
+  "base_commit": "a67cfa2d8ddc73ba3da7782f14c256f76d14df3d",
+  "previous_registry_hash": "aa0d04b884566c811caeea88430c26bcdf2c4991786245b58892b8fdc2ca9910",
+  "new_registry_hash": "6a47cec85d87a6f1038b04ee49cc994852c5f3570f43a1f4921c1df779c79cfa",
+  "active_parameter_records_identical": true,
+  "checks": [
+    {
+      "scenario": "scenarios/baseline.yaml",
+      "ending_population_absolute_delta": 0.0,
+      "cumulative_deaths_absolute_delta": 0.0,
+      "changed_output_paths": [
+        "/metadata/evidence_sha256",
+        "/healthspan/evidence_sha256"
+      ]
+    },
+    {
+      "scenario": "scenarios/reduce_upf_30.yaml",
+      "ending_population_absolute_delta": 0.0,
+      "cumulative_deaths_absolute_delta": 0.0,
+      "changed_output_paths": [
+        "/metadata/evidence_sha256",
+        "/healthspan/evidence_sha256"
+      ]
+    }
+  ],
+  "interpretation": "Deterministic engine outcomes unchanged; registry provenance hash changes for the added feasibility dataset. No new effect or uncertainty distribution drives the engine."
+}

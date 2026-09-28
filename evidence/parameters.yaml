@@ -1147,6 +1147,30 @@ parameters:
         column_index: 3
         scale: 0.01
 datasets:
+  nhanes_linked_mortality:
+    title: NHANES glycemic baseline and public-use linked mortality feasibility
+    cycle: 2011-2012
+    status: derived
+    evidence_grade: C
+    model_role: feasibility_only
+    population: U.S. civilian noninstitutionalized adults with positive fasting subsample weight; complete glycemic observations
+    geography: United States
+    time_period: Baseline 2011-2012; mortality follow-up through December 31, 2019
+    source_store: data/sources/nhanes-mortality/2011-2012
+    unit: unweighted record counts, months, and survey-weighted linkage eligibility fractions
+    baseline_definition: Inherit nhanes_glycemic_prevalence.analysis cutoffs, adult age, pregnancy exclusion, age domains, and interval level; do not inherit its period or weights
+    weight: WTSAF2YR
+    followup: PERMTH_EXM; missing and zero months reported explicitly
+    mortality_definition: MORTSTAT for ELIGSTAT=1 only; ineligible linkage is missing, never alive
+    layout_source: https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/R_ReadInProgramAllSurveys.R
+    definition_source: https://www.cdc.gov/nchs/data/datalinkage/public-use-linked-mortality-file-description.pdf
+    uncertainty: Survey-design Taylor ratio standard errors and logit-t intervals for linkage eligibility only; event counts are descriptive and have no fitted hazard interval
+    transformation: demeter.data.linked_mortality.audit
+    limitations:
+      - Baseline-state mortality association cannot identify current-state causal mortality effects or progression/reversal.
+      - Public-use follow-up times may be perturbed; adult vital status is not perturbed.
+      - Age is top-coded at 80; no pediatric mortality observations in the public release.
+      - This inspected cycle is development data; independent validation cycles and fitting criteria remain to be declared before fitting.
   glp1_benchmarks:
     model_role: benchmark_only
     evidence_appraisal:

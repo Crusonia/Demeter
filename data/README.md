@@ -30,6 +30,12 @@ and independent archive retrieval time of each committed copy.
 
 ## Source to result
 
+The [linked mortality store](../docs/LINKED_MORTALITY.md) adds five public-use
+CDC/NCHS files for the 2011–2012 development cycle and mortality through 2019.
+`uv run demeter data rebuild-linked-mortality` reconstructs linkage coverage and
+aggregate event counts offline. These are feasibility diagnostics, not fitted
+health hazards or an independent validation pass.
+
 The [GLP-1 store](../docs/GLP1.md) contains official ClinicalTrials.gov STEP 1 and
 STEP 4 JSON responses and a separately labeled persistence-study extraction.
 `uv run demeter data rebuild-glp1` reconstructs their benchmark bundle offline.
@@ -141,7 +147,7 @@ from the modeled quantities, and leave unsupported mappings explicitly unresolve
 
 ## NHANES and official JSON additions
 
-The [machine-readable catalog](catalog.json) covers all 41 archived source files, including
+The [machine-readable catalog](catalog.json) covers all 46 archived source files, including
 four deidentified NHANES 2017-March 2020 XPORT files and four official JSON
 snapshots and the NCHS healthspan method PDF. The original baseline and historical
 archives above remain canonical.

@@ -1,5 +1,22 @@
 # Issue #1 audit and resume contract
 
+## September 28 validation continuation
+
+The [public linked-mortality audit](LINKED_MORTALITY.md) adds a reproducible
+2011–2012 NHANES development sample with public follow-up through 2019. It
+establishes a mortality evidence route without restricted ARIC access. Original
+files, rights, hashes, aggregate coverage and offline reconstruction are stored.
+No clinical parameters are fitted or promoted by this audit.
+
+The four current `validate.prevalence` rows are unresolved population/state
+comparisons, with `passed: false` by construction. They are not four statistical
+tolerance failures after calibration. NHANES published-table reconstruction passes
+separately. Completion requires observation mapping and independent health
+validation, not adjusting synthetic shares until discrepancies disappear.
+
+The sections below preserve the original PR #29 audit history. Its test counts,
+base commit and next-issue reference are historical, not the current work state.
+
 Audited base: `ca943606d67492dac02fb23ae19644422c7ef7ac` (`main`).
 Issue #1 and milestone #27 remain **incomplete**. This branch advances the evidence
 audit; it is not a completed scientific v0.1 release.

@@ -51,6 +51,8 @@ jobs:
           uv run demeter data verify-store
           uv run demeter data rebuild-nhanes --destination outputs/nhanes-rebuilt
           uv run demeter evidence population --output outputs/population-evidence.json
+          uv run demeter data rebuild-linked-mortality
+          uv run demeter evidence linked-mortality --output outputs/linked-mortality-evidence.json
           uv run demeter data rebuild-healthspan
           uv run demeter evidence healthspan --output outputs/healthspan-method-check.json
           uv run demeter data rebuild-prechronic

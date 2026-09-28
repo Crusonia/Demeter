@@ -286,6 +286,35 @@
       ],
       "model_role": "definition_contract_not_an_observed_dataset",
       "redistribution": "Demeter-authored definitions under MIT; named external standards/definitions retain source attribution in the registry."
+    },
+    "nhanes_linked_mortality": {
+      "store": "nhanes_linked_mortality",
+      "dependencies": [
+        "nhanes_2017_2020"
+      ],
+      "registry_datasets": [
+        "nhanes_linked_mortality"
+      ],
+      "registry_parameters": [],
+      "artifacts": [
+        {
+          "path": "src/demeter/data/bundled/linked_mortality_audit.json",
+          "sha256": "f010c3425a331f7f88b984a130a20c31a01dfaa51c40c67b524bd9df9defadb2"
+        },
+        {
+          "path": "src/demeter/data/bundled/linked_mortality_manifest.json",
+          "sha256": "93b881f92c68ceea82fc4058082cafcb018da6fa819a4706ad0a3a3591cb2436"
+        }
+      ],
+      "transform_files": [
+        "src/demeter/data/linked_mortality.py",
+        "src/demeter/data/nhanes.py"
+      ],
+      "rebuild": [
+        "uv run demeter data rebuild-linked-mortality"
+      ],
+      "model_role": "feasibility_only",
+      "redistribution": "Public-use CDC/NCHS source notices and restrictions retained; derived aggregate audit, not clinical estimates. Demeter transforms are MIT."
     }
   },
   "supporting_artifacts": [

@@ -8,7 +8,7 @@ The data pipeline and model mechanics are usable. These remaining issues are sci
 | Prediabetes definition | The NHANES benchmark uses registered joint A1c/fasting-glucose criteria, with prior diagnosis taking precedence | Survey prediabetes does not identify all insulin resistance or broader metabolic health; resolve engine semantics explicitly |
 | Transitions | [Rooney et al., 2021, ARIC](https://pubmed.ncbi.nlm.nih.gov/33555311/) follows older adults with several prediabetes definitions | Review corrected results and competing deaths; estimate hazards for the matched population, then obtain evidence for other ages |
 | Diet effects | [Chen et al., 2023](https://pubmed.ncbi.nlm.nih.gov/36854188/) examines UPF and incident T2D in prospective cohorts | Match dose units, population, endpoint, covariates and lag; identify what is association versus a transportable causal effect |
-| State mortality ratios | Aggregate NCHS mortality is available and reproduced | Source age/state-specific excess hazards; evaluate confounding and model identification |
+| State mortality ratios | Aggregate NCHS mortality is reproduced; [public NHANES mortality linkage](LINKED_MORTALITY.md) now supplies a reloadable development-sample coverage audit | Specify baseline-versus-current-state estimands, age/sex support, linkage weighting, confounding and state changes before fitting excess hazards |
 | Health backtest | A mortality persistence benchmark is implemented | Predeclare a historical health calibration period and a separate holdout; assess incidence/prevalence and mortality jointly |
 
 ## Why not use a published association as the current coefficient?

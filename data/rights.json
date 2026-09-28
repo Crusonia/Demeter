@@ -357,7 +357,7 @@
       "policy": "census",
       "privacy": "aggregate",
       "publisher": "U.S. Census Bureau",
-      "vintage": "2025 (using 2022–2024 estimates)",
+      "vintage": "2025 (using 2022\u20132024 estimates)",
       "citation": "U.S. Census Bureau. Resident population by single year of age and sex, Vintage 2025",
       "notes": "Unmodified source snapshot; source terms apply separately from Demeter MIT code.",
       "url": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/national/asrh/nc-est2025-agesex-res.csv",
@@ -583,6 +583,61 @@
       "url": "https://api.census.gov/data/2023/pep/charv/variables.json",
       "sha256": "45f43c587c4aa15ac2d8291480ee200a62eaf17f157b91509189f405783116aa",
       "retrieved_at": "2026-09-27T23:56:28.708591+00:00"
+    },
+    "data/sources/nhanes-mortality/2011-2012/DEMO_G.xpt": {
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/DEMO_G.xpt",
+      "sha256": "eaf0525d1952626885af3e935415a1f66ad62c18698080e7354789c125af252d",
+      "retrieved_at": "2026-09-28T11:07:18.022704+00:00",
+      "publisher": "CDC/NCHS",
+      "vintage": "NHANES 2011-2012",
+      "policy": "nhanes",
+      "privacy": "public_use_microdata",
+      "citation": "CDC/NCHS. NHANES 2011-2012 public-use data and 2019 Linked Mortality File.",
+      "notes": "Public-use deidentified records for statistical analysis only; link only by the documented public SEQN. Vital status is unperturbed; some follow-up times may be synthetic for disclosure protection. No endorsement; original sources are free from CDC."
+    },
+    "data/sources/nhanes-mortality/2011-2012/DIQ_G.xpt": {
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/DIQ_G.xpt",
+      "sha256": "a9d5475e0cd66d6a7bc30230345ed0172a9abcbc0a7a4145a35025c827a52a87",
+      "retrieved_at": "2026-09-28T11:07:18.619671+00:00",
+      "publisher": "CDC/NCHS",
+      "vintage": "NHANES 2011-2012",
+      "policy": "nhanes",
+      "privacy": "public_use_microdata",
+      "citation": "CDC/NCHS. NHANES 2011-2012 public-use data and 2019 Linked Mortality File.",
+      "notes": "Public-use deidentified records for statistical analysis only; link only by the documented public SEQN. Vital status is unperturbed; some follow-up times may be synthetic for disclosure protection. No endorsement; original sources are free from CDC."
+    },
+    "data/sources/nhanes-mortality/2011-2012/GHB_G.xpt": {
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/GHB_G.xpt",
+      "sha256": "8ff7cc95461fdfd47d2c9640b944a2bcd45926a3c0e64c98a09a4cef6c0f88d7",
+      "retrieved_at": "2026-09-28T11:07:18.834291+00:00",
+      "publisher": "CDC/NCHS",
+      "vintage": "NHANES 2011-2012",
+      "policy": "nhanes",
+      "privacy": "public_use_microdata",
+      "citation": "CDC/NCHS. NHANES 2011-2012 public-use data and 2019 Linked Mortality File.",
+      "notes": "Public-use deidentified records for statistical analysis only; link only by the documented public SEQN. Vital status is unperturbed; some follow-up times may be synthetic for disclosure protection. No endorsement; original sources are free from CDC."
+    },
+    "data/sources/nhanes-mortality/2011-2012/GLU_G.xpt": {
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2011/DataFiles/GLU_G.xpt",
+      "sha256": "e9c3816dbdfc21cd53a23d63c3610d2550662ee41a21df0a5b72c4a16cd1a8fd",
+      "retrieved_at": "2026-09-28T11:07:19.050516+00:00",
+      "publisher": "CDC/NCHS",
+      "vintage": "NHANES 2011-2012",
+      "policy": "nhanes",
+      "privacy": "public_use_microdata",
+      "citation": "CDC/NCHS. NHANES 2011-2012 public-use data and 2019 Linked Mortality File.",
+      "notes": "Public-use deidentified records for statistical analysis only; link only by the documented public SEQN. Vital status is unperturbed; some follow-up times may be synthetic for disclosure protection. No endorsement; original sources are free from CDC."
+    },
+    "data/sources/nhanes-mortality/2011-2012/NHANES_2011_2012_MORT_2019_PUBLIC.dat": {
+      "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_2011_2012_MORT_2019_PUBLIC.dat",
+      "sha256": "ff98b6c87172643426b1c6d20f76495592bebd618ea18f742d98a44b84456b30",
+      "retrieved_at": "2026-09-28T11:07:22.076239+00:00",
+      "publisher": "CDC/NCHS",
+      "vintage": "NHANES 2011-2012; mortality follow-up through 2019 (May 2022 public release)",
+      "policy": "nhanes",
+      "privacy": "public_use_microdata",
+      "citation": "CDC/NCHS. NHANES 2011-2012 public-use data and 2019 Linked Mortality File.",
+      "notes": "Public-use deidentified records for statistical analysis only; link only by the documented public SEQN. Vital status is unperturbed; some follow-up times may be synthetic for disclosure protection. No endorsement; original sources are free from CDC."
     }
   },
   "clinical_sources": {
