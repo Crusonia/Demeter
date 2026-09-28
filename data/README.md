@@ -106,6 +106,13 @@ registry; full publisher articles are not included in this archive.
 
 ## Source credit and terms
 
+The dietary timing store retains an official NIDDK HTML summary and a small
+explicitly labeled factual JSON extraction from a published trial figure caption.
+It supports a [historical structural challenge](../docs/DIET_DYNAMICS.md), not
+national UPF calibration. Publisher article text is not redistributed. Reload
+with `uv run demeter data rebuild-diet-response`; the catalog identifies its
+`historical_challenge_only` role and receipts.
+
 The archived baseline and historical files are from CDC/NCHS, the U.S. Census
 Bureau, CDC's U.S. Diabetes Surveillance System/NHIS, and USDA ERS, as attributed
 per file in the manifests. These government data retain their source terms;

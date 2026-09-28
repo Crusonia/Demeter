@@ -10,6 +10,7 @@ from demeter.analysis.experiments import compare as compare_runs
 from demeter.analysis.experiments import sensitivity as sensitivity_run
 from demeter.analysis.experiments import uncertainty as uncertainty_run
 from demeter.analysis.historical import historical_backtest
+from demeter.analysis.diet_response import historical_lag_challenge, timing_sensitivity
 from demeter.analysis.observability import observe
 from demeter.analysis.validation import mortality_backtest, validate as validation_report
 from demeter.data.ingest import rebuild
@@ -19,6 +20,7 @@ from demeter.data.store import verify_store
 from demeter.data.healthspan import crosscheck, load_healthspan, rebuild_healthspan
 from demeter.data.prechronic import load_prechronic, rebuild_prechronic
 from demeter.data.dietary import load_dietary, rebuild_dietary
+from demeter.data.diet_response import rebuild_challenge
 from demeter.evidence.appraisal import applicability_report, verify_sources
 from demeter.model import simulate
 from demeter.nutrition.exposures import catalog
@@ -176,6 +178,36 @@ def dietary_evidence(evidence: Path = DEFAULT_EVIDENCE, output: Path | None = No
 def food_exposures(evidence: Path = DEFAULT_EVIDENCE, output: Path | None = None) -> None:
     """List canonical food/nutrient definitions, units, overlap and activation boundaries."""
     emit(catalog(registry(evidence)), output)
+
+
+@data_app.command("rebuild-diet-response")
+def rebuild_diet_response_data(
+    evidence: Path = DEFAULT_EVIDENCE,
+    source: Path = Path("data/sources/diet-dynamics/2026-09-27"),
+    destination: Path = Path("outputs/diet-response-rebuilt"),
+) -> None:
+    """Verify factual trial extraction and official NIH corroboration offline."""
+    emit(rebuild_challenge(registry(evidence), source, destination))
+
+
+@app.command("diet-lag-challenge")
+def diet_lag_challenge(evidence: Path = DEFAULT_EVIDENCE, output: Path | None = None) -> None:
+    """Challenge a lag-to-remission shortcut; expose missing structure without fitting."""
+    emit(historical_lag_challenge(registry(evidence)), output)
+
+
+@app.command("timing-sensitivity")
+def diet_timing_sensitivity(
+    scenario: Path = Path("scenarios/diet_dynamics.yaml"),
+    evidence: Path = DEFAULT_EVIDENCE,
+    samples: int = 64,
+    seed: int = 0,
+    output: Path | None = None,
+) -> None:
+    """Rank timing contributions to healthspan with other parameters held fixed."""
+    emit(
+        timing_sensitivity(registry(evidence), Scenario.from_yaml(scenario), samples, seed), output
+    )
 
 
 @app.command("historical-backtest")

@@ -223,12 +223,40 @@ class DietaryChange(StrictModel):
     role: Literal["model_effect", "context_only"]
 
 
+class UPFStep(StrictModel):
+    """A piecewise-constant UPF intervention starting before an annual step."""
+
+    start_year: int = Field(ge=1, strict=True)
+    value: float = Field(ge=0)
+    unit: Literal["relative_exposure", "percent_energy"]
+    reference_period: str | None = None
+
+    @model_validator(mode="after")
+    def reference_required(self):
+        if (self.unit == "percent_energy") != bool(self.reference_period):
+            raise ValueError("Only absolute UPF steps require a reference_period")
+        return self
+
+
+class DietResponse(StrictModel):
+    kind: Literal["legacy", "dynamic"] = "legacy"
+    shape: Literal["linear", "saturating"] = "linear"
+
+    @model_validator(mode="after")
+    def supported_shape(self):
+        if self.kind == "legacy" and self.shape != "linear":
+            raise ValueError("Legacy diet response requires linear shape")
+        return self
+
+
 class Scenario(StrictModel):
     name: str = Field(min_length=1)
     description: str = ""
     years: int = Field(default=25, ge=1, le=100, strict=True)
     exposures: dict[Literal["upf", "fiber", "fruit_veg"], float] = Field(default_factory=dict)
     diet: dict[ExposureId, DietaryChange] = Field(default_factory=dict)
+    upf_schedule: list[UPFStep] = Field(default_factory=list)
+    diet_response: DietResponse = Field(default_factory=DietResponse)
     baseline_year: Literal[2022, 2023, 2024] = 2024
     sex: Literal["all", "male", "female"] = "all"
     mode: Literal["validation", "scientific"] = "validation"
@@ -241,6 +269,13 @@ class Scenario(StrictModel):
 
     @model_validator(mode="after")
     def valid_exposures(self):
+        if self.upf_schedule and ("upf" in self.exposures or "upf" in self.diet):
+            raise ValueError("UPF schedule cannot be combined with a static UPF declaration")
+        starts = [step.start_year for step in self.upf_schedule]
+        if starts != sorted(set(starts)) or any(year > self.years for year in starts):
+            raise ValueError(
+                "UPF schedule requires unique increasing start years within the horizon"
+            )
         if self.exposures.keys() & self.diet.keys():
             raise ValueError(
                 "Specify each exposure once, using either relative exposures or absolute diet"

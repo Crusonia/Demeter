@@ -153,6 +153,11 @@ uv run demeter uncertainty scenarios/dietary_upf_30.yaml --draws 64 --seed 42
 
 ## Design trace and validation boundary
 
+The [timing extension](DIET_DYNAMICS.md) supports source-linked absolute or relative
+UPF schedules and an optional dynamic response. It changes the timing and existing
+forward/reverse transition modifiers for the same UPF pathway; it does not activate
+independent correlated nutrient effects. Static exposure files retain their behavior.
+
 Q-03 / RM-04 → the exposure-to-health portion of P-02 (upstream of the future
 L-08/L-10/L-11 financing/behavior loops) → I-05/I-07/I-11/I-12 → F-04/F-08.
 No loop is closed by this change, and no externality or financial account is added.

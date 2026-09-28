@@ -3,6 +3,16 @@
   "path_base": "data/",
   "stores": [
     {
+      "id": "diet_response_challenge",
+      "manifest": "sources/diet-dynamics/2026-09-27/manifest.json",
+      "publisher": "NIDDK/NIH; Demeter factual extraction from Gregg et al., JAMA 2012",
+      "description": "Official NIH summary and a small separately labeled factual trial extraction, used to challenge timing shortcuts without calibrating dietary effects",
+      "format": ["HTML", "JSON factual extraction"],
+      "derived_bundle": "../src/demeter/data/bundled/diet_response_challenge.json",
+      "model_role": "historical_challenge_only",
+      "reload": "uv run demeter data rebuild-diet-response"
+    },
+    {
       "id": "dietary_baselines",
       "manifest": "sources/dietary/2026-09-27/manifest.json",
       "publisher": "CDC/NCHS; USDA WWEIA",

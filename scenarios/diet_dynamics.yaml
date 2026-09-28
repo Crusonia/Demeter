@@ -1,0 +1,11 @@
+name: diet_dynamics
+description: Synthetic response experiment with delayed adoption, sustained reduction, then withdrawal; not a clinical forecast
+years: 25
+mode: validation
+health_structure: risk_1
+diet_response:
+  kind: dynamic
+  shape: saturating
+upf_schedule:
+  - {start_year: 3, value: 37.1, unit: percent_energy, reference_period: '2021_2023'}
+  - {start_year: 13, value: 53.0, unit: percent_energy, reference_period: '2021_2023'}

@@ -39,6 +39,14 @@ Target log multiplier is `beta_UPF × (relative_exposure − 1)`. Each year the 
 
 The accepted range is a registered software validation envelope, not an empirical study range. Values outside it require explicit `allow_extrapolation: true`; the result reports extrapolation. That flag does not permit scientific mode. The model does not automatically interpret observational associations as causal effects.
 
+An optional [dynamic response](DIET_DYNAMICS.md) adds piecewise-constant schedules,
+asymmetric input adjustment, convex fading exposure memory, independent reverse
+transition response and an optional saturating dose shape. All added coefficients
+and timing distributions are synthetic registry entries. It retains annual
+mortality/transition/aging order and existing health stocks; T2D remains absorbing.
+Original single-lag behavior is the default. Timing sensitivity and a historical
+observation-shortcut challenge are separate from parameter calibration.
+
 ## Life tables and healthy state years
 
 For each age, mix state death probabilities using current state shares. Empty age cells use reference shares; this is disclosed in each annual row. This provides a complete period schedule even after younger cells empty in a closed population.
