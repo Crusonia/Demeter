@@ -173,6 +173,7 @@ Suggested layout:
 
 ```text
 data/
+  sources/        # committed, permitted key source snapshots; see data/README.md
   raw/            # immutable downloaded source artifacts; normally gitignored
   processed/      # model-ready generated artifacts; normally gitignored
   manifests/      # committed metadata, checksums, URLs, retrieval dates
@@ -193,7 +194,7 @@ For every external dataset:
 - transformation script
 - output schema
 
-A fresh environment should be able to rebuild processed inputs from authoritative sources, subject to source availability.
+A fresh environment should be able to rebuild processed inputs from authoritative sources, subject to source availability. Prefer the committed curated snapshots for ordinary offline reproduction; use `data/raw/` as the download/work cache. See [the data policy](../data/README.md) for source inclusion, versioning, and large/restricted-data exceptions.
 
 Never commit restricted or personally identifiable health data.
 

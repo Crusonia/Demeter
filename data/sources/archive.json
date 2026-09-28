@@ -1,0 +1,84 @@
+{
+  "artifacts": {
+    "baseline/2026-09-26/census_2025.csv": {
+      "archive_retrieved_at": "2026-09-27T23:51:50.572900+00:00",
+      "bytes": 18282,
+      "sha256": "6436d4f6972d415caf14cb20776807bc031fc9f1bfc9d6ff26055d592a2b0230",
+      "source_manifest": "src/demeter/data/bundled/manifest.json"
+    },
+    "baseline/2026-09-26/nchs_2022_all.xlsx": {
+      "archive_retrieved_at": "2026-09-27T23:51:49.776843+00:00",
+      "bytes": 20569,
+      "sha256": "04e961f8668f1e863ca5bcd53586eec4b65735c89eb1a4301361f71d35a9d0fd",
+      "source_manifest": "src/demeter/data/bundled/manifest.json"
+    },
+    "baseline/2026-09-26/nchs_2022_female.xlsx": {
+      "archive_retrieved_at": "2026-09-27T23:51:50.114552+00:00",
+      "bytes": 20523,
+      "sha256": "d00c7ddf1b945918c67126f03f77a89e8ea9168500195e94679b4ab43ed412ed",
+      "source_manifest": "src/demeter/data/bundled/manifest.json"
+    },
+    "baseline/2026-09-26/nchs_2022_male.xlsx": {
+      "archive_retrieved_at": "2026-09-27T23:51:52.107576+00:00",
+      "bytes": 20561,
+      "sha256": "3b4be1cd02973474d59a30a3cceb0fe8bae88add78ff478b79ca7c9105b2e227",
+      "source_manifest": "src/demeter/data/bundled/manifest.json"
+    },
+    "baseline/2026-09-26/nchs_2023_all.xlsx": {
+      "archive_retrieved_at": "2026-09-27T23:51:50.148919+00:00",
+      "bytes": 20577,
+      "sha256": "9626e4b04280b843f20ead87ae8c4d99a385fe368e836ea1ef54d897c1f7a4cf",
+      "source_manifest": "src/demeter/data/bundled/manifest.json"
+    },
+    "baseline/2026-09-26/nchs_2023_female.xlsx": {
+      "archive_retrieved_at": "2026-09-27T23:51:51.907153+00:00",
+      "bytes": 20588,
+      "sha256": "15b2dfe31dbefdeba17ca2d26d8684c821d18ca4a74252b57623299ecc15e8d6",
+      "source_manifest": "src/demeter/data/bundled/manifest.json"
+    },
+    "baseline/2026-09-26/nchs_2023_male.xlsx": {
+      "archive_retrieved_at": "2026-09-27T23:51:50.602391+00:00",
+      "bytes": 20557,
+      "sha256": "80dda2d2a8109e7c1221c6dd5f6adcda75b819f383088e6aca05eec5a9e31015",
+      "source_manifest": "src/demeter/data/bundled/manifest.json"
+    },
+    "baseline/2026-09-26/nchs_2024_all.xlsx": {
+      "archive_retrieved_at": "2026-09-27T23:51:51.426619+00:00",
+      "bytes": 20584,
+      "sha256": "d9ce5588403433666c26eaf178ed7afd0cd591c65b3b08dcba2b76fcf5dcdd3c",
+      "source_manifest": "src/demeter/data/bundled/manifest.json"
+    },
+    "baseline/2026-09-26/nchs_2024_female.xlsx": {
+      "archive_retrieved_at": "2026-09-27T23:51:51.503608+00:00",
+      "bytes": 20519,
+      "sha256": "3024d85dc0566dfad80a4ea76dc988694f7a276a6f15e6b2316ad5e9cf5477ef",
+      "source_manifest": "src/demeter/data/bundled/manifest.json"
+    },
+    "baseline/2026-09-26/nchs_2024_male.xlsx": {
+      "archive_retrieved_at": "2026-09-27T23:51:52.050079+00:00",
+      "bytes": 20518,
+      "sha256": "f7908e92f47f6250308d671abb0a30b74f86aa5d3e6d402a5d092054ed8a5ea0",
+      "source_manifest": "src/demeter/data/bundled/manifest.json"
+    },
+    "historical/2026-09-26/nchs_life_expectancy.csv": {
+      "archive_retrieved_at": "2026-09-27T23:51:52.190850+00:00",
+      "bytes": 34059,
+      "sha256": "c2473acf4bcc22c876ebd67abf131e89ea46c3ed35f1cdf23025301ac39b3bdf",
+      "source_manifest": "src/demeter/data/bundled/historical_manifest.json"
+    },
+    "historical/2026-09-26/nhis_diabetes.csv": {
+      "archive_retrieved_at": "2026-09-27T23:51:52.281308+00:00",
+      "bytes": 27122,
+      "sha256": "a410a56fa5d602cdb74d200b66e90fea24f138b7c56a09b524179c3d4eee517e",
+      "source_manifest": "src/demeter/data/bundled/historical_manifest.json"
+    },
+    "historical/2026-09-26/sweeteners.csv": {
+      "archive_retrieved_at": "2026-09-27T23:51:53.075661+00:00",
+      "bytes": 795290,
+      "sha256": "bd96e269175ecac4c4b411f69171bc31cb4a2fc6cb00c35a1ab7e8919a8fd1ce",
+      "source_manifest": "src/demeter/data/bundled/historical_manifest.json"
+    }
+  },
+  "schema_version": 1,
+  "snapshot": "Pinned model inputs first retrieved 2026-09-26; archive copies independently verified against those receipts"
+}

@@ -10,6 +10,12 @@
 
 ## Project
 
+- [Start here](https://github.com/Crusonia/Demeter/blob/main/docs/START_HERE.md)
+- [Install and run](https://github.com/Crusonia/Demeter/blob/main/docs/GETTING_STARTED.md)
+- [First exercise](https://github.com/Crusonia/Demeter/blob/main/docs/FIRST_EXERCISE.md)
+- [Data catalog](https://github.com/Crusonia/Demeter/blob/main/data/README.md)
+- [PR workflow](https://github.com/Crusonia/Demeter/blob/main/CONTRIBUTING.md)
+- [Governance](https://github.com/Crusonia/Demeter/blob/main/GOVERNANCE.md)
 - [Food is Health Substack](https://foodishealth.substack.com/)
 - [Repository](https://github.com/Crusonia/Demeter)
 - [Current acceptance status](https://github.com/Crusonia/Demeter/blob/main/docs/V0_1_STATUS.md)

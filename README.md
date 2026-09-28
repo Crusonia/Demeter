@@ -6,7 +6,22 @@ The project translates questions explored in the Food is Health Substack into ex
 
 Food prices, treatment access, consumer behavior, production costs, and reimbursement can change together. Demeter aims to trace those changes through food demand, supply, metabolic health, healthcare economics, and the incentives that feed back into the market. The model must be able to challenge a Food is Health hypothesis as well as support it.
 
-**Start here:** [Public guide and wiki source pages](docs/wiki/Home.md) · [Levers and scenarios](docs/wiki/Levers-and-Scenarios.md) · [Real options and strategic value](docs/wiki/Real-Options-and-Strategic-Value.md) · [Tornado diagrams](docs/wiki/Visualization-and-Tornado-Diagrams.md) · [Model status](docs/V0_1_STATUS.md) · [Contribute](docs/wiki/Contributing.md)
+**New here?** [Purpose and staged roadmap](docs/START_HERE.md) · [Install on macOS, Linux, or Windows](docs/GETTING_STARTED.md) · [First exercise](docs/FIRST_EXERCISE.md) · [Data and source archive](data/README.md) · [Contribute](CONTRIBUTING.md)
+
+Think of Demeter as a **management flight simulator built in stages**: form a
+hypothesis, try an intervention, inspect delays and consequences, and improve
+your understanding. The learning approach is inspired by John Sterman and MIT's
+[management flight simulators](https://mitsloan.mit.edu/faculty/academic-groups/system-dynamics/courses-and-programs).
+Demeter is an independent project; the current health engine is the first stage
+of that larger ambition. Each new mechanism must earn its place through evidence
+and validation.
+
+You can help before the whole system exists. Improve one source, test one causal
+link, explain a real constraint, or tell us where a first-time reader gets lost.
+The goal is progressively better analysis, including results that challenge the
+Food is Health thesis. Current dietary scenario outputs remain **validation-only**.
+
+**Explore further:** [Public guide](docs/wiki/Home.md) · [Levers and scenarios](docs/wiki/Levers-and-Scenarios.md) · [Real options](docs/wiki/Real-Options-and-Strategic-Value.md) · [Tornado diagrams](docs/wiki/Visualization-and-Tornado-Diagrams.md) · [Model status](docs/V0_1_STATUS.md)
 
 ## What Demeter is intended to reveal
 
@@ -28,7 +43,7 @@ Tornado diagrams are a planned core diagnostic: rank how much specified changes 
 
 The [Substack](https://foodishealth.substack.com/) is the home for the broader conversation. This repository is the home for inspectable code, evidence, assumptions, and model revisions. Readers, researchers, operators, clinicians, economists, and developers can help turn a thesis into a testable question, supply evidence, or identify a missing mechanism.
 
-Demeter is released under the [MIT License](LICENSE). Contributions should preserve reproducibility, document uncertainty, and make disagreement testable. See the [contribution guide](docs/wiki/Contributing.md).
+Demeter is released under the [MIT License](LICENSE). Contributions should preserve reproducibility, document uncertainty, and make disagreement testable. Anyone can propose a pull request; Carter Williams ([@jcarterwil](https://github.com/jcarterwil)) reviews and merges community changes. See [contributing](CONTRIBUTING.md) and [governance](GOVERNANCE.md).
 
 ## Project vision
 
@@ -69,7 +84,23 @@ See [acceptance status](docs/V0_1_STATUS.md), [model specification](docs/MODEL_S
 
 ## Run locally or in Codex Cloud
 
-Use Python 3.11+ and [uv](https://docs.astral.sh/uv/). Run these commands from the repository root:
+For a first installation, follow the [platform-specific setup guide](docs/GETTING_STARTED.md).
+There is no server, database, API key, or paid tool to configure. uv uses the pinned
+Python 3.12 environment; Python 3.11 is also exercised in CI. Once cloned, run from
+the repository root:
+
+```text
+uv sync --locked
+uv run demeter validate
+uv run demeter observe scenarios/reduce_upf_30.yaml --draws 4 --samples 8 --seed 42
+```
+
+Open `outputs/observability/index.html`: use `open` on macOS, `xdg-open` on Linux,
+or `Start-Process .\outputs\observability\index.html` in Windows PowerShell.
+The small sample counts are for a first look at the tools. Continue with the
+[guided exercise](docs/FIRST_EXERCISE.md).
+
+Additional analysis and contributor commands:
 
 ```bash
 uv sync --locked
@@ -82,7 +113,7 @@ uv run demeter compare scenarios/baseline.yaml scenarios/reduce_upf_30.yaml
 uv run demeter uncertainty scenarios/reduce_upf_30.yaml --draws 128 --seed 42
 uv run demeter sensitivity life_expectancy --samples 64 --seed 42
 uv run demeter backtest --train-year 2022 --holdout-year 2023
-uv run pytest
+uv run python -X utf8 -m pytest
 uv run ruff check .
 ```
 
@@ -106,13 +137,24 @@ flowchart TD
 
 Core equations use transparent NumPy arrays. BPTK-Py remains available for later feedback/delay modules; the age-shift and life-table operations are easier to inspect directly. There is no database or hosted runtime dependency. See [the engine decision](docs/ENGINE_DECISION.md).
 
-## Rebuild source data
+## Source data travel with the model
+
+The repository contains the 13 small public source artifacts used by the current
+baseline and historical pipelines, as well as the model-ready bundles. See the
+[data catalog and contribution policy](data/README.md) for locations, source terms,
+and the distinction between raw observations, derived inputs, and assumptions.
+Verify the archive and reproduce both bundles without network access or changes
+to committed files:
 
 ```bash
-uv run demeter data rebuild --raw data/raw
+uv run python scripts/verify_source_archive.py --rebuild
 ```
 
-This downloads official Excel/CSV artifacts if absent and verifies pinned checksums before rebuilding the committed small offline bundle. A changed upstream file causes a failure requiring a reviewed source update. Raw files are ignored by Git. The bundle and its manifest live in `src/demeter/data/bundled/`, so the model also works from a built wheel.
+Curated immutable source snapshots live in `data/sources/`. Scratch downloads in
+`data/raw/` and generated results remain ignored. The existing `demeter data rebuild`
+command is for intentional source-pipeline maintenance and writes the bundle;
+beginners do not need it. A changed upstream file requires a reviewed source update.
+Bundles and manifests live in `src/demeter/data/bundled/` and also ship in the wheel.
 
 The manifest records exact URLs, retrieval times, publisher, vintage, hashes, transform, and output schema. Observed data families are registered in `evidence/parameters.yaml`. Public federal data are used; no personal health data are included.
 

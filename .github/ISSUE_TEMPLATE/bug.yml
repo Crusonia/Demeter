@@ -1,0 +1,27 @@
+name: Bug or setup problem
+description: Tell us what failed, including first-time installation problems.
+title: "[Bug] "
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps or command to reproduce
+      description: Include scenario and seed when relevant.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Your setup
+      description: "OS; output of uv --version, uv run python --version, and git rev-parse HEAD."
+  - type: textarea
+    id: output
+    attributes:
+      label: Error or unexpected result
+      description: Remove personal data and credentials before posting.

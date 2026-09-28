@@ -1,0 +1,10 @@
+* text=auto eol=lf
+
+# These artifacts are hashed byte for byte. Never normalize source downloads.
+# Preserve publisher whitespace too; it is part of the pinned source bytes.
+data/sources/** -text -whitespace
+data/sources/README.md text eol=lf !whitespace
+data/sources/archive.json text eol=lf !whitespace
+src/demeter/data/bundled/*.json text eol=lf
+*.xlsx binary
+*.xpt binary
