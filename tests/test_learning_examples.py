@@ -134,6 +134,6 @@ def test_learning_notebook_runs_from_clean_output_directory(tmp_path):
     )
     assert result.returncode == 0, result.stdout + result.stderr
     summary = json.loads((tmp_path / "lesson/checks.json").read_text(encoding="utf-8"))
-    assert summary["calibration_performed"] is False
+    assert summary["clinical_parameter_fitting_performed"] is False
     assert summary["module_null_matches_baseline"] and summary["control_deltas_zero"]
     assert (tmp_path / "lesson/report/index.html").is_file()

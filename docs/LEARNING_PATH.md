@@ -3,7 +3,8 @@
 This is a reproducible software lesson for a technically curious reader. Complete
 [installation](GETTING_STARTED.md) first and run commands from the checkout root.
 The model's dietary effects remain **validation-only**. Calibration is a separate
-reviewed exercise; nothing here fits the health model or changes its evidence.
+reviewed exercise; this lesson does not fit clinical coefficients or change their
+evidence. The engine retains its existing source-mortality reconciliation.
 
 You can follow the CLI recipes below or run the companion
 [notebook](../notebooks/learning_path.ipynb). To execute every notebook cell and
@@ -228,8 +229,10 @@ sensitivity and observability commands use the canonical model.
 
 Save `git rev-parse HEAD`, `uv.lock`, scenario YAML, module source, registry/hash,
 command, seed and generated outputs. The notebook's `checks.json` records exact
-toy checks, age-cell count, control/module equality and `calibration_performed:
-false`. CI executes every code cell in a fresh destination on the supported
+toy checks, age-cell count, control/module equality and
+`clinical_parameter_fitting_performed: false`. It also records that the engine
+retains its existing source-mortality reconciliation. CI executes every code
+cell in a fresh destination on the supported
 platforms; there are no precomputed notebook outputs to mistake for a new run.
 
 Record what you expected, what happened and which observation could reject the
