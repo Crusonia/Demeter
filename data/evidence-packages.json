@@ -1,0 +1,282 @@
+{
+  "schema_version": 1,
+  "packages": {
+    "glp1_benchmarks": {
+      "store": "glp1_benchmarks",
+      "dependencies": [],
+      "registry_datasets": [
+        "glp1_benchmarks"
+      ],
+      "registry_parameters": [],
+      "artifacts": [
+        {
+          "path": "src/demeter/data/bundled/glp1_benchmarks.json",
+          "sha256": "bfb18738c0ae2cfe94c947af0ab52b9fdd1de020ab01be9b975fe3bf771588c1"
+        },
+        {
+          "path": "src/demeter/data/bundled/glp1_manifest.json",
+          "sha256": "7269237961fc929bb08e088babf80ec20b76620d734ccab9161884c39813a8a1"
+        }
+      ],
+      "transform_files": [
+        "src/demeter/data/glp1.py"
+      ],
+      "rebuild": [
+        "uv run demeter data rebuild-glp1"
+      ],
+      "model_role": "benchmark_only",
+      "redistribution": "Derived aggregates/metadata with all upstream source notices and citations; Demeter transformations are MIT, source data are not relicensed."
+    },
+    "diet_response_challenge": {
+      "store": "diet_response_challenge",
+      "dependencies": [],
+      "registry_datasets": [
+        "diet_response_challenge"
+      ],
+      "registry_parameters": [],
+      "artifacts": [
+        {
+          "path": "src/demeter/data/bundled/diet_response_challenge.json",
+          "sha256": "67715ba2428d109e323a54548fb687d6832beb80f8f9cd09af6904f98f3acc14"
+        },
+        {
+          "path": "src/demeter/data/bundled/diet_response_manifest.json",
+          "sha256": "f93c012c2a9bb235f511891cd34d7ebaff981b6f65d2ffa80c85d96a560f2ef1"
+        }
+      ],
+      "transform_files": [
+        "src/demeter/data/diet_response.py"
+      ],
+      "rebuild": [
+        "uv run demeter data rebuild-diet-response"
+      ],
+      "model_role": "historical_challenge_only",
+      "redistribution": "Derived aggregates/metadata with all upstream source notices and citations; Demeter transformations are MIT, source data are not relicensed."
+    },
+    "dietary_baselines": {
+      "store": "dietary_baselines",
+      "dependencies": [
+        "nhanes_2017_2020"
+      ],
+      "registry_datasets": [
+        "dietary_baselines"
+      ],
+      "registry_parameters": [],
+      "artifacts": [
+        {
+          "path": "src/demeter/data/bundled/dietary_baselines.json",
+          "sha256": "55d28dc116dca9e701705671c7c237aea42be5a951bca62bd70121071f8eca6b"
+        },
+        {
+          "path": "src/demeter/data/bundled/dietary_manifest.json",
+          "sha256": "8e62a34e614c12f804542f7f5f43fac39b075ecddb533d1565ddaef9db44527b"
+        }
+      ],
+      "transform_files": [
+        "src/demeter/data/dietary.py"
+      ],
+      "rebuild": [
+        "uv run demeter data rebuild-dietary"
+      ],
+      "model_role": "exposure_reference_only",
+      "redistribution": "Derived aggregates/metadata with all upstream source notices and citations; Demeter transformations are MIT, source data are not relicensed."
+    },
+    "nhanes_prechronic_risk": {
+      "store": "nhanes_prechronic_risk",
+      "dependencies": [
+        "nhanes_2017_2020"
+      ],
+      "registry_datasets": [
+        "nhanes_prechronic_candidates"
+      ],
+      "registry_parameters": [],
+      "artifacts": [
+        {
+          "path": "src/demeter/data/bundled/prechronic_prevalence.json",
+          "sha256": "d3f9aaf90ee3a1028c2e4ac534b26a936a2ec1a6e3d3297c3db06d07cf4f66d8"
+        },
+        {
+          "path": "src/demeter/data/bundled/prechronic_manifest.json",
+          "sha256": "3d3999a60aea97a688b1fae92244bfc687d7068b081cf6b2bced8905006aefdb"
+        }
+      ],
+      "transform_files": [
+        "src/demeter/data/prechronic.py"
+      ],
+      "rebuild": [
+        "uv run demeter data rebuild-prechronic"
+      ],
+      "model_role": "benchmark_only",
+      "redistribution": "Derived aggregates/metadata with all upstream source notices and citations; Demeter transformations are MIT, source data are not relicensed."
+    },
+    "healthspan_nchs_method": {
+      "store": "healthspan_nchs_method",
+      "dependencies": [],
+      "registry_datasets": [
+        "healthspan_method_benchmark"
+      ],
+      "registry_parameters": [],
+      "artifacts": [
+        {
+          "path": "src/demeter/data/bundled/healthspan_benchmark.json",
+          "sha256": "8e1ab930090fa36031dd5d5d9f67f5c4fcb7f367b3da867556811e62df1a07e3"
+        },
+        {
+          "path": "src/demeter/data/bundled/healthspan_manifest.json",
+          "sha256": "d40e476c786eeee76ef64ff863df1a5323f827c965a86c2b216f9cc64bb31e61"
+        }
+      ],
+      "transform_files": [
+        "src/demeter/data/healthspan.py"
+      ],
+      "rebuild": [
+        "uv run demeter data rebuild-healthspan"
+      ],
+      "model_role": "method_validation_only",
+      "redistribution": "Derived aggregates/metadata with all upstream source notices and citations; Demeter transformations are MIT, source data are not relicensed."
+    },
+    "us_baseline": {
+      "store": "us_baseline",
+      "dependencies": [],
+      "registry_datasets": [
+        "us_population",
+        "us_mortality"
+      ],
+      "registry_parameters": [],
+      "artifacts": [
+        {
+          "path": "src/demeter/data/bundled/us_baseline.json",
+          "sha256": "f830711b211e8bdd7e2f9f9707f1b8a86dca245e058a05730be8c0eb48f74ed3"
+        },
+        {
+          "path": "src/demeter/data/bundled/manifest.json",
+          "sha256": "3962f74247af733b0a6e66b4df2877adf5734d0102448152ff2d6f6d581dda03"
+        }
+      ],
+      "transform_files": [
+        "src/demeter/data/ingest.py"
+      ],
+      "rebuild": [
+        "uv run python scripts/verify_source_archive.py --rebuild"
+      ],
+      "model_role": "observed_demographic_inputs",
+      "redistribution": "Derived aggregates/metadata with all upstream source notices and citations; Demeter transformations are MIT, source data are not relicensed."
+    },
+    "historical": {
+      "store": "historical",
+      "dependencies": [],
+      "registry_datasets": [
+        "historical_observations"
+      ],
+      "registry_parameters": [],
+      "artifacts": [
+        {
+          "path": "src/demeter/data/bundled/historical.json",
+          "sha256": "8bff8e32d7503b1f6cfad292b19c82a4b97e2455966bd8190b00cb189a2962a3"
+        },
+        {
+          "path": "src/demeter/data/bundled/historical_manifest.json",
+          "sha256": "71d5c137b1a49a9f70f8c54aa865e2afa112c5a02e5c2dfe38d69741fd966d4a"
+        }
+      ],
+      "transform_files": [
+        "src/demeter/data/historical.py"
+      ],
+      "rebuild": [
+        "uv run python scripts/verify_source_archive.py --rebuild"
+      ],
+      "model_role": "historical_benchmarks",
+      "redistribution": "Derived aggregates/metadata with all upstream source notices and citations; Demeter transformations are MIT, source data are not relicensed."
+    },
+    "nhanes_2017_2020": {
+      "store": "nhanes_2017_2020",
+      "dependencies": [],
+      "registry_datasets": [
+        "nhanes_glycemic_prevalence"
+      ],
+      "registry_parameters": [],
+      "artifacts": [
+        {
+          "path": "src/demeter/data/bundled/nhanes_prevalence.json",
+          "sha256": "b8ef99a39f8122816cbd0a3a0d91612d602d5dc5a1a290ad47ec60e627734dd0"
+        },
+        {
+          "path": "src/demeter/data/bundled/nhanes_prevalence_manifest.json",
+          "sha256": "fccc65104374aab4e1c720d55465cb0da4dbaae299d8ba9c98b0319534aa741a"
+        }
+      ],
+      "transform_files": [
+        "src/demeter/data/nhanes.py"
+      ],
+      "rebuild": [
+        "uv run demeter data rebuild-nhanes"
+      ],
+      "model_role": "benchmark_only",
+      "redistribution": "Derived aggregates/metadata with all upstream source notices and citations; Demeter transformations are MIT, source data are not relicensed."
+    },
+    "official_json_2026_09_27": {
+      "store": "official_json_2026_09_27",
+      "dependencies": [],
+      "registry_datasets": [],
+      "registry_parameters": [],
+      "artifacts": [],
+      "transform_files": [
+        "src/demeter/data/store.py"
+      ],
+      "rebuild": [
+        "uv run demeter data verify-store"
+      ],
+      "model_role": "discovery_reference_only",
+      "redistribution": "Derived aggregates/metadata with all upstream source notices and citations; Demeter transformations are MIT, source data are not relicensed."
+    },
+    "clinical_candidates": {
+      "store": null,
+      "dependencies": [],
+      "registry_datasets": [],
+      "registry_parameters": [
+        "aric_hba1c_prediabetes_diabetes_incidence",
+        "aric_hba1c_prediabetes_mortality_hr",
+        "aric_ifg_mortality_hr",
+        "leadr_diabetes_progression_overall",
+        "leadr_diabetes_progression_hba1c_low",
+        "leadr_diabetes_progression_hba1c_high"
+      ],
+      "artifacts": [],
+      "transform_files": [
+        "src/demeter/evidence/appraisal.py"
+      ],
+      "rebuild": [
+        "uv run demeter evidence verify-sources --raw data/raw/clinical --output outputs/clinical-rebuilt.json"
+      ],
+      "model_role": "benchmark_only",
+      "redistribution": "Cited numeric estimates and intervals in the registry; raw articles are fetch-only, including the CC-BY article by packaging choice."
+    },
+    "food_exposure_ontology": {
+      "store": null,
+      "dependencies": [],
+      "registry_datasets": [
+        "food_exposure_ontology"
+      ],
+      "registry_parameters": [],
+      "artifacts": [],
+      "transform_files": [
+        "src/demeter/nutrition/exposures.py"
+      ],
+      "rebuild": [
+        "uv run demeter food-exposures --output outputs/food-exposures.json"
+      ],
+      "model_role": "definition_contract_not_an_observed_dataset",
+      "redistribution": "Demeter-authored definitions under MIT; named external standards/definitions retain source attribution in the registry."
+    }
+  },
+  "supporting_artifacts": [
+    {
+      "path": "docs/validation/issue-1-clinical-sources.json",
+      "sha256": "23e5c0cd7ef713a56087cbaa3e4fa30ca39193d314e022dbceb1cd84995b918e"
+    },
+    {
+      "path": "docs/validation/issue-6-historical-summary.json",
+      "sha256": "5e54b5f1975e3af6fb9484aa6feeb8827ea40cf130f915b1ec77074b37ff3b80"
+    }
+  ]
+}
