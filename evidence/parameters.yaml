@@ -1,4 +1,490 @@
 parameters:
+  mortality_development_glycemic_piecewise_intercept:
+    key: mortality_development_glycemic_piecewise_intercept
+    value: -7.5371232188302
+    unit: log_hazard_per_year
+    status: estimated
+    evidence_grade: C
+    model_role: benchmark_only
+    unresolved: false
+    source: NHANES 2011-2012 public linked mortality through 2019; proposed survey-weighted
+      Gompertz development fit
+    source_url: https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_2011_2012_MORT_2019_PUBLIC.dat
+    population: Complete adult fasting glycemia, age below public top-code, linkage
+      eligible, positive examination follow-up
+    geography: United States
+    time_period: Baseline 2011-2012; follow-up through 2019
+    outcome_definition: All-cause mortality conditional on baseline observation category;
+      predictive association, not changing-state causal effect
+    transformation: demeter.analysis.mortality_development; see RFC-1
+    notes: Piecewise attained-age log hazard with registered knot at 60; alternative
+      declared after original fit. Development association only, external expert review
+      pending. Joint covariance required; not an engine input.
+    uncertainty:
+      kind: interval
+      low: -8.806808489552772
+      high: -6.267437948107629
+      rationale: 95% t interval from joint survey score-sandwich covariance; 17 design
+        degrees of freedom; sampling uncertainty only
+  mortality_development_glycemic_piecewise_age:
+    key: mortality_development_glycemic_piecewise_age
+    value: 0.04293872148861485
+    unit: log_hazard_ratio_per_year_age
+    status: estimated
+    evidence_grade: C
+    model_role: benchmark_only
+    unresolved: false
+    source: NHANES 2011-2012 public linked mortality through 2019; proposed survey-weighted
+      Gompertz development fit
+    source_url: https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_2011_2012_MORT_2019_PUBLIC.dat
+    population: Complete adult fasting glycemia, age below public top-code, linkage
+      eligible, positive examination follow-up
+    geography: United States
+    time_period: Baseline 2011-2012; follow-up through 2019
+    outcome_definition: All-cause mortality conditional on baseline observation category;
+      predictive association, not changing-state causal effect
+    transformation: demeter.analysis.mortality_development; see RFC-1
+    notes: Piecewise attained-age log hazard with registered knot at 60; alternative
+      declared after original fit. Development association only, external expert review
+      pending. Joint covariance required; not an engine input.
+    uncertainty:
+      kind: interval
+      low: 0.011048145494700443
+      high: 0.07482929748252926
+      rationale: 95% t interval from joint survey score-sandwich covariance; 17 design
+        degrees of freedom; sampling uncertainty only
+  mortality_development_glycemic_piecewise_male:
+    key: mortality_development_glycemic_piecewise_male
+    value: 0.73477140476709
+    unit: log_hazard_ratio
+    status: estimated
+    evidence_grade: C
+    model_role: benchmark_only
+    unresolved: false
+    source: NHANES 2011-2012 public linked mortality through 2019; proposed survey-weighted
+      Gompertz development fit
+    source_url: https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_2011_2012_MORT_2019_PUBLIC.dat
+    population: Complete adult fasting glycemia, age below public top-code, linkage
+      eligible, positive examination follow-up
+    geography: United States
+    time_period: Baseline 2011-2012; follow-up through 2019
+    outcome_definition: All-cause mortality conditional on baseline observation category;
+      predictive association, not changing-state causal effect
+    transformation: demeter.analysis.mortality_development; see RFC-1
+    notes: Piecewise attained-age log hazard with registered knot at 60; alternative
+      declared after original fit. Development association only, external expert review
+      pending. Joint covariance required; not an engine input.
+    uncertainty:
+      kind: interval
+      low: 0.29703914096768186
+      high: 1.1725036685664982
+      rationale: 95% t interval from joint survey score-sandwich covariance; 17 design
+        degrees of freedom; sampling uncertainty only
+  mortality_development_glycemic_piecewise_prediabetes:
+    key: mortality_development_glycemic_piecewise_prediabetes
+    value: -0.09037504195567517
+    unit: log_hazard_ratio
+    status: estimated
+    evidence_grade: C
+    model_role: benchmark_only
+    unresolved: false
+    source: NHANES 2011-2012 public linked mortality through 2019; proposed survey-weighted
+      Gompertz development fit
+    source_url: https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_2011_2012_MORT_2019_PUBLIC.dat
+    population: Complete adult fasting glycemia, age below public top-code, linkage
+      eligible, positive examination follow-up
+    geography: United States
+    time_period: Baseline 2011-2012; follow-up through 2019
+    outcome_definition: All-cause mortality conditional on baseline observation category;
+      predictive association, not changing-state causal effect
+    transformation: demeter.analysis.mortality_development; see RFC-1
+    notes: Piecewise attained-age log hazard with registered knot at 60; alternative
+      declared after original fit. Development association only, external expert review
+      pending. Joint covariance required; not an engine input.
+    uncertainty:
+      kind: interval
+      low: -0.6636827481807543
+      high: 0.48293266426940407
+      rationale: 95% t interval from joint survey score-sandwich covariance; 17 design
+        degrees of freedom; sampling uncertainty only
+  mortality_development_glycemic_piecewise_diabetes_any_type:
+    key: mortality_development_glycemic_piecewise_diabetes_any_type
+    value: 0.7965900920812067
+    unit: log_hazard_ratio
+    status: estimated
+    evidence_grade: C
+    model_role: benchmark_only
+    unresolved: false
+    source: NHANES 2011-2012 public linked mortality through 2019; proposed survey-weighted
+      Gompertz development fit
+    source_url: https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_2011_2012_MORT_2019_PUBLIC.dat
+    population: Complete adult fasting glycemia, age below public top-code, linkage
+      eligible, positive examination follow-up
+    geography: United States
+    time_period: Baseline 2011-2012; follow-up through 2019
+    outcome_definition: All-cause mortality conditional on baseline observation category;
+      predictive association, not changing-state causal effect
+    transformation: demeter.analysis.mortality_development; see RFC-1
+    notes: Piecewise attained-age log hazard with registered knot at 60; alternative
+      declared after original fit. Development association only, external expert review
+      pending. Joint covariance required; not an engine input.
+    uncertainty:
+      kind: interval
+      low: 0.2947262095489507
+      high: 1.2984539746134627
+      rationale: 95% t interval from joint survey score-sandwich covariance; 17 design
+        degrees of freedom; sampling uncertainty only
+  mortality_development_glycemic_piecewise_age_hinge:
+    key: mortality_development_glycemic_piecewise_age_hinge
+    value: 0.06518431214785689
+    unit: log_hazard_ratio_per_year_age
+    status: estimated
+    evidence_grade: C
+    model_role: benchmark_only
+    unresolved: false
+    source: NHANES 2011-2012 public linked mortality through 2019; proposed survey-weighted
+      Gompertz development fit
+    source_url: https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_2011_2012_MORT_2019_PUBLIC.dat
+    population: Complete adult fasting glycemia, age below public top-code, linkage
+      eligible, positive examination follow-up
+    geography: United States
+    time_period: Baseline 2011-2012; follow-up through 2019
+    outcome_definition: All-cause mortality conditional on baseline observation category;
+      predictive association, not changing-state causal effect
+    transformation: demeter.analysis.mortality_development; see RFC-1
+    notes: Piecewise attained-age log hazard with registered knot at 60; alternative
+      declared after original fit. Development association only, external expert review
+      pending. Joint covariance required; not an engine input.
+    uncertainty:
+      kind: interval
+      low: 0.025835185089016693
+      high: 0.10453343920669708
+      rationale: 95% t interval from joint survey score-sandwich covariance; 17 design
+        degrees of freedom; sampling uncertainty only
+  mortality_development_null_piecewise_intercept:
+    key: mortality_development_null_piecewise_intercept
+    value: -7.656995526533152
+    unit: log_hazard_per_year
+    status: estimated
+    evidence_grade: C
+    model_role: benchmark_only
+    unresolved: false
+    source: NHANES 2011-2012 public linked mortality through 2019; proposed survey-weighted
+      Gompertz development fit
+    source_url: https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_2011_2012_MORT_2019_PUBLIC.dat
+    population: Complete adult fasting glycemia, age below public top-code, linkage
+      eligible, positive examination follow-up
+    geography: United States
+    time_period: Baseline 2011-2012; follow-up through 2019
+    outcome_definition: All-cause mortality conditional on baseline observation category;
+      predictive association, not changing-state causal effect
+    transformation: demeter.analysis.mortality_development; see RFC-1
+    notes: Piecewise attained-age log hazard with registered knot at 60; alternative
+      declared after original fit. Development association only, external expert review
+      pending. Joint covariance required; not an engine input.
+    uncertainty:
+      kind: interval
+      low: -8.89292912257703
+      high: -6.421061930489274
+      rationale: 95% t interval from joint survey score-sandwich covariance; 17 design
+        degrees of freedom; sampling uncertainty only
+  mortality_development_null_piecewise_age:
+    key: mortality_development_null_piecewise_age
+    value: 0.04980185873921109
+    unit: log_hazard_ratio_per_year_age
+    status: estimated
+    evidence_grade: C
+    model_role: benchmark_only
+    unresolved: false
+    source: NHANES 2011-2012 public linked mortality through 2019; proposed survey-weighted
+      Gompertz development fit
+    source_url: https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_2011_2012_MORT_2019_PUBLIC.dat
+    population: Complete adult fasting glycemia, age below public top-code, linkage
+      eligible, positive examination follow-up
+    geography: United States
+    time_period: Baseline 2011-2012; follow-up through 2019
+    outcome_definition: All-cause mortality conditional on baseline observation category;
+      predictive association, not changing-state causal effect
+    transformation: demeter.analysis.mortality_development; see RFC-1
+    notes: Piecewise attained-age log hazard with registered knot at 60; alternative
+      declared after original fit. Development association only, external expert review
+      pending. Joint covariance required; not an engine input.
+    uncertainty:
+      kind: interval
+      low: 0.016210305879349324
+      high: 0.08339341159907286
+      rationale: 95% t interval from joint survey score-sandwich covariance; 17 design
+        degrees of freedom; sampling uncertainty only
+  mortality_development_null_piecewise_male:
+    key: mortality_development_null_piecewise_male
+    value: 0.7758781456249566
+    unit: log_hazard_ratio
+    status: estimated
+    evidence_grade: C
+    model_role: benchmark_only
+    unresolved: false
+    source: NHANES 2011-2012 public linked mortality through 2019; proposed survey-weighted
+      Gompertz development fit
+    source_url: https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_2011_2012_MORT_2019_PUBLIC.dat
+    population: Complete adult fasting glycemia, age below public top-code, linkage
+      eligible, positive examination follow-up
+    geography: United States
+    time_period: Baseline 2011-2012; follow-up through 2019
+    outcome_definition: All-cause mortality conditional on baseline observation category;
+      predictive association, not changing-state causal effect
+    transformation: demeter.analysis.mortality_development; see RFC-1
+    notes: Piecewise attained-age log hazard with registered knot at 60; alternative
+      declared after original fit. Development association only, external expert review
+      pending. Joint covariance required; not an engine input.
+    uncertainty:
+      kind: interval
+      low: 0.31853203195937874
+      high: 1.2332242592905345
+      rationale: 95% t interval from joint survey score-sandwich covariance; 17 design
+        degrees of freedom; sampling uncertainty only
+  mortality_development_null_piecewise_age_hinge:
+    key: mortality_development_null_piecewise_age_hinge
+    value: 0.060591849431544866
+    unit: log_hazard_ratio_per_year_age
+    status: estimated
+    evidence_grade: C
+    model_role: benchmark_only
+    unresolved: false
+    source: NHANES 2011-2012 public linked mortality through 2019; proposed survey-weighted
+      Gompertz development fit
+    source_url: https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_2011_2012_MORT_2019_PUBLIC.dat
+    population: Complete adult fasting glycemia, age below public top-code, linkage
+      eligible, positive examination follow-up
+    geography: United States
+    time_period: Baseline 2011-2012; follow-up through 2019
+    outcome_definition: All-cause mortality conditional on baseline observation category;
+      predictive association, not changing-state causal effect
+    transformation: demeter.analysis.mortality_development; see RFC-1
+    notes: Piecewise attained-age log hazard with registered knot at 60; alternative
+      declared after original fit. Development association only, external expert review
+      pending. Joint covariance required; not an engine input.
+    uncertainty:
+      kind: interval
+      low: 0.016437129807339725
+      high: 0.10474656905575
+      rationale: 95% t interval from joint survey score-sandwich covariance; 17 design
+        degrees of freedom; sampling uncertainty only
+  mortality_development_glycemic_intercept:
+    key: mortality_development_glycemic_intercept
+    value: -8.651417488695037
+    unit: log_hazard_per_year
+    status: estimated
+    evidence_grade: C
+    model_role: benchmark_only
+    unresolved: false
+    source: NHANES 2011-2012 public linked mortality through 2019; proposed survey-weighted
+      Gompertz development fit
+    source_url: https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_2011_2012_MORT_2019_PUBLIC.dat
+    population: Complete adult fasting glycemia, age below public top-code, linkage
+      eligible, positive examination follow-up
+    geography: United States
+    time_period: Baseline 2011-2012; follow-up through 2019
+    outcome_definition: All-cause mortality conditional on baseline observation category;
+      predictive association, not changing-state causal effect
+    transformation: demeter.analysis.mortality_development; see RFC-1
+    notes: Development estimate only. Baseline age centered at 20 years; female and
+      normoglycemia reference categories. Joint covariance is required; this interval
+      is not an independent sampling distribution. No causal or engine-state interpretation.
+    uncertainty:
+      kind: interval
+      low: -9.962499387723566
+      high: -7.340335589666507
+      rationale: 95% t interval from survey score-sandwich covariance, 17 design degrees
+        of freedom; sampling uncertainty only, joint covariance in development receipt
+  mortality_development_glycemic_age:
+    key: mortality_development_glycemic_age
+    value: 0.08117655629425027
+    unit: log_hazard_ratio_per_year_age
+    status: estimated
+    evidence_grade: C
+    model_role: benchmark_only
+    unresolved: false
+    source: NHANES 2011-2012 public linked mortality through 2019; proposed survey-weighted
+      Gompertz development fit
+    source_url: https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_2011_2012_MORT_2019_PUBLIC.dat
+    population: Complete adult fasting glycemia, age below public top-code, linkage
+      eligible, positive examination follow-up
+    geography: United States
+    time_period: Baseline 2011-2012; follow-up through 2019
+    outcome_definition: All-cause mortality conditional on baseline observation category;
+      predictive association, not changing-state causal effect
+    transformation: demeter.analysis.mortality_development; see RFC-1
+    notes: Development estimate only. Baseline age centered at 20 years; female and
+      normoglycemia reference categories. Joint covariance is required; this interval
+      is not an independent sampling distribution. No causal or engine-state interpretation.
+    uncertainty:
+      kind: interval
+      low: 0.05529440635081319
+      high: 0.10705870623768736
+      rationale: 95% t interval from survey score-sandwich covariance, 17 design degrees
+        of freedom; sampling uncertainty only, joint covariance in development receipt
+  mortality_development_glycemic_male:
+    key: mortality_development_glycemic_male
+    value: 0.7371948999779329
+    unit: log_hazard_ratio
+    status: estimated
+    evidence_grade: C
+    model_role: benchmark_only
+    unresolved: false
+    source: NHANES 2011-2012 public linked mortality through 2019; proposed survey-weighted
+      Gompertz development fit
+    source_url: https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_2011_2012_MORT_2019_PUBLIC.dat
+    population: Complete adult fasting glycemia, age below public top-code, linkage
+      eligible, positive examination follow-up
+    geography: United States
+    time_period: Baseline 2011-2012; follow-up through 2019
+    outcome_definition: All-cause mortality conditional on baseline observation category;
+      predictive association, not changing-state causal effect
+    transformation: demeter.analysis.mortality_development; see RFC-1
+    notes: Development estimate only. Baseline age centered at 20 years; female and
+      normoglycemia reference categories. Joint covariance is required; this interval
+      is not an independent sampling distribution. No causal or engine-state interpretation.
+    uncertainty:
+      kind: interval
+      low: 0.2990983297795595
+      high: 1.1752914701763062
+      rationale: 95% t interval from survey score-sandwich covariance, 17 design degrees
+        of freedom; sampling uncertainty only, joint covariance in development receipt
+  mortality_development_glycemic_prediabetes:
+    key: mortality_development_glycemic_prediabetes
+    value: -0.1286346659248778
+    unit: log_hazard_ratio
+    status: estimated
+    evidence_grade: C
+    model_role: benchmark_only
+    unresolved: false
+    source: NHANES 2011-2012 public linked mortality through 2019; proposed survey-weighted
+      Gompertz development fit
+    source_url: https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_2011_2012_MORT_2019_PUBLIC.dat
+    population: Complete adult fasting glycemia, age below public top-code, linkage
+      eligible, positive examination follow-up
+    geography: United States
+    time_period: Baseline 2011-2012; follow-up through 2019
+    outcome_definition: All-cause mortality conditional on baseline observation category;
+      predictive association, not changing-state causal effect
+    transformation: demeter.analysis.mortality_development; see RFC-1
+    notes: Development estimate only. Baseline age centered at 20 years; female and
+      normoglycemia reference categories. Joint covariance is required; this interval
+      is not an independent sampling distribution. No causal or engine-state interpretation.
+    uncertainty:
+      kind: interval
+      low: -0.7047673898358993
+      high: 0.4474980579861436
+      rationale: 95% t interval from survey score-sandwich covariance, 17 design degrees
+        of freedom; sampling uncertainty only, joint covariance in development receipt
+  mortality_development_glycemic_diabetes_any_type:
+    key: mortality_development_glycemic_diabetes_any_type
+    value: 0.7404276570779154
+    unit: log_hazard_ratio
+    status: estimated
+    evidence_grade: C
+    model_role: benchmark_only
+    unresolved: false
+    source: NHANES 2011-2012 public linked mortality through 2019; proposed survey-weighted
+      Gompertz development fit
+    source_url: https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_2011_2012_MORT_2019_PUBLIC.dat
+    population: Complete adult fasting glycemia, age below public top-code, linkage
+      eligible, positive examination follow-up
+    geography: United States
+    time_period: Baseline 2011-2012; follow-up through 2019
+    outcome_definition: All-cause mortality conditional on baseline observation category;
+      predictive association, not changing-state causal effect
+    transformation: demeter.analysis.mortality_development; see RFC-1
+    notes: Development estimate only. Baseline age centered at 20 years; female and
+      normoglycemia reference categories. Joint covariance is required; this interval
+      is not an independent sampling distribution. No causal or engine-state interpretation.
+    uncertainty:
+      kind: interval
+      low: 0.22842516535884883
+      high: 1.2524301487969818
+      rationale: 95% t interval from survey score-sandwich covariance, 17 design degrees
+        of freedom; sampling uncertainty only, joint covariance in development receipt
+  mortality_development_null_intercept:
+    key: mortality_development_null_intercept
+    value: -8.701872312158795
+    unit: log_hazard_per_year
+    status: estimated
+    evidence_grade: C
+    model_role: benchmark_only
+    unresolved: false
+    source: NHANES 2011-2012 public linked mortality through 2019; proposed survey-weighted
+      Gompertz development fit
+    source_url: https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_2011_2012_MORT_2019_PUBLIC.dat
+    population: Complete adult fasting glycemia, age below public top-code, linkage
+      eligible, positive examination follow-up
+    geography: United States
+    time_period: Baseline 2011-2012; follow-up through 2019
+    outcome_definition: All-cause mortality conditional on baseline observation category;
+      predictive association, not changing-state causal effect
+    transformation: demeter.analysis.mortality_development; see RFC-1
+    notes: Development estimate only. Baseline age centered at 20 years; female and
+      normoglycemia reference categories. Joint covariance is required; this interval
+      is not an independent sampling distribution. No causal or engine-state interpretation.
+    uncertainty:
+      kind: interval
+      low: -9.979579336417316
+      high: -7.424165287900273
+      rationale: 95% t interval from survey score-sandwich covariance, 17 design degrees
+        of freedom; sampling uncertainty only, joint covariance in development receipt
+  mortality_development_null_age:
+    key: mortality_development_null_age
+    value: 0.08491839560770391
+    unit: log_hazard_ratio_per_year_age
+    status: estimated
+    evidence_grade: C
+    model_role: benchmark_only
+    unresolved: false
+    source: NHANES 2011-2012 public linked mortality through 2019; proposed survey-weighted
+      Gompertz development fit
+    source_url: https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_2011_2012_MORT_2019_PUBLIC.dat
+    population: Complete adult fasting glycemia, age below public top-code, linkage
+      eligible, positive examination follow-up
+    geography: United States
+    time_period: Baseline 2011-2012; follow-up through 2019
+    outcome_definition: All-cause mortality conditional on baseline observation category;
+      predictive association, not changing-state causal effect
+    transformation: demeter.analysis.mortality_development; see RFC-1
+    notes: Development estimate only. Baseline age centered at 20 years; female and
+      normoglycemia reference categories. Joint covariance is required; this interval
+      is not an independent sampling distribution. No causal or engine-state interpretation.
+    uncertainty:
+      kind: interval
+      low: 0.05906159797882334
+      high: 0.11077519323658447
+      rationale: 95% t interval from survey score-sandwich covariance, 17 design degrees
+        of freedom; sampling uncertainty only, joint covariance in development receipt
+  mortality_development_null_male:
+    key: mortality_development_null_male
+    value: 0.7741388160346339
+    unit: log_hazard_ratio
+    status: estimated
+    evidence_grade: C
+    model_role: benchmark_only
+    unresolved: false
+    source: NHANES 2011-2012 public linked mortality through 2019; proposed survey-weighted
+      Gompertz development fit
+    source_url: https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_2011_2012_MORT_2019_PUBLIC.dat
+    population: Complete adult fasting glycemia, age below public top-code, linkage
+      eligible, positive examination follow-up
+    geography: United States
+    time_period: Baseline 2011-2012; follow-up through 2019
+    outcome_definition: All-cause mortality conditional on baseline observation category;
+      predictive association, not changing-state causal effect
+    transformation: demeter.analysis.mortality_development; see RFC-1
+    notes: Development estimate only. Baseline age centered at 20 years; female and
+      normoglycemia reference categories. Joint covariance is required; this interval
+      is not an independent sampling distribution. No causal or engine-state interpretation.
+    uncertainty:
+      kind: interval
+      low: 0.3233195167781518
+      high: 1.224958115291116
+      rationale: 95% t interval from survey score-sandwich covariance, 17 design degrees
+        of freedom; sampling uncertainty only, joint covariance in development receipt
   toy_initial_tokens:
     key: toy_initial_tokens
     value: 100
@@ -1147,6 +1633,83 @@ parameters:
         column_index: 3
         scale: 0.01
 datasets:
+  mortality_development:
+    status: derived
+    evidence_grade: C
+    model_role: development_benchmark_only
+    protocol: docs/rfcs/RFC-1-health-calibration.md
+    source_dataset: nhanes_linked_mortality
+    development_cycle: 2011-2012
+    reserved_cycle: 2013-2014
+    topcoded_age: 80
+    months_per_year: 12
+    coefficients:
+      glycemic:
+      - mortality_development_glycemic_intercept
+      - mortality_development_glycemic_age
+      - mortality_development_glycemic_male
+      - mortality_development_glycemic_prediabetes
+      - mortality_development_glycemic_diabetes_any_type
+      'null':
+      - mortality_development_null_intercept
+      - mortality_development_null_age
+      - mortality_development_null_male
+      glycemic_piecewise:
+      - mortality_development_glycemic_piecewise_intercept
+      - mortality_development_glycemic_piecewise_age
+      - mortality_development_glycemic_piecewise_male
+      - mortality_development_glycemic_piecewise_prediabetes
+      - mortality_development_glycemic_piecewise_diabetes_any_type
+      - mortality_development_glycemic_piecewise_age_hinge
+      null_piecewise:
+      - mortality_development_null_piecewise_intercept
+      - mortality_development_null_piecewise_age
+      - mortality_development_null_piecewise_male
+      - mortality_development_null_piecewise_age_hinge
+    optimizer:
+      method: trust-exact
+      gradient_tolerance: 1.0e-08
+      maximum_iterations: 500
+    integration:
+      series_threshold: 0.1
+      series_terms: 24
+    uncertainty: Survey score sandwich; all positive-weight strata/PSUs including zero-domain
+      scores; t intervals using design PSU-minus-stratum degrees of freedom; covariance
+      retained jointly
+    weight_adjustment: 'None: complete-case and linkage selection remain unresolved'
+    interpretation: Development numerical fit only; no holdout validation or clinical
+      promotion
+    alternative_age:
+      kind: continuous_piecewise_log_hazard
+      knot_age: 60
+      status: modeling_convention
+      rationale: Existing registered older-adult survey domain boundary; selected before
+        alternative fitting, after original development fit; not selected from residuals
+      declaration: docs/rfcs/RFC-1-health-calibration.md
+  nhanes_linked_mortality:
+    title: NHANES glycemic baseline and public-use linked mortality feasibility
+    cycle: 2011-2012
+    status: derived
+    evidence_grade: C
+    model_role: feasibility_only
+    population: U.S. civilian noninstitutionalized adults with positive fasting subsample weight; complete glycemic observations
+    geography: United States
+    time_period: Baseline 2011-2012; mortality follow-up through December 31, 2019
+    source_store: data/sources/nhanes-mortality/2011-2012
+    unit: unweighted record counts, months, and survey-weighted linkage eligibility fractions
+    baseline_definition: Inherit nhanes_glycemic_prevalence.analysis cutoffs, adult age, pregnancy exclusion, age domains, and interval level; do not inherit its period or weights
+    weight: WTSAF2YR
+    followup: PERMTH_EXM; missing and zero months reported explicitly
+    mortality_definition: MORTSTAT for ELIGSTAT=1 only; ineligible linkage is missing, never alive
+    layout_source: https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/R_ReadInProgramAllSurveys.R
+    definition_source: https://www.cdc.gov/nchs/data/datalinkage/public-use-linked-mortality-file-description.pdf
+    uncertainty: Survey-design Taylor ratio standard errors and logit-t intervals for linkage eligibility only; event counts are descriptive and have no fitted hazard interval
+    transformation: demeter.data.linked_mortality.audit
+    limitations:
+      - Baseline-state mortality association cannot identify current-state causal mortality effects or progression/reversal.
+      - Public-use follow-up times may be perturbed; adult vital status is not perturbed.
+      - Age is top-coded at 80; no pediatric mortality observations in the public release.
+      - This inspected cycle is development data; independent validation cycles and fitting criteria remain to be declared before fitting.
   glp1_benchmarks:
     model_role: benchmark_only
     evidence_appraisal:

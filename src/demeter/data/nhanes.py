@@ -169,7 +169,10 @@ def survey_proportion(
         }
     weight = weight / weight.max()  # Scale invariance; avoid overflow in weighted sums.
     denominator = float(weight[d].sum())
-    p = float(np.dot(weight[d], y[d]) / denominator)
+    # A constant binary domain has an exact boundary estimate and zero Taylor
+    # residuals. Dot/sum rounding can otherwise produce 1-epsilon, a fictitious
+    # variance and a platform-dependent logit interval at the boundary.
+    p = float(y[d][0]) if np.all(y[d] == y[d][0]) else float(np.dot(weight[d], y[d]) / denominator)
     residual = np.zeros(len(frame))
     residual[d] = weight[d] * (y[d] - p) / denominator
     totals = design.assign(residual=residual).groupby(["SDMVSTRA", "SDMVPSU"]).residual.sum()
