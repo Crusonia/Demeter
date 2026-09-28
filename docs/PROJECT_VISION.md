@@ -19,6 +19,31 @@ The [public guide](wiki/Home.md) explains that mission. [Real options and strate
 
 Demeter is intended to become a **computable version of the Food is Health thesis**.
 
+Its purpose is to make the **coupling between separate industries visible**:
+agriculture, food, health care, climate, research, and capital. Actors in each
+industry usually see only their own accounts. Demeter should let them trace how a
+change in one industry propagates to the others, where improvements reinforce
+each other, where they trade off, and who bears or captures the resulting value.
+Representative couplings to investigate include:
+
+- **Food and climate.** Dietary and production changes alter lifecycle emissions,
+  land use, and soil carbon. Some health-improving changes may lower emissions;
+  others may raise them. The model must be able to show either.
+- **Chronic and acute disease.** A lower burden of chronic metabolic disease may
+  improve outcomes of acute events such as infections, surgery, and injury, and
+  may relieve acute-care capacity. Much of the current evidence is
+  observational comorbidity association; the causal effect of reducing chronic
+  risk on acute outcomes is itself a question to test.
+- **Microbiome research and agriculture.** Research linking soil, crop, food,
+  and human gut microbiomes may create value for agriculture through new
+  practices, inputs, and products. The agronomic, nutritional, and health links
+  have different evidence strengths and must be appraised separately.
+
+These couplings are hypotheses, not encoded conclusions. Candidate mechanisms are
+recorded as open pathways and externalities in the
+[design registers](design/README.md) (for example P-03, P-04, P-05, X-P02, and
+X-N02) and remain outside the current phase boundary until selected.
+
 Its intended users sit throughout the value chain: agricultural producers and
 their suppliers, processors, food companies, distributors, retailers, households,
 providers, payers, employers, public programs, and capital providers. Each should
@@ -192,6 +217,9 @@ Demeter exists to understand **system leverage, feedback, delays, and unintended
 - Where are the dominant delays, bottlenecks, reinforcing loops, and balancing loops that make food-system change slow or nonlinear?
 - Which apparent levers matter little once the whole system is modeled, and which second-order effects dominate outcomes?
 - What fraction of chronic-disease burden is plausibly addressable through food-system change, through which causal pathways, and with what uncertainty?
+- Which food and production changes improve health and reduce net lifecycle emissions, and which improve one while worsening the other?
+- How much would reducing chronic metabolic disease change acute-event outcomes and acute-care capacity, and how strong is the causal evidence?
+- Where could microbiome research change agricultural practice, product value, or human health, and which of those links are evidenced rather than hypothesized?
 
 These are **research questions, not encoded conclusions**. Demeter must represent the intermediate causal links explicitly and allow the evidence to determine whether a hypothesized pathway is material.
 
