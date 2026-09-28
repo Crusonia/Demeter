@@ -675,7 +675,7 @@ Marimo is attractive because it is more reproducible than traditional free-form 
 
 ---
 
-### Public simulator — surrogate-backed React / Next.js
+### Public simulator — custom React / Next.js over the Python model
 
 **Preferred role:** later public decision-support interface.
 
@@ -683,14 +683,14 @@ The Python model remains the source of truth. The public simulator should not re
 
 Preferred path:
 
-1. **Surrogate-backed custom React / Next.js**
-   - the full Python model generates a scenario/result dataset offline
-   - a surrogate or interpolation model serves interactive responses (see section 7)
+1. **Custom React / Next.js interface backed by the Python model**
+   - direct execution through a thin Python service, or precomputed full-model scenario results
    - scenario controls
    - charts
    - explanations
    - evidence drill-down
-   - surrogate error bounds and evidence status shown alongside results
+   - evidence status shown alongside results
+   - add a surrogate (section 7) only if profiling shows the full model cannot meet interactive latency; any surrogate reports its error bounds
 
 Other paths considered:
 
