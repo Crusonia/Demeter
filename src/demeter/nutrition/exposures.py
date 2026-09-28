@@ -119,6 +119,8 @@ def resolve_diet(registry: EvidenceRegistry, scenario: Scenario) -> dict:
                 f"No independently identified health effect for {key}; use context_only"
             )
         reference = reference_value(baselines, key, change.reference_period, scenario.sex)
+        if change.unit != reference["unit"]:
+            raise ValueError(f"{key} ontology unit does not match its observed reference")
         if change.role == "model_effect":
             if reference["mean"] <= 0:
                 raise ValueError("Active dietary reference must be positive")

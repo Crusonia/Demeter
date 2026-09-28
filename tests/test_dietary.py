@@ -240,6 +240,10 @@ def test_catalog_cannot_activate_overlapping_pathways_by_registry_edit():
     )
     with pytest.raises(ValueError, match="overlapping"):
         resolve_diet(changed, diet_scenario())
+    changed = REGISTRY.model_copy(deep=True)
+    changed.datasets[ONTOLOGY]["definitions"]["fiber"]["unit"] = "mg/day"
+    with pytest.raises(ValueError, match="does not match its observed reference"):
+        resolve_diet(changed, diet_scenario("fiber", unit="mg/day", role="context_only"))
 
 
 def test_cli_catalog_and_yaml_scenarios(tmp_path):
