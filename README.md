@@ -41,7 +41,7 @@ link, explain a real constraint, or tell us where a first-time reader gets lost.
 The goal is progressively better analysis, including results that challenge the
 Food is Health thesis. Current dietary scenario outputs remain **validation-only**.
 
-**Explore further:** [Public guide](docs/wiki/Home.md) · [Levers and scenarios](docs/wiki/Levers-and-Scenarios.md) · [Real options](docs/wiki/Real-Options-and-Strategic-Value.md) · [Tornado diagrams](docs/wiki/Visualization-and-Tornado-Diagrams.md) · [Model status](docs/V0_1_STATUS.md)
+**Explore further:** [Public guide](docs/wiki/Home.md) · [Top-level metrics](docs/wiki/Top-Level-Metrics.md) · [Stakeholder rigidities](docs/wiki/Stakeholder-Rigidities.md) · [Related work](docs/RELATED_WORK.md) · [Levers and scenarios](docs/wiki/Levers-and-Scenarios.md) · [Real options](docs/wiki/Real-Options-and-Strategic-Value.md) · [Tornado diagrams](docs/wiki/Visualization-and-Tornado-Diagrams.md) · [Model status](docs/V0_1_STATUS.md)
 
 ## What Demeter is intended to reveal
 

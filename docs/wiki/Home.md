@@ -19,6 +19,8 @@ Food is Health explores ideas about that changing system. Demeter aims to make t
 
 ## Why model a connected market?
 
+Actors in separate industries usually see only their own accounts. Demeter's purpose is to make the coupling visible: how a change in agriculture, food, health care, climate, research, or capital reaches the others, where improvements reinforce each other, where they trade off, and who bears or captures the value. Representative couplings include food and climate, chronic and acute disease, and microbiome research and agriculture. Each is a hypothesis to test, including the possibility that the spillover is negative.
+
 A lower food price matters through what households actually buy and eat. A health improvement matters economically through utilization, payment contracts, and who remains responsible for a population long enough to benefit. A demand shift matters to agriculture through margins, processing capacity, land, and the time required to change production.
 
 These connections can reinforce change or absorb it. A local intervention can create a bottleneck elsewhere. A large social benefit can coexist with weak incentives for the organization asked to fund it. Demeter is being built to make those relationships explicit.
@@ -44,6 +46,9 @@ and [the PR process](../../CONTRIBUTING.md) are part of that shared foundation.
 | --- | --- |
 | [Real-food value-chain scenario](../REAL_FOOD_VALUE_CHAIN.md) | The flagship future exercise: decisions, value creation/capture, regenerative-to-retail pathways, and PreChronic prevention. |
 | [Model-design inputs](../design/README.md) | Causal-loop and externality tables, input requirements, and formulation/tests that turn premises into reviewable model design. |
+| [Top-level metrics](Top-Level-Metrics.md) | Healthy longevity, health-adjusted productivity, and health-inclusive GDP at macro and industry level, with a climate guardrail. |
+| [Stakeholder rigidities](Stakeholder-Rigidities.md) | Beliefs that a better, cheaper system is impossible, which are real, and how the model tests them. |
+| [Related work](../RELATED_WORK.md) | Existing models and flight simulators, and where Demeter fits. |
 | [Market dynamics](Market-Dynamics.md) | Stocks, flows, feedback, prices, incentives, delays, and value distribution. |
 | [Levers and scenarios](Levers-and-Scenarios.md) | Actionable controls, external trends, causal pathways, and experiments. |
 | [Real options and strategic value](Real-Options-and-Strategic-Value.md) | Contingent decisions, trigger conditions, learning, downside, and value capture. |
