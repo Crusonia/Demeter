@@ -16,6 +16,7 @@ from demeter.data.ingest import rebuild
 from demeter.data.historical import rebuild_history
 from demeter.data.nhanes import STORE as NHANES_STORE, load_nhanes, rebuild_nhanes
 from demeter.data.store import verify_store
+from demeter.data.healthspan import crosscheck, load_healthspan, rebuild_healthspan
 from demeter.evidence.appraisal import applicability_report, verify_sources
 from demeter.model import simulate
 from demeter.schema import EvidenceRegistry, Scenario
@@ -111,6 +112,25 @@ def rebuild_glycemic_data(
     emit(rebuild_nhanes(registry(evidence), source, destination))
 
 
+@data_app.command("rebuild-healthspan")
+def rebuild_healthspan_data(
+    evidence: Path = DEFAULT_EVIDENCE,
+    source: Path = Path("data/sources/healthspan/nchs-2001"),
+    destination: Path = Path("outputs/healthspan-rebuilt"),
+) -> None:
+    """Re-extract and verify the NCHS method example from the archived PDF, offline."""
+    emit(rebuild_healthspan(registry(evidence), source, destination))
+
+
+@evidence_app.command("healthspan")
+def healthspan_benchmark(evidence: Path = DEFAULT_EVIDENCE, output: Path | None = None) -> None:
+    """Cross-check the healthspan estimator against the published NCHS example."""
+    report = crosscheck(load_healthspan(registry(evidence)))
+    emit(report, output)
+    if not report["passed"]:
+        raise typer.Exit(1)
+
+
 @evidence_app.command("population")
 def population_evidence(evidence: Path = DEFAULT_EVIDENCE, output: Path | None = None) -> None:
     """Read pinned age/sex glycemic prevalence; never substitute it for T2D states."""
@@ -174,6 +194,17 @@ def simulate_scenario(
 ) -> None:
     """Emit trajectories, final cohorts, and complete provenance as JSON."""
     emit(simulate(registry(evidence), Scenario.from_yaml(scenario)).to_dict(), output)
+
+
+@app.command("healthspan")
+def healthspan_outcomes(
+    scenario: Annotated[Path, typer.Argument(exists=True, readable=True)],
+    evidence: Path = DEFAULT_EVIDENCE,
+    output: Path | None = None,
+) -> None:
+    """Report period healthspan by age and restricted state time by original cohort."""
+    result = simulate(registry(evidence), Scenario.from_yaml(scenario))
+    emit({"metadata": result.metadata, **result.healthspan}, output)
 
 
 @app.command()

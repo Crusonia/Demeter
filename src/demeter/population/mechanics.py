@@ -3,6 +3,8 @@ from __future__ import annotations
 import numpy as np
 
 from demeter.life_table import AgeInterval, period_life_table
+from demeter.health.healthspan import sullivan
+from demeter.health.transitions import STATES
 
 
 def age_survivors(stocks: np.ndarray) -> np.ndarray:
@@ -51,12 +53,20 @@ def period_outcomes(
     intervals = [AgeInterval(r["age"], 1, float(q[i]), r["ax"]) for i, r in enumerate(rows[:-1])]
     intervals.append(AgeInterval(100, None, 1, terminal_person_years_per_survivor=terminal_years))
     table = period_life_table(intervals)
-    healthy_years = (
-        sum(r.person_years * shares[i, 0] for i, r in enumerate(table)) / table[0].survivors
+    health = sullivan(
+        [r.start_age for r in table],
+        [r.survivors for r in table],
+        [r.person_years for r in table],
+        shares,
+        STATES,
     )
+    healthy_years = health[0]["state_years"]["healthy"]
     result = {
         "life_expectancy": table[0].life_expectancy,
         "metabolically_healthy_life_expectancy": float(healthy_years),
+        "healthspan": float(healthy_years),
+        "t2d_free_life_expectancy": healthy_years + health[0]["state_years"]["insulin_resistant"],
+        "state_life_expectancy": health[0]["state_years"],
     }
     if include_table:
         from dataclasses import asdict
@@ -66,6 +76,8 @@ def period_outcomes(
                 **asdict(row),
                 "qx": float(q[i]) if i < 100 else 1.0,
                 "annual_death_probability": float(q[i]),
+                "healthspan": health[i]["state_years"]["healthy"],
+                "state_life_expectancy": health[i]["state_years"],
             }
             for i, row in enumerate(table)
         ]

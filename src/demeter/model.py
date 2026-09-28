@@ -9,6 +9,7 @@ from demeter import __version__
 from demeter.data.baseline import population_counts, source_rows
 from demeter.data.ingest import BUNDLE
 from demeter.health.transitions import STATES, TRANSITIONS, transition_survivors
+from demeter.health.healthspan import CohortTime, metric_contract
 from demeter.population.mechanics import (
     age_survivors,
     calibrate_mortality,
@@ -57,6 +58,7 @@ class SimulationResult:
     cohorts: list[dict]
     metadata: dict
     diagnostics: dict | None = None
+    healthspan: dict | None = None
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -131,6 +133,7 @@ def simulate(
     )
     hazards = calibrate_mortality(rows, reference, ratios)
     starting = float(stocks.sum())
+    cohort_time = CohortTime(stocks)
     cumulative, applied_log_effect = 0.0, 0.0
     annual, history = [], []
     target = registry.value("beta_upf_progression") * (scenario.exposures.get("upf", 1) - 1)
@@ -140,7 +143,12 @@ def simulate(
 
     def snapshot(year, deaths=0.0, flows=None):
         shares = state_shares(stocks, reference)
-        outcomes = period_outcomes(rows, shares, hazards, include_table=diagnostics)
+        outcomes = period_outcomes(
+            rows, shares, hazards, include_table=diagnostics or year == scenario.years
+        )
+        table = outcomes.pop("life_table", None)
+        if year == scenario.years:
+            final_period.extend(table)
         if diagnostics:
             history.append(
                 {
@@ -152,7 +160,7 @@ def simulate(
                         }
                         for age in range(101)
                     ],
-                    "life_table": outcomes.pop("life_table"),
+                    "life_table": table,
                 }
             )
         return dict(
@@ -168,9 +176,11 @@ def simulate(
             applied_progression_multiplier=exp(applied_log_effect),
             empty_age_groups_using_reference=int((stocks.sum(axis=1) == 0).sum()),
             **outcomes,
+            restricted_healthy_years=float(cohort_time.person_years[:, 0].sum() / starting),
             **(flows or {}),
         )
 
+    final_period = []
     annual.append(snapshot(0))
     for year in range(1, scenario.years + 1):
         applied_log_effect += relaxation * (target - applied_log_effect)
@@ -184,6 +194,18 @@ def simulate(
             adult,
         )
         stocks = age_survivors(moved)
+        cohort_time.advance(
+            year,
+            hazards,
+            (
+                registry.value("h_to_ir_rate") * exp(applied_log_effect),
+                registry.value("ir_to_h_rate"),
+                registry.value("ir_to_t2d_rate") * exp(applied_log_effect),
+            ),
+            adult,
+        )
+        if not np.allclose(cohort_time.age_stocks(), stocks, rtol=1e-12, atol=1e-7):
+            raise ArithmeticError("Original-cohort accounting differs from the engine")
         if diagnostics:
             flows.update(
                 {f"{state}_deaths": float(deaths[:, i].sum()) for i, state in enumerate(STATES)}
@@ -224,6 +246,7 @@ def simulate(
         "unresolved_parameters": audit["unresolved"],
         "scientific_blockers": registry.scientific_blockers,
         "limitations": LIMITATIONS,
+        "healthspan_metric": metric_contract(),
     }
     return SimulationResult(
         scenario.name,
@@ -248,6 +271,21 @@ def simulate(
         }
         if diagnostics
         else None,
+        {
+            "definition": metric_contract(),
+            "period_by_age": [
+                {
+                    "age": row["start_age"],
+                    "life_expectancy": row["life_expectancy"],
+                    "healthspan": row["healthspan"],
+                    "state_years": row["state_life_expectancy"],
+                }
+                for row in final_period
+            ],
+            "restricted_cohort": cohort_time.report(),
+            "validation_only": validation_only,
+            "evidence_sha256": registry.content_hash,
+        },
     )
 
 

@@ -27,7 +27,13 @@ TRANSITIONS = (
 
 
 def transition_survivors(
-    stocks: np.ndarray, progression: float, regression: float, diabetes: float, adult_age: int
+    stocks: np.ndarray,
+    progression: float,
+    regression: float,
+    diabetes: float,
+    adult_age: int,
+    *,
+    by_row: bool = False,
 ) -> tuple[np.ndarray, dict]:
     """One-year competing-hazard transitions; state order H, IR, T2D.
 
@@ -47,8 +53,16 @@ def transition_survivors(
     output[adult_age:, 0] += ir_h - h_ir
     output[adult_age:, 1] += h_ir - ir_h - ir_t2d
     output[adult_age:, 2] += ir_t2d
-    return output, {
+    flows = {
         "healthy_to_ir": float(h_ir.sum()),
         "ir_to_healthy": float(ir_h.sum()),
         "ir_to_t2d": float(ir_t2d.sum()),
     }
+    if by_row:
+        flows["by_row"] = {
+            name: np.concatenate((np.zeros(adult_age), values))
+            for name, values in zip(
+                ("healthy_to_ir", "ir_to_healthy", "ir_to_t2d"), (h_ir, ir_h, ir_t2d), strict=True
+            )
+        }
+    return output, flows

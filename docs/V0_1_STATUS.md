@@ -9,7 +9,7 @@ Release identifier: **0.1.0a1**. Engineering functionality is implemented; scien
 | Population conservation | Tested | Deaths and aging explicit; births/migration zero; 100-year test |
 | Age/state mortality | Implemented with synthetic state ratios | Baseline mixture reproduces source schedule |
 | Period life expectancy | Implemented and independently checked | NCHS all-age e_x reconstruction, 2022–2024 and three sex categories |
-| Health-adjusted metric | Implemented with limited semantics | Sullivan-style years in modeled healthy state; not general HALE |
+| Health-adjusted metric | Defined, implemented, arithmetic cross-checked | Age/state Sullivan years and restricted cohort time; 18 published NCHS values reproduced; synthetic metabolic state, not general HALE |
 | Evidence-linked dietary effects | Plumbing implemented; scientific gate open | All inputs registered; coefficients/lag remain synthetic |
 | Evidence completeness | Auditable | Status, unit, uncertainty, source metadata; missing entries reported |
 | Authoritative mortality calibration | Pass | All-age e_x error below 0.001 year |

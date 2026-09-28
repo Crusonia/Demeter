@@ -108,6 +108,8 @@ uv sync --locked
 uv run demeter validate
 uv run demeter evidence audit
 uv run demeter evidence applicability
+uv run demeter evidence healthspan
+uv run demeter healthspan scenarios/baseline.yaml --output outputs/healthspan.json
 uv run demeter simulate scenarios/baseline.yaml --output outputs/baseline.json
 uv run demeter simulate scenarios/reduce_upf_30.yaml --output outputs/reduce_upf_30.json
 uv run demeter compare scenarios/baseline.yaml scenarios/reduce_upf_30.yaml
@@ -140,8 +142,9 @@ Core equations use transparent NumPy arrays. BPTK-Py remains available for later
 
 ## Source data travel with the model
 
-The repository contains 21 public source files: baseline and historical inputs,
-NHANES survey files, and official JSON snapshots, plus the derived bundles. See the
+The repository contains 22 public source files: baseline and historical inputs,
+NHANES survey files, official JSON snapshots, and the NCHS healthspan method
+reference, plus the derived bundles. See the
 [data catalog and contribution policy](data/README.md) for locations, source terms,
 and the distinction between raw observations, derived inputs, and assumptions.
 Verify the archive and reproduce the bundles without network access or changes
@@ -151,6 +154,7 @@ to committed files:
 uv run python scripts/verify_source_archive.py --rebuild
 uv run demeter data verify-store
 uv run demeter data rebuild-nhanes --destination outputs/nhanes-rebuilt
+uv run demeter data rebuild-healthspan --destination outputs/healthspan-rebuilt
 uv run demeter evidence population --output outputs/population-evidence.json
 ```
 
@@ -167,7 +171,7 @@ The manifests record source URLs, retrieval times, vintages, hashes, and transfo
 ## Interpret outputs correctly
 
 - **Period life expectancy** is the result of freezing a mortality schedule. It is not a forecast of an individual's lifespan.
-- **Metabolically healthy life expectancy** weights life-table person-years by the healthy-state prevalence. It is not general disability-free life expectancy or WHO HALE.
+- **Healthspan** (`metabolically_healthy_life_expectancy`) weights life-table person-years by healthy-state prevalence. Age-specific state years and restricted cohort time are also reported. The shared estimator matches 18 published NCHS values, but the model's synthetic healthy state is not general disability-free life expectancy or WHO HALE. See [definitions, equations and source check](docs/HEALTHSPAN.md).
 - **Parameter intervals** vary independent synthetic ranges. They omit uncertainty in the mortality/population inputs, model structure, and parameter correlations.
 - **Closed population** means births and migration are zero. Census counts initialize the model; later counts are not U.S. demographic forecasts. Empty age cells use reference state shares for period calculations, and their number is reported.
 - **UPF** is currently a relative exposure plumbing test. It has no validated causal dose-response mapping. Changing fiber or fruit/vegetable exposure is rejected to avoid adding unsupported correlated effects.
@@ -197,7 +201,7 @@ This covers 13 NCHS/NHIS/USDA series with explicit holdouts, residuals, empirica
 forecast intervals and comparability breaks. It evaluates historical benchmarks;
 it does not validate causal dietary effects. See [the historical contract](docs/HISTORICAL_BACKTESTS.md).
 
-Generate the scientific observability report (34 interactive views, offline):
+Generate the scientific observability report (37 interactive views, offline):
 
 ```bash
 uv run demeter observe scenarios/reduce_upf_30.yaml --seed 42
