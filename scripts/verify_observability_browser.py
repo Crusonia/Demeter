@@ -15,7 +15,7 @@ with sync_playwright() as p:
     page.route("http://**/*", lambda route: route.abort())
     page.goto(report.as_uri())
     page.wait_for_function(
-        "document.querySelectorAll('.js-plotly-plot').length === 34 && "
+        "document.querySelectorAll('.js-plotly-plot').length === 37 && "
         "Array.from(document.querySelectorAll('.js-plotly-plot')).every(p => p._fullLayout)"
     )
     assert not errors, errors
@@ -27,4 +27,4 @@ with sync_playwright() as p:
     page.set_viewport_size({"width": 390, "height": 844})
     page.screenshot(path="outputs/observability/browser-mobile.png", full_page=False)
     browser.close()
-print("34 Plotly figures rendered offline without JavaScript errors")
+print("37 Plotly figures rendered offline without JavaScript errors")

@@ -7,7 +7,14 @@ from SALib.sample import sobol as sobol_sample
 from demeter.model import REQUIRED_UNITS, simulate
 from demeter.schema import EvidenceRegistry, Scenario
 
-OUTCOMES = ("life_expectancy", "metabolically_healthy_life_expectancy", "cumulative_deaths")
+OUTCOMES = (
+    "life_expectancy",
+    "metabolically_healthy_life_expectancy",
+    "cumulative_deaths",
+    "healthspan",
+    "t2d_free_life_expectancy",
+    "restricted_healthy_years",
+)
 
 
 def sampled_parameters(registry: EvidenceRegistry) -> list[str]:
@@ -59,6 +66,17 @@ def compare(registry: EvidenceRegistry, left: Scenario, right: Scenario) -> dict
         "outcomes": changes,
         "metadata": base.metadata,
         "intervention_scenario": right.model_dump(),
+        "state_time_deltas": {
+            s: intervention.healthspan["restricted_cohort"]["state_person_years"][s]
+            - base.healthspan["restricted_cohort"]["state_person_years"][s]
+            for s in base.healthspan["restricted_cohort"]["state_person_years"]
+        },
+        "transition_deltas": {
+            flow: sum(r.get(flow, 0) for r in intervention.annual)
+            - sum(r.get(flow, 0) for r in base.annual)
+            for flow in ("healthy_to_ir", "ir_to_healthy", "ir_to_t2d")
+        },
+        "attribution_scope": "Paired state-time and transition accounting; unique causal/pathway decomposition belongs to issue #26",
     }
 
 
@@ -79,6 +97,8 @@ def uncertainty(
     deltas = {key: [] for key in OUTCOMES}
     trajectories = {key: [] for key in OUTCOMES}
     parameter_draws = {key: [] for key in keys}
+    age_healthspan, age_deltas = [], []
+    cohort_healthy, cohort_deltas = [], []
     metadata = simulate(registry, scenario).metadata
     for _ in range(draws):
         values = {}
@@ -90,6 +110,24 @@ def uncertainty(
             )
         draw = with_values(registry, values)
         a, b = simulate(draw, baseline), simulate(draw, scenario)
+        age_a = np.array([r["healthspan"] for r in a.healthspan["period_by_age"]])
+        age_b = np.array([r["healthspan"] for r in b.healthspan["period_by_age"]])
+        cohort_a = np.array(
+            [
+                r["state_years_per_initial_person"]["healthy"]
+                for r in a.healthspan["restricted_cohort"]["by_initial_age"]
+            ]
+        )
+        cohort_b = np.array(
+            [
+                r["state_years_per_initial_person"]["healthy"]
+                for r in b.healthspan["restricted_cohort"]["by_initial_age"]
+            ]
+        )
+        age_healthspan.append(age_b)
+        age_deltas.append(age_b - age_a)
+        cohort_healthy.append(cohort_b)
+        cohort_deltas.append(cohort_b - cohort_a)
         if diagnostics:
             for key in keys:
                 parameter_draws[key].append(float(values[key]))
@@ -103,6 +141,9 @@ def uncertainty(
         low, median, high = np.quantile(values, [0.025, 0.5, 0.975])
         return {"median": float(median), "p2_5": float(low), "p97_5": float(high)}
 
+    age_healthspan, age_deltas, cohort_healthy, cohort_deltas = map(
+        np.asarray, (age_healthspan, age_deltas, cohort_healthy, cohort_deltas)
+    )
     result = {
         "metadata": metadata,
         "validation_only": scenario.mode == "validation",
@@ -114,6 +155,22 @@ def uncertainty(
         "assumptions": "Independent parameters, fixed scenario, paired baseline uses identical draws; no structural uncertainty",
         "outcomes": {k: summarize(v) for k, v in collected.items()},
         "paired_deltas": {k: summarize(v) for k, v in deltas.items()},
+        "healthspan_by_age": [
+            {
+                "age": age,
+                "period_healthspan": summarize(age_healthspan[:, age]),
+                "paired_delta": summarize(age_deltas[:, age]),
+            }
+            for age in range(101)
+        ],
+        "restricted_healthy_years_by_initial_age": [
+            {
+                "initial_age": age,
+                "healthy_years": summarize(cohort_healthy[:, age]),
+                "paired_delta": summarize(cohort_deltas[:, age]),
+            }
+            for age in range(101)
+        ],
     }
     if diagnostics:
         result["parameter_draws"] = parameter_draws

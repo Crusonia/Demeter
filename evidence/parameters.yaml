@@ -569,6 +569,24 @@ parameters:
         column_index: 3
         scale: 0.01
 datasets:
+  healthspan_method_benchmark:
+    status: observed
+    evidence_grade: C
+    source: CDC/NCHS Statistical Notes 21, Table 2, page 6
+    source_url: https://www.cdc.gov/nchs/data/statnt/statnt21.pdf
+    population: U.S. White females, as labeled by the source; NHIS self-reported good-or-better health
+    geography: United States
+    time_period: '1995; published August 2001'
+    unit: survivors, person-years, prevalence fractions, and years of remaining self-reported healthy life
+    model_role: method_validation_only
+    source_store: data/sources/healthspan/nchs-2001
+    manifest: src/demeter/data/bundled/healthspan_manifest.json
+    transformation: demeter.data.healthspan.extract_table; original PDF Table 2, seven numeric columns
+    uncertainty: Published rounded illustration; treated as fixed only for arithmetic cross-check; not a calibrated model or inferential result
+    limitations: Different population, period and health definition from the engine; no transport into model parameters
+    pdf_page_index: 5
+    ages: [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85]
+    published_decimal_places: 1
   nhanes_glycemic_prevalence:
     status: estimated
     evidence_grade: C
