@@ -6,15 +6,15 @@ Demeter judges a scenario by a few headline measures, always with uncertainty an
 
 | Headline | Shown next to | Why the pair matters |
 | --- | --- | --- |
-| **Healthy life expectancy** | Life expectancy | Extra years spent sick are not the goal. The gap between the two is the burden of chronic disease. |
+| **Healthy life expectancy** | Life expectancy | Extra years in poor health are not the goal. The gap is time lived outside the healthy state; today that means the modeled prediabetes and type 2 diabetes states, not every chronic disease. |
 | **Health-adjusted productivity of the food–health system** | Conventional agricultural productivity | Farm productivity counts calories and bushels. By that measure the system looks highly productive while generating disease. The gap is the opportunity. |
 | **Productive capacity and health-inclusive GDP** | Raw GDP, with healthcare spending shown separately | Raw GDP counts treating disease as output, so less disease can lower measured GDP while making people better off. Raw GDP is reported, never optimized. |
 
-**Guardrail: climate and land.** Every scenario reports net lifecycle greenhouse-gas emissions and land use. A change that improves health while raising emissions must show the trade-off rather than hide it.
+**Guardrail: climate and land.** Once the climate and land modules exist, every scenario will report net lifecycle greenhouse-gas emissions and land use. A change that improves health while raising emissions must show the trade-off rather than hide it.
 
 ## Tier 2: industries and actors
 
-Macro totals hide who wins and who loses. Demeter reports the same measures for each industry (agriculture, food manufacturing, retail, food service, health care, pharmaceuticals, insurance, and the wider labor market) and for specific actors such as payers, farms, households, employers, and public budgets.
+Macro totals hide who wins and who loses. As the economic modules are built, Demeter will report the same measures for each industry (agriculture, food manufacturing, retail, food service, health care, pharmaceuticals, insurance, and the wider labor market) and for specific actors such as payers, farms, households, employers, and public budgets.
 
 Industries shift rather than simply shrink or grow. Health care may lose chronic-disease volume while gaining acute care, hard-to-treat conditions, newly diagnosed disease, and care in added years of life. Prevention can raise or lower total lifetime health spending; the model must show which, rather than assume savings.
 
