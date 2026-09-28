@@ -197,11 +197,38 @@ class EvidenceRegistry(StrictModel):
         }
 
 
+ExposureId = Literal[
+    "upf",
+    "fiber",
+    "fruit_veg",
+    "added_sugar",
+    "refined_carbohydrate",
+    "protein_quality",
+    "fat_quality",
+    "omega3",
+    "total_energy",
+    "nutrient_density",
+    "total_sugar",
+    "protein",
+    "saturated_fat",
+]
+
+
+class DietaryChange(StrictModel):
+    """A scenario target, with an explicit observed reference and application role."""
+
+    target: float = Field(ge=0)
+    unit: str = Field(min_length=1)
+    reference_period: str = Field(min_length=1)
+    role: Literal["model_effect", "context_only"]
+
+
 class Scenario(StrictModel):
     name: str = Field(min_length=1)
     description: str = ""
     years: int = Field(default=25, ge=1, le=100, strict=True)
-    exposures: dict[Literal["upf", "fiber", "fruit_veg"], float]
+    exposures: dict[Literal["upf", "fiber", "fruit_veg"], float] = Field(default_factory=dict)
+    diet: dict[ExposureId, DietaryChange] = Field(default_factory=dict)
     baseline_year: Literal[2022, 2023, 2024] = 2024
     sex: Literal["all", "male", "female"] = "all"
     mode: Literal["validation", "scientific"] = "validation"
@@ -214,6 +241,10 @@ class Scenario(StrictModel):
 
     @model_validator(mode="after")
     def valid_exposures(self):
+        if self.exposures.keys() & self.diet.keys():
+            raise ValueError(
+                "Specify each exposure once, using either relative exposures or absolute diet"
+            )
         if any(v <= 0 for v in self.exposures.values()):
             raise ValueError("exposure multipliers must be positive")
         if any(self.exposures.get(k, 1) != 1 for k in ("fiber", "fruit_veg")):

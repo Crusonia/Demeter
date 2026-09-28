@@ -18,8 +18,10 @@ from demeter.data.nhanes import STORE as NHANES_STORE, load_nhanes, rebuild_nhan
 from demeter.data.store import verify_store
 from demeter.data.healthspan import crosscheck, load_healthspan, rebuild_healthspan
 from demeter.data.prechronic import load_prechronic, rebuild_prechronic
+from demeter.data.dietary import load_dietary, rebuild_dietary
 from demeter.evidence.appraisal import applicability_report, verify_sources
 from demeter.model import simulate
+from demeter.nutrition.exposures import catalog
 from demeter.schema import EvidenceRegistry, Scenario
 
 app = typer.Typer(no_args_is_help=True, help="Demeter evidence-aware health model.")
@@ -152,6 +154,28 @@ def rebuild_risk_data(
 def prechronic_evidence(evidence: Path = DEFAULT_EVIDENCE, output: Path | None = None) -> None:
     """Report candidate sizes and age/sex distributions without fitting model parameters."""
     emit(load_prechronic(registry(evidence)), output)
+
+
+@data_app.command("rebuild-dietary")
+def rebuild_dietary_data(
+    evidence: Path = DEFAULT_EVIDENCE,
+    source: Path = Path("data/sources/dietary/2026-09-27"),
+    destination: Path = Path("outputs/dietary-rebuilt"),
+) -> None:
+    """Reconstruct dietary means, sampling uncertainty and reported-day distributions offline."""
+    emit(rebuild_dietary(registry(evidence), source, destination))
+
+
+@evidence_app.command("dietary")
+def dietary_evidence(evidence: Path = DEFAULT_EVIDENCE, output: Path | None = None) -> None:
+    """Read source-linked dietary baselines without fitting causal response parameters."""
+    emit(load_dietary(registry(evidence)), output)
+
+
+@app.command("food-exposures")
+def food_exposures(evidence: Path = DEFAULT_EVIDENCE, output: Path | None = None) -> None:
+    """List canonical food/nutrient definitions, units, overlap and activation boundaries."""
+    emit(catalog(registry(evidence)), output)
 
 
 @app.command("historical-backtest")
