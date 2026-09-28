@@ -107,3 +107,22 @@ uv run demeter sensitivity healthspan --samples 64 --seed 42
 
 Full model calibration remains a separate, later validation pass. Scientific
 mode stays disabled until the scientific acceptance criteria are satisfied.
+
+## Design trace
+
+This outcome interface supports the health component of Q-03/RM-04 in the
+[problem boundary](design/01_PROBLEM_BOUNDARY.md), without implementing its payer
+or funding decisions. It measures the existing L-00 transition-depletion
+mechanics. The relevant input packages are I-01 (population/health), I-11
+(measurement/reference data), and I-12 (experiment controls); no new externality
+or economic feedback loop is added.
+
+`sullivan` and `CohortTime` in `src/demeter/health/healthspan.py` implement the
+F-01 accounting and F-08 measurement interfaces from the
+[formulation contracts](design/05_FORMULATION_AND_TESTS.md).
+`tests/test_healthspan.py` exercises T-01 conservation, T-02 zero/empty inputs,
+T-03 finite-horizon and terminal-group accounting, and T-08 paired uncertainty.
+The `healthspan_method_benchmark` dataset supplies an observed arithmetic
+reference. It does not satisfy T-06 independent clinical holdout validation.
+The annual operator timing and its limitations remain explicit; no time-step
+convergence claim is added by this accounting change.
