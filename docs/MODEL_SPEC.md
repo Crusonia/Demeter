@@ -46,7 +46,15 @@ The independent life-table calculator computes:
 
 Source `a_x` is derived from published `L_x`, `l_x`, and `d_x`; it is held fixed under scenario changes. The calculator is tested against synthetic arithmetic and published NCHS `e_x` at all ages, not merely rounded life expectancy at birth.
 
-The healthy-state metric uses `sum_x(L_x × healthy_share_x)/l_0`. It is a Sullivan-style prevalence-weighted metric for this model's state definition. It does not include all disabilities or diseases. An independently sourced disability-weight model can be added to this same person-year interface without redefining mortality.
+The primary `healthspan` metric uses `sum_x(L_x × healthy_share_x)/l_0`, retaining
+`metabolically_healthy_life_expectancy` as an alias. This Sullivan calculation
+also reports conditional remaining years by age and state. Separately, original
+cohort time integrates constant within-year mortality before year-end transitions,
+with no extrapolation beyond the simulation horizon. Neither metric includes all
+disabilities or diseases. [HEALTHSPAN.md](HEALTHSPAN.md) defines the equations,
+competing risks, unavailable measures, uncertainty, and the published NCHS
+arithmetic benchmark. Sourced disability weights can use the same person-year
+interface without redefining mortality, once joint-condition semantics are specified.
 
 ## Uncertainty and comparison
 

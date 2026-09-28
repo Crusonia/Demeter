@@ -4,6 +4,7 @@ import numpy as np
 
 from demeter.data.baseline import baseline_validation, source_rows
 from demeter.data.nhanes import load_nhanes
+from demeter.data.healthspan import crosscheck, load_healthspan
 from demeter.model import simulate
 from demeter.schema import EvidenceRegistry, Scenario
 
@@ -64,6 +65,7 @@ def prevalence_checks(registry: EvidenceRegistry) -> list[dict]:
 def validate(registry: EvidenceRegistry) -> dict:
     audit = registry.audit()
     population_evidence = load_nhanes(registry)
+    healthspan_check = crosscheck(load_healthspan(registry))
     mortality = [
         baseline_validation(year, sex)
         for year in (2022, 2023, 2024)
@@ -80,7 +82,8 @@ def validate(registry: EvidenceRegistry) -> dict:
     return {
         "software_checks_passed": all(r["passed"] for r in mortality)
         and max_residual < 1e-5
-        and population_evidence["published_reconstruction"]["passed"],
+        and population_evidence["published_reconstruction"]["passed"]
+        and healthspan_check["passed"],
         "scientific_release_ready": scientific_ready,
         "model_version": base.metadata["model_version"],
         "evidence": audit,
@@ -94,5 +97,6 @@ def validate(registry: EvidenceRegistry) -> dict:
             "engine_state_mapping_resolved": False,
         },
         "historical_backtest": mortality_backtest(),
+        "healthspan_method_check": healthspan_check,
         "status": "VALIDATION ONLY — NOT A SCIENTIFIC ESTIMATE",
     }

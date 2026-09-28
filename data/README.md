@@ -111,9 +111,10 @@ from the modeled quantities, and leave unsupported mappings explicitly unresolve
 
 ## NHANES and official JSON additions
 
-The [machine-readable catalog](catalog.json) covers all 21 source files, including
+The [machine-readable catalog](catalog.json) covers all 22 source files, including
 four deidentified NHANES 2017-March 2020 XPORT files and four official JSON
-snapshots. The original baseline and historical archives above remain canonical.
+snapshots and the NCHS healthspan method PDF. The original baseline and historical
+archives above remain canonical.
 
 - [NHANES source manifest](sources/nhanes/2017-2020/manifest.json) links the four
   public-use CDC files, their codebooks, dates, and SHA-256 hashes.
@@ -128,6 +129,7 @@ Reload and verify without changing committed files:
 ```powershell
 uv run demeter data verify-store
 uv run demeter data rebuild-nhanes --destination outputs/nhanes-rebuilt
+uv run demeter data rebuild-healthspan --destination outputs/healthspan-rebuilt
 uv run demeter evidence population --output outputs/population-evidence.json
 ```
 
@@ -139,6 +141,11 @@ individually identifiable records. Source data terms remain distinct from the
 software license.
 
 ## Official JSON APIs
+
+The [healthspan source manifest](sources/healthspan/nchs-2001/manifest.json) pins
+the official NCHS PDF used for the Sullivan arithmetic check. Its extracted JSON
+is a Demeter transform, not an official JSON publication. It is stored separately
+from engine inputs and reproduces offline; see [healthspan methods](../docs/HEALTHSPAN.md).
 
 - [CDC mortality and life expectancy JSON](https://data.cdc.gov/resource/w9j2-ggv5.json?%24where=race%3D%27All%20Races%27&%24limit=5000&%24order=year%2Csex): historical aggregate observations, not single-age life tables.
 - [CDC diabetes JSON sample](https://data.cdc.gov/resource/c9xs-vhst.json?%24limit=1): NHIS diagnosed diabetes; not all diabetes, laboratory prediabetes, or specifically T2D. The catalog retains the complete filtered query used for the snapshot.

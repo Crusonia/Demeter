@@ -134,7 +134,7 @@ def test_notebook_cells_execute_on_canonical_payload(payload, tmp_path, monkeypa
         if cell["cell_type"] == "code":
             exec(compile("".join(cell["source"]), "observability.ipynb", "exec"), namespace)
     assert namespace["payload"] == payload
-    assert len(namespace["figures"]) == 34
+    assert len(namespace["figures"]) == 37
 
 
 def test_prediction_and_residual_share_legend_color(payload):

@@ -18,7 +18,7 @@ uv run pytest tests/test_observability.py
 ```
 
 `observe` runs canonical model/analysis functions once. It writes their complete
-JSON, 34 Plotly figure JSON files and a self-contained HTML report with Plotly.js
+JSON, 37 Plotly figure JSON files and a self-contained HTML report with Plotly.js
 embedded. `visualize` reads that saved JSON and performs no model run, evidence
 lookup, sampling or equation evaluation. Rendering the same data is deterministic.
 The report is responsive and supports Plotly hover, pan, zoom and trace selection.
@@ -78,7 +78,7 @@ saved outputs, and confirm rendering neither imports engine equations nor mutate
 payloads. CLI re-rendering and embedded/offline Plotly export are tested. The
 full repository suite and CI also generate a small report from canonical data.
 
-Headless Chromium verification blocks HTTP/HTTPS and requires all 34 Plotly charts
+Headless Chromium verification blocks HTTP/HTTPS and requires all 37 Plotly charts
 to initialize without JavaScript errors. Desktop/mobile screenshots and graph /
 historical-panel rendering were inspected during implementation. This browser
 check also runs in Python 3.12 CI. Notebook cells are executed directly in tests;

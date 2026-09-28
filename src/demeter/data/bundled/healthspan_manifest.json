@@ -1,0 +1,18 @@
+{
+  "bundle_sha256": "8e1ab930090fa36031dd5d5d9f67f5c4fcb7f367b3da867556811e62df1a07e3",
+  "dataset_definition_sha256": "3da2d90aecaa096977040a355ce19bee2ecaae649068d2244d2afb0dbb190834",
+  "schema_version": 1,
+  "sources": {
+    "statnt21.pdf": {
+      "format": "PDF",
+      "model_role": "method_validation_only",
+      "publisher": "CDC/NCHS",
+      "retrieved_at": "2026-09-28T00:33:53.415190+00:00",
+      "sha256": "9c1011f3103abc324a5ba27597e5a7b4e813eeae4bc46110034bbc2b19c147a2",
+      "title": "Summary Measures of Population Health: Methods for Calculating Healthy Life Expectancy",
+      "url": "https://www.cdc.gov/nchs/data/statnt/statnt21.pdf",
+      "use_terms": "https://www.cdc.gov/other/agencymaterials.html",
+      "vintage": "Statistical Notes 21, August 2001; illustration uses 1995 observations"
+    }
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "model_role": "method_validation_only",
+  "population": "U.S. White females, as labeled by the source; NHIS self-reported good-or-better health",
+  "provenance": {
+    "dataset_definition_sha256": "3da2d90aecaa096977040a355ce19bee2ecaae649068d2244d2afb0dbb190834",
+    "source_sha256": "9c1011f3103abc324a5ba27597e5a7b4e813eeae4bc46110034bbc2b19c147a2",
+    "transform": "demeter.data.healthspan.extract_table",
+    "transform_version": 1
+  },
+  "published_decimal_places": 1,
+  "rows": [
+    {
+      "age": 0,
+      "healthy_prevalence": 0.9815,
+      "person_years": 497211.0,
+      "published_health_expectancy": 69.8,
+      "published_healthy_person_years": 488012.0,
+      "published_remaining_healthy_person_years": 6981686.0,
+      "survivors": 100000.0
+    },
+    {
+      "age": 5,
+      "healthy_prevalence": 0.9804,
+      "person_years": 496412.0,
+      "published_health_expectancy": 65.4,
+      "published_healthy_person_years": 486682.0,
+      "published_remaining_healthy_person_years": 6493674.0,
+      "survivors": 99321.0
+    },
+    {
+      "age": 10,
+      "healthy_prevalence": 0.9811,
+      "person_years": 496020.0,
+      "published_health_expectancy": 60.5,
+      "published_healthy_person_years": 486645.0,
+      "published_remaining_healthy_person_years": 6006992.0,
+      "survivors": 99247.0
+    },
+    {
+      "age": 15,
+      "healthy_prevalence": 0.9565,
+      "person_years": 495294.0,
+      "published_health_expectancy": 55.7,
+      "published_healthy_person_years": 473749.0,
+      "published_remaining_healthy_person_years": 5520347.0,
+      "survivors": 99156.0
+    },
+    {
+      "age": 20,
+      "healthy_prevalence": 0.951,
+      "person_years": 494163.0,
+      "published_health_expectancy": 51.0,
+      "published_healthy_person_years": 469949.0,
+      "published_remaining_healthy_person_years": 5046598.0,
+      "survivors": 98938.0
+    },
+    {
+      "age": 25,
+      "healthy_prevalence": 0.9383,
+      "person_years": 492962.0,
+      "published_health_expectancy": 46.4,
+      "published_healthy_person_years": 462546.0,
+      "published_remaining_healthy_person_years": 4576649.0,
+      "survivors": 98720.0
+    },
+    {
+      "age": 30,
+      "healthy_prevalence": 0.9386,
+      "person_years": 491441.0,
+      "published_health_expectancy": 41.8,
+      "published_healthy_person_years": 461266.0,
+      "published_remaining_healthy_person_years": 4114103.0,
+      "survivors": 98455.0
+    },
+    {
+      "age": 35,
+      "healthy_prevalence": 0.9227,
+      "person_years": 489247.0,
+      "published_health_expectancy": 37.2,
+      "published_healthy_person_years": 451428.0,
+      "published_remaining_healthy_person_years": 3652837.0,
+      "survivors": 98094.0
+    },
+    {
+      "age": 40,
+      "healthy_prevalence": 0.911,
+      "person_years": 486191.0,
+      "published_health_expectancy": 32.8,
+      "published_healthy_person_years": 442920.0,
+      "published_remaining_healthy_person_years": 3201409.0,
+      "survivors": 97580.0
+    },
+    {
+      "age": 45,
+      "healthy_prevalence": 0.8906,
+      "person_years": 481715.0,
+      "published_health_expectancy": 28.5,
+      "published_healthy_person_years": 429015.0,
+      "published_remaining_healthy_person_years": 2758489.0,
+      "survivors": 96861.0
+    },
+    {
+      "age": 50,
+      "healthy_prevalence": 0.8494,
+      "person_years": 474612.0,
+      "published_health_expectancy": 24.3,
+      "published_healthy_person_years": 403136.0,
+      "published_remaining_healthy_person_years": 2329473.0,
+      "survivors": 95764.0
+    },
+    {
+      "age": 55,
+      "healthy_prevalence": 0.8081,
+      "person_years": 463278.0,
+      "published_health_expectancy": 20.5,
+      "published_healthy_person_years": 374375.0,
+      "published_remaining_healthy_person_years": 1926338.0,
+      "survivors": 93969.0
+    },
+    {
+      "age": 60,
+      "healthy_prevalence": 0.7969,
+      "person_years": 445546.0,
+      "published_health_expectancy": 17.0,
+      "published_healthy_person_years": 355055.0,
+      "published_remaining_healthy_person_years": 1551963.0,
+      "survivors": 91152.0
+    },
+    {
+      "age": 65,
+      "healthy_prevalence": 0.7743,
+      "person_years": 419113.0,
+      "published_health_expectancy": 13.8,
+      "published_healthy_person_years": 324520.0,
+      "published_remaining_healthy_person_years": 1196908.0,
+      "survivors": 86772.0
+    },
+    {
+      "age": 70,
+      "healthy_prevalence": 0.7636,
+      "person_years": 381366.0,
+      "published_health_expectancy": 10.8,
+      "published_healthy_person_years": 291211.0,
+      "published_remaining_healthy_person_years": 872388.0,
+      "survivors": 80441.0
+    },
+    {
+      "age": 75,
+      "healthy_prevalence": 0.7218,
+      "person_years": 328775.0,
+      "published_health_expectancy": 8.1,
+      "published_healthy_person_years": 237310.0,
+      "published_remaining_healthy_person_years": 581177.0,
+      "survivors": 71408.0
+    },
+    {
+      "age": 80,
+      "healthy_prevalence": 0.6702,
+      "person_years": 257187.0,
+      "published_health_expectancy": 5.8,
+      "published_healthy_person_years": 172367.0,
+      "published_remaining_healthy_person_years": 343867.0,
+      "survivors": 59051.0
+    },
+    {
+      "age": 85,
+      "healthy_prevalence": 0.6715,
+      "person_years": 255399.0,
+      "published_health_expectancy": 4.0,
+      "published_healthy_person_years": 171501.0,
+      "published_remaining_healthy_person_years": 171501.0,
+      "survivors": 42880.0
+    }
+  ],
+  "schema_version": 1,
+  "source": "https://www.cdc.gov/nchs/data/statnt/statnt21.pdf"
+}
