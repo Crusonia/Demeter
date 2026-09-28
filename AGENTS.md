@@ -15,7 +15,7 @@ Before making architectural decisions, read `docs/PROJECT_VISION.md`, `docs/SYST
 Phase-specific objective documents may intentionally narrow scope. Do not interpret a narrow current phase as a change to the long-term program architecture unless the project vision is explicitly updated.
 
 For proposed mechanisms, also read `docs/design/README.md` and the relevant causal-loop,
-externality, input, and formulation records it links. These Markdown files feed model
+externality, input, formulation, and stakeholder-rigidity records it links. These Markdown files feed model
 design; their premises are not empirical parameters or implemented capabilities.
 Trace a selected mechanism through its stable design IDs to evidence, equations,
 and tests in the implementation PR, while preserving the active phase boundary.
