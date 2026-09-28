@@ -5,6 +5,10 @@ Demeter is open to contributions. Carter Williams
 `Crusonia/Demeter`. Anyone can fork, open an issue, or propose a PR. Community
 participation does not require repository write access.
 
+The [code of conduct](CODE_OF_CONDUCT.md) applies to project participation and
+describes reporting and moderation. Scientific disagreement is handled through
+evidence and testable claims; it is not itself a conduct violation.
+
 ## Merge policy
 
 The intended live configuration is recorded in
@@ -92,6 +96,24 @@ implementation is bounded by [AGENTS.md](AGENTS.md) and the
 record evidence, assumptions, uncertainty, validation, and unresolved objections
 in the repository and PR. Ask relevant domain contributors to review material
 changes; maintainer merge authority is not a substitute for scientific expertise.
+
+The [scientific review policy](docs/SCIENTIFIC_REVIEW.md) defines author, software
+reviewer, scientific reviewer, and maintainer responsibilities, including conflict
+disclosures. Material changes use a [scientific RFC](docs/rfcs/README.md);
+architecture decisions use the [decision log](docs/decisions/README.md).
+Preserve competing evidence, minority views, and reasons for rejecting or
+deferring proposals. Document revisions and superseded decisions rather than
+erasing the disagreement.
+
+Each material scientific PR records four distinct assessments: software checks,
+scientific review and its scope, maintainer merge disposition, and permitted
+scientific use. A reviewer must be identified before attributing expert approval;
+an automated check or maintainer self-review is not independent scientific review.
+A bounded experimental implementation may merge with scientific review pending
+only while its unresolved limitations and validation-only status remain explicit.
+Scientific acceptance or removal of a scientific release blocker requires the
+relevant scientific assessment and acceptance evidence. This does not add a
+mandatory GitHub approval vote or change the branch protection policy above.
 
 An engineering merge or tagged prerelease is not a declaration of scientific
 readiness. A scientific release requires the documented acceptance criteria and

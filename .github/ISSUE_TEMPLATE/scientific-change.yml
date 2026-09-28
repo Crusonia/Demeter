@@ -1,0 +1,63 @@
+name: Scientific model or evidence change
+description: Propose a causal, evidence, uncertainty, or model-method change for review.
+title: "[Scientific change] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Follow the [scientific review policy](https://github.com/Crusonia/Demeter/blob/main/docs/SCIENTIFIC_REVIEW.md).
+        Contradictory evidence and null hypotheses are welcome. Mark unknowns as
+        unresolved. Material proposals use an RFC named with this issue number
+        after the issue is created; this form starts the discussion.
+  - type: dropdown
+    id: change_type
+    attributes:
+      label: Primary change type
+      options:
+        - Causal relationship or exposure effect
+        - States, transitions, mortality, or observation method
+        - Evidence value, source, status, or grade
+        - Uncertainty distribution, bounds, or dependence
+        - Calibration, validation, or model structure
+    validations:
+      required: true
+  - type: textarea
+    id: question_scope
+    attributes:
+      label: Scientific question and scope
+      description: State the estimand or quantity, population, geography, period, units, current phase, and relevant design IDs. Distinguish current work from a future proposal.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence_change
+    attributes:
+      label: Proposed change and evidence
+      description: Identify affected parameter keys and old/new values, status, evidence grade, uncertainty, and active or benchmark role. Link exact sources and versions, transformations, archive receipts and reuse terms where available. Explain unresolved inputs.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Competing explanations and limitations
+      description: Include contradictory or null evidence, assumptions, confounding, overlap or double counting, and population or exposure-range limitations. Explain why the proposed representation is justified.
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation and rejection criteria
+      description: Describe tests, conservation and units checks, comparison outputs, uncertainty, and what would reject the proposal. Separate planned checks from completed results. Identify calibration data and untouched holdouts if applicable.
+    validations:
+      required: true
+  - type: textarea
+    id: conflicts
+    attributes:
+      label: Relevant interests
+      description: Disclose relevant funding, employment, advisory roles, equity interests, or authorship of evidence under review, or state no relevant conflicts known. Do not include private financial amounts or personal health data.
+    validations:
+      required: true
+  - type: textarea
+    id: records
+    attributes:
+      label: RFC, decision, or implementation links
+      description: Add links when available. A proposal is not implementation or scientific acceptance; keep those statuses separate.
