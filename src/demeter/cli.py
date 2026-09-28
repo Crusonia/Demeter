@@ -107,6 +107,21 @@ def rebuild_historical_data(
     emit(rebuild_history(raw, download=download))
 
 
+@data_app.command("verify-packages")
+def verify_evidence_packages(
+    root: Path = Path("."),
+    check_tracked: bool = False,
+    output: Path | None = None,
+) -> None:
+    """Audit rights, citations, source/package coverage and checksums without fetching."""
+    from demeter.data.packages import verify_packages
+
+    report = verify_packages(root, check_tracked=check_tracked)
+    emit(report, output)
+    if not report["passed"]:
+        raise typer.Exit(1)
+
+
 @data_app.command("rebuild-nhanes")
 def rebuild_glycemic_data(
     evidence: Path = DEFAULT_EVIDENCE,

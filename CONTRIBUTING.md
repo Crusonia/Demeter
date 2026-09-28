@@ -74,6 +74,7 @@ uv run demeter validate
 uv run python -X utf8 -m pytest
 uv run ruff check .
 uv run python scripts/verify_source_archive.py --rebuild
+uv run demeter data verify-packages --check-tracked
 ```
 
 For rendering changes, also generate the report and inspect it; the CI browser

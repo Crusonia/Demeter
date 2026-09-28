@@ -5,6 +5,12 @@ terms permit. A fresh clone should let a reader inspect where an input came from
 and reproduce the transformation. Demeter keeps source observations, derived
 inputs, model assumptions, and simulation results distinct.
 
+Start with [dataset reuse and citation notices](NOTICE.md), the per-source
+[rights inventory](rights.json), and [evidence-package manifests](evidence-packages.json).
+`uv run demeter data verify-packages --check-tracked` audits their coverage and
+receipt consistency, checks source/bundle bytes, and rejects undeclared tracked
+data and caches. The notices also explain fetch-only articles and wheel contents.
+
 ## What is included today
 
 | Dataset | Repository location | What it supports |
@@ -135,7 +141,7 @@ from the modeled quantities, and leave unsupported mappings explicitly unresolve
 
 ## NHANES and official JSON additions
 
-The [machine-readable catalog](catalog.json) covers all 28 source files, including
+The [machine-readable catalog](catalog.json) covers all 41 archived source files, including
 four deidentified NHANES 2017-March 2020 XPORT files and four official JSON
 snapshots and the NCHS healthspan method PDF. The original baseline and historical
 archives above remain canonical.
