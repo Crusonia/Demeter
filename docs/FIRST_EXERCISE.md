@@ -7,6 +7,12 @@ parameters. Numerical differences here are not estimates of a diet's real effect
 Complete [setup](GETTING_STARTED.md) first. Run commands from the repository root.
 You can do the exercise alone or compare predictions with a group.
 
+This prepares you for the future [real-food value-chain exercise](REAL_FOOD_VALUE_CHAIN.md):
+understand how a lever works before tracing its value across agriculture, food,
+retail, and healthcare. Today's exercise only runs the health mechanics. It does
+not yet model a regenerative product, retail value capture, a distinct PreChronic
+population, or healthcare costs.
+
 ## Predict before running
 
 The example compares the baseline with a relative 30% reduction in the model's
@@ -82,6 +88,14 @@ reproducible bug. This is a control for the software, not evidence about a diet.
 - Which feedbacks are absent? Prices, household substitution, production response,
   and payer incentives are future mechanisms, not implicit parts of this run.
 - What could a future exercise test once one of those mechanisms is supported?
+
+Choose a role in the value chain and name the next link you would need to make
+this useful for your decision. A producer might need to trace a practice through
+retail demand and procurement terms. A payer might need a defined PreChronic
+population, intervention reach and costs, and evidence linking changed progression
+to spending. Explain how that link would connect your action to value created
+and the share you could capture. Do not calculate a return from the current
+synthetic health output.
 
 Record the commit (`git rev-parse HEAD`), scenario, seed, changed assumptions,
 observation, and remaining question. Share a short issue with those details.

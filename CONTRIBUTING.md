@@ -13,6 +13,12 @@ questions, evidence, and scenario proposals. You do not need a finished solution
 For a new scientific mechanism, propose the decision/question, causal path,
 supporting and conflicting evidence, and validation plan before building it.
 
+Use the [model-design inputs](docs/design/README.md) to connect that proposal to
+the relevant loop/pathway, externality, input-package, and formulation/test IDs.
+Include those references in the issue/PR and link actual evidence keys and code
+when implemented. The registers hold premises and design requirements; they do
+not authorize later-phase code or replace the parameter registry.
+
 The current priority is the [v0.1 health acceptance gate](docs/V0_1_STATUS.md).
 Future agriculture, behavior, economics, and policy ideas belong in the roadmap
 and issue discussion until that gate is met. This preserves the larger ambition
