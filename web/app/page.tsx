@@ -161,7 +161,10 @@ export default function Page() {
   useEffect(() => {
     if (!token) return;
     let cancelled = false;
+    let inFlight = false;
     const refresh = async () => {
+      if (inFlight) return;
+      inFlight = true;
       try {
         const list = await api<Receipt[]>(token, "runs");
         if (cancelled) return;
@@ -176,6 +179,8 @@ export default function Page() {
         }
       } catch (e) {
         if (!cancelled) setError((e as Error).message);
+      } finally {
+        inFlight = false;
       }
     };
     refresh();

@@ -142,7 +142,9 @@ def create_app(
                 )
                 output["reference"] = read_json(path / ref)
                 output["sources"] = read_json(path / "evidence.json")["parameters"]
-            return output
+            # Artifacts are already JSON scalars. Avoid recursively revalidating
+            # large Plotly arrays each time a saved run is opened.
+            return JSONResponse(output)
 
     @app.post("/api/runs/{key}/notes")
     def notes(key: str, request: Notes):

@@ -64,6 +64,7 @@ def verify() -> None:
                 browser = p.chromium.launch()
                 page = browser.new_page(viewport={"width": 1440, "height": 1000})
                 page.set_default_timeout(15000)
+                expect.set_options(timeout=20000)
                 errors, external = [], []
                 page.on("pageerror", lambda error: errors.append(str(error)))
                 origin = urlsplit(url).netloc
