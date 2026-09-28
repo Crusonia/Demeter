@@ -14,6 +14,7 @@ implemented. They are not executable parameters or evidence that a premise is tr
 | [Externalities and business mechanisms](03_EXTERNALITIES.md) | Who receives an unpriced benefit or bears a cost; what could connect that effect to an actor's incentive or revenue? |
 | [Model-input inventory](04_MODEL_INPUTS.md) | What must be observed, estimated, initialized, controlled, or calculated endogenously? |
 | [Formulation and validation contracts](05_FORMULATION_AND_TESTS.md) | What equations, units, interfaces, and experiments would make a selected mechanism testable? |
+| [Stakeholder rigidities](06_STAKEHOLDER_RIGIDITIES.md) | Which beliefs that a better, cheaper system is impossible does a question test; which are real constraints and which are misperceived? |
 
 ## Methodological basis
 
@@ -43,6 +44,7 @@ For a proposed model change, record a traceable chain in its issue and PR:
 
 ```text
 decision / behavior question (Q-, RM-)
+    -> stakeholder rigidity being tested (B-), if any
     -> selected loop or open pathway (L-, P-)
     -> relevant externality / value-capture hypothesis (X-), if any
     -> input packages (I-)

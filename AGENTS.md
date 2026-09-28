@@ -6,6 +6,8 @@ Demeter is a computational systems model of food, health, agriculture, longevity
 
 The codebase exists to make causal claims explicit, testable, evidence-linked, uncertainty-aware, and reproducible. It is not a narrative model and it must never manufacture precision.
 
+Its purpose is to make the coupling between separate industries visible — agriculture, food, health care, climate, research, and capital — so actors can see where improvements reinforce each other, where they trade off, and who bears or captures the value. Representative couplings (food and climate, chronic and acute disease, microbiome research and agriculture) are defined in `docs/PROJECT_VISION.md` §1 and registered as design pathways (P-03, P-04, P-05, X-P02, X-N02) in `docs/design/02_CAUSAL_LOOPS.md` and `docs/design/03_EXTERNALITIES.md`. Treat them as hypotheses to test, never as conclusions to encode; the model must be able to show negative as well as positive spillovers.
+
 ## Program context
 
 Before making architectural decisions, read `docs/PROJECT_VISION.md`, `docs/SYSTEM_ARCHITECTURE.md`, and `docs/SCENARIO_CATALOG.md`. `PROJECT_VISION.md` is the canonical program rationale and phased roadmap; `SYSTEM_ARCHITECTURE.md` defines the mature module/runtime architecture and naming; `SCENARIO_CATALOG.md` preserves the intended future scenario surface.
@@ -13,7 +15,7 @@ Before making architectural decisions, read `docs/PROJECT_VISION.md`, `docs/SYST
 Phase-specific objective documents may intentionally narrow scope. Do not interpret a narrow current phase as a change to the long-term program architecture unless the project vision is explicitly updated.
 
 For proposed mechanisms, also read `docs/design/README.md` and the relevant causal-loop,
-externality, input, and formulation records it links. These Markdown files feed model
+externality, input, formulation, and stakeholder-rigidity records it links. These Markdown files feed model
 design; their premises are not empirical parameters or implemented capabilities.
 Trace a selected mechanism through its stable design IDs to evidence, equations,
 and tests in the implementation PR, while preserving the active phase boundary.
@@ -52,6 +54,17 @@ Do **not** add agriculture, food-company agents, farmer agents, policy optimizat
 - Track lags explicitly when evidence indicates delayed effects.
 - Report absolute effects as well as relative effects.
 - Never extrapolate an effect outside the studied population or exposure range without marking the extrapolation.
+
+## Top-level metrics
+
+The headline metric hierarchy is defined in `docs/PROJECT_VISION.md` §11:
+
+- Tier 1 north-star metrics: healthy life expectancy (with life expectancy), health-adjusted total factor productivity of the food–health system (with conventional agricultural TFP), and productive capacity / health-inclusive GDP (with raw GDP and healthcare spending shown separately).
+- Tier 1 guardrail: net lifecycle greenhouse-gas emissions and land use. Trade-offs against this guardrail must be shown, never hidden.
+- Tier 1 is reported at the macro level. Tier 2 reports the same measures by industry (output, value added, employment, revenue mix, productivity) and the distribution of costs and benefits across actors. Model reallocation, not just loss: for example, health care may lose chronic-disease volume while gaining acute, refractory, previously undiagnosed, and added-years demand. Never assume prevention produces net savings.
+- Tier 3: the mechanisms that explain each headline change.
+
+Only healthy longevity is computable in v0.1. Do not compute TFP, GDP, industry, emissions, or land-use metrics from synthetic or placeholder inputs, and never optimize raw GDP. Report every headline metric with uncertainty.
 
 ## Architecture
 

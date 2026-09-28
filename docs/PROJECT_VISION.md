@@ -8,6 +8,8 @@ This document defines the program vision and roadmap. Use these companion docume
 - [SYSTEM_ARCHITECTURE.md](SYSTEM_ARCHITECTURE.md) — canonical mature module/runtime architecture, product naming, and price/quality behavioral mechanism
 - [SCENARIO_CATALOG.md](SCENARIO_CATALOG.md) — scenario families and integrated north-star experiments
 - [Model-design inputs](design/README.md) — problem boundary, causal loops, externalities, input packages, and formulation/test requirements; proposed mechanisms remain explicit premises
+- [Stakeholder rigidities](design/06_STAKEHOLDER_RIGIDITIES.md) — beliefs that a better, cheaper system is impossible, who holds them, and how the model would test them
+- [RELATED_WORK.md](RELATED_WORK.md) — survey of existing models and flight simulators, and Demeter's positioning
 - [CODEX_V0_1_OBJECTIVE.md](CODEX_V0_1_OBJECTIVE.md) — current Phase 1 implementation objective
 
 ---
@@ -19,6 +21,31 @@ Demeter is an open-source project under the [Food is Health Substack](https://fo
 The [public guide](wiki/Home.md) explains that mission. [Real options and strategic value](wiki/Real-Options-and-Strategic-Value.md) describes a future decision-analysis layer for piloting, waiting, scaling, switching, and exiting under uncertainty. This layer must remain downstream of the evidence-backed scientific model. Documenting it does not expand the current v0.1 implementation boundary or authorize investment conclusions from synthetic outputs.
 
 Demeter is intended to become a **computable version of the Food is Health thesis**.
+
+Its purpose is to make the **coupling between separate industries visible**:
+agriculture, food, health care, climate, research, and capital. Actors in each
+industry usually see only their own accounts. Demeter should let them trace how a
+change in one industry propagates to the others, where improvements reinforce
+each other, where they trade off, and who bears or captures the resulting value.
+Representative couplings to investigate include:
+
+- **Food and climate.** Dietary and production changes alter lifecycle emissions,
+  land use, and soil carbon. Some health-improving changes may lower emissions;
+  others may raise them. The model must be able to show either.
+- **Chronic and acute disease.** A lower burden of chronic metabolic disease may
+  improve outcomes of acute events such as infections, surgery, and injury, and
+  may relieve acute-care capacity. Much of the current evidence is
+  observational comorbidity association; the causal effect of reducing chronic
+  risk on acute outcomes is itself a question to test.
+- **Microbiome research and agriculture.** Research linking soil, crop, food,
+  and human gut microbiomes may create value for agriculture through new
+  practices, inputs, and products. The agronomic, nutritional, and health links
+  have different evidence strengths and must be appraised separately.
+
+These couplings are hypotheses, not encoded conclusions. Candidate mechanisms are
+recorded as open pathways and externalities in the
+[design registers](design/README.md) (for example P-03, P-04, P-05, X-P02, and
+X-N02) and remain outside the current phase boundary until selected.
 
 Its intended users sit throughout the value chain: agricultural producers and
 their suppliers, processors, food companies, distributors, retailers, households,
@@ -196,6 +223,9 @@ Demeter exists to understand **system leverage, feedback, delays, and unintended
 - Where are the dominant delays, bottlenecks, reinforcing loops, and balancing loops that make food-system change slow or nonlinear?
 - Which apparent levers matter little once the whole system is modeled, and which second-order effects dominate outcomes?
 - What fraction of chronic-disease burden is plausibly addressable through food-system change, through which causal pathways, and with what uncertainty?
+- Which food and production changes improve health and reduce net lifecycle emissions, and which improve one while worsening the other?
+- How much would reducing chronic metabolic disease change acute-event outcomes and acute-care capacity, and how strong is the causal evidence?
+- Where could microbiome research change agricultural practice, product value, or human health, and which of those links are evidenced rather than hypothesized?
 
 These are **research questions, not encoded conclusions**. Demeter must represent the intermediate causal links explicitly and allow the evidence to determine whether a hypothesized pathway is material.
 
@@ -218,6 +248,34 @@ feedback from health economics / policy / markets → agriculture and food suppl
 ```
 
 The purpose of the phased roadmap is to make the eventual system-level conclusions more credible, not to narrow Demeter into a health-only model.
+
+---
+
+## Related work and positioning
+
+Mature open and published models already cover individual layers of this system:
+diet-to-disease microsimulation (IMPACTncd, SPHR, DYNAMO-HIA, multistate life
+tables), microsimulation frameworks (Vivarium), diet-to-environment assessment
+(WHO-DIA), land use (MAgPIE), global system dynamics (Earth4All), and health-system
+flight simulators (ReThink Health, PRISM). The full survey, with sources and
+caveats, is in [RELATED_WORK.md](RELATED_WORK.md).
+
+Conclusions for Demeter:
+
+1. The Phase 1 health slice is necessary infrastructure, not the differentiator.
+2. The unoccupied position is the coupling: agriculture, prices, purchasing,
+   health, climate, and value capture in one reproducible system.
+3. Borrow established methods and external validation targets, always through
+   the evidence registry.
+4. Plan for coupling with models written in R, GAMS, and Julia through exchanged
+   data rather than shared code.
+5. Consider collaboration before duplication, without compromising evidence
+   rules or independence.
+
+This section describes positioning, not implemented capabilities, and does not
+change the current phase boundary.
+
+---
 
 ## 3. Primary model domains
 
@@ -623,23 +681,27 @@ Marimo is attractive because it is more reproducible than traditional free-form 
 
 ---
 
-### Public simulator — SDEverywhere or custom React / Next.js
+### Public simulator — custom React / Next.js over the Python model
 
 **Preferred role:** later public decision-support interface.
 
-Two viable paths:
+The Python model remains the source of truth. The public simulator should not require a second hand-maintained model.
 
-1. **SDEverywhere**
-   - useful for an En-ROADS-like system-dynamics simulator
-   - browser execution
-   - WebAssembly / JavaScript compilation pathways
+Preferred path:
 
-2. **Custom React / Next.js**
-   - preferred if the public product needs a bespoke UX
+1. **Custom React / Next.js interface backed by the Python model**
+   - direct execution through a thin Python service, or precomputed full-model scenario results
    - scenario controls
    - charts
    - explanations
    - evidence drill-down
+   - evidence status shown alongside results
+   - add a surrogate (section 7) only if profiling shows the full model cannot meet interactive latency; any surrogate reports its error bounds
+
+Other paths considered:
+
+- **SDEverywhere** translates Vensim and Stella models to C, JavaScript, and WebAssembly. It cannot compile Demeter's Python model. Using it would require a separately maintained Vensim/Stella twin with automated equivalence tests against the Python model. It remains a design reference for fast browser simulation (En-ROADS), not the default path.
+- **Python in the browser (Pyodide/WebAssembly)** could run the actual model without translation. It may be viable for a small teaching model but is likely too heavy for the integrated system.
 
 The UI is not the source of truth.
 
@@ -1167,6 +1229,60 @@ Avoid:
 ## 11. Strategic outputs
 
 Demeter should eventually answer questions in several different forms.
+
+### Top-level metrics
+
+Every scenario should eventually report a small, stable set of headline metrics,
+always with uncertainty, each paired with a companion measure that prevents a
+misleading reading. Only healthy longevity is computable today. The other
+metrics are defined now so later phases can add them without changing core
+model semantics; they must not be computed from synthetic or placeholder
+economic inputs.
+
+**Tier 1 — north-star metrics**
+
+| Metric | Companion measure | Why the pairing matters | Status |
+| --- | --- | --- | --- |
+| **Healthy life expectancy** | Period life expectancy | Added years in poor health are not the goal. The gap is time lived outside the metric's healthy state: currently the modeled insulin-resistance/prediabetes and type 2 diabetes states, not all chronic disease. | Validation-only healthspan exists ([HEALTHSPAN.md](HEALTHSPAN.md)); life expectancy is implemented. |
+| **Health-adjusted total factor productivity of the food–health system**: healthy life-years or nutrient-adequate diets produced per unit of land, labor, capital, and energy | Conventional agricultural TFP | Conventional TFP counts calories and commodity output, so a system can look highly productive while generating disease burden. The gap between the two measures is the opportunity. | Future. Requires agriculture, input, and health-cost modules and a published metric definition. |
+| **Productive capacity and health-inclusive GDP**: labor-force participation, productive time lost to illness, and output adjusted for the value of health | Raw GDP with healthcare spending shown separately | Raw GDP counts treatment of disease as output, so lower chronic disease can reduce measured GDP while raising welfare. The value of longevity gains is large and outside GDP ([Murphy and Topel, 2006](https://doi.org/10.1086/508033)). Raw GDP is reported, never optimized. | Future. Requires a validated health-to-earnings and labor-supply link, which is currently outside the boundary. |
+
+**Tier 1 guardrail — climate and land**
+
+| Guardrail | Why it is a guardrail |
+| --- | --- |
+| **Net lifecycle greenhouse-gas emissions and land use** of the modeled food system, relative to the reference scenario | Health-improving changes can raise or lower emissions. A scenario that improves the north-star metrics while worsening this guardrail must show the trade-off explicitly; it may not be hidden or netted away. Future; see P-03, X-P02, X-N02, and X-N03 in the [design registers](design/README.md). |
+
+Tier 1 metrics are reported at the **macro** level for the modeled economy.
+
+**Tier 2 — industries and actors: who bears and captures the value**
+
+Macro aggregates hide reallocation between industries and incidence between
+actors. Each scenario should also report:
+
+- **Industry accounts** for each modeled industry, including agriculture and its
+  input suppliers, food manufacturing, distribution and retail, food service,
+  health care delivery, pharmaceuticals, insurance, and the wider labor market:
+  gross output, value added, employment, revenue mix, and industry productivity
+  on the same definitions as the macro metrics where data allow.
+- **Actor accounts**, including payer net spending, farm income, household food
+  affordability, employer productivity, and public budgets.
+
+Industries reallocate rather than simply gain or lose. Health care, for example,
+may lose chronic-disease volume while gaining demand from acute events,
+refractory conditions, previously undiagnosed disease, and care in added years
+of life. Net lifetime healthcare spending from prevention can therefore rise or
+fall; many preventive interventions add net cost even when they add health
+([Cohen, Neumann, and Weinstein, 2008](https://doi.org/10.1056/NEJMp0708558)).
+The model must represent these offsetting flows rather than assume savings.
+Value creation, value capture, and uncompensated effects remain distinct
+accounts.
+
+**Tier 3 — mechanism**
+
+Metabolic-state prevalence, transitions, dietary intake, prices, adoption, and
+other intermediate stocks and flows explain why a headline metric moved. A
+headline change without a traceable mechanism is incomplete.
 
 ### Forecast / scenario output
 

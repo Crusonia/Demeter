@@ -37,8 +37,9 @@ Do not attribute approval to someone who only commented or was asked to review.
 Each material PR records these four lines, with links or an explicit absence:
 
 - **Software assessment:** reviewer, commit, checks and findings; or not reviewed.
-- **Scientific assessment:** reviewer, expertise/scope, evidence and disposition;
-  or pending/not performed. State whether the reviewer is independent.
+- **Scientific assessment:** research-backed validation report and/or reviewer,
+  expertise/scope, evidence and disposition; or pending/not performed. State
+  whether external expert review is pending and whether any review is independent.
 - **Merge disposition:** maintainer decision and reason; PR merge is the authority.
 - **Scientific use:** validation-only, or the specific accepted scope with the
   acceptance evidence. Do not infer release readiness from a merged PR.
@@ -47,10 +48,49 @@ A maintainer may merge bounded experimental mechanics or benchmark-only work
 while expert review is pending, provided unresolved evidence stays explicit,
 outputs remain validation-only and release gates stay closed. Such a merge is
 not scientific acceptance. Material scientific claims or removal of a release
-blocker require an identified relevant scientific assessment and the acceptance
-tests for that scope. If suitable review is unavailable, record that fact and
-keep the claim unvalidated. These process records do not add mandatory GitHub
+blocker require a documented assessment and acceptance evidence for the exact
+claim. That assessment may follow the research-backed report path below without
+first recruiting a human reviewer. Missing evidence, unmatched populations or
+endpoints, and failed validation remain substantive blockers. These process records do not add mandatory GitHub
 approval votes or alter [branch protection](../GOVERNANCE.md).
+
+## Research-backed validation report path
+
+Carter Williams approved this path on September 28, 2026. This adds a route to
+scope-limited scientific assessment without a named human reviewer. Experimental
+work was already permitted while expert review was pending; reviewer recruitment
+must not be treated as a prerequisite for implementation or predeclared evaluation.
+This does not turn an automated report into independent human review or waive
+the original issue's acceptance criteria.
+
+Use the [ISPOR–SMDM transparency and validation framework](https://pubmed.ncbi.nlm.nih.gov/22999134/)
+to distinguish code verification, expert assessment, comparison with other
+models, external validation and predictive validation. A framework is guidance,
+not evidence that a particular Demeter claim is correct.
+
+The report must:
+
+1. Map each claim/mechanism to primary evidence, exact estimand, population,
+   units, study period, uncertainty and causal/associational status. Record
+   competing/null evidence and unidentifiable quantities.
+2. Reproduce applicable published benchmarks with pinned data, code and receipts.
+   State what each reconstruction checks and which targets were used for fitting.
+3. Freeze observation definitions, models, alternatives, evaluation metrics and
+   any justified acceptance thresholds before inspecting reserved outcomes.
+   If no defensible clinical tolerance exists, report predictive diagnostics
+   descriptively and keep clinical acceptance unresolved; do not invent a cutoff.
+4. Test independent data where available, retain failures, compare structural
+   alternatives, and separate numerical, sampling and structural uncertainty.
+5. Record exact checks and results, scope-limited conclusions, unresolved gaps,
+   conflicts, authorship, and **external expert review pending** when applicable.
+   AI-assisted critique is labeled automated; it is not independent human review.
+
+Implementation, evidence collection, preregistration and descriptive validation
+may proceed while external review is pending. A maintainer may accept a supported
+scope based on this record, with a linked disposition and unchanged evidence
+standards. Passing a mortality prediction test does not validate a dietary causal
+pathway or satisfy the whole v0.1 objective. Neither the report nor a reviewer's
+signature can replace missing observations or justify unsupported transport.
 
 ## Adding or changing a causal relationship
 

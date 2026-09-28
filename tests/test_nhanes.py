@@ -99,6 +99,23 @@ def test_empty_boundary_and_invalid_design_do_not_manufacture_intervals():
         survey_proportion(d, pd.Series([True] * 4), y, 0.95)
 
 
+@pytest.mark.parametrize("outcome", [0, 1])
+def test_constant_domains_have_exact_boundaries_with_unequal_weights(outcome):
+    d = survey_fixture()
+    d.WTSAFPRP = [9183.123456, 65422.76543, 3357.00023, 190.234569]
+    for scale in (1, 100000):
+        result = survey_proportion(
+            d.assign(WTSAFPRP=d.WTSAFPRP * scale),
+            pd.Series([True, False, True, True]),
+            pd.Series([outcome, 1 - outcome, outcome, outcome]),
+            0.95,
+        )
+        assert result["estimate"] == outcome
+        assert result["standard_error"] == 0
+        assert result["interval"] is None
+        assert result["status"] == "boundary_or_insufficient_variance"
+
+
 def test_all_published_age_sex_cells_reconstructed_and_partition_conserves(source_data):
     report = reconstruct(source_data, definition(REGISTRY))
     assert report["published_reconstruction"]["passed"]

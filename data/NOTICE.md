@@ -2,7 +2,7 @@
 
 Demeter's MIT license covers its code and original documentation. It does not
 relicense source data, articles, logos, or restricted records. The machine-readable
-[rights inventory](rights.json) identifies all 41 archived artifacts and both
+[rights inventory](rights.json) identifies all 46 archived artifacts and both
 fetch-only clinical articles by URL, publisher, vintage, retrieval time, checksum,
 privacy class and citation. Its policies distinguish download, transformation
 and redistribution conditions. These are packaging decisions; the linked source
@@ -14,6 +14,12 @@ commands. These records describe reproducibility, not scientific acceptance.
 Model outputs retain the existing validation-only boundary.
 
 ## Source-specific conditions
+
+The [public linked-mortality package](../docs/LINKED_MORTALITY.md) includes
+deidentified NHANES XPORT and fixed-width public-use records under the same NCHS
+statistical-use restrictions below. Join only by the documented public survey
+identifier. Never seek respondent identities. Follow-up through 2019 is public;
+the 2022 restricted-use linkage is not redistributed or used here.
 
 | Source family | Distributed material | Reuse basis and limits |
 | --- | --- | --- |

@@ -196,6 +196,28 @@ def validate(evidence: Path = DEFAULT_EVIDENCE, scientific_required: bool = Fals
         raise typer.Exit(1)
 
 
+@data_app.command("rebuild-linked-mortality")
+def rebuild_linked_mortality_data(
+    evidence: Path = DEFAULT_EVIDENCE,
+    source: Path = Path("data/sources/nhanes-mortality/2011-2012"),
+    destination: Path = Path("outputs/linked-mortality-rebuilt"),
+) -> None:
+    """Rebuild the public-use linkage feasibility audit offline."""
+    from demeter.data.linked_mortality import rebuild_linked_mortality
+
+    emit(rebuild_linked_mortality(registry(evidence), source, destination))
+
+
+@evidence_app.command("linked-mortality")
+def linked_mortality_evidence(
+    evidence: Path = DEFAULT_EVIDENCE, output: Path | None = None
+) -> None:
+    """Inspect mortality-linkage coverage; this does not fit clinical parameters."""
+    from demeter.data.linked_mortality import load_linked_mortality
+
+    emit(load_linked_mortality(registry(evidence)), output)
+
+
 @evidence_app.command("audit")
 def evidence_audit(evidence: Path = DEFAULT_EVIDENCE) -> None:
     emit(registry(evidence).audit())
