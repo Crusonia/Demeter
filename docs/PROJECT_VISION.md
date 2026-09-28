@@ -18,6 +18,25 @@ The [public guide](wiki/Home.md) explains that mission. [Real options and strate
 
 Demeter is intended to become a **computable version of the Food is Health thesis**.
 
+It is also an open learning project, built through a sequence of useful,
+inspectable experiments. The management-flight-simulator approach associated
+with John Sterman and [MIT's system dynamics teaching](https://mitsloan.mit.edu/faculty/academic-groups/system-dynamics/courses-and-programs)
+is a useful design inspiration: participants state a prediction, try a decision,
+inspect feedback and delays, and revise their reasoning. Demeter is independent
+of MIT and does not reproduce a particular MIT simulator.
+
+The ambition is a large connected model; the working method is incremental.
+Each stage should improve analysis within its documented scope, expose its
+missing evidence, and provide a foundation for the next stage. A useful outcome
+may be a rejected hypothesis or a sharper research priority. The current
+synthetic health scenarios support software learning only; the broader simulator
+remains subject to the scientific acceptance gates below.
+
+Community entry points are [the newcomer guide](START_HERE.md),
+[cross-platform setup](GETTING_STARTED.md), and [the first exercise](FIRST_EXERCISE.md).
+The [contribution process](../CONTRIBUTING.md) and [governance](../GOVERNANCE.md)
+keep proposals open while Carter Williams retains the merge decision.
+
 The long-term question is not simply:
 
 > Does better food improve health?
@@ -700,7 +719,12 @@ GitHub is the canonical home for:
 - documentation
 - release history
 
-The repository should remain sufficient to reproduce the model.
+The repository should remain sufficient to reproduce the model. Key source
+datasets should be committed as immutable, versioned snapshots when redistribution
+terms and size permit, alongside manifests and reproducible transforms. Larger
+or restricted sources need explicit access/archival exceptions, durable references,
+and checksums. The [data policy](../data/README.md) distinguishes curated source
+snapshots from download caches, model-ready data, and generated results.
 
 ---
 

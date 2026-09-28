@@ -1,0 +1,34 @@
+name: Question, evidence, or scenario proposal
+description: No coding required. Help us ask better questions or test a mechanism.
+title: "[Question] "
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: What do you want to understand?
+      description: Name the person or organization making a decision, the possible action, the outcome, and the time horizon if known.
+    validations:
+      required: true
+  - type: textarea
+    id: mechanism
+    attributes:
+      label: How might it work, and what might make it fail?
+      description: Plain language is welcome. Include delays, feedback, or a competing explanation.
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Sources or missing evidence
+      description: Link sources if available. For datasets include release, population, units, uncertainty, and reuse terms. "I don't know yet" is useful too.
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Where does it fit?
+      options:
+        - Not sure; please help place it
+        - Current health model or validation
+        - Future agriculture, behavior, economics, or policy
+        - Documentation or first-time experience
+  - type: textarea
+    id: learning
+    attributes:
+      label: What would change your mind, or make the exercise useful?

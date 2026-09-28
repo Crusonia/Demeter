@@ -1,5 +1,12 @@
 # Contributing to Demeter
 
+For the step-by-step fork/branch/PR workflow, use the root
+[contribution guide](../../CONTRIBUTING.md). [Governance](../../GOVERNANCE.md)
+defines Carter Williams (@jcarterwil) as the merger; [setup](../GETTING_STARTED.md)
+covers macOS, Linux, and Windows, and [the data guide](../../data/README.md)
+explains how key datasets enter the repository. The overview below describes
+ways different disciplines can contribute.
+
 Demeter is an open-source project under [Food is Health](https://foodishealth.substack.com/). We welcome contributions that make the model more testable, reproducible, and useful—including evidence or mechanisms that challenge the project's initial hypotheses.
 
 Use [GitHub issues](https://github.com/Crusonia/Demeter/issues) to propose a question or document a problem, and [pull requests](https://github.com/Crusonia/Demeter/pulls) for reviewable changes. Read [AGENTS.md](https://github.com/Crusonia/Demeter/blob/main/AGENTS.md) and the active phase objective before implementation work.

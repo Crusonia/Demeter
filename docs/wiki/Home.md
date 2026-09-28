@@ -22,6 +22,13 @@ These connections can reinforce change or absorb it. A local intervention can cr
 
 ## Read the guide
 
+New contributors can begin with the [plain-language introduction](../START_HERE.md),
+[macOS/Linux/Windows setup](../GETTING_STARTED.md), and
+[first learning exercise](../FIRST_EXERCISE.md). Demeter adopts a management-flight-simulator
+learning approach: predict, experiment, inspect the mechanism, and debrief.
+The larger model grows in validated stages. [Source datasets](../../data/README.md)
+and [the PR process](../../CONTRIBUTING.md) are part of that shared foundation.
+
 | Page | What it covers |
 | --- | --- |
 | [Market dynamics](Market-Dynamics.md) | Stocks, flows, feedback, prices, incentives, delays, and value distribution. |

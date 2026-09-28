@@ -5,25 +5,41 @@ on:
   pull_request:
 permissions:
   contents: read
+env:
+  PYTHONUTF8: '1'
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 jobs:
   test:
-    runs-on: ubuntu-latest
+    name: test (${{ matrix.label }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
     strategy:
+      fail-fast: false
       matrix:
-        python-version: ['3.11', '3.12']
+        include:
+          - {os: ubuntu-latest, python-version: '3.11', label: '3.11'}
+          - {os: ubuntu-latest, python-version: '3.12', label: '3.12'}
+          - {os: macos-latest, python-version: '3.12', label: macOS}
+          - {os: windows-latest, python-version: '3.12', label: Windows}
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install locked environment
         run: |
           python -m pip install uv==0.12.18
-          uv sync --locked
+          uv sync --locked --python ${{ matrix.python-version }}
       - name: Lint
         run: uv run ruff check .
       - name: Test offline fixtures and CLI
-        run: uv run pytest
+        run: uv run python -X utf8 -m pytest
+      - name: Verify committed source bytes and rebuild offline
+        run: uv run python scripts/verify_source_archive.py --rebuild
       - name: Validate evidence and authoritative baselines
         run: uv run demeter validate
       - name: Run baseline and scenario comparison
@@ -35,7 +51,7 @@ jobs:
       - name: Scientific observability smoke
         run: uv run demeter observe scenarios/reduce_upf_30.yaml --draws 4 --samples 8 --destination outputs/observability
       - name: Render report in offline Chromium
-        if: matrix.python-version == '3.12'
+        if: matrix.label == '3.12'
         run: |
           uv run playwright install --with-deps chromium
           uv run python scripts/verify_observability_browser.py

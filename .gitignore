@@ -11,6 +11,7 @@ build/
 # Data / generated outputs
 data/raw/*
 !data/raw/.gitkeep
+data/processed/
 outputs/*
 !outputs/.gitkeep
 
