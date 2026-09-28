@@ -3,6 +3,16 @@
   "path_base": "data/",
   "stores": [
     {
+      "id": "dietary_baselines",
+      "manifest": "sources/dietary/2026-09-27/manifest.json",
+      "publisher": "CDC/NCHS; USDA WWEIA",
+      "description": "NHANES day-one dietary and demographic records for four cycles; published NCHS UPF means and standard errors. Reuses the existing 2017-2020 demographics store.",
+      "format": ["SAS XPORT", "HTML"],
+      "derived_bundle": "../src/demeter/data/bundled/dietary_baselines.json",
+      "model_role": "exposure_reference_only",
+      "reload": "uv run demeter data rebuild-dietary"
+    },
+    {
       "id": "nhanes_prechronic_risk",
       "manifest": "sources/nhanes-risk/2017-2020/manifest.json",
       "publisher": "CDC/NCHS",

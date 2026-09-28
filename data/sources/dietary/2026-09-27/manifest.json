@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "sources": {
+    "DEMO_D.xpt": {
+      "bytes": 3566560,
+      "codebook_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/DEMO_D.htm",
+      "format": "SAS XPORT",
+      "model_role": "exposure_reference_only",
+      "publisher": "CDC/NCHS; USDA WWEIA for dietary recalls",
+      "retrieved_at": "2026-09-28T01:20:50.856184+00:00",
+      "sha256": "bf9cc79cce501b2fbe5aa8d5b403b618548d02d4aefeb528335cdd9f4c40a3af",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/DEMO_D.xpt",
+      "use_terms": "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+      "vintage": "2005-2006"
+    },
+    "DEMO_H.xpt": {
+      "bytes": 3833200,
+      "codebook_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2013/DataFiles/DEMO_H.htm",
+      "format": "SAS XPORT",
+      "model_role": "exposure_reference_only",
+      "publisher": "CDC/NCHS; USDA WWEIA for dietary recalls",
+      "retrieved_at": "2026-09-28T01:20:54.295772+00:00",
+      "sha256": "f8f0cbb3085a323d4cde22349b164878fea1e64dbc404e65b5815c7816b547d7",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2013/DataFiles/DEMO_H.xpt",
+      "use_terms": "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+      "vintage": "2013-2014"
+    },
+    "DEMO_L.xpt": {
+      "bytes": 2582160,
+      "codebook_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/DEMO_L.htm",
+      "format": "SAS XPORT",
+      "model_role": "exposure_reference_only",
+      "publisher": "CDC/NCHS; USDA WWEIA for dietary recalls",
+      "retrieved_at": "2026-09-28T01:20:58.006417+00:00",
+      "sha256": "ca4374a158b493b8b0163e1388da21d57a18d1b9cecff2aa4e2fa2bec494fe23",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/DEMO_L.xpt",
+      "use_terms": "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+      "vintage": "August 2021-August 2023"
+    },
+    "DR1TOT_D.xpt": {
+      "bytes": 12759120,
+      "codebook_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/DR1TOT_D.htm",
+      "format": "SAS XPORT",
+      "model_role": "exposure_reference_only",
+      "publisher": "CDC/NCHS; USDA WWEIA for dietary recalls",
+      "retrieved_at": "2026-09-28T01:20:53.363464+00:00",
+      "sha256": "83a720fba7e4d6832058b1142fb4060e590d3b83607029117cfa078bcb1214fb",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/DR1TOT_D.xpt",
+      "use_terms": "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+      "vintage": "2005-2006"
+    },
+    "DR1TOT_H.xpt": {
+      "bytes": 13212960,
+      "codebook_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2013/DataFiles/DR1TOT_H.htm",
+      "format": "SAS XPORT",
+      "model_role": "exposure_reference_only",
+      "publisher": "CDC/NCHS; USDA WWEIA for dietary recalls",
+      "retrieved_at": "2026-09-28T01:20:56.910997+00:00",
+      "sha256": "4fc45d48cf8a4bdcca615efa895e7e05414ca4d549bd75c8115e06abcc86cdc3",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2013/DataFiles/DR1TOT_H.xpt",
+      "use_terms": "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+      "vintage": "2013-2014"
+    },
+    "DR1TOT_L.xpt": {
+      "bytes": 11932080,
+      "codebook_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/DR1TOT_L.htm",
+      "format": "SAS XPORT",
+      "model_role": "exposure_reference_only",
+      "publisher": "CDC/NCHS; USDA WWEIA for dietary recalls",
+      "retrieved_at": "2026-09-28T01:21:00.472230+00:00",
+      "sha256": "73a3097aab64000f9c1d138367363ca605968b691e349981132bd6032ca6c9ef",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/DR1TOT_L.xpt",
+      "use_terms": "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+      "vintage": "August 2021-August 2023"
+    },
+    "P_DR1TOT.xpt": {
+      "bytes": 19243440,
+      "codebook_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_DR1TOT.htm",
+      "format": "SAS XPORT",
+      "model_role": "exposure_reference_only",
+      "publisher": "CDC/NCHS; USDA WWEIA for dietary recalls",
+      "retrieved_at": "2026-09-28T01:21:04.160020+00:00",
+      "sha256": "02cf0fcb15cdef9442594747a6699c43a65fd280f0f807e82ca0b888b0d97b5e",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_DR1TOT.xpt",
+      "use_terms": "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+      "vintage": "2017-March 2020"
+    },
+    "db536.htm": {
+      "bytes": 131484,
+      "format": "HTML",
+      "model_role": "exposure_reference_only",
+      "publisher": "CDC/NCHS; USDA WWEIA for dietary recalls",
+      "retrieved_at": "2026-09-28T01:21:04.759796+00:00",
+      "sha256": "6a47c89ccf6cab4390f7a2eb71248bdbd7f39995b6c9e986002913ef57da68ed",
+      "url": "https://www.cdc.gov/nchs/products/databriefs/db536.htm",
+      "use_terms": "Public domain; source attribution requested in Data Brief 536",
+      "vintage": "August 2025 publication; 2013-2023 estimates"
+    }
+  }
+}

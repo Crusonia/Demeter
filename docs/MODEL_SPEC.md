@@ -28,7 +28,14 @@ Unlike the former scaffold's bounded fractions, registered transition units are 
 
 ## Diet and lag
 
-Only a change in relative UPF exposure is accepted. Fiber and fruit/vegetable keys may remain at 1 for compatibility but changes are rejected. Target log multiplier is `beta_UPF × (relative_exposure − 1)`. Each year the applied log multiplier approaches this target by fraction `1 − exp(−1/lag_years)`. Its exponential multiplies both H→IR and IR→T2D hazards in this synthetic experiment. The two-path mapping is unresolved and must be revisited when direct endpoint evidence is encoded.
+UPF can be specified as a relative exposure or an absolute percent-energy target
+with a named observed reference. Absolute targets normalize as `target/reference_mean`.
+The [food-exposure contract](FOOD_EXPOSURES.md) preserves units, reference sampling
+uncertainty, source population and scenario assumptions. Observed nutrient targets
+require `context_only`; no independent health effect is inferred. Legacy fiber and
+fruit/vegetable multipliers may remain at 1 but changes are rejected.
+
+Target log multiplier is `beta_UPF × (relative_exposure − 1)`. Each year the applied log multiplier approaches this target by fraction `1 − exp(−1/lag_years)`. Its exponential multiplies both H→IR and IR→T2D hazards in this synthetic experiment. The two-path mapping is unresolved and must be revisited when direct endpoint evidence is encoded.
 
 The accepted range is a registered software validation envelope, not an empirical study range. Values outside it require explicit `allow_extrapolation: true`; the result reports extrapolation. That flag does not permit scientific mode. The model does not automatically interpret observational associations as causal effects.
 
@@ -61,6 +68,10 @@ interface without redefining mortality, once joint-condition semantics are speci
 Monte Carlo samples the registry's declared distributions with an explicit NumPy seed. Baseline and intervention use the same sampled parameter set for each draw. Reports include medians and central 95% parameter-sampling intervals for scenario outcomes and paired deltas. Published confidence intervals without a specified distribution cannot be sampled silently. Current varying distributions are synthetic independent uniforms; initial state shares and source inputs are held fixed.
 
 SALib Sobol estimates first-order and total-order variance contributions and confidence half-widths. It currently requires independent uniforms. The sample count must be a power of two. Zero output variance fails explicitly.
+
+Paired no-change baselines clear both relative and absolute dietary changes.
+Observed dietary reference means are held fixed: their sampling SEs and intake
+distributions are retained in metadata, not converted into causal parameter draws.
 
 Comparison requires the same horizon, sex, source year, and execution mode. Outputs include absolute and relative differences, full scenario definitions, model version, evidence hash, source bundle hash, vintages, synthetic flags, and limitations.
 

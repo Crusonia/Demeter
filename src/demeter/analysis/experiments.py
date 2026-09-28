@@ -83,6 +83,7 @@ def compare(registry: EvidenceRegistry, left: Scenario, right: Scenario) -> dict
         "outcomes": changes,
         "metadata": base.metadata,
         "intervention_scenario": right.model_dump(),
+        "intervention_metadata": intervention.metadata,
         "state_time_deltas": {
             s: intervention.healthspan["restricted_cohort"]["state_person_years"][s]
             - base.healthspan["restricted_cohort"]["state_person_years"][s]
@@ -110,7 +111,9 @@ def uncertainty(
     keys = sampled_parameters(registry, scenario)
     outcomes = outcomes_for(scenario)
     rng = np.random.default_rng(seed)
-    baseline = scenario.model_copy(update={"name": "paired_baseline", "exposures": {"upf": 1.0}})
+    baseline = scenario.model_copy(
+        update={"name": "paired_baseline", "exposures": {"upf": 1.0}, "diet": {}}
+    )
     collected = {key: [] for key in outcomes}
     deltas = {key: [] for key in outcomes}
     trajectories = {key: [] for key in outcomes}

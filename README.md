@@ -176,6 +176,8 @@ uv run python scripts/verify_source_archive.py --rebuild
 uv run demeter data verify-store
 uv run demeter data rebuild-nhanes --destination outputs/nhanes-rebuilt
 uv run demeter data rebuild-healthspan --destination outputs/healthspan-rebuilt
+uv run demeter data rebuild-dietary --destination outputs/dietary-rebuilt
+uv run demeter food-exposures --output outputs/food-exposures.json
 uv run demeter evidence population --output outputs/population-evidence.json
 ```
 
@@ -195,7 +197,7 @@ The manifests record source URLs, retrieval times, vintages, hashes, and transfo
 - **Healthspan** (`metabolically_healthy_life_expectancy`) weights life-table person-years by healthy-state prevalence. Age-specific state years and restricted cohort time are also reported. The shared estimator matches 18 published NCHS values, but the model's synthetic healthy state is not general disability-free life expectancy or WHO HALE. See [definitions, equations and source check](docs/HEALTHSPAN.md).
 - **Parameter intervals** vary independent synthetic ranges. They omit uncertainty in the mortality/population inputs, model structure, and parameter correlations.
 - **Closed population** means births and migration are zero. Census counts initialize the model; later counts are not U.S. demographic forecasts. Empty age cells use reference state shares for period calculations, and their number is reported.
-- **UPF** is currently a relative exposure plumbing test. It has no validated causal dose-response mapping. Changing fiber or fruit/vegetable exposure is rejected to avoid adding unsupported correlated effects.
+- **Dietary exposures** support relative UPF or explicit absolute targets with units and observed references. The UPF response remains synthetic. Fiber and other observed nutrients can be recorded as context only; independent overlapping effects are rejected. [Food-exposure definitions and reloadable historical data](docs/FOOD_EXPOSURES.md) explain the schema and limits.
 - **Prevalence checks** currently fail calibration/definition matching. CDC total diabetes and prediabetes cannot silently become T2D and all insulin resistance.
 - **The historical backtest** carries 2022 mortality forward into 2023. It measures the error of a no-change mortality forecast. It does not validate dietary effects.
 

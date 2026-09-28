@@ -1,0 +1,12 @@
+name: dietary_upf_30
+description: Absolute adult UPF target using the 2021-2023 NCHS reference; synthetic validation response only
+years: 25
+baseline_year: 2024
+sex: all
+mode: validation
+diet:
+  upf:
+    target: 37.1
+    unit: percent_energy
+    reference_period: '2021_2023'
+    role: model_effect
