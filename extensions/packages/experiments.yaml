@@ -1,0 +1,51 @@
+schema_version: 1
+version: 1.0.0
+authors:
+- Demeter contributors
+license: MIT
+model_versions:
+- 0.1.0a1
+module_api: '1.0'
+health_structures:
+- legacy
+- risk_1
+- risk_2
+evidence_status: mixed
+validation_status: software_tested
+validation_notes: Repository CI checks arithmetic and reproducibility; no clinical
+  calibration or scientific approval.
+limitations:
+- Metabolic inputs remain synthetic; all scenarios are validation-only.
+- Compatibility declares software behavior, not scientific equivalence.
+package_id: demeter.experiments
+description: Project experimental structures, responses, and alternative transition
+  equations.
+scenarios:
+  baseline: scenarios/baseline.yaml
+  diet_dynamics: scenarios/diet_dynamics.yaml
+  dietary_context: scenarios/dietary_context.yaml
+  dietary_upf_30: scenarios/dietary_upf_30.yaml
+  glp1_access: scenarios/glp1_access.yaml
+  prechronic_baseline: scenarios/prechronic_baseline.yaml
+  prechronic_reduce_upf_30: scenarios/prechronic_reduce_upf_30.yaml
+  prechronic_risk_2: scenarios/prechronic_risk_2.yaml
+  reduce_upf_30: scenarios/reduce_upf_30.yaml
+modules:
+  reference:
+    file: src/demeter/examples/transition_modules.py
+    factory: DietaryTransitions
+  'null':
+    file: src/demeter/examples/transition_modules.py
+    factory: NoDietEffect
+files:
+  LICENSE: 4300eaaa17936b5ebda410f093317061472b601c18adc329262e7f56c4dd2e78
+  scenarios/baseline.yaml: 15dd2a79dbe9f4f0a46215f670c39f706b4320bb167498a9043c4de6c7808dd6
+  scenarios/diet_dynamics.yaml: f020f604afaf0a765bcd40676f3fef63281c5c04b2f82e3e47ad40f754e63af4
+  scenarios/dietary_context.yaml: 765dea1fbdd62e4286bc40e9bcefa41486a92ccff9c0c27ccce103369b32d893
+  scenarios/dietary_upf_30.yaml: f9c021d9a5f2356c61c021935ab0424548b13fa7d15f1fbd38eb2c31e8aefac1
+  scenarios/glp1_access.yaml: 20e83a44f20cf86d01f2397386f89d6a41e53151713aa0b740ad4ee98e3a9d92
+  scenarios/prechronic_baseline.yaml: d2bddd2b14eb134a79bad9a3291f2761a5731aa643c6d02c834d7e01972847cf
+  scenarios/prechronic_reduce_upf_30.yaml: 619b217474c1f932ff2055527784075cfcb159abdce618f16b4766f90630d6d7
+  scenarios/prechronic_risk_2.yaml: 9d18826eaa73244f8e37686309962d4d3ff403faaecd66eabaaa79eebc648903
+  scenarios/reduce_upf_30.yaml: e0cb310a71028523541bb468c4b652b57777a70de52676b9e0e9a22508c87843
+  src/demeter/examples/transition_modules.py: ea00c48d6a7808957c85535e7022ccb8c165fc6788c7861f7c607afdcec65d9c

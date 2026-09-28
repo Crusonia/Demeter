@@ -1,0 +1,29 @@
+schema_version: 1
+version: 1.0.0
+authors:
+- Demeter contributors
+license: MIT
+model_versions:
+- 0.1.0a1
+module_api: '1.0'
+health_structures:
+- legacy
+- risk_1
+- risk_2
+evidence_status: mixed
+validation_status: software_tested
+validation_notes: Repository CI checks arithmetic and reproducibility; no clinical
+  calibration or scientific approval.
+limitations:
+- Metabolic inputs remain synthetic; all scenarios are validation-only.
+- Compatibility declares software behavior, not scientific equivalence.
+package_id: demeter.core
+description: Canonical health-engine baseline and UPF software scenarios.
+scenarios:
+  baseline: scenarios/baseline.yaml
+  reduce_upf_30: scenarios/reduce_upf_30.yaml
+modules: {}
+files:
+  LICENSE: 4300eaaa17936b5ebda410f093317061472b601c18adc329262e7f56c4dd2e78
+  scenarios/baseline.yaml: 15dd2a79dbe9f4f0a46215f670c39f706b4320bb167498a9043c4de6c7808dd6
+  scenarios/reduce_upf_30.yaml: e0cb310a71028523541bb468c4b652b57777a70de52676b9e0e9a22508c87843

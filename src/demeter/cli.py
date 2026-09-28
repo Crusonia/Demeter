@@ -30,10 +30,85 @@ app = typer.Typer(no_args_is_help=True, help="Demeter evidence-aware health mode
 evidence_app = typer.Typer(help="Inspect parameter provenance and unresolved science.")
 data_app = typer.Typer(help="Rebuild pinned government source inputs.")
 release_app = typer.Typer(help="Build, verify and replay inspectable engineering release bundles.")
+extension_app = typer.Typer(
+    help="Inspect, register and explicitly execute versioned local packages."
+)
 app.add_typer(evidence_app, name="evidence")
 app.add_typer(data_app, name="data")
 app.add_typer(release_app, name="release")
+app.add_typer(extension_app, name="extensions")
 DEFAULT_EVIDENCE = Path("evidence/parameters.yaml")
+DEFAULT_EXTENSIONS = Path("outputs/extension-registry.yaml")
+
+
+@extension_app.command("list")
+def extensions_list(local_registry: Path = DEFAULT_EXTENSIONS) -> None:
+    from demeter.extensions import list_packages
+
+    emit(list_packages(local_registry))
+
+
+@extension_app.command("inspect")
+def extensions_inspect(manifest: Path) -> None:
+    from demeter.extensions import inspect_package
+
+    emit(inspect_package(manifest))
+
+
+@extension_app.command("register")
+def extensions_register(manifest: Path, local_registry: Path = DEFAULT_EXTENSIONS) -> None:
+    from demeter.extensions import register
+
+    emit(register(manifest, local_registry))
+
+
+@extension_app.command("run")
+def extensions_run(
+    package: str,
+    scenario: str,
+    module: str | None = None,
+    local_registry: Path = DEFAULT_EXTENSIONS,
+    evidence: Path = DEFAULT_EVIDENCE,
+    output: Path | None = None,
+) -> None:
+    from demeter.extensions import protect_output, resolve, run
+
+    selected = resolve(package, local_registry)
+    protect_output(output, (selected,), local_registry, evidence)
+    emit(
+        run(registry(evidence), selected, scenario, module).to_dict(),
+        output,
+    )
+
+
+@extension_app.command("compare")
+def extensions_compare(
+    left: str,
+    left_scenario: str,
+    right: str,
+    right_scenario: str,
+    left_module: str | None = None,
+    right_module: str | None = None,
+    local_registry: Path = DEFAULT_EXTENSIONS,
+    evidence: Path = DEFAULT_EVIDENCE,
+    output: Path | None = None,
+) -> None:
+    from demeter.extensions import compare, protect_output, resolve
+
+    selected_left, selected_right = resolve(left, local_registry), resolve(right, local_registry)
+    protect_output(output, (selected_left, selected_right), local_registry, evidence)
+    emit(
+        compare(
+            registry(evidence),
+            selected_left,
+            left_scenario,
+            selected_right,
+            right_scenario,
+            left_module=left_module,
+            right_module=right_module,
+        ),
+        output,
+    )
 
 
 @release_app.command("build")

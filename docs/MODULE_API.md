@@ -174,8 +174,11 @@ Scenario YAML retains the strict existing schema; module selection is an explici
 execution argument. Replay requires scenario **and** module/evidence, not the
 scenario file alone. Supply a separately versioned registry to change parameters;
 modules do not silently override canonical keys. New scenario assumptions require
-a reviewed schema, not unknown YAML fields. Package catalogs/distribution are
-#22 work; complete release bundles are #21 work.
+a reviewed schema, not unknown YAML fields. The [local extension registry](EXTENSIONS.md)
+adds versioned author/license metadata, pinned package files, additive namespaced
+evidence and canonical/experimental/third-party provenance. The existing import
+route remains explicitly unregistered. [Release bundles](RELEASES.md) capture
+canonical runs; archive external package directories separately.
 
 | Change | Rule |
 | --- | --- |
