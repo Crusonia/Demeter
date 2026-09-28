@@ -26,7 +26,7 @@ def fingerprint(root: Path) -> str:
 
 def build(root: Path) -> Path:
     root = root.resolve()
-    target = root / "src/demeter/explorer/static"
+    target = root / "build/explorer"
     marker = target / "build.json"
     digest = fingerprint(root)
     if marker.exists() and (target / "index.html").exists():
@@ -45,7 +45,7 @@ def build(root: Path) -> Path:
     subprocess.run([npm, "run", "build"], cwd=root / "web", env=environment, check=True)
     # The generated directory is fixed beneath the explicit project root. Verify
     # it before replacing stale hashed assets (never remove a computed caller path).
-    if target.resolve() != root / "src/demeter/explorer/static" or target.is_symlink():
+    if target.resolve() != root / "build/explorer" or target.is_symlink():
         raise ValueError("Frontend asset directory must be inside the project")
     if target.exists():
         shutil.rmtree(target)

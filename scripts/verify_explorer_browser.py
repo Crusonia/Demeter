@@ -147,7 +147,7 @@ def verify() -> None:
                 assert len(saved) == 2 and any(r["reference_id"] == first_id for r in saved)
                 page.get_by_text("See the exact assumptions diff", exact=False).click()
                 expect(
-                    page.get_by_role("rowheader", name="overrides.beta_upf_progression", exact=True)
+                    page.get_by_text("overrides.beta_upf_progression", exact=True)
                 ).to_be_visible()
                 nav.get_by_role("button", name="Saved runs", exact=True).click()
                 page.locator(".saved-card").filter(has_text="Browser first experiment").click()

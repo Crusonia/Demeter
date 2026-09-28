@@ -142,7 +142,9 @@ uv run --extra studio python scripts/verify_explorer_browser.py
 ```
 
 The launcher rebuilds stale frontend assets automatically. Python code changes
-require restarting it. `npm run dev --prefix web` is available for frontend work,
+require restarting it. Generated assets live in the ignored `build/explorer/`
+directory, outside the scientific source tree; wheels include them as package assets.
+`npm run dev --prefix web` is available for frontend work,
 but it is not the normal launcher and does not supply a model API by itself.
 Package builds include compiled assets; building a wheel/sdist from source requires
 Node 24. An installed wheel can serve its bundled assets without Node, but still
