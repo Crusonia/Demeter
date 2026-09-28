@@ -371,6 +371,7 @@ def simulate(
         "dietary_exposures": dietary,
         "diet_response": {
             **scenario.diet_response.model_dump(),
+            "role": "inputs_to_replacement_module" if binding else "canonical_hazard_modifiers",
             "units": {
                 "fast_response": "log_multiplier"
                 if scenario.diet_response.kind == "legacy"
@@ -380,12 +381,20 @@ def simulate(
                 "cumulative_exposure_years": "relative_exposure * years",
             },
             "initialization": "Zero deviation and no pre-run exposure history; shared adult response, not individual lifetime dose",
-            "timing": "End-of-year response modifies year-end competing transition hazards; annual health operator order is unchanged",
+            "timing": "End-of-year multipliers are supplied to the replacement module; their use is module-defined. Annual health operator order is unchanged"
+            if binding
+            else "End-of-year response modifies year-end competing transition hazards; annual health operator order is unchanged",
             "limitations": [
                 "All response parameters remain synthetic; no clinical dose range, saturation or timing is established.",
                 "Cumulative exposure is reported; only bounded fading memory affects hazards, avoiding an assumed irreversible dose effect.",
                 "Age-dependent response and clinical T2D remission/relapse are unresolved; only existing H/IR or H/PreChronic/prediabetes reversals are modified.",
                 "Recovery and progression have independent amplitudes and lags; observation/diagnosis delay is not separately identified.",
+            ]
+            if not binding
+            else [
+                "Response states and multipliers describe the built-in input calculation, not necessarily an effect on hazards.",
+                "The replacement module may ignore or reinterpret dietary inputs; inspect its declared equations, evidence dependencies and recorded hazards.",
+                "Canonical dietary pathway and independence assumptions are not asserted for replacement equations; scientific applicability remains unresolved.",
             ],
         },
         "evidence_sha256": registry.content_hash,
@@ -406,7 +415,9 @@ def simulate(
         + [
             "PreChronic and prediabetes are distinct synthetic stocks; risk definitions are research proxies, not clinical diagnoses.",
             "NHANES candidate counts do not initialize the engine; allocation, reversibility, progression, and state mortality await calibration.",
-            "The synthetic UPF response multiplies three progression paths; this mapping and reversal hazards are not established causal effects.",
+            "Dietary multipliers are supplied to replacement equations; which paths respond is module-defined and not established causal evidence."
+            if binding
+            else "The synthetic UPF response multiplies three progression paths; this mapping and reversal hazards are not established causal effects.",
         ],
         "healthspan_metric": metric_contract(scenario.health_structure),
         "health_structure": scenario.health_structure,
@@ -438,7 +449,9 @@ def simulate(
                         "Annual two-phase response/washout is not individual dose titration or weight physiology; no within-year start-stop cycling.",
                         "Price/coverage/access are exogenous scenario assumptions. The affordability equation is uncalibrated; no expenditure, savings or insurance forecast.",
                         "Response modifies existing health hazards through a synthetic weight bridge. Intake is a diagnostic proxy, not an additional dietary effect.",
-                        "Diet and treatment hazard multipliers combine independently; interactions, adverse-event outcomes, direct cardiovascular mortality effects and T2D remission are unresolved.",
+                        "Treatment modifiers apply to replacement-module base hazards; dietary use and any additional interactions are module-defined, not inferred from the canonical equations."
+                        if binding
+                        else "Diet and treatment hazard multipliers combine independently; interactions, adverse-event outcomes, direct cardiovascular mortality effects and T2D remission are unresolved.",
                         "The same response/washout phase represents intake and weight; endpoints and mechanisms require separate clinical appraisal before scientific use.",
                     ],
                 }

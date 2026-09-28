@@ -161,7 +161,7 @@ class ParameterValue(Contract):
 
 class TransitionInputs(Contract):
     year: int = Field(ge=1, strict=True)
-    step_years: Literal[1.0] = 1.0
+    step_years: float = Field(default=1.0, ge=1.0, le=1.0, strict=True)
     scenario_json: str
     interface: TransitionInterface
     stocks: Quantity

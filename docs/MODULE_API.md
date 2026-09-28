@@ -156,6 +156,14 @@ misdescribe the replacement. Inspect the contract, source and recorded annual
 
 ## Provenance and version rules
 
+Custom-run metadata describes dietary responses as **supplied module inputs**,
+not automatically applied effects. It does not claim canonical progression-path
+or dietary/treatment independence assumptions for replacement equations. Annual
+response fields retain their existing names for compatibility; their use in
+hazards is module-defined. CLI results also record the exact `package:factory`
+selection so a factory can be replayed even when its returned class has another
+name. Python users preserve their explicit construction call with the run script.
+
 Results record the complete `ModuleSpec`, implementation class, class-file
 SHA-256, dependency records, API version and **experimental** classification.
 The full registry hash and scenario metadata remain present. A name never promotes

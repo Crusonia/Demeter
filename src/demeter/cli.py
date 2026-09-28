@@ -315,12 +315,10 @@ def simulate_scenario(
     from demeter.health.module import load_transition_module
 
     module = load_transition_module(transition_module) if transition_module else None
-    emit(
-        simulate(
-            registry(evidence), Scenario.from_yaml(scenario), transition_module=module
-        ).to_dict(),
-        output,
-    )
+    result = simulate(registry(evidence), Scenario.from_yaml(scenario), transition_module=module)
+    if transition_module:
+        result.metadata["transition_module"]["factory_reference"] = transition_module
+    emit(result.to_dict(), output)
 
 
 @app.command("healthspan")

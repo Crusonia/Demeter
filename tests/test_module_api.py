@@ -118,6 +118,31 @@ def test_reference_extension_preserves_glp1_policy_and_tagged_cohort():
     assert a.healthspan == b.healthspan
 
 
+@pytest.mark.parametrize(
+    "s",
+    [
+        scenario(),
+        scenario(health_structure="risk_1", diet_response={"kind": "dynamic"}),
+        Scenario.from_yaml("scenarios/glp1_access.yaml"),
+    ],
+)
+def test_replacement_metadata_does_not_claim_canonical_dietary_effects(s):
+    result = simulate(REGISTRY, s, transition_module=NoDietEffect())
+    response = result.metadata["diet_response"]
+    assert response["role"] == "inputs_to_replacement_module"
+    assert "module-defined" in response["timing"]
+    assert "may ignore" in " ".join(response["limitations"])
+    assert "UPF response multiplies three" not in " ".join(result.metadata["limitations"])
+    if s.glp1:
+        treatment = " ".join(result.metadata["glp1"]["limitations"])
+        assert "module-defined" in treatment
+        assert "combine independently" not in treatment
+    for edge in interface_for(s).transitions:
+        assert result.annual[-1]["module_base_hazards_per_year"][edge.flow] == REGISTRY.value(
+            edge.parameter
+        )
+
+
 @pytest.mark.parametrize("structure", ["legacy", "risk_1", "risk_2"])
 def test_null_extension_changes_mechanism_without_changing_accounting(structure):
     s = scenario(health_structure=structure, diet_response={"kind": "dynamic"})
@@ -347,6 +372,7 @@ def test_cli_and_library_load_explicit_module_and_keep_example_independent_of_co
     assert response.exit_code == 0, response.output
     report = json.loads(output.read_text())
     assert report["metadata"]["transition_module"]["spec"]["module_id"] == "example.no_diet_effect"
+    assert report["metadata"]["transition_module"]["factory_reference"] == reference
     assert report["validation_only"]
     assert report == json.loads(response.output)
     tree = ast.parse(Path("src/demeter/examples/transition_modules.py").read_text())
