@@ -8,6 +8,12 @@ establishes a mortality evidence route without restricted ARIC access. Original
 files, rights, hashes, aggregate coverage and offline reconstruction are stored.
 No clinical parameters are fitted or promoted by this audit.
 
+The subsequent [development mortality benchmark](MORTALITY_DEVELOPMENT.md)
+fits the proposed baseline-category prediction model and its age/sex-only null,
+with survey covariance and explicit exclusions. These estimates are registered
+as benchmark-only; they do not replace current-state mortality parameters or
+satisfy the independent health validation gate. The reserved cycle is untouched.
+
 The four current `validate.prevalence` rows are unresolved population/state
 comparisons, with `passed: false` by construction. They are not four statistical
 tolerance failures after calibration. NHANES published-table reconstruction passes

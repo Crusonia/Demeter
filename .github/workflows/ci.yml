@@ -53,6 +53,7 @@ jobs:
           uv run demeter evidence population --output outputs/population-evidence.json
           uv run demeter data rebuild-linked-mortality
           uv run demeter evidence linked-mortality --output outputs/linked-mortality-evidence.json
+          uv run python scripts/fit_mortality_development.py
           uv run demeter data rebuild-healthspan
           uv run demeter evidence healthspan --output outputs/healthspan-method-check.json
           uv run demeter data rebuild-prechronic

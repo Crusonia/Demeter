@@ -315,6 +315,35 @@
       ],
       "model_role": "feasibility_only",
       "redistribution": "Public-use CDC/NCHS source notices and restrictions retained; derived aggregate audit, not clinical estimates. Demeter transforms are MIT."
+    },
+    "mortality_development": {
+      "store": null,
+      "dependencies": [
+        "nhanes_linked_mortality"
+      ],
+      "registry_datasets": [
+        "mortality_development"
+      ],
+      "registry_parameters": [
+        "mortality_development_glycemic_intercept",
+        "mortality_development_glycemic_age",
+        "mortality_development_glycemic_male",
+        "mortality_development_glycemic_prediabetes",
+        "mortality_development_glycemic_diabetes_any_type",
+        "mortality_development_null_intercept",
+        "mortality_development_null_age",
+        "mortality_development_null_male"
+      ],
+      "artifacts": [],
+      "transform_files": [
+        "src/demeter/analysis/mortality_development.py",
+        "scripts/fit_mortality_development.py"
+      ],
+      "rebuild": [
+        "uv run python scripts/fit_mortality_development.py"
+      ],
+      "model_role": "development_benchmark_only",
+      "redistribution": "Demeter-derived aggregate estimates and covariance from archived CDC public-use files; source terms retained. No joined person-level exports."
     }
   },
   "supporting_artifacts": [
@@ -345,6 +374,14 @@
     {
       "path": "docs/validation/issue-1-mortality-identification.json",
       "sha256": "8fe969127dd98db4e40de783b972249f25635b79ce3297d3be7ecc11a12e43aa"
+    },
+    {
+      "path": "docs/validation/issue-1-mortality-development.json",
+      "sha256": "488c38a3f1707552638d194c07bde61c37d1a6c809eed999ae7f8595b75486e6"
+    },
+    {
+      "path": "docs/validation/issue-1-mortality-development-before-after.json",
+      "sha256": "a75c57bcc4d70e84489e64d924f3872ff9c2cea6acbb02aae04b020820cc619d"
     }
   ]
 }

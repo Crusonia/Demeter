@@ -3,7 +3,7 @@
 - Status: proposed
 - Issue and PR: [#1](https://github.com/Crusonia/Demeter/issues/1), [draft #53](https://github.com/Crusonia/Demeter/pull/53)
 - Author/date: Codex-assisted proposal, September 28, 2026; no human scientific authorship or approval inferred
-- Implementation: source intake/audit implemented in e94b288; clinical fitting and engine mapping not implemented
+- Implementation: source audit and optional development prediction fit implemented; engine mapping and clinical acceptance not implemented
 - Scientific assessment: pending; no named expert assessment supplied
 - Scientific use: validation-only
 - Supersedes: none
@@ -123,6 +123,30 @@ validation-only experiment, not evidence promotion. A convergence failure,
 singular information matrix, sparse domain, materially prior-driven parameter or
 unresolved observation mapping cannot be converted into a successful fit.
 
+### Development implementation record
+
+The `mortality_development` dataset registers the numerical controls and eight
+`mortality_development_*` benchmark coefficients. The Gompertz candidate and
+age/sex-only null use unbounded coefficients, no priors, an initial constant-rate
+intercept estimated from weighted deaths/person-time, and zero initial slopes.
+Trust-region Newton optimization uses the analytic score and Hessian. Small-slope
+analytic integrals use a registered series expansion to avoid cancellation.
+The score-sandwich retains all positive-weight PSUs, including zero-score PSUs
+outside the selected domain; no finite-population correction is assumed.
+The reported joint covariance and t intervals cover sampling uncertainty only.
+
+For censored data, the observed/expected diagnostic compares deaths with the
+integrated hazard over actual observed risk time. Summing death probabilities
+at each person's event-dependent follow-up would not be the same diagnostic.
+An intercept fit forces aggregate event balance in development; that balance
+is not an independent acceptance result. Subgroup residuals are descriptive.
+
+The [development record](../MORTALITY_DEVELOPMENT.md) reports the executed fit,
+numerical checks, source exclusions and unresolved selection/transport issues.
+Its coefficients are baseline-category associations and remain benchmark-only.
+Neither positive in-sample likelihood gain nor a confidence interval permits
+their substitution for the model's current-state mortality ratios.
+
 ## Validation and acceptance plan
 
 1. **Numerical:** test integrated hazards against independent quadrature,
@@ -151,12 +175,13 @@ unresolved observation mapping cannot be converted into a successful fit.
 | Key | Current state | Proposed change before fitting |
 | --- | --- | --- |
 | nhanes_linked_mortality | Derived grade C feasibility-only audit; source-pinned 2011–2012/2019 | Retain; append separately versioned protocol/fit/validation artifacts |
+| mortality_development_* | Initially unresolved proposed coefficients | Estimated grade C benchmark coefficients with joint survey covariance; no engine promotion |
 | initial_*_share | Synthetic grade E | No promotion; observation mapping, population coverage and vintage unresolved |
 | h_to_ir_rate, ir_to_h_rate, ir_to_t2d_rate | Synthetic grade E | No promotion; compatible longitudinal likelihood needed |
 | mortality_ir_ratio, mortality_t2d_ratio | Synthetic grade E | No promotion from aggregate fit or baseline-category regression |
 | beta_upf_progression, diet_lag_years | Synthetic grade E | No promotion; joint dose/endpoint/lag evidence needed |
 
-No coefficient, distribution, bound or equation changes with this RFC. The
+No active engine coefficient, distribution, bound or equation changes. The
 [source audit](../LINKED_MORTALITY.md) records data units, weights, missingness,
 uncertainty, receipts and reuse terms. Registered synthetic stress endpoints in
 the identification diagnostic are not empirical estimates. Competing sources

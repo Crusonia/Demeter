@@ -1,0 +1,896 @@
+{
+  "validation_only": true,
+  "scientific_release_ready": false,
+  "independent_validation_performed": false,
+  "evidence_sha256": "3134a1ba63eaa801f2bb9af87f560022fa9e3139d8f01a3daf9ec59b0bfa3d92",
+  "implementation_sha256": "df0fbf2e80cbaa34c0778c17ed5a293a4a7a204c67d0251aea14d5a8f2cfb68a",
+  "specification": {
+    "status": "derived",
+    "evidence_grade": "C",
+    "model_role": "development_benchmark_only",
+    "protocol": "docs/rfcs/RFC-1-health-calibration.md",
+    "source_dataset": "nhanes_linked_mortality",
+    "development_cycle": "2011-2012",
+    "reserved_cycle": "2013-2014",
+    "topcoded_age": 80,
+    "months_per_year": 12,
+    "coefficients": {
+      "glycemic": [
+        "mortality_development_glycemic_intercept",
+        "mortality_development_glycemic_age",
+        "mortality_development_glycemic_male",
+        "mortality_development_glycemic_prediabetes",
+        "mortality_development_glycemic_diabetes_any_type"
+      ],
+      "null": [
+        "mortality_development_null_intercept",
+        "mortality_development_null_age",
+        "mortality_development_null_male"
+      ]
+    },
+    "optimizer": {
+      "method": "trust-exact",
+      "gradient_tolerance": 1e-08,
+      "maximum_iterations": 500
+    },
+    "integration": {
+      "series_threshold": 0.1,
+      "series_terms": 24
+    },
+    "uncertainty": "Survey score sandwich; all positive-weight strata/PSUs including zero-domain scores; t intervals using design PSU-minus-stratum degrees of freedom; covariance retained jointly",
+    "weight_adjustment": "None: complete-case and linkage selection remain unresolved",
+    "interpretation": "Development numerical fit only; no holdout validation or clinical promotion"
+  },
+  "glycemic_analysis": {
+    "definition_status": "derived",
+    "hba1c_unit": "percent",
+    "hba1c_prediabetes_min": 5.7,
+    "hba1c_diabetes_min": 6.5,
+    "glucose_unit": "mg/dL",
+    "glucose_prediabetes_min": 100,
+    "glucose_diabetes_min": 126,
+    "adult_age_min": 20,
+    "pregnancy_exclusion_age_max": 44,
+    "confidence_level": 0.95,
+    "age_groups": [
+      {
+        "id": "20_plus",
+        "min": 20,
+        "max": null
+      },
+      {
+        "id": "20_39",
+        "min": 20,
+        "max": 39
+      },
+      {
+        "id": "40_59",
+        "min": 40,
+        "max": 59
+      },
+      {
+        "id": "60_plus",
+        "min": 60,
+        "max": null
+      }
+    ]
+  },
+  "source_sha256": {
+    "DEMO_G.xpt": "eaf0525d1952626885af3e935415a1f66ad62c18698080e7354789c125af252d",
+    "DIQ_G.xpt": "a9d5475e0cd66d6a7bc30230345ed0172a9abcbc0a7a4145a35025c827a52a87",
+    "GHB_G.xpt": "8ff7cc95461fdfd47d2c9640b944a2bcd45926a3c0e64c98a09a4cef6c0f88d7",
+    "GLU_G.xpt": "e9c3816dbdfc21cd53a23d63c3610d2550662ee41a21df0a5b72c4a16cd1a8fd",
+    "NHANES_2011_2012_MORT_2019_PUBLIC.dat": "ff98b6c87172643426b1c6d20f76495592bebd618ea18f742d98a44b84456b30"
+  },
+  "counts": {
+    "positive_weight_n": 2842,
+    "included_n": 2175,
+    "deaths_n": 161,
+    "sequential_exclusions": {
+      "under_adult_minimum": 527,
+      "known_pregnancy": 21,
+      "missing_glycemia": 7,
+      "linkage_ineligible": 3,
+      "topcoded_age": 109,
+      "missing_sex": 0,
+      "missing_or_zero_followup": 0
+    }
+  },
+  "models": {
+    "glycemic": {
+      "coefficients": [
+        -8.651417488695037,
+        0.08117655629425027,
+        0.7371948999779329,
+        -0.1286346659248778,
+        0.7404276570779154
+      ],
+      "covariance": [
+        [
+          0.38616299468447035,
+          -0.007149849694262857,
+          -0.02513848059784081,
+          -0.06376240069260834,
+          0.004238367405431159
+        ],
+        [
+          -0.007149849694262857,
+          0.00015049140905471186,
+          5.682912037015542e-05,
+          0.0005374984654580314,
+          -0.0006528633625020699
+        ],
+        [
+          -0.02513848059784081,
+          5.682912037015542e-05,
+          0.0431172165550243,
+          0.014824359629327915,
+          -0.013354650607320068
+        ],
+        [
+          -0.06376240069260834,
+          0.0005374984654580314,
+          0.014824359629327915,
+          0.07456861860991255,
+          0.014514169448193597
+        ],
+        [
+          0.004238367405431159,
+          -0.0006528633625020699,
+          -0.013354650607320068,
+          0.014514169448193597,
+          0.058891844922999974
+        ]
+      ],
+      "degrees_of_freedom": 17,
+      "information_condition_number": 51641.873099074415,
+      "gradient_norm": 1.2861167079573181e-09,
+      "iterations": 6,
+      "weighted_mean_log_likelihood": -0.2985722587790791,
+      "observed_weighted_events": 12562987.476,
+      "expected_weighted_event_intensity": 12562987.485090517,
+      "observed_expected_ratio": 0.9999999992764055,
+      "coefficient_keys": [
+        "mortality_development_glycemic_intercept",
+        "mortality_development_glycemic_age",
+        "mortality_development_glycemic_male",
+        "mortality_development_glycemic_prediabetes",
+        "mortality_development_glycemic_diabetes_any_type"
+      ],
+      "intervals": [
+        [
+          -9.962499387723566,
+          -7.340335589666507
+        ],
+        [
+          0.05529440635081319,
+          0.10705870623768736
+        ],
+        [
+          0.2990983297795595,
+          1.1752914701763062
+        ],
+        [
+          -0.7047673898358993,
+          0.4474980579861436
+        ],
+        [
+          0.22842516535884883,
+          1.2524301487969818
+        ]
+      ],
+      "development_domains": [
+        {
+          "age_group": "20_plus",
+          "sex": "all",
+          "baseline_state": "normoglycemia",
+          "n": 879,
+          "deaths": 31,
+          "observed_expected_event_intensity_ratio": 0.9999999980445233,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "20_plus",
+          "sex": "all",
+          "baseline_state": "prediabetes",
+          "n": 900,
+          "deaths": 59,
+          "observed_expected_event_intensity_ratio": 0.9999999995743444,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "20_plus",
+          "sex": "all",
+          "baseline_state": "diabetes_any_type",
+          "n": 396,
+          "deaths": 71,
+          "observed_expected_event_intensity_ratio": 0.999999999708981,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "20_plus",
+          "sex": "male",
+          "baseline_state": "normoglycemia",
+          "n": 368,
+          "deaths": 13,
+          "observed_expected_event_intensity_ratio": 0.758226015378455,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "20_plus",
+          "sex": "male",
+          "baseline_state": "prediabetes",
+          "n": 508,
+          "deaths": 42,
+          "observed_expected_event_intensity_ratio": 1.218740778555331,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "20_plus",
+          "sex": "male",
+          "baseline_state": "diabetes_any_type",
+          "n": 208,
+          "deaths": 44,
+          "observed_expected_event_intensity_ratio": 0.91333783399267,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "20_plus",
+          "sex": "female",
+          "baseline_state": "normoglycemia",
+          "n": 511,
+          "deaths": 18,
+          "observed_expected_event_intensity_ratio": 1.3794218655265749,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "20_plus",
+          "sex": "female",
+          "baseline_state": "prediabetes",
+          "n": 392,
+          "deaths": 17,
+          "observed_expected_event_intensity_ratio": 0.6234253165371461,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "20_plus",
+          "sex": "female",
+          "baseline_state": "diabetes_any_type",
+          "n": 188,
+          "deaths": 27,
+          "observed_expected_event_intensity_ratio": 1.1787017169492382,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "20_39",
+          "sex": "all",
+          "baseline_state": "normoglycemia",
+          "n": 492,
+          "deaths": 5,
+          "observed_expected_event_intensity_ratio": 1.1301499130206714,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "20_39",
+          "sex": "all",
+          "baseline_state": "prediabetes",
+          "n": 270,
+          "deaths": 6,
+          "observed_expected_event_intensity_ratio": 3.1313898633105794,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "20_39",
+          "sex": "all",
+          "baseline_state": "diabetes_any_type",
+          "n": 38,
+          "deaths": 0,
+          "observed_expected_event_intensity_ratio": 0.0,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "20_39",
+          "sex": "male",
+          "baseline_state": "normoglycemia",
+          "n": 212,
+          "deaths": 4,
+          "observed_expected_event_intensity_ratio": 1.587393073619387,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "20_39",
+          "sex": "male",
+          "baseline_state": "prediabetes",
+          "n": 176,
+          "deaths": 4,
+          "observed_expected_event_intensity_ratio": 2.9583433468407376,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "20_39",
+          "sex": "male",
+          "baseline_state": "diabetes_any_type",
+          "n": 20,
+          "deaths": 0,
+          "observed_expected_event_intensity_ratio": 0.0,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "20_39",
+          "sex": "female",
+          "baseline_state": "normoglycemia",
+          "n": 280,
+          "deaths": 1,
+          "observed_expected_event_intensity_ratio": 0.4232404884123908,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "20_39",
+          "sex": "female",
+          "baseline_state": "prediabetes",
+          "n": 94,
+          "deaths": 2,
+          "observed_expected_event_intensity_ratio": 3.816481319629858,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "20_39",
+          "sex": "female",
+          "baseline_state": "diabetes_any_type",
+          "n": 18,
+          "deaths": 0,
+          "observed_expected_event_intensity_ratio": 0.0,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "40_59",
+          "sex": "all",
+          "baseline_state": "normoglycemia",
+          "n": 275,
+          "deaths": 13,
+          "observed_expected_event_intensity_ratio": 1.2927761115750482,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "40_59",
+          "sex": "all",
+          "baseline_state": "prediabetes",
+          "n": 338,
+          "deaths": 12,
+          "observed_expected_event_intensity_ratio": 1.0242424336930824,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "40_59",
+          "sex": "all",
+          "baseline_state": "diabetes_any_type",
+          "n": 157,
+          "deaths": 15,
+          "observed_expected_event_intensity_ratio": 0.8957615464274837,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "40_59",
+          "sex": "male",
+          "baseline_state": "normoglycemia",
+          "n": 108,
+          "deaths": 6,
+          "observed_expected_event_intensity_ratio": 1.253749811132163,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "40_59",
+          "sex": "male",
+          "baseline_state": "prediabetes",
+          "n": 182,
+          "deaths": 8,
+          "observed_expected_event_intensity_ratio": 1.235903554430885,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "40_59",
+          "sex": "male",
+          "baseline_state": "diabetes_any_type",
+          "n": 83,
+          "deaths": 7,
+          "observed_expected_event_intensity_ratio": 0.6748462140235746,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "40_59",
+          "sex": "female",
+          "baseline_state": "normoglycemia",
+          "n": 167,
+          "deaths": 7,
+          "observed_expected_event_intensity_ratio": 1.346087495143644,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "40_59",
+          "sex": "female",
+          "baseline_state": "prediabetes",
+          "n": 156,
+          "deaths": 4,
+          "observed_expected_event_intensity_ratio": 0.552728925560753,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "40_59",
+          "sex": "female",
+          "baseline_state": "diabetes_any_type",
+          "n": 74,
+          "deaths": 8,
+          "observed_expected_event_intensity_ratio": 1.538755373323237,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "60_plus",
+          "sex": "all",
+          "baseline_state": "normoglycemia",
+          "n": 112,
+          "deaths": 13,
+          "observed_expected_event_intensity_ratio": 0.745917988379036,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "60_plus",
+          "sex": "all",
+          "baseline_state": "prediabetes",
+          "n": 292,
+          "deaths": 41,
+          "observed_expected_event_intensity_ratio": 0.8709559041861454,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "60_plus",
+          "sex": "all",
+          "baseline_state": "diabetes_any_type",
+          "n": 201,
+          "deaths": 56,
+          "observed_expected_event_intensity_ratio": 1.0478452170127275,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "60_plus",
+          "sex": "male",
+          "baseline_state": "normoglycemia",
+          "n": 48,
+          "deaths": 3,
+          "observed_expected_event_intensity_ratio": 0.23099800623536326,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "60_plus",
+          "sex": "male",
+          "baseline_state": "prediabetes",
+          "n": 150,
+          "deaths": 30,
+          "observed_expected_event_intensity_ratio": 1.0816143838822654,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "60_plus",
+          "sex": "male",
+          "baseline_state": "diabetes_any_type",
+          "n": 105,
+          "deaths": 37,
+          "observed_expected_event_intensity_ratio": 1.0128498229920289,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "60_plus",
+          "sex": "female",
+          "baseline_state": "normoglycemia",
+          "n": 64,
+          "deaths": 10,
+          "observed_expected_event_intensity_ratio": 1.650215360739676,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "60_plus",
+          "sex": "female",
+          "baseline_state": "prediabetes",
+          "n": 142,
+          "deaths": 11,
+          "observed_expected_event_intensity_ratio": 0.550721882159432,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "60_plus",
+          "sex": "female",
+          "baseline_state": "diabetes_any_type",
+          "n": 96,
+          "deaths": 19,
+          "observed_expected_event_intensity_ratio": 1.1132689825438111,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        }
+      ]
+    },
+    "null": {
+      "coefficients": [
+        -8.701872312158795,
+        0.08491839560770391,
+        0.7741388160346339
+      ],
+      "covariance": [
+        [
+          0.36675291593997295,
+          -0.007180178433817878,
+          -0.02920418171909102
+        ],
+        [
+          -0.007180178433817878,
+          0.00015019673207094722,
+          0.00014153855224386644
+        ],
+        [
+          -0.02920418171909102,
+          0.00014153855224386644,
+          0.045657908138472314
+        ]
+      ],
+      "degrees_of_freedom": 17,
+      "information_condition_number": 47442.21072828598,
+      "gradient_norm": 2.615426045807215e-10,
+      "iterations": 6,
+      "weighted_mean_log_likelihood": -0.3028317130212412,
+      "observed_weighted_events": 12562987.476,
+      "expected_weighted_event_intensity": 12562987.477904744,
+      "observed_expected_ratio": 0.9999999998483835,
+      "coefficient_keys": [
+        "mortality_development_null_intercept",
+        "mortality_development_null_age",
+        "mortality_development_null_male"
+      ],
+      "intervals": [
+        [
+          -9.979579336417316,
+          -7.424165287900273
+        ],
+        [
+          0.05906159797882334,
+          0.11077519323658447
+        ],
+        [
+          0.3233195167781518,
+          1.224958115291116
+        ]
+      ],
+      "development_domains": [
+        {
+          "age_group": "20_plus",
+          "sex": "all",
+          "baseline_state": "normoglycemia",
+          "n": 879,
+          "deaths": 31,
+          "observed_expected_event_intensity_ratio": 0.8760514094355414,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "20_plus",
+          "sex": "all",
+          "baseline_state": "prediabetes",
+          "n": 900,
+          "deaths": 59,
+          "observed_expected_event_intensity_ratio": 0.7531403973955173,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "20_plus",
+          "sex": "all",
+          "baseline_state": "diabetes_any_type",
+          "n": 396,
+          "deaths": 71,
+          "observed_expected_event_intensity_ratio": 1.780470218183123,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "20_plus",
+          "sex": "male",
+          "baseline_state": "normoglycemia",
+          "n": 368,
+          "deaths": 13,
+          "observed_expected_event_intensity_ratio": 0.6543218308745087,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "20_plus",
+          "sex": "male",
+          "baseline_state": "prediabetes",
+          "n": 508,
+          "deaths": 42,
+          "observed_expected_event_intensity_ratio": 0.9088791911903817,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "20_plus",
+          "sex": "male",
+          "baseline_state": "diabetes_any_type",
+          "n": 208,
+          "deaths": 44,
+          "observed_expected_event_intensity_ratio": 1.6074727666466477,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "20_plus",
+          "sex": "female",
+          "baseline_state": "normoglycemia",
+          "n": 511,
+          "deaths": 18,
+          "observed_expected_event_intensity_ratio": 1.2379062010818196,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "20_plus",
+          "sex": "female",
+          "baseline_state": "prediabetes",
+          "n": 392,
+          "deaths": 17,
+          "observed_expected_event_intensity_ratio": 0.4776732383585299,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "20_plus",
+          "sex": "female",
+          "baseline_state": "diabetes_any_type",
+          "n": 188,
+          "deaths": 27,
+          "observed_expected_event_intensity_ratio": 2.1502177093492154,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "20_39",
+          "sex": "all",
+          "baseline_state": "normoglycemia",
+          "n": 492,
+          "deaths": 5,
+          "observed_expected_event_intensity_ratio": 1.0936005944749159,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "20_39",
+          "sex": "all",
+          "baseline_state": "prediabetes",
+          "n": 270,
+          "deaths": 6,
+          "observed_expected_event_intensity_ratio": 2.6316250920957143,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "20_39",
+          "sex": "all",
+          "baseline_state": "diabetes_any_type",
+          "n": 38,
+          "deaths": 0,
+          "observed_expected_event_intensity_ratio": 0.0,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "20_39",
+          "sex": "male",
+          "baseline_state": "normoglycemia",
+          "n": 212,
+          "deaths": 4,
+          "observed_expected_event_intensity_ratio": 1.5140148723699007,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "20_39",
+          "sex": "male",
+          "baseline_state": "prediabetes",
+          "n": 176,
+          "deaths": 4,
+          "observed_expected_event_intensity_ratio": 2.469161733542986,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "20_39",
+          "sex": "male",
+          "baseline_state": "diabetes_any_type",
+          "n": 20,
+          "deaths": 0,
+          "observed_expected_event_intensity_ratio": 0.0,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "20_39",
+          "sex": "female",
+          "baseline_state": "normoglycemia",
+          "n": 280,
+          "deaths": 1,
+          "observed_expected_event_intensity_ratio": 0.4189830703624155,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "20_39",
+          "sex": "female",
+          "baseline_state": "prediabetes",
+          "n": 94,
+          "deaths": 2,
+          "observed_expected_event_intensity_ratio": 3.2974407734192392,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "20_39",
+          "sex": "female",
+          "baseline_state": "diabetes_any_type",
+          "n": 18,
+          "deaths": 0,
+          "observed_expected_event_intensity_ratio": 0.0,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "40_59",
+          "sex": "all",
+          "baseline_state": "normoglycemia",
+          "n": 275,
+          "deaths": 13,
+          "observed_expected_event_intensity_ratio": 1.1641098675726314,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "40_59",
+          "sex": "all",
+          "baseline_state": "prediabetes",
+          "n": 338,
+          "deaths": 12,
+          "observed_expected_event_intensity_ratio": 0.8050847419403596,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "40_59",
+          "sex": "all",
+          "baseline_state": "diabetes_any_type",
+          "n": 157,
+          "deaths": 15,
+          "observed_expected_event_intensity_ratio": 1.6656130713438901,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "40_59",
+          "sex": "male",
+          "baseline_state": "normoglycemia",
+          "n": 108,
+          "deaths": 6,
+          "observed_expected_event_intensity_ratio": 1.1124554673715157,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "40_59",
+          "sex": "male",
+          "baseline_state": "prediabetes",
+          "n": 182,
+          "deaths": 8,
+          "observed_expected_event_intensity_ratio": 0.9609634707166088,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "40_59",
+          "sex": "male",
+          "baseline_state": "diabetes_any_type",
+          "n": 83,
+          "deaths": 7,
+          "observed_expected_event_intensity_ratio": 1.2428927495711346,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "40_59",
+          "sex": "female",
+          "baseline_state": "normoglycemia",
+          "n": 167,
+          "deaths": 7,
+          "observed_expected_event_intensity_ratio": 1.237201075281095,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "40_59",
+          "sex": "female",
+          "baseline_state": "prediabetes",
+          "n": 156,
+          "deaths": 4,
+          "observed_expected_event_intensity_ratio": 0.4452929589670658,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "40_59",
+          "sex": "female",
+          "baseline_state": "diabetes_any_type",
+          "n": 74,
+          "deaths": 8,
+          "observed_expected_event_intensity_ratio": 2.943537764582556,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "60_plus",
+          "sex": "all",
+          "baseline_state": "normoglycemia",
+          "n": 112,
+          "deaths": 13,
+          "observed_expected_event_intensity_ratio": 0.6266541230436812,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "60_plus",
+          "sex": "all",
+          "baseline_state": "prediabetes",
+          "n": 292,
+          "deaths": 41,
+          "observed_expected_event_intensity_ratio": 0.6428463359304705,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "60_plus",
+          "sex": "all",
+          "baseline_state": "diabetes_any_type",
+          "n": 201,
+          "deaths": 56,
+          "observed_expected_event_intensity_ratio": 1.837907114937312,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "60_plus",
+          "sex": "male",
+          "baseline_state": "normoglycemia",
+          "n": 48,
+          "deaths": 3,
+          "observed_expected_event_intensity_ratio": 0.19165169263960574,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "60_plus",
+          "sex": "male",
+          "baseline_state": "prediabetes",
+          "n": 150,
+          "deaths": 30,
+          "observed_expected_event_intensity_ratio": 0.787558477577851,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "60_plus",
+          "sex": "male",
+          "baseline_state": "diabetes_any_type",
+          "n": 105,
+          "deaths": 37,
+          "observed_expected_event_intensity_ratio": 1.7516337314707757,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "60_plus",
+          "sex": "female",
+          "baseline_state": "normoglycemia",
+          "n": 64,
+          "deaths": 10,
+          "observed_expected_event_intensity_ratio": 1.4177033862922663,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "60_plus",
+          "sex": "female",
+          "baseline_state": "prediabetes",
+          "n": 142,
+          "deaths": 11,
+          "observed_expected_event_intensity_ratio": 0.41511620594634585,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        },
+        {
+          "age_group": "60_plus",
+          "sex": "female",
+          "baseline_state": "diabetes_any_type",
+          "n": 96,
+          "deaths": 19,
+          "observed_expected_event_intensity_ratio": 2.0059513098684567,
+          "interpretation": "Descriptive in-sample residual; no acceptance threshold or subgroup validation"
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "Development fit only; the reserved cycle has not been evaluated.",
+    "Baseline glycemic categories do not identify engine state mortality or causal effects.",
+    "Unadjusted complete-case/linkage selection and public follow-up perturbation remain unresolved.",
+    "Adults below the public age top-code only; no pediatric or oldest-age transport.",
+    "Intervals cover design-based sampling variation, not confounding or structural uncertainty.",
+    "In-sample likelihood gain and event balance are fit diagnostics, not validation.",
+    "Expected event intensity integrates fitted hazard over actual observed risk time; it is not risk at a common horizon."
+  ]
+}
