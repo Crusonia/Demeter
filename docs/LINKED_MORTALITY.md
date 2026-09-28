@@ -105,6 +105,17 @@ and healthspan metadata. This is software equivalence, not scientific validation
 The source manifest records exact URLs, retrieval times and original hashes;
 the packaged derived manifest records the transformation and definition hash.
 
-Software verification on Windows: 384 tests passed, Ruff passed, source/package
-verification passed, and the scientific-required command continued to exit 1.
+Transformation version 2 fixes constant binary survey domains: an all-eligible
+cell has exactly probability one and zero Taylor residuals. The prior dot/sum
+calculation could round below one and create a spurious interval on some
+platforms. Boundary intervals remain unavailable, rather than claiming empirical
+certainty. Counts, nonconstant domains, original source bytes and engine inputs
+are unchanged. Regression tests cover both boundaries, unequal weights, domain
+exclusions and common weight rescaling. Supporting validation receipts are now
+explicitly included in the package inventory.
+
+The initial 384-test local run preceded the final receipt inventory and missed
+these CI failures. Final verification is recorded in PR #53 after the corrections.
 Independent scientific review and clinical parameter acceptance are not claimed.
+The proposed next calibration and holdout protocol is
+[RFC-1](rfcs/RFC-1-health-calibration.md).

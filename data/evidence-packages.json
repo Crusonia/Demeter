@@ -299,11 +299,11 @@
       "artifacts": [
         {
           "path": "src/demeter/data/bundled/linked_mortality_audit.json",
-          "sha256": "f010c3425a331f7f88b984a130a20c31a01dfaa51c40c67b524bd9df9defadb2"
+          "sha256": "839b24a20d5fa81bd1c07d368527bf7ac4931f7073240b81b6e75272f1976104"
         },
         {
           "path": "src/demeter/data/bundled/linked_mortality_manifest.json",
-          "sha256": "93b881f92c68ceea82fc4058082cafcb018da6fa819a4706ad0a3a3591cb2436"
+          "sha256": "54cbe9cc861a420fc4caa50e027f515b31599a8c42ee5c58ea00a73829135f6e"
         }
       ],
       "transform_files": [
@@ -337,6 +337,14 @@
     {
       "path": "releases/archives/0.1.0a1-e969c41/receipt.json",
       "sha256": "2200de61b93eb4158d618a1898a340407dd687f3467adac11517f63b270b432c"
+    },
+    {
+      "path": "docs/validation/issue-1-linked-mortality-before-after.json",
+      "sha256": "dc343d9cb36339783833f26e8685d22fe6b5f68705e9bcb5e8825355bb7c47ff"
+    },
+    {
+      "path": "docs/validation/issue-1-mortality-identification.json",
+      "sha256": "8fe969127dd98db4e40de783b972249f25635b79ce3297d3be7ecc11a12e43aa"
     }
   ]
 }

@@ -248,7 +248,7 @@
         "estimate": 1.0,
         "interval": null,
         "n": 520,
-        "standard_error": 1.70871153135e-17,
+        "standard_error": 0.0,
         "status": "boundary_or_insufficient_variance"
       },
       "linked_n": 520,
@@ -269,7 +269,7 @@
         "estimate": 1.0,
         "interval": null,
         "n": 419,
-        "standard_error": 2.32646365371e-17,
+        "standard_error": 0.0,
         "status": "boundary_or_insufficient_variance"
       },
       "linked_n": 419,
@@ -288,15 +288,10 @@
       "linkage_eligibility": {
         "degrees_of_freedom": 17,
         "estimate": 1.0,
-        "interval": {
-          "high": 1.0,
-          "level": 0.95,
-          "low": 1.0,
-          "method": "Taylor-linearized logit-t; domain degrees of freedom"
-        },
+        "interval": null,
         "n": 203,
-        "standard_error": 5.99515019056e-17,
-        "status": "estimated"
+        "standard_error": 0.0,
+        "status": "boundary_or_insufficient_variance"
       },
       "linked_n": 203,
       "sex": "female"
@@ -340,15 +335,10 @@
       "linkage_eligibility": {
         "degrees_of_freedom": 17,
         "estimate": 1.0,
-        "interval": {
-          "high": 1.0,
-          "level": 0.95,
-          "low": 1.0,
-          "method": "Taylor-linearized logit-t; domain degrees of freedom"
-        },
+        "interval": null,
         "n": 270,
-        "standard_error": 1.05539877546e-17,
-        "status": "estimated"
+        "standard_error": 0.0,
+        "status": "boundary_or_insufficient_variance"
       },
       "linked_n": 270,
       "sex": "all"
@@ -368,7 +358,7 @@
         "estimate": 1.0,
         "interval": null,
         "n": 38,
-        "standard_error": 4.71659085242e-17,
+        "standard_error": 0.0,
         "status": "boundary_or_insufficient_variance"
       },
       "linked_n": 38,
@@ -455,15 +445,10 @@
       "linkage_eligibility": {
         "degrees_of_freedom": 17,
         "estimate": 1.0,
-        "interval": {
-          "high": 1.0,
-          "level": 0.95,
-          "low": 1.0,
-          "method": "Taylor-linearized logit-t; domain degrees of freedom"
-        },
+        "interval": null,
         "n": 280,
-        "standard_error": 2.08546908451e-17,
-        "status": "estimated"
+        "standard_error": 0.0,
+        "status": "boundary_or_insufficient_variance"
       },
       "linked_n": 280,
       "sex": "female"
@@ -481,15 +466,10 @@
       "linkage_eligibility": {
         "degrees_of_freedom": 14,
         "estimate": 1.0,
-        "interval": {
-          "high": 1.0,
-          "level": 0.95,
-          "low": 1.0,
-          "method": "Taylor-linearized logit-t; domain degrees of freedom"
-        },
+        "interval": null,
         "n": 94,
-        "standard_error": 2.6359539823e-17,
-        "status": "estimated"
+        "standard_error": 0.0,
+        "status": "boundary_or_insufficient_variance"
       },
       "linked_n": 94,
       "sex": "female"
@@ -530,7 +510,7 @@
         "estimate": 1.0,
         "interval": null,
         "n": 275,
-        "standard_error": 2.75491253752e-17,
+        "standard_error": 0.0,
         "status": "boundary_or_insufficient_variance"
       },
       "linked_n": 275,
@@ -549,15 +529,10 @@
       "linkage_eligibility": {
         "degrees_of_freedom": 17,
         "estimate": 1.0,
-        "interval": {
-          "high": 1.0,
-          "level": 0.95,
-          "low": 1.0,
-          "method": "Taylor-linearized logit-t; domain degrees of freedom"
-        },
+        "interval": null,
         "n": 338,
-        "standard_error": 2.82414408151e-17,
-        "status": "estimated"
+        "standard_error": 0.0,
+        "status": "boundary_or_insufficient_variance"
       },
       "linked_n": 338,
       "sex": "all"
@@ -601,15 +576,10 @@
       "linkage_eligibility": {
         "degrees_of_freedom": 16,
         "estimate": 1.0,
-        "interval": {
-          "high": 1.0,
-          "level": 0.95,
-          "low": 1.0,
-          "method": "Taylor-linearized logit-t; domain degrees of freedom"
-        },
+        "interval": null,
         "n": 108,
-        "standard_error": 1.73632099618e-17,
-        "status": "estimated"
+        "standard_error": 0.0,
+        "status": "boundary_or_insufficient_variance"
       },
       "linked_n": 108,
       "sex": "male"
@@ -697,7 +667,7 @@
         "estimate": 1.0,
         "interval": null,
         "n": 156,
-        "standard_error": 3.78909227268e-17,
+        "standard_error": 0.0,
         "status": "boundary_or_insufficient_variance"
       },
       "linked_n": 156,
@@ -718,7 +688,7 @@
         "estimate": 1.0,
         "interval": null,
         "n": 74,
-        "standard_error": 3.4114430367e-17,
+        "standard_error": 0.0,
         "status": "boundary_or_insufficient_variance"
       },
       "linked_n": 74,
@@ -739,7 +709,7 @@
         "estimate": 1.0,
         "interval": null,
         "n": 125,
-        "standard_error": 3.56284241284e-17,
+        "standard_error": 0.0,
         "status": "boundary_or_insufficient_variance"
       },
       "linked_n": 125,
@@ -784,15 +754,10 @@
       "linkage_eligibility": {
         "degrees_of_freedom": 17,
         "estimate": 1.0,
-        "interval": {
-          "high": 1.0,
-          "level": 0.95,
-          "low": 1.0,
-          "method": "Taylor-linearized logit-t; domain degrees of freedom"
-        },
+        "interval": null,
         "n": 238,
-        "standard_error": 5.29137265719e-17,
-        "status": "estimated"
+        "standard_error": 0.0,
+        "status": "boundary_or_insufficient_variance"
       },
       "linked_n": 238,
       "sex": "all"
@@ -859,7 +824,7 @@
         "estimate": 1.0,
         "interval": null,
         "n": 127,
-        "standard_error": 4.28861995015e-17,
+        "standard_error": 0.0,
         "status": "boundary_or_insufficient_variance"
       },
       "linked_n": 127,
@@ -880,7 +845,7 @@
         "estimate": 1.0,
         "interval": null,
         "n": 73,
-        "standard_error": 4.16507951372e-17,
+        "standard_error": 0.0,
         "status": "boundary_or_insufficient_variance"
       },
       "linked_n": 73,
@@ -899,15 +864,10 @@
       "linkage_eligibility": {
         "degrees_of_freedom": 16,
         "estimate": 1.0,
-        "interval": {
-          "high": 1.0,
-          "level": 0.95,
-          "low": 1.0,
-          "method": "Taylor-linearized logit-t; domain degrees of freedom"
-        },
+        "interval": null,
         "n": 169,
-        "standard_error": 5.89551304057e-17,
-        "status": "estimated"
+        "standard_error": 0.0,
+        "status": "boundary_or_insufficient_variance"
       },
       "linked_n": 169,
       "sex": "female"
@@ -927,7 +887,7 @@
         "estimate": 1.0,
         "interval": null,
         "n": 111,
-        "standard_error": 3.9808651486e-17,
+        "standard_error": 0.0,
         "status": "boundary_or_insufficient_variance"
       },
       "linked_n": 111,
@@ -958,7 +918,7 @@
       "NHANES_2011_2012_MORT_2019_PUBLIC.dat": "ff98b6c87172643426b1c6d20f76495592bebd618ea18f742d98a44b84456b30"
     },
     "transform": "demeter.data.linked_mortality.audit",
-    "transform_version": 1
+    "transform_version": 2
   },
   "schema_version": 1,
   "scientific_release_ready": false

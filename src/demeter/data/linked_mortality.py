@@ -190,7 +190,7 @@ def rebuild_linked_mortality(
         "source_manifest_sha256": digest(encoded(sources)),
         "source_sha256": {k: v["sha256"] for k, v in sources["sources"].items()},
         "transform": "demeter.data.linked_mortality.audit",
-        "transform_version": 1,
+        "transform_version": 2,
     }
     content = encoded(report)
     manifest = {

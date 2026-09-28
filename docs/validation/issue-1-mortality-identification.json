@@ -1,0 +1,52 @@
+{
+  "purpose": "Computational non-identification demonstration; not fitted clinical evidence",
+  "validation_only": true,
+  "source_commit": "e94b288f77646f79ee2164a8bcec6f1102982ff6",
+  "evidence_sha256": "6a47cec85d87a6f1038b04ee49cc994852c5f3570f43a1f4921c1df779c79cfa",
+  "scenario": {
+    "name": "baseline_validation",
+    "description": "Synthetic baseline used only to verify model mechanics.",
+    "years": 25,
+    "exposures": {
+      "upf": 1.0,
+      "fiber": 1.0,
+      "fruit_veg": 1.0
+    },
+    "diet": {},
+    "upf_schedule": [],
+    "diet_response": {
+      "kind": "legacy",
+      "shape": "linear"
+    },
+    "glp1": null,
+    "baseline_year": 2024,
+    "sex": "all",
+    "mode": "validation",
+    "allow_extrapolation": false,
+    "health_structure": "legacy"
+  },
+  "parameter_selection": "Endpoints of existing registered synthetic mortality-ratio uncertainty; all remaining inputs unchanged",
+  "demonstrations": [
+    {
+      "registered_stress_endpoint": "low",
+      "mortality_ir_ratio": 1.1,
+      "mortality_t2d_ratio": 1.5,
+      "maximum_age_0_99_qx_error": 5.551115123125783e-17,
+      "initial_period_life_expectancy": 78.97104370727604,
+      "terminal_e100_error": 0.0,
+      "ending_period_life_expectancy": 77.80385194294651,
+      "cumulative_deaths": 101849633.10760131
+    },
+    {
+      "registered_stress_endpoint": "high",
+      "mortality_ir_ratio": 1.5,
+      "mortality_t2d_ratio": 2.5,
+      "maximum_age_0_99_qx_error": 5.551115123125783e-17,
+      "initial_period_life_expectancy": 78.97104370727601,
+      "terminal_e100_error": 0.0,
+      "ending_period_life_expectancy": 76.43851335710372,
+      "cumulative_deaths": 105645702.12976494
+    }
+  ],
+  "conclusion": "Different state hazard ratios reproduce the same initial age-specific mortality and life expectancy, yet yield different later trajectories. Aggregate life-table fit cannot identify state mortality decomposition. No parameter is promoted."
+}
