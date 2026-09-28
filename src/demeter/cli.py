@@ -309,9 +309,18 @@ def simulate_scenario(
     scenario: Annotated[Path, typer.Argument(exists=True, readable=True)],
     evidence: Path = DEFAULT_EVIDENCE,
     output: Path | None = None,
+    transition_module: str | None = None,
 ) -> None:
     """Emit trajectories, final cohorts, and complete provenance as JSON."""
-    emit(simulate(registry(evidence), Scenario.from_yaml(scenario)).to_dict(), output)
+    from demeter.health.module import load_transition_module
+
+    module = load_transition_module(transition_module) if transition_module else None
+    emit(
+        simulate(
+            registry(evidence), Scenario.from_yaml(scenario), transition_module=module
+        ).to_dict(),
+        output,
+    )
 
 
 @app.command("healthspan")

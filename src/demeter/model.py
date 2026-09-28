@@ -7,6 +7,7 @@ from math import isfinite
 import numpy as np
 
 from demeter import __version__
+from demeter.contracts import TransitionModule
 from demeter.data.baseline import population_counts, source_rows
 from demeter.data.ingest import BUNDLE
 from demeter.health.structure import PRECHRONIC_UNITS, move, rates_for, states_for, transitions_for
@@ -69,7 +70,9 @@ class SimulationResult:
         return asdict(self)
 
 
-def required_units(scenario: Scenario) -> dict:
+def required_units(
+    scenario: Scenario, *, transition_parameters: dict[str, str] | None = None
+) -> dict:
     units = REQUIRED_UNITS.copy()
     units.update(response_units(scenario))
     if scenario.glp1:
@@ -79,17 +82,31 @@ def required_units(scenario: Scenario) -> dict:
             units.pop(key)
         units.update(PRECHRONIC_UNITS)
         units[f"initial_pc_fraction_{scenario.health_structure}"] = "fraction"
+    if transition_parameters is not None:
+        for key, unit in transition_parameters.items():
+            if key in units and unit != units[key]:
+                raise ValueError(f"A module cannot redefine core parameter units: {key}")
+        for edge in transitions_for(scenario):
+            units.pop(edge["parameter"], None)
+        units.update(transition_parameters)
     return units
 
 
-def validate_inputs(registry: EvidenceRegistry, scenario: Scenario) -> tuple[np.ndarray, bool]:
-    for key, unit in required_units(scenario).items():
+def validate_inputs(
+    registry: EvidenceRegistry,
+    scenario: Scenario,
+    *,
+    transition_parameters: dict[str, str] | None = None,
+) -> tuple[np.ndarray, bool]:
+    units = required_units(scenario, transition_parameters=transition_parameters)
+    core_units = required_units(scenario)
+    for key, unit in units.items():
         if key not in registry.parameters or registry.parameters[key].unit != unit:
             raise ValueError(f"Missing parameter or wrong units: {key} requires {unit}")
         if registry.parameters[key].model_role != "health_model":
             raise ValueError(f"Benchmark-only evidence cannot drive model input: {key}")
         value = registry.value(key)
-        if value < 0 or not isfinite(value):
+        if (key in core_units and value < 0) or not isfinite(value):
             raise ValueError(f"Invalid model parameter: {key}")
     shares = np.array(
         [
@@ -122,7 +139,7 @@ def validate_inputs(registry: EvidenceRegistry, scenario: Scenario) -> tuple[np.
             "UPF exposure is outside the registered envelope; explicit allow_extrapolation required"
         )
     if scenario.mode == "scientific":
-        audit = registry.audit(parameter_keys=required_units(scenario))
+        audit = registry.audit(parameter_keys=units)
         if any(
             audit[k]
             for k in (
@@ -149,9 +166,21 @@ def simulate(
     diagnostics: bool = False,
     dietary_reference: Scenario | None = None,
     dietary_paths: tuple[str, ...] | None = None,
+    transition_module: TransitionModule | None = None,
 ) -> SimulationResult:
     """Age-structured annual validation model on observed U.S. demographic inputs."""
-    initial_shares, extrapolated = validate_inputs(registry, scenario)
+    binding = None
+    if transition_module is not None:
+        from demeter.health.module import BoundTransitionModule
+
+        if dietary_reference is not None or dietary_paths is not None:
+            raise ValueError("Dietary pathway routing requires canonical transition equations")
+        binding = BoundTransitionModule(transition_module, registry, scenario)
+    module_parameters = {p.key: p.unit for p in binding.parameters} if binding else None
+    active_parameters = tuple(required_units(scenario, transition_parameters=module_parameters))
+    initial_shares, extrapolated = validate_inputs(
+        registry, scenario, transition_parameters=module_parameters
+    )
     if (dietary_reference is None) != (dietary_paths is None):
         raise ValueError("Dietary routing needs both reference scenario and selected paths")
     reference_response, reference_diet = None, None
@@ -262,12 +291,20 @@ def simulate(
     annual.append(snapshot(0))
     for year in range(1, scenario.years + 1):
         dietary_state = response.advance(dietary["annual_upf"][year - 1])
-        rates = rates_for(
-            registry,
-            scenario,
+        multipliers = (
             dietary_state["applied_progression_multiplier"],
             dietary_state["applied_recovery_multiplier"],
         )
+        rates = (
+            binding.rates(year, stocks, *multipliers)
+            if binding
+            else rates_for(registry, scenario, *multipliers)
+        )
+        if binding:
+            dietary_state["module_base_hazards_per_year"] = {
+                edge["flow"]: value
+                for edge, value in zip(transitions_for(scenario), rates, strict=True)
+            }
         if reference_response is not None:
             ref_state = reference_response.advance(reference_diet["annual_upf"][year - 1])
             ref_rates = rates_for(
@@ -326,7 +363,7 @@ def simulate(
     import json
 
     source_manifest = json.loads((BUNDLE / "manifest.json").read_text())
-    audit = registry.audit(parameter_keys=required_units(scenario))
+    audit = registry.audit(parameter_keys=active_parameters)
     validation_only = scenario.mode == "validation"
     metadata = {
         "model_version": __version__,
@@ -373,7 +410,8 @@ def simulate(
         ],
         "healthspan_metric": metric_contract(scenario.health_structure),
         "health_structure": scenario.health_structure,
-        "active_parameters": list(required_units(scenario)),
+        "active_parameters": list(active_parameters),
+        **({"transition_module": binding.provenance} if binding else {}),
         **(
             {
                 "dietary_routing": {
@@ -410,6 +448,26 @@ def simulate(
         ),
         "transition_flows": [edge["flow"] for edge in transitions_for(scenario)],
     }
+    structure = None
+    if diagnostics:
+        if binding:
+            # No canonical hazard parameter links are inferred for arbitrary replacement equations.
+            structure = {
+                "states": list(states) + ["dead"],
+                "transitions": [
+                    {k: v for k, v in edge.items() if k != "parameter"}
+                    for edge in transitions_for(scenario)
+                ]
+                + [{"source": s, "target": "dead", "flow": f"{s}_deaths"} for s in states],
+                "dependencies": [],
+                "module_contract": binding.provenance,
+                "evidence": {
+                    k: registry.parameters[k].model_dump(mode="json") for k in active_parameters
+                },
+                "interpretation": "Stock/flow topology only; custom equation dependencies are not inferred. Inspect the module contract, source and recorded hazards.",
+            }
+        else:
+            structure = model_structure(registry, scenario)
     return SimulationResult(
         scenario.name,
         scenario.years,
@@ -423,7 +481,7 @@ def simulate(
         metadata,
         {
             "history": history,
-            "structure": model_structure(registry, scenario),
+            "structure": structure,
             "state_definitions": metric_contract(scenario.health_structure)["states"],
             "cohort_semantics": "Age cells after each annual step; 100+ is pooled, not a birth cohort",
         }

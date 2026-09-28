@@ -71,6 +71,8 @@ jobs:
           uv run demeter simulate scenarios/glp1_access.yaml --output outputs/glp1.json
       - name: Historical holdout diagnostics
         run: uv run demeter historical-backtest --output outputs/historical-backtest.json
+      - name: Explicit custom health module
+        run: uv run demeter simulate scenarios/reduce_upf_30.yaml --transition-module demeter.examples.transition_modules:NoDietEffect --output outputs/module-null.json
       - name: Food leverage and pathway attribution
         run: uv run demeter leverage --scenario scenarios/diet_dynamics.yaml --draws 2 --samples 8 --seed 42 --destination outputs/leverage
       - name: Scientific observability smoke
