@@ -95,6 +95,14 @@ Mortality reconstruction tolerance is 0.001 years at every age. Conservation tol
 
 ## Instrumentation
 
+An explicit [transition-module argument](MODULE_API.md) can replace annual base
+health hazards through a versioned contract. The engine still owns mortality,
+competing flows, aging, adult eligibility and tagged-cohort accounting. Extra
+module dependencies are validated and included in evidence metadata; unused
+canonical hazard keys are excluded for replacement modules. Default runs retain
+their existing equations. Custom results record the module's source fingerprint,
+contract and annual hazards and remain experimental/validation-only.
+
 The [food-leverage analysis](LEVERAGE.md) can route reference versus intervention
 dietary modifiers separately to each existing transition. Baseline hazards,
 competing flows, mortality and non-diet assumptions remain intact. Its exact
