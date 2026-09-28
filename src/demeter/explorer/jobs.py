@@ -10,6 +10,7 @@ import os
 from pathlib import Path
 import re
 import threading
+import time
 import traceback
 from uuid import uuid4
 
@@ -32,7 +33,20 @@ def write_json(path: Path, value: dict) -> None:
     temporary.write_text(
         json.dumps(value, ensure_ascii=False, allow_nan=False, indent=2) + "\n", encoding="utf-8"
     )
-    os.replace(temporary, path)
+    try:
+        for attempt in range(20):
+            try:
+                os.replace(temporary, path)
+                break
+            except PermissionError as exc:
+                # Windows can hold a read handle during a polling request (or
+                # antivirus inspection). Keep the old complete JSON until the
+                # atomic replacement succeeds; never truncate it in place.
+                if getattr(exc, "winerror", None) not in (5, 32, 33) or attempt == 19:
+                    raise
+                time.sleep(0.05)
+    finally:
+        temporary.unlink(missing_ok=True)
 
 
 def read_json(path: Path) -> dict:

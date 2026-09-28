@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import Controls from "../components/Controls";
 import { SafeSource } from "../components/SafeSource";
@@ -82,6 +82,7 @@ export default function Page() {
   const [bounds, setBounds] = useState([0.5, 1.5]);
   const [runs, setRuns] = useState<Receipt[]>([]);
   const [selected, setSelected] = useState("");
+  const [selectionRevision, setSelectionRevision] = useState(0);
   const [result, setResult] = useState<Result | null>(null);
   const [chartId, setChartId] = useState("stocks");
   const [error, setError] = useState("");
@@ -89,7 +90,6 @@ export default function Page() {
   const [submitting, setSubmitting] = useState(false);
   const [notes, setNotes] = useState("");
   const [filter, setFilter] = useState("");
-  const statusRef = useRef("");
   const active = runs.find((r) => ["queued", "running"].includes(r.status));
   const dirty = !!(
     request &&
@@ -162,6 +162,7 @@ export default function Page() {
     if (!token) return;
     let cancelled = false;
     let inFlight = false;
+    let fetchedStatus = "";
     const refresh = async () => {
       if (inFlight) return;
       inFlight = true;
@@ -170,11 +171,11 @@ export default function Page() {
         if (cancelled) return;
         setRuns(list);
         const current = list.find((r) => r.id === selected);
-        if (current && current.status !== statusRef.current) {
+        if (current && current.status !== fetchedStatus) {
           const data = await api<Result>(token, `runs/${selected}`);
           if (cancelled) return;
           setResult(data);
-          statusRef.current = data.receipt.status;
+          fetchedStatus = data.receipt.status;
           setNotes(data.notes ?? data.request.notes);
         }
       } catch (e) {
@@ -189,7 +190,7 @@ export default function Page() {
       cancelled = true;
       clearInterval(interval);
     };
-  }, [token, selected]);
+  }, [token, selected, selectionRevision]);
 
   async function act(action: () => Promise<void>) {
     setError("");
@@ -201,9 +202,9 @@ export default function Page() {
     }
   }
   function choose(id: string) {
-    statusRef.current = "";
     setResult(null);
     setSelected(id);
+    setSelectionRevision((value) => value + 1);
     setTab("Explore");
     setChartId("stocks");
   }

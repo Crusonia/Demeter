@@ -19,13 +19,44 @@ from demeter.explorer.experiments import (
     resolve_experiment,
     scenario_catalog,
 )
-from demeter.explorer.jobs import Jobs, code_fingerprint, read_json, worker
+from demeter.explorer.jobs import Jobs, code_fingerprint, read_json, worker, write_json
 from demeter.explorer.server import create_app
 from demeter.analysis.teaching import guide_for, teaching_content
 from demeter.model import simulate
 from demeter.schema import Scenario
 
 ROOT = Path.cwd()
+
+
+@pytest.mark.parametrize("persistent", [False, True])
+def test_windows_reader_lock_keeps_receipt_atomic(tmp_path, monkeypatch, persistent):
+    import demeter.explorer.jobs as module
+
+    target = tmp_path / "run.json"
+    write_json(target, {"status": "running"})
+    original_replace = module.os.replace
+    attempts = 0
+
+    def replace(source, destination):
+        nonlocal attempts
+        attempts += 1
+        assert read_json(target) == {"status": "running"}
+        if persistent or attempts < 3:
+            error = PermissionError("Simulated Windows sharing violation")
+            error.winerror = 32
+            raise error
+        original_replace(source, destination)
+
+    monkeypatch.setattr(module.os, "replace", replace)
+    monkeypatch.setattr(module.time, "sleep", lambda _: None)
+    if persistent:
+        with pytest.raises(PermissionError):
+            write_json(target, {"status": "complete"})
+        assert read_json(target)["status"] == "running"
+    else:
+        write_json(target, {"status": "complete"})
+        assert read_json(target)["status"] == "complete" and attempts == 3
+    assert not list(tmp_path.glob("*.tmp"))
 
 
 def request_for(key="reduce_upf_30", **changes):

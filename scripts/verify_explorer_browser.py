@@ -152,9 +152,21 @@ def verify() -> None:
                 ).to_be_visible()
                 nav.get_by_role("button", name="Saved runs", exact=True).click()
                 page.locator(".saved-card").filter(has_text="Browser first experiment").click()
-                expect(
-                    page.get_by_label("Your explanation & next question", exact=True)
-                ).to_have_value("I will challenge the lag next.")
+                try:
+                    expect(
+                        page.get_by_label("Your explanation & next question", exact=True)
+                    ).to_have_value("I will challenge the lag next.")
+                    # Reopening the already selected run must refresh it as well.
+                    nav.get_by_role("button", name="Saved runs", exact=True).click()
+                    page.locator(".saved-card").filter(has_text="Browser first experiment").click()
+                    expect(
+                        page.get_by_label("Your explanation & next question", exact=True)
+                    ).to_have_value("I will challenge the lag next.")
+                except AssertionError as exc:
+                    page.screenshot(path=str(artifacts / "reopen-failure.png"))
+                    raise AssertionError(
+                        page.locator("body").inner_text()[:3000] + str(errors)
+                    ) from exc
                 page.get_by_label("Question / chart", exact=True).select_option(
                     "uncertainty_life_expectancy"
                 )
