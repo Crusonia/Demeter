@@ -40,7 +40,7 @@ jobs:
           uv run python --version
       - name: Lint
         run: uv run ruff check .
-      - name: Test offline fixtures and CLI
+      - name: Test offline fixtures, CLI, and executable learning notebook
         run: uv run python -X utf8 -m pytest
       - name: Verify committed source bytes and rebuild offline
         run: uv run python scripts/verify_source_archive.py --rebuild
@@ -95,3 +95,19 @@ jobs:
         run: uv build
       - name: Verify evidence distribution contents
         run: uv run python scripts/verify_evidence_distribution.py
+      - name: Archive canonical outputs and replay extracted source
+        run: |
+          uv run demeter release build outputs/release-ci --draws 4 --samples 8 --seed 42
+          uv run demeter release verify outputs/release-ci
+          uv run demeter release extract outputs/release-ci --destination outputs/release-source
+          uv run python scripts/verify_release_replay.py --bundle outputs/release-ci --source outputs/release-source --output outputs/release-replay.json
+      - name: Retain engineering bundle and numerical replay receipt
+        if: matrix.label == '3.12'
+        uses: actions/upload-artifact@v4
+        with:
+          name: engineering-checkpoint-${{ github.sha }}
+          path: |
+            outputs/release-ci/
+            outputs/release-replay.json
+          if-no-files-found: error
+          retention-days: 30

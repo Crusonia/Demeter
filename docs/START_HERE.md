@@ -126,6 +126,9 @@ See [governance](../GOVERNANCE.md) and [contributing](../CONTRIBUTING.md).
 
 1. [Install and run](GETTING_STARTED.md) on macOS, Linux, or Windows.
 2. [Try the first exercise](FIRST_EXERCISE.md): predict, compare, inspect, and debrief.
+   The [complete learning path](LEARNING_PATH.md) adds a small teaching model,
+   an executable notebook, evidence and uncertainty inspection, historical
+   diagnostics, and a custom-module exercise.
 3. Bring one observation, confusing explanation, or evidence gap to an
    [issue](https://github.com/Crusonia/Demeter/issues/new/choose).
 

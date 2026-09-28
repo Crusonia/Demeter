@@ -28,6 +28,7 @@ the table below in its PR.
 | --- | --- |
 | [Health engine choice](../ENGINE_DECISION.md) | Existing NumPy/explicit-equation decision; retained as a legacy record. No retrospective claim of RFC review or scientific acceptance. |
 | [Module API 1.0](../MODULE_API.md) | Implemented through [PR #46](https://github.com/Crusonia/Demeter/pull/46); typed contracts and annual health adapter. Broader domain adapters and scientific calibration remain open. |
+| [Reproducible releases](ADR-21-reproducible-releases.md) | Issue #21; inspectable source/data/result snapshots, model cards and explicit numerical replay. Clinical fitting remains deferred. |
 
 Templates contain prompts, not decisions. New entries must point to actual records
 and review evidence rather than guessed dates or reviewer approvals.

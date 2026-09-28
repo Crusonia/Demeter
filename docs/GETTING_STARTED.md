@@ -118,7 +118,9 @@ You can also double-click `index.html` in your file manager. On a machine withou
 a desktop, copy the report to a computer with a browser. The HTML embeds its chart
 library and does not need a web server or network connection.
 
-Continue with the [first learning exercise](FIRST_EXERCISE.md).
+Continue with the [first learning exercise](FIRST_EXERCISE.md), or the
+[complete learning path and executable notebook](LEARNING_PATH.md) for toy
+stocks/flows, uncertainty, historical diagnostics and creating a custom module.
 
 ## 4. Configure a scenario
 
