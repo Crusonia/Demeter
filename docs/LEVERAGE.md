@@ -95,6 +95,12 @@ model's permitted exposure range before sampling. The report never clips or
 silently narrows a user's experiment to make it pass. The timing profile remains
 fixed. Negative exposure is invalid even if extrapolation is explicitly allowed.
 
+Ordinary simulation dependency metadata and scientific input checks audit only
+the chosen scenario's active model parameters. The analysis-only coordinate and
+inactive optional mechanisms do not become health dependencies. The full evidence
+audit still lists every registered parameter, and the registry hash and explicit
+scientific-release blockers retain their full scope.
+
 Independent registered uniform draws cover all active uncertain model parameters
 and the scenario coordinate. Fixed parameters remain fixed. One draw is reused
 for both endpoints and every coalition. Central 95% sampling intervals describe

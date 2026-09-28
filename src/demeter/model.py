@@ -122,7 +122,7 @@ def validate_inputs(registry: EvidenceRegistry, scenario: Scenario) -> tuple[np.
             "UPF exposure is outside the registered envelope; explicit allow_extrapolation required"
         )
     if scenario.mode == "scientific":
-        audit = registry.audit()
+        audit = registry.audit(parameter_keys=required_units(scenario))
         if any(
             audit[k]
             for k in (
@@ -326,7 +326,7 @@ def simulate(
     import json
 
     source_manifest = json.loads((BUNDLE / "manifest.json").read_text())
-    audit = registry.audit()
+    audit = registry.audit(parameter_keys=required_units(scenario))
     validation_only = scenario.mode == "validation"
     metadata = {
         "model_version": __version__,

@@ -22,7 +22,7 @@ from demeter.analysis.leverage import (
 from demeter.analysis.leverage_visualization import leverage_figures, render_leverage
 from demeter.cli import app
 from demeter.health.structure import dietary_pathways
-from demeter.model import simulate
+from demeter.model import required_units, simulate, validate_inputs
 from demeter.nutrition.exposures import resolve_diet
 from demeter.schema import EvidenceRegistry, Scenario
 
@@ -31,6 +31,47 @@ REGISTRY = EvidenceRegistry.from_yaml("evidence/parameters.yaml")
 
 def target(**kwargs):
     return Scenario(name="food_leverage", years=3, exposures={"upf": 0.7}, **kwargs)
+
+
+@pytest.mark.parametrize(
+    "scenario",
+    [
+        target(),
+        target(health_structure="risk_1", diet_response={"kind": "dynamic"}),
+        Scenario.from_yaml("scenarios/glp1_access.yaml"),
+    ],
+)
+def test_simulation_audit_includes_only_active_dependencies(scenario):
+    metadata = simulate(REGISTRY, scenario).metadata
+    active = required_units(scenario)
+    expected = {key for key in active if REGISTRY.parameters[key].status == "synthetic"}
+    assert set(metadata["synthetic_parameters"]) == expected
+    assert sum(metadata["parameter_status_counts"].values()) == len(active)
+    assert SCALE not in metadata["synthetic_parameters"]
+    assert SCALE in REGISTRY.audit()["synthetic"]
+    assert metadata["evidence_sha256"] == REGISTRY.content_hash
+
+
+def test_inactive_synthetic_inputs_do_not_mask_the_explicit_scientific_release_gate():
+    # Test fixture only: this deliberately does not establish empirical readiness.
+    scenario = target(mode="scientific")
+    registry = REGISTRY.model_copy(deep=True)
+    registry.scientific_blockers = []
+    for key in required_units(scenario):
+        p = registry.parameters[key]
+        p.status = "derived"
+        p.source_url = "https://example.invalid/test-fixture"
+        p.population = p.geography = p.time_period = "Software test fixture"
+    assert SCALE in registry.audit()["synthetic"]
+    with pytest.raises(ValueError, match="health calibration and validation are not implemented"):
+        validate_inputs(registry, scenario)
+    registry.scientific_blockers = ["Unresolved test-fixture scientific gate"]
+    with pytest.raises(ValueError, match="unresolved scientific gates remain"):
+        validate_inputs(registry, scenario)
+    registry.scientific_blockers = []
+    registry.parameters["h_to_ir_rate"].status = "synthetic"
+    with pytest.raises(ValueError, match="unresolved scientific gates remain"):
+        validate_inputs(registry, scenario)
 
 
 def test_shapley_known_interaction_dummy_symmetry_and_order():
