@@ -251,6 +251,25 @@
       "model_role": "benchmark_only",
       "redistribution": "Cited numeric estimates and intervals in the registry; raw articles are fetch-only, including the CC-BY article by packaging choice."
     },
+    "stock_flow_teaching": {
+      "store": null,
+      "dependencies": [],
+      "registry_datasets": [],
+      "registry_parameters": [
+        "toy_initial_tokens",
+        "toy_target_fraction",
+        "toy_response_fraction"
+      ],
+      "artifacts": [],
+      "transform_files": [
+        "src/demeter/examples/stock_flow.py"
+      ],
+      "rebuild": [
+        "uv run python -m demeter.examples.stock_flow --output outputs/tutorial/toy.json"
+      ],
+      "model_role": "synthetic_teaching_only_not_a_health_input",
+      "redistribution": "Demeter-authored abstract token example and assumptions under MIT; no external dataset or empirical interpretation."
+    },
     "food_exposure_ontology": {
       "store": null,
       "dependencies": [],

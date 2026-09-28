@@ -13,6 +13,11 @@ Every substantive numeric parameter must be represented in `parameters.yaml` (or
 
 Any simulation that materially depends on a `synthetic` parameter is **validation-only**.
 
+The `toy_*` parameters belong only to the isolated
+[stock/flow teaching example](../docs/LEARNING_PATH.md). They have synthetic
+status, grade E and `benchmark_only` role to prevent health-engine use. Their
+abstract tokens/ticks and illustrative distributions are not clinical inputs.
+
 ## Evidence grades
 
 - **A**: strong causal evidence

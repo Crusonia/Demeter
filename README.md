@@ -23,7 +23,7 @@ premises until their evidence, equations, and applicability are established.
 
 Food prices, treatment access, consumer behavior, production costs, and reimbursement can change together. Demeter aims to trace those changes through food demand, supply, metabolic health, healthcare economics, and the incentives that feed back into the market. The model must be able to challenge a Food is Health hypothesis as well as support it.
 
-**New here?** [Purpose and staged roadmap](docs/START_HERE.md) · [Install on macOS, Linux, or Windows](docs/GETTING_STARTED.md) · [First exercise](docs/FIRST_EXERCISE.md) · [Data and source archive](data/README.md) · [Contribute](CONTRIBUTING.md)
+**New here?** [Purpose and staged roadmap](docs/START_HERE.md) · [Install on macOS, Linux, or Windows](docs/GETTING_STARTED.md) · [First exercise](docs/FIRST_EXERCISE.md) · [Learning path and notebook](docs/LEARNING_PATH.md) · [Data and source archive](data/README.md) · [Contribute](CONTRIBUTING.md)
 
 Think of Demeter as a **management flight simulator built in stages**: form a
 hypothesis, try an intervention, inspect delays and consequences, and improve
