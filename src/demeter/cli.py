@@ -107,6 +107,21 @@ def rebuild_historical_data(
     emit(rebuild_history(raw, download=download))
 
 
+@data_app.command("verify-packages")
+def verify_evidence_packages(
+    root: Path = Path("."),
+    check_tracked: bool = False,
+    output: Path | None = None,
+) -> None:
+    """Audit rights, citations, source/package coverage and checksums without fetching."""
+    from demeter.data.packages import verify_packages
+
+    report = verify_packages(root, check_tracked=check_tracked)
+    emit(report, output)
+    if not report["passed"]:
+        raise typer.Exit(1)
+
+
 @data_app.command("rebuild-nhanes")
 def rebuild_glycemic_data(
     evidence: Path = DEFAULT_EVIDENCE,
@@ -309,9 +324,16 @@ def simulate_scenario(
     scenario: Annotated[Path, typer.Argument(exists=True, readable=True)],
     evidence: Path = DEFAULT_EVIDENCE,
     output: Path | None = None,
+    transition_module: str | None = None,
 ) -> None:
     """Emit trajectories, final cohorts, and complete provenance as JSON."""
-    emit(simulate(registry(evidence), Scenario.from_yaml(scenario)).to_dict(), output)
+    from demeter.health.module import load_transition_module
+
+    module = load_transition_module(transition_module) if transition_module else None
+    result = simulate(registry(evidence), Scenario.from_yaml(scenario), transition_module=module)
+    if transition_module:
+        result.metadata["transition_module"]["factory_reference"] = transition_module
+    emit(result.to_dict(), output)
 
 
 @app.command("healthspan")

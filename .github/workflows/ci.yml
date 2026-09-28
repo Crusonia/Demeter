@@ -61,6 +61,8 @@ jobs:
           uv run demeter diet-lag-challenge --output outputs/diet-lag-challenge.json
           uv run demeter data rebuild-glp1
           uv run demeter evidence glp1 --output outputs/glp1-evidence.json
+      - name: Audit data rights and evidence package inventory
+        run: uv run demeter data verify-packages --check-tracked --output outputs/package-audit.json
       - name: Run baseline and scenario comparison
         run: |
           uv run demeter simulate scenarios/baseline.yaml --output outputs/baseline.json
@@ -71,6 +73,8 @@ jobs:
           uv run demeter simulate scenarios/glp1_access.yaml --output outputs/glp1.json
       - name: Historical holdout diagnostics
         run: uv run demeter historical-backtest --output outputs/historical-backtest.json
+      - name: Explicit custom health module
+        run: uv run demeter simulate scenarios/reduce_upf_30.yaml --transition-module demeter.examples.transition_modules:NoDietEffect --output outputs/module-null.json
       - name: Food leverage and pathway attribution
         run: uv run demeter leverage --scenario scenarios/diet_dynamics.yaml --draws 2 --samples 8 --seed 42 --destination outputs/leverage
       - name: Scientific observability smoke
@@ -89,3 +93,5 @@ jobs:
           uv run python scripts/verify_observability_browser.py --report outputs/leverage/index.html --figures 26
       - name: Build package
         run: uv build
+      - name: Verify evidence distribution contents
+        run: uv run python scripts/verify_evidence_distribution.py

@@ -40,6 +40,12 @@ The intellectual core is the model, evidence registry, equations, uncertainty st
 
 ## Canonical system decomposition
 
+The [module and extension API](MODULE_API.md) defines versioned, typed exchange
+contracts across these domains. Its first executable adapter accepts explicit
+annual health-hazard modules while retaining the current engine's stock/flow
+ownership. Other domain adapters remain staged work; the contracts do not
+activate their mechanisms or change the v0.1 scientific gate.
+
 ```text
 Agriculture
     ↓

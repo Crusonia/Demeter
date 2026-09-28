@@ -48,5 +48,10 @@ def test_existing_model_datasets_rebuild_from_store_without_network(tmp_path, mo
         shutil.copyfile(BUNDLE / manifest, tmp_path / manifest)
     rebuild(Path("data/sources/baseline/2026-09-26"), tmp_path)
     rebuild_history(Path("data/sources/historical/2026-09-26"), tmp_path)
-    for bundle in ("us_baseline.json", "historical.json"):
+    for bundle in (
+        "us_baseline.json",
+        "historical.json",
+        "manifest.json",
+        "historical_manifest.json",
+    ):
         assert (tmp_path / bundle).read_bytes() == (BUNDLE / bundle).read_bytes()

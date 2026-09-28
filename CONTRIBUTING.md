@@ -6,12 +6,24 @@ a competing hypothesis, or a confusing setup step can be as useful as code.
 Start with [the project introduction](docs/START_HERE.md) and
 [installation instructions](docs/GETTING_STARTED.md).
 
+Participation follows the [code of conduct](CODE_OF_CONDUCT.md). Good-faith
+challenges to the Food is Health thesis, null results, and competing explanations
+are welcome; agreement with a preferred conclusion is never a review criterion.
+
 ## Choose a contribution
 
 Use [issues](https://github.com/Crusonia/Demeter/issues/new/choose) for setup bugs,
 questions, evidence, and scenario proposals. You do not need a finished solution.
 For a new scientific mechanism, propose the decision/question, causal path,
 supporting and conflicting evidence, and validation plan before building it.
+
+For material model or evidence changes, use the **Scientific model or evidence
+change** issue form and the [scientific RFC process](docs/rfcs/README.md).
+The [scientific review rules](docs/SCIENTIFIC_REVIEW.md) explain which changes need
+an RFC, the before/after evidence record, review responsibilities, and conflict
+disclosures. Major architecture decisions also use the
+[decision log](docs/decisions/README.md). Small corrections can use the PR record
+when the review rules permit it; a question does not require a finished RFC.
 
 Use the [model-design inputs](docs/design/README.md) to connect that proposal to
 the relevant loop/pathway, externality, input-package, and formulation/test IDs.
@@ -62,6 +74,7 @@ uv run demeter validate
 uv run python -X utf8 -m pytest
 uv run ruff check .
 uv run python scripts/verify_source_archive.py --rebuild
+uv run demeter data verify-packages --check-tracked
 ```
 
 For rendering changes, also generate the report and inspect it; the CI browser
@@ -108,6 +121,13 @@ Scientific changes need traceable sources, explicit definitions/units, uncertain
 and a record of what changed in validation. Review disagreement through testable
 claims and competing evidence. Keep discussion respectful and avoid personal attacks.
 See [governance](GOVERNANCE.md) for maintainer commands and the exact controls.
+
+For material scientific changes, record software assessment, scientific review,
+maintainer disposition, and permitted scientific use separately, using the PR
+template. Disclose relevant funding, employment, advisory roles, equity interests,
+or authorship of evidence being assessed, or state that no relevant conflicts are
+known. Reviewers and maintainers disclose too. Pending domain review stays pending;
+an engineering merge does not make a model scientifically accepted.
 
 ## Attribution and reuse
 

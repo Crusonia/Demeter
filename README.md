@@ -42,6 +42,12 @@ Food is Health thesis. Current dietary scenario outputs remain **validation-only
 
 ## What Demeter is intended to reveal
 
+Researchers can now use the [module API](docs/MODULE_API.md) to supply explicit
+health-transition equations from Python or the CLI. Typed exchanges validate
+units, labelled shapes, timing and evidence dependencies; examples reproduce the
+canonical model or run a no-diet-effect alternative. Broader module contracts
+are documented without activating later-phase models.
+
 The [food-leverage report](docs/LEVERAGE.md) now explains modeled healthspan and
 T2D-entry changes through explicit dietary hazard pathways. It includes paired
 sensitivity, sampling intervals, evidence status and historical context, with

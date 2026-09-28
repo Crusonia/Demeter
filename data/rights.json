@@ -1,0 +1,616 @@
+{
+  "schema_version": 1,
+  "policies": {
+    "cdc": {
+      "title": "CDC agency materials",
+      "terms_urls": [
+        "https://www.cdc.gov/other/agencymaterials.html"
+      ],
+      "checked_on": "2026-09-28",
+      "redistribution": "conditional",
+      "download": "Public official source URLs; original materials are available free from CDC.",
+      "transform": "Separate Demeter analyses from unmodified agency originals.",
+      "conditions": [
+        "Credit CDC/NCHS and display non-endorsement and free-source notices.",
+        "Preserve substantive source content. Label historical snapshots and derived analyses.",
+        "Third-party material, marks, and foreign rights require separate consideration."
+      ]
+    },
+    "nhanes": {
+      "title": "NCHS public-use survey data",
+      "terms_urls": [
+        "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+        "https://www.cdc.gov/other/agencymaterials.html"
+      ],
+      "checked_on": "2026-09-28",
+      "redistribution": "conditional",
+      "download": "Public-use files only, under the NCHS data user agreement.",
+      "transform": "Statistical analysis/reporting with documented survey design, weights and transformations.",
+      "conditions": [
+        "No identification, linkage to individually identifiable data, or research to defeat disclosure protections.",
+        "Credit CDC/NCHS; preserve public-use restrictions and source vintage with copies.",
+        "Public use does not authorize restricted NHANES or identifiable clinical records."
+      ]
+    },
+    "census": {
+      "title": "Census public statistical data and metadata",
+      "terms_urls": [
+        "https://www2.census.gov/foia/ds_policies/ds027.pdf"
+      ],
+      "checked_on": "2026-09-28",
+      "redistribution": "conditional",
+      "download": "Public PEP/ACS data and metadata endpoints; API credentials stay private.",
+      "transform": "Label Demeter transformations and preserve source definitions and vintage.",
+      "conditions": [
+        "Census employee works generally have no U.S. copyright protection; foreign and third-party rights may differ.",
+        "Credit U.S. Census Bureau; this classification covers these public aggregate/metadata artifacts, not restricted microdata."
+      ]
+    },
+    "usda": {
+      "title": "USDA agency data",
+      "terms_urls": [
+        "https://www.usda.gov/about-usda/policies-and-links"
+      ],
+      "checked_on": "2026-09-28",
+      "redistribution": "conditional",
+      "download": "Public ERS CSV endpoint.",
+      "transform": "Attribute USDA ERS and document derived analyses.",
+      "conditions": [
+        "USDA public-domain information may be copied with attribution; third-party exceptions remain applicable.",
+        "No agency endorsement or logo rights are conveyed."
+      ]
+    },
+    "niddk": {
+      "title": "NIDDK agency content",
+      "terms_urls": [
+        "https://www.niddk.nih.gov/copyright"
+      ],
+      "checked_on": "2026-09-28",
+      "redistribution": "conditional",
+      "download": "Official public NIH article HTML.",
+      "transform": "Keep original archived HTML distinct from Demeter extracts and analyses.",
+      "conditions": [
+        "Credit NIDDK. Majority of content is copyright free; third-party content/graphics have separate rights.",
+        "No logo or endorsement permission is conveyed; no remote images are bundled."
+      ]
+    },
+    "clinicaltrials": {
+      "title": "ClinicalTrials.gov database terms",
+      "terms_urls": [
+        "https://clinicaltrials.gov/about-site/terms-conditions"
+      ],
+      "checked_on": "2026-09-28",
+      "redistribution": "conditional",
+      "download": "Official public API; downloading is subject to the site terms.",
+      "transform": "Describe modifications, cite registry IDs and preserve sponsor-submitted status.",
+      "conditions": [
+        "Attribute ClinicalTrials.gov, retain processing date, describe modifications, and consult live records for updates.",
+        "These are explicitly historical snapshots, not a current clinical-trial directory. Terms call for current data in distributions; current-use republication requires checking/updating the live record.",
+        "Do not assert proprietary database rights or use extracted email addresses for promotion. International and third-party copyright can apply."
+      ]
+    },
+    "cc_by": {
+      "title": "Article-specific CC-BY attribution",
+      "terms_urls": [
+        "https://jamanetwork.com/pages/cc-by-license-permissions"
+      ],
+      "checked_on": "2026-09-28",
+      "redistribution": "conditional",
+      "download": "Public article under the article-specific license recorded in its receipt.",
+      "transform": "Cite authors, journal, DOI and license; identify extraction and changes.",
+      "conditions": [
+        "Preserve attribution and license notice; article reuse rights do not grant access to underlying patient records.",
+        "Do not guess a Creative Commons version when the recorded notice only says CC-BY."
+      ]
+    },
+    "facts": {
+      "title": "Limited factual extraction; no article republication",
+      "terms_urls": [
+        "https://www.copyright.gov/what-is-copyright/"
+      ],
+      "checked_on": "2026-09-28",
+      "redistribution": "facts_only",
+      "download": "Obtain the linked article through a permitted publisher/public repository access route.",
+      "transform": "Only the cited numeric observations and Demeter-authored structure are redistributed.",
+      "conditions": [
+        "Facts are distinguished from protected expression. This is not a license for the full article, figure, table layout, or other third-party content.",
+        "Preserve author/journal/DOI and exact extraction locator; re-evaluate rights before expanding the extraction."
+      ]
+    },
+    "article_fetch_only": {
+      "title": "Copyrighted article; no redistribution permission recorded",
+      "terms_urls": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7871207/"
+      ],
+      "checked_on": "2026-09-28",
+      "redistribution": "not_permitted",
+      "download": "Obtain through authorized public/publisher access into ignored local storage; no bypass of access controls.",
+      "transform": "Re-extract cited numeric facts with the pinned locator; do not republish article text.",
+      "conditions": [
+        "No full-text redistribution permission is recorded for the ARIC article. The package contains citations, receipts and numeric facts only.",
+        "A public PMC URL is not a blanket redistribution license."
+      ]
+    }
+  },
+  "source_files": {
+    "data/sources/glp1/2026-09-28/NCT03548935.json": {
+      "policy": "clinicaltrials",
+      "privacy": "aggregate",
+      "publisher": "ClinicalTrials.gov / NIH NLM; sponsor-submitted results",
+      "vintage": "Record last update posted 2021-11-19; ClinicalTrials.gov processing version 2026-09-25",
+      "citation": "ClinicalTrials.gov / NIH NLM; sponsor-submitted results. ClinicalTrials.gov. NCT03548935. STEP 1: Research Study Investigating How Well Semaglutide Works in People Suffering From Overweight or Obesity",
+      "notes": "Unmodified historical API response with aggregate trial results and public professional contacts, not participant-level data; consult the source URL for current information.",
+      "url": "https://clinicaltrials.gov/api/v2/studies/NCT03548935",
+      "sha256": "977217a7de412721d84fd42ab8c48d806aba8dcc18a7141950f4aa2d93fec1a3",
+      "retrieved_at": "2026-09-28T02:31:44.885648+00:00"
+    },
+    "data/sources/glp1/2026-09-28/NCT03548987.json": {
+      "policy": "clinicaltrials",
+      "privacy": "aggregate",
+      "publisher": "ClinicalTrials.gov / NIH NLM; sponsor-submitted results",
+      "vintage": "Record last update posted 2022-01-19; ClinicalTrials.gov processing version 2026-09-25",
+      "citation": "ClinicalTrials.gov / NIH NLM; sponsor-submitted results. ClinicalTrials.gov. NCT03548987. Research Study Investigating How Well Semaglutide Works in People Suffering From Overweight or Obesity",
+      "notes": "Unmodified historical API response with aggregate trial results and public professional contacts, not participant-level data; consult the source URL for current information.",
+      "url": "https://clinicaltrials.gov/api/v2/studies/NCT03548987",
+      "sha256": "9ea3d4279ca4044d2a6566dbb908bd1ba7391ab16909fab5c334cefe96f0a7ab",
+      "retrieved_at": "2026-09-28T02:31:44.885648+00:00"
+    },
+    "data/sources/glp1/2026-09-28/persistence-extract.json": {
+      "policy": "cc_by",
+      "privacy": "aggregate",
+      "publisher": "Demeter factual extraction from Rodriguez et al., JAMA Network Open",
+      "vintage": "2025 publication; follow-up through 2024-11-05",
+      "citation": "Demeter factual extraction from Rodriguez et al., JAMA Network Open. Rodriguez et al. JAMA Network Open. 2025;8(1):e2457349. doi:10.1001/jamanetworkopen.2024.57349 Abstract Results; Figure 1; Tables 1 and 2",
+      "notes": "Demeter-authored factual extraction, not publisher JSON; no patient records or full article included.",
+      "url": "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2829779",
+      "sha256": "55da3dd05f1383a5c0f7eba7012785ddc0a597cc2ac2729a033e4d16c2980370",
+      "retrieved_at": "2026-09-28T02:31:44.886364+00:00"
+    },
+    "data/sources/diet-dynamics/2026-09-27/look-ahead-extract.json": {
+      "policy": "facts",
+      "privacy": "aggregate",
+      "publisher": "Demeter factual extraction from Gregg et al., JAMA 2012",
+      "vintage": "2012 publication; annual follow-up years 1-4",
+      "citation": "Demeter factual extraction from Gregg et al., JAMA 2012. Gregg EW et al. JAMA. 2012;308(23):2489-2496. doi:10.1001/jama.2012.67929 Figure 2 caption, complete-case results",
+      "notes": "Demeter-authored factual extraction, not publisher JSON; no patient records or full article included.",
+      "url": "https://jamanetwork.com/journals/jama/fullarticle/1486829",
+      "sha256": "7d4c764390654ab343c2bb54d7c17d43943a9a21c3e6c1bb13b933310aa73939",
+      "retrieved_at": "2026-09-28T01:56:53.947088+00:00"
+    },
+    "data/sources/diet-dynamics/2026-09-27/niddk-look-ahead.html": {
+      "policy": "niddk",
+      "privacy": "publication",
+      "publisher": "NIDDK/NIH",
+      "vintage": "2013 report on Look AHEAD follow-up",
+      "citation": "NIDDK/NIH. NIDDK. Health effects of diet and exercise in adults with type 2 diabetes and obesity. 2013.",
+      "notes": "Unmodified source snapshot; source terms apply separately from Demeter MIT code.",
+      "url": "https://www.niddk.nih.gov/news/archive/2013/health-effects-diet-exercise-adults-type-2-diabetes-obesity",
+      "sha256": "928016bc164605b8b126f49656f1e02161121209136a4acdf5f8ec630357723b",
+      "retrieved_at": "2026-09-28T01:52:33.712878+00:00"
+    },
+    "data/sources/dietary/2026-09-27/DEMO_D.xpt": {
+      "policy": "nhanes",
+      "privacy": "public_use_microdata",
+      "publisher": "CDC/NCHS; USDA WWEIA for dietary recalls",
+      "vintage": "2005-2006",
+      "citation": "CDC/NCHS; USDA WWEIA for dietary recalls. DEMO_D.xpt",
+      "notes": "Deidentified public-use survey records; SEQN is a survey linkage key, not permission for identification.",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/DEMO_D.xpt",
+      "sha256": "bf9cc79cce501b2fbe5aa8d5b403b618548d02d4aefeb528335cdd9f4c40a3af",
+      "retrieved_at": "2026-09-28T01:20:50.856184+00:00"
+    },
+    "data/sources/dietary/2026-09-27/DEMO_H.xpt": {
+      "policy": "nhanes",
+      "privacy": "public_use_microdata",
+      "publisher": "CDC/NCHS; USDA WWEIA for dietary recalls",
+      "vintage": "2013-2014",
+      "citation": "CDC/NCHS; USDA WWEIA for dietary recalls. DEMO_H.xpt",
+      "notes": "Deidentified public-use survey records; SEQN is a survey linkage key, not permission for identification.",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2013/DataFiles/DEMO_H.xpt",
+      "sha256": "f8f0cbb3085a323d4cde22349b164878fea1e64dbc404e65b5815c7816b547d7",
+      "retrieved_at": "2026-09-28T01:20:54.295772+00:00"
+    },
+    "data/sources/dietary/2026-09-27/DEMO_L.xpt": {
+      "policy": "nhanes",
+      "privacy": "public_use_microdata",
+      "publisher": "CDC/NCHS; USDA WWEIA for dietary recalls",
+      "vintage": "August 2021-August 2023",
+      "citation": "CDC/NCHS; USDA WWEIA for dietary recalls. DEMO_L.xpt",
+      "notes": "Deidentified public-use survey records; SEQN is a survey linkage key, not permission for identification.",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/DEMO_L.xpt",
+      "sha256": "ca4374a158b493b8b0163e1388da21d57a18d1b9cecff2aa4e2fa2bec494fe23",
+      "retrieved_at": "2026-09-28T01:20:58.006417+00:00"
+    },
+    "data/sources/dietary/2026-09-27/DR1TOT_D.xpt": {
+      "policy": "nhanes",
+      "privacy": "public_use_microdata",
+      "publisher": "CDC/NCHS; USDA WWEIA for dietary recalls",
+      "vintage": "2005-2006",
+      "citation": "CDC/NCHS; USDA WWEIA for dietary recalls. DR1TOT_D.xpt",
+      "notes": "Deidentified public-use survey records; SEQN is a survey linkage key, not permission for identification.",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2005/DataFiles/DR1TOT_D.xpt",
+      "sha256": "83a720fba7e4d6832058b1142fb4060e590d3b83607029117cfa078bcb1214fb",
+      "retrieved_at": "2026-09-28T01:20:53.363464+00:00"
+    },
+    "data/sources/dietary/2026-09-27/DR1TOT_H.xpt": {
+      "policy": "nhanes",
+      "privacy": "public_use_microdata",
+      "publisher": "CDC/NCHS; USDA WWEIA for dietary recalls",
+      "vintage": "2013-2014",
+      "citation": "CDC/NCHS; USDA WWEIA for dietary recalls. DR1TOT_H.xpt",
+      "notes": "Deidentified public-use survey records; SEQN is a survey linkage key, not permission for identification.",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2013/DataFiles/DR1TOT_H.xpt",
+      "sha256": "4fc45d48cf8a4bdcca615efa895e7e05414ca4d549bd75c8115e06abcc86cdc3",
+      "retrieved_at": "2026-09-28T01:20:56.910997+00:00"
+    },
+    "data/sources/dietary/2026-09-27/DR1TOT_L.xpt": {
+      "policy": "nhanes",
+      "privacy": "public_use_microdata",
+      "publisher": "CDC/NCHS; USDA WWEIA for dietary recalls",
+      "vintage": "August 2021-August 2023",
+      "citation": "CDC/NCHS; USDA WWEIA for dietary recalls. DR1TOT_L.xpt",
+      "notes": "Deidentified public-use survey records; SEQN is a survey linkage key, not permission for identification.",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/DR1TOT_L.xpt",
+      "sha256": "73a3097aab64000f9c1d138367363ca605968b691e349981132bd6032ca6c9ef",
+      "retrieved_at": "2026-09-28T01:21:00.472230+00:00"
+    },
+    "data/sources/dietary/2026-09-27/P_DR1TOT.xpt": {
+      "policy": "nhanes",
+      "privacy": "public_use_microdata",
+      "publisher": "CDC/NCHS; USDA WWEIA for dietary recalls",
+      "vintage": "2017-March 2020",
+      "citation": "CDC/NCHS; USDA WWEIA for dietary recalls. P_DR1TOT.xpt",
+      "notes": "Deidentified public-use survey records; SEQN is a survey linkage key, not permission for identification.",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_DR1TOT.xpt",
+      "sha256": "02cf0fcb15cdef9442594747a6699c43a65fd280f0f807e82ca0b888b0d97b5e",
+      "retrieved_at": "2026-09-28T01:21:04.160020+00:00"
+    },
+    "data/sources/dietary/2026-09-27/db536.htm": {
+      "policy": "cdc",
+      "privacy": "aggregate",
+      "publisher": "CDC/NCHS; USDA WWEIA for dietary recalls",
+      "vintage": "August 2025 publication; 2013-2023 estimates",
+      "citation": "CDC/NCHS; USDA WWEIA for dietary recalls. db536.htm",
+      "notes": "Unmodified source snapshot; source terms apply separately from Demeter MIT code.",
+      "url": "https://www.cdc.gov/nchs/products/databriefs/db536.htm",
+      "sha256": "6a47c89ccf6cab4390f7a2eb71248bdbd7f39995b6c9e986002913ef57da68ed",
+      "retrieved_at": "2026-09-28T01:21:04.759796+00:00"
+    },
+    "data/sources/nhanes-risk/2017-2020/P_BMX.xpt": {
+      "policy": "nhanes",
+      "privacy": "public_use_microdata",
+      "publisher": "CDC/NCHS",
+      "vintage": "NHANES 2017-March 2020 prepandemic",
+      "citation": "CDC/NCHS. P_BMX.xpt",
+      "notes": "Deidentified public-use survey records; SEQN is a survey linkage key, not permission for identification.",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_BMX.xpt",
+      "sha256": "7038d0da3169420a4a3cbaec09ac586a701b38e1c7b925431b60e13ac24fed66",
+      "retrieved_at": "2026-09-28T00:58:46.025276+00:00"
+    },
+    "data/sources/nhanes-risk/2017-2020/P_BPQ.xpt": {
+      "policy": "nhanes",
+      "privacy": "public_use_microdata",
+      "publisher": "CDC/NCHS",
+      "vintage": "NHANES 2017-March 2020 prepandemic",
+      "citation": "CDC/NCHS. P_BPQ.xpt",
+      "notes": "Deidentified public-use survey records; SEQN is a survey linkage key, not permission for identification.",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_BPQ.xpt",
+      "sha256": "88af3557dd185cee2533c94c5302b361e89a54eb50754704f35d4e8120868c02",
+      "retrieved_at": "2026-09-28T00:58:47.553068+00:00"
+    },
+    "data/sources/nhanes-risk/2017-2020/P_BPXO.xpt": {
+      "policy": "nhanes",
+      "privacy": "public_use_microdata",
+      "publisher": "CDC/NCHS",
+      "vintage": "NHANES 2017-March 2020 prepandemic",
+      "citation": "CDC/NCHS. P_BPXO.xpt",
+      "notes": "Deidentified public-use survey records; SEQN is a survey linkage key, not permission for identification.",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_BPXO.xpt",
+      "sha256": "5edbcb81e99fe8dad38deb8b642570278b200c525d88ffa29ae3ceb4dd38bde4",
+      "retrieved_at": "2026-09-28T00:58:46.518147+00:00"
+    },
+    "data/sources/nhanes-risk/2017-2020/P_HDL.xpt": {
+      "policy": "nhanes",
+      "privacy": "public_use_microdata",
+      "publisher": "CDC/NCHS",
+      "vintage": "NHANES 2017-March 2020 prepandemic",
+      "citation": "CDC/NCHS. P_HDL.xpt",
+      "notes": "Deidentified public-use survey records; SEQN is a survey linkage key, not permission for identification.",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_HDL.xpt",
+      "sha256": "04a344f00fe34b3dc4202ee9e47cf61e67d1f985d7c9ece228e25caa85c7fbd7",
+      "retrieved_at": "2026-09-28T00:58:46.854761+00:00"
+    },
+    "data/sources/nhanes-risk/2017-2020/P_MCQ.xpt": {
+      "policy": "nhanes",
+      "privacy": "public_use_microdata",
+      "publisher": "CDC/NCHS",
+      "vintage": "NHANES 2017-March 2020 prepandemic",
+      "citation": "CDC/NCHS. P_MCQ.xpt",
+      "notes": "Deidentified public-use survey records; SEQN is a survey linkage key, not permission for identification.",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_MCQ.xpt",
+      "sha256": "1de8e4e184ed375fddc053dbb5b82db13ee55e4d4d0ae12da9e407537230125c",
+      "retrieved_at": "2026-09-28T00:58:49.295177+00:00"
+    },
+    "data/sources/nhanes-risk/2017-2020/P_TRIGLY.xpt": {
+      "policy": "nhanes",
+      "privacy": "public_use_microdata",
+      "publisher": "CDC/NCHS",
+      "vintage": "NHANES 2017-March 2020 prepandemic",
+      "citation": "CDC/NCHS. P_TRIGLY.xpt",
+      "notes": "Deidentified public-use survey records; SEQN is a survey linkage key, not permission for identification.",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_TRIGLY.xpt",
+      "sha256": "d3eb2df386f24a559ae4db992f0ec9aaf3d2c0caec173aa1921e78100ee88b31",
+      "retrieved_at": "2026-09-28T00:58:47.167513+00:00"
+    },
+    "data/sources/healthspan/nchs-2001/statnt21.pdf": {
+      "policy": "cdc",
+      "privacy": "aggregate",
+      "publisher": "CDC/NCHS",
+      "vintage": "Statistical Notes 21, August 2001; illustration uses 1995 observations",
+      "citation": "CDC/NCHS. Summary Measures of Population Health: Methods for Calculating Healthy Life Expectancy",
+      "notes": "Unmodified source snapshot; source terms apply separately from Demeter MIT code.",
+      "url": "https://www.cdc.gov/nchs/data/statnt/statnt21.pdf",
+      "sha256": "9c1011f3103abc324a5ba27597e5a7b4e813eeae4bc46110034bbc2b19c147a2",
+      "retrieved_at": "2026-09-28T00:33:53.415190+00:00"
+    },
+    "data/sources/baseline/2026-09-26/census_2025.csv": {
+      "policy": "census",
+      "privacy": "aggregate",
+      "publisher": "U.S. Census Bureau",
+      "vintage": "2025 (using 2022–2024 estimates)",
+      "citation": "U.S. Census Bureau. Resident population by single year of age and sex, Vintage 2025",
+      "notes": "Unmodified source snapshot; source terms apply separately from Demeter MIT code.",
+      "url": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/national/asrh/nc-est2025-agesex-res.csv",
+      "sha256": "6436d4f6972d415caf14cb20776807bc031fc9f1bfc9d6ff26055d592a2b0230",
+      "retrieved_at": "2026-09-26T02:18:20.265271+00:00"
+    },
+    "data/sources/baseline/2026-09-26/nchs_2022_all.xlsx": {
+      "policy": "cdc",
+      "privacy": "aggregate",
+      "publisher": "CDC/NCHS",
+      "vintage": "2022",
+      "citation": "CDC/NCHS. United States Life Tables, 2022, Table 1",
+      "notes": "Unmodified source snapshot; source terms apply separately from Demeter MIT code.",
+      "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Publications/NVSR/74-02/table01.xlsx",
+      "sha256": "04e961f8668f1e863ca5bcd53586eec4b65735c89eb1a4301361f71d35a9d0fd",
+      "retrieved_at": "2026-09-26T02:18:20.198630+00:00"
+    },
+    "data/sources/baseline/2026-09-26/nchs_2022_female.xlsx": {
+      "policy": "cdc",
+      "privacy": "aggregate",
+      "publisher": "CDC/NCHS",
+      "vintage": "2022",
+      "citation": "CDC/NCHS. United States Life Tables, 2022, Table 3",
+      "notes": "Unmodified source snapshot; source terms apply separately from Demeter MIT code.",
+      "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Publications/NVSR/74-02/table03.xlsx",
+      "sha256": "d00c7ddf1b945918c67126f03f77a89e8ea9168500195e94679b4ab43ed412ed",
+      "retrieved_at": "2026-09-26T02:18:20.214558+00:00"
+    },
+    "data/sources/baseline/2026-09-26/nchs_2022_male.xlsx": {
+      "policy": "cdc",
+      "privacy": "aggregate",
+      "publisher": "CDC/NCHS",
+      "vintage": "2022",
+      "citation": "CDC/NCHS. United States Life Tables, 2022, Table 2",
+      "notes": "Unmodified source snapshot; source terms apply separately from Demeter MIT code.",
+      "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Publications/NVSR/74-02/table02.xlsx",
+      "sha256": "3b4be1cd02973474d59a30a3cceb0fe8bae88add78ff478b79ca7c9105b2e227",
+      "retrieved_at": "2026-09-26T02:18:20.207667+00:00"
+    },
+    "data/sources/baseline/2026-09-26/nchs_2023_all.xlsx": {
+      "policy": "cdc",
+      "privacy": "aggregate",
+      "publisher": "CDC/NCHS",
+      "vintage": "2023",
+      "citation": "CDC/NCHS. United States Life Tables, 2023, Table 1",
+      "notes": "Unmodified source snapshot; source terms apply separately from Demeter MIT code.",
+      "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Publications/NVSR/74-06/Table01.xlsx",
+      "sha256": "9626e4b04280b843f20ead87ae8c4d99a385fe368e836ea1ef54d897c1f7a4cf",
+      "retrieved_at": "2026-09-26T02:18:20.221741+00:00"
+    },
+    "data/sources/baseline/2026-09-26/nchs_2023_female.xlsx": {
+      "policy": "cdc",
+      "privacy": "aggregate",
+      "publisher": "CDC/NCHS",
+      "vintage": "2023",
+      "citation": "CDC/NCHS. United States Life Tables, 2023, Table 3",
+      "notes": "Unmodified source snapshot; source terms apply separately from Demeter MIT code.",
+      "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Publications/NVSR/74-06/Table03.xlsx",
+      "sha256": "15b2dfe31dbefdeba17ca2d26d8684c821d18ca4a74252b57623299ecc15e8d6",
+      "retrieved_at": "2026-09-26T02:18:20.236778+00:00"
+    },
+    "data/sources/baseline/2026-09-26/nchs_2023_male.xlsx": {
+      "policy": "cdc",
+      "privacy": "aggregate",
+      "publisher": "CDC/NCHS",
+      "vintage": "2023",
+      "citation": "CDC/NCHS. United States Life Tables, 2023, Table 2",
+      "notes": "Unmodified source snapshot; source terms apply separately from Demeter MIT code.",
+      "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Publications/NVSR/74-06/Table02.xlsx",
+      "sha256": "80dda2d2a8109e7c1221c6dd5f6adcda75b819f383088e6aca05eec5a9e31015",
+      "retrieved_at": "2026-09-26T02:18:20.229267+00:00"
+    },
+    "data/sources/baseline/2026-09-26/nchs_2024_all.xlsx": {
+      "policy": "cdc",
+      "privacy": "aggregate",
+      "publisher": "CDC/NCHS",
+      "vintage": "2024",
+      "citation": "CDC/NCHS. United States Life Tables, 2024, Table 1",
+      "notes": "Unmodified source snapshot; source terms apply separately from Demeter MIT code.",
+      "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Publications/NVSR/75-05/Table01.xlsx",
+      "sha256": "d9ce5588403433666c26eaf178ed7afd0cd591c65b3b08dcba2b76fcf5dcdd3c",
+      "retrieved_at": "2026-09-26T02:18:20.243522+00:00"
+    },
+    "data/sources/baseline/2026-09-26/nchs_2024_female.xlsx": {
+      "policy": "cdc",
+      "privacy": "aggregate",
+      "publisher": "CDC/NCHS",
+      "vintage": "2024",
+      "citation": "CDC/NCHS. United States Life Tables, 2024, Table 3",
+      "notes": "Unmodified source snapshot; source terms apply separately from Demeter MIT code.",
+      "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Publications/NVSR/75-05/Table03.xlsx",
+      "sha256": "3024d85dc0566dfad80a4ea76dc988694f7a276a6f15e6b2316ad5e9cf5477ef",
+      "retrieved_at": "2026-09-26T02:18:20.258552+00:00"
+    },
+    "data/sources/baseline/2026-09-26/nchs_2024_male.xlsx": {
+      "policy": "cdc",
+      "privacy": "aggregate",
+      "publisher": "CDC/NCHS",
+      "vintage": "2024",
+      "citation": "CDC/NCHS. United States Life Tables, 2024, Table 2",
+      "notes": "Unmodified source snapshot; source terms apply separately from Demeter MIT code.",
+      "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Publications/NVSR/75-05/Table02.xlsx",
+      "sha256": "f7908e92f47f6250308d671abb0a30b74f86aa5d3e6d402a5d092054ed8a5ea0",
+      "retrieved_at": "2026-09-26T02:18:20.250937+00:00"
+    },
+    "data/sources/historical/2026-09-26/nchs_life_expectancy.csv": {
+      "policy": "cdc",
+      "privacy": "aggregate",
+      "publisher": "CDC/NCHS, NVSS",
+      "vintage": "2020-09-08 data revision",
+      "citation": "CDC/NCHS, NVSS. nchs_life_expectancy.csv",
+      "notes": "Unmodified source snapshot; source terms apply separately from Demeter MIT code.",
+      "url": "https://data.cdc.gov/api/views/w9j2-ggv5/rows.csv?accessType=DOWNLOAD",
+      "sha256": "c2473acf4bcc22c876ebd67abf131e89ea46c3ed35f1cdf23025301ac39b3bdf",
+      "retrieved_at": "2026-09-26T12:18:29.759871+00:00"
+    },
+    "data/sources/historical/2026-09-26/nhis_diabetes.csv": {
+      "policy": "cdc",
+      "privacy": "aggregate",
+      "publisher": "CDC, U.S. Diabetes Surveillance System / NHIS",
+      "vintage": "2026-06-23 data revision",
+      "citation": "CDC, U.S. Diabetes Surveillance System / NHIS. nhis_diabetes.csv",
+      "notes": "Unmodified source snapshot; source terms apply separately from Demeter MIT code.",
+      "url": "https://data.cdc.gov/resource/c9xs-vhst.csv?%24where=indicator%3D%27Diagnosed+Diabetes%27+AND+unit%3D%27Percentage%27+AND+race%3D%27All%27+AND+education%3D%27All%27+AND+sex%3D%27All%27+AND+population%3D%27Adults+Aged+18%2B+Years%27&%24limit=50000&%24order=year%2Cage",
+      "sha256": "a410a56fa5d602cdb74d200b66e90fea24f138b7c56a09b524179c3d4eee517e",
+      "retrieved_at": "2026-09-26T12:18:29.759925+00:00"
+    },
+    "data/sources/historical/2026-09-26/sweeteners.csv": {
+      "policy": "usda",
+      "privacy": "aggregate",
+      "publisher": "USDA ERS",
+      "vintage": "2024-09-27",
+      "citation": "USDA ERS. sweeteners.csv",
+      "notes": "Unmodified source snapshot; source terms apply separately from Demeter MIT code.",
+      "url": "https://www.ers.usda.gov/media/5365/sugar-and-sweeteners-added.csv?v=30567",
+      "sha256": "bd96e269175ecac4c4b411f69171bc31cb4a2fc6cb00c35a1ab7e8919a8fd1ce",
+      "retrieved_at": "2026-09-26T12:18:29.760744+00:00"
+    },
+    "data/sources/nhanes/2017-2020/P_DEMO.xpt": {
+      "policy": "nhanes",
+      "privacy": "public_use_microdata",
+      "publisher": "CDC/NCHS",
+      "vintage": "2017-March 2020; published May 2021",
+      "citation": "CDC/NCHS. Demographics and survey design",
+      "notes": "Deidentified public-use survey records; SEQN is a survey linkage key, not permission for identification.",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_DEMO.xpt",
+      "sha256": "2e46c6c26bf77cd8989f64011ace12cbf42c0f3e03414eb59acc5328c8f87913",
+      "retrieved_at": "2026-09-27T23:44:56.308480+00:00"
+    },
+    "data/sources/nhanes/2017-2020/P_DIQ.xpt": {
+      "policy": "nhanes",
+      "privacy": "public_use_microdata",
+      "publisher": "CDC/NCHS",
+      "vintage": "2017-March 2020; published May 2021",
+      "citation": "CDC/NCHS. Diabetes questionnaire",
+      "notes": "Deidentified public-use survey records; SEQN is a survey linkage key, not permission for identification.",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_DIQ.xpt",
+      "sha256": "79153f799fc2171792771c4aa250029c62807f14915f1f81405b03233b1e5ae3",
+      "retrieved_at": "2026-09-27T23:44:57.239854+00:00"
+    },
+    "data/sources/nhanes/2017-2020/P_GHB.xpt": {
+      "policy": "nhanes",
+      "privacy": "public_use_microdata",
+      "publisher": "CDC/NCHS",
+      "vintage": "2017-March 2020; published May 2021",
+      "citation": "CDC/NCHS. Glycohemoglobin",
+      "notes": "Deidentified public-use survey records; SEQN is a survey linkage key, not permission for identification.",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_GHB.xpt",
+      "sha256": "dac9e423f56041c2ec46486cb16be16d3347e0a81a575985882ffad5a60e1195",
+      "retrieved_at": "2026-09-27T23:44:57.486688+00:00"
+    },
+    "data/sources/nhanes/2017-2020/P_GLU.xpt": {
+      "policy": "nhanes",
+      "privacy": "public_use_microdata",
+      "publisher": "CDC/NCHS",
+      "vintage": "2017-March 2020; published May 2021",
+      "citation": "CDC/NCHS. Fasting plasma glucose",
+      "notes": "Deidentified public-use survey records; SEQN is a survey linkage key, not permission for identification.",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_GLU.xpt",
+      "sha256": "91b83c46fb4707c431838159135e93693a0572bce54074f5a890f0ee104732b3",
+      "retrieved_at": "2026-09-27T23:44:57.698973+00:00"
+    },
+    "data/sources/official-json/2026-09-27/cdc_diabetes.json": {
+      "policy": "cdc",
+      "privacy": "aggregate",
+      "publisher": "CDC/NCHS",
+      "vintage": "CDC response snapshot 2026-09-27; filtered diagnosed diabetes series",
+      "citation": "CDC/NCHS. cdc_diabetes.json",
+      "notes": "Unmodified source snapshot; source terms apply separately from Demeter MIT code. Historical reference only; not an engine input.",
+      "url": "https://data.cdc.gov/resource/c9xs-vhst.json?%24where=indicator%3D%27Diagnosed+Diabetes%27+AND+unit%3D%27Percentage%27+AND+race%3D%27All%27+AND+education%3D%27All%27+AND+sex%3D%27All%27+AND+population%3D%27Adults+Aged+18%2B+Years%27&%24limit=50000&%24order=year%2Cage",
+      "sha256": "2d4f5cd15718c86e85ab1e37a1eaf35d460bcf841637db7713c0105745b63a02",
+      "retrieved_at": "2026-09-27T23:56:27.679228+00:00"
+    },
+    "data/sources/official-json/2026-09-27/cdc_mortality.json": {
+      "policy": "cdc",
+      "privacy": "aggregate",
+      "publisher": "CDC/NCHS",
+      "vintage": "CDC response snapshot 2026-09-27; historical life expectancy series",
+      "citation": "CDC/NCHS. cdc_mortality.json",
+      "notes": "Unmodified source snapshot; source terms apply separately from Demeter MIT code. Historical reference only; not an engine input.",
+      "url": "https://data.cdc.gov/resource/w9j2-ggv5.json?$where=race=%27All%20Races%27&$limit=5000&$order=year,sex",
+      "sha256": "eb15c9f323d746b5a326f37960c35912efa213842e6ea19a528a91ea9b0203da",
+      "retrieved_at": "2026-09-27T23:56:27.289239+00:00"
+    },
+    "data/sources/official-json/2026-09-27/census_age_sex_metadata.json": {
+      "policy": "census",
+      "privacy": "metadata",
+      "publisher": "U.S. Census Bureau",
+      "vintage": "ACS 2024 B01001 metadata snapshot 2026-09-27",
+      "citation": "U.S. Census Bureau. census_age_sex_metadata.json",
+      "notes": "Unmodified source snapshot; source terms apply separately from Demeter MIT code. Discovery/reference only; metadata is not population observations.",
+      "url": "https://api.census.gov/data/2024/acs/acs1/groups/B01001.json",
+      "sha256": "16a70b511baaa452445337f234ecc4f31b01324dbffe3e6b568b633a4fa3c78a",
+      "retrieved_at": "2026-09-27T23:56:28.191239+00:00"
+    },
+    "data/sources/official-json/2026-09-27/census_population_estimates_metadata.json": {
+      "policy": "census",
+      "privacy": "metadata",
+      "publisher": "U.S. Census Bureau",
+      "vintage": "PEP 2023 charv metadata snapshot 2026-09-27",
+      "citation": "U.S. Census Bureau. census_population_estimates_metadata.json",
+      "notes": "Unmodified source snapshot; source terms apply separately from Demeter MIT code. Discovery/reference only; metadata is not population observations.",
+      "url": "https://api.census.gov/data/2023/pep/charv/variables.json",
+      "sha256": "45f43c587c4aa15ac2d8291480ee200a62eaf17f157b91509189f405783116aa",
+      "retrieved_at": "2026-09-27T23:56:28.708591+00:00"
+    }
+  },
+  "clinical_sources": {
+    "aric_rooney_2021_corrected": {
+      "policy": "article_fetch_only",
+      "privacy": "publication",
+      "publisher": "American Medical Association; authors named in citation",
+      "vintage": "2021 publication with April 2021 correction",
+      "citation": "Rooney MR et al. JAMA Internal Medicine. 2021;181(4):511-519. doi:10.1001/jamainternmed.2020.8774",
+      "notes": "Registry values are factual benchmark candidates, not calibrated national transition hazards.",
+      "distribution": "fetch_only",
+      "alternative": "Use the committed numeric estimates, intervals and locators in evidence/parameters.yaml for offline inspection. Re-extract with evidence verify-sources after obtaining matching source bytes. No substitute dataset silently replaces this source.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7871207/",
+      "sha256": "8fcfc3b18a8972b4321264b42cd60914f74bcd61728871450185d8099e3a971e",
+      "retrieved_at": "2026-09-26T03:10:55.299833+00:00"
+    },
+    "leadr_koyama_2022": {
+      "policy": "cc_by",
+      "privacy": "publication",
+      "publisher": "American Medical Association; authors named in citation",
+      "vintage": "2022 publication",
+      "citation": "Koyama AK et al. JAMA Network Open. 2022;5(4):e228158. doi:10.1001/jamanetworkopen.2022.8158",
+      "notes": "Registry values are factual benchmark candidates, not calibrated national transition hazards.",
+      "distribution": "fetch_only",
+      "alternative": "Use the committed numeric estimates, intervals and locators in evidence/parameters.yaml for offline inspection. Re-extract with evidence verify-sources after obtaining matching source bytes. No substitute dataset silently replaces this source.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9021905/",
+      "sha256": "11f57aa0827c0d26a096c046268aad39c70512b969da4659423458684ccfd085",
+      "retrieved_at": "2026-09-26T03:10:59.458462+00:00"
+    }
+  }
+}
