@@ -3,10 +3,11 @@ import { test } from "node:test";
 import { chartRows, csv, experimentSignature } from "../lib/data.mjs";
 test("tables preserve line values, missing values and heatmap coordinates", () => {
   assert.deepEqual(
-    chartRows({ data: [{ name: "Test", x: [0, 1], y: [7, null] }] }),
+    chartRows({ data: [{ name: "Test", x: [0, 1, null], y: [7, null, null] }] }),
     [
       { series: "Test", x: 0, y: 7, value: null },
       { series: "Test", x: 1, y: null, value: null },
+      { series: "Test", x: null, y: null, value: null },
     ],
   );
   assert.deepEqual(

@@ -8,8 +8,8 @@ export function chartRows(figure) {
         line.forEach((value, xi) =>
           rows.push({
             series,
-            x: trace.x?.[xi] ?? xi,
-            y: trace.y?.[yi] ?? yi,
+            x: Array.isArray(trace.x) ? (trace.x[xi] ?? null) : xi,
+            y: Array.isArray(trace.y) ? (trace.y[yi] ?? null) : yi,
             value,
           }),
         ),
@@ -19,7 +19,7 @@ export function chartRows(figure) {
       for (let i = 0; i < count; i++)
         rows.push({
           series,
-          x: trace.x?.[i] ?? i,
+          x: Array.isArray(trace.x) ? (trace.x[i] ?? null) : i,
           y: trace.y?.[i] ?? null,
           value: trace.text?.[i] ?? null,
         });
