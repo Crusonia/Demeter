@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "sources": {
+    "look-ahead-extract.json": {
+      "bytes": 2268,
+      "format": "JSON factual extraction, not official publisher JSON",
+      "model_role": "historical_challenge_only",
+      "publisher": "Demeter factual extraction from Gregg et al., JAMA 2012",
+      "retrieved_at": "2026-09-28T01:56:53.947088+00:00",
+      "sha256": "7d4c764390654ab343c2bb54d7c17d43943a9a21c3e6c1bb13b933310aa73939",
+      "url": "https://jamanetwork.com/journals/jama/fullarticle/1486829",
+      "use_terms": "Small factual data extraction and citation only; full copyrighted article is not redistributed",
+      "vintage": "2012 publication; annual follow-up years 1-4"
+    },
+    "niddk-look-ahead.html": {
+      "bytes": 40505,
+      "format": "HTML",
+      "model_role": "historical_challenge_only",
+      "publisher": "NIDDK/NIH",
+      "retrieved_at": "2026-09-28T01:52:33.712878+00:00",
+      "sha256": "928016bc164605b8b126f49656f1e02161121209136a4acdf5f8ec630357723b",
+      "url": "https://www.niddk.nih.gov/news/archive/2013/health-effects-diet-exercise-adults-type-2-diabetes-obesity",
+      "use_terms": "https://www.niddk.nih.gov/about-niddk/website-linking-policies",
+      "vintage": "2013 report on Look AHEAD follow-up"
+    }
+  }
+}

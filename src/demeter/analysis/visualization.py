@@ -342,10 +342,115 @@ def historical_figures(report: dict) -> dict[str, go.Figure]:
     return figures
 
 
+def diet_figures(payload: dict) -> dict[str, go.Figure]:
+    """Plot recorded response states; never recompute dynamics in the renderer."""
+    sim = payload["simulation"]
+    scenario = sim["metadata"]["scenario"]
+    if (
+        not scenario.get("upf_schedule")
+        and scenario.get("diet_response", {}).get("kind") != "dynamic"
+    ):
+        return {}
+    annual = sim["annual"]
+    years = [r["year"] for r in annual]
+    fig = go.Figure()
+    fig.add_trace(
+        go.Scatter(
+            x=[r["year"] - 1 for r in annual[1:]] + [years[-1]],
+            y=[r["relative_upf"] for r in annual[1:]] + [annual[-1]["relative_upf"]],
+            name="UPF input (start of year)",
+            line_shape="hv",
+        )
+    )
+    for field, label in (
+        ("applied_progression_multiplier", "Progression (year end)"),
+        ("applied_recovery_multiplier", "Recovery (year end)"),
+    ):
+        fig.add_trace(go.Scatter(x=years, y=[r[field] for r in annual], name=label))
+    result = {
+        "diet_response": styled(
+            fig,
+            "Diet schedule and delayed hazards — VALIDATION ONLY",
+            "Model year",
+            "Relative multiplier",
+        )
+    }
+    fig = go.Figure()
+    for field in ("cumulative_exposure_years", "cumulative_absolute_exposure_years"):
+        fig.add_trace(go.Scatter(x=years, y=[r[field] for r in annual], name=field))
+    result["diet_duration"] = styled(
+        fig,
+        "Exposure duration accounting — not irreversible damage",
+        "Model year",
+        "Relative exposure × years",
+    )
+    if scenario["diet_response"]["kind"] == "dynamic":
+        fig = go.Figure()
+        for field in ("shaped_dose", "fast_response", "retained_exposure", "recovery_response"):
+            fig.add_trace(go.Scatter(x=years, y=[r[field] for r in annual], name=field))
+        result["diet_memory"] = styled(
+            fig,
+            "Fast, fading-memory and recovery states — VALIDATION ONLY",
+            "Model year",
+            "Relative dose deviation",
+        )
+        timing = [
+            r
+            for r in payload["sensitivity"]["indices"]
+            if r["parameter"] in payload["sensitivity"]["timing_parameters"]
+        ]
+        fig = go.Figure(
+            go.Bar(
+                x=[r["total_order"] for r in timing],
+                y=[r["parameter"] for r in timing],
+                orientation="h",
+                error_x=dict(type="data", array=[r["total_order_conf_half_width"] for r in timing]),
+            )
+        )
+        result["diet_timing"] = styled(
+            fig,
+            "Timing within full parameter sensitivity — synthetic ranges",
+            "Total-order Sobol index",
+            "Parameter",
+        )
+    challenge = payload.get("diet_lag_challenge")
+    if challenge:
+        fig = go.Figure()
+        rows = challenge["observed_contrasts"]
+        fig.add_trace(
+            go.Scatter(
+                x=[r["year"] for r in rows],
+                y=[r["normalized"] for r in rows],
+                name="Observed trial contrast, normalized",
+                mode="lines+markers",
+            )
+        )
+        for curve in challenge["curves"]:
+            fig.add_trace(
+                go.Scatter(
+                    x=[r["year"] for r in curve["rows"]],
+                    y=[r["shortcut_normalized_response"] for r in curve["rows"]],
+                    name=f"Shortcut lag {curve['lag_years']:g} years",
+                    line_dash="dash",
+                )
+            )
+        result["diet_lag_challenge"] = styled(
+            fig,
+            "Historical shortcut challenge — curves are NOT model remission predictions",
+            "Follow-up year",
+            "Relative to first follow-up",
+        )
+    return result
+
+
 def build_figures(payload: dict) -> dict[str, go.Figure]:
     if payload.get("kind") != "demeter_observability" or payload.get("schema_version") != 1:
         raise ValueError("Expected canonical Demeter observability schema version 1")
-    return {**model_figures(payload), **historical_figures(payload["historical"])}
+    return {
+        **model_figures(payload),
+        **historical_figures(payload["historical"]),
+        **diet_figures(payload),
+    }
 
 
 def render_report(payload: dict, destination: Path) -> dict:

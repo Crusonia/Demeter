@@ -1,0 +1,147 @@
+{
+  "corroboration": [
+    {
+      "passed": true,
+      "value": 11.5,
+      "year": 1
+    },
+    {
+      "passed": true,
+      "value": 7.3,
+      "year": 4
+    }
+  ],
+  "facts": {
+    "artifact_type": "Demeter manual factual extraction; not publisher JSON",
+    "citation": "Gregg EW et al. JAMA. 2012;308(23):2489-2496.",
+    "control": "Diabetes support and education",
+    "doi": "10.1001/jama.2012.67929",
+    "evidence_grade": "B",
+    "intervention": "Intensive lifestyle program including diet, physical activity and weight loss; not an isolated UPF intervention",
+    "locator": "Figure 2 caption, complete-case results",
+    "notes": [
+      "Retain the Figure 2 caption's year-four lifestyle upper limit of 9.4 as printed. The abstract/main text's multiple-imputation analysis gives 8.4; these records do not silently combine the two analyses.",
+      "Counts reconcile to the reported rounded percentages. Attrition and repeated-measure covariance preclude treating annual differences as independent causal estimates.",
+      "No dose, lag, age modifier or remission hazard is inferred from these observations."
+    ],
+    "outcome": "Partial or complete diabetes remission at the annual visit, without antihyperglycemic medication",
+    "population": "U.S. Look AHEAD adults recruited at ages 45-76 with overweight/obesity and established type 2 diabetes; includes baseline insulin users",
+    "rows": [
+      {
+        "arm": "lifestyle",
+        "cases": 247,
+        "high": 12.8,
+        "low": 10.1,
+        "n": 2157,
+        "value": 11.5,
+        "year": 1
+      },
+      {
+        "arm": "lifestyle",
+        "cases": 218,
+        "high": 11.7,
+        "low": 9.1,
+        "n": 2090,
+        "value": 10.4,
+        "year": 2
+      },
+      {
+        "arm": "lifestyle",
+        "cases": 181,
+        "high": 9.9,
+        "low": 7.5,
+        "n": 2083,
+        "value": 8.7,
+        "year": 3
+      },
+      {
+        "arm": "lifestyle",
+        "cases": 150,
+        "high": 9.4,
+        "low": 6.2,
+        "n": 2056,
+        "value": 7.3,
+        "year": 4
+      },
+      {
+        "arm": "control",
+        "cases": 43,
+        "high": 2.6,
+        "low": 1.4,
+        "n": 2170,
+        "value": 2.0,
+        "year": 1
+      },
+      {
+        "arm": "control",
+        "cases": 48,
+        "high": 2.9,
+        "low": 1.6,
+        "n": 2101,
+        "value": 2.3,
+        "year": 2
+      },
+      {
+        "arm": "control",
+        "cases": 46,
+        "high": 2.8,
+        "low": 1.6,
+        "n": 2085,
+        "value": 2.2,
+        "year": 3
+      },
+      {
+        "arm": "control",
+        "cases": 41,
+        "high": 2.7,
+        "low": 1.5,
+        "n": 2042,
+        "value": 2.0,
+        "year": 4
+      }
+    ],
+    "schema_version": 1,
+    "source_url": "https://jamanetwork.com/journals/jama/fullarticle/1486829",
+    "status": "observed",
+    "uncertainty": "Published 95% confidence intervals; visits are repeated measures, covariance unavailable",
+    "unit": "percent"
+  },
+  "limitations": [
+    "Multicomponent lifestyle trial cannot identify a causal UPF coefficient, its lag, or national age-specific transition rates.",
+    "Trial remission is not model healthy state or ordinary prediabetes; diagnosed history and medication status require a separate observation model.",
+    "A lagged response is a hazard modifier, not remission prevalence; a direct response-to-prevalence shortcut is challenged, not treated as a valid calibration.",
+    "The engine currently leaves T2D absorbing. This known structural limitation remains visible and is not repaired by changing a lag.",
+    "Time-varying adherence, eligibility, duration of diabetes, attrition, relapse and changing treatment intensity are unresolved; no fitted optimum lag is reported."
+  ],
+  "model_role": "historical_challenge_only",
+  "provenance": {
+    "definition_sha256": "c9ac46f500b66b1c258ce00a45db823cb47628616eabcc9f3d5bc4b831cc2768",
+    "sources": {
+      "look-ahead-extract.json": {
+        "bytes": 2268,
+        "format": "JSON factual extraction, not official publisher JSON",
+        "model_role": "historical_challenge_only",
+        "publisher": "Demeter factual extraction from Gregg et al., JAMA 2012",
+        "retrieved_at": "2026-09-28T01:56:53.947088+00:00",
+        "sha256": "7d4c764390654ab343c2bb54d7c17d43943a9a21c3e6c1bb13b933310aa73939",
+        "url": "https://jamanetwork.com/journals/jama/fullarticle/1486829",
+        "use_terms": "Small factual data extraction and citation only; full copyrighted article is not redistributed",
+        "vintage": "2012 publication; annual follow-up years 1-4"
+      },
+      "niddk-look-ahead.html": {
+        "bytes": 40505,
+        "format": "HTML",
+        "model_role": "historical_challenge_only",
+        "publisher": "NIDDK/NIH",
+        "retrieved_at": "2026-09-28T01:52:33.712878+00:00",
+        "sha256": "928016bc164605b8b126f49656f1e02161121209136a4acdf5f8ec630357723b",
+        "url": "https://www.niddk.nih.gov/news/archive/2013/health-effects-diet-exercise-adults-type-2-diabetes-obesity",
+        "use_terms": "https://www.niddk.nih.gov/about-niddk/website-linking-policies",
+        "vintage": "2013 report on Look AHEAD follow-up"
+      }
+    },
+    "transform": "demeter.data.diet_response.rebuild_challenge"
+  },
+  "schema_version": 1,
+  "scientific_release_ready": false
+}

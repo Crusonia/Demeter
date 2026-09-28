@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from demeter.analysis.experiments import sensitivity, uncertainty
 from demeter.analysis.historical import historical_backtest, provenance
+from demeter.analysis.diet_response import historical_lag_challenge
 from demeter.model import simulate
 from demeter.schema import EvidenceRegistry, Scenario
 
@@ -24,4 +25,9 @@ def observe(
         "uncertainty": uncertainty(registry, scenario, draws, seed, diagnostics=True),
         "sensitivity": sensitivity(registry, scenario, samples=samples, seed=seed),
         "historical": historical_backtest(registry),
+        **(
+            {"diet_lag_challenge": historical_lag_challenge(registry)}
+            if scenario.diet_response.kind == "dynamic"
+            else {}
+        ),
     }
