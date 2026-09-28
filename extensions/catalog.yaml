@@ -1,0 +1,10 @@
+schema_version: 1
+packages:
+  demeter.core@1.0.0:
+    manifest: extensions/packages/core.yaml
+    sha256: 5ac0749b856b040ebf660c06f27a35250786d63f326a022877d60c2428ee1e02
+    classification: canonical
+  demeter.experiments@1.0.0:
+    manifest: extensions/packages/experiments.yaml
+    sha256: c670e3a9d81097a6f27cf782673c27e6f475cf79416918c2bc14ca049b01dc3c
+    classification: experimental

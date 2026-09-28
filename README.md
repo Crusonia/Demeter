@@ -48,6 +48,12 @@ units, labelled shapes, timing and evidence dependencies; examples reproduce the
 canonical model or run a no-diet-effect alternative. Broader module contracts
 are documented without activating later-phase models.
 
+The [local extension registry](docs/EXTENSIONS.md) adds versioned scenario/module
+packages with authors, licenses, compatibility and file checksums. Explicitly load
+community alternatives, inspect their evidence, and compare existing health
+structures while retaining each run's provenance. Registration does not import
+code or approve clinical claims.
+
 The [food-leverage report](docs/LEVERAGE.md) now explains modeled healthspan and
 T2D-entry changes through explicit dietary hazard pathways. It includes paired
 sensitivity, sampling intervals, evidence status and historical context, with

@@ -1,0 +1,7 @@
+name: reduce_upf_30_validation
+description: Synthetic plumbing test with UPF exposure reduced 30 percent from baseline.
+years: 25
+exposures:
+  upf: 0.7
+  fiber: 1.0
+  fruit_veg: 1.0
