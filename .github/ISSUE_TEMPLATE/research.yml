@@ -2,6 +2,13 @@ name: Question, evidence, or scenario proposal
 description: No coding required. Help us ask better questions or test a mechanism.
 title: "[Question] "
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Questions, null results, and competing hypotheses are welcome. You do not
+        need a finished proposal. For a concrete material model/evidence change,
+        use the **Scientific model or evidence change** form and the
+        [scientific review process](https://github.com/Crusonia/Demeter/blob/main/docs/SCIENTIFIC_REVIEW.md).
   - type: textarea
     id: question
     attributes:
