@@ -43,7 +43,7 @@ decision rule; it is not automatically an independent external input.
 | Quantity/domain | Intended treatment in a linked experiment | Current boundary and consequence |
 | --- | --- | --- |
 | Age/state population and mortality | Endogenous cohort evolution from observed initial population and specified hazards. | Implemented mechanics; metabolic allocation/effects still synthetic. Births/migration are zero in the current closed-population model. |
-| PreChronic eligibility and progression | Separately defined risk population and evidence-supported transitions, with overlap handled explicitly. | Proposed only; do not rename today's IR/prediabetes proxy or count people twice. |
+| PreChronic eligibility and progression | Separately defined risk population and evidence-supported transitions, with overlap handled explicitly. | [Optional candidate definitions and four-state mechanics](../PRECHRONIC.md) are implemented for validation; clinical mapping/rates remain unresolved. The original IR proxy is not renamed PreChronic, and people are not counted twice. |
 | Food purchases and intake | Endogenous responses to price, access, habit, and defined interventions. | Current exposure multipliers are exogenous software scenarios; demand/health feedback is severed. |
 | Agriculture, soil, supply, and inventories | Endogenous within the selected product/geography where required by the question. | Later modules; weather and external commodity conditions may be scenario paths. Global land/market displacement must be bounded or reported as omitted. |
 | Retail prices, premiums, and margins | Endogenous responses to costs, scarcity, demand, and contracts. | Future. Do not impose a demand path and its presumed price/premium response simultaneously. |

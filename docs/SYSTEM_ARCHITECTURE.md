@@ -140,9 +140,11 @@ actors separate from additional system value and report timing and uncertainty.
 For the [real-food flagship scenario](REAL_FOOD_VALUE_CHAIN.md), this includes
 tracing regenerative production features to retail outcomes and back to producer
 returns, and linking an evidence-supported PreChronic intervention to utilization,
-intervention cost, and net spending by payer. A distinct PreChronic state and
-healthcare-cost mechanics require later definitions, evidence, and validation;
-neither is implicit in the current health model.
+intervention cost, and net spending by payer. An optional
+[PreChronic state experiment](PRECHRONIC.md) now provides candidate definitions
+and validation-only mechanics. Its clinical interpretation and calibration remain
+unresolved. Healthcare-cost mechanics and an evidence-supported intervention
+remain later work; no payer effect is implicit in the current health model.
 
 ### Behavioral / adoption layer
 

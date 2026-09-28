@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass
+from functools import partial
 from math import exp, isfinite
 
 import numpy as np
@@ -8,7 +9,7 @@ import numpy as np
 from demeter import __version__
 from demeter.data.baseline import population_counts, source_rows
 from demeter.data.ingest import BUNDLE
-from demeter.health.transitions import STATES, TRANSITIONS, transition_survivors
+from demeter.health.structure import PRECHRONIC_UNITS, move, rates_for, states_for, transitions_for
 from demeter.health.healthspan import CohortTime, metric_contract
 from demeter.population.mechanics import (
     age_survivors,
@@ -59,13 +60,24 @@ class SimulationResult:
     metadata: dict
     diagnostics: dict | None = None
     healthspan: dict | None = None
+    prechronic: dict | None = None
 
     def to_dict(self) -> dict:
         return asdict(self)
 
 
+def required_units(scenario: Scenario) -> dict:
+    units = REQUIRED_UNITS.copy()
+    if scenario.health_structure != "legacy":
+        for key in ("h_to_ir_rate", "ir_to_h_rate"):
+            units.pop(key)
+        units.update(PRECHRONIC_UNITS)
+        units[f"initial_pc_fraction_{scenario.health_structure}"] = "fraction"
+    return units
+
+
 def validate_inputs(registry: EvidenceRegistry, scenario: Scenario) -> tuple[np.ndarray, bool]:
-    for key, unit in REQUIRED_UNITS.items():
+    for key, unit in required_units(scenario).items():
         if key not in registry.parameters or registry.parameters[key].unit != unit:
             raise ValueError(f"Missing parameter or wrong units: {key} requires {unit}")
         if registry.parameters[key].model_role != "health_model":
@@ -81,6 +93,11 @@ def validate_inputs(registry: EvidenceRegistry, scenario: Scenario) -> tuple[np.
     )
     if (shares > 1).any() or not np.isclose(shares.sum(), 1, atol=1e-10, rtol=0):
         raise ValueError("initial health-state shares must sum to 1")
+    if scenario.health_structure != "legacy":
+        split = registry.value(f"initial_pc_fraction_{scenario.health_structure}")
+        if not 0 <= split <= 1 or registry.value("mortality_pc_ratio") <= 0:
+            raise ValueError("Invalid PreChronic fraction or mortality ratio")
+        shares = np.array([shares[0] * (1 - split), shares[0] * split, shares[1], shares[2]])
     if (
         registry.value("diet_lag_years") <= 0
         or min(registry.value("mortality_ir_ratio"), registry.value("mortality_t2d_ratio")) <= 0
@@ -123,17 +140,30 @@ def simulate(
 ) -> SimulationResult:
     """Age-structured annual validation model on observed U.S. demographic inputs."""
     initial_shares, extrapolated = validate_inputs(registry, scenario)
+    states = states_for(scenario)
+    mover = partial(move, structure=scenario.health_structure)
+    prechronic_enabled = scenario.health_structure != "legacy"
     adult = int(registry.value("adult_age"))
     reference = np.tile(initial_shares, (101, 1))
-    reference[:adult] = [1, 0, 0]
+    reference[:adult] = np.eye(len(states))[0]
     stocks = population_counts(scenario.baseline_year, scenario.sex)[:, None] * reference
     rows = source_rows(scenario.baseline_year, scenario.sex)
     ratios = np.array(
-        [1, registry.value("mortality_ir_ratio"), registry.value("mortality_t2d_ratio")]
+        [
+            1,
+            *([registry.value("mortality_pc_ratio")] if prechronic_enabled else []),
+            registry.value("mortality_ir_ratio"),
+            registry.value("mortality_t2d_ratio"),
+        ]
     )
     hazards = calibrate_mortality(rows, reference, ratios)
     starting = float(stocks.sum())
-    cohort_time = CohortTime(stocks)
+    cohort_time = CohortTime(stocks, states, mover)
+    initial_pc = None
+    if prechronic_enabled:
+        tagged = np.zeros_like(stocks)
+        tagged[:, states.index("prechronic")] = stocks[:, states.index("prechronic")]
+        initial_pc = CohortTime(tagged, states, mover)
     cumulative, applied_log_effect = 0.0, 0.0
     annual, history = [], []
     target = registry.value("beta_upf_progression") * (scenario.exposures.get("upf", 1) - 1)
@@ -144,7 +174,11 @@ def simulate(
     def snapshot(year, deaths=0.0, flows=None):
         shares = state_shares(stocks, reference)
         outcomes = period_outcomes(
-            rows, shares, hazards, include_table=diagnostics or year == scenario.years
+            rows,
+            shares,
+            hazards,
+            include_table=diagnostics or year == scenario.years,
+            states=states,
         )
         table = outcomes.pop("life_table", None)
         if year == scenario.years:
@@ -156,7 +190,7 @@ def simulate(
                     "cohorts": [
                         {
                             "age": age,
-                            **{state: float(stocks[age, i]) for i, state in enumerate(STATES)},
+                            **{state: float(stocks[age, i]) for i, state in enumerate(states)},
                         }
                         for age in range(101)
                     ],
@@ -170,13 +204,26 @@ def simulate(
             cumulative_deaths=cumulative,
             births=0.0,
             net_migration=0.0,
-            healthy=float(stocks[:, 0].sum()),
-            insulin_resistant=float(stocks[:, 1].sum()),
-            t2d=float(stocks[:, 2].sum()),
+            **{state: float(stocks[:, i].sum()) for i, state in enumerate(states)},
             applied_progression_multiplier=exp(applied_log_effect),
             empty_age_groups_using_reference=int((stocks.sum(axis=1) == 0).sum()),
             **outcomes,
             restricted_healthy_years=float(cohort_time.person_years[:, 0].sum() / starting),
+            **(
+                {
+                    "restricted_prechronic_years": float(
+                        cohort_time.person_years[:, 1].sum() / starting
+                    ),
+                    "cumulative_t2d_incidence": float(
+                        cohort_time.flow_totals.get("prediabetes_to_t2d", np.zeros(1)).sum()
+                    ),
+                    "t2d_incidence_from_initial_prechronic": float(
+                        initial_pc.flow_totals.get("prediabetes_to_t2d", np.zeros(1)).sum()
+                    ),
+                }
+                if prechronic_enabled
+                else {}
+            ),
             **(flows or {}),
         )
 
@@ -186,29 +233,22 @@ def simulate(
         applied_log_effect += relaxation * (target - applied_log_effect)
         deaths = stocks * -np.expm1(-hazards)
         survivors = stocks - deaths
-        moved, flows = transition_survivors(
-            survivors,
-            registry.value("h_to_ir_rate") * exp(applied_log_effect),
-            registry.value("ir_to_h_rate"),
-            registry.value("ir_to_t2d_rate") * exp(applied_log_effect),
-            adult,
-        )
+        rates = rates_for(registry, scenario, exp(applied_log_effect))
+        moved, flows = mover(survivors, rates, adult)
         stocks = age_survivors(moved)
         cohort_time.advance(
             year,
             hazards,
-            (
-                registry.value("h_to_ir_rate") * exp(applied_log_effect),
-                registry.value("ir_to_h_rate"),
-                registry.value("ir_to_t2d_rate") * exp(applied_log_effect),
-            ),
+            rates,
             adult,
         )
+        if initial_pc is not None:
+            initial_pc.advance(year, hazards, rates, adult)
         if not np.allclose(cohort_time.age_stocks(), stocks, rtol=1e-12, atol=1e-7):
             raise ArithmeticError("Original-cohort accounting differs from the engine")
         if diagnostics:
             flows.update(
-                {f"{state}_deaths": float(deaths[:, i].sum()) for i, state in enumerate(STATES)}
+                {f"{state}_deaths": float(deaths[:, i].sum()) for i, state in enumerate(states)}
             )
         cumulative += float(deaths.sum())
         if stocks.min() < -1e-7 or not np.isclose(
@@ -221,7 +261,7 @@ def simulate(
         {
             "age": age,
             "sex": scenario.sex,
-            **{state: float(stocks[age, i]) for i, state in enumerate(STATES)},
+            **{state: float(stocks[age, i]) for i, state in enumerate(states)},
         }
         for age in range(101)
     ]
@@ -245,8 +285,18 @@ def simulate(
         "synthetic_parameters": audit["synthetic"],
         "unresolved_parameters": audit["unresolved"],
         "scientific_blockers": registry.scientific_blockers,
-        "limitations": LIMITATIONS,
-        "healthspan_metric": metric_contract(),
+        "limitations": LIMITATIONS
+        if not prechronic_enabled
+        else [item for item in LIMITATIONS if not item.startswith("The IR state")]
+        + [
+            "PreChronic and prediabetes are distinct synthetic stocks; risk definitions are research proxies, not clinical diagnoses.",
+            "NHANES candidate counts do not initialize the engine; allocation, reversibility, progression, and state mortality await calibration.",
+            "The synthetic UPF response multiplies three progression paths; this mapping and reversal hazards are not established causal effects.",
+        ],
+        "healthspan_metric": metric_contract(scenario.health_structure),
+        "health_structure": scenario.health_structure,
+        "active_parameters": list(required_units(scenario)),
+        "transition_flows": [edge["flow"] for edge in transitions_for(scenario)],
     }
     return SimulationResult(
         scenario.name,
@@ -255,24 +305,20 @@ def simulate(
         starting,
         total,
         cumulative,
-        {s: float(stocks[:, i].sum() / total) if total else 0 for i, s in enumerate(STATES)},
+        {s: float(stocks[:, i].sum() / total) if total else 0 for i, s in enumerate(states)},
         annual,
         cohorts,
         metadata,
         {
             "history": history,
-            "structure": model_structure(registry),
-            "state_definitions": {
-                "healthy": "Synthetic normoglycemic/healthy proxy, not absence of all disease",
-                "insulin_resistant": "Synthetic IR/prediabetes proxy, not separately measured PreChronic",
-                "t2d": "Synthetic T2D state; no remission pathway implemented",
-            },
+            "structure": model_structure(registry, scenario),
+            "state_definitions": metric_contract(scenario.health_structure)["states"],
             "cohort_semantics": "Age cells after each annual step; 100+ is pooled, not a birth cohort",
         }
         if diagnostics
         else None,
         {
-            "definition": metric_contract(),
+            "definition": metric_contract(scenario.health_structure),
             "period_by_age": [
                 {
                     "age": row["start_age"],
@@ -286,12 +332,27 @@ def simulate(
             "validation_only": validation_only,
             "evidence_sha256": registry.content_hash,
         },
+        {
+            "definition": scenario.health_structure,
+            "validation_only": True,
+            "initial_prechronic_cohort": initial_pc.report(),
+            "future_t2d_entries": annual[-1]["t2d_incidence_from_initial_prechronic"],
+            "share_of_future_t2d_entries": annual[-1]["t2d_incidence_from_initial_prechronic"]
+            / annual[-1]["cumulative_t2d_incidence"]
+            if annual[-1]["cumulative_t2d_incidence"]
+            else None,
+            "interpretation": "Future T2D entries among people initially in the synthetic PreChronic stock; cohort accounting, not causal attributable burden or calibrated prediction",
+        }
+        if initial_pc is not None
+        else None,
     )
 
 
-def model_structure(registry: EvidenceRegistry) -> dict:
+def model_structure(registry: EvidenceRegistry, scenario: Scenario | None = None) -> dict:
     """Describe the implemented dependency graph; edges are not causal validation."""
-    transitions = [dict(t) for t in TRANSITIONS]
+    scenario = scenario or Scenario(name="structure", exposures={})
+    states = states_for(scenario)
+    transitions = [dict(t) for t in transitions_for(scenario)]
     transitions.extend(
         {
             "source": s,
@@ -299,10 +360,12 @@ def model_structure(registry: EvidenceRegistry) -> dict:
             "flow": f"{s}_deaths",
             "parameter": {
                 "insulin_resistant": "mortality_ir_ratio",
+                "prediabetes": "mortality_ir_ratio",
+                "prechronic": "mortality_pc_ratio",
                 "t2d": "mortality_t2d_ratio",
             }.get(s),
         }
-        for s in STATES
+        for s in states
     )
     dependencies = [
         {
@@ -325,10 +388,44 @@ def model_structure(registry: EvidenceRegistry) -> dict:
         {"source": "mortality_schedule", "target": "healthy_years", "parameters": []},
         {"source": "state_shares", "target": "healthy_years", "parameters": []},
     ]
+    if scenario.health_structure != "legacy":
+        for edge in dependencies:
+            if edge["target"] == "mortality_schedule" and edge["source"] == "state_shares":
+                edge["parameters"].append("mortality_pc_ratio")
+        dependencies = [
+            edge
+            for edge in dependencies
+            if not any(
+                key in ("healthy_to_ir", "ir_to_t2d", "ir_to_healthy")
+                for key in (edge["source"], edge["target"])
+            )
+        ]
+        for edge in transitions_for(scenario):
+            dependencies.append(
+                {
+                    "source": edge["flow"],
+                    "target": "state_shares",
+                    "parameters": [edge["parameter"]],
+                }
+            )
+            if edge["flow"] in (
+                "healthy_to_prechronic",
+                "prechronic_to_prediabetes",
+                "prediabetes_to_t2d",
+            ):
+                dependencies.append(
+                    {
+                        "source": "lagged_response",
+                        "target": edge["flow"],
+                        "parameters": [edge["parameter"]],
+                    }
+                )
     return {
-        "states": list(STATES) + ["dead"],
+        "states": list(states) + ["dead"],
         "transitions": transitions,
         "dependencies": dependencies,
-        "evidence": {k: registry.parameters[k].model_dump(mode="json") for k in REQUIRED_UNITS},
+        "evidence": {
+            k: registry.parameters[k].model_dump(mode="json") for k in required_units(scenario)
+        },
         "interpretation": "Implemented dependencies and state transitions; synthetic edges are not established causal effects",
     }

@@ -1,0 +1,8 @@
+name: prechronic_risk_2
+description: Alternative two-marker candidate structure with separate synthetic allocation; not an observed initial population
+years: 25
+baseline_year: 2024
+sex: all
+mode: validation
+health_structure: risk_2
+exposures: {upf: 1.0}

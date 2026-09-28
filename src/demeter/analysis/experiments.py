@@ -4,7 +4,7 @@ import numpy as np
 from SALib.analyze import sobol as sobol_analyze
 from SALib.sample import sobol as sobol_sample
 
-from demeter.model import REQUIRED_UNITS, simulate
+from demeter.model import required_units, simulate
 from demeter.schema import EvidenceRegistry, Scenario
 
 OUTCOMES = (
@@ -17,9 +17,23 @@ OUTCOMES = (
 )
 
 
-def sampled_parameters(registry: EvidenceRegistry) -> list[str]:
+def outcomes_for(scenario: Scenario) -> tuple[str, ...]:
+    return OUTCOMES + (
+        (
+            "prechronic_years",
+            "restricted_prechronic_years",
+            "cumulative_t2d_incidence",
+            "t2d_incidence_from_initial_prechronic",
+        )
+        if scenario.health_structure != "legacy"
+        else ()
+    )
+
+
+def sampled_parameters(registry: EvidenceRegistry, scenario: Scenario | None = None) -> list[str]:
     keys = []
-    for key in REQUIRED_UNITS:
+    scenario = scenario or Scenario(name="sampling", exposures={})
+    for key in required_units(scenario):
         u = registry.parameters[key].uncertainty
         if u is None or u.kind in ("range", "interval"):
             raise ValueError(
@@ -38,20 +52,23 @@ def with_values(registry: EvidenceRegistry, values: dict[str, float]) -> Evidenc
 
 
 def compatible(left: Scenario, right: Scenario) -> None:
-    if (left.years, left.baseline_year, left.sex, left.mode) != (
+    if (left.years, left.baseline_year, left.sex, left.mode, left.health_structure) != (
         right.years,
         right.baseline_year,
         right.sex,
         right.mode,
+        right.health_structure,
     ):
-        raise ValueError("comparison requires the same horizon, mortality vintage, sex, and mode")
+        raise ValueError(
+            "comparison requires the same horizon, mortality vintage, sex, mode, and health structure"
+        )
 
 
 def compare(registry: EvidenceRegistry, left: Scenario, right: Scenario) -> dict:
     compatible(left, right)
     base, intervention = simulate(registry, left), simulate(registry, right)
     changes = {}
-    for metric in OUTCOMES:
+    for metric in outcomes_for(left):
         a, b = base.annual[-1][metric], intervention.annual[-1][metric]
         changes[metric] = {
             "baseline": a,
@@ -74,7 +91,7 @@ def compare(registry: EvidenceRegistry, left: Scenario, right: Scenario) -> dict
         "transition_deltas": {
             flow: sum(r.get(flow, 0) for r in intervention.annual)
             - sum(r.get(flow, 0) for r in base.annual)
-            for flow in ("healthy_to_ir", "ir_to_healthy", "ir_to_t2d")
+            for flow in base.metadata["transition_flows"]
         },
         "attribution_scope": "Paired state-time and transition accounting; unique causal/pathway decomposition belongs to issue #26",
     }
@@ -90,12 +107,13 @@ def uncertainty(
 ) -> dict:
     if not 2 <= draws <= 10000 or seed < 0:
         raise ValueError("draws must be 2–10000 and seed nonnegative")
-    keys = sampled_parameters(registry)
+    keys = sampled_parameters(registry, scenario)
+    outcomes = outcomes_for(scenario)
     rng = np.random.default_rng(seed)
     baseline = scenario.model_copy(update={"name": "paired_baseline", "exposures": {"upf": 1.0}})
-    collected = {key: [] for key in OUTCOMES}
-    deltas = {key: [] for key in OUTCOMES}
-    trajectories = {key: [] for key in OUTCOMES}
+    collected = {key: [] for key in outcomes}
+    deltas = {key: [] for key in outcomes}
+    trajectories = {key: [] for key in outcomes}
     parameter_draws = {key: [] for key in keys}
     age_healthspan, age_deltas = [], []
     cohort_healthy, cohort_deltas = [], []
@@ -131,9 +149,9 @@ def uncertainty(
         if diagnostics:
             for key in keys:
                 parameter_draws[key].append(float(values[key]))
-            for key in OUTCOMES:
+            for key in outcomes:
                 trajectories[key].append([r[key] for r in b.annual])
-        for key in OUTCOMES:
+        for key in outcomes:
             collected[key].append(b.annual[-1][key])
             deltas[key].append(b.annual[-1][key] - a.annual[-1][key])
 
@@ -150,7 +168,7 @@ def uncertainty(
         "seed": seed,
         "draws": draws,
         "sampled_parameters": keys,
-        "fixed_parameters": [k for k in REQUIRED_UNITS if k not in keys],
+        "fixed_parameters": [k for k in required_units(scenario) if k not in keys],
         "interval_type": "central 95% parameter-sampling interval; synthetic ranges, not empirical confidence",
         "assumptions": "Independent parameters, fixed scenario, paired baseline uses identical draws; no structural uncertainty",
         "outcomes": {k: summarize(v) for k, v in collected.items()},
@@ -191,11 +209,11 @@ def sensitivity(
     samples: int = 64,
     seed: int = 0,
 ) -> dict:
-    if outcome not in OUTCOMES:
-        raise ValueError(f"outcome must be one of {OUTCOMES}")
+    if outcome not in outcomes_for(scenario):
+        raise ValueError(f"outcome must be one of {outcomes_for(scenario)}")
     if samples < 8 or samples > 1024 or samples & (samples - 1) or seed < 0:
         raise ValueError("samples must be a power of two from 8 to 1024 and seed nonnegative")
-    keys = sampled_parameters(registry)
+    keys = sampled_parameters(registry, scenario)
     if not keys:
         raise ValueError("no uncertain parameters to analyze")
     if any(registry.parameters[k].uncertainty.kind != "uniform" for k in keys):

@@ -206,6 +206,7 @@ class Scenario(StrictModel):
     sex: Literal["all", "male", "female"] = "all"
     mode: Literal["validation", "scientific"] = "validation"
     allow_extrapolation: bool = False
+    health_structure: Literal["legacy", "risk_1", "risk_2"] = "legacy"
 
     @classmethod
     def from_yaml(cls, path: str | Path):

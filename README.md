@@ -163,7 +163,7 @@ Core equations use transparent NumPy arrays. BPTK-Py remains available for later
 
 ## Source data travel with the model
 
-The repository contains 22 public source files: baseline and historical inputs,
+The repository contains 28 public source files: baseline and historical inputs,
 NHANES survey files, official JSON snapshots, and the NCHS healthspan method
 reference, plus the derived bundles. See the
 [data catalog and contribution policy](data/README.md) for locations, source terms,
@@ -204,6 +204,12 @@ The manifests record source URLs, retrieval times, vintages, hashes, and transfo
 Resolve state definitions and age-specific baseline prevalence, fit defensible transition hazards and mortality ratios, encode study-compatible dietary doses and uncertainty, and evaluate an independent historical health holdout. Until then, the software reports validation-only results and remains a prerelease. Agriculture, agent behavior, policy, economics, and a public simulator follow the phases in the program vision.
 
 The [issue #1 audit](docs/ISSUE_1_AUDIT.md) records the remaining acceptance criteria.
+Optional [PreChronic experiments](docs/PRECHRONIC.md) add a distinct earlier-risk
+stock, reversible transitions, cohort time and tagged future T2D burden. Two
+NHANES candidate definitions have reproducible age/sex estimates and survey
+uncertainty. They are research proxies; synthetic engine parameters remain
+separate and full calibration is deferred. Existing scenarios retain the
+three-state model.
 Corrected ARIC and LEADR clinical estimates are registered as **benchmarks only**;
 `demeter evidence applicability` shows why they cannot replace national model inputs.
 See [clinical evidence extraction](docs/CLINICAL_EVIDENCE.md) for source receipts,

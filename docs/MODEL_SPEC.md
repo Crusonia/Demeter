@@ -66,6 +66,12 @@ Comparison requires the same horizon, sex, source year, and execution mode. Outp
 
 ## Validation boundary
 
+Optional `risk_1` and `risk_2` health structures add a separate PreChronic stock,
+reversible transitions and tagged initial-cohort T2D accounting. Their equations,
+synthetic parameters, observation definitions, uncertainty and limits are in
+[PRECHRONIC.md](PRECHRONIC.md). The default three-state equations above remain
+available as `legacy`; none of the new survey data silently replaces engine inputs.
+
 Mortality reconstruction tolerance is 0.001 years at every age. Conservation tolerance is a small numerical residual, not a statistical fit. The historical persistence benchmark uses the 2022 schedule to predict 2023 without using holdout mortality in the prediction. Prevalence checks expose discrepancies and definition mismatches instead of counting synthetic shares as a successful calibration. Scientific mode is disabled in this alpha even if evidence labels are edited.
 
 ## Instrumentation
