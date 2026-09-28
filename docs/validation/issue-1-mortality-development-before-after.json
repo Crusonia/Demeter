@@ -1,6 +1,6 @@
 {
   "base_commit": "a1b638d3ab2b453a979798c1e7c88ab18ba742dd",
-  "before_evidence_sha256": "8ec1e3d5bc0424b15462d8596618ae8267f03de3d0fa5b832644bbce36f4f6f7",
+  "before_evidence_sha256": "6a47cec85d87a6f1038b04ee49cc994852c5f3570f43a1f4921c1df779c79cfa",
   "after_evidence_sha256": "3134a1ba63eaa801f2bb9af87f560022fa9e3139d8f01a3daf9ec59b0bfa3d92",
   "scenarios": {
     "baseline": {
@@ -18,5 +18,6 @@
       "all_other_outputs_identical": true
     }
   },
-  "interpretation": "Software equivalence only; no clinical acceptance"
+  "interpretation": "Software equivalence only; no clinical acceptance",
+  "source_decoding": "UTF-8 explicitly; corrected locale-dependent historical Git blob decoding"
 }

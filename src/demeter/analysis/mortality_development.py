@@ -42,12 +42,14 @@ def integrated_moments(time, slope, *, threshold, terms):
     return result
 
 
-def contributions(beta, x, time, event, integration):
+def contributions(beta, x, time, event, integration, age_knot=None):
     """Per-person log likelihood, score, negative Hessian and cumulative hazard.
 
     Column one is baseline age centered at the registered adult minimum.
     Follow-up adds attained age continuously to that column.
     """
+    if age_knot is not None:
+        return piecewise_contributions(beta, x, time, event, integration, age_knot)
     moments = integrated_moments(
         time, beta[1], threshold=integration["series_threshold"], terms=integration["series_terms"]
     )
@@ -67,6 +69,53 @@ def contributions(beta, x, time, event, integration):
     if not all(np.isfinite(v).all() for v in (log_likelihood, score, information, hazard)):
         raise ValueError("Nonfinite survival likelihood; fit is invalid")
     return log_likelihood, score, information, hazard
+
+
+def piecewise_contributions(beta, x, time, event, integration, age_knot):
+    """Exact continuous log-hazard hinge; final design column is attained-age hinge.
+
+    age_knot uses the same centered age coordinate as x[:, 1]. The integral is
+    split when an individual crosses the knot, including crossings in follow-up.
+    """
+    before = np.minimum(time, np.maximum(age_knot - x[:, 1], 0))
+    after = time - before
+    hazard = np.zeros(len(time))
+    gradient = np.zeros_like(x)
+    information = np.zeros((len(time), len(beta), len(beta)))
+    for duration, start, above in ((before, np.zeros(len(time)), False), (after, before, True)):
+        start_x = x.copy()
+        start_x[:, 1] += start
+        start_x[:, -1] = np.maximum(start_x[:, 1] - age_knot, 0)
+        growth = np.zeros(len(beta))
+        growth[1] = 1
+        growth[-1] = int(above)
+        moments = integrated_moments(
+            duration,
+            float(beta @ growth),
+            threshold=integration["series_threshold"],
+            terms=integration["series_terms"],
+        )
+        scaled = np.exp(start_x @ beta)[:, None] * moments
+        h, first, second = scaled.T
+        hazard += h
+        gradient += h[:, None] * start_x + first[:, None] * growth
+        information += (
+            h[:, None, None] * start_x[:, :, None] * start_x[:, None, :]
+            + first[:, None, None]
+            * (
+                start_x[:, :, None] * growth[None, None, :]
+                + growth[None, :, None] * start_x[:, None, :]
+            )
+            + second[:, None, None] * growth[None, :, None] * growth[None, None, :]
+        )
+    event_x = x.copy()
+    event_x[:, 1] += time
+    event_x[:, -1] = np.maximum(event_x[:, 1] - age_knot, 0)
+    ll = event * (event_x @ beta) - hazard
+    score = event[:, None] * event_x - gradient
+    if not all(np.isfinite(v).all() for v in (ll, score, information, hazard)):
+        raise ValueError("Nonfinite piecewise survival likelihood; fit is invalid")
+    return ll, score, information, hazard
 
 
 def survey_covariance(information, scores, design):
@@ -94,7 +143,7 @@ def survey_covariance(information, scores, design):
     return (covariance + covariance.T) / 2, df
 
 
-def fit(x, time, event, weight, domain, design, spec):
+def fit(x, time, event, weight, domain, design, spec, *, age_knot=None):
     """Fit with supplied design kept intact; arrays x/time/event describe domain only."""
     domain = np.asarray(domain, dtype=bool)
     weight = np.asarray(weight, dtype=float)
@@ -113,7 +162,7 @@ def fit(x, time, event, weight, domain, design, spec):
     start[0] = np.log(np.dot(w, event) / np.dot(w, time))
 
     def evaluate(beta):
-        ll, score, info, _ = contributions(beta, x, time, event, spec["integration"])
+        ll, score, info, _ = contributions(beta, x, time, event, spec["integration"], age_knot)
         return -w @ ll, -(w @ score), np.einsum("i,ijk->jk", w, info)
 
     numerical = spec["optimizer"]
@@ -128,7 +177,7 @@ def fit(x, time, event, weight, domain, design, spec):
             "maxiter": numerical["maximum_iterations"],
         },
     )
-    ll, score, info, hazard = contributions(result.x, x, time, event, spec["integration"])
+    ll, score, info, hazard = contributions(result.x, x, time, event, spec["integration"], age_knot)
     gradient = float(np.linalg.norm(w @ score))
     if not result.success or gradient > numerical["gradient_tolerance"]:
         raise ValueError(f"Survival fit did not converge: {result.message}; gradient={gradient}")
@@ -215,15 +264,26 @@ def development_report(registry: EvidenceRegistry) -> dict:
             "Expected event intensity integrates fitted hazard over actual observed risk time; it is not risk at a common horizon.",
         ],
     }
-    for model, width in (("glycemic", 5), ("null", 3)):
+    for model, width in (
+        ("glycemic", 5),
+        ("null", 3),
+        ("glycemic_piecewise", 5),
+        ("null_piecewise", 3),
+    ):
+        model_x = x[:, :width]
+        age_knot = None
+        if model.endswith("_piecewise"):
+            age_knot = spec["alternative_age"]["knot_age"] - a["adult_age_min"]
+            model_x = np.column_stack([model_x, np.maximum(x[:, 1] - age_knot, 0)])
         fitted = fit(
-            x[:, :width],
+            model_x,
             time,
             event,
             sample.WTSAF2YR.to_numpy(),
             domain.to_numpy(),
             sample[["SDMVSTRA", "SDMVPSU"]],
             spec,
+            age_knot=age_knot,
         )
         fitted["coefficient_keys"] = spec["coefficients"][model]
         half_width = student_t.ppf(
@@ -234,7 +294,7 @@ def development_report(registry: EvidenceRegistry) -> dict:
             for b, h in zip(fitted["coefficients"], half_width, strict=True)
         ]
         _, _, _, intensity = contributions(
-            np.array(fitted["coefficients"]), x[:, :width], time, event, spec["integration"]
+            np.array(fitted["coefficients"]), model_x, time, event, spec["integration"], age_knot
         )
         fitted["development_domains"] = []
         for group in a["age_groups"]:
@@ -264,4 +324,17 @@ def development_report(registry: EvidenceRegistry) -> dict:
                         }
                     )
         report["models"][model] = fitted
+    report["structural_comparison"] = {
+        "interpretation": "Development sensitivity to age form; no model selection or clinical acceptance",
+        "glycemic_log_hazard_changes": {
+            state: report["models"]["glycemic_piecewise"]["coefficients"][i]
+            - report["models"]["glycemic"]["coefficients"][i]
+            for state, i in (("prediabetes", 3), ("diabetes_any_type", 4))
+        },
+        "likelihood_gain_over_same_age_null": {
+            form: report["models"]["glycemic" + suffix]["weighted_mean_log_likelihood"]
+            - report["models"]["null" + suffix]["weighted_mean_log_likelihood"]
+            for form, suffix in (("single_slope", ""), ("piecewise", "_piecewise"))
+        },
+    }
     return report

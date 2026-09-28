@@ -63,16 +63,68 @@ def fixture():
     return x, time, event, weights, design
 
 
-def test_fit_weight_scale_invariance_and_event_intensity_balance():
+@pytest.mark.parametrize("age_knot", [None, 40.0])
+def test_fit_weight_scale_invariance_and_event_intensity_balance(age_knot):
     x, time, event, weights, design = fixture()
+    if age_knot is not None:
+        x = np.column_stack([x, np.maximum(x[:, 1] - age_knot, 0)])
     domain = np.ones(len(time), dtype=bool)
-    first = fit(x, time, event, weights, domain, design, SPEC)
-    scaled = fit(x, time, event, weights * 1e6, domain, design, SPEC)
+    first = fit(x, time, event, weights, domain, design, SPEC, age_knot=age_knot)
+    scaled = fit(x, time, event, weights * 1e6, domain, design, SPEC, age_knot=age_knot)
     np.testing.assert_allclose(first["coefficients"], scaled["coefficients"], rtol=1e-8)
     np.testing.assert_allclose(first["covariance"], scaled["covariance"], rtol=1e-8)
     assert first["observed_expected_ratio"] == pytest.approx(1, abs=1e-7)
     assert first["degrees_of_freedom"] == 12
     assert np.linalg.eigvalsh(first["covariance"]).min() > 0
+
+
+@pytest.mark.parametrize("hinge_slope", [-0.03, 0.04])
+def test_piecewise_integral_and_derivatives_across_attained_age_knot(hinge_slope):
+    knot = 40.0
+    ages = np.array([10, 37, 40, 55], dtype=float)
+    time = np.array([5, 8, 2, 6], dtype=float)
+    event = np.array([1, 0, 1, 0])
+    x = np.column_stack([np.ones(4), ages, np.array([0, 1, 1, 0]), np.maximum(ages - knot, 0)])
+    beta = np.array([-7, 0.065, 0.3, hinge_slope])
+    ll, score, info, cumulative = contributions(beta, x, time, event, SPEC["integration"], knot)
+    expected = []
+    for row, duration in zip(x, time, strict=True):
+        expected.append(
+            quad(
+                lambda u, row=row: np.exp(
+                    beta[0]
+                    + beta[1] * (row[1] + u)
+                    + beta[2] * row[2]
+                    + beta[3] * max(row[1] + u - knot, 0)
+                ),
+                0,
+                duration,
+                points=[knot - row[1]] if 0 < knot - row[1] < duration else None,
+            )[0]
+        )
+    np.testing.assert_allclose(cumulative, expected, rtol=1e-10)
+    np.testing.assert_allclose(
+        score,
+        approx_derivative(
+            lambda b: contributions(b, x, time, event, SPEC["integration"], knot)[0], beta
+        ),
+        rtol=1e-6,
+        atol=1e-8,
+    )
+    np.testing.assert_allclose(
+        info.sum(axis=0),
+        -approx_derivative(
+            lambda b: contributions(b, x, time, event, SPEC["integration"], knot)[1].sum(axis=0),
+            beta,
+        ),
+        rtol=1e-6,
+        atol=1e-8,
+    )
+    base = contributions(beta[:3], x[:, :3], time, event, SPEC["integration"])
+    reduced = contributions(np.append(beta[:3], 0), x, time, event, SPEC["integration"], knot)
+    np.testing.assert_allclose(reduced[0], base[0], rtol=1e-12)
+    np.testing.assert_allclose(reduced[1][:, :3], base[1], rtol=1e-12)
+    np.testing.assert_allclose(reduced[2][:, :3, :3], base[2], rtol=1e-12)
 
 
 def test_empty_domain_psus_contribute_to_hand_calculated_covariance():

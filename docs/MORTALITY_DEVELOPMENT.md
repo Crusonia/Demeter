@@ -3,8 +3,10 @@
 This executes the development part of [RFC-1](rfcs/RFC-1-health-calibration.md).
 It does not complete issue #1 or establish a clinical calibration. NHANES
 2013–2014 remains reserved and was not loaded or evaluated by this implementation.
-Relevant scientific review and predeclared clinical holdout tolerances remain
-pending. No engine parameters change.
+External expert review and clinical holdout tolerances remain pending. The
+approved [research-backed assessment path](SCIENTIFIC_REVIEW.md) permits further
+implementation and descriptive validation under predeclared metrics. Missing
+clinical evidence remains explicit. No engine parameters change.
 
 ## Reproduce
 
@@ -26,7 +28,9 @@ tolerances across platforms; raw source integrity remains byte-exact.
 The likelihood describes time from examination to death or administrative
 censoring, conditional on baseline age, sex and glycemic observation. The full
 model includes prediabetes and any-type diabetes indicators; the comparison
-includes age and sex only. Reference is a female participant at the registered
+includes age and sex only. Both versions are also fitted with a continuous
+attained-age log-hazard slope change at the registered age-60 knot. The original
+fits are retained. Reference is a female participant at the registered
 adult minimum age, in the normoglycemic category. The age coefficient acts on
 attained age continuously through follow-up. Coefficient units and numerical
 controls are registered in `evidence/parameters.yaml`.
@@ -47,7 +51,7 @@ small exclusion counts. Public follow-up perturbation also remains relevant.
 
 ## Executed result and interpretation
 
-Both proposed models converged with finite survey covariance, using 17 design
+All four proposed models converged with finite survey covariance, using 17 design
 degrees of freedom. The glycemic model has higher in-sample weighted likelihood,
 which is expected to be possible when adding covariates and is not evidence of
 out-of-sample improvement. Its prediabetes log-hazard interval includes zero;
@@ -55,7 +59,7 @@ this does not prove an absent causal effect. The receipt retains all estimates
 and the age/sex/category residuals without selecting favorable cells.
 
 The aggregate observed/integrated-event-intensity ratio is approximately one
-for both models because of the fitted intercept score equation. It must not be
+for all models because of the fitted intercept score equation. It must not be
 reported as a successful mortality validation. Event probabilities evaluated at
 event-dependent follow-up times are not substituted for this counting-process
 diagnostic. Sparse subgroup residuals receive no invented pass thresholds.
@@ -68,11 +72,11 @@ checks validate arithmetic and data handling, not clinical transport.
 
 ## Evidence change and remaining requirements
 
-Eight previously unresolved coefficients now have estimated, grade C,
+Eighteen coefficients (eight original and ten alternative-age coefficients) have estimated, grade C,
 benchmark-only values and survey t intervals in the registry. The coefficients
 share the saved covariance and must not be sampled independently. No priors,
 causal effects, clinical bounds, or current-state mortality ratios are inferred.
-The null fit is preserved as a comparator. The engine's synthetic ratios and
+The matching null fit for each age form is preserved as a comparator. The engine's synthetic ratios and
 all existing scenario assumptions remain unchanged.
 
 The [before/after receipt](validation/issue-1-mortality-development-before-after.json)

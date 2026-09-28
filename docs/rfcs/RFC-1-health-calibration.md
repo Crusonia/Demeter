@@ -125,7 +125,7 @@ unresolved observation mapping cannot be converted into a successful fit.
 
 ### Development implementation record
 
-The `mortality_development` dataset registers the numerical controls and eight
+The `mortality_development` dataset registers the numerical controls and eighteen
 `mortality_development_*` benchmark coefficients. The Gompertz candidate and
 age/sex-only null use unbounded coefficients, no priors, an initial constant-rate
 intercept estimated from weighted deaths/person-time, and zero initial slopes.
@@ -149,6 +149,24 @@ their substitution for the model's current-state mortality ratios.
 
 ## Validation and acceptance plan
 
+### Alternative age form declared before its fit
+
+On September 28, after inspecting the original Gompertz development results and
+the automated review finding, select a continuous piecewise-linear log hazard
+in attained age with one hinge at age 60. This uses the existing survey older-age
+domain boundary, not a cutpoint selected from mortality residuals. The declaration
+is prospective for the alternative fit, not a claim it preceded the original fit.
+The 2013–2014 reserved outcomes remain uninspected.
+
+Add `b_h * max(a_i + t - 60, 0)` to the log hazard. Fit both glycemic and age/sex-only
+versions with this same age form. Integrate exactly across the hinge and retain
+the original single-slope fits. Register the knot as a modeling convention and
+all ten additional benchmark coefficients before estimation. Report the change
+in glycemic coefficients, intervals and in-sample likelihood without selecting
+a winner from development likelihood or calling stability clinical validation.
+Test split-time integration against independent quadrature, score/Hessian
+derivatives across the hinge and reduction to the original form when `b_h=0`.
+
 1. **Numerical:** test integrated hazards against independent quadrature,
    zero-age-slope limits, finite likelihoods and analytic/finite-difference scores.
    Check invariance to common weight scaling and correct empty-domain PSU handling.
@@ -162,9 +180,11 @@ their substitution for the model's current-state mortality ratios.
 4. **Rejection:** no improvement over the null, evidence of subgroup miscalibration,
    unstable estimation, or failure to transport definitions rejects promotion.
    A favorable aggregate score cannot excuse unsupported subgroups or causality.
-   Clinically meaningful calibration tolerances must be selected and registered
-   with the scientific reviewer before holdout inspection; they are currently
-   unresolved. No pass threshold is chosen from observed holdout residuals.
+   Evaluation metrics and any evidence-justified tolerances must be registered
+   in the research-backed validation report before holdout inspection. External
+   expert review may remain pending. Clinical tolerances are currently unresolved;
+   descriptive predictive evaluation may proceed under a frozen protocol, but
+   cannot imply clinical acceptance. No pass threshold is chosen from holdout residuals.
 5. **Full issue #1:** separately resolve age/sex initialization, T2D identification,
    compatible progression/reversal, current-state mortality, dietary dose/endpoint
    and lag, uncertainty dependence, and a forward health holdout. This benchmark
@@ -191,7 +211,10 @@ and definitions must be compared; choosing the largest benefit is prohibited.
 
 Software assessment: source intake tested; independent review pending.
 Scientific reviewer, expertise, independence and conflicts: not supplied.
-Maintainer disposition: pending. Design status remains proposed.
+Maintainer disposition: Carter Williams approved the research-backed assessment
+path on September 28, 2026; implementation and evaluation may proceed with
+external expert review pending. Scientific acceptance of the full model remains
+unresolved. PR merge disposition remains separate.
 Author disclosures: AI-assisted work in the Food is Health-affiliated project;
 no human conflict disclosure or independent assessment is inferred.
 
@@ -203,10 +226,9 @@ no human conflict disclosure or independent assessment is inferred.
 | Older-cohort aggregate transitions suffice nationally | Visit timing, competing risks, missingness and transport must be modeled | Unresolved |
 | A green PR permits scientific release | Repository policy requires scoped scientific assessment and acceptance tests | Release remains blocked |
 
-The review policy explicitly states: "Material scientific claims or removal of a
-release blocker require an identified relevant scientific assessment and the
-acceptance tests for that scope." See [scientific review](../SCIENTIFIC_REVIEW.md).
-No such assessment is recorded. Until supplied, this work can produce reviewable
-evidence and validation-only experiments but cannot claim scientific acceptance.
+The approved [review policy](../SCIENTIFIC_REVIEW.md) now permits a research-backed
+validation report while external expert review is pending. See the
+[claim/evidence assessment](../EVIDENCE_VALIDATION_REPORT.md). This removes the
+reviewer-recruitment prerequisite, not the missing evidence or scientific tests.
 Rollback is removal of the optional benchmark; existing engine semantics and
 scientific gate remain unchanged.

@@ -332,7 +332,17 @@
         "mortality_development_glycemic_diabetes_any_type",
         "mortality_development_null_intercept",
         "mortality_development_null_age",
-        "mortality_development_null_male"
+        "mortality_development_null_male",
+        "mortality_development_glycemic_piecewise_intercept",
+        "mortality_development_glycemic_piecewise_age",
+        "mortality_development_glycemic_piecewise_male",
+        "mortality_development_glycemic_piecewise_prediabetes",
+        "mortality_development_glycemic_piecewise_diabetes_any_type",
+        "mortality_development_glycemic_piecewise_age_hinge",
+        "mortality_development_null_piecewise_intercept",
+        "mortality_development_null_piecewise_age",
+        "mortality_development_null_piecewise_male",
+        "mortality_development_null_piecewise_age_hinge"
       ],
       "artifacts": [],
       "transform_files": [
@@ -377,11 +387,11 @@
     },
     {
       "path": "docs/validation/issue-1-mortality-development.json",
-      "sha256": "488c38a3f1707552638d194c07bde61c37d1a6c809eed999ae7f8595b75486e6"
+      "sha256": "f40cddaa357424f0d75d2f9c7331089fb74ef6737b9f81f0fc1c339055a53050"
     },
     {
       "path": "docs/validation/issue-1-mortality-development-before-after.json",
-      "sha256": "a75c57bcc4d70e84489e64d924f3872ff9c2cea6acbb02aae04b020820cc619d"
+      "sha256": "0abefaa60a50c6d476be2428f3a70908ebd2bff4c991c768c928b94e7239f050"
     }
   ]
 }
