@@ -78,6 +78,7 @@ export default function ChartView({
     }
     const layout = {
       ...figure.layout,
+      title: figure.layout.title,
       autosize: true,
       width: undefined,
       height: 450,
@@ -86,6 +87,29 @@ export default function ChartView({
       font: { family: "Arial, sans-serif", size: 13, color: "#263d40" },
       margin: { l: 60, r: 25, t: 70, b: 95 },
     };
+    // Plotly does not wrap titles automatically on narrow screens. Keep the
+    // complete measure and validation label visible, including in PNG exports.
+    const title = figure.layout.title;
+    const titleText =
+      typeof title === "string"
+        ? title
+        : title && typeof title === "object" && !Array.isArray(title)
+          ? String(title.text ?? "")
+          : "";
+    const titleLines: string[] = [];
+    for (const word of titleText.split(/\s+/)) {
+      const last = titleLines.length - 1;
+      if (last < 0 || titleLines[last].length + word.length + 1 > 36)
+        titleLines.push(word);
+      else titleLines[last] += ` ${word}`;
+    }
+    layout.title = {
+      text: titleLines.join("<br>"),
+      font: { size: 14 },
+      x: 0.03,
+      xanchor: "left",
+    };
+    layout.margin.t = 24 + titleLines.length * 20;
     window.Plotly.react(target, figure.data, layout, {
       responsive: true,
       displaylogo: false,
