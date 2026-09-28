@@ -57,6 +57,10 @@ def dose_shape(delta: float, shape: str, half_saturation: float | None = None) -
 
 @dataclass
 class ResponseState:
+    relative_upf: float = 1.0
+    shaped_dose: float = 0.0
+    progression_log: float = 0.0
+    recovery_log: float = 0.0
     fast: float = 0.0
     memory: float = 0.0
     recovery: float = 0.0
@@ -115,22 +119,24 @@ class DietaryResponse:
             recovery_log = p("beta_upf_recovery") * s.recovery
         if max(abs(progression_log), abs(recovery_log)) > 50:
             raise ValueError("Scenario log effect is numerically unsupported")
+        s.relative_upf, s.shaped_dose = relative_upf, dose
+        s.progression_log, s.recovery_log = progression_log, recovery_log
         s.cumulative_exposure += delta * dt
         s.cumulative_absolute_exposure += abs(delta) * dt
         s.elapsed += dt
-        return self.snapshot(relative_upf, dose, progression_log, recovery_log)
+        return self.snapshot()
 
-    def snapshot(self, relative_upf=1.0, dose=0.0, progression_log=0.0, recovery_log=0.0) -> dict:
+    def snapshot(self) -> dict:
         s = self.state
         return {
-            "relative_upf": relative_upf,
-            "shaped_dose": dose,
+            "relative_upf": s.relative_upf,
+            "shaped_dose": s.shaped_dose,
             "fast_response": s.fast,
             "retained_exposure": s.memory,
             "recovery_response": s.recovery,
             "cumulative_exposure_years": s.cumulative_exposure,
             "cumulative_absolute_exposure_years": s.cumulative_absolute_exposure,
-            "applied_progression_multiplier": exp(progression_log),
-            "applied_recovery_multiplier": exp(recovery_log),
+            "applied_progression_multiplier": exp(s.progression_log),
+            "applied_recovery_multiplier": exp(s.recovery_log),
             "elapsed_years": s.elapsed,
         }

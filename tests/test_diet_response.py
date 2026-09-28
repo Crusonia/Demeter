@@ -43,6 +43,7 @@ def test_single_lag_analytic_solution_and_time_step_semigroup():
     response = DietaryResponse(REGISTRY, s)
     for year in range(1, 6):
         state = response.advance(0.7)
+        assert response.snapshot() == state
         expected = (
             REGISTRY.value("beta_upf_progression")
             * (-0.3)
