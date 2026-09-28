@@ -40,7 +40,7 @@ jobs:
           uv run python --version
       - name: Lint
         run: uv run ruff check .
-      - name: Test offline fixtures and CLI
+      - name: Test offline fixtures, CLI, and executable learning notebook
         run: uv run python -X utf8 -m pytest
       - name: Verify committed source bytes and rebuild offline
         run: uv run python scripts/verify_source_archive.py --rebuild

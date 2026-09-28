@@ -10,8 +10,12 @@ You can do the exercise alone or compare predictions with a group.
 This prepares you for the future [real-food value-chain exercise](REAL_FOOD_VALUE_CHAIN.md):
 understand how a lever works before tracing its value across agriculture, food,
 retail, and healthcare. Today's exercise only runs the health mechanics. It does
-not yet model a regenerative product, retail value capture, a distinct PreChronic
-population, or healthcare costs.
+not model a regenerative product, retail value capture, or healthcare costs.
+This exercise uses the canonical three-state model; the separate optional
+[PreChronic experiment](PRECHRONIC.md) remains uncalibrated.
+
+For a smaller stock/flow model and the full path through uncertainty, historical
+diagnostics and custom modules, use the [learning path](LEARNING_PATH.md).
 
 ## Predict before running
 

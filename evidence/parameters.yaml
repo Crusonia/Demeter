@@ -1,4 +1,48 @@
 parameters:
+  toy_initial_tokens:
+    key: toy_initial_tokens
+    value: 100
+    unit: tokens
+    status: synthetic
+    evidence_grade: E
+    model_role: benchmark_only
+    source: Demeter-authored two-container teaching exercise; no empirical source
+    population: Abstract tokens, not people
+    geography: Not applicable
+    time_period: Abstract ticks, not calendar years
+    lower_bound: 0
+    uncertainty: {kind: fixed, rationale: "Initial endowment fixed by the exercise definition, not an estimated quantity"}
+    notes: Used only by demeter.examples.stock_flow; see docs/rfcs/0019-teaching-model.md.
+  toy_target_fraction:
+    key: toy_target_fraction
+    value: 0.25
+    unit: fraction_per_tick
+    status: synthetic
+    evidence_grade: E
+    model_role: benchmark_only
+    source: Demeter-authored two-container teaching exercise; no empirical source
+    population: Abstract tokens, not people
+    geography: Not applicable
+    time_period: Abstract ticks, not calendar years
+    lower_bound: 0
+    upper_bound: 1
+    uncertainty: {kind: uniform, low: 0.1, high: 0.4, rationale: "Illustrative sensitivity range; not an empirical confidence interval"}
+    notes: Fraction of remaining tokens transferred per tick after response adjustment; not a continuous hazard.
+  toy_response_fraction:
+    key: toy_response_fraction
+    value: 0.5
+    unit: fraction
+    status: synthetic
+    evidence_grade: E
+    model_role: benchmark_only
+    source: Demeter-authored two-container teaching exercise; no empirical source
+    population: Abstract tokens, not people
+    geography: Not applicable
+    time_period: Abstract ticks, not calendar years
+    lower_bound: 0
+    upper_bound: 1
+    uncertainty: {kind: uniform, low: 0.25, high: 1.0, rationale: "Illustrative adjustment speeds; not an empirical confidence interval"}
+    notes: Closes this fraction of the gap to the target before each tick's flow. One means immediate response.
   leverage_upf_scale:
     key: leverage_upf_scale
     value: 1.0
