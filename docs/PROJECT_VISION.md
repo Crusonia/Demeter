@@ -1164,6 +1164,42 @@ Avoid:
 
 Demeter should eventually answer questions in several different forms.
 
+### Top-level metrics
+
+Every scenario should eventually report a small, stable set of headline metrics,
+always with uncertainty, each paired with a companion measure that prevents a
+misleading reading. Only healthy longevity is computable today. The other
+metrics are defined now so later phases can add them without changing core
+model semantics; they must not be computed from synthetic or placeholder
+economic inputs.
+
+**Tier 1 — north-star metrics**
+
+| Metric | Companion measure | Why the pairing matters | Status |
+| --- | --- | --- | --- |
+| **Healthy life expectancy** | Period life expectancy | Added years spent in chronic disease are not the goal; the gap between the two is the chronic-disease burden. | Validation-only healthspan exists ([HEALTHSPAN.md](HEALTHSPAN.md)); life expectancy is implemented. |
+| **Health-adjusted total factor productivity of the food–health system**: healthy life-years or nutrient-adequate diets produced per unit of land, labor, capital, and energy | Conventional agricultural TFP | Conventional TFP counts calories and commodity output, so a system can look highly productive while generating disease burden. The gap between the two measures is the opportunity. | Future. Requires agriculture, input, and health-cost modules and a published metric definition. |
+| **Productive capacity and health-inclusive GDP**: labor-force participation, productive time lost to illness, and output adjusted for the value of health | Raw GDP with healthcare spending shown separately | Raw GDP counts treatment of disease as output, so lower chronic disease can reduce measured GDP while raising welfare. The value of longevity gains is large and outside GDP ([Murphy and Topel, 2006](https://doi.org/10.1086/508033)). Raw GDP is reported, never optimized. | Future. Requires a validated health-to-earnings and labor-supply link, which is currently outside the boundary. |
+
+**Tier 1 guardrail — climate and land**
+
+| Guardrail | Why it is a guardrail |
+| --- | --- |
+| **Net lifecycle greenhouse-gas emissions and land use** of the modeled food system, relative to the reference scenario | Health-improving changes can raise or lower emissions. A scenario that improves the north-star metrics while worsening this guardrail must show the trade-off explicitly; it may not be hidden or netted away. Future; see P-03, X-P02, X-N02, and X-N03 in the [design registers](design/README.md). |
+
+**Tier 2 — who bears and captures the value**
+
+Tier 1 aggregates hide incidence. Each scenario should also report distribution
+across actors, including payer net spending, farm income, household food
+affordability, employer productivity, and public budgets. Value creation, value
+capture, and uncompensated effects remain distinct accounts.
+
+**Tier 3 — mechanism**
+
+Metabolic-state prevalence, transitions, dietary intake, prices, adoption, and
+other intermediate stocks and flows explain why a headline metric moved. A
+headline change without a traceable mechanism is incomplete.
+
 ### Forecast / scenario output
 
 Example:

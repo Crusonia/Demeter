@@ -53,6 +53,16 @@ Do **not** add agriculture, food-company agents, farmer agents, policy optimizat
 - Report absolute effects as well as relative effects.
 - Never extrapolate an effect outside the studied population or exposure range without marking the extrapolation.
 
+## Top-level metrics
+
+The headline metric hierarchy is defined in `docs/PROJECT_VISION.md` §11:
+
+- Tier 1 north-star metrics: healthy life expectancy (with life expectancy), health-adjusted total factor productivity of the food–health system (with conventional agricultural TFP), and productive capacity / health-inclusive GDP (with raw GDP and healthcare spending shown separately).
+- Tier 1 guardrail: net lifecycle greenhouse-gas emissions and land use. Trade-offs against this guardrail must be shown, never hidden.
+- Tier 2: distribution of costs and benefits across actors. Tier 3: the mechanisms that explain each headline change.
+
+Only healthy longevity is computable in v0.1. Do not compute TFP, GDP, or emissions metrics from synthetic or placeholder inputs, and never optimize raw GDP. Report every headline metric with uncertainty.
+
 ## Architecture
 
 ```
