@@ -16,4 +16,6 @@ class CustomBuildHook(BuildHookInterface):
         )
         module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)
-        module.build(root)
+        assets = module.build(root)
+        if self.target_name == "wheel":
+            build_data["force_include"][str(assets)] = "demeter/explorer/static"

@@ -43,7 +43,6 @@ demeter = "demeter.cli:app"
 packages = ["src/demeter"]
 
 [tool.hatch.build.targets.wheel.force-include]
-"build/explorer" = "demeter/explorer/static"
 "data/rights.json" = "demeter/data/notices/rights.json"
 "data/evidence-packages.json" = "demeter/data/notices/evidence-packages.json"
 "data/NOTICE.md" = "demeter/data/notices/NOTICE.md"
