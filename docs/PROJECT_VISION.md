@@ -39,7 +39,10 @@ after intervention costs and delays, and who receives those benefits.
 participant views and pathways. Real-food and regenerative labels require
 operational definitions and evidenced mechanisms. PreChronic remains a proposed
 earlier-risk population requiring validated inclusion criteria, as described in
-the [post-v0.1 roadmap](POST_V0_1_ROADMAP.md). Retail premiums, health effects, and
+the [post-v0.1 roadmap](POST_V0_1_ROADMAP.md). The optional
+[PreChronic experiment](PRECHRONIC.md) implements candidate definitions and
+synthetic state mechanics ahead of the separate calibration pass; it does not
+establish clinical validity. Retail premiums, health effects, and
 cost savings are outcomes to test. These priorities preserve the staged roadmap
 and do not expand the current v0.1 implementation boundary.
 

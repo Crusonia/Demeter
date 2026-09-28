@@ -1,0 +1,3775 @@
+{
+  "analysis": {
+    "bp_rule": "Mean of all three oscillometric readings; either mean at least threshold; one combined BP marker",
+    "definition_status": "Synthetic operational choices for structural comparison, not clinically validated PreChronic thresholds; individual marker cutoffs are sourced definitions",
+    "definitions": {
+      "risk_1": 1,
+      "risk_2": 2
+    },
+    "diagnosis_columns": [
+      "BPQ020",
+      "BPQ080",
+      "MCQ160B",
+      "MCQ160C",
+      "MCQ160D",
+      "MCQ160E",
+      "MCQ160F",
+      "MCQ220"
+    ],
+    "diagnosis_rule": "Yes to known hypertension, high cholesterol, CHF, CHD, angina, MI, stroke or cancer excludes candidate status; unknown responses excluded",
+    "diastolic_mmhg": 85,
+    "glycemic_definition": "Inherit registered nhanes_glycemic_prevalence analysis; diabetes then prediabetes take priority",
+    "hdl_female_mg_dl": 50,
+    "hdl_male_mg_dl": 40,
+    "hdl_rule": "Strictly less than threshold",
+    "systolic_mmhg": 130,
+    "triglyceride_rule": "Strictly greater than threshold per cited NHLBI page",
+    "triglycerides_mg_dl": 150,
+    "waist_female_cm": 88.9,
+    "waist_male_cm": 101.6,
+    "waist_rule": "Strictly greater than NHLBI 40/35 inches converted at exactly 2.54 cm/inch; not ethnicity-specific"
+  },
+  "definitions": [
+    {
+      "domains": [
+        {
+          "age_group": "20_plus",
+          "complete_n": 3211,
+          "eligible_n": 3769,
+          "missing_weight_fraction": 0.120622775938,
+          "sex": "all",
+          "states": {
+            "diabetes_any_type": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 32518270.6089,
+                "interval": {
+                  "high": 36227994.2541,
+                  "level": 0.95,
+                  "low": 28808546.9636
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1801240.20516,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.155070931001,
+                "interval": {
+                  "high": 0.176746527663,
+                  "level": 0.95,
+                  "low": 0.135615663732,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 3211,
+                "standard_error": 0.00997675454637,
+                "status": "estimated"
+              }
+            },
+            "lower_measured_risk": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 22267876.4633,
+                "interval": {
+                  "high": 27402763.6369,
+                  "level": 0.95,
+                  "low": 17132989.2898
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 2493222.16701,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.106189544214,
+                "interval": {
+                  "high": 0.124900055512,
+                  "level": 0.95,
+                  "low": 0.0899936939862,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 3211,
+                "standard_error": 0.00845396417866,
+                "status": "estimated"
+              }
+            },
+            "other_reported_diagnosis": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 24971876.0251,
+                "interval": {
+                  "high": 29984433.0138,
+                  "level": 0.95,
+                  "low": 19959319.0364
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 2433825.27702,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.119084194564,
+                "interval": {
+                  "high": 0.138212197814,
+                  "level": 0.95,
+                  "low": 0.102289217037,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 3211,
+                "standard_error": 0.00870546859266,
+                "status": "estimated"
+              }
+            },
+            "prechronic_candidate": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 22426979.9098,
+                "interval": {
+                  "high": 26802414.3384,
+                  "level": 0.95,
+                  "low": 18051545.4811
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 2124473.18494,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.106948265976,
+                "interval": {
+                  "high": 0.125912440837,
+                  "level": 0.95,
+                  "low": 0.0905444874398,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 3211,
+                "standard_error": 0.00856564834099,
+                "status": "estimated"
+              }
+            },
+            "prediabetes": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 107514328.769,
+                "interval": {
+                  "high": 119100675.208,
+                  "level": 0.95,
+                  "low": 95927982.3296
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 5625700.19568,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.512707064244,
+                "interval": {
+                  "high": 0.539651804613,
+                  "level": 0.95,
+                  "low": 0.485688268636,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 3211,
+                "standard_error": 0.0131136111543,
+                "status": "estimated"
+              }
+            }
+          }
+        },
+        {
+          "age_group": "20_plus",
+          "complete_n": 1606,
+          "eligible_n": 1822,
+          "missing_weight_fraction": 0.0931071153431,
+          "sex": "male",
+          "states": {
+            "diabetes_any_type": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 17878936.8669,
+                "interval": {
+                  "high": 20427886.5618,
+                  "level": 0.95,
+                  "low": 15329987.172
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1237631.45461,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.16933157368,
+                "interval": {
+                  "high": 0.194262784324,
+                  "level": 0.95,
+                  "low": 0.147016167307,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1606,
+                "standard_error": 0.0114618625423,
+                "status": "estimated"
+              }
+            },
+            "lower_measured_risk": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 10302996.1537,
+                "interval": {
+                  "high": 13354285.966,
+                  "level": 0.95,
+                  "low": 7251706.34146
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1481540.51703,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0975797702806,
+                "interval": {
+                  "high": 0.126729645033,
+                  "level": 0.95,
+                  "low": 0.0745623521703,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1606,
+                "standard_error": 0.0125797575559,
+                "status": "estimated"
+              }
+            },
+            "other_reported_diagnosis": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 9399950.62115,
+                "interval": {
+                  "high": 12614944.3685,
+                  "level": 0.95,
+                  "low": 6184956.87384
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1561026.25173,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.089027017828,
+                "interval": {
+                  "high": 0.122945051688,
+                  "level": 0.95,
+                  "low": 0.0637857483988,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1606,
+                "standard_error": 0.0142053901898,
+                "status": "estimated"
+              }
+            },
+            "prechronic_candidate": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 8603505.83932,
+                "interval": {
+                  "high": 11124633.0682,
+                  "level": 0.95,
+                  "low": 6082378.61044
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1224122.37708,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0814838820554,
+                "interval": {
+                  "high": 0.104495060191,
+                  "level": 0.95,
+                  "low": 0.0631825373352,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1606,
+                "standard_error": 0.00996110578969,
+                "status": "estimated"
+              }
+            },
+            "prediabetes": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 59399980.5614,
+                "interval": {
+                  "high": 67564186.6173,
+                  "level": 0.95,
+                  "low": 51235774.5054
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 3964094.79446,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.562577756156,
+                "interval": {
+                  "high": 0.600315098766,
+                  "level": 0.95,
+                  "low": 0.524101955992,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1606,
+                "standard_error": 0.0185378389803,
+                "status": "estimated"
+              }
+            }
+          }
+        },
+        {
+          "age_group": "20_plus",
+          "complete_n": 1605,
+          "eligible_n": 1947,
+          "missing_weight_fraction": 0.146872964535,
+          "sex": "female",
+          "states": {
+            "diabetes_any_type": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 14639333.7419,
+                "interval": {
+                  "high": 17102549.7048,
+                  "level": 0.95,
+                  "low": 12176117.779
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1196003.81338,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.140608747359,
+                "interval": {
+                  "high": 0.172575174096,
+                  "level": 0.95,
+                  "low": 0.113749510374,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1605,
+                "standard_error": 0.0142431645686,
+                "status": "estimated"
+              }
+            },
+            "lower_measured_risk": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 11964880.3096,
+                "interval": {
+                  "high": 15508211.8192,
+                  "level": 0.95,
+                  "low": 8421548.8
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1720449.22629,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.114920997246,
+                "interval": {
+                  "high": 0.143249296033,
+                  "level": 0.95,
+                  "low": 0.0915958465961,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1605,
+                "standard_error": 0.0124885296235,
+                "status": "estimated"
+              }
+            },
+            "other_reported_diagnosis": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 15571925.404,
+                "interval": {
+                  "high": 19792112.6269,
+                  "level": 0.95,
+                  "low": 11351738.1811
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 2049093.5784,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.149566159473,
+                "interval": {
+                  "high": 0.18328761874,
+                  "level": 0.95,
+                  "low": 0.121128664311,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1605,
+                "standard_error": 0.0150555766614,
+                "status": "estimated"
+              }
+            },
+            "prechronic_candidate": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 13823474.0705,
+                "interval": {
+                  "high": 16824577.1625,
+                  "level": 0.95,
+                  "low": 10822370.9784
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1457172.57297,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.132772529643,
+                "interval": {
+                  "high": 0.158242152169,
+                  "level": 0.95,
+                  "low": 0.110862422757,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1605,
+                "standard_error": 0.0114777330633,
+                "status": "estimated"
+              }
+            },
+            "prediabetes": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 48114348.2074,
+                "interval": {
+                  "high": 54451321.6443,
+                  "level": 0.95,
+                  "low": 41777374.7705
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 3076889.93168,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.46213156628,
+                "interval": {
+                  "high": 0.500237914397,
+                  "level": 0.95,
+                  "low": 0.424462585997,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1605,
+                "standard_error": 0.0184313161393,
+                "status": "estimated"
+              }
+            }
+          }
+        },
+        {
+          "age_group": "20_39",
+          "complete_n": 959,
+          "eligible_n": 1106,
+          "missing_weight_fraction": 0.115043473504,
+          "sex": "all",
+          "states": {
+            "diabetes_any_type": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 2897085.50658,
+                "interval": {
+                  "high": 4021586.07552,
+                  "level": 0.95,
+                  "low": 1772584.93764
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 545996.367699,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0384819908013,
+                "interval": {
+                  "high": 0.0551392165527,
+                  "level": 0.95,
+                  "low": 0.0267145390882,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 959,
+                "standard_error": 0.00677571530082,
+                "status": "estimated"
+              }
+            },
+            "lower_measured_risk": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 16864035.2125,
+                "interval": {
+                  "high": 21368803.523,
+                  "level": 0.95,
+                  "low": 12359266.902
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 2187270.68959,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.224005003113,
+                "interval": {
+                  "high": 0.266833773227,
+                  "level": 0.95,
+                  "low": 0.186303737999,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 959,
+                "standard_error": 0.0195582992047,
+                "status": "estimated"
+              }
+            },
+            "other_reported_diagnosis": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 8130878.80354,
+                "interval": {
+                  "high": 10827286.1275,
+                  "level": 0.95,
+                  "low": 5434471.4796
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1309228.86602,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.108002474423,
+                "interval": {
+                  "high": 0.140976665588,
+                  "level": 0.95,
+                  "low": 0.0820046223994,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 959,
+                "standard_error": 0.0142250757177,
+                "status": "estimated"
+              }
+            },
+            "prechronic_candidate": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 15359415.0388,
+                "interval": {
+                  "high": 18990766.9571,
+                  "level": 0.95,
+                  "low": 11728063.1205
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1763187.15347,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.20401913126,
+                "interval": {
+                  "high": 0.248490814462,
+                  "level": 0.95,
+                  "low": 0.165751006292,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 959,
+                "standard_error": 0.0200819078541,
+                "status": "estimated"
+              }
+            },
+            "prediabetes": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 32032775.426,
+                "interval": {
+                  "high": 37810854.1414,
+                  "level": 0.95,
+                  "low": 26254696.7106
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 2805521.02688,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.425491400403,
+                "interval": {
+                  "high": 0.475440683544,
+                  "level": 0.95,
+                  "low": 0.377018098838,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 959,
+                "standard_error": 0.023970093899,
+                "status": "estimated"
+              }
+            }
+          }
+        },
+        {
+          "age_group": "20_39",
+          "complete_n": 469,
+          "eligible_n": 523,
+          "missing_weight_fraction": 0.0901629443421,
+          "sex": "male",
+          "states": {
+            "diabetes_any_type": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 1413403.27842,
+                "interval": {
+                  "high": 2570191.05242,
+                  "level": 0.95,
+                  "low": 256615.504415
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 561673.279899,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0357392030311,
+                "interval": {
+                  "high": 0.0765814162243,
+                  "level": 0.95,
+                  "low": 0.0162944994274,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 469,
+                "standard_error": 0.0134763783118,
+                "status": "estimated"
+              }
+            },
+            "lower_measured_risk": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 7762824.46854,
+                "interval": {
+                  "high": 10213268.6261,
+                  "level": 0.95,
+                  "low": 5312380.31097
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1189802.51877,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.196290162909,
+                "interval": {
+                  "high": 0.252878355108,
+                  "level": 0.95,
+                  "low": 0.149825647419,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 469,
+                "standard_error": 0.0249964341682,
+                "status": "estimated"
+              }
+            },
+            "other_reported_diagnosis": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 3814525.92404,
+                "interval": {
+                  "high": 5408453.88341,
+                  "level": 0.95,
+                  "low": 2220597.96467
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 773924.798465,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0964537995267,
+                "interval": {
+                  "high": 0.139497682846,
+                  "level": 0.95,
+                  "low": 0.0656779517361,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 469,
+                "standard_error": 0.0176792078548,
+                "status": "estimated"
+              }
+            },
+            "prechronic_candidate": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 6830840.6779,
+                "interval": {
+                  "high": 9271634.8663,
+                  "level": 0.95,
+                  "low": 4390046.48951
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1185117.01815,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.172724094806,
+                "interval": {
+                  "high": 0.233452004583,
+                  "level": 0.95,
+                  "low": 0.125212935445,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 469,
+                "standard_error": 0.0261924182629,
+                "status": "estimated"
+              }
+            },
+            "prediabetes": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 19726105.6148,
+                "interval": {
+                  "high": 23581811.8378,
+                  "level": 0.95,
+                  "low": 15870399.3918
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1872121.41178,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.498792739728,
+                "interval": {
+                  "high": 0.558628358948,
+                  "level": 0.95,
+                  "low": 0.438991679581,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 469,
+                "standard_error": 0.0291843074002,
+                "status": "estimated"
+              }
+            }
+          }
+        },
+        {
+          "age_group": "20_39",
+          "complete_n": 490,
+          "eligible_n": 583,
+          "missing_weight_fraction": 0.141037847116,
+          "sex": "female",
+          "states": {
+            "diabetes_any_type": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 1483682.22816,
+                "interval": {
+                  "high": 2162515.5772,
+                  "level": 0.95,
+                  "low": 804848.879117
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 329604.584549,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0415172902312,
+                "interval": {
+                  "high": 0.0652701451798,
+                  "level": 0.95,
+                  "low": 0.026166502579,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 490,
+                "standard_error": 0.00922643154632,
+                "status": "estimated"
+              }
+            },
+            "lower_measured_risk": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 9101210.74395,
+                "interval": {
+                  "high": 12392015.6742,
+                  "level": 0.95,
+                  "low": 5810405.81372
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1597836.04237,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.25467556377,
+                "interval": {
+                  "high": 0.321494314627,
+                  "level": 0.95,
+                  "low": 0.197697862982,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 490,
+                "standard_error": 0.0301299989982,
+                "status": "estimated"
+              }
+            },
+            "other_reported_diagnosis": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 4316352.8795,
+                "interval": {
+                  "high": 5824283.30303,
+                  "level": 0.95,
+                  "low": 2808422.45597
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 732169.068412,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.120782787471,
+                "interval": {
+                  "high": 0.163410492047,
+                  "level": 0.95,
+                  "low": 0.088103980265,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 490,
+                "standard_error": 0.0181483453108,
+                "status": "estimated"
+              }
+            },
+            "prechronic_candidate": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 8528574.36094,
+                "interval": {
+                  "high": 10493959.5135,
+                  "level": 0.95,
+                  "low": 6563189.20837
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 954284.225435,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.238651707408,
+                "interval": {
+                  "high": 0.295347533722,
+                  "level": 0.95,
+                  "low": 0.189906245236,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 490,
+                "standard_error": 0.0256315333963,
+                "status": "estimated"
+              }
+            },
+            "prediabetes": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 12306669.8112,
+                "interval": {
+                  "high": 15213005.1455,
+                  "level": 0.95,
+                  "low": 9400334.4768
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1411158.49979,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.344372651119,
+                "interval": {
+                  "high": 0.401803599507,
+                  "level": 0.95,
+                  "low": 0.291155087991,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 490,
+                "standard_error": 0.0269585399197,
+                "status": "estimated"
+              }
+            }
+          }
+        },
+        {
+          "age_group": "40_59",
+          "complete_n": 1114,
+          "eligible_n": 1282,
+          "missing_weight_fraction": 0.110711747441,
+          "sex": "all",
+          "states": {
+            "diabetes_any_type": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 11710291.6523,
+                "interval": {
+                  "high": 13582202.7324,
+                  "level": 0.95,
+                  "low": 9838380.57222
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 908898.295478,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.16065768383,
+                "interval": {
+                  "high": 0.196522646037,
+                  "level": 0.95,
+                  "low": 0.13027674142,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1114,
+                "standard_error": 0.016052418571,
+                "status": "estimated"
+              }
+            },
+            "lower_measured_risk": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 4676848.84336,
+                "interval": {
+                  "high": 6251471.56017,
+                  "level": 0.95,
+                  "low": 3102226.12654
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 764551.221783,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0641633637409,
+                "interval": {
+                  "high": 0.0884067895449,
+                  "level": 0.95,
+                  "low": 0.0462309531455,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1114,
+                "standard_error": 0.0101099863248,
+                "status": "estimated"
+              }
+            },
+            "other_reported_diagnosis": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 9526373.19216,
+                "interval": {
+                  "high": 11831648.1042,
+                  "level": 0.95,
+                  "low": 7221098.28016
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1119316.22204,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.130695724564,
+                "interval": {
+                  "high": 0.161439799465,
+                  "level": 0.95,
+                  "low": 0.105072836728,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1114,
+                "standard_error": 0.0136404862514,
+                "status": "estimated"
+              }
+            },
+            "prechronic_candidate": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 5683635.37313,
+                "interval": {
+                  "high": 7819761.15758,
+                  "level": 0.95,
+                  "low": 3547509.58869
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1037186.59774,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0779758286041,
+                "interval": {
+                  "high": 0.11066085389,
+                  "level": 0.95,
+                  "low": 0.0543546930555,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1114,
+                "standard_error": 0.0134804447064,
+                "status": "estimated"
+              }
+            },
+            "prediabetes": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 41292558.8765,
+                "interval": {
+                  "high": 49287878.7221,
+                  "level": 0.95,
+                  "low": 33297239.0309
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 3882092.82848,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.56650739926,
+                "interval": {
+                  "high": 0.620314709669,
+                  "level": 0.95,
+                  "low": 0.511084835767,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1114,
+                "standard_error": 0.0266222892285,
+                "status": "estimated"
+              }
+            }
+          }
+        },
+        {
+          "age_group": "40_59",
+          "complete_n": 529,
+          "eligible_n": 595,
+          "missing_weight_fraction": 0.0932421552444,
+          "sex": "male",
+          "states": {
+            "diabetes_any_type": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 5801821.01373,
+                "interval": {
+                  "high": 7304910.63844,
+                  "level": 0.95,
+                  "low": 4298731.38901
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 729818.639571,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.16185458463,
+                "interval": {
+                  "high": 0.208435799409,
+                  "level": 0.95,
+                  "low": 0.124051912603,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 529,
+                "standard_error": 0.0204265479629,
+                "status": "estimated"
+              }
+            },
+            "lower_measured_risk": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 2168313.31218,
+                "interval": {
+                  "high": 3311804.30088,
+                  "level": 0.95,
+                  "low": 1024822.32347
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 555217.083545,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.060489878895,
+                "interval": {
+                  "high": 0.0985432373549,
+                  "level": 0.95,
+                  "low": 0.036535600625,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 529,
+                "standard_error": 0.0146073078614,
+                "status": "estimated"
+              }
+            },
+            "other_reported_diagnosis": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 3543444.63055,
+                "interval": {
+                  "high": 5109453.50166,
+                  "level": 0.95,
+                  "low": 1977435.75943
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 760368.806412,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0988521978669,
+                "interval": {
+                  "high": 0.153348938414,
+                  "level": 0.95,
+                  "low": 0.0622973308568,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 529,
+                "standard_error": 0.0216899278757,
+                "status": "estimated"
+              }
+            },
+            "prechronic_candidate": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 1613214.71697,
+                "interval": {
+                  "high": 2614762.86494,
+                  "level": 0.95,
+                  "low": 611666.569
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 486297.353663,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0450041801215,
+                "interval": {
+                  "high": 0.0807637868947,
+                  "level": 0.95,
+                  "low": 0.0246531436594,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 529,
+                "standard_error": 0.0129995592733,
+                "status": "estimated"
+              }
+            },
+            "prediabetes": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 22719092.4779,
+                "interval": {
+                  "high": 27976344.3208,
+                  "level": 0.95,
+                  "low": 17461840.635
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 2552635.80082,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.633799158486,
+                "interval": {
+                  "high": 0.704154633226,
+                  "level": 0.95,
+                  "low": 0.557232879818,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 529,
+                "standard_error": 0.0359055577728,
+                "status": "estimated"
+              }
+            }
+          }
+        },
+        {
+          "age_group": "40_59",
+          "complete_n": 585,
+          "eligible_n": 687,
+          "missing_weight_fraction": 0.126987292648,
+          "sex": "female",
+          "states": {
+            "diabetes_any_type": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 5908470.63856,
+                "interval": {
+                  "high": 7823288.93801,
+                  "level": 0.95,
+                  "low": 3993652.3391
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 929731.709511,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.159499488813,
+                "interval": {
+                  "high": 0.225243683118,
+                  "level": 0.95,
+                  "low": 0.110214888913,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 585,
+                "standard_error": 0.0277676539683,
+                "status": "estimated"
+              }
+            },
+            "lower_measured_risk": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 2508535.53118,
+                "interval": {
+                  "high": 3594183.26175,
+                  "level": 0.95,
+                  "low": 1422887.80061
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 527131.540759,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0677180541917,
+                "interval": {
+                  "high": 0.103667001649,
+                  "level": 0.95,
+                  "low": 0.0436284601117,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 585,
+                "standard_error": 0.0142586654798,
+                "status": "estimated"
+              }
+            },
+            "other_reported_diagnosis": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 5982928.56162,
+                "interval": {
+                  "high": 7918204.94365,
+                  "level": 0.95,
+                  "low": 4047652.17959
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 939665.042659,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.161509484528,
+                "interval": {
+                  "high": 0.212719593141,
+                  "level": 0.95,
+                  "low": 0.120737029399,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 585,
+                "standard_error": 0.0222533190949,
+                "status": "estimated"
+              }
+            },
+            "prechronic_candidate": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 4070420.65616,
+                "interval": {
+                  "high": 5897572.09665,
+                  "level": 0.95,
+                  "low": 2243269.21568
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 887165.446864,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.109881228769,
+                "interval": {
+                  "high": 0.161812896387,
+                  "level": 0.95,
+                  "low": 0.0731615628755,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 585,
+                "standard_error": 0.0212353230959,
+                "status": "estimated"
+              }
+            },
+            "prediabetes": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 18573466.3986,
+                "interval": {
+                  "high": 23137422.593,
+                  "level": 0.95,
+                  "low": 14009510.2041
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 2216009.10959,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.501391743698,
+                "interval": {
+                  "high": 0.579390610449,
+                  "level": 0.95,
+                  "low": 0.423325080565,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 585,
+                "standard_error": 0.0382006523368,
+                "status": "estimated"
+              }
+            }
+          }
+        },
+        {
+          "age_group": "60_plus",
+          "complete_n": 1138,
+          "eligible_n": 1381,
+          "missing_weight_fraction": 0.138640643935,
+          "sex": "all",
+          "states": {
+            "diabetes_any_type": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 17910893.45,
+                "interval": {
+                  "high": 21492396.8092,
+                  "level": 0.95,
+                  "low": 14329390.0908
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1738983.40208,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.291113647298,
+                "interval": {
+                  "high": 0.322911993807,
+                  "level": 0.95,
+                  "low": 0.261238463398,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1138,
+                "standard_error": 0.014985970134,
+                "status": "estimated"
+              }
+            },
+            "lower_measured_risk": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 726992.407484,
+                "interval": {
+                  "high": 1334278.42982,
+                  "level": 0.95,
+                  "low": 119706.385153
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 294865.090784,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.011816128095,
+                "interval": {
+                  "high": 0.0250044819638,
+                  "level": 0.95,
+                  "low": 0.00554427886567,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1138,
+                "standard_error": 0.0043259564428,
+                "status": "estimated"
+              }
+            },
+            "other_reported_diagnosis": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 7314624.02943,
+                "interval": {
+                  "high": 9896207.91661,
+                  "level": 0.95,
+                  "low": 4733040.14224
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1253476.84496,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.118887809018,
+                "interval": {
+                  "high": 0.162532464037,
+                  "level": 0.95,
+                  "low": 0.0857628045567,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1138,
+                "standard_error": 0.0184885550522,
+                "status": "estimated"
+              }
+            },
+            "prechronic_candidate": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 1383929.4978,
+                "interval": {
+                  "high": 2093582.71645,
+                  "level": 0.95,
+                  "low": 674276.279141
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 344569.038394,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.022493616236,
+                "interval": {
+                  "high": 0.0361668850274,
+                  "level": 0.95,
+                  "low": 0.0139150391114,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1138,
+                "standard_error": 0.00522055842713,
+                "status": "estimated"
+              }
+            },
+            "prediabetes": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 34188994.4663,
+                "interval": {
+                  "high": 39433128.381,
+                  "level": 0.95,
+                  "low": 28944860.5516
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 2546266.44773,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.555688799353,
+                "interval": {
+                  "high": 0.592250613734,
+                  "level": 0.95,
+                  "low": 0.518513848589,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1138,
+                "standard_error": 0.017933413976,
+                "status": "estimated"
+              }
+            }
+          }
+        },
+        {
+          "age_group": "60_plus",
+          "complete_n": 608,
+          "eligible_n": 704,
+          "missing_weight_fraction": 0.0967758997717,
+          "sex": "male",
+          "states": {
+            "diabetes_any_type": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 10663712.5748,
+                "interval": {
+                  "high": 13592270.6504,
+                  "level": 0.95,
+                  "low": 7735154.4991
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1421948.65532,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.353199155121,
+                "interval": {
+                  "high": 0.413651851721,
+                  "level": 0.95,
+                  "low": 0.297104631451,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 608,
+                "standard_error": 0.0284092161805,
+                "status": "estimated"
+              }
+            },
+            "lower_measured_risk": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 371858.373027,
+                "interval": {
+                  "high": 791333.046081,
+                  "level": 0.95,
+                  "low": 0.0
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 203674.105781,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0123165419414,
+                "interval": {
+                  "high": 0.0364390495608,
+                  "level": 0.95,
+                  "low": 0.00409517069508,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 608,
+                "standard_error": 0.00655291157306,
+                "status": "estimated"
+              }
+            },
+            "other_reported_diagnosis": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 2041980.06656,
+                "interval": {
+                  "high": 3265806.19483,
+                  "level": 0.95,
+                  "low": 818153.938284
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 594223.461676,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0676336340862,
+                "interval": {
+                  "high": 0.122723968481,
+                  "level": 0.95,
+                  "low": 0.0362512471959,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 608,
+                "standard_error": 0.0201080749051,
+                "status": "estimated"
+              }
+            },
+            "prechronic_candidate": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 159450.444449,
+                "interval": {
+                  "high": 352402.228505,
+                  "level": 0.95,
+                  "low": 0.0
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 93686.9007858,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.00528125283461,
+                "interval": {
+                  "high": 0.0174831412836,
+                  "level": 0.95,
+                  "low": 0.00158163554734,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 608,
+                "standard_error": 0.00308491450681,
+                "status": "estimated"
+              }
+            },
+            "prediabetes": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 16954782.4686,
+                "interval": {
+                  "high": 19917256.2119,
+                  "level": 0.95,
+                  "low": 13992308.7254
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1438416.26041,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.561569416017,
+                "interval": {
+                  "high": 0.615803144637,
+                  "level": 0.95,
+                  "low": 0.50582361579,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 608,
+                "standard_error": 0.0268067590454,
+                "status": "estimated"
+              }
+            }
+          }
+        },
+        {
+          "age_group": "60_plus",
+          "complete_n": 530,
+          "eligible_n": 677,
+          "missing_weight_fraction": 0.175465377132,
+          "sex": "female",
+          "states": {
+            "diabetes_any_type": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 7247180.87522,
+                "interval": {
+                  "high": 9394173.59575,
+                  "level": 0.95,
+                  "low": 5100188.15469
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1042462.99136,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.231290669708,
+                "interval": {
+                  "high": 0.292296550754,
+                  "level": 0.95,
+                  "low": 0.179782893886,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 530,
+                "standard_error": 0.0273470209437,
+                "status": "estimated"
+              }
+            },
+            "lower_measured_risk": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 355134.034457,
+                "interval": {
+                  "high": 841582.970571,
+                  "level": 0.95,
+                  "low": 0.0
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 236193.16835,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0113339504119,
+                "interval": {
+                  "high": 0.0400444237342,
+                  "level": 0.95,
+                  "low": 0.00314055490307,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 530,
+                "standard_error": 0.00702761540918,
+                "status": "estimated"
+              }
+            },
+            "other_reported_diagnosis": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 5272643.96287,
+                "interval": {
+                  "high": 7896243.60369,
+                  "level": 0.95,
+                  "low": 2649044.32205
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1273877.41167,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.168274170923,
+                "interval": {
+                  "high": 0.264280086522,
+                  "level": 0.95,
+                  "low": 0.102295391168,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 530,
+                "standard_error": 0.0390113719873,
+                "status": "estimated"
+              }
+            },
+            "prechronic_candidate": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 1224479.05335,
+                "interval": {
+                  "high": 1927037.88377,
+                  "level": 0.95,
+                  "low": 521920.222926
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 341124.388997,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0390787238747,
+                "interval": {
+                  "high": 0.0675116722702,
+                  "level": 0.95,
+                  "low": 0.0223336815862,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 530,
+                "standard_error": 0.0105160350184,
+                "status": "estimated"
+              }
+            },
+            "prediabetes": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 17234211.9977,
+                "interval": {
+                  "high": 21115311.1711,
+                  "level": 0.95,
+                  "low": 13353112.8243
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1884450.84858,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.550022485083,
+                "interval": {
+                  "high": 0.610963491355,
+                  "level": 0.95,
+                  "low": 0.487542347764,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 530,
+                "standard_error": 0.0301152640703,
+                "status": "estimated"
+              }
+            }
+          }
+        }
+      ],
+      "id": "risk_1",
+      "minimum_markers": 1
+    },
+    {
+      "domains": [
+        {
+          "age_group": "20_plus",
+          "complete_n": 3211,
+          "eligible_n": 3769,
+          "missing_weight_fraction": 0.120622775938,
+          "sex": "all",
+          "states": {
+            "diabetes_any_type": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 32518270.6089,
+                "interval": {
+                  "high": 36227994.2541,
+                  "level": 0.95,
+                  "low": 28808546.9636
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1801240.20516,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.155070931001,
+                "interval": {
+                  "high": 0.176746527663,
+                  "level": 0.95,
+                  "low": 0.135615663732,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 3211,
+                "standard_error": 0.00997675454637,
+                "status": "estimated"
+              }
+            },
+            "lower_measured_risk": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 36648726.3928,
+                "interval": {
+                  "high": 43300242.4619,
+                  "level": 0.95,
+                  "low": 29997210.3237
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 3229614.74073,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.17476796937,
+                "interval": {
+                  "high": 0.195705192228,
+                  "level": 0.95,
+                  "low": 0.155637238455,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 3211,
+                "standard_error": 0.00972322850034,
+                "status": "estimated"
+              }
+            },
+            "other_reported_diagnosis": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 24971876.0251,
+                "interval": {
+                  "high": 29984433.0138,
+                  "level": 0.95,
+                  "low": 19959319.0364
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 2433825.27702,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.119084194564,
+                "interval": {
+                  "high": 0.138212197814,
+                  "level": 0.95,
+                  "low": 0.102289217037,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 3211,
+                "standard_error": 0.00870546859266,
+                "status": "estimated"
+              }
+            },
+            "prechronic_candidate": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 8046129.9803,
+                "interval": {
+                  "high": 10264038.2883,
+                  "level": 0.95,
+                  "low": 5828221.67234
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1076895.74686,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.03836984082,
+                "interval": {
+                  "high": 0.0492697319408,
+                  "level": 0.95,
+                  "low": 0.0298057238468,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 3211,
+                "standard_error": 0.00468377889449,
+                "status": "estimated"
+              }
+            },
+            "prediabetes": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 107514328.769,
+                "interval": {
+                  "high": 119100675.208,
+                  "level": 0.95,
+                  "low": 95927982.3296
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 5625700.19568,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.512707064244,
+                "interval": {
+                  "high": 0.539651804613,
+                  "level": 0.95,
+                  "low": 0.485688268636,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 3211,
+                "standard_error": 0.0131136111543,
+                "status": "estimated"
+              }
+            }
+          }
+        },
+        {
+          "age_group": "20_plus",
+          "complete_n": 1606,
+          "eligible_n": 1822,
+          "missing_weight_fraction": 0.0931071153431,
+          "sex": "male",
+          "states": {
+            "diabetes_any_type": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 17878936.8669,
+                "interval": {
+                  "high": 20427886.5618,
+                  "level": 0.95,
+                  "low": 15329987.172
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1237631.45461,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.16933157368,
+                "interval": {
+                  "high": 0.194262784324,
+                  "level": 0.95,
+                  "low": 0.147016167307,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1606,
+                "standard_error": 0.0114618625423,
+                "status": "estimated"
+              }
+            },
+            "lower_measured_risk": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 16375251.9319,
+                "interval": {
+                  "high": 20293883.6861,
+                  "level": 0.95,
+                  "low": 12456620.1778
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1902674.63017,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.155090159985,
+                "interval": {
+                  "high": 0.188046493138,
+                  "level": 0.95,
+                  "low": 0.127006177584,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1606,
+                "standard_error": 0.0147907630875,
+                "status": "estimated"
+              }
+            },
+            "other_reported_diagnosis": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 9399950.62115,
+                "interval": {
+                  "high": 12614944.3685,
+                  "level": 0.95,
+                  "low": 6184956.87384
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1561026.25173,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.089027017828,
+                "interval": {
+                  "high": 0.122945051688,
+                  "level": 0.95,
+                  "low": 0.0637857483988,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1606,
+                "standard_error": 0.0142053901898,
+                "status": "estimated"
+              }
+            },
+            "prechronic_candidate": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 2531250.06114,
+                "interval": {
+                  "high": 3683955.56682,
+                  "level": 0.95,
+                  "low": 1378544.55545
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 559691.152247,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0239734923514,
+                "interval": {
+                  "high": 0.03662572166,
+                  "level": 0.95,
+                  "low": 0.0156210618869,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1606,
+                "standard_error": 0.00496312393126,
+                "status": "estimated"
+              }
+            },
+            "prediabetes": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 59399980.5614,
+                "interval": {
+                  "high": 67564186.6173,
+                  "level": 0.95,
+                  "low": 51235774.5054
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 3964094.79446,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.562577756156,
+                "interval": {
+                  "high": 0.600315098766,
+                  "level": 0.95,
+                  "low": 0.524101955992,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1606,
+                "standard_error": 0.0185378389803,
+                "status": "estimated"
+              }
+            }
+          }
+        },
+        {
+          "age_group": "20_plus",
+          "complete_n": 1605,
+          "eligible_n": 1947,
+          "missing_weight_fraction": 0.146872964535,
+          "sex": "female",
+          "states": {
+            "diabetes_any_type": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 14639333.7419,
+                "interval": {
+                  "high": 17102549.7048,
+                  "level": 0.95,
+                  "low": 12176117.779
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1196003.81338,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.140608747359,
+                "interval": {
+                  "high": 0.172575174096,
+                  "level": 0.95,
+                  "low": 0.113749510374,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1605,
+                "standard_error": 0.0142431645686,
+                "status": "estimated"
+              }
+            },
+            "lower_measured_risk": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 20273474.4609,
+                "interval": {
+                  "high": 24607630.373,
+                  "level": 0.95,
+                  "low": 15939318.5487
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 2104430.58051,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.194723878751,
+                "interval": {
+                  "high": 0.22189470226,
+                  "level": 0.95,
+                  "low": 0.170152557014,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1605,
+                "standard_error": 0.0125582762891,
+                "status": "estimated"
+              }
+            },
+            "other_reported_diagnosis": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 15571925.404,
+                "interval": {
+                  "high": 19792112.6269,
+                  "level": 0.95,
+                  "low": 11351738.1811
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 2049093.5784,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.149566159473,
+                "interval": {
+                  "high": 0.18328761874,
+                  "level": 0.95,
+                  "low": 0.121128664311,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1605,
+                "standard_error": 0.0150555766614,
+                "status": "estimated"
+              }
+            },
+            "prechronic_candidate": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 5514879.91916,
+                "interval": {
+                  "high": 7188307.91855,
+                  "level": 0.95,
+                  "low": 3841451.91978
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 812525.697638,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.052969648137,
+                "interval": {
+                  "high": 0.0694908277152,
+                  "level": 0.95,
+                  "low": 0.0402065967527,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1605,
+                "standard_error": 0.00704095311749,
+                "status": "estimated"
+              }
+            },
+            "prediabetes": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 48114348.2074,
+                "interval": {
+                  "high": 54451321.6443,
+                  "level": 0.95,
+                  "low": 41777374.7705
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 3076889.93168,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.46213156628,
+                "interval": {
+                  "high": 0.500237914397,
+                  "level": 0.95,
+                  "low": 0.424462585997,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1605,
+                "standard_error": 0.0184313161393,
+                "status": "estimated"
+              }
+            }
+          }
+        },
+        {
+          "age_group": "20_39",
+          "complete_n": 959,
+          "eligible_n": 1106,
+          "missing_weight_fraction": 0.115043473504,
+          "sex": "all",
+          "states": {
+            "diabetes_any_type": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 2897085.50658,
+                "interval": {
+                  "high": 4021586.07552,
+                  "level": 0.95,
+                  "low": 1772584.93764
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 545996.367699,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0384819908013,
+                "interval": {
+                  "high": 0.0551392165527,
+                  "level": 0.95,
+                  "low": 0.0267145390882,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 959,
+                "standard_error": 0.00677571530082,
+                "status": "estimated"
+              }
+            },
+            "lower_measured_risk": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 26099776.0068,
+                "interval": {
+                  "high": 31920041.2811,
+                  "level": 0.95,
+                  "low": 20279510.7325
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 2826004.52734,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.346683360891,
+                "interval": {
+                  "high": 0.400324760257,
+                  "level": 0.95,
+                  "low": 0.296673715673,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 959,
+                "standard_error": 0.0252430164364,
+                "status": "estimated"
+              }
+            },
+            "other_reported_diagnosis": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 8130878.80354,
+                "interval": {
+                  "high": 10827286.1275,
+                  "level": 0.95,
+                  "low": 5434471.4796
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1309228.86602,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.108002474423,
+                "interval": {
+                  "high": 0.140976665588,
+                  "level": 0.95,
+                  "low": 0.0820046223994,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 959,
+                "standard_error": 0.0142250757177,
+                "status": "estimated"
+              }
+            },
+            "prechronic_candidate": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 6123674.24454,
+                "interval": {
+                  "high": 7984836.74716,
+                  "level": 0.95,
+                  "low": 4262511.74192
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 903679.370378,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0813407734819,
+                "interval": {
+                  "high": 0.10441562598,
+                  "level": 0.95,
+                  "low": 0.0630064928207,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 959,
+                "standard_error": 0.00998378129743,
+                "status": "estimated"
+              }
+            },
+            "prediabetes": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 32032775.426,
+                "interval": {
+                  "high": 37810854.1414,
+                  "level": 0.95,
+                  "low": 26254696.7106
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 2805521.02688,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.425491400403,
+                "interval": {
+                  "high": 0.475440683544,
+                  "level": 0.95,
+                  "low": 0.377018098838,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 959,
+                "standard_error": 0.023970093899,
+                "status": "estimated"
+              }
+            }
+          }
+        },
+        {
+          "age_group": "20_39",
+          "complete_n": 469,
+          "eligible_n": 523,
+          "missing_weight_fraction": 0.0901629443421,
+          "sex": "male",
+          "states": {
+            "diabetes_any_type": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 1413403.27842,
+                "interval": {
+                  "high": 2570191.05242,
+                  "level": 0.95,
+                  "low": 256615.504415
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 561673.279899,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0357392030311,
+                "interval": {
+                  "high": 0.0765814162243,
+                  "level": 0.95,
+                  "low": 0.0162944994274,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 469,
+                "standard_error": 0.0134763783118,
+                "status": "estimated"
+              }
+            },
+            "lower_measured_risk": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 12440896.7202,
+                "interval": {
+                  "high": 15694997.637,
+                  "level": 0.95,
+                  "low": 9186795.80335
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1580014.56806,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.314579526283,
+                "interval": {
+                  "high": 0.381461004456,
+                  "level": 0.95,
+                  "low": 0.254597678957,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 469,
+                "standard_error": 0.0309309114809,
+                "status": "estimated"
+              }
+            },
+            "other_reported_diagnosis": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 3814525.92404,
+                "interval": {
+                  "high": 5408453.88341,
+                  "level": 0.95,
+                  "low": 2220597.96467
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 773924.798465,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0964537995267,
+                "interval": {
+                  "high": 0.139497682846,
+                  "level": 0.95,
+                  "low": 0.0656779517361,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 469,
+                "standard_error": 0.0176792078548,
+                "status": "estimated"
+              }
+            },
+            "prechronic_candidate": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 2152768.42626,
+                "interval": {
+                  "high": 3315880.6776,
+                  "level": 0.95,
+                  "low": 989656.174916
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 564744.102403,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0544347314314,
+                "interval": {
+                  "high": 0.0884251969813,
+                  "level": 0.95,
+                  "low": 0.0330366083057,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 469,
+                "standard_error": 0.0130398212263,
+                "status": "estimated"
+              }
+            },
+            "prediabetes": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 19726105.6148,
+                "interval": {
+                  "high": 23581811.8378,
+                  "level": 0.95,
+                  "low": 15870399.3918
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1872121.41178,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.498792739728,
+                "interval": {
+                  "high": 0.558628358948,
+                  "level": 0.95,
+                  "low": 0.438991679581,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 469,
+                "standard_error": 0.0291843074002,
+                "status": "estimated"
+              }
+            }
+          }
+        },
+        {
+          "age_group": "20_39",
+          "complete_n": 490,
+          "eligible_n": 583,
+          "missing_weight_fraction": 0.141037847116,
+          "sex": "female",
+          "states": {
+            "diabetes_any_type": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 1483682.22816,
+                "interval": {
+                  "high": 2162515.5772,
+                  "level": 0.95,
+                  "low": 804848.879117
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 329604.584549,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0415172902312,
+                "interval": {
+                  "high": 0.0652701451798,
+                  "level": 0.95,
+                  "low": 0.026166502579,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 490,
+                "standard_error": 0.00922643154632,
+                "status": "estimated"
+              }
+            },
+            "lower_measured_risk": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 13658879.2866,
+                "interval": {
+                  "high": 17362247.5322,
+                  "level": 0.95,
+                  "low": 9955511.04101
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1798154.36844,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.382210991554,
+                "interval": {
+                  "high": 0.450547383407,
+                  "level": 0.95,
+                  "low": 0.31823626085,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 490,
+                "standard_error": 0.0322985671461,
+                "status": "estimated"
+              }
+            },
+            "other_reported_diagnosis": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 4316352.8795,
+                "interval": {
+                  "high": 5824283.30303,
+                  "level": 0.95,
+                  "low": 2808422.45597
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 732169.068412,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.120782787471,
+                "interval": {
+                  "high": 0.163410492047,
+                  "level": 0.95,
+                  "low": 0.088103980265,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 490,
+                "standard_error": 0.0181483453108,
+                "status": "estimated"
+              }
+            },
+            "prechronic_candidate": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 3970905.81828,
+                "interval": {
+                  "high": 5231547.41311,
+                  "level": 0.95,
+                  "low": 2710264.22345
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 612099.051579,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.111116279625,
+                "interval": {
+                  "high": 0.145867162934,
+                  "level": 0.95,
+                  "low": 0.0838317618065,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 490,
+                "standard_error": 0.0149625532215,
+                "status": "estimated"
+              }
+            },
+            "prediabetes": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 12306669.8112,
+                "interval": {
+                  "high": 15213005.1455,
+                  "level": 0.95,
+                  "low": 9400334.4768
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1411158.49979,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.344372651119,
+                "interval": {
+                  "high": 0.401803599507,
+                  "level": 0.95,
+                  "low": 0.291155087991,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 490,
+                "standard_error": 0.0269585399197,
+                "status": "estimated"
+              }
+            }
+          }
+        },
+        {
+          "age_group": "40_59",
+          "complete_n": 1114,
+          "eligible_n": 1282,
+          "missing_weight_fraction": 0.110711747441,
+          "sex": "all",
+          "states": {
+            "diabetes_any_type": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 11710291.6523,
+                "interval": {
+                  "high": 13582202.7324,
+                  "level": 0.95,
+                  "low": 9838380.57222
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 908898.295478,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.16065768383,
+                "interval": {
+                  "high": 0.196522646037,
+                  "level": 0.95,
+                  "low": 0.13027674142,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1114,
+                "standard_error": 0.016052418571,
+                "status": "estimated"
+              }
+            },
+            "lower_measured_risk": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 8869244.43403,
+                "interval": {
+                  "high": 11083846.467,
+                  "level": 0.95,
+                  "low": 6654642.40104
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1075290.39941,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.121680339859,
+                "interval": {
+                  "high": 0.151227153704,
+                  "level": 0.95,
+                  "low": 0.0972449880599,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1114,
+                "standard_error": 0.0130563467352,
+                "status": "estimated"
+              }
+            },
+            "other_reported_diagnosis": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 9526373.19216,
+                "interval": {
+                  "high": 11831648.1042,
+                  "level": 0.95,
+                  "low": 7221098.28016
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1119316.22204,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.130695724564,
+                "interval": {
+                  "high": 0.161439799465,
+                  "level": 0.95,
+                  "low": 0.105072836728,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1114,
+                "standard_error": 0.0136404862514,
+                "status": "estimated"
+              }
+            },
+            "prechronic_candidate": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 1491239.78246,
+                "interval": {
+                  "high": 2463440.30193,
+                  "level": 0.95,
+                  "low": 519039.262994
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 472047.740096,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0204588524863,
+                "interval": {
+                  "high": 0.0390467498024,
+                  "level": 0.95,
+                  "low": 0.0106217700255,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1114,
+                "standard_error": 0.00647565479463,
+                "status": "estimated"
+              }
+            },
+            "prediabetes": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 41292558.8765,
+                "interval": {
+                  "high": 49287878.7221,
+                  "level": 0.95,
+                  "low": 33297239.0309
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 3882092.82848,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.56650739926,
+                "interval": {
+                  "high": 0.620314709669,
+                  "level": 0.95,
+                  "low": 0.511084835767,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1114,
+                "standard_error": 0.0266222892285,
+                "status": "estimated"
+              }
+            }
+          }
+        },
+        {
+          "age_group": "40_59",
+          "complete_n": 529,
+          "eligible_n": 595,
+          "missing_weight_fraction": 0.0932421552444,
+          "sex": "male",
+          "states": {
+            "diabetes_any_type": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 5801821.01373,
+                "interval": {
+                  "high": 7304910.63844,
+                  "level": 0.95,
+                  "low": 4298731.38901
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 729818.639571,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.16185458463,
+                "interval": {
+                  "high": 0.208435799409,
+                  "level": 0.95,
+                  "low": 0.124051912603,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 529,
+                "standard_error": 0.0204265479629,
+                "status": "estimated"
+              }
+            },
+            "lower_measured_risk": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 3430274.94561,
+                "interval": {
+                  "high": 4979637.27409,
+                  "level": 0.95,
+                  "low": 1880912.61714
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 752286.149925,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.095695080075,
+                "interval": {
+                  "high": 0.14363698527,
+                  "level": 0.95,
+                  "low": 0.062585364213,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 529,
+                "standard_error": 0.0193532253288,
+                "status": "estimated"
+              }
+            },
+            "other_reported_diagnosis": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 3543444.63055,
+                "interval": {
+                  "high": 5109453.50166,
+                  "level": 0.95,
+                  "low": 1977435.75943
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 760368.806412,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0988521978669,
+                "interval": {
+                  "high": 0.153348938414,
+                  "level": 0.95,
+                  "low": 0.0622973308568,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 529,
+                "standard_error": 0.0216899278757,
+                "status": "estimated"
+              }
+            },
+            "prechronic_candidate": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 351253.083535,
+                "interval": {
+                  "high": 658206.307434,
+                  "level": 0.95,
+                  "low": 44299.8596367
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 149039.804809,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.00979897894147,
+                "interval": {
+                  "high": 0.0228756614517,
+                  "level": 0.95,
+                  "low": 0.00416560610538,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 529,
+                "standard_error": 0.00405678985585,
+                "status": "estimated"
+              }
+            },
+            "prediabetes": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 22719092.4779,
+                "interval": {
+                  "high": 27976344.3208,
+                  "level": 0.95,
+                  "low": 17461840.635
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 2552635.80082,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.633799158486,
+                "interval": {
+                  "high": 0.704154633226,
+                  "level": 0.95,
+                  "low": 0.557232879818,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 529,
+                "standard_error": 0.0359055577728,
+                "status": "estimated"
+              }
+            }
+          }
+        },
+        {
+          "age_group": "40_59",
+          "complete_n": 585,
+          "eligible_n": 687,
+          "missing_weight_fraction": 0.126987292648,
+          "sex": "female",
+          "states": {
+            "diabetes_any_type": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 5908470.63856,
+                "interval": {
+                  "high": 7823288.93801,
+                  "level": 0.95,
+                  "low": 3993652.3391
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 929731.709511,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.159499488813,
+                "interval": {
+                  "high": 0.225243683118,
+                  "level": 0.95,
+                  "low": 0.110214888913,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 585,
+                "standard_error": 0.0277676539683,
+                "status": "estimated"
+              }
+            },
+            "lower_measured_risk": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 5438969.48842,
+                "interval": {
+                  "high": 7156349.94769,
+                  "level": 0.95,
+                  "low": 3721589.02915
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 833866.623654,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.146825279525,
+                "interval": {
+                  "high": 0.18870174467,
+                  "level": 0.95,
+                  "low": 0.112948202032,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 585,
+                "standard_error": 0.0183231556627,
+                "status": "estimated"
+              }
+            },
+            "other_reported_diagnosis": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 5982928.56162,
+                "interval": {
+                  "high": 7918204.94365,
+                  "level": 0.95,
+                  "low": 4047652.17959
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 939665.042659,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.161509484528,
+                "interval": {
+                  "high": 0.212719593141,
+                  "level": 0.95,
+                  "low": 0.120737029399,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 585,
+                "standard_error": 0.0222533190949,
+                "status": "estimated"
+              }
+            },
+            "prechronic_candidate": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 1139986.69893,
+                "interval": {
+                  "high": 1944676.85462,
+                  "level": 0.95,
+                  "low": 335296.543232
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 390713.81044,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.030774003436,
+                "interval": {
+                  "high": 0.0620674564345,
+                  "level": 0.95,
+                  "low": 0.0150058021645,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 585,
+                "standard_error": 0.0106354242069,
+                "status": "estimated"
+              }
+            },
+            "prediabetes": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 18573466.3986,
+                "interval": {
+                  "high": 23137422.593,
+                  "level": 0.95,
+                  "low": 14009510.2041
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 2216009.10959,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.501391743698,
+                "interval": {
+                  "high": 0.579390610449,
+                  "level": 0.95,
+                  "low": 0.423325080565,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 585,
+                "standard_error": 0.0382006523368,
+                "status": "estimated"
+              }
+            }
+          }
+        },
+        {
+          "age_group": "60_plus",
+          "complete_n": 1138,
+          "eligible_n": 1381,
+          "missing_weight_fraction": 0.138640643935,
+          "sex": "all",
+          "states": {
+            "diabetes_any_type": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 17910893.45,
+                "interval": {
+                  "high": 21492396.8092,
+                  "level": 0.95,
+                  "low": 14329390.0908
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1738983.40208,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.291113647298,
+                "interval": {
+                  "high": 0.322911993807,
+                  "level": 0.95,
+                  "low": 0.261238463398,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1138,
+                "standard_error": 0.014985970134,
+                "status": "estimated"
+              }
+            },
+            "lower_measured_risk": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 1679705.95198,
+                "interval": {
+                  "high": 2713124.21736,
+                  "level": 0.95,
+                  "low": 646287.686597
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 501771.750764,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0273010013395,
+                "interval": {
+                  "high": 0.047251470208,
+                  "level": 0.95,
+                  "low": 0.0156357603168,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1138,
+                "standard_error": 0.00734033958471,
+                "status": "estimated"
+              }
+            },
+            "other_reported_diagnosis": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 7314624.02943,
+                "interval": {
+                  "high": 9896207.91661,
+                  "level": 0.95,
+                  "low": 4733040.14224
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1253476.84496,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.118887809018,
+                "interval": {
+                  "high": 0.162532464037,
+                  "level": 0.95,
+                  "low": 0.0857628045567,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1138,
+                "standard_error": 0.0184885550522,
+                "status": "estimated"
+              }
+            },
+            "prechronic_candidate": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 431215.953303,
+                "interval": {
+                  "high": 837589.667314,
+                  "level": 0.95,
+                  "low": 24842.2392925
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 197312.992013,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.00700874299152,
+                "interval": {
+                  "high": 0.0174501714371,
+                  "level": 0.95,
+                  "low": 0.00279722746532,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1138,
+                "standard_error": 0.00311820950238,
+                "status": "estimated"
+              }
+            },
+            "prediabetes": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 34188994.4663,
+                "interval": {
+                  "high": 39433128.381,
+                  "level": 0.95,
+                  "low": 28944860.5516
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 2546266.44773,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.555688799353,
+                "interval": {
+                  "high": 0.592250613734,
+                  "level": 0.95,
+                  "low": 0.518513848589,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1138,
+                "standard_error": 0.017933413976,
+                "status": "estimated"
+              }
+            }
+          }
+        },
+        {
+          "age_group": "60_plus",
+          "complete_n": 608,
+          "eligible_n": 704,
+          "missing_weight_fraction": 0.0967758997717,
+          "sex": "male",
+          "states": {
+            "diabetes_any_type": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 10663712.5748,
+                "interval": {
+                  "high": 13592270.6504,
+                  "level": 0.95,
+                  "low": 7735154.4991
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1421948.65532,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.353199155121,
+                "interval": {
+                  "high": 0.413651851721,
+                  "level": 0.95,
+                  "low": 0.297104631451,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 608,
+                "standard_error": 0.0284092161805,
+                "status": "estimated"
+              }
+            },
+            "lower_measured_risk": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 504080.26613,
+                "interval": {
+                  "high": 944004.653365,
+                  "level": 0.95,
+                  "low": 64155.8788943
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 213603.375692,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0166959417615,
+                "interval": {
+                  "high": 0.0383761911908,
+                  "level": 0.95,
+                  "low": 0.00717238126603,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 608,
+                "standard_error": 0.00681200184693,
+                "status": "estimated"
+              }
+            },
+            "other_reported_diagnosis": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 2041980.06656,
+                "interval": {
+                  "high": 3265806.19483,
+                  "level": 0.95,
+                  "low": 818153.938284
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 594223.461676,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0676336340862,
+                "interval": {
+                  "high": 0.122723968481,
+                  "level": 0.95,
+                  "low": 0.0362512471959,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 608,
+                "standard_error": 0.0201080749051,
+                "status": "estimated"
+              }
+            },
+            "prechronic_candidate": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 27228.5513459,
+                "interval": {
+                  "high": 69414.9859762,
+                  "level": 0.95,
+                  "low": 0.0
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 20483.4401249,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.000901853014429,
+                "interval": {
+                  "high": 0.00416700697431,
+                  "level": 0.95,
+                  "low": 0.000194685201079,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 608,
+                "standard_error": 0.000671020366586,
+                "status": "estimated"
+              }
+            },
+            "prediabetes": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 16954782.4686,
+                "interval": {
+                  "high": 19917256.2119,
+                  "level": 0.95,
+                  "low": 13992308.7254
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1438416.26041,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.561569416017,
+                "interval": {
+                  "high": 0.615803144637,
+                  "level": 0.95,
+                  "low": 0.50582361579,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 608,
+                "standard_error": 0.0268067590454,
+                "status": "estimated"
+              }
+            }
+          }
+        },
+        {
+          "age_group": "60_plus",
+          "complete_n": 530,
+          "eligible_n": 677,
+          "missing_weight_fraction": 0.175465377132,
+          "sex": "female",
+          "states": {
+            "diabetes_any_type": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 7247180.87522,
+                "interval": {
+                  "high": 9394173.59575,
+                  "level": 0.95,
+                  "low": 5100188.15469
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1042462.99136,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.231290669708,
+                "interval": {
+                  "high": 0.292296550754,
+                  "level": 0.95,
+                  "low": 0.179782893886,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 530,
+                "standard_error": 0.0273470209437,
+                "status": "estimated"
+              }
+            },
+            "lower_measured_risk": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 1175625.68585,
+                "interval": {
+                  "high": 2003925.53257,
+                  "level": 0.95,
+                  "low": 347325.839126
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 402177.393385,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0375195896015,
+                "interval": {
+                  "high": 0.0715632670699,
+                  "level": 0.95,
+                  "low": 0.0193337345816,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 530,
+                "standard_error": 0.0119534311864,
+                "status": "estimated"
+              }
+            },
+            "other_reported_diagnosis": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 5272643.96287,
+                "interval": {
+                  "high": 7896243.60369,
+                  "level": 0.95,
+                  "low": 2649044.32205
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1273877.41167,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.168274170923,
+                "interval": {
+                  "high": 0.264280086522,
+                  "level": 0.95,
+                  "low": 0.102295391168,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 530,
+                "standard_error": 0.0390113719873,
+                "status": "estimated"
+              }
+            },
+            "prechronic_candidate": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 403987.401957,
+                "interval": {
+                  "high": 808165.456993,
+                  "level": 0.95,
+                  "low": 0.0
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 196246.899333,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0128930846851,
+                "interval": {
+                  "high": 0.0331925777455,
+                  "level": 0.95,
+                  "low": 0.00494460422203,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 530,
+                "standard_error": 0.00597192598978,
+                "status": "estimated"
+              }
+            },
+            "prediabetes": {
+              "count": {
+                "degrees_of_freedom": 25,
+                "estimate": 17234211.9977,
+                "interval": {
+                  "high": 21115311.1711,
+                  "level": 0.95,
+                  "low": 13353112.8243
+                },
+                "scope": "Survey-weighted classified respondents; no item-nonresponse adjustment",
+                "standard_error": 1884450.84858,
+                "status": "estimated",
+                "unit": "people"
+              },
+              "proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.550022485083,
+                "interval": {
+                  "high": 0.610963491355,
+                  "level": 0.95,
+                  "low": 0.487542347764,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 530,
+                "standard_error": 0.0301152640703,
+                "status": "estimated"
+              }
+            }
+          }
+        }
+      ],
+      "id": "risk_2",
+      "minimum_markers": 2
+    }
+  ],
+  "design": {
+    "psu": "SDMVPSU",
+    "stratum": "SDMVSTRA",
+    "weight": "WTSAFPRP"
+  },
+  "limitations": [
+    "PreChronic candidates are research definitions, not clinical diagnoses, metabolic syndrome, or established insulin resistance.",
+    "Counts represent survey-weighted classified respondents; missing items are not imputed or reweighted, so full population size remains uncertain.",
+    "Single measurements and self-reported diagnosis exclusions do not prove absence of all chronic disease; other conditions, treatment and access-to-diagnosis remain incompletely measured.",
+    "Waist thresholds are not ethnicity-specific; no fitness or direct insulin-resistance measure is used.",
+    "The two definitions share observations and are not independent evidence; lower_measured_risk is a complement, not proof of good health.",
+    "Glycemic diabetes includes all types and cannot silently initialize model T2D; 2017-2020 cross-sections do not identify transitions or 2024 prevalence.",
+    "Intervals omit item-nonresponse bias, measurement error, structural ambiguity, and full NCHS reliability screening; sparse estimates need caution."
+  ],
+  "model_role": "benchmark_only",
+  "population": "U.S. civilian noninstitutionalized adults 20+; known pregnancy excluded; complete measured/interview records",
+  "provenance": {
+    "definition_sha256": "0c83fbf9e5c5de4cdc4784be204dbf365314d78a1b4dc26cdd47d9960e48e1a8",
+    "sources": {
+      "glycemic": {
+        "dataset": "NHANES 2017-March 2020 public-use glycemic data",
+        "schema_version": 1,
+        "sources": {
+          "P_DEMO.xpt": {
+            "documentation": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_DEMO.htm",
+            "format": "SAS XPORT",
+            "publisher": "CDC/NCHS",
+            "retrieved_at": "2026-09-27T23:44:56.308480+00:00",
+            "sha256": "2e46c6c26bf77cd8989f64011ace12cbf42c0f3e03414eb59acc5328c8f87913",
+            "title": "Demographics and survey design",
+            "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_DEMO.xpt",
+            "use_terms": "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+            "vintage": "2017-March 2020; published May 2021"
+          },
+          "P_DIQ.xpt": {
+            "documentation": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_DIQ.htm",
+            "format": "SAS XPORT",
+            "publisher": "CDC/NCHS",
+            "retrieved_at": "2026-09-27T23:44:57.239854+00:00",
+            "sha256": "79153f799fc2171792771c4aa250029c62807f14915f1f81405b03233b1e5ae3",
+            "title": "Diabetes questionnaire",
+            "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_DIQ.xpt",
+            "use_terms": "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+            "vintage": "2017-March 2020; published May 2021"
+          },
+          "P_GHB.xpt": {
+            "documentation": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_GHB.htm",
+            "format": "SAS XPORT",
+            "publisher": "CDC/NCHS",
+            "retrieved_at": "2026-09-27T23:44:57.486688+00:00",
+            "sha256": "dac9e423f56041c2ec46486cb16be16d3347e0a81a575985882ffad5a60e1195",
+            "title": "Glycohemoglobin",
+            "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_GHB.xpt",
+            "use_terms": "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+            "vintage": "2017-March 2020; published May 2021"
+          },
+          "P_GLU.xpt": {
+            "documentation": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_GLU.htm",
+            "format": "SAS XPORT",
+            "publisher": "CDC/NCHS",
+            "retrieved_at": "2026-09-27T23:44:57.698973+00:00",
+            "sha256": "91b83c46fb4707c431838159135e93693a0572bce54074f5a890f0ee104732b3",
+            "title": "Fasting plasma glucose",
+            "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_GLU.xpt",
+            "use_terms": "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+            "vintage": "2017-March 2020; published May 2021"
+          }
+        },
+        "usage": "Statistical reporting and analysis only; no identification or linkage to individually identifiable records."
+      },
+      "risk": {
+        "schema_version": 1,
+        "sources": {
+          "P_BMX.xpt": {
+            "bytes": 2520640,
+            "codebook_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_BMX.htm",
+            "format": "SAS XPORT",
+            "model_role": "benchmark_only",
+            "publisher": "CDC/NCHS",
+            "retrieved_at": "2026-09-28T00:58:46.025276+00:00",
+            "sha256": "7038d0da3169420a4a3cbaec09ac586a701b38e1c7b925431b60e13ac24fed66",
+            "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_BMX.xpt",
+            "use_terms": "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+            "vintage": "NHANES 2017-March 2020 prepandemic"
+          },
+          "P_BPQ.xpt": {
+            "bytes": 899520,
+            "codebook_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_BPQ.htm",
+            "format": "SAS XPORT",
+            "model_role": "benchmark_only",
+            "publisher": "CDC/NCHS",
+            "retrieved_at": "2026-09-28T00:58:47.553068+00:00",
+            "sha256": "88af3557dd185cee2533c94c5302b361e89a54eb50754704f35d4e8120868c02",
+            "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_BPQ.xpt",
+            "use_terms": "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+            "vintage": "NHANES 2017-March 2020 prepandemic"
+          },
+          "P_BPXO.xpt": {
+            "bytes": 1039840,
+            "codebook_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_BPXO.htm",
+            "format": "SAS XPORT",
+            "model_role": "benchmark_only",
+            "publisher": "CDC/NCHS",
+            "retrieved_at": "2026-09-28T00:58:46.518147+00:00",
+            "sha256": "5edbcb81e99fe8dad38deb8b642570278b200c525d88ffa29ae3ceb4dd38bde4",
+            "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_BPXO.xpt",
+            "use_terms": "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+            "vintage": "NHANES 2017-March 2020 prepandemic"
+          },
+          "P_HDL.xpt": {
+            "bytes": 294000,
+            "codebook_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_HDL.htm",
+            "format": "SAS XPORT",
+            "model_role": "benchmark_only",
+            "publisher": "CDC/NCHS",
+            "retrieved_at": "2026-09-28T00:58:46.854761+00:00",
+            "sha256": "04a344f00fe34b3dc4202ee9e47cf61e67d1f985d7c9ece228e25caa85c7fbd7",
+            "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_HDL.xpt",
+            "use_terms": "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+            "vintage": "NHANES 2017-March 2020 prepandemic"
+          },
+          "P_MCQ.xpt": {
+            "bytes": 7562560,
+            "codebook_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_MCQ.htm",
+            "format": "SAS XPORT",
+            "model_role": "benchmark_only",
+            "publisher": "CDC/NCHS",
+            "retrieved_at": "2026-09-28T00:58:49.295177+00:00",
+            "sha256": "1de8e4e184ed375fddc053dbb5b82db13ee55e4d4d0ae12da9e407537230125c",
+            "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_MCQ.xpt",
+            "use_terms": "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+            "vintage": "NHANES 2017-March 2020 prepandemic"
+          },
+          "P_TRIGLY.xpt": {
+            "bytes": 409360,
+            "codebook_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_TRIGLY.htm",
+            "format": "SAS XPORT",
+            "model_role": "benchmark_only",
+            "publisher": "CDC/NCHS",
+            "retrieved_at": "2026-09-28T00:58:47.167513+00:00",
+            "sha256": "d3eb2df386f24a559ae4db992f0ec9aaf3d2c0caec173aa1921e78100ee88b31",
+            "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_TRIGLY.xpt",
+            "use_terms": "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+            "vintage": "NHANES 2017-March 2020 prepandemic"
+          }
+        }
+      }
+    },
+    "transform": "demeter.data.prechronic.reconstruct",
+    "transform_version": 1
+  },
+  "schema_version": 1,
+  "scientific_release_ready": false
+}

@@ -1,0 +1,8 @@
+name: prechronic_baseline
+description: Four-state software-validation baseline with the risk_1 candidate definition; not fitted to NHANES
+years: 25
+baseline_year: 2024
+sex: all
+mode: validation
+health_structure: risk_1
+exposures: {upf: 1.0}

@@ -9,8 +9,8 @@ from demeter.health.transitions import STATES, transition_survivors
 METHOD_SOURCE = "https://www.cdc.gov/nchs/data/statnt/statnt21.pdf"
 
 
-def metric_contract() -> dict:
-    return {
+def metric_contract(structure: str = "legacy") -> dict:
+    result = {
         "version": "healthspan-v1",
         "primary": "healthspan",
         "label": "Period years in the modeled healthy state",
@@ -34,6 +34,20 @@ def metric_contract() -> dict:
             "who_hale": "No all-cause disability weights or comorbidity correction",
         },
     }
+    if structure != "legacy":
+        result["version"] = "healthspan-prechronic-v1"
+        result["candidate_definition"] = structure
+        result["states"] = {
+            "healthy": "Synthetic lower-risk complement; not absence of all disease",
+            "prechronic": "Synthetic stock representing a candidate earlier-risk definition; not a clinical diagnosis",
+            "prediabetes": "Synthetic prediabetes proxy, distinct from PreChronic; not yet calibrated",
+            "t2d": "Synthetic T2D stock; entry from prediabetes, exit only by death",
+        }
+        result["unavailable"].pop("prechronic_years")
+        result["competing_risks"] = (
+            "Mortality first; PreChronic and prediabetes progression/reversal exits compete; one transition per step"
+        )
+    return result
 
 
 def sullivan(ages, survivors, person_years, prevalence, states: tuple[str, ...]) -> list[dict]:
@@ -110,7 +124,11 @@ class CohortTime:
     pools current ages. Time is restricted to the simulated horizon, not lifetime.
     """
 
-    def __init__(self, stocks: np.ndarray):
+    def __init__(self, stocks: np.ndarray, states=STATES, mover=None):
+        self.states = states
+        self.mover = mover or (
+            lambda stock, rates, adult, **kw: transition_survivors(stock, *rates, adult, **kw)
+        )
         self.initial = stocks.sum(axis=1).copy()
         self.stocks = stocks.copy()
         self.person_years = np.zeros_like(stocks)
@@ -127,8 +145,8 @@ class CohortTime:
         lived = lived_within_year(self.stocks, current_hazards)
         deaths = self.stocks * -np.expm1(-current_hazards)
         self.person_years += lived
-        self.stocks, flows = transition_survivors(
-            self.stocks - deaths, *rates, max(0, adult - year + 1), by_row=True
+        self.stocks, flows = self.mover(
+            self.stocks - deaths, rates, max(0, adult - year + 1), by_row=True
         )
         for name, values in flows.pop("by_row").items():
             self.flow_totals.setdefault(name, np.zeros(len(self.initial)))
@@ -150,10 +168,10 @@ class CohortTime:
             "horizon_years": self.last_year,
             "interpretation": "Restricted time in the original closed population; death ends accrual; no extrapolation after the horizon",
             "timing": "Constant within-year mortality; metabolic transitions occur at year end, before aging",
-            "state_person_years": dict(zip(STATES, map(float, totals), strict=True)),
+            "state_person_years": dict(zip(self.states, map(float, totals), strict=True)),
             "state_years_per_initial_person": {
                 s: float(totals[i] / total_initial) if total_initial else None
-                for i, s in enumerate(STATES)
+                for i, s in enumerate(self.states)
             },
             "by_initial_age": [
                 {
@@ -163,11 +181,11 @@ class CohortTime:
                     "remaining_population": float(self.stocks[age].sum()),
                     "deaths": float(initial - self.stocks[age].sum()),
                     "state_person_years": {
-                        s: float(self.person_years[age, i]) for i, s in enumerate(STATES)
+                        s: float(self.person_years[age, i]) for i, s in enumerate(self.states)
                     },
                     "state_years_per_initial_person": {
                         s: float(self.person_years[age, i] / initial) if initial else None
-                        for i, s in enumerate(STATES)
+                        for i, s in enumerate(self.states)
                     },
                     "cumulative_transitions": {
                         name: float(values[age]) for name, values in self.flow_totals.items()

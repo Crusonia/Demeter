@@ -53,10 +53,13 @@ jobs:
           uv run demeter evidence population --output outputs/population-evidence.json
           uv run demeter data rebuild-healthspan
           uv run demeter evidence healthspan --output outputs/healthspan-method-check.json
+          uv run demeter data rebuild-prechronic
+          uv run demeter evidence prechronic --output outputs/prechronic-evidence.json
       - name: Run baseline and scenario comparison
         run: |
           uv run demeter simulate scenarios/baseline.yaml --output outputs/baseline.json
           uv run demeter compare scenarios/baseline.yaml scenarios/reduce_upf_30.yaml
+          uv run demeter compare scenarios/prechronic_baseline.yaml scenarios/prechronic_reduce_upf_30.yaml
       - name: Historical holdout diagnostics
         run: uv run demeter historical-backtest --output outputs/historical-backtest.json
       - name: Scientific observability smoke
@@ -66,5 +69,7 @@ jobs:
         run: |
           uv run playwright install --with-deps chromium
           uv run python scripts/verify_observability_browser.py
+          uv run demeter observe scenarios/prechronic_reduce_upf_30.yaml --draws 4 --samples 8 --destination outputs/prechronic-report
+          uv run python scripts/verify_observability_browser.py --report outputs/prechronic-report/index.html --figures 46
       - name: Build package
         run: uv build

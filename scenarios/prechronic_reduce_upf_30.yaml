@@ -1,0 +1,8 @@
+name: prechronic_reduce_upf_30
+description: Synthetic progression response in the four-state structure; not an established dietary effect
+years: 25
+baseline_year: 2024
+sex: all
+mode: validation
+health_structure: risk_1
+exposures: {upf: 0.7}

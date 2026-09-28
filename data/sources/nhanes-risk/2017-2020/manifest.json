@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "sources": {
+    "P_BMX.xpt": {
+      "bytes": 2520640,
+      "codebook_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_BMX.htm",
+      "format": "SAS XPORT",
+      "model_role": "benchmark_only",
+      "publisher": "CDC/NCHS",
+      "retrieved_at": "2026-09-28T00:58:46.025276+00:00",
+      "sha256": "7038d0da3169420a4a3cbaec09ac586a701b38e1c7b925431b60e13ac24fed66",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_BMX.xpt",
+      "use_terms": "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+      "vintage": "NHANES 2017-March 2020 prepandemic"
+    },
+    "P_BPQ.xpt": {
+      "bytes": 899520,
+      "codebook_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_BPQ.htm",
+      "format": "SAS XPORT",
+      "model_role": "benchmark_only",
+      "publisher": "CDC/NCHS",
+      "retrieved_at": "2026-09-28T00:58:47.553068+00:00",
+      "sha256": "88af3557dd185cee2533c94c5302b361e89a54eb50754704f35d4e8120868c02",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_BPQ.xpt",
+      "use_terms": "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+      "vintage": "NHANES 2017-March 2020 prepandemic"
+    },
+    "P_BPXO.xpt": {
+      "bytes": 1039840,
+      "codebook_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_BPXO.htm",
+      "format": "SAS XPORT",
+      "model_role": "benchmark_only",
+      "publisher": "CDC/NCHS",
+      "retrieved_at": "2026-09-28T00:58:46.518147+00:00",
+      "sha256": "5edbcb81e99fe8dad38deb8b642570278b200c525d88ffa29ae3ceb4dd38bde4",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_BPXO.xpt",
+      "use_terms": "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+      "vintage": "NHANES 2017-March 2020 prepandemic"
+    },
+    "P_HDL.xpt": {
+      "bytes": 294000,
+      "codebook_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_HDL.htm",
+      "format": "SAS XPORT",
+      "model_role": "benchmark_only",
+      "publisher": "CDC/NCHS",
+      "retrieved_at": "2026-09-28T00:58:46.854761+00:00",
+      "sha256": "04a344f00fe34b3dc4202ee9e47cf61e67d1f985d7c9ece228e25caa85c7fbd7",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_HDL.xpt",
+      "use_terms": "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+      "vintage": "NHANES 2017-March 2020 prepandemic"
+    },
+    "P_MCQ.xpt": {
+      "bytes": 7562560,
+      "codebook_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_MCQ.htm",
+      "format": "SAS XPORT",
+      "model_role": "benchmark_only",
+      "publisher": "CDC/NCHS",
+      "retrieved_at": "2026-09-28T00:58:49.295177+00:00",
+      "sha256": "1de8e4e184ed375fddc053dbb5b82db13ee55e4d4d0ae12da9e407537230125c",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_MCQ.xpt",
+      "use_terms": "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+      "vintage": "NHANES 2017-March 2020 prepandemic"
+    },
+    "P_TRIGLY.xpt": {
+      "bytes": 409360,
+      "codebook_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_TRIGLY.htm",
+      "format": "SAS XPORT",
+      "model_role": "benchmark_only",
+      "publisher": "CDC/NCHS",
+      "retrieved_at": "2026-09-28T00:58:47.167513+00:00",
+      "sha256": "d3eb2df386f24a559ae4db992f0ec9aaf3d2c0caec173aa1921e78100ee88b31",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_TRIGLY.xpt",
+      "use_terms": "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+      "vintage": "NHANES 2017-March 2020 prepandemic"
+    }
+  }
+}

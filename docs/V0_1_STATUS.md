@@ -6,6 +6,7 @@ Release identifier: **0.1.0a1**. Engineering functionality is implemented; scien
 | --- | --- | --- |
 | Explicit U.S. age cohorts; support sex strata | Implemented | Census counts at ages 0–99, 100+; all/male/female source schedules |
 | Healthy, IR/prediabetes, T2D states | Implemented with synthetic allocation | Three stocks; definitions and prevalence not calibrated |
+| Optional PreChronic structure | Engineering implemented; scientific mapping unresolved | Four stocks, reversible transitions, time and initial-cohort future T2D accounting; two survey candidate definitions; synthetic rates/allocation |
 | Population conservation | Tested | Deaths and aging explicit; births/migration zero; 100-year test |
 | Age/state mortality | Implemented with synthetic state ratios | Baseline mixture reproduces source schedule |
 | Period life expectancy | Implemented and independently checked | NCHS all-age e_x reconstruction, 2022–2024 and three sex categories |

@@ -37,7 +37,7 @@ def calibrate_mortality(rows: list[dict], reference: np.ndarray, ratios: np.ndar
         predicted = (reference[:-1] * -np.expm1(-middle[:, None] * ratios)).sum(axis=1)
         lo = np.where(predicted < q, middle, lo)
         hi = np.where(predicted >= q, middle, hi)
-    hazards = np.empty((101, 3))
+    hazards = np.empty((101, len(ratios)))
     hazards[:-1] = ((lo + hi) / 2)[:, None] * ratios
     # Frozen-state exponential mixture tail: e100 = sum(w_s / h_s).
     terminal_base = np.sum(reference[-1] / ratios) / rows[-1]["ex"]
@@ -46,7 +46,12 @@ def calibrate_mortality(rows: list[dict], reference: np.ndarray, ratios: np.ndar
 
 
 def period_outcomes(
-    rows: list[dict], shares: np.ndarray, hazards: np.ndarray, *, include_table: bool = False
+    rows: list[dict],
+    shares: np.ndarray,
+    hazards: np.ndarray,
+    *,
+    include_table: bool = False,
+    states: tuple[str, ...] = STATES,
 ) -> dict:
     q = (shares * -np.expm1(-hazards)).sum(axis=1)
     terminal_years = float(np.sum(shares[-1] / hazards[-1]))
@@ -58,16 +63,20 @@ def period_outcomes(
         [r.survivors for r in table],
         [r.person_years for r in table],
         shares,
-        STATES,
+        states,
     )
     healthy_years = health[0]["state_years"]["healthy"]
     result = {
         "life_expectancy": table[0].life_expectancy,
         "metabolically_healthy_life_expectancy": float(healthy_years),
         "healthspan": float(healthy_years),
-        "t2d_free_life_expectancy": healthy_years + health[0]["state_years"]["insulin_resistant"],
+        "t2d_free_life_expectancy": sum(
+            v for s, v in health[0]["state_years"].items() if s != "t2d"
+        ),
         "state_life_expectancy": health[0]["state_years"],
     }
+    if "prechronic" in states:
+        result["prechronic_years"] = health[0]["state_years"]["prechronic"]
     if include_table:
         from dataclasses import asdict
 

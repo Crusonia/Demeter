@@ -3,6 +3,16 @@
   "path_base": "data/",
   "stores": [
     {
+      "id": "nhanes_prechronic_risk",
+      "manifest": "sources/nhanes-risk/2017-2020/manifest.json",
+      "publisher": "CDC/NCHS",
+      "description": "Public-use waist, blood pressure, lipids, and diagnosis interviews for candidate earlier-risk definitions",
+      "format": ["SAS XPORT"],
+      "derived_bundle": "../src/demeter/data/bundled/prechronic_prevalence.json",
+      "model_role": "benchmark_only",
+      "reload": "uv run demeter data rebuild-prechronic"
+    },
+    {
       "id": "healthspan_nchs_method",
       "manifest": "sources/healthspan/nchs-2001/manifest.json",
       "publisher": "CDC/NCHS",

@@ -17,6 +17,7 @@ from demeter.data.historical import rebuild_history
 from demeter.data.nhanes import STORE as NHANES_STORE, load_nhanes, rebuild_nhanes
 from demeter.data.store import verify_store
 from demeter.data.healthspan import crosscheck, load_healthspan, rebuild_healthspan
+from demeter.data.prechronic import load_prechronic, rebuild_prechronic
 from demeter.evidence.appraisal import applicability_report, verify_sources
 from demeter.model import simulate
 from demeter.schema import EvidenceRegistry, Scenario
@@ -135,6 +136,22 @@ def healthspan_benchmark(evidence: Path = DEFAULT_EVIDENCE, output: Path | None 
 def population_evidence(evidence: Path = DEFAULT_EVIDENCE, output: Path | None = None) -> None:
     """Read pinned age/sex glycemic prevalence; never substitute it for T2D states."""
     emit(load_nhanes(registry(evidence)), output)
+
+
+@data_app.command("rebuild-prechronic")
+def rebuild_risk_data(
+    evidence: Path = DEFAULT_EVIDENCE,
+    source: Path = Path("data/sources/nhanes-risk/2017-2020"),
+    destination: Path = Path("outputs/prechronic-rebuilt"),
+) -> None:
+    """Reconstruct candidate earlier-risk definitions from archived NHANES files."""
+    emit(rebuild_prechronic(registry(evidence), source, destination))
+
+
+@evidence_app.command("prechronic")
+def prechronic_evidence(evidence: Path = DEFAULT_EVIDENCE, output: Path | None = None) -> None:
+    """Report candidate sizes and age/sex distributions without fitting model parameters."""
+    emit(load_prechronic(registry(evidence)), output)
 
 
 @app.command("historical-backtest")

@@ -46,6 +46,12 @@ undefined mean (`null`). Population and transitions reconcile with the engine.
 
 ## State changes, competing risks, and unavailable measures
 
+The following three-state description applies to `health_structure: legacy`.
+The optional [PreChronic structure](PRECHRONIC.md) supplies a separate state,
+competing reversal/progression, and period/restricted PreChronic years. Its
+metric contract marks that measure available while retaining the broader
+clinical and disability restrictions.
+
 Mortality is applied first. Among survivors, healthy people can enter IR, and IR
 people can return to healthy or enter T2D through competing transition hazards.
 An IR survivor cannot take both exits in one step. T2D has no remission pathway;

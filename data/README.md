@@ -111,10 +111,16 @@ from the modeled quantities, and leave unsupported mappings explicitly unresolve
 
 ## NHANES and official JSON additions
 
-The [machine-readable catalog](catalog.json) covers all 22 source files, including
+The [machine-readable catalog](catalog.json) covers all 28 source files, including
 four deidentified NHANES 2017-March 2020 XPORT files and four official JSON
 snapshots and the NCHS healthspan method PDF. The original baseline and historical
 archives above remain canonical.
+
+Six additional NHANES risk/diagnosis files live in
+`sources/nhanes-risk/2017-2020/` with official links, checksums and terms.
+`uv run demeter data rebuild-prechronic` rebuilds candidate counts and age/sex
+distributions offline. [PreChronic methods](../docs/PRECHRONIC.md) explain the
+alternative definitions, survey uncertainty and missing-data limitations.
 
 - [NHANES source manifest](sources/nhanes/2017-2020/manifest.json) links the four
   public-use CDC files, their codebooks, dates, and SHA-256 hashes.
