@@ -53,6 +53,14 @@ The [program vision](PROJECT_VISION.md) is the canonical roadmap. The
 the [scenario catalog](SCENARIO_CATALOG.md) describes future experiments.
 Neither document means those capabilities already exist.
 
+Three companion pages frame the whole program. The [top-level metrics](wiki/Top-Level-Metrics.md)
+define how scenarios are judged: healthy longevity, health-adjusted productivity,
+and health-inclusive GDP, at macro and industry level, with a climate guardrail.
+The [stakeholder rigidities](wiki/Stakeholder-Rigidities.md) list the beliefs that
+a better, cheaper system is impossible and how the model would test each one.
+[Related work](RELATED_WORK.md) shows which existing models Demeter builds on and
+where it differs.
+
 For the reasoning behind a proposed mechanism, use the [design inputs](design/README.md):
 a table of causal loops, a register of positive and negative externalities,
 and the inputs/equations/tests needed to evaluate them. These are hypotheses to
