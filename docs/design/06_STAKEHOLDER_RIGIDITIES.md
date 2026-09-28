@@ -18,7 +18,7 @@ Register every rigidity; model selectively. A rigidity enters the model only whe
 it is selected for a question and traced through the design chain
 (`B-` → `L-`/`P-` → `X-` → `I-` → `F-`/`T-` → evidence keys). Global sensitivity
 analysis should decide which rigidities materially change the
-[top-level metrics](../PROJECT_VISION.md) and deserve modeling first. Registering
+[top-level metrics](../PROJECT_VISION.md#top-level-metrics) and deserve modeling first. Registering
 all of them does not justify a model that represents all of them at once.
 
 ## Reading the register
@@ -96,7 +96,7 @@ units, and uncertainty before it affects a model result.
 | B-30 | Physicians | Patients will not change their diet. | High | Low–medium | Mind | Intensive lifestyle intervention reduced diabetes incidence ([Diabetes Prevention Program, NEJM, 2002](https://doi.org/10.1056/NEJMoa012512)); a weight-management program achieved diabetes remission in a substantial share of participants ([DiRECT, Lancet, 2018](https://doi.org/10.1016/S0140-6736(17)33102-1)). Training and reimbursement are the binding constraints. | I-07, I-08 |
 | B-31 | GLP-1 manufacturers and investors | Drugs make food irrelevant. | Rising | Low–medium | Mind | Appetite suppression may create a window for dietary change and raise demand for nutrient density; drugs and diet may be complements. | I-05, I-07 |
 | B-32 | Public-health agencies | Education changes behavior. | Medium | Reversed | Mind | Evidence that defaults, prices, and environments outperform information alone. | I-05, I-06 |
-| B-33 | Health-system planners | Less chronic disease means less healthcare demand. | Medium | Reversed | Mind, Bio | Reallocation toward acute events, refractory and previously undiagnosed conditions, and care in added years of life; many preventive interventions add net cost ([Cohen, Neumann, and Weinstein, NEJM, 2008](https://doi.org/10.1056/NEJMp0708558)). The rigidity is the assumption that prevention always saves money. | P-02, I-08 |
+| B-33 | Health-system planners | Less chronic disease means less healthcare demand. | Medium | Reversed | Mind, Bio | Reallocation toward acute events, refractory and previously undiagnosed conditions, and care in added years of life; many preventive interventions add net cost ([Cohen, Neumann, and Weinstein, NEJM, 2008](https://doi.org/10.1056/NEJMp0708558)). The rigidity is the assumption that prevention always saves money. | P-02, P-04, I-08 |
 
 ## F. Government and policy
 
@@ -125,8 +125,8 @@ units, and uncertainty before it affects a model result.
 | ID | Stakeholder | Belief | Held | Assessed | Type | What would move it | Tested through |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | B-46 | Nutrition researchers | The evidence is too weak to act on. | Medium | Medium | Mind, Econ | Natural experiments, feeding trials, and longer cohort follow-up; partly true. | I-07, I-11 |
-| B-47 | Agricultural research institutions | The research agenda is yield. | High | Medium | Inst | Funding for nutrient density, soil, and health outcomes. | L-15, X-P03 |
-| B-48 | Microbiome researchers | It is too early for applications. | Medium | Medium | Bio | Separating agronomic applications from human-health claims, which carry different evidence. | L-15, X-P03 |
+| B-47 | Agricultural research institutions | The research agenda is yield. | High | Medium | Inst | Funding for nutrient density, soil, and health outcomes. | L-15, P-05, X-P03 |
+| B-48 | Microbiome researchers | It is too early for applications. | Medium | Medium | Bio | Separating agronomic applications from human-health claims, which carry different evidence. | L-15, P-05, X-P03 |
 | B-49 | Environmental organizations | Livestock is uniformly harmful. | High | Medium | Mind | Context-specific accounting for grazing on land unsuited to crops versus confinement systems. | X-P02, X-N02, X-N03 |
 
 ## Patterns to test

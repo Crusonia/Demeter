@@ -1,6 +1,8 @@
 ## Demeter
 
 - [Home](Home.md)
+- [Top-level metrics](Top-Level-Metrics.md)
+- [Stakeholder rigidities](Stakeholder-Rigidities.md)
 - [Market dynamics](Market-Dynamics.md)
 - [Levers and scenarios](Levers-and-Scenarios.md)
 - [Real options and strategic value](Real-Options-and-Strategic-Value.md)
@@ -13,6 +15,7 @@
 - [Start here](https://github.com/Crusonia/Demeter/blob/main/docs/START_HERE.md)
 - [Real-food value-chain scenario](https://github.com/Crusonia/Demeter/blob/main/docs/REAL_FOOD_VALUE_CHAIN.md)
 - [Model-design inputs](https://github.com/Crusonia/Demeter/blob/main/docs/design/README.md)
+- [Related work](https://github.com/Crusonia/Demeter/blob/main/docs/RELATED_WORK.md)
 - [Install and run](https://github.com/Crusonia/Demeter/blob/main/docs/GETTING_STARTED.md)
 - [First exercise](https://github.com/Crusonia/Demeter/blob/main/docs/FIRST_EXERCISE.md)
 - [Data catalog](https://github.com/Crusonia/Demeter/blob/main/data/README.md)
