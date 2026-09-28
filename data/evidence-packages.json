@@ -150,7 +150,7 @@
         },
         {
           "path": "src/demeter/data/bundled/manifest.json",
-          "sha256": "3962f74247af733b0a6e66b4df2877adf5734d0102448152ff2d6f6d581dda03"
+          "sha256": "27db319bae9db6824525109f5dee8dc41f3b0e10922c4675436f7a01c465d4a8"
         }
       ],
       "transform_files": [
@@ -176,7 +176,7 @@
         },
         {
           "path": "src/demeter/data/bundled/historical_manifest.json",
-          "sha256": "71d5c137b1a49a9f70f8c54aa865e2afa112c5a02e5c2dfe38d69741fd966d4a"
+          "sha256": "bab85d561d5924b398a0b3f60569ac0bbc235615bacad11b61bd724842887512"
         }
       ],
       "transform_files": [
@@ -272,11 +272,11 @@
   "supporting_artifacts": [
     {
       "path": "docs/validation/issue-1-clinical-sources.json",
-      "sha256": "23e5c0cd7ef713a56087cbaa3e4fa30ca39193d314e022dbceb1cd84995b918e"
+      "sha256": "206110d82ac16bde88547abc371d3a9e3dd329a40304791aa90b955bf8bcb8ad"
     },
     {
       "path": "docs/validation/issue-6-historical-summary.json",
-      "sha256": "5e54b5f1975e3af6fb9484aa6feeb8827ea40cf130f915b1ec77074b37ff3b80"
+      "sha256": "c40101fd4a61fe2ae98e432f1a39599bf0f2d0119a867123681cfd26ee312835"
     }
   ]
 }

@@ -223,7 +223,9 @@ def rebuild_history(raw: Path, destination: Path = BUNDLE, download: bool = Fals
     )
     destination.mkdir(parents=True, exist_ok=True)
     (destination / "historical.json").write_bytes(content)
-    manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n")
+    manifest_path.write_text(
+        json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n"
+    )
     return manifest
 
 

@@ -120,7 +120,9 @@ def rebuild(raw: Path, destination: Path = BUNDLE) -> dict:
         "license": "U.S. federal government data",
         "output_schema": "mortality[year][sex][age]: qx,lx,dx,Lx,Tx,ex,ax; population[year][sex][age]: people",
     }
-    manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n")
+    manifest_path.write_text(
+        json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n"
+    )
     return manifest
 
 
