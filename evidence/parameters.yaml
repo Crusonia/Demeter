@@ -718,6 +718,170 @@ parameters:
         column_index: 3
         scale: 0.01
 datasets:
+  food_exposure_ontology:
+    schema_version: 1
+    status: derived
+    evidence_grade: C
+    model_role: exposure_contract
+    baseline_dataset: dietary_baselines
+    definitions:
+      upf:
+        kind: food_category
+        unit: percent_energy
+        definition: Nova ultra-processed foods as a percentage of total reported energy; NCHS Data Brief 536 operational definition
+        availability: active_validation
+        physical_min: 0
+        physical_max: 100
+        baseline_available: true
+        effect_parameters: [beta_upf_progression, diet_lag_years]
+        overlap: [fiber, fruit_veg, added_sugar, total_sugar, refined_carbohydrate, total_energy, protein, saturated_fat]
+        limitation: Published baseline is observational. Relative-dose envelope and causal response remain synthetic; no food substitution or energy balance is inferred.
+      fiber:
+        kind: nutrient
+        unit: g/day
+        definition: Total dietary fiber reported in the first 24-hour recall (DR1TFIBE)
+        availability: observed_context
+        physical_min: 0
+        baseline_available: true
+        overlap: [upf, fruit_veg, refined_carbohydrate, total_energy]
+        limitation: No independent fiber-to-transition effect identified; same-day intake is not usual intake.
+      total_energy:
+        kind: energy
+        unit: kcal/day
+        definition: Total reported dietary energy in the first 24-hour recall (DR1TKCAL)
+        availability: observed_context
+        physical_min: 0
+        baseline_available: true
+        overlap: [upf, fiber, total_sugar, protein, saturated_fat]
+        limitation: Context only; no energy-balance, body-weight, or metabolic mediation equation is implemented.
+      total_sugar:
+        kind: nutrient
+        unit: g/day
+        definition: Total sugars in the first 24-hour recall (DR1TSUGR), including naturally occurring sugars
+        availability: observed_context
+        physical_min: 0
+        baseline_available: true
+        overlap: [upf, added_sugar, total_energy, fruit_veg]
+        limitation: Cannot substitute for added sugar; no independent causal effect is implemented.
+      protein:
+        kind: nutrient
+        unit: g/day
+        definition: Total protein amount in the first 24-hour recall (DR1TPROT)
+        availability: observed_context
+        physical_min: 0
+        baseline_available: true
+        overlap: [upf, protein_quality, total_energy]
+        limitation: Protein amount does not establish amino-acid composition or protein quality.
+      saturated_fat:
+        kind: nutrient
+        unit: g/day
+        definition: Total saturated fatty acids in the first 24-hour recall (DR1TSFAT)
+        availability: observed_context
+        physical_min: 0
+        baseline_available: true
+        overlap: [upf, fat_quality, total_energy]
+        limitation: Not an overall fat-quality index; replacement nutrient and causal effect remain unresolved.
+      fruit_veg:
+        kind: food_category
+        unit: cup_equivalents/day
+        definition: Candidate combined fruit/vegetable cup equivalents; juice and subgroup inclusion unresolved
+        availability: unresolved
+        physical_min: 0
+        overlap: [fiber, total_sugar, upf]
+        limitation: Requires a pinned food-pattern conversion and operational definition before activation.
+      added_sugar:
+        kind: nutrient
+        unit: g/day
+        definition: Sugars added during processing or preparation; excludes naturally occurring sugar
+        availability: unresolved
+        physical_min: 0
+        overlap: [total_sugar, upf, total_energy]
+        limitation: Day-one total-sugar field cannot identify this; food-pattern conversion and causal mapping required.
+      refined_carbohydrate:
+        kind: food_category
+        unit: null
+        definition: Candidate refined-grain/carbohydrate exposure; load and food classification unresolved
+        availability: unresolved
+        overlap: [upf, fiber, added_sugar, total_energy]
+        limitation: No reproducible load index or independent response identified; not activated.
+      protein_quality:
+        kind: quality_index
+        unit: null
+        definition: Candidate digestibility/amino-acid adequacy measure
+        availability: unresolved
+        overlap: [protein]
+        limitation: No selected reproducible index, baseline distribution, or causal mapping.
+      fat_quality:
+        kind: quality_index
+        unit: null
+        definition: Candidate fatty-acid composition/replacement measure
+        availability: unresolved
+        overlap: [saturated_fat, omega3, upf]
+        limitation: No selected index or substitution-specific causal mapping; not equivalent to saturated fat.
+      omega3:
+        kind: nutrient
+        unit: g/day
+        definition: Candidate omega-3 intake; ALA versus EPA/DHA and supplement inclusion unresolved
+        availability: unresolved
+        physical_min: 0
+        overlap: [fat_quality, total_energy]
+        limitation: Species definition, dietary/supplement baseline, and population-specific effect required.
+      nutrient_density:
+        kind: quality_index
+        unit: null
+        definition: Deferred composite nutrient-density variable
+        availability: unresolved
+        overlap: [fiber, fruit_veg, protein_quality, fat_quality, total_energy]
+        limitation: No reproducible index selected; do not double count its components as independent effects.
+  dietary_baselines:
+    status: derived
+    evidence_grade: C
+    model_role: exposure_reference_only
+    source: CDC/NCHS NHANES and USDA WWEIA day-one nutrient recalls; NCHS Data Brief 536 UPF tables
+    source_url: https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Dietary
+    population: U.S. civilian noninstitutionalized adults 20+; reliable day-one recall; pregnancy not excluded; published UPF uses adults 19+
+    geography: United States
+    time_period: Selected cycles 2005-2006, 2013-2014, 2017-March 2020, August 2021-August 2023; published UPF 2013-2023
+    unit: g/day, kcal/day, and percent of energy as identified per exposure
+    uncertainty: Dietary-weight Taylor means and domain t intervals; weighted reported-day quantiles; published UPF standard errors
+    source_store: data/sources/dietary/2026-09-27
+    transformation: Verify raw bytes, join demographics by SEQN, retain complete reliable recalls, estimate survey domains; extract published UPF HTML tables
+    cycles:
+      - {id: '2005_2006', demographics_file: DEMO_D.xpt, demographics_store: dietary, dietary_file: DR1TOT_D.xpt, weight: WTDRD1, mode_change: false}
+      - {id: '2013_2014', demographics_file: DEMO_H.xpt, demographics_store: dietary, dietary_file: DR1TOT_H.xpt, weight: WTDRD1, mode_change: false}
+      - {id: '2017_2020', demographics_file: P_DEMO.xpt, demographics_store: nhanes, dietary_file: P_DR1TOT.xpt, weight: WTDRD1PP, mode_change: false}
+      - {id: '2021_2023', demographics_file: DEMO_L.xpt, demographics_store: dietary, dietary_file: DR1TOT_L.xpt, weight: WTDRD1, mode_change: true}
+    analysis:
+      reliable_recall_code: 1
+      confidence_level: 0.95
+      quantiles: [0.05, 0.25, 0.5, 0.75, 0.95]
+      age_groups:
+        - {id: 20_plus, min: 20, max: null}
+        - {id: '20_39', min: 20, max: 39}
+        - {id: '40_59', min: 40, max: 59}
+        - {id: 60_plus, min: 60, max: null}
+      nutrients:
+        fiber: {column: DR1TFIBE, unit: g/day}
+        total_energy: {column: DR1TKCAL, unit: kcal/day}
+        total_sugar: {column: DR1TSUGR, unit: g/day}
+        protein: {column: DR1TPROT, unit: g/day}
+        saturated_fat: {column: DR1TSFAT, unit: g/day}
+    upf:
+      source_url: https://www.cdc.gov/nchs/products/databriefs/db536.htm
+      table_count: 5
+      expected_adult_records: 9
+      current_period: '2021_2023'
+      period_labels: {'2013–2014': '2013_2014', '2015–2016': '2015_2016', '2017–2018': '2017_2018', 'August 2021–August 2023': '2021_2023'}
+      age_labels: {'19–39': '19_39', '40–59': '40_59', '60 and older': 60_plus}
+    limitations:
+      - Single-day distributions reflect reporting and within-person variation, not usual intake distributions or causal dose-response ranges.
+      - Day-one dietary weights differ from fasting/MEC weights; cycles are analyzed separately, not pooled or summed.
+      - 2021-2023 moved the first recall from in-person to telephone; historical differences can reflect mode/composition changes.
+      - Published UPF means use adults 19+, whereas nutrient reconstruction uses adults 20+; no automatic matched population is implied.
+      - UPF microdata/Nova coding are not reconstructed here; published tables supply means and SEs, not individual distributions.
+      - Total sugars are not added sugars, protein amount is not protein quality, and saturated fat is not an overall fat-quality index.
+      - No imputation or item-nonresponse reweighting; source measurement error, food-code changes and reporting bias remain outside sampling intervals.
+      - Observed intake bounds and quantiles are descriptive, not validated intervention ranges; baselines do not identify causal effects.
   nhanes_prechronic_candidates:
     status: derived
     evidence_grade: C

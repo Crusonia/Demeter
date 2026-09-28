@@ -1,0 +1,15 @@
+name: dietary_context
+description: Illustrative fiber and energy targets recorded as context only; no identified independent health response
+years: 25
+mode: validation
+diet:
+  fiber:
+    target: 25
+    unit: g/day
+    reference_period: '2021_2023'
+    role: context_only
+  total_energy:
+    target: 2000
+    unit: kcal/day
+    reference_period: '2021_2023'
+    role: context_only

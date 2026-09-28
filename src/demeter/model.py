@@ -11,6 +11,7 @@ from demeter.data.baseline import population_counts, source_rows
 from demeter.data.ingest import BUNDLE
 from demeter.health.structure import PRECHRONIC_UNITS, move, rates_for, states_for, transitions_for
 from demeter.health.healthspan import CohortTime, metric_contract
+from demeter.nutrition.exposures import resolve_diet
 from demeter.population.mechanics import (
     age_survivors,
     calibrate_mortality,
@@ -106,7 +107,7 @@ def validate_inputs(registry: EvidenceRegistry, scenario: Scenario) -> tuple[np.
     adult = registry.value("adult_age")
     if not adult.is_integer() or not 1 <= adult <= 100:
         raise ValueError("adult_age must be an integer in [1,100]")
-    upf = scenario.exposures.get("upf", 1)
+    upf = resolve_diet(registry, scenario)["upf_multiplier"]
     extrapolated = (
         not registry.value("upf_min_multiplier") <= upf <= registry.value("upf_max_multiplier")
     )
@@ -166,7 +167,8 @@ def simulate(
         initial_pc = CohortTime(tagged, states, mover)
     cumulative, applied_log_effect = 0.0, 0.0
     annual, history = [], []
-    target = registry.value("beta_upf_progression") * (scenario.exposures.get("upf", 1) - 1)
+    dietary = resolve_diet(registry, scenario)
+    target = registry.value("beta_upf_progression") * (dietary["upf_multiplier"] - 1)
     if abs(target) > 50:
         raise ValueError("Scenario log effect is numerically unsupported")
     relaxation = -np.expm1(-1 / registry.value("diet_lag_years"))
@@ -273,6 +275,7 @@ def simulate(
     metadata = {
         "model_version": __version__,
         "scenario": scenario.model_dump(),
+        "dietary_exposures": dietary,
         "evidence_sha256": registry.content_hash,
         "source_bundle_sha256": source_manifest["bundle_sha256"],
         "mortality_vintage": scenario.baseline_year,

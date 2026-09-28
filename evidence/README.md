@@ -29,6 +29,14 @@ Never invent a value or citation to make the model run. An unresolved parameter 
 
 ## Clinical candidate appraisals
 
+The `food_exposure_ontology` dataset supplies the typed food/nutrient contract,
+units, definitional bounds, overlap links and activation roles. `dietary_baselines`
+registers historical NHANES/USDA transformation choices and NCHS UPF table locators.
+Their immutable source receipts and derived JSON preserve observational status,
+population, vintage and uncertainty. They do not identify causal coefficients.
+See [food exposure definitions](../docs/FOOD_EXPOSURES.md) and run
+`demeter food-exposures` or `demeter evidence dietary` to inspect them.
+
 `sources` contains source URLs, DOIs, raw-byte SHA-256 receipts, retrieval times,
 licenses, and correction notes. Appraised parameters carry `source_id`, an explicit
 table locator and unit scale, the reported confidence interval, the intended model

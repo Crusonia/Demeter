@@ -24,6 +24,17 @@ and independent archive retrieval time of each committed copy.
 
 ## Source to result
 
+Additional catalogued stores include NHANES glycemic and PreChronic reference
+data, the NCHS healthspan arithmetic example, official JSON snapshots, and the
+[dietary reference bundle](../docs/FOOD_EXPOSURES.md). The dietary store adds
+eight original files (about 67 MB): seven public-use XPORT files and one government
+HTML report. Four nutrient survey cycles and published UPF history reconstruct
+into 249 source-linked observations. The smaller derived JSON ships in the wheel;
+the original files remain in Git for offline reloading. `data/catalog.json`
+lists every store, source manifest, role and reload command; `demeter data
+verify-store` verifies them all. The original 13-file archive script below
+continues to cover only the baseline and historical CSV/XLSX stores.
+
 ```text
 data/sources/<family>/<snapshot>/   immutable, reviewed source bytes in Git
                   |

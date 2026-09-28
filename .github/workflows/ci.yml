@@ -55,11 +55,14 @@ jobs:
           uv run demeter evidence healthspan --output outputs/healthspan-method-check.json
           uv run demeter data rebuild-prechronic
           uv run demeter evidence prechronic --output outputs/prechronic-evidence.json
+          uv run demeter data rebuild-dietary
+          uv run demeter food-exposures --output outputs/food-exposures.json
       - name: Run baseline and scenario comparison
         run: |
           uv run demeter simulate scenarios/baseline.yaml --output outputs/baseline.json
           uv run demeter compare scenarios/baseline.yaml scenarios/reduce_upf_30.yaml
           uv run demeter compare scenarios/prechronic_baseline.yaml scenarios/prechronic_reduce_upf_30.yaml
+          uv run demeter simulate scenarios/dietary_upf_30.yaml --output outputs/dietary-upf.json
       - name: Historical holdout diagnostics
         run: uv run demeter historical-backtest --output outputs/historical-backtest.json
       - name: Scientific observability smoke
