@@ -123,6 +123,10 @@ Implemented:
 
 See [acceptance status](docs/V0_1_STATUS.md), [model specification](docs/MODEL_SPEC.md), and [evidence gaps](docs/EVIDENCE_GAPS.md).
 
+For versioned results, use the [release and replay workflow](docs/RELEASES.md).
+It captures exact source/data bytes, canonical outputs, uncertainty, historical
+diagnostics and a model card while retaining the alpha's scientific limitations.
+
 ## Run locally or in Codex Cloud
 
 For a first installation, follow the [platform-specific setup guide](docs/GETTING_STARTED.md).

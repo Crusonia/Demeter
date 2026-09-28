@@ -1,0 +1,15 @@
+schema_version: 1
+model_structure_version: annual-health-1
+scenario_schema_version: '1'
+baseline: scenarios/baseline.yaml
+intervention: scenarios/reduce_upf_30.yaml
+supported_health_structures: [legacy, risk_1, risk_2]
+breaking_changes: []
+changes:
+  - First reproducible bundle format; existing health equations and evidence unchanged.
+  - Structure version names the existing annual cohort engine, including optional experimental structures.
+clinical_calibration:
+  status: deferred
+  fitted_parameters: []
+  windows: []
+  reason: Clinical state mapping, transition hazards, mortality ratios and dietary effects remain unvalidated.

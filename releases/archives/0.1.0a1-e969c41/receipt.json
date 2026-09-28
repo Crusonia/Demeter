@@ -1,0 +1,216 @@
+{
+  "archived_files": {
+    "MODEL_CARD.md": {
+      "bytes": 4730,
+      "sha256": "0e8bee8960ab5d9d889e07a7d282f415a20a32d513ec424eed381e87786694b3"
+    },
+    "baseline.json": {
+      "bytes": 166330,
+      "sha256": "5af3bb938aebe5dc439372b55cf8717446001fb36066b2a2baa3283627a942e0"
+    }
+  },
+  "calibration": {
+    "clinical": {
+      "fitted_parameters": [],
+      "reason": "Clinical state mapping, transition hazards, mortality ratios and dietary effects remain unvalidated.",
+      "status": "deferred",
+      "windows": []
+    },
+    "historical_benchmarks": {
+      "artifact": "results/historical.json",
+      "windows": "Each series.fold records training_years, interval_validation and holdout roles"
+    },
+    "mortality": {
+      "method": "existing per-age mixture normalization to source life table",
+      "year": 2024
+    }
+  },
+  "classification": "engineering_checkpoint",
+  "created_at": "2026-09-28T05:48:10.402942+00:00",
+  "evidence_sha256": "aa0d04b884566c811caeea88430c26bcdf2c4991786245b58892b8fdc2ca9910",
+  "generating_git_commit": "e969c41ea908ccde153f343cc66f65a7826c1884",
+  "kind": "demeter_baseline_archive_receipt",
+  "original_full_bundle_manifest_sha256": "2a91324127c43da908913c30a188d9317b0c738ee3623599ab3e7bb8d3cb7e79",
+  "original_source_zip": {
+    "bytes": 15740372,
+    "sha256": "b24178348d7db6d15d249c43a84267aa3c8762d5842bdd00a841bcb18b18b512"
+  },
+  "profile": {
+    "baseline": "scenarios/baseline.yaml",
+    "breaking_changes": [],
+    "changes": [
+      "First reproducible bundle format; existing health equations and evidence unchanged.",
+      "Structure version names the existing annual cohort engine, including optional experimental structures."
+    ],
+    "clinical_calibration": {
+      "fitted_parameters": [],
+      "reason": "Clinical state mapping, transition hazards, mortality ratios and dietary effects remain unvalidated.",
+      "status": "deferred",
+      "windows": []
+    },
+    "intervention": "scenarios/reduce_upf_30.yaml",
+    "model_structure_version": "annual-health-1",
+    "scenario_schema_version": "1",
+    "schema_version": 1,
+    "supported_health_structures": [
+      "legacy",
+      "risk_1",
+      "risk_2"
+    ]
+  },
+  "replay": {
+    "absolute_tolerance": 1e-08,
+    "comparisons": {
+      "baseline": {
+        "exact": true,
+        "first_mismatches": [],
+        "mismatch_count": 0,
+        "passed": true
+      },
+      "comparison": {
+        "exact": true,
+        "first_mismatches": [],
+        "mismatch_count": 0,
+        "passed": true
+      },
+      "historical": {
+        "exact": true,
+        "first_mismatches": [],
+        "mismatch_count": 0,
+        "passed": true
+      },
+      "intervention": {
+        "exact": true,
+        "first_mismatches": [],
+        "mismatch_count": 0,
+        "passed": true
+      },
+      "sensitivity": {
+        "exact": true,
+        "first_mismatches": [],
+        "mismatch_count": 0,
+        "passed": true
+      },
+      "uncertainty": {
+        "exact": true,
+        "first_mismatches": [],
+        "mismatch_count": 0,
+        "passed": true
+      },
+      "validation": {
+        "exact": true,
+        "first_mismatches": [],
+        "mismatch_count": 0,
+        "passed": true
+      }
+    },
+    "ignored_location_metadata": [
+      "historical/metadata/git_commit",
+      "historical/metadata/working_tree_dirty"
+    ],
+    "passed": true,
+    "relative_tolerance": 1e-10
+  },
+  "reproduction": "Use generating_git_commit in a separate checkout; uv sync --locked; uv run demeter release build outputs/reproduced --draws 128 --samples 64 --seed 42. The complete bundle is generated, not duplicated in Git. New manifest timestamps/runtime metadata differ; compare canonical results with the documented tolerance.",
+  "runtime": {
+    "dependency_policy": "uv.lock pins installation; package binaries/environment are not bundled",
+    "packages": {
+      "PyYAML": "6.0.3",
+      "Pygments": "2.21.0",
+      "SALib": "1.6.0",
+      "annotated-doc": "0.0.5",
+      "annotated-types": "0.8.0",
+      "bptk-py": "3.2.0",
+      "colorama": "0.4.6",
+      "contourpy": "1.4.0",
+      "cycler": "0.12.1",
+      "demeter-model": "0.1.0a1",
+      "dill": "0.4.1",
+      "et_xmlfile": "2.0.0",
+      "fonttools": "4.66.0",
+      "greenlet": "3.5.6",
+      "iniconfig": "2.3.0",
+      "jsonpickle": "4.1.1",
+      "kiwisolver": "1.5.1",
+      "markdown-it-py": "4.2.0",
+      "matplotlib": "3.11.2",
+      "mdurl": "0.1.2",
+      "multiprocess": "0.70.19",
+      "narwhals": "2.26.0",
+      "networkx": "3.7",
+      "numpy": "2.4.6",
+      "openpyxl": "3.1.5",
+      "packaging": "26.3",
+      "pandas": "3.0.6",
+      "pillow": "12.3.0",
+      "playwright": "1.51.0",
+      "plotly": "6.9.0",
+      "pluggy": "1.6.0",
+      "polars": "1.44.2",
+      "polars-runtime-32": "1.44.2",
+      "pydantic": "2.13.5",
+      "pydantic_core": "2.46.5",
+      "pyee": "12.1.1",
+      "pyparsing": "3.3.3",
+      "pypdf": "6.19.0",
+      "pytest": "9.1.1",
+      "python-dateutil": "2.9.0.post0",
+      "rich": "15.0.0",
+      "ruff": "0.16.9",
+      "scipy": "1.15.3",
+      "shellingham": "1.5.4",
+      "six": "1.17.0",
+      "tqdm": "4.67.1",
+      "typer": "0.27.2",
+      "typing-inspection": "0.4.4",
+      "typing_extensions": "4.16.0",
+      "tzdata": "2026.4",
+      "xlsxwriter": "3.2.5"
+    },
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.12"
+  },
+  "scenario": {
+    "allow_extrapolation": false,
+    "baseline_year": 2024,
+    "description": "Synthetic baseline used only to verify model mechanics.",
+    "diet": {},
+    "diet_response": {
+      "kind": "legacy",
+      "shape": "linear"
+    },
+    "exposures": {
+      "fiber": 1.0,
+      "fruit_veg": 1.0,
+      "upf": 1.0
+    },
+    "glp1": null,
+    "health_structure": "legacy",
+    "mode": "validation",
+    "name": "baseline_validation",
+    "sex": "all",
+    "upf_schedule": [],
+    "years": 25
+  },
+  "schema_version": 1,
+  "scientific_release_ready": false,
+  "settings": {
+    "draws": 128,
+    "samples": 64,
+    "seed": 42
+  },
+  "software_version": "0.1.0a1",
+  "source_manifests": [
+    "data/sources/baseline/2026-09-26/manifest.json",
+    "data/sources/diet-dynamics/2026-09-27/manifest.json",
+    "data/sources/dietary/2026-09-27/manifest.json",
+    "data/sources/glp1/2026-09-28/manifest.json",
+    "data/sources/healthspan/nchs-2001/manifest.json",
+    "data/sources/historical/2026-09-26/manifest.json",
+    "data/sources/nhanes-risk/2017-2020/manifest.json",
+    "data/sources/nhanes/2017-2020/manifest.json",
+    "data/sources/official-json/2026-09-27/manifest.json"
+  ],
+  "source_tree_sha256": "52e249bcbb071f65c579401c83b12d8755b3e7ea7eaff3f4d1aa1a13d3c45db6",
+  "working_tree_dirty": false
+}
