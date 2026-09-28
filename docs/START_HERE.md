@@ -9,6 +9,9 @@ The model should become more useful as the community improves its parts.
 The ambition is large. Each contribution should be small enough to understand,
 test, and review. You do not need to understand the whole future system to help.
 
+Read [Why Demeter](WHY_DEMETER.md) for the shared background: the name, connected
+incentives, open knowledge, and how strategy and development contributions fit together.
+
 ## A management flight simulator, built over time
 
 Think of the learning approach associated with John Sterman and MIT's
