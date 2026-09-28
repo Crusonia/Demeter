@@ -82,7 +82,16 @@ Run the full verification commands in README, both new evidence commands, and
 The source extraction receipt is `docs/validation/issue-1-clinical-sources.json`.
 The execution checkpoint records final test/CI results and the PR state.
 
-Resume on `codex/issue-1-evidence-gates`. Begin with the state-definition and
-age/sex prevalence gate above. Preserve one PR for #1; add defensible evidence,
-calibration, and holdout results before considering its acceptance criteria met.
+The original evidence audit was merged through PR #29. The current follow-up is
+`codex/issue-1-population-evidence`: a [versioned source store](../data/README.md)
+and [NHANES reconstruction](NHANES_PREVALENCE.md). It supplies adult age/sex
+glycemic shares with survey uncertainty and reproduces 12 published diabetes
+cells, including sample sizes. Source files, official JSON links, and offline
+reload commands are committed with provenance.
+
+This completes a reproducible cross-sectional benchmark, not the first scientific
+gate in full: T2D identification, the broader healthy/IR state mapping, pediatric
+coverage, temporal transport, and single-age interpolation remain unresolved.
+Progression/reversal, mortality decomposition, diet response/lag, and independent
+health validation remain required. Keep #1 open until those criteria are met.
 The next milestone issue after #1 is #6.

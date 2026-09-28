@@ -108,3 +108,44 @@ and [USDA's policies](https://www.usda.gov/about-usda/policies-and-links).
 
 Source availability is not causal validation. Keep data definitions separate
 from the modeled quantities, and leave unsupported mappings explicitly unresolved.
+
+## NHANES and official JSON additions
+
+The [machine-readable catalog](catalog.json) covers all 21 source files, including
+four deidentified NHANES 2017-March 2020 XPORT files and four official JSON
+snapshots. The original baseline and historical archives above remain canonical.
+
+- [NHANES source manifest](sources/nhanes/2017-2020/manifest.json) links the four
+  public-use CDC files, their codebooks, dates, and SHA-256 hashes.
+- [Official JSON snapshot manifest](sources/official-json/2026-09-27/manifest.json)
+  distinguishes CDC data observations from Census discovery metadata.
+- [Derived prevalence JSON](../src/demeter/data/bundled/nhanes_prevalence.json) and
+  [reconstruction methods](../docs/NHANES_PREVALENCE.md) describe the survey
+  classifications, weights, uncertainty and remaining engine-state mismatch.
+
+Reload and verify without changing committed files:
+
+```powershell
+uv run demeter data verify-store
+uv run demeter data rebuild-nhanes --destination outputs/nhanes-rebuilt
+uv run demeter evidence population --output outputs/population-evidence.json
+```
+
+The source store is included in the repository and source distribution. Built
+wheels contain the derived bundles. NHANES public-use records are subject to the
+[NCHS data-use terms](https://www.cdc.gov/nchs/policy/data-user-agreement.html):
+statistical reporting and analysis, without identification or linkage to
+individually identifiable records. Source data terms remain distinct from the
+software license.
+
+## Official JSON APIs
+
+- [CDC mortality and life expectancy JSON](https://data.cdc.gov/resource/w9j2-ggv5.json?%24where=race%3D%27All%20Races%27&%24limit=5000&%24order=year%2Csex): historical aggregate observations, not single-age life tables.
+- [CDC diabetes JSON sample](https://data.cdc.gov/resource/c9xs-vhst.json?%24limit=1): NHIS diagnosed diabetes; not all diabetes, laboratory prediabetes, or specifically T2D. The catalog retains the complete filtered query used for the snapshot.
+- [Census ACS population query](https://api.census.gov/data/2024/acs/acs1?get=NAME%2CB01001_001E&for=us%3A%2A): JSON data service, but the unauthenticated check on September 27, 2026 redirected to `missing_key.html`. Append your Census API key privately; never commit it.
+- [Census ACS age/sex JSON metadata](https://api.census.gov/data/2024/acs/acs1/groups/B01001.json) and [PEP 2023 JSON metadata](https://api.census.gov/data/2023/pep/charv/variables.json): verified public metadata, not population observations.
+
+The ACS survey and PEP population estimates have different definitions and vintages.
+Neither linked API is silently substituted for the engine's Census Vintage 2025
+single-age CSV. NHANES publishes the source microdata here as SAS XPORT; Demeter's
+derived JSON is explicitly identified as our reconstruction, not an official CDC JSON release.

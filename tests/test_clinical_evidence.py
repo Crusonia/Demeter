@@ -180,7 +180,17 @@ def test_registered_clinical_estimates_have_receipts_and_intervals():
         assert p.applicability.blockers
     report_path = Path("docs/validation/issue-1-clinical-sources.json")
     report = json.loads(report_path.read_text())
-    assert report["evidence_sha256"] == REGISTRY.content_hash
+    # Keep this historical extraction receipt immutable when unrelated datasets change.
+    # Verify every recorded clinical estimate and source against today's registry.
+    checked = set()
+    for check in report["checks"]:
+        assert check["sha256"] == REGISTRY.sources[check["source"]].sha256
+        for extracted in check["parameters"]:
+            p = REGISTRY.parameters[extracted["parameter"]]
+            assert p.source_id == check["source"]
+            assert extracted["extracted"] == [p.value, p.uncertainty.low, p.uncertainty.high]
+            checked.add(p.key)
+    assert checked == {p.key for p in candidates}
 
 
 def test_table_extraction_requires_positive_scale():

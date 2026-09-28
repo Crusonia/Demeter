@@ -14,6 +14,8 @@ from demeter.analysis.observability import observe
 from demeter.analysis.validation import mortality_backtest, validate as validation_report
 from demeter.data.ingest import rebuild
 from demeter.data.historical import rebuild_history
+from demeter.data.nhanes import STORE as NHANES_STORE, load_nhanes, rebuild_nhanes
+from demeter.data.store import verify_store
 from demeter.evidence.appraisal import applicability_report, verify_sources
 from demeter.model import simulate
 from demeter.schema import EvidenceRegistry, Scenario
@@ -81,6 +83,15 @@ def rebuild_data(raw: Path = Path("data/raw")) -> None:
     emit(rebuild(raw))
 
 
+@data_app.command("verify-store")
+def verify_source_store(catalog: Path = Path("data/catalog.json")) -> None:
+    """Verify every source file in the versioned repository catalog, offline."""
+    report = verify_store(catalog)
+    emit(report)
+    if not report["passed"]:
+        raise typer.Exit(1)
+
+
 @data_app.command("rebuild-history")
 def rebuild_historical_data(
     raw: Path = Path("data/raw/historical"),
@@ -88,6 +99,22 @@ def rebuild_historical_data(
 ) -> None:
     """Rebuild historical observations; reject changed source bytes."""
     emit(rebuild_history(raw, download=download))
+
+
+@data_app.command("rebuild-nhanes")
+def rebuild_glycemic_data(
+    evidence: Path = DEFAULT_EVIDENCE,
+    source: Path = NHANES_STORE,
+    destination: Path = Path("outputs/nhanes-rebuilt"),
+) -> None:
+    """Verify the repository source store and reconstruct survey benchmarks offline."""
+    emit(rebuild_nhanes(registry(evidence), source, destination))
+
+
+@evidence_app.command("population")
+def population_evidence(evidence: Path = DEFAULT_EVIDENCE, output: Path | None = None) -> None:
+    """Read pinned age/sex glycemic prevalence; never substitute it for T2D states."""
+    emit(load_nhanes(registry(evidence)), output)
 
 
 @app.command("historical-backtest")
