@@ -296,6 +296,18 @@
     {
       "path": "docs/validation/issue-6-historical-summary.json",
       "sha256": "c40101fd4a61fe2ae98e432f1a39599bf0f2d0119a867123681cfd26ee312835"
+    },
+    {
+      "path": "releases/archives/0.1.0a1-e969c41/baseline.json",
+      "sha256": "5af3bb938aebe5dc439372b55cf8717446001fb36066b2a2baa3283627a942e0"
+    },
+    {
+      "path": "releases/archives/0.1.0a1-e969c41/MODEL_CARD.md",
+      "sha256": "0e8bee8960ab5d9d889e07a7d282f415a20a32d513ec424eed381e87786694b3"
+    },
+    {
+      "path": "releases/archives/0.1.0a1-e969c41/receipt.json",
+      "sha256": "2200de61b93eb4158d618a1898a340407dd687f3467adac11517f63b270b432c"
     }
   ]
 }

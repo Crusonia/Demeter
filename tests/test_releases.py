@@ -110,6 +110,8 @@ def test_extract_never_overwrites_and_preserves_bytes(bundle, tmp_path):
         releases.extract(bundle, target)
     with pytest.raises(ValueError, match="already exists"):
         releases.build(bundle, releases.RunSettings())
+    with pytest.raises(ValueError, match="outside the immutable bundle"):
+        releases.extract(bundle, bundle / "source")
 
 
 def test_dirty_checkout_requires_explicit_development_mode(monkeypatch, tmp_path):
@@ -180,3 +182,17 @@ def test_source_change_cannot_be_replayed(bundle, monkeypatch, tmp_path):
     monkeypatch.setattr(releases, "source_root", lambda: source)
     with pytest.raises(ValueError, match="Replay source differs"):
         releases.replay(bundle)
+
+
+def test_committed_checkpoint_receipt_matches_archived_baseline():
+    archive = releases.source_root() / "releases/archives/0.1.0a1-e969c41"
+    record = json.loads((archive / "receipt.json").read_bytes())
+    for name, expected in record["archived_files"].items():
+        assert releases.receipt((archive / name).read_bytes()).model_dump() == expected
+    baseline = json.loads((archive / "baseline.json").read_bytes())
+    assert baseline["metadata"]["evidence_sha256"] == record["evidence_sha256"]
+    assert baseline["metadata"]["scenario"] == record["scenario"]
+    assert baseline["validation_only"] and not record["scientific_release_ready"]
+    assert record["working_tree_dirty"] is False
+    assert record["replay"]["passed"]
+    assert set(record["replay"]["comparisons"]) == set(releases.RESULT_NAMES)

@@ -15,3 +15,7 @@ CI artifacts have limited retention and do not replace a permanent release archi
 
 All current checkpoints are validation-only. No clinical calibration, independent
 scientific acceptance or final v0.1 release is implied by an archived baseline.
+
+| Checkpoint | Generating source | Archived evidence |
+| --- | --- | --- |
+| [0.1.0a1 / e969c41](archives/0.1.0a1-e969c41/README.md) | [e969c41](https://github.com/Crusonia/Demeter/commit/e969c41ea908ccde153f343cc66f65a7826c1884) | Complete baseline, model card and receipt; all seven calculations replayed exactly from extracted source, apart from excluded Git-location metadata. |

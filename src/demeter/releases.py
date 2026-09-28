@@ -577,6 +577,8 @@ def verify(bundle: Path) -> dict:
 def extract(bundle: Path, destination: Path) -> dict:
     verify(bundle)
     destination = destination.resolve()
+    if destination.is_relative_to(bundle.resolve()):
+        raise ValueError("Extract outside the immutable bundle directory")
     if destination.exists():
         raise ValueError("Extraction destination must not exist")
     destination.parent.mkdir(parents=True, exist_ok=True)

@@ -17,6 +17,15 @@ def main():
     source, bundle, output = args.source.resolve(), args.bundle.resolve(), args.output.resolve()
     # CI creates this trusted snapshot itself. Verification alone never executes ZIP code.
     env = dict(os.environ, PYTHONPATH=str(source / "src"), PYTHONUTF8="1")
+    loaded = subprocess.check_output(
+        [sys.executable, "-c", "from demeter.releases import source_root; print(source_root())"],
+        cwd=source,
+        env=env,
+        text=True,
+        encoding="utf-8",
+    ).strip()
+    if Path(loaded).resolve() != source:
+        raise ValueError(f"Replay imported the wrong source checkout: {loaded}")
     result = subprocess.run(
         [
             sys.executable,
