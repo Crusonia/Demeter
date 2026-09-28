@@ -67,7 +67,9 @@ Historical forecasts still do not validate the integrated health model or identi
 dietary causal effects. See `HISTORICAL_BACKTESTS.md` for exact limitations and the
 remaining #6 scientific criteria. Sensitivity is variance under registered
 synthetic ranges and is separate from evidence strength; it is not an intervention
-ranking or policy recommendation. Global causal attribution remains issue #26.
+ranking or policy recommendation. The separate [food-leverage report](LEVERAGE.md)
+adds paired sensitivity and exact model pathway allocation with evidence overlays;
+it does not identify real-world causal effects.
 
 ## Verification
 
