@@ -71,10 +71,12 @@ def extensions_run(
     evidence: Path = DEFAULT_EVIDENCE,
     output: Path | None = None,
 ) -> None:
-    from demeter.extensions import resolve, run
+    from demeter.extensions import protect_output, resolve, run
 
+    selected = resolve(package, local_registry)
+    protect_output(output, (selected,), local_registry, evidence)
     emit(
-        run(registry(evidence), resolve(package, local_registry), scenario, module).to_dict(),
+        run(registry(evidence), selected, scenario, module).to_dict(),
         output,
     )
 
@@ -91,14 +93,16 @@ def extensions_compare(
     evidence: Path = DEFAULT_EVIDENCE,
     output: Path | None = None,
 ) -> None:
-    from demeter.extensions import compare, resolve
+    from demeter.extensions import compare, protect_output, resolve
 
+    selected_left, selected_right = resolve(left, local_registry), resolve(right, local_registry)
+    protect_output(output, (selected_left, selected_right), local_registry, evidence)
     emit(
         compare(
             registry(evidence),
-            resolve(left, local_registry),
+            selected_left,
             left_scenario,
-            resolve(right, local_registry),
+            selected_right,
             right_scenario,
             left_module=left_module,
             right_module=right_module,

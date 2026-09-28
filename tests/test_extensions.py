@@ -330,3 +330,65 @@ def test_cli_register_run_compare(package, tmp_path):
     )
     assert result.exit_code == 0, result.exception
     assert json.loads(result.stdout)["outcomes"]["cumulative_deaths"]["absolute_delta"] == 0
+
+
+@pytest.mark.parametrize("command", ["run", "compare"])
+@pytest.mark.parametrize(
+    "target",
+    ["registry", "manifest", "module", "scenario", "overlay", "base", "catalog", "other_package"],
+)
+def test_cli_rejects_output_input_collision_before_execution(package, tmp_path, command, target):
+    marker = package.parent / "IMPORTED"
+    code = (package.parent / "module.py").read_text()
+    repin(package, "module.py", f"from pathlib import Path\nPath({str(marker)!r}).touch()\n" + code)
+    overlay(package, {"parameters": {}})
+    local = tmp_path / "registry.yaml"
+    ext.register(package, local)
+    base = tmp_path / "base.yaml"
+    base.write_bytes(Path("evidence/parameters.yaml").read_bytes())
+    targets = {
+        "registry": local,
+        "manifest": package,
+        "module": package.parent / "module.py",
+        "scenario": package.parent / "scenario.yaml",
+        "overlay": package.parent / "evidence.yaml",
+        "base": base,
+        "catalog": ext.CATALOG,
+        "other_package": Path("scenarios/baseline.yaml"),
+    }
+    # A run has one selected package; compare must protect *both* selections.
+    if command == "run" and target == "other_package":
+        targets[target] = package.parent / "scenario.yaml"
+    destination = targets[target]
+    before = destination.read_bytes()
+    args = ["extensions", command]
+    if command == "run":
+        args += [COMMUNITY, "reduce_upf_30", "--module", "null"]
+    else:
+        args += [CORE, "baseline", COMMUNITY, "reduce_upf_30", "--right-module", "null"]
+    result = CliRunner().invoke(
+        app,
+        [
+            *args,
+            "--local-registry",
+            str(local),
+            "--evidence",
+            str(base),
+            "--output",
+            str(destination),
+        ],
+    )
+    assert result.exit_code != 0
+    assert "must not overwrite" in str(result.exception)
+    assert destination.read_bytes() == before
+    assert not marker.exists()
+
+
+def test_output_hardlink_alias_is_rejected(package, tmp_path):
+    selected = load(package, tmp_path)
+    alias = tmp_path / "alias.json"
+    alias.hardlink_to(package.parent / "scenario.yaml")
+    with pytest.raises(ValueError, match="must not overwrite"):
+        ext.protect_output(
+            alias, (selected,), tmp_path / "registry.yaml", Path("evidence/parameters.yaml")
+        )

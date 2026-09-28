@@ -329,6 +329,26 @@ def list_packages(registry: Path = LOCAL_REGISTRY) -> dict:
     return {"code_executed": False, "packages": [p.receipt() for p in packages.values()]}
 
 
+def protect_output(
+    output: Path | None, packages: tuple[Package, ...], registry: Path, evidence: Path
+) -> None:
+    """Reject output/input aliases before importing either selected package."""
+    if output is None:
+        return
+    inputs = {registry.resolve(), evidence.resolve(), CATALOG.resolve()}
+    for package in packages:
+        inputs.add(package.path.resolve())
+        inputs.update(safe_path(package.root, p).resolve() for p in package.manifest.files)
+    destination = output.resolve()
+    if destination in inputs or (
+        destination.exists()
+        and any(path.exists() and destination.samefile(path) for path in inputs)
+    ):
+        raise ValueError(
+            "Output must not overwrite the registry, catalog, evidence or package inputs"
+        )
+
+
 def run(
     base: EvidenceRegistry, package: Package, scenario: str, module: str | None = None
 ) -> SimulationResult:

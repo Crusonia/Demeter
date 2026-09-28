@@ -118,6 +118,8 @@ dependencies and inconsistent units. New values do not silently replace engine
 keys; a replacement equation must explicitly declare its own dependency keys.
 The CLI's explicit `--evidence PATH` selects the base registry and records its
 hash, as existing commands do; it is not a package override mechanism.
+Run/compare also reject output paths that alias either selected package's inputs,
+the local registry, curated catalog, or base evidence, before importing code.
 
 ## Compare alternatives
 
