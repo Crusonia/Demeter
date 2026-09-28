@@ -248,14 +248,14 @@ Interactive system-dynamics simulators already exist for health systems, climate
 | **[ReThink Health Dynamics Model](https://rippel.org/dynamics-model/)** (Rippel Foundation; Homer, Hirsch, Sterman, Milstein) | Regional health system: population health, care delivery, equity, productivity, and cost | Closest format analogue. Vensim model with a hosted interface; a free "Anytown" configuration uses U.S. national data. Food enters only as an external driver ([model summary](https://rippel.org/wp-content/uploads/2023/04/ReThink-Health-Model-Summary-v5.pdf)) |
 | **[PRISM](https://www.cdc.gov/pcd/issues/2021/20_0225.htm)** (CDC) | U.S. cardiovascular risk factors, mortality, and cost under 32 strategies, including nutrition and weight loss | Public web application with a published validation; a U.S. benchmark for Demeter's health outcomes |
 | **[HealthBound](https://systemdynamics.org/healthbound/)** (CDC-supported) | U.S. health reform policy game | Illustrates teaching through resource constraints, delays, and side effects |
-| **[En-ROADS](https://www.climateinteractive.org/en-roads/)** (Climate Interactive and MIT Sloan) | Climate and energy policy | Reference design for a fast public simulator; runs in the browser via [SDEverywhere](https://github.com/climateinteractive/SDEverywhere), the toolchain named in section 4 |
+| **[En-ROADS](https://www.climateinteractive.org/en-roads/)** (Climate Interactive and MIT Sloan) | Climate and energy policy | Reference design for a fast public simulator; runs in the browser via [SDEverywhere](https://github.com/climateinteractive/SDEverywhere), which compiles Vensim/Stella models and so cannot compile Demeter's Python model directly (see section 4) |
 | **[Beer Distribution Game](https://web.mit.edu/jsterman/www/SDG/beergame.html)** (MIT) | Supply-chain ordering | The original flight simulator; delay-driven amplification relevant to agricultural supply response |
 | **[Food Chain Reaction](https://www.cna.org/analyses/2015/food-chain-reaction-global-food-security-game)** (WWF, Center for American Progress, CNA) | Global food-security crisis, 2020–2030 | Facilitated role-play without an underlying simulation model; evidence of decision-maker interest in food-system exercises |
 
 Implications:
 
 - The flight-simulator format is established with health leaders. Demeter's contribution would be the model underneath: food production, prices, and purchasing represented inside the system rather than as exogenous inputs. In short, the target is a ReThink Health–style experience in which food is endogenous.
-- Candidate conversations include the Rippel Foundation and the ReThink Health modelers, who hold health-system structure and an established user base, and Climate Interactive, which maintains the public-simulator toolchain Demeter plans to use. These are prospective contacts only; no relationship or endorsement exists.
+- Candidate conversations include the Rippel Foundation and the ReThink Health modelers, who hold health-system structure and an established user base, and Climate Interactive, which has deep experience delivering fast public system-dynamics simulators. These are prospective contacts only; no relationship or endorsement exists.
 - These simulators earn trust through published structure, calibration, and validation. A Demeter simulator must follow the same order: the interface remains Phase 6 work, downstream of an evidence-backed model.
 - An earlier teaching build is acceptable only if it is labeled validation-only and presents no synthetic output as a finding.
 
@@ -675,23 +675,27 @@ Marimo is attractive because it is more reproducible than traditional free-form 
 
 ---
 
-### Public simulator — SDEverywhere or custom React / Next.js
+### Public simulator — surrogate-backed React / Next.js
 
 **Preferred role:** later public decision-support interface.
 
-Two viable paths:
+The Python model remains the source of truth. The public simulator should not require a second hand-maintained model.
 
-1. **SDEverywhere**
-   - useful for an En-ROADS-like system-dynamics simulator
-   - browser execution
-   - WebAssembly / JavaScript compilation pathways
+Preferred path:
 
-2. **Custom React / Next.js**
-   - preferred if the public product needs a bespoke UX
+1. **Surrogate-backed custom React / Next.js**
+   - the full Python model generates a scenario/result dataset offline
+   - a surrogate or interpolation model serves interactive responses (see section 7)
    - scenario controls
    - charts
    - explanations
    - evidence drill-down
+   - surrogate error bounds and evidence status shown alongside results
+
+Other paths considered:
+
+- **SDEverywhere** translates Vensim and Stella models to C, JavaScript, and WebAssembly. It cannot compile Demeter's Python model. Using it would require a separately maintained Vensim/Stella twin with automated equivalence tests against the Python model. It remains a design reference for fast browser simulation (En-ROADS), not the default path.
+- **Python in the browser (Pyodide/WebAssembly)** could run the actual model without translation. It may be viable for a small teaching model but is likely too heavy for the integrated system.
 
 The UI is not the source of truth.
 
