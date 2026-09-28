@@ -31,6 +31,15 @@ def verify_distribution(dist: Path = Path("dist")) -> dict:
     }
     with zipfile.ZipFile(wheels[0]) as wheel:
         names = set(wheel.namelist())
+        for name in (
+            "demeter/explorer/static/index.html",
+            "demeter/explorer/static/build.json",
+            "demeter/analysis/content/charts.md",
+        ):
+            if name not in names:
+                raise ValueError(f"Missing learning interface artifact: {name}")
+        if not any(name.startswith("demeter/explorer/static/_next/") for name in names):
+            raise ValueError("Missing compiled Next.js assets")
         for name, sha in (expected_bundles | expected_notices).items():
             if name not in names or digest(wheel.read(name)) != sha:
                 raise ValueError(f"Missing or altered wheel evidence artifact: {name}")
@@ -49,7 +58,16 @@ def verify_distribution(dist: Path = Path("dist")) -> dict:
             if not member.isfile():
                 continue
             name = member.name.split("/", 1)[-1]
-            if name.startswith(("data/raw/", "data/processed/", "outputs/")):
+            if name.startswith(
+                (
+                    "data/raw/",
+                    "data/processed/",
+                    "outputs/",
+                    "web/node_modules/",
+                    "web/.next/",
+                    "web/out/",
+                )
+            ):
                 raise ValueError(f"Local cache entered source distribution: {name}")
             content = sdist.extractfile(member).read()
             if digest(content) in forbidden_hashes:

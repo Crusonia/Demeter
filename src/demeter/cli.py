@@ -41,6 +41,21 @@ DEFAULT_EVIDENCE = Path("evidence/parameters.yaml")
 DEFAULT_EXTENSIONS = Path("outputs/extension-registry.yaml")
 
 
+@app.command("explore")
+def explore(
+    project: Path = Path("."),
+    destination: Path = Path("outputs/explorer"),
+    port: Annotated[int, typer.Option(min=0, max=65535)] = 0,
+    browser: bool = True,
+) -> None:
+    """Open the local educational interface with working model reruns (studio extra)."""
+    from demeter.explorer.launcher import launch
+    try:
+        launch(project, destination, port, browser)
+    except (ValueError, RuntimeError, OSError) as exc:
+        raise typer.BadParameter(str(exc)) from exc
+
+
 @extension_app.command("list")
 def extensions_list(local_registry: Path = DEFAULT_EXTENSIONS) -> None:
     from demeter.extensions import list_packages

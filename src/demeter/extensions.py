@@ -256,14 +256,15 @@ def _read(
     return package
 
 
-def curated() -> dict[str, Package]:
-    if not CATALOG.exists():
+def curated(root: Path = PROJECT) -> dict[str, Package]:
+    catalog_path = root / "extensions/catalog.yaml"
+    if not catalog_path.exists():
         return {}
-    catalog = ProjectCatalog.model_validate(yaml.safe_load(CATALOG.read_bytes()))
+    catalog = ProjectCatalog.model_validate(yaml.safe_load(catalog_path.read_bytes()))
     output = {}
     for selector, entry in catalog.packages.items():
         package = _read(
-            safe_path(PROJECT, entry.manifest), PROJECT, entry.classification, entry.sha256
+            safe_path(root, entry.manifest), root, entry.classification, entry.sha256
         )
         if selector != package.manifest.selector:
             raise ValueError("Curated catalog key differs from package identity")

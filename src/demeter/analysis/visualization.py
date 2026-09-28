@@ -532,8 +532,10 @@ def build_figures(payload: dict) -> dict[str, go.Figure]:
     }
 
 
-def render_report(payload: dict, destination: Path) -> dict:
+def render_report(payload: dict, destination: Path, *, teaching_records: dict | None = None) -> dict:
     """Export a self-contained offline HTML report and reproducible Plotly JSON."""
+    from .teaching import guide_html
+
     figures = build_figures(payload)
     destination.mkdir(parents=True, exist_ok=True)
     fragments = []
@@ -541,6 +543,7 @@ def render_report(payload: dict, destination: Path) -> dict:
         fig.write_json(destination / (name + ".plotly.json"))
         fragments.append(
             f'<section id="{html.escape(name)}"><h2>{html.escape(name.replace("_", " "))}</h2>'
+            + guide_html(name, teaching_records)
             + fig.to_html(
                 full_html=False,
                 include_plotlyjs=i == 0,
@@ -568,7 +571,9 @@ def render_report(payload: dict, destination: Path) -> dict:
         "body{font:16px Arial;margin:2rem auto;max-width:1150px;padding:0 1rem;color:#17212e}"
         ".notice{background:#fff3d8;padding:1rem;border-left:5px solid #b26a00}"
         "section{margin:2rem 0;border-top:1px solid #ccc}pre{overflow:auto;font-size:12px}"
-        "nav{line-height:1.8}a{color:#176b91}</style></head><body>"
+        "nav{line-height:1.8}a{color:#176b91}"
+        ".teaching{border-left:4px solid #267a66;padding:8px 20px;background:#f3f7f4;max-width:85ch}"
+        ".teaching p{line-height:1.6}</style></head><body>"
         "<h1>Demeter · Scientific observability</h1>"
         '<p class="notice"><strong>VALIDATION ONLY — NOT SCIENTIFIC FINDINGS.</strong> '
         "Model pathways and parameter ranges remain synthetic. Historical observations "
