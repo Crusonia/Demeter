@@ -40,6 +40,9 @@ export default function ChartView({
   const node = useRef<HTMLDivElement>(null);
   const rows = useMemo(() => chartRows(chart.figure), [chart]);
   const canOverlay = ["stocks", "flows"].includes(chart.id);
+  const isBenchmark =
+    chart.id.startsWith("history_") ||
+    ["glp1_trial_benchmarks", "diet_lag_challenge"].includes(chart.id);
   useEffect(() => {
     if (window.Plotly) setReady(true);
   }, []);
@@ -147,14 +150,8 @@ export default function ChartView({
             {scenarioName} · Complete run · Full plotted time range
           </p>
         </div>
-        <span
-          className={
-            chart.id.startsWith("history_") ? "badge observed" : "badge"
-          }
-        >
-          {chart.id.startsWith("history_")
-            ? "Historical benchmark"
-            : "Model experiment"}
+        <span className={isBenchmark ? "badge observed" : "badge"}>
+          {isBenchmark ? "Historical benchmark" : "Model experiment"}
         </span>
       </div>
       <div className="story-grid">
