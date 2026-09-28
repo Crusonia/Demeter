@@ -254,7 +254,8 @@ Interactive system-dynamics simulators already exist for health systems, climate
 
 Implications:
 
-- The flight-simulator format is established with health leaders. Demeter's contribution would be the model underneath: food production, prices, and purchasing represented inside the system rather than as exogenous inputs.
+- The flight-simulator format is established with health leaders. Demeter's contribution would be the model underneath: food production, prices, and purchasing represented inside the system rather than as exogenous inputs. In short, the target is a ReThink Health–style experience in which food is endogenous.
+- Candidate conversations include the Rippel Foundation and the ReThink Health modelers, who hold health-system structure and an established user base, and Climate Interactive, which maintains the public-simulator toolchain Demeter plans to use. These are prospective contacts only; no relationship or endorsement exists.
 - These simulators earn trust through published structure, calibration, and validation. A Demeter simulator must follow the same order: the interface remains Phase 6 work, downstream of an evidence-backed model.
 - An earlier teaching build is acceptable only if it is labeled validation-only and presents no synthetic output as a finding.
 
@@ -264,7 +265,7 @@ Implications:
 2. **The unoccupied position is the coupling.** This survey found no open model that connects agricultural production, food prices and product composition, household purchasing, metabolic health, and payer and value-chain accounts in one reproducible system. The market and behavioral layer between agriculture and health, and the accounting of who captures value, are the parts Demeter must build itself.
 3. **Borrow methods and validation targets.** Proportional multistate life tables are a documented path to the health-adjusted longevity metric in the v0.1 acceptance criteria. IMPACTncd and SPHR provide reference designs for metabolic transitions. Reproducing a published result from an established model on a shared scenario is a credible external validation target, especially a U.S. result from the Tufts models. Any borrowed structure or value still enters through the evidence registry with its source, population, and transformations recorded.
 4. **Plan for cross-language coupling.** The closest open models use R, GAMS, and Julia. Integration with them will likely happen through exchanged data and harmonized interfaces rather than shared code, and the architecture should allow for that.
-5. **Consider collaboration before duplication.** Where an established group owns a validated health engine, collaboration may be more valuable than reimplementation. That choice must not compromise Demeter's evidence rules or its independence from any single model's conclusions.
+5. **Consider collaboration before duplication.** Where an established group owns a validated health engine, collaboration may be more valuable than reimplementation. The IMPACTncd team at the University of Liverpool and the Tufts food-policy modelers are candidate conversations for the health layer; as with the simulator contacts above, no relationship exists. That choice must not compromise Demeter's evidence rules or its independence from any single model's conclusions.
 
 This section describes positioning, not implemented capabilities, and does not change the current phase boundary.
 
