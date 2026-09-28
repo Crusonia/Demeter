@@ -6,6 +6,7 @@ This document defines the program vision and roadmap. Use these companion docume
 
 - [SYSTEM_ARCHITECTURE.md](SYSTEM_ARCHITECTURE.md) — canonical mature module/runtime architecture, product naming, and price/quality behavioral mechanism
 - [SCENARIO_CATALOG.md](SCENARIO_CATALOG.md) — scenario families and integrated north-star experiments
+- [Model-design inputs](design/README.md) — problem boundary, causal loops, externalities, input packages, and formulation/test requirements; proposed mechanisms remain explicit premises
 - [CODEX_V0_1_OBJECTIVE.md](CODEX_V0_1_OBJECTIVE.md) — current Phase 1 implementation objective
 
 ---
@@ -17,6 +18,37 @@ Demeter is an open-source project under the [Food is Health Substack](https://fo
 The [public guide](wiki/Home.md) explains that mission. [Real options and strategic value](wiki/Real-Options-and-Strategic-Value.md) describes a future decision-analysis layer for piloting, waiting, scaling, switching, and exiting under uncertainty. This layer must remain downstream of the evidence-backed scientific model. Documenting it does not expand the current v0.1 implementation boundary or authorize investment conclusions from synthetic outputs.
 
 Demeter is intended to become a **computable version of the Food is Health thesis**.
+
+Its intended users sit throughout the value chain: agricultural producers and
+their suppliers, processors, food companies, distributors, retailers, households,
+providers, payers, employers, public programs, and capital providers. Each should
+be able to investigate the value added by a change in the system, where that
+value appears, and the mechanism through which they could capture a share.
+A regenerative production change reaching retail is a representative question:
+what changes in the product or its costs, do buyers respond, and what do contracts
+and margins return to the producer and the other participants?
+
+The flagship integrated learning scenario is a **shift toward real food**, specified
+as measurable changes in food baskets, substitution, affordability, access, and
+consumption. The central learning objective is to reveal the levers between
+agriculture, food, and health. A priority health/economic question is whether and
+how targeting the **PreChronic** population can reduce net healthcare costs,
+after intervention costs and delays, and who receives those benefits.
+
+[The flagship scenario brief](REAL_FOOD_VALUE_CHAIN.md) defines these intended
+participant views and pathways. Real-food and regenerative labels require
+operational definitions and evidenced mechanisms. PreChronic remains a proposed
+earlier-risk population requiring validated inclusion criteria, as described in
+the [post-v0.1 roadmap](POST_V0_1_ROADMAP.md). Retail premiums, health effects, and
+cost savings are outcomes to test. These priorities preserve the staged roadmap
+and do not expand the current v0.1 implementation boundary.
+
+The [design registers](design/README.md) preserve the causal loops and positive
+and negative spillovers that could explain these opportunities and constraints.
+They are inputs to model design: a selected premise must be translated into
+stocks, flows, units, evidence-linked relationships, and discriminating tests.
+Value creation, value capture, and uncompensated effects remain distinct in the
+resulting actor accounts. A proposed externality is not automatically a business.
 
 It is also an open learning project, built through a sequence of useful,
 inspectable experiments. The management-flight-simulator approach associated

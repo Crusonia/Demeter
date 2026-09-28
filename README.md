@@ -4,6 +4,23 @@
 
 The project translates questions explored in the Food is Health Substack into explicit causal relationships, auditable evidence, and reproducible scenarios. Its long-term purpose is to show where change can influence the system, what constrains that change, who benefits, and how strategic options gain or lose value as key trends shift.
 
+Demeter is intended for **participants at every stage of the value chain** to see
+how a change they make creates value elsewhere, and what allows them to capture
+a share. For example, a producer adding a regenerative practice should be able
+to investigate how its effects reach retail and how any added value flows back
+through prices, costs, and contracts.
+
+The flagship future exercise is a **shift toward real food**. It should reveal
+the levers connecting agriculture, food, and health, with particular attention
+to whether earlier intervention in the **PreChronic** population can reduce net
+healthcare costs. See [the scenario brief](docs/REAL_FOOD_VALUE_CHAIN.md) for the
+actors, pathways, required definitions, and evidence still needed.
+
+The [model-design inputs](docs/design/README.md) turn that purpose into a
+causal-loop table, positive/negative externality registers, required input
+packages, and formulation/validation contracts. Proposed loops remain labeled
+premises until their evidence, equations, and applicability are established.
+
 Food prices, treatment access, consumer behavior, production costs, and reimbursement can change together. Demeter aims to trace those changes through food demand, supply, metabolic health, healthcare economics, and the incentives that feed back into the market. The model must be able to challenge a Food is Health hypothesis as well as support it.
 
 **New here?** [Purpose and staged roadmap](docs/START_HERE.md) · [Install on macOS, Linux, or Windows](docs/GETTING_STARTED.md) · [First exercise](docs/FIRST_EXERCISE.md) · [Data and source archive](data/README.md) · [Contribute](CONTRIBUTING.md)
@@ -33,7 +50,11 @@ Food is Health thesis. Current dietary scenario outputs remain **validation-only
 | Who receives the value? | Separate health gains, household spending, payer savings, provider economics, farm income, and enterprise cash flows. |
 | What is worth keeping open? | Compare committing now with piloting, waiting, expanding, switching, or exiting as new information arrives. |
 
-For example, a food producer might face uncertain demand from broader GLP-1 access and changing consumer preferences. Demeter should eventually help compare a dedicated facility with a smaller pilot and the ability to expand or switch products. The useful result is a map of the conditions under which each choice works, including the cost of waiting and the risk that competitors or bottlenecks close the opportunity.
+For example, a producer and retailer could compare a pilot for a specified
+regenerative product with committing to larger capacity. Demeter should eventually
+show how repeat purchases, a possible premium, verification and distribution costs,
+and procurement terms affect each party's return. Any health benefit requires its
+own evidence; neither a practice label nor a retail premium establishes one.
 
 These market and real-options capabilities are **planned research directions**. The current release establishes a narrower health-model foundation; it does not yet value businesses, forecast food markets, or estimate validated dietary health effects.
 

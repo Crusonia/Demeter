@@ -18,6 +18,12 @@ Each scenario should declare:
 - evidence-backed parameters versus scenario assumptions
 - uncertainty and structural limitations
 
+Future scenario design briefs should also cite relevant IDs from the
+[loop, externality, and input registers](design/README.md), identify which loops
+are closed versus cut by exogenous assumptions, and name the actor whose value
+is being measured. Put this design context in companion Markdown/PRs; do not
+add unsupported fields to the current strict scenario YAML schema.
+
 ## Phase 1 — health / longevity scenarios
 
 ### Baseline
@@ -101,6 +107,24 @@ Each scenario should declare:
 - nutrition-benefit design
 
 ## Integrated north-star scenarios
+
+### Flagship: shift toward real food across the value chain
+
+How does a specified change in food baskets, access, and sustained consumption
+affect agriculture, processing, distribution, retail, health, and healthcare
+spending? Give each participant a lever and an account of added costs, benefits,
+and captured value. Trace a specified regenerative practice through product
+attributes, buyer response, and retail economics back to producer returns.
+
+Within this scenario family, evaluate whether targeting a defined PreChronic
+population changes disease progression and net healthcare costs relative to
+a stated counterfactual. Include identification, intervention costs, persistence,
+delays, and the allocation of savings. The distinct cohort and cost layer are
+future work; the current UPF example is not a complete real-food scenario.
+
+See [the flagship brief](REAL_FOOD_VALUE_CHAIN.md) for definitions, actor views,
+and the staged learning exercise. This is a research agenda, not an implemented
+economic model or a claim that the proposed changes produce a benefit.
 
 ### Relative food-price transition
 How does a sustained reduction in the relative price of higher-quality food change dietary exposures, type 2 diabetes burden, healthcare cost, and agricultural supply response?

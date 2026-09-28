@@ -12,6 +12,21 @@ Related documents:
 - `docs/SCENARIO_CATALOG.md` — scenario families
 - `docs/CODEX_V0_1_OBJECTIVE.md` — current Phase 1 implementation objective
 - `AGENTS.md` — scientific and engineering rules
+- [Design inputs](design/README.md) — mechanism registers and contracts used before adding equations
+
+## From design premise to module
+
+The [causal-loop register](design/02_CAUSAL_LOOPS.md),
+[externalities register](design/03_EXTERNALITIES.md), and
+[input inventory](design/04_MODEL_INPUTS.md) feed the mature module design.
+Select a decision and boundary, then trace its loop/pathway and input IDs into
+explicit stock/flow equations, actor accounts, evidence keys, and the
+[required validation experiments](design/05_FORMULATION_AND_TESTS.md).
+Use the registers to expose missing mechanisms; do not build every proposed loop
+or treat every listed quantity as an independent scenario input.
+
+These Markdown files are review artifacts, not a new runtime loader. Their
+premises do not activate states, parameters, modules, or clinical/commercial claims.
 
 ## Canonical product naming
 
@@ -115,6 +130,19 @@ Responsibilities:
 - subsidy and reimbursement structures
 
 This layer closes the loop between health outcomes and the incentives that shape food production and consumption.
+
+The intended reporting contract is an actor-by-actor view of incremental value
+under a common scenario and counterfactual. Follow prices, volumes, costs,
+margins, and payment terms across the chain so a participant can distinguish
+value created elsewhere from the share it can capture. Keep transfers between
+actors separate from additional system value and report timing and uncertainty.
+
+For the [real-food flagship scenario](REAL_FOOD_VALUE_CHAIN.md), this includes
+tracing regenerative production features to retail outcomes and back to producer
+returns, and linking an evidence-supported PreChronic intervention to utilization,
+intervention cost, and net spending by payer. A distinct PreChronic state and
+healthcare-cost mechanics require later definitions, evidence, and validation;
+neither is implicit in the current health model.
 
 ### Behavioral / adoption layer
 

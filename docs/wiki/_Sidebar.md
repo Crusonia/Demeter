@@ -11,6 +11,8 @@
 ## Project
 
 - [Start here](https://github.com/Crusonia/Demeter/blob/main/docs/START_HERE.md)
+- [Real-food value-chain scenario](https://github.com/Crusonia/Demeter/blob/main/docs/REAL_FOOD_VALUE_CHAIN.md)
+- [Model-design inputs](https://github.com/Crusonia/Demeter/blob/main/docs/design/README.md)
 - [Install and run](https://github.com/Crusonia/Demeter/blob/main/docs/GETTING_STARTED.md)
 - [First exercise](https://github.com/Crusonia/Demeter/blob/main/docs/FIRST_EXERCISE.md)
 - [Data catalog](https://github.com/Crusonia/Demeter/blob/main/data/README.md)
