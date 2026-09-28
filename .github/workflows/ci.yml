@@ -57,12 +57,18 @@ jobs:
           uv run demeter evidence prechronic --output outputs/prechronic-evidence.json
           uv run demeter data rebuild-dietary
           uv run demeter food-exposures --output outputs/food-exposures.json
+          uv run demeter data rebuild-diet-response
+          uv run demeter diet-lag-challenge --output outputs/diet-lag-challenge.json
+          uv run demeter data rebuild-glp1
+          uv run demeter evidence glp1 --output outputs/glp1-evidence.json
       - name: Run baseline and scenario comparison
         run: |
           uv run demeter simulate scenarios/baseline.yaml --output outputs/baseline.json
           uv run demeter compare scenarios/baseline.yaml scenarios/reduce_upf_30.yaml
           uv run demeter compare scenarios/prechronic_baseline.yaml scenarios/prechronic_reduce_upf_30.yaml
           uv run demeter simulate scenarios/dietary_upf_30.yaml --output outputs/dietary-upf.json
+          uv run demeter timing-sensitivity --samples 8 --seed 42 --output outputs/timing-sensitivity.json
+          uv run demeter simulate scenarios/glp1_access.yaml --output outputs/glp1.json
       - name: Historical holdout diagnostics
         run: uv run demeter historical-backtest --output outputs/historical-backtest.json
       - name: Scientific observability smoke
@@ -74,5 +80,9 @@ jobs:
           uv run python scripts/verify_observability_browser.py
           uv run demeter observe scenarios/prechronic_reduce_upf_30.yaml --draws 4 --samples 8 --destination outputs/prechronic-report
           uv run python scripts/verify_observability_browser.py --report outputs/prechronic-report/index.html --figures 46
+          uv run demeter observe scenarios/diet_dynamics.yaml --draws 4 --samples 8 --destination outputs/diet-dynamics-report
+          uv run python scripts/verify_observability_browser.py --report outputs/diet-dynamics-report/index.html --figures 57
+          uv run demeter observe scenarios/glp1_access.yaml --draws 4 --samples 8 --destination outputs/glp1-report
+          uv run python scripts/verify_observability_browser.py --report outputs/glp1-report/index.html --figures 65
       - name: Build package
         run: uv build

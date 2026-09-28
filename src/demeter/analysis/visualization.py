@@ -342,10 +342,194 @@ def historical_figures(report: dict) -> dict[str, go.Figure]:
     return figures
 
 
+def diet_figures(payload: dict) -> dict[str, go.Figure]:
+    """Plot recorded response states; never recompute dynamics in the renderer."""
+    sim = payload["simulation"]
+    scenario = sim["metadata"]["scenario"]
+    if (
+        not scenario.get("upf_schedule")
+        and scenario.get("diet_response", {}).get("kind") != "dynamic"
+    ):
+        return {}
+    annual = sim["annual"]
+    years = [r["year"] for r in annual]
+    fig = go.Figure()
+    fig.add_trace(
+        go.Scatter(
+            x=[r["year"] - 1 for r in annual[1:]] + [years[-1]],
+            y=[r["relative_upf"] for r in annual[1:]] + [annual[-1]["relative_upf"]],
+            name="UPF input (start of year)",
+            line_shape="hv",
+        )
+    )
+    for field, label in (
+        ("applied_progression_multiplier", "Progression (year end)"),
+        ("applied_recovery_multiplier", "Recovery (year end)"),
+    ):
+        fig.add_trace(go.Scatter(x=years, y=[r[field] for r in annual], name=label))
+    result = {
+        "diet_response": styled(
+            fig,
+            "Diet schedule and delayed hazards — VALIDATION ONLY",
+            "Model year",
+            "Relative multiplier",
+        )
+    }
+    fig = go.Figure()
+    for field in ("cumulative_exposure_years", "cumulative_absolute_exposure_years"):
+        fig.add_trace(go.Scatter(x=years, y=[r[field] for r in annual], name=field))
+    result["diet_duration"] = styled(
+        fig,
+        "Exposure duration accounting — not irreversible damage",
+        "Model year",
+        "Relative exposure × years",
+    )
+    if scenario["diet_response"]["kind"] == "dynamic":
+        fig = go.Figure()
+        for field in ("shaped_dose", "fast_response", "retained_exposure", "recovery_response"):
+            fig.add_trace(go.Scatter(x=years, y=[r[field] for r in annual], name=field))
+        result["diet_memory"] = styled(
+            fig,
+            "Fast, fading-memory and recovery states — VALIDATION ONLY",
+            "Model year",
+            "Relative dose deviation",
+        )
+        timing = [
+            r
+            for r in payload["sensitivity"]["indices"]
+            if r["parameter"] in payload["sensitivity"]["timing_parameters"]
+        ]
+        fig = go.Figure(
+            go.Bar(
+                x=[r["total_order"] for r in timing],
+                y=[r["parameter"] for r in timing],
+                orientation="h",
+                error_x=dict(type="data", array=[r["total_order_conf_half_width"] for r in timing]),
+            )
+        )
+        result["diet_timing"] = styled(
+            fig,
+            "Timing within full parameter sensitivity — synthetic ranges",
+            "Total-order Sobol index",
+            "Parameter",
+        )
+    challenge = payload.get("diet_lag_challenge")
+    if challenge:
+        fig = go.Figure()
+        rows = challenge["observed_contrasts"]
+        fig.add_trace(
+            go.Scatter(
+                x=[r["year"] for r in rows],
+                y=[r["normalized"] for r in rows],
+                name="Observed trial contrast, normalized",
+                mode="lines+markers",
+            )
+        )
+        for curve in challenge["curves"]:
+            fig.add_trace(
+                go.Scatter(
+                    x=[r["year"] for r in curve["rows"]],
+                    y=[r["shortcut_normalized_response"] for r in curve["rows"]],
+                    name=f"Shortcut lag {curve['lag_years']:g} years",
+                    line_dash="dash",
+                )
+            )
+        result["diet_lag_challenge"] = styled(
+            fig,
+            "Historical shortcut challenge — curves are NOT model remission predictions",
+            "Follow-up year",
+            "Relative to first follow-up",
+        )
+    return result
+
+
+def glp1_figures(payload: dict) -> dict[str, go.Figure]:
+    annual = payload["simulation"]["annual"]
+    if "glp1" not in annual[0]:
+        return {}
+    years, rows = [r["year"] for r in annual], [r["glp1"] for r in annual]
+    figures = {}
+    for key, title, unit in (
+        ("treatment_stocks", "Treatment history and response stocks", "People"),
+        ("flows", "Initiation, discontinuation and re-initiation", "People per annual step"),
+    ):
+        fig = go.Figure()
+        for field in rows[0][key]:
+            fig.add_trace(go.Scatter(x=years, y=[r[key][field] for r in rows], name=field))
+        figures["glp1_" + key] = styled(fig, title + " — VALIDATION ONLY", "Model year", unit)
+    fig = go.Figure()
+    for field, label in (
+        ("population_mean_weight_reduction_fraction", "Weight reduction proxy"),
+        ("population_mean_intake_reduction_fraction", "Intake reduction proxy"),
+    ):
+        fig.add_trace(go.Scatter(x=years, y=[r[field] for r in rows], name=label))
+    figures["glp1_response"] = styled(
+        fig,
+        "Delayed response and washout — synthetic proxies",
+        "Model year",
+        "Population mean fractional reduction",
+    )
+    fig = go.Figure()
+    fig.add_trace(
+        go.Scatter(
+            x=years, y=[r["on_treatment"] for r in rows], name="Treated survivors at year end"
+        )
+    )
+    fig.add_trace(
+        go.Scatter(
+            x=years,
+            y=[r["allocation"]["capacity"] if r["allocation"] else 0 for r in rows],
+            name="Slots at annual allocation",
+            line_shape="hv",
+        )
+    )
+    fig.add_trace(
+        go.Scatter(
+            x=years,
+            y=[r["allocation"]["unfilled_start_requests"] if r["allocation"] else 0 for r in rows],
+            name="Starts denied by capacity",
+        )
+    )
+    figures["glp1_capacity"] = styled(
+        fig, "Exogenous treatment supply and allocation", "Model year", "People / slots"
+    )
+    benchmark = payload.get("glp1_benchmarks")
+    if benchmark:
+        fig = go.Figure()
+        for trial in benchmark["trials"]:
+            # Display one explicit estimand; SDs for available-case means are separate in the JSON.
+            a = next(a for a in trial["analyses"] if a["estimand"] == "Treatment policy estimand")
+            fig.add_trace(
+                go.Bar(
+                    x=[trial["nct_id"] + "<br>" + trial["timeframe"]],
+                    y=[a["value"]],
+                    name=trial["nct_id"],
+                    error_y=dict(
+                        type="data",
+                        symmetric=False,
+                        array=[a["high"] - a["value"]],
+                        arrayminus=[a["value"] - a["low"]],
+                    ),
+                )
+            )
+        figures["glp1_trial_benchmarks"] = styled(
+            fig,
+            "Trial weight contrasts — benchmarks, NOT model effects",
+            "Distinct trials and follow-up periods",
+            "Percentage-point difference (95% CI)",
+        )
+    return figures
+
+
 def build_figures(payload: dict) -> dict[str, go.Figure]:
     if payload.get("kind") != "demeter_observability" or payload.get("schema_version") != 1:
         raise ValueError("Expected canonical Demeter observability schema version 1")
-    return {**model_figures(payload), **historical_figures(payload["historical"])}
+    return {
+        **model_figures(payload),
+        **historical_figures(payload["historical"]),
+        **diet_figures(payload),
+        **glp1_figures(payload),
+    }
 
 
 def render_report(payload: dict, destination: Path) -> dict:

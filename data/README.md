@@ -24,6 +24,12 @@ and independent archive retrieval time of each committed copy.
 
 ## Source to result
 
+The [GLP-1 store](../docs/GLP1.md) contains official ClinicalTrials.gov STEP 1 and
+STEP 4 JSON responses and a separately labeled persistence-study extraction.
+`uv run demeter data rebuild-glp1` reconstructs their benchmark bundle offline.
+The trial records preserve available-case SDs and adjusted-effect confidence
+intervals separately. No benchmark values silently replace treatment parameters.
+
 Additional catalogued stores include NHANES glycemic and PreChronic reference
 data, the NCHS healthspan arithmetic example, official JSON snapshots, and the
 [dietary reference bundle](../docs/FOOD_EXPOSURES.md). The dietary store adds
@@ -105,6 +111,13 @@ redistribution rights. Clinical source receipts currently live in the evidence
 registry; full publisher articles are not included in this archive.
 
 ## Source credit and terms
+
+The dietary timing store retains an official NIDDK HTML summary and a small
+explicitly labeled factual JSON extraction from a published trial figure caption.
+It supports a [historical structural challenge](../docs/DIET_DYNAMICS.md), not
+national UPF calibration. Publisher article text is not redistributed. Reload
+with `uv run demeter data rebuild-diet-response`; the catalog identifies its
+`historical_challenge_only` role and receipts.
 
 The archived baseline and historical files are from CDC/NCHS, the U.S. Census
 Bureau, CDC's U.S. Diabetes Surveillance System/NHIS, and USDA ERS, as attributed

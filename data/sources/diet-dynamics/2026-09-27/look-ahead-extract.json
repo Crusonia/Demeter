@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "artifact_type": "Demeter manual factual extraction; not publisher JSON",
+  "source_url": "https://jamanetwork.com/journals/jama/fullarticle/1486829",
+  "doi": "10.1001/jama.2012.67929",
+  "citation": "Gregg EW et al. JAMA. 2012;308(23):2489-2496.",
+  "locator": "Figure 2 caption, complete-case results",
+  "population": "U.S. Look AHEAD adults recruited at ages 45-76 with overweight/obesity and established type 2 diabetes; includes baseline insulin users",
+  "intervention": "Intensive lifestyle program including diet, physical activity and weight loss; not an isolated UPF intervention",
+  "control": "Diabetes support and education",
+  "outcome": "Partial or complete diabetes remission at the annual visit, without antihyperglycemic medication",
+  "unit": "percent",
+  "status": "observed",
+  "evidence_grade": "B",
+  "uncertainty": "Published 95% confidence intervals; visits are repeated measures, covariance unavailable",
+  "rows": [
+    {"year": 1, "arm": "lifestyle", "value": 11.5, "low": 10.1, "high": 12.8, "cases": 247, "n": 2157},
+    {"year": 2, "arm": "lifestyle", "value": 10.4, "low": 9.1, "high": 11.7, "cases": 218, "n": 2090},
+    {"year": 3, "arm": "lifestyle", "value": 8.7, "low": 7.5, "high": 9.9, "cases": 181, "n": 2083},
+    {"year": 4, "arm": "lifestyle", "value": 7.3, "low": 6.2, "high": 9.4, "cases": 150, "n": 2056},
+    {"year": 1, "arm": "control", "value": 2.0, "low": 1.4, "high": 2.6, "cases": 43, "n": 2170},
+    {"year": 2, "arm": "control", "value": 2.3, "low": 1.6, "high": 2.9, "cases": 48, "n": 2101},
+    {"year": 3, "arm": "control", "value": 2.2, "low": 1.6, "high": 2.8, "cases": 46, "n": 2085},
+    {"year": 4, "arm": "control", "value": 2.0, "low": 1.5, "high": 2.7, "cases": 41, "n": 2042}
+  ],
+  "notes": [
+    "Retain the Figure 2 caption's year-four lifestyle upper limit of 9.4 as printed. The abstract/main text's multiple-imputation analysis gives 8.4; these records do not silently combine the two analyses.",
+    "Counts reconcile to the reported rounded percentages. Attrition and repeated-measure covariance preclude treating annual differences as independent causal estimates.",
+    "No dose, lag, age modifier or remission hazard is inferred from these observations."
+  ]
+}

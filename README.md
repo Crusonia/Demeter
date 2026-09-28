@@ -42,6 +42,13 @@ Food is Health thesis. Current dietary scenario outputs remain **validation-only
 
 ## What Demeter is intended to reveal
 
+The optional [GLP-1 experiment](docs/GLP1.md) now models eligibility, access,
+capacity, treatment persistence, interruption, restart and response/washout in
+joint health stocks. Its [example scenario](scenarios/glp1_access.yaml) is
+validation-only. Official ClinicalTrials.gov JSON records ship in the repository
+as reloadable benchmarks; clinical effects and population transport remain
+uncalibrated.
+
 | Question | Intended analysis |
 | --- | --- |
 | Which changes matter most? | Trace a controllable lever through adoption, substitution, delays, health effects, and economic feedback. |
@@ -202,6 +209,13 @@ The manifests record source URLs, retrieval times, vintages, hashes, and transfo
 - **The historical backtest** carries 2022 mortality forward into 2023. It measures the error of a no-change mortality forecast. It does not validate dietary effects.
 
 ## Next scientific gate
+
+Optional [dietary timing experiments](docs/DIET_DYNAMICS.md) add scheduled changes,
+fading exposure memory, independent recovery lags and timing sensitivity. Run
+`uv run demeter observe scenarios/diet_dynamics.yaml --destination outputs/diet-dynamics-report`
+for the extended offline report. A source-linked historical challenge retains
+failed assumptions rather than fitting them away. All timing effects remain
+synthetic pending the separate calibration pass.
 
 Resolve state definitions and age-specific baseline prevalence, fit defensible transition hazards and mortality ratios, encode study-compatible dietary doses and uncertainty, and evaluate an independent historical health holdout. Until then, the software reports validation-only results and remains a prerelease. Agriculture, agent behavior, policy, economics, and a public simulator follow the phases in the program vision.
 

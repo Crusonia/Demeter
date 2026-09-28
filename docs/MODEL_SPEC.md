@@ -39,6 +39,14 @@ Target log multiplier is `beta_UPF × (relative_exposure − 1)`. Each year the 
 
 The accepted range is a registered software validation envelope, not an empirical study range. Values outside it require explicit `allow_extrapolation: true`; the result reports extrapolation. That flag does not permit scientific mode. The model does not automatically interpret observational associations as causal effects.
 
+An optional [dynamic response](DIET_DYNAMICS.md) adds piecewise-constant schedules,
+asymmetric input adjustment, convex fading exposure memory, independent reverse
+transition response and an optional saturating dose shape. All added coefficients
+and timing distributions are synthetic registry entries. It retains annual
+mortality/transition/aging order and existing health stocks; T2D remains absorbing.
+Original single-lag behavior is the default. Timing sensitivity and a historical
+observation-shortcut challenge are separate from parameter calibration.
+
 ## Life tables and healthy state years
 
 For each age, mix state death probabilities using current state shares. Empty age cells use reference shares; this is disclosed in each annual row. This provides a complete period schedule even after younger cells empty in a closed population.
@@ -86,6 +94,14 @@ available as `legacy`; none of the new survey data silently replaces engine inpu
 Mortality reconstruction tolerance is 0.001 years at every age. Conservation tolerance is a small numerical residual, not a statistical fit. The historical persistence benchmark uses the 2022 schedule to predict 2023 without using holdout mortality in the prediction. Prevalence checks expose discrepancies and definition mismatches instead of counting synthetic shares as a successful calibration. Scientific mode is disabled in this alpha even if evidence labels are edited.
 
 ## Instrumentation
+
+An optional [GLP-1 treatment experiment](GLP1.md) augments health stocks with
+persistent indication, response group and treatment-history strata. Its annual
+treatment allocation and response/washout operator precedes mortality and the
+existing competing metabolic transitions. Treatment changes those transition
+hazards through an explicitly synthetic weight-response bridge; intake is a
+diagnostic proxy. No direct mortality or T2D-remission effect is added. Paired
+uncertainty baselines clear treatment as well as dietary changes.
 
 `simulate(..., diagnostics=True)` additionally emits annual age-cell stocks,
 state-specific death counts, the exact period life tables and the implemented

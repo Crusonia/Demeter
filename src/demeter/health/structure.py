@@ -97,15 +97,16 @@ def move(stocks, rates, adult, *, structure="legacy", by_row=False):
     return prechronic_transitions(stocks, *rates, adult_age=adult, by_row=by_row)
 
 
-def rates_for(registry, scenario, multiplier):
+def rates_for(registry, scenario, multiplier, recovery_multiplier=1):
     if scenario.health_structure == "legacy":
         return (
             registry.value("h_to_ir_rate") * multiplier,
-            registry.value("ir_to_h_rate"),
+            registry.value("ir_to_h_rate") * recovery_multiplier,
             registry.value("ir_to_t2d_rate") * multiplier,
         )
     progression = ("healthy_to_prechronic", "prechronic_to_prediabetes", "prediabetes_to_t2d")
     return tuple(
-        registry.value(edge["parameter"]) * (multiplier if edge["flow"] in progression else 1)
+        registry.value(edge["parameter"])
+        * (multiplier if edge["flow"] in progression else recovery_multiplier)
         for edge in PRECHRONIC_TRANSITIONS
     )

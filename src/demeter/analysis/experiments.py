@@ -5,6 +5,7 @@ from SALib.analyze import sobol as sobol_analyze
 from SALib.sample import sobol as sobol_sample
 
 from demeter.model import required_units, simulate
+from demeter.nutrition.response import TIMING_KEYS
 from demeter.schema import EvidenceRegistry, Scenario
 
 OUTCOMES = (
@@ -112,7 +113,13 @@ def uncertainty(
     outcomes = outcomes_for(scenario)
     rng = np.random.default_rng(seed)
     baseline = scenario.model_copy(
-        update={"name": "paired_baseline", "exposures": {"upf": 1.0}, "diet": {}}
+        update={
+            "name": "paired_baseline",
+            "exposures": {"upf": 1.0},
+            "diet": {},
+            "upf_schedule": [],
+            "glp1": None,
+        }
     )
     collected = {key: [] for key in outcomes}
     deltas = {key: [] for key in outcomes}
@@ -211,15 +218,30 @@ def sensitivity(
     outcome: str = "life_expectancy",
     samples: int = 64,
     seed: int = 0,
+    *,
+    parameters: tuple[str, ...] | None = None,
 ) -> dict:
     if outcome not in outcomes_for(scenario):
         raise ValueError(f"outcome must be one of {outcomes_for(scenario)}")
     if samples < 8 or samples > 1024 or samples & (samples - 1) or seed < 0:
         raise ValueError("samples must be a power of two from 8 to 1024 and seed nonnegative")
-    keys = sampled_parameters(registry, scenario)
+    if parameters is None:
+        keys = sampled_parameters(registry, scenario)
+    else:
+        if (
+            not parameters
+            or len(set(parameters)) != len(parameters)
+            or set(parameters) - required_units(scenario).keys()
+        ):
+            raise ValueError("Sensitivity subset must contain distinct active uncertain parameters")
+        keys = list(parameters)
     if not keys:
         raise ValueError("no uncertain parameters to analyze")
-    if any(registry.parameters[k].uncertainty.kind != "uniform" for k in keys):
+    if any(
+        registry.parameters[k].uncertainty is None
+        or registry.parameters[k].uncertainty.kind != "uniform"
+        for k in keys
+    ):
         raise ValueError(
             "Sobol analysis currently requires independent uniform parameter distributions"
         )
@@ -256,6 +278,9 @@ def sensitivity(
         "method": "SALib Sobol",
         "seed": seed,
         "base_samples": samples,
+        "sampled_parameters": keys,
+        "conditional_on_fixed_parameters": [k for k in required_units(scenario) if k not in keys],
+        "timing_parameters": [k for k in keys if k in TIMING_KEYS],
         "model_evaluations": len(y),
         "interpretation": "Variance under independent synthetic parameter ranges; indices may be noisy at small N",
         "indices": sorted(indices, key=lambda item: item["total_order"], reverse=True),

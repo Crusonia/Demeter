@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "format": "Demeter factual extraction; not official publisher JSON",
+  "source_url": "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2829779",
+  "doi": "10.1001/jamanetworkopen.2024.57349",
+  "source_locator": "Abstract Results; Figure 1; Tables 1 and 2",
+  "citation": "Rodriguez et al. JAMA Network Open. 2025;8(1):e2457349.",
+  "license": "Article CC-BY; extracted numeric facts with attribution",
+  "population": "US adults with BMI >=27 initiating liraglutide, injectable semaglutide or tirzepatide in 2018-2023; follow-up through 2024-11-05",
+  "outcome": "Kaplan-Meier first-event probability by 1 year; discontinuation = >=60 days without medication; reinitiation = first fill after discontinuation",
+  "uncertainty": "95% confidence intervals, not independent sampling distributions",
+  "limitations": [
+    "Observational dispensing histories; not randomized access effects or national eligibility estimates.",
+    "Reinitiation analysis selected people with weight recorded around discontinuation and after; not all discontinuers.",
+    "Annual model also applies access and supply interruptions; importing aggregate discontinuation as a separate clinical hazard would double count barriers."
+  ],
+  "rows": [
+    {
+      "event": "discontinuation",
+      "t2d": true,
+      "year": 1,
+      "n": 76524,
+      "value": 0.465,
+      "low": 0.462,
+      "high": 0.469
+    },
+    {
+      "event": "discontinuation",
+      "t2d": false,
+      "year": 1,
+      "n": 48950,
+      "value": 0.648,
+      "low": 0.644,
+      "high": 0.652
+    },
+    {
+      "event": "reinitiation",
+      "t2d": true,
+      "year": 1,
+      "n": 22869,
+      "value": 0.473,
+      "low": 0.466,
+      "high": 0.48
+    },
+    {
+      "event": "reinitiation",
+      "t2d": false,
+      "year": 1,
+      "n": 18923,
+      "value": 0.363,
+      "low": 0.356,
+      "high": 0.37
+    }
+  ]
+}
