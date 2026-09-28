@@ -24,6 +24,12 @@ and independent archive retrieval time of each committed copy.
 
 ## Source to result
 
+The [GLP-1 store](../docs/GLP1.md) contains official ClinicalTrials.gov STEP 1 and
+STEP 4 JSON responses and a separately labeled persistence-study extraction.
+`uv run demeter data rebuild-glp1` reconstructs their benchmark bundle offline.
+The trial records preserve available-case SDs and adjusted-effect confidence
+intervals separately. No benchmark values silently replace treatment parameters.
+
 Additional catalogued stores include NHANES glycemic and PreChronic reference
 data, the NCHS healthspan arithmetic example, official JSON snapshots, and the
 [dietary reference bundle](../docs/FOOD_EXPOSURES.md). The dietary store adds

@@ -11,6 +11,7 @@ from demeter.data.baseline import population_counts, source_rows
 from demeter.data.ingest import BUNDLE
 from demeter.health.structure import PRECHRONIC_UNITS, move, rates_for, states_for, transitions_for
 from demeter.health.healthspan import CohortTime, metric_contract
+from demeter.health.glp1 import GLP1Cohort, GLP1_UNITS
 from demeter.nutrition.exposures import resolve_diet
 from demeter.nutrition.response import DietaryResponse, response_units
 from demeter.population.mechanics import (
@@ -71,6 +72,8 @@ class SimulationResult:
 def required_units(scenario: Scenario) -> dict:
     units = REQUIRED_UNITS.copy()
     units.update(response_units(scenario))
+    if scenario.glp1:
+        units.update(GLP1_UNITS)
     if scenario.health_structure != "legacy":
         for key in ("h_to_ir_rate", "ir_to_h_rate"):
             units.pop(key)
@@ -162,12 +165,15 @@ def simulate(
     )
     hazards = calibrate_mortality(rows, reference, ratios)
     starting = float(stocks.sum())
-    cohort_time = CohortTime(stocks, states, mover)
+    cohort_factory = (
+        partial(GLP1Cohort, registry=registry, scenario=scenario) if scenario.glp1 else CohortTime
+    )
+    cohort_time = cohort_factory(stocks, states, mover)
     initial_pc = None
     if prechronic_enabled:
         tagged = np.zeros_like(stocks)
         tagged[:, states.index("prechronic")] = stocks[:, states.index("prechronic")]
-        initial_pc = CohortTime(tagged, states, mover)
+        initial_pc = cohort_factory(tagged, states, mover)
     cumulative = 0.0
     annual, history = [], []
     dietary = resolve_diet(registry, scenario)
@@ -209,6 +215,7 @@ def simulate(
             net_migration=0.0,
             **{state: float(stocks[:, i].sum()) for i, state in enumerate(states)},
             **dietary_state,
+            **({"glp1": cohort_time.treatment_report()} if scenario.glp1 else {}),
             empty_age_groups_using_reference=int((stocks.sum(axis=1) == 0).sum()),
             **outcomes,
             restricted_healthy_years=float(cohort_time.person_years[:, 0].sum() / starting),
@@ -234,24 +241,28 @@ def simulate(
     annual.append(snapshot(0))
     for year in range(1, scenario.years + 1):
         dietary_state = response.advance(dietary["annual_upf"][year - 1])
-        deaths = stocks * -np.expm1(-hazards)
-        survivors = stocks - deaths
         rates = rates_for(
             registry,
             scenario,
             dietary_state["applied_progression_multiplier"],
             dietary_state["applied_recovery_multiplier"],
         )
-        moved, flows = mover(survivors, rates, adult)
-        stocks = age_survivors(moved)
-        cohort_time.advance(
-            year,
-            hazards,
-            rates,
-            adult,
-        )
-        if initial_pc is not None:
-            initial_pc.advance(year, hazards, rates, adult)
+        if scenario.glp1:
+            plan = cohort_time.plan(year, adult)
+            cohort_time.advance(year, hazards, rates, adult, plan=plan)
+            deaths = cohort_time.last_deaths
+            flows = cohort_time.last_health_flows.copy()
+            stocks = cohort_time.age_stocks()
+            if initial_pc is not None:
+                initial_pc.advance(year, hazards, rates, adult, plan=plan)
+        else:
+            deaths = stocks * -np.expm1(-hazards)
+            survivors = stocks - deaths
+            moved, flows = mover(survivors, rates, adult)
+            stocks = age_survivors(moved)
+            cohort_time.advance(year, hazards, rates, adult)
+            if initial_pc is not None:
+                initial_pc.advance(year, hazards, rates, adult)
         if not np.allclose(cohort_time.age_stocks(), stocks, rtol=1e-12, atol=1e-7):
             raise ArithmeticError("Original-cohort accounting differs from the engine")
         if diagnostics:
@@ -324,6 +335,29 @@ def simulate(
         "healthspan_metric": metric_contract(scenario.health_structure),
         "health_structure": scenario.health_structure,
         "active_parameters": list(required_units(scenario)),
+        **(
+            {
+                "glp1": {
+                    "validation_only": True,
+                    "evidence_dataset": "glp1_benchmarks",
+                    "eligibility": "Persistent synthetic indication tag, independent of metabolic state; adult gate uses adult_age; no clinical BMI/contraindication assessment",
+                    "heterogeneity": "Fixed low/high response strata; joint treatment and health stocks retain selection/history",
+                    "supply": "Concurrent slots as a fraction of initial adult population; continuers prioritized, proportional rationing within each allocation stage",
+                    "timing": cohort_time.report()["timing"],
+                    "limitations": [
+                        "All treatment parameters are synthetic; trial/observational benchmarks are not calibrated engine effects.",
+                        "No prevalent treatment at initialization; adoption is an incident-use experiment, not a forecast of current U.S. use.",
+                        "Annual two-phase response/washout is not individual dose titration or weight physiology; no within-year start-stop cycling.",
+                        "Price/coverage/access are exogenous scenario assumptions. The affordability equation is uncalibrated; no expenditure, savings or insurance forecast.",
+                        "Response modifies existing health hazards through a synthetic weight bridge. Intake is a diagnostic proxy, not an additional dietary effect.",
+                        "Diet and treatment hazard multipliers combine independently; interactions, adverse-event outcomes, direct cardiovascular mortality effects and T2D remission are unresolved.",
+                        "The same response/washout phase represents intake and weight; endpoints and mechanisms require separate clinical appraisal before scientific use.",
+                    ],
+                }
+            }
+            if scenario.glp1
+            else {}
+        ),
         "transition_flows": [edge["flow"] for edge in transitions_for(scenario)],
     }
     return SimulationResult(
@@ -471,6 +505,55 @@ def model_structure(registry: EvidenceRegistry, scenario: Scenario | None = None
         )
         dependencies.extend(
             {"source": "recovery_response", "target": flow, "parameters": []} for flow in reverse
+        )
+    if scenario.glp1:
+        dependencies.extend(
+            [
+                {
+                    "source": "glp1_eligibility_access",
+                    "target": "glp1_treatment_stocks",
+                    "parameters": [
+                        "glp1_eligible_fraction",
+                        "glp1_initiation_rate",
+                        "glp1_reinitiation_rate",
+                        "glp1_discontinuation_rate",
+                        "glp1_discontinuation_t2d_rate",
+                        "glp1_affordability_scale",
+                        "glp1_low_response_share",
+                    ],
+                },
+                {
+                    "source": "glp1_treatment_stocks",
+                    "target": "glp1_response",
+                    "parameters": [
+                        "glp1_response_lag",
+                        "glp1_washout_lag",
+                        "glp1_low_response_factor",
+                    ],
+                },
+                {
+                    "source": "glp1_response",
+                    "target": "glp1_weight_proxy",
+                    "parameters": ["glp1_weight_loss"],
+                },
+                {
+                    "source": "glp1_response",
+                    "target": "glp1_intake_proxy",
+                    "parameters": ["glp1_intake_reduction"],
+                },
+                *[
+                    {
+                        "source": "glp1_weight_proxy",
+                        "target": t["flow"],
+                        "parameters": [
+                            "glp1_progression_beta"
+                            if states.index(t["target"]) > states.index(t["source"])
+                            else "glp1_recovery_beta",
+                        ],
+                    }
+                    for t in transitions_for(scenario)
+                ],
+            ]
         )
     return {
         "states": list(states) + ["dead"],
