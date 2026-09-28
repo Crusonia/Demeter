@@ -44,6 +44,21 @@ def encoded(value: dict) -> bytes:
     return (json.dumps(value, sort_keys=True, indent=2, allow_nan=False) + "\n").encode("utf-8")
 
 
+def storage_numbers(value):
+    """Remove platform-dependent last bits from derived JSON, not evidence hashes.
+
+    Twelve significant digits is a storage convention, not measurement precision.
+    Survey calculations and published-target checks run before this rounding.
+    """
+    if isinstance(value, float):
+        return float(format(value, ".12g"))
+    if isinstance(value, dict):
+        return {key: storage_numbers(item) for key, item in value.items()}
+    if isinstance(value, list):
+        return [storage_numbers(item) for item in value]
+    return value
+
+
 def definition(registry: EvidenceRegistry) -> dict:
     spec = registry.datasets[DATASET]
     if spec["model_role"] != "benchmark_only":
@@ -292,12 +307,14 @@ def rebuild_nhanes(
     report = reconstruct(frame, spec)
     if not report["published_reconstruction"]["passed"]:
         raise ValueError("NHANES reconstruction differs from registered published targets")
+    report = storage_numbers(report)
     report["provenance"] = {
         "dataset_definition_sha256": digest(encoded(spec)),
         "source_manifest_sha256": digest(encoded(source_manifest)),
         "source_sha256": {k: v["sha256"] for k, v in source_manifest["sources"].items()},
         "transform": "demeter.data.nhanes.reconstruct",
-        "transform_version": 1,
+        "transform_version": 2,
+        "serialization": "Derived floats rounded to 12 significant digits; not measurement precision",
     }
     content = encoded(report)
     manifest = {

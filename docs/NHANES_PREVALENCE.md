@@ -66,6 +66,12 @@ also check analytic survey-variance fixtures, classification boundaries,
 missingness, source corruption, deterministic offline rebuilding, and CLI guards.
 This is a same-source extraction cross-check, not an independent health holdout.
 
+Derived floating-point results are serialized to 12 significant digits to remove
+platform-dependent final-bit differences from BLAS and statistical libraries.
+This is a storage convention, not a claim of measurement precision. Calculations
+and published-target checks use full precision; raw source and evidence-definition
+hashes remain exact. CI requires byte-identical reconstruction on all platforms.
+
 Before using these observations in the engine, identify T2D separately, resolve
 the IR-versus-prediabetes distinction, obtain pediatric and later-period evidence,
 and document any single-age interpolation and transport assumptions. An explicit

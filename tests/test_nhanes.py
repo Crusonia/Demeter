@@ -13,12 +13,14 @@ from demeter.data.nhanes import (
     STORE,
     classify,
     definition,
+    encoded,
     load_nhanes,
     read_store,
     read_xpt,
     rebuild_nhanes,
     reconstruct,
     survey_proportion,
+    storage_numbers,
 )
 from demeter.schema import EvidenceRegistry
 
@@ -126,6 +128,15 @@ def test_rebuild_is_offline_and_identical_to_committed_bundle(tmp_path, monkeypa
     assert (tmp_path / "nhanes_prevalence.json").read_bytes() == (
         BUNDLE / "nhanes_prevalence.json"
     ).read_bytes()
+
+
+def test_storage_rounding_removes_observed_platform_drift_without_weakening_source_hashes():
+    # Same estimate from Windows and Linux BLAS in the first cross-platform CI run.
+    windows = {"result": [17.068986711679507], "n": 594}
+    linux = {"result": [17.068986711679514], "n": 594}
+    assert encoded(storage_numbers(windows)) == encoded(storage_numbers(linux))
+    assert storage_numbers(windows)["result"][0] == pytest.approx(windows["result"][0], rel=1e-11)
+    assert encoded(windows) != encoded(linux)  # Exact source/definition hashes stay exact.
 
 
 def test_source_corruption_fails_before_derived_output(tmp_path):

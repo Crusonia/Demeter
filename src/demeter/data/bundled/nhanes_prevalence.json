@@ -47,47 +47,47 @@
       "complete_n": 3757,
       "eligible_n": 3769,
       "missing_n": 12,
-      "missing_weight_fraction": 0.0036549545795015225,
+      "missing_weight_fraction": 0.0036549545795,
       "sex": "all",
       "source_diabetes_reliability_warning": false,
       "states": {
         "diabetes_any_type": {
           "degrees_of_freedom": 25,
-          "estimate": 0.16215667367084616,
+          "estimate": 0.162156673671,
           "interval": {
-            "high": 0.1833377481761079,
+            "high": 0.183337748176,
             "level": 0.95,
-            "low": 0.1429941865811377,
+            "low": 0.142994186581,
             "method": "Taylor-linearized logit-t; domain degrees of freedom"
           },
           "n": 3757,
-          "standard_error": 0.009787717008468536,
+          "standard_error": 0.00978771700847,
           "status": "estimated"
         },
         "normoglycemia": {
           "degrees_of_freedom": 25,
-          "estimate": 0.3278424973832074,
+          "estimate": 0.327842497383,
           "interval": {
-            "high": 0.3574027861986842,
+            "high": 0.357402786199,
             "level": 0.95,
-            "low": 0.29958725901012134,
+            "low": 0.29958725901,
             "method": "Taylor-linearized logit-t; domain degrees of freedom"
           },
           "n": 3757,
-          "standard_error": 0.014049037475052976,
+          "standard_error": 0.0140490374751,
           "status": "estimated"
         },
         "prediabetes": {
           "degrees_of_freedom": 25,
-          "estimate": 0.5100008289459464,
+          "estimate": 0.510000828946,
           "interval": {
-            "high": 0.5360721822846444,
+            "high": 0.536072182285,
             "level": 0.95,
-            "low": 0.48387495833540206,
+            "low": 0.483874958335,
             "method": "Taylor-linearized logit-t; domain degrees of freedom"
           },
           "n": 3757,
-          "standard_error": 0.012683590495940558,
+          "standard_error": 0.0126835904959,
           "status": "estimated"
         }
       },
@@ -98,47 +98,47 @@
       "complete_n": 1817,
       "eligible_n": 1822,
       "missing_n": 5,
-      "missing_weight_fraction": 0.001326870663323329,
+      "missing_weight_fraction": 0.00132687066332,
       "sex": "male",
       "source_diabetes_reliability_warning": false,
       "states": {
         "diabetes_any_type": {
           "degrees_of_freedom": 25,
-          "estimate": 0.17718983499528798,
+          "estimate": 0.177189834995,
           "interval": {
-            "high": 0.20142338362301146,
+            "high": 0.201423383623,
             "level": 0.95,
-            "low": 0.15530484844490774,
+            "low": 0.155304848445,
             "method": "Taylor-linearized logit-t; domain degrees of freedom"
           },
           "n": 1817,
-          "standard_error": 0.011190537908797224,
+          "standard_error": 0.0111905379088,
           "status": "estimated"
         },
         "normoglycemia": {
           "degrees_of_freedom": 25,
-          "estimate": 0.2617518318900157,
+          "estimate": 0.26175183189,
           "interval": {
-            "high": 0.30449108898926364,
+            "high": 0.304491088989,
             "level": 0.95,
-            "low": 0.22308737517972166,
+            "low": 0.22308737518,
             "method": "Taylor-linearized logit-t; domain degrees of freedom"
           },
           "n": 1817,
-          "standard_error": 0.019786092017310315,
+          "standard_error": 0.0197860920173,
           "status": "estimated"
         },
         "prediabetes": {
           "degrees_of_freedom": 25,
-          "estimate": 0.5610583331146963,
+          "estimate": 0.561058333115,
           "interval": {
-            "high": 0.5993889763974498,
+            "high": 0.599388976397,
             "level": 0.95,
-            "low": 0.5219850362522557,
+            "low": 0.521985036252,
             "method": "Taylor-linearized logit-t; domain degrees of freedom"
           },
           "n": 1817,
-          "standard_error": 0.01882865073100506,
+          "standard_error": 0.018828650731,
           "status": "estimated"
         }
       },
@@ -149,47 +149,47 @@
       "complete_n": 1940,
       "eligible_n": 1947,
       "missing_n": 7,
-      "missing_weight_fraction": 0.0058759676516978694,
+      "missing_weight_fraction": 0.0058759676517,
       "sex": "female",
       "source_diabetes_reliability_warning": false,
       "states": {
         "diabetes_any_type": {
           "degrees_of_freedom": 25,
-          "estimate": 0.14774927432293516,
+          "estimate": 0.147749274323,
           "interval": {
-            "high": 0.17679638496417216,
+            "high": 0.176796384964,
             "level": 0.95,
-            "low": 0.1227628239702006,
+            "low": 0.12276282397,
             "method": "Taylor-linearized logit-t; domain degrees of freedom"
           },
           "n": 1940,
-          "standard_error": 0.013093610993403122,
+          "standard_error": 0.0130936109934,
           "status": "estimated"
         },
         "normoglycemia": {
           "degrees_of_freedom": 25,
-          "estimate": 0.3911821097494683,
+          "estimate": 0.391182109749,
           "interval": {
-            "high": 0.4331297801169568,
+            "high": 0.433129780117,
             "level": 0.95,
-            "low": 0.35078305267240983,
+            "low": 0.350783052672,
             "method": "Taylor-linearized logit-t; domain degrees of freedom"
           },
           "n": 1940,
-          "standard_error": 0.020034441469778314,
+          "standard_error": 0.0200344414698,
           "status": "estimated"
         },
         "prediabetes": {
           "degrees_of_freedom": 25,
-          "estimate": 0.4610686159275965,
+          "estimate": 0.461068615928,
           "interval": {
-            "high": 0.49797928064591507,
+            "high": 0.497979280646,
             "level": 0.95,
-            "low": 0.4245799782882093,
+            "low": 0.424579978288,
             "method": "Taylor-linearized logit-t; domain degrees of freedom"
           },
           "n": 1940,
-          "standard_error": 0.01785126223101923,
+          "standard_error": 0.017851262231,
           "status": "estimated"
         }
       },
@@ -200,47 +200,47 @@
       "complete_n": 1100,
       "eligible_n": 1106,
       "missing_n": 6,
-      "missing_weight_fraction": 0.007735247583912192,
+      "missing_weight_fraction": 0.00773524758391,
       "sex": "all",
       "source_diabetes_reliability_warning": false,
       "states": {
         "diabetes_any_type": {
           "degrees_of_freedom": 25,
-          "estimate": 0.04355686647090869,
+          "estimate": 0.0435568664709,
           "interval": {
-            "high": 0.06190748548675329,
+            "high": 0.0619074854868,
             "level": 0.95,
-            "low": 0.03046906495761709,
+            "low": 0.0304690649576,
             "method": "Taylor-linearized logit-t; domain degrees of freedom"
           },
           "n": 1100,
-          "standard_error": 0.007503383374333682,
+          "standard_error": 0.00750338337433,
           "status": "estimated"
         },
         "normoglycemia": {
           "degrees_of_freedom": 25,
-          "estimate": 0.5385383678476198,
+          "estimate": 0.538538367848,
           "interval": {
-            "high": 0.5894828182936381,
+            "high": 0.589482818294,
             "level": 0.95,
-            "low": 0.4867760523645207,
+            "low": 0.486776052365,
             "method": "Taylor-linearized logit-t; domain degrees of freedom"
           },
           "n": 1100,
-          "standard_error": 0.025022112691740372,
+          "standard_error": 0.0250221126917,
           "status": "estimated"
         },
         "prediabetes": {
           "degrees_of_freedom": 25,
-          "estimate": 0.4179047656814715,
+          "estimate": 0.417904765681,
           "interval": {
-            "high": 0.4686037033862393,
+            "high": 0.468603703386,
             "level": 0.95,
-            "low": 0.3688833240549661,
+            "low": 0.368883324055,
             "method": "Taylor-linearized logit-t; domain degrees of freedom"
           },
           "n": 1100,
-          "standard_error": 0.02428776873261395,
+          "standard_error": 0.0242877687326,
           "status": "estimated"
         }
       },
@@ -251,47 +251,47 @@
       "complete_n": 520,
       "eligible_n": 523,
       "missing_n": 3,
-      "missing_weight_fraction": 0.002804325106492544,
+      "missing_weight_fraction": 0.00280432510649,
       "sex": "male",
       "source_diabetes_reliability_warning": true,
       "states": {
         "diabetes_any_type": {
           "degrees_of_freedom": 25,
-          "estimate": 0.03985697399466516,
+          "estimate": 0.0398569739947,
           "interval": {
-            "high": 0.07993080163262221,
+            "high": 0.0799308016326,
             "level": 0.95,
-            "low": 0.019449703347247778,
+            "low": 0.0194497033472,
             "method": "Taylor-linearized logit-t; domain degrees of freedom"
           },
           "n": 520,
-          "standard_error": 0.013722056961033059,
+          "standard_error": 0.013722056961,
           "status": "estimated"
         },
         "normoglycemia": {
           "degrees_of_freedom": 25,
-          "estimate": 0.45676846570847945,
+          "estimate": 0.456768465708,
           "interval": {
-            "high": 0.5221973835038447,
+            "high": 0.522197383504,
             "level": 0.95,
-            "low": 0.39279802180743656,
+            "low": 0.392798021807,
             "method": "Taylor-linearized logit-t; domain degrees of freedom"
           },
           "n": 520,
-          "standard_error": 0.03159041571169383,
+          "standard_error": 0.0315904157117,
           "status": "estimated"
         },
         "prediabetes": {
           "degrees_of_freedom": 25,
-          "estimate": 0.5033745602968555,
+          "estimate": 0.503374560297,
           "interval": {
-            "high": 0.5676206323864811,
+            "high": 0.567620632386,
             "level": 0.95,
-            "low": 0.4390168599716473,
+            "low": 0.439016859972,
             "method": "Taylor-linearized logit-t; domain degrees of freedom"
           },
           "n": 520,
-          "standard_error": 0.03139534556981594,
+          "standard_error": 0.0313953455698,
           "status": "estimated"
         }
       },
@@ -302,47 +302,47 @@
       "complete_n": 580,
       "eligible_n": 583,
       "missing_n": 3,
-      "missing_weight_fraction": 0.012886916195663473,
+      "missing_weight_fraction": 0.0128869161957,
       "sex": "female",
       "source_diabetes_reliability_warning": false,
       "states": {
         "diabetes_any_type": {
           "degrees_of_freedom": 25,
-          "estimate": 0.04746187803971339,
+          "estimate": 0.0474618780397,
           "interval": {
-            "high": 0.06874789880038014,
+            "high": 0.0687478988004,
             "level": 0.95,
-            "low": 0.032536260730973876,
+            "low": 0.032536260731,
             "method": "Taylor-linearized logit-t; domain degrees of freedom"
           },
           "n": 580,
-          "standard_error": 0.008629425745657683,
+          "standard_error": 0.00862942574566,
           "status": "estimated"
         },
         "normoglycemia": {
           "degrees_of_freedom": 25,
-          "estimate": 0.6248415282458286,
+          "estimate": 0.624841528246,
           "interval": {
-            "high": 0.6792870746363681,
+            "high": 0.679287074636,
             "level": 0.95,
-            "low": 0.5670442097811126,
+            "low": 0.567044209781,
             "method": "Taylor-linearized logit-t; domain degrees of freedom"
           },
           "n": 580,
-          "standard_error": 0.02735615284571134,
+          "standard_error": 0.0273561528457,
           "status": "estimated"
         },
         "prediabetes": {
           "degrees_of_freedom": 25,
-          "estimate": 0.32769659371445825,
+          "estimate": 0.327696593714,
           "interval": {
-            "high": 0.38554228610268837,
+            "high": 0.385542286103,
             "level": 0.95,
-            "low": 0.274650562098554,
+            "low": 0.274650562099,
             "method": "Taylor-linearized logit-t; domain degrees of freedom"
           },
           "n": 580,
-          "standard_error": 0.027013715205250442,
+          "standard_error": 0.0270137152053,
           "status": "estimated"
         }
       },
@@ -353,47 +353,47 @@
       "complete_n": 1279,
       "eligible_n": 1282,
       "missing_n": 3,
-      "missing_weight_fraction": 0.0009232433671919129,
+      "missing_weight_fraction": 0.000923243367192,
       "sex": "all",
       "source_diabetes_reliability_warning": false,
       "states": {
         "diabetes_any_type": {
           "degrees_of_freedom": 25,
-          "estimate": 0.16439400431467313,
+          "estimate": 0.164394004315,
           "interval": {
-            "high": 0.19867167506491035,
+            "high": 0.198671675065,
             "level": 0.95,
-            "low": 0.13503381122212077,
+            "low": 0.135033811222,
             "method": "Taylor-linearized logit-t; domain degrees of freedom"
           },
           "n": 1279,
-          "standard_error": 0.015425684808012935,
+          "standard_error": 0.015425684808,
           "status": "estimated"
         },
         "normoglycemia": {
           "degrees_of_freedom": 25,
-          "estimate": 0.26475366464527067,
+          "estimate": 0.264753664645,
           "interval": {
-            "high": 0.30633000960660994,
+            "high": 0.306330009607,
             "level": 0.95,
-            "low": 0.22697382832648272,
+            "low": 0.226973828326,
             "method": "Taylor-linearized logit-t; domain degrees of freedom"
           },
           "n": 1279,
-          "standard_error": 0.019288090721021167,
+          "standard_error": 0.019288090721,
           "status": "estimated"
         },
         "prediabetes": {
           "degrees_of_freedom": 25,
-          "estimate": 0.5708523310400562,
+          "estimate": 0.57085233104,
           "interval": {
-            "high": 0.6208274398682607,
+            "high": 0.620827439868,
             "level": 0.95,
-            "low": 0.5193895734525025,
+            "low": 0.519389573453,
             "method": "Taylor-linearized logit-t; domain degrees of freedom"
           },
           "n": 1279,
-          "standard_error": 0.02470953626792665,
+          "standard_error": 0.0247095362679,
           "status": "estimated"
         }
       },
@@ -404,47 +404,47 @@
       "complete_n": 594,
       "eligible_n": 595,
       "missing_n": 1,
-      "missing_weight_fraction": 0.0006955788637996164,
+      "missing_weight_fraction": 0.0006955788638,
       "sex": "male",
       "source_diabetes_reliability_warning": false,
       "states": {
         "diabetes_any_type": {
           "degrees_of_freedom": 25,
-          "estimate": 0.17068986711679507,
+          "estimate": 0.170689867117,
           "interval": {
-            "high": 0.22046755014699257,
+            "high": 0.220467550147,
             "level": 0.95,
-            "low": 0.13027289495151573,
+            "low": 0.130272894952,
             "method": "Taylor-linearized logit-t; domain degrees of freedom"
           },
           "n": 594,
-          "standard_error": 0.021842964665645965,
+          "standard_error": 0.0218429646656,
           "status": "estimated"
         },
         "normoglycemia": {
           "degrees_of_freedom": 25,
-          "estimate": 0.19471571768756524,
+          "estimate": 0.194715717688,
           "interval": {
-            "high": 0.2544946582220253,
+            "high": 0.254494658222,
             "level": 0.95,
-            "low": 0.1462242717721902,
+            "low": 0.146224271772,
             "method": "Taylor-linearized logit-t; domain degrees of freedom"
           },
           "n": 594,
-          "standard_error": 0.026256605741243513,
+          "standard_error": 0.0262566057412,
           "status": "estimated"
         },
         "prediabetes": {
           "degrees_of_freedom": 25,
-          "estimate": 0.6345944151956395,
+          "estimate": 0.634594415196,
           "interval": {
-            "high": 0.7000375478111933,
+            "high": 0.700037547811,
             "level": 0.95,
-            "low": 0.5637707121690376,
+            "low": 0.563770712169,
             "method": "Taylor-linearized logit-t; domain degrees of freedom"
           },
           "n": 594,
-          "standard_error": 0.0332703066322531,
+          "standard_error": 0.0332703066323,
           "status": "estimated"
         }
       },
@@ -455,47 +455,47 @@
       "complete_n": 685,
       "eligible_n": 687,
       "missing_n": 2,
-      "missing_weight_fraction": 0.001135346997046727,
+      "missing_weight_fraction": 0.00113534699705,
       "sex": "female",
       "source_diabetes_reliability_warning": false,
       "states": {
         "diabetes_any_type": {
           "degrees_of_freedom": 25,
-          "estimate": 0.15852588145619265,
+          "estimate": 0.158525881456,
           "interval": {
-            "high": 0.21811204741374518,
+            "high": 0.218112047414,
             "level": 0.95,
-            "low": 0.11286825601079019,
+            "low": 0.112868256011,
             "method": "Taylor-linearized logit-t; domain degrees of freedom"
           },
           "n": 685,
-          "standard_error": 0.02542431339125975,
+          "standard_error": 0.0254243133913,
           "status": "estimated"
         },
         "normoglycemia": {
           "degrees_of_freedom": 25,
-          "estimate": 0.3300332443344973,
+          "estimate": 0.330033244334,
           "interval": {
-            "high": 0.38415491780335626,
+            "high": 0.384154917803,
             "level": 0.95,
-            "low": 0.2800689003453211,
+            "low": 0.280068900345,
             "method": "Taylor-linearized logit-t; domain degrees of freedom"
           },
           "n": 685,
-          "standard_error": 0.025346016425362626,
+          "standard_error": 0.0253460164254,
           "status": "estimated"
         },
         "prediabetes": {
           "degrees_of_freedom": 25,
-          "estimate": 0.51144087420931,
+          "estimate": 0.511440874209,
           "interval": {
-            "high": 0.585422762027694,
+            "high": 0.585422762028,
             "level": 0.95,
-            "low": 0.4369543486016926,
+            "low": 0.436954348602,
             "method": "Taylor-linearized logit-t; domain degrees of freedom"
           },
           "n": 685,
-          "standard_error": 0.03631235317181395,
+          "standard_error": 0.0363123531718,
           "status": "estimated"
         }
       },
@@ -506,47 +506,47 @@
       "complete_n": 1378,
       "eligible_n": 1381,
       "missing_n": 3,
-      "missing_weight_fraction": 0.0019299714488565218,
+      "missing_weight_fraction": 0.00192997144886,
       "sex": "all",
       "source_diabetes_reliability_warning": false,
       "states": {
         "diabetes_any_type": {
           "degrees_of_freedom": 25,
-          "estimate": 0.3000174461077387,
+          "estimate": 0.300017446108,
           "interval": {
-            "high": 0.32888674658511696,
+            "high": 0.328886746585,
             "level": 0.95,
-            "low": 0.2726527268542009,
+            "low": 0.272652726854,
             "method": "Taylor-linearized logit-t; domain degrees of freedom"
           },
           "n": 1378,
-          "standard_error": 0.013662723341968191,
+          "standard_error": 0.013662723342,
           "status": "estimated"
         },
         "normoglycemia": {
           "degrees_of_freedom": 25,
-          "estimate": 0.1508309976807157,
+          "estimate": 0.150830997681,
           "interval": {
-            "high": 0.18222139544103927,
+            "high": 0.182221395441,
             "level": 0.95,
-            "low": 0.12402795049643289,
+            "low": 0.124027950496,
             "method": "Taylor-linearized logit-t; domain degrees of freedom"
           },
           "n": 1378,
-          "standard_error": 0.014100089840163763,
+          "standard_error": 0.0141000898402,
           "status": "estimated"
         },
         "prediabetes": {
           "degrees_of_freedom": 25,
-          "estimate": 0.5491515562115455,
+          "estimate": 0.549151556212,
           "interval": {
-            "high": 0.5787237757693694,
+            "high": 0.578723775769,
             "level": 0.95,
-            "low": 0.5192279851492211,
+            "low": 0.519227985149,
             "method": "Taylor-linearized logit-t; domain degrees of freedom"
           },
           "n": 1378,
-          "standard_error": 0.014460870436480444,
+          "standard_error": 0.0144608704365,
           "status": "estimated"
         }
       },
@@ -557,47 +557,47 @@
       "complete_n": 703,
       "eligible_n": 704,
       "missing_n": 1,
-      "missing_weight_fraction": 0.00015223936169742307,
+      "missing_weight_fraction": 0.000152239361697,
       "sex": "male",
       "source_diabetes_reliability_warning": false,
       "states": {
         "diabetes_any_type": {
           "degrees_of_freedom": 25,
-          "estimate": 0.36298159778520955,
+          "estimate": 0.362981597785,
           "interval": {
-            "high": 0.419961156836853,
+            "high": 0.419961156837,
             "level": 0.95,
-            "low": 0.3096064200227931,
+            "low": 0.309606420023,
             "method": "Taylor-linearized logit-t; domain degrees of freedom"
           },
           "n": 703,
-          "standard_error": 0.02689036893058162,
+          "standard_error": 0.0268903689306,
           "status": "estimated"
         },
         "normoglycemia": {
           "degrees_of_freedom": 25,
-          "estimate": 0.0880691197539303,
+          "estimate": 0.0880691197539,
           "interval": {
-            "high": 0.13466607558219607,
+            "high": 0.134666075582,
             "level": 0.95,
-            "low": 0.056542048859713846,
+            "low": 0.0565420488597,
             "method": "Taylor-linearized logit-t; domain degrees of freedom"
           },
           "n": 703,
-          "standard_error": 0.018605776323522623,
+          "standard_error": 0.0186057763235,
           "status": "estimated"
         },
         "prediabetes": {
           "degrees_of_freedom": 25,
-          "estimate": 0.5489492824608603,
+          "estimate": 0.548949282461,
           "interval": {
-            "high": 0.5993534245670195,
+            "high": 0.599353424567,
             "level": 0.95,
-            "low": 0.4975202117112302,
+            "low": 0.497520211711,
             "method": "Taylor-linearized logit-t; domain degrees of freedom"
           },
           "n": 703,
-          "standard_error": 0.02480748162668059,
+          "standard_error": 0.0248074816267,
           "status": "estimated"
         }
       },
@@ -608,47 +608,47 @@
       "complete_n": 675,
       "eligible_n": 677,
       "missing_n": 2,
-      "missing_weight_fraction": 0.0034936860042598518,
+      "missing_weight_fraction": 0.00349368600426,
       "sex": "female",
       "source_diabetes_reliability_warning": false,
       "states": {
         "diabetes_any_type": {
           "degrees_of_freedom": 25,
-          "estimate": 0.24444770834683446,
+          "estimate": 0.244447708347,
           "interval": {
-            "high": 0.2999692953163809,
+            "high": 0.299969295316,
             "level": 0.95,
-            "low": 0.19632064958794895,
+            "low": 0.196320649588,
             "method": "Taylor-linearized logit-t; domain degrees of freedom"
           },
           "n": 675,
-          "standard_error": 0.02519952206955454,
+          "standard_error": 0.0251995220696,
           "status": "estimated"
         },
         "normoglycemia": {
           "degrees_of_freedom": 25,
-          "estimate": 0.2062222164116315,
+          "estimate": 0.206222216412,
           "interval": {
-            "high": 0.28285210493451785,
+            "high": 0.282852104935,
             "level": 0.95,
-            "low": 0.1461227327496533,
+            "low": 0.14612273275,
             "method": "Taylor-linearized logit-t; domain degrees of freedom"
           },
           "n": 675,
-          "standard_error": 0.033182714782662506,
+          "standard_error": 0.0331827147827,
           "status": "estimated"
         },
         "prediabetes": {
           "degrees_of_freedom": 25,
-          "estimate": 0.5493300752415341,
+          "estimate": 0.549330075242,
           "interval": {
-            "high": 0.5984089147699657,
+            "high": 0.59840891477,
             "level": 0.95,
-            "low": 0.4992721586517261,
+            "low": 0.499272158652,
             "method": "Taylor-linearized logit-t; domain degrees of freedom"
           },
           "n": 675,
-          "standard_error": 0.024146230715656185,
+          "standard_error": 0.0241462307157,
           "status": "estimated"
         }
       },
@@ -673,6 +673,7 @@
   "population": "U.S. civilian noninstitutionalized adults age 20+, excluding known pregnancy at ages 20-44",
   "provenance": {
     "dataset_definition_sha256": "5555efe1532ca8cda5113d0e2a38ee13c075ed720ec30ae5a405d2f23fae006f",
+    "serialization": "Derived floats rounded to 12 significant digits; not measurement precision",
     "source_manifest_sha256": "7abddaffcad210931d7e2af5581e25b599c1c48b69d31e6aa2db0cebb2a0d822",
     "source_sha256": {
       "P_DEMO.xpt": "2e46c6c26bf77cd8989f64011ace12cbf42c0f3e03414eb59acc5328c8f87913",
@@ -681,7 +682,7 @@
       "P_GLU.xpt": "91b83c46fb4707c431838159135e93693a0572bce54074f5a890f0ee104732b3"
     },
     "transform": "demeter.data.nhanes.reconstruct",
-    "transform_version": 1
+    "transform_version": 2
   },
   "published_reconstruction": {
     "checks": [
@@ -691,7 +692,7 @@
         "published_n": 3757,
         "published_percent": 16.2,
         "reconstructed_n": 3757,
-        "reconstructed_percent": 16.215667367084617,
+        "reconstructed_percent": 16.2156673671,
         "sex": "all"
       },
       {
@@ -700,7 +701,7 @@
         "published_n": 1817,
         "published_percent": 17.7,
         "reconstructed_n": 1817,
-        "reconstructed_percent": 17.718983499528797,
+        "reconstructed_percent": 17.7189834995,
         "sex": "male"
       },
       {
@@ -709,7 +710,7 @@
         "published_n": 1940,
         "published_percent": 14.8,
         "reconstructed_n": 1940,
-        "reconstructed_percent": 14.774927432293516,
+        "reconstructed_percent": 14.7749274323,
         "sex": "female"
       },
       {
@@ -718,7 +719,7 @@
         "published_n": 1100,
         "published_percent": 4.4,
         "reconstructed_n": 1100,
-        "reconstructed_percent": 4.355686647090868,
+        "reconstructed_percent": 4.35568664709,
         "sex": "all"
       },
       {
@@ -727,7 +728,7 @@
         "published_n": 520,
         "published_percent": 4.0,
         "reconstructed_n": 520,
-        "reconstructed_percent": 3.985697399466516,
+        "reconstructed_percent": 3.98569739947,
         "sex": "male"
       },
       {
@@ -736,7 +737,7 @@
         "published_n": 580,
         "published_percent": 4.7,
         "reconstructed_n": 580,
-        "reconstructed_percent": 4.746187803971339,
+        "reconstructed_percent": 4.74618780397,
         "sex": "female"
       },
       {
@@ -745,7 +746,7 @@
         "published_n": 1279,
         "published_percent": 16.4,
         "reconstructed_n": 1279,
-        "reconstructed_percent": 16.439400431467313,
+        "reconstructed_percent": 16.4394004315,
         "sex": "all"
       },
       {
@@ -754,7 +755,7 @@
         "published_n": 594,
         "published_percent": 17.1,
         "reconstructed_n": 594,
-        "reconstructed_percent": 17.068986711679507,
+        "reconstructed_percent": 17.0689867117,
         "sex": "male"
       },
       {
@@ -763,7 +764,7 @@
         "published_n": 685,
         "published_percent": 15.9,
         "reconstructed_n": 685,
-        "reconstructed_percent": 15.852588145619265,
+        "reconstructed_percent": 15.8525881456,
         "sex": "female"
       },
       {
@@ -772,7 +773,7 @@
         "published_n": 1378,
         "published_percent": 30.0,
         "reconstructed_n": 1378,
-        "reconstructed_percent": 30.001744610773866,
+        "reconstructed_percent": 30.0017446108,
         "sex": "all"
       },
       {
@@ -781,7 +782,7 @@
         "published_n": 703,
         "published_percent": 36.3,
         "reconstructed_n": 703,
-        "reconstructed_percent": 36.298159778520954,
+        "reconstructed_percent": 36.2981597785,
         "sex": "male"
       },
       {
@@ -790,7 +791,7 @@
         "published_n": 675,
         "published_percent": 24.4,
         "reconstructed_n": 675,
-        "reconstructed_percent": 24.444770834683446,
+        "reconstructed_percent": 24.4447708347,
         "sex": "female"
       }
     ],
