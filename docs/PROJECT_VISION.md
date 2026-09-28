@@ -239,6 +239,25 @@ This survey was compiled in September 2026 from public repositories, papers, and
 
 Methodological reviews of the wider field: [microsimulation in food policy](https://pmc.ncbi.nlm.nih.gov/articles/PMC8970827/) and [microsimulation of obesity-related policy](https://doi.org/10.3390/nu18010073).
 
+### Management flight simulators
+
+Interactive system-dynamics simulators already exist for health systems, climate, and supply chains. None found in this survey places food and agriculture inside the simulated system.
+
+| Simulator | Domain | Relevance to Demeter |
+|---|---|---|
+| **[ReThink Health Dynamics Model](https://rippel.org/dynamics-model/)** (Rippel Foundation; Homer, Hirsch, Sterman, Milstein) | Regional health system: population health, care delivery, equity, productivity, and cost | Closest format analogue. Vensim model with a hosted interface; a free "Anytown" configuration uses U.S. national data. Food enters only as an external driver ([model summary](https://rippel.org/wp-content/uploads/2023/04/ReThink-Health-Model-Summary-v5.pdf)) |
+| **[PRISM](https://www.cdc.gov/pcd/issues/2021/20_0225.htm)** (CDC) | U.S. cardiovascular risk factors, mortality, and cost under 32 strategies, including nutrition and weight loss | Public web application with a published validation; a U.S. benchmark for Demeter's health outcomes |
+| **[HealthBound](https://systemdynamics.org/healthbound/)** (CDC-supported) | U.S. health reform policy game | Illustrates teaching through resource constraints, delays, and side effects |
+| **[En-ROADS](https://www.climateinteractive.org/en-roads/)** (Climate Interactive and MIT Sloan) | Climate and energy policy | Reference design for a fast public simulator; runs in the browser via [SDEverywhere](https://github.com/climateinteractive/SDEverywhere), the toolchain named in section 4 |
+| **[Beer Distribution Game](https://web.mit.edu/jsterman/www/SDG/beergame.html)** (MIT) | Supply-chain ordering | The original flight simulator; delay-driven amplification relevant to agricultural supply response |
+| **[Food Chain Reaction](https://www.cna.org/analyses/2015/food-chain-reaction-global-food-security-game)** (WWF, Center for American Progress, CNA) | Global food-security crisis, 2020–2030 | Facilitated role-play without an underlying simulation model; evidence of decision-maker interest in food-system exercises |
+
+Implications:
+
+- The flight-simulator format is established with health leaders. Demeter's contribution would be the model underneath: food production, prices, and purchasing represented inside the system rather than as exogenous inputs.
+- These simulators earn trust through published structure, calibration, and validation. A Demeter simulator must follow the same order: the interface remains Phase 6 work, downstream of an evidence-backed model.
+- An earlier teaching build is acceptable only if it is labeled validation-only and presents no synthetic output as a finding.
+
 ### What this implies for Demeter
 
 1. **The Phase 1 health slice is not the differentiator.** Diet → metabolic state → disease → mortality has been implemented and validated several times. Phase 1 is necessary infrastructure and must meet the standards of these models, but public descriptions should not present it as novel.
