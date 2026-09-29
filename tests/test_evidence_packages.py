@@ -222,7 +222,14 @@ def test_cyclic_package_dependencies_are_rejected(package_root):
 
 
 @pytest.mark.parametrize(
-    "name", ["patients.csv", ".github/patients.json", "data/raw/private.txt", "outputs/result.json"]
+    "name",
+    [
+        "patients.csv",
+        ".github/patients.json",
+        "web/measurements.json",
+        "data/raw/private.txt",
+        "outputs/result.json",
+    ],
 )
 def test_tracked_unapproved_data_and_caches_fail(package_root, monkeypatch, name):
     target = package_root / name
@@ -236,7 +243,18 @@ def test_tracked_unapproved_data_and_caches_fail(package_root, monkeypatch, name
     assert failed(result, "tracked_data_allowlist")
 
 
-def test_fetch_only_article_bytes_are_rejected_even_when_renamed(package_root, monkeypatch):
+@pytest.mark.parametrize("name", ["web/package.json", "web/package-lock.json", "web/tsconfig.json"])
+def test_known_frontend_metadata_is_not_classified_as_a_dataset(package_root, monkeypatch, name):
+    save(package_root / name, {"development": True})
+    monkeypatch.setattr(
+        "demeter.data.packages.subprocess.run",
+        lambda *a, **k: SimpleNamespace(stdout=name.encode() + b"\0"),
+    )
+    assert verify_packages(package_root, check_tracked=True)["passed"]
+
+
+@pytest.mark.parametrize("name", ["notes.md", "web/package.json"])
+def test_fetch_only_article_bytes_are_rejected_even_when_renamed(package_root, monkeypatch, name):
     raw = b"synthetic full article test"
     registry_path = package_root / "evidence/parameters.yaml"
     registry = yaml.safe_load(registry_path.read_text())
@@ -263,9 +281,11 @@ def test_fetch_only_article_bytes_are_rejected_even_when_renamed(package_root, m
         **{k: receipt[k] for k in ["url", "sha256", "retrieved_at"]},
     )
     edit(package_root, "data/rights.json", lambda d: d["clinical_sources"].update(article=rights))
-    (package_root / "notes.md").write_bytes(raw)
+    target = package_root / name
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_bytes(raw)
     monkeypatch.setattr(
         "demeter.data.packages.subprocess.run",
-        lambda *a, **k: SimpleNamespace(stdout=b"notes.md\0"),
+        lambda *a, **k: SimpleNamespace(stdout=name.encode() + b"\0"),
     )
     assert failed(verify_packages(package_root, check_tracked=True), "fetch_only_not_tracked")

@@ -1,8 +1,10 @@
 # Run Demeter on your computer
 
-Demeter currently runs as a Python program from a terminal: an app where you type
-commands. It also produces an interactive HTML report you can open in a browser.
-There is no server to start. You do not need an API key, a database, Docker, a paid
+Demeter runs as a Python program from a terminal: an app where you type commands.
+It produces interactive offline HTML reports and has an optional
+[educational Explorer](EXPLORER.md) with menus for rerunning assumptions. Explorer's
+launcher starts its local service for you; offline reports need no service.
+You do not need an API key, a database, Docker, a paid
 account, or Codex. You only need a GitHub account if you want to contribute.
 
 You will install Git (downloads and tracks the project) and uv (installs Python
@@ -121,6 +123,10 @@ library and does not need a web server or network connection.
 Continue with the [first learning exercise](FIRST_EXERCISE.md), or the
 [complete learning path and executable notebook](LEARNING_PATH.md) for toy
 stocks/flows, uncertainty, historical diagnostics and creating a custom module.
+
+For charts with explanations and editable scenario menus, install Node.js 24 and
+run `uv run --extra studio demeter explore`. See the [Explorer guide](EXPLORER.md)
+for installation details and a guided experiment.
 
 ## 4. Configure a scenario
 

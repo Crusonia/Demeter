@@ -336,7 +336,16 @@ def verify_packages(root: Path = Path("."), *, check_tracked: bool = False) -> d
                 )
             forbidden_cache = name.startswith(("data/raw/", "data/processed/", "outputs/"))
             is_data = PurePosixPath(name).suffix.lower() in data_extensions
-            if name.endswith("/.gitkeep") or name == ".github/branch-protection.json":
+            # These exact files configure development tools; they are not datasets.
+            # Still check their bytes against fetch-only sources above. Do not
+            # exempt web/ wholesale: data added there needs the ordinary review.
+            development_metadata = {
+                ".github/branch-protection.json",
+                "web/package.json",
+                "web/package-lock.json",
+                "web/tsconfig.json",
+            }
+            if name.endswith("/.gitkeep") or name in development_metadata:
                 continue
             if forbidden_cache or is_data:
                 check("tracked_data_allowlist", not forbidden_cache and name in allowed, path=name)

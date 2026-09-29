@@ -33,15 +33,26 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: web/package-lock.json
       - name: Install locked environment
         run: |
           python -m pip install uv==0.12.18
-          uv sync --locked --python ${{ matrix.python-version }}
+          uv sync --locked --extra studio --python ${{ matrix.python-version }}
           uv run python --version
       - name: Lint
         run: uv run ruff check .
       - name: Test offline fixtures, CLI, and executable learning notebook
-        run: uv run python -X utf8 -m pytest
+        run: uv run --extra studio python -X utf8 -m pytest
+      - name: Check and build static Explorer
+        run: |
+          npm ci --prefix web
+          npm run check --prefix web
+          npm test --prefix web
+          uv run python scripts/build_explorer.py
       - name: Verify committed source bytes and rebuild offline
         run: uv run python scripts/verify_source_archive.py --rebuild
       - name: Validate evidence and authoritative baselines
@@ -101,6 +112,7 @@ jobs:
           uv run demeter observe scenarios/glp1_access.yaml --draws 4 --samples 8 --destination outputs/glp1-report
           uv run python scripts/verify_observability_browser.py --report outputs/glp1-report/index.html --figures 65
           uv run python scripts/verify_observability_browser.py --report outputs/leverage/index.html --figures 26
+          uv run --extra studio python scripts/verify_explorer_browser.py
       - name: Build package
         run: uv build
       - name: Verify evidence distribution contents

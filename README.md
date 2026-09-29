@@ -139,7 +139,18 @@ diagnostics and a model card while retaining the alpha's scientific limitations.
 ## Run locally or in Codex Cloud
 
 For a first installation, follow the [platform-specific setup guide](docs/GETTING_STARTED.md).
-There is no server, database, API key, or paid tool to configure. uv uses the pinned
+For the optional [educational Explorer](docs/EXPLORER.md), install Node.js 24 and run:
+
+```text
+uv run --extra studio demeter explore
+```
+
+One command builds the Next.js interface, starts a local Python service and opens
+the browser. Explore charts alongside explanations, change assumptions, compare
+saved experiments, and export offline reports. Current results remain validation-only.
+
+The existing CLI and offline reports need no server, database, API key, or paid tool.
+uv uses the pinned
 Python 3.12 environment; Python 3.11 is also exercised in CI. Once cloned, run from
 the repository root:
 

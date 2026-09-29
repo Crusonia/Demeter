@@ -22,3 +22,10 @@ outputs/*
 .DS_Store
 .idea/
 .vscode/
+
+# Generated local interface
+web/node_modules/
+web/.next/
+web/out/
+web/*.tsbuildinfo
+.playwright-cli/
