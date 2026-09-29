@@ -1086,3 +1086,32 @@ blockquote {
     animation: none;
   }
 }
+/* Saved evidence must remain readable on narrow screens, including source hashes. */
+.source-list,
+.source {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.source-list select {
+  width: 100%;
+}
+.source pre {
+  max-width: 100%;
+  overflow: auto;
+  white-space: pre-wrap;
+}
+.evidence-fields {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.evidence-fields dt {
+  font-weight: 600;
+  text-transform: capitalize;
+  margin-top: 0.55rem;
+}
+.evidence-fields dd {
+  margin-left: 0;
+}
+.learning-exercise {
+  margin: 1rem 0;
+}

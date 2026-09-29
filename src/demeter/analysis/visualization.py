@@ -535,6 +535,7 @@ def build_figures(payload: dict) -> dict[str, go.Figure]:
 def render_report(payload: dict, destination: Path, *, teaching_records: dict | None = None) -> dict:
     """Export a self-contained offline HTML report and reproducible Plotly JSON."""
     from .teaching import guide_html
+    from .chart_evidence import chart_evidence, evidence_html
 
     figures = build_figures(payload)
     destination.mkdir(parents=True, exist_ok=True)
@@ -550,6 +551,7 @@ def render_report(payload: dict, destination: Path, *, teaching_records: dict | 
                 div_id="plot-" + name,
                 config={"responsive": True},
             )
+            + evidence_html(chart_evidence(payload, name))
             + "</section>"
         )
     sim = payload["simulation"]

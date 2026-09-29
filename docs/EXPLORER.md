@@ -51,6 +51,24 @@ External source links naturally need a connection.
 
 ## A first learning exercise
 
+Each chart's **Sources** tab explains the saved inputs behind that view. Select
+an arrow under **Evidence for a mechanism** to see its directly declared
+parameters. Historical charts show their own observation receipt, while trial
+benchmarks keep their population, follow-up and estimand. Synthetic assumptions,
+missing metadata and unresolved applicability remain visible. The reference has
+its own evidence panel; editing assumptions does not rewrite either saved record.
+
+Open **Test your explanation** for three prompts: predict a change before running,
+challenge a weak assumption, and name the evidence that could change your view.
+Record a prediction in Experiment, then compare it with the result and save a
+reflection. For example, a smaller disease stock can reflect deaths as well as
+recovery: follow the flows before explaining the change as a health benefit.
+
+Offline HTML includes the same evidence and exercises without requiring a server
+or internet connection. External source links require internet access. Older runs
+without the added evidence context say so; rerun them to capture it. Missing graph
+dependencies for replacement modules are not inferred or invented by the viewer.
+
 1. Read **Learn**. Start with “Follow the people”: stocks count people; flows move
    people between states. Births and migration are zero in the current model.
 2. Open **Experiment**. Choose the core UPF reduction example. Record a prediction

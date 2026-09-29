@@ -1,10 +1,10 @@
 "use client";
 import { useEffect, useMemo, useRef, useState } from "react";
 import Script from "next/script";
-import type { Chart, Figure, Parameter } from "../lib/types";
+import type { Chart, Figure } from "../lib/types";
 import { chartRows, csv, format } from "../lib/data.mjs";
 import { downloadBlob } from "../lib/api";
-import { SafeSource } from "./SafeSource";
+import EvidencePanel from "./EvidencePanel";
 
 declare global {
   interface Window {
@@ -23,13 +23,11 @@ declare global {
 export default function ChartView({
   chart,
   reference,
-  sources,
   scenarioName,
   onExperiment,
 }: {
   chart: Chart;
   reference?: Chart;
-  sources: Parameter[];
   scenarioName: string;
   onExperiment: () => void;
 }) {
@@ -127,9 +125,6 @@ export default function ChartView({
       window.Plotly.purge(target);
     };
   }, [chart, reference, ready, tab, showReference, canOverlay]);
-  const relevantSources = chart.id.startsWith("parameter_")
-    ? sources.filter((p) => p.key === chart.id.slice(10))
-    : sources;
   return (
     <section className="chart-story" aria-label={chart.guide.question}>
       <Script
@@ -249,16 +244,22 @@ export default function ChartView({
             </div>
           )}
           {tab === "Sources" && (
-            <div className="source-list">
-              <p>
-                Evidence below is frozen with this run. Historical series have
-                separate source receipts in the downloadable diagnostics. A
-                citation is not proof that its effect applies to this scenario.
-              </p>
-              {relevantSources.map((p) => (
-                <SafeSource source={p} key={p.key} />
-              ))}
-            </div>
+            <>
+              <p>Evidence below is frozen with the experiment.</p>
+              <EvidencePanel
+                key={`${chart.id}-experiment`}
+                evidence={chart.evidence}
+              />
+              {canOverlay && reference && (
+                <details>
+                  <summary>Evidence for the frozen reference</summary>
+                  <EvidencePanel
+                    key={`${reference.id}-reference`}
+                    evidence={reference.evidence}
+                  />
+                </details>
+              )}
+            </>
           )}
         </div>
         <aside className="commentary">
@@ -277,6 +278,21 @@ export default function ChartView({
               Change an assumption →
             </button>
           </div>
+          {chart.guide.predict && (
+            <details className="learning-exercise">
+              <summary>Test your explanation</summary>
+              <h3>Predict before running</h3>
+              <p>{chart.guide.predict}</p>
+              <h3>Challenge an assumption</h3>
+              <p>{chart.guide.challenge}</p>
+              <h3>What evidence would change your interpretation?</h3>
+              <p>{chart.guide.evidence}</p>
+              <p>
+                Record your prediction in Experiment and your explanation below
+                the results.
+              </p>
+            </details>
+          )}
           <details>
             <summary>What this cannot establish</summary>
             <p>{chart.guide.limit}</p>
