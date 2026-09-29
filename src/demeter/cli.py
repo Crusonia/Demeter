@@ -318,12 +318,17 @@ def population_evidence(evidence: Path = DEFAULT_EVIDENCE, output: Path | None =
 
 
 @evidence_app.command("state-mapping")
-def state_mapping_evidence(evidence: Path = DEFAULT_EVIDENCE, output: Path | None = None) -> None:
+def state_mapping_evidence(
+    evidence: Path = DEFAULT_EVIDENCE,
+    output: Path | None = None,
+    partial: Annotated[bool, typer.Option(help="Preserve known categories and bound incomplete observations")] = False,
+) -> None:
     """Audit observed categories, unclassified coverage and unresolved engine mappings."""
     from demeter.data.state_mapping import mapping_report
     from demeter.data.nhanes import encoded
+    from demeter.data.partial_observations import partial_report
 
-    report = mapping_report(registry(evidence))
+    report = (partial_report if partial else mapping_report)(registry(evidence))
     if output:
         output.parent.mkdir(parents=True, exist_ok=True)
         output.write_bytes(encoded(report))

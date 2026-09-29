@@ -4,7 +4,7 @@
 - Issue: [#56](https://github.com/Crusonia/Demeter/issues/56), supporting #1 and #27
 - Author/date: Codex-assisted work for the Food is Health-affiliated project,
   September 29, 2026 (UTC); human disclosures are not inferred
-- Implementation: optional report and CLI implemented; no active engine initialization change
+- Implementation: complete-case audit and optional partial-observation report implemented; no active engine initialization change
 - Scientific assessment: observation audit only; external expert review pending
 - Scientific use: validation-only; national state initialization unresolved
 - Supersedes: none; preserves existing NHANES and PreChronic definitions
@@ -52,8 +52,9 @@ age coverage, period and the engine's target vintage remain explicit limitations
 The [P_DIQ codebook](https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_DIQ.htm)
 documents the interview coding; these observations do not identify diabetes type.
 
-Alternatives requiring future evidence/RFCs include a partial-observation
-classifier, validated type-specific diabetes algorithm, explicit diagnostic
+The separately specified partial-observation alternative is implemented below.
+Alternatives requiring future evidence/RFCs include a validated type-specific
+diabetes algorithm, explicit diagnostic
 error model, and a redefinition of the engine's stocks. None is silently selected.
 
 ## Estimation and evidence change
@@ -159,4 +160,6 @@ exhaustive comparison with independent completed binary-marker combinations;
 weighted partition conservation; lower/upper bound arithmetic; tightening sets
 when observations are added; offline source integrity and canonical output;
 unchanged engine trajectories. Record actual results in the report documentation.
+The [executed partial-observation report](../PARTIAL_OBSERVATIONS.md) records the
+results, exact reproduction and remaining initialization requirements.
 Maintainer and external scientific disposition remain pending.

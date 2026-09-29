@@ -1706,6 +1706,44 @@ datasets:
       identified.
     - PreChronic alternatives and overlapping age domains share observations and must not be summed.
     - No active model parameter or numerical engine output changes.
+  observation_partial_mapping:
+    status: derived
+    evidence_grade: C
+    model_role: benchmark_only
+    direct_initialization_allowed: false
+    method: compatible_categories_v1
+    rfc: docs/rfcs/RFC-56-observation-state-mapping.md
+    definitions:
+    - observation_state_mapping
+    - nhanes_glycemic_prevalence.analysis
+    - nhanes_prechronic_candidates.analysis
+    population: U.S. noninstitutionalized adults in the eligible NHANES 2017-March 2020 fasting subsample
+    geography: United States
+    time_period: 2017-March 2020
+    unit: fraction of all eligible survey weight; unweighted records
+    interview_codes:
+      'yes': 1
+      'no': 2
+      no_diabetes_diagnosis: [2, 3]
+    definition_sources:
+      diagnosis: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_DIQ.htm
+      glucose: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_GLU.htm
+      hba1c: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_GHB.htm
+    blood_pressure_missingness: Treat the marker as unknown unless all six existing required readings
+      are finite and positive; do not average fewer readings. This coarsening gives conservative bounds.
+    uncertainty: Logical compatible-category bounds conditional on recorded rules, with separate Taylor
+      logit-t sampling intervals for each bound endpoint. Not a simultaneous confidence region or an
+      initialization distribution. No missing-at-random assumption or diagnostic-error model.
+    limitations:
+    - Bounds concern the registered observation categories, not true latent health states.
+    - Any-type diabetes does not identify T2D; normoglycemia does not identify general metabolic health.
+    - Adult survey observations from 2017-March 2020 do not resolve pediatric, oldest-age, institutionalized
+      or current-year population transport. Survey-selection and diagnostic errors remain unresolved.
+    - A single high laboratory measurement is an observation category, not a confirmed clinical diagnosis.
+    - Partially observed blood-pressure blocks are coarsened; bounds need not be sharp over raw completions.
+    - Known diabetes takes priority despite unrelated missing measurements in this alternative;
+      the original complete-case report remains available separately.
+    - Unknown values remain sets of possible categories; no imputation or automatic engine allocation.
   mortality_development:
     status: derived
     evidence_grade: C

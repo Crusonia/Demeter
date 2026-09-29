@@ -361,24 +361,35 @@
         "nhanes_prechronic_risk"
       ],
       "registry_datasets": [
-        "observation_state_mapping"
+        "observation_state_mapping",
+        "observation_partial_mapping"
       ],
       "registry_parameters": [],
       "artifacts": [
         {
           "path": "docs/validation/issue-56-state-mapping.json",
-          "sha256": "fcd875b7e6ac5dc1e79878d3067aa97d1e1b96098a8de3be3f0c40f70cc240f1"
+          "sha256": "bb4ec8410a0190785d2beca01006a23b2980e4fbceb5fdf5976ae333ea6da259"
         },
         {
           "path": "docs/validation/issue-56-state-mapping-before-after.json",
           "sha256": "2f2579024eeeeb88b301f732d146850b84b8341704657ffe705e781f2f30d74e"
+        },
+        {
+          "path": "docs/validation/issue-56-partial-observations.json",
+          "sha256": "70a0269148cff6a301b7cb21b0fd0b1d8371f22c9a726fd8fdc3a50fc16b21cc"
+        },
+        {
+          "path": "docs/validation/issue-56-partial-before-after.json",
+          "sha256": "6cb1145eb8a859c262ad3ecc10a141978b0cb4330f4ae84c8134069dc60df553"
         }
       ],
       "transform_files": [
-        "src/demeter/data/state_mapping.py"
+        "src/demeter/data/state_mapping.py",
+        "src/demeter/data/partial_observations.py"
       ],
       "rebuild": [
-        "uv run demeter evidence state-mapping --output outputs/state-mapping.json"
+        "uv run demeter evidence state-mapping --output outputs/state-mapping.json",
+        "uv run demeter evidence state-mapping --partial --output outputs/partial-observations.json"
       ],
       "model_role": "benchmark_only",
       "redistribution": "Demeter aggregate observation audit from existing archived CDC/NCHS public-use files; retain upstream terms and citations. No joined person-level output."

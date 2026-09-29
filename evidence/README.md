@@ -32,6 +32,11 @@ Grades do not replace study-level appraisal and must not be converted mechanical
 
 Never invent a value or citation to make the model run. An unresolved parameter is a valid state; a fabricated parameter is not.
 
+`observation_partial_mapping` registers a separate partial-observation alternative
+to the complete-case state audit. It reports compatible-category bounds and
+separate sampling intervals without imputation or engine activation. See
+[partial observations](../docs/PARTIAL_OBSERVATIONS.md).
+
 ## Clinical candidate appraisals
 
 The `food_exposure_ontology` dataset supplies the typed food/nutrient contract,

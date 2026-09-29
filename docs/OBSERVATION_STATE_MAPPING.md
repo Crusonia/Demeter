@@ -6,6 +6,12 @@ crosswalk identifies unresolved substitutions; it does not initialize the engine
 or establish clinical states. Issue [#56](https://github.com/Crusonia/Demeter/issues/56)
 remains open for evidence-supported initialization.
 
+The separate [partial-observation method](PARTIAL_OBSERVATIONS.md), selected with
+`--partial`, now preserves known higher-priority categories despite unrelated
+missing fields and bounds unresolved category membership. The complete-case
+audit described on this page remains the default and preserves the original
+benchmark definitions.
+
 Run from the repository on Windows, macOS or Linux:
 
 ```text
@@ -76,9 +82,10 @@ priority. Their low measurements do not establish recovery or remission.
 The existing complete-case rule leaves one reported-diabetes record unclassified
 in the glycemic benchmark and 120 in the richer PreChronic benchmark. The new
 report exposes that limitation. It does not erase a known diagnosis or imply that
-the classification captures every diagnosable case. A future diagnosis-first
-partial-observation method needs an explicit definition, missing-data appraisal
-and comparison with the preserved original benchmarks. Medication use and duration
+the classification captures every diagnosable case. The separate diagnosis-first
+partial-observation method now has an [explicit definition and comparison](PARTIAL_OBSERVATIONS.md).
+It resolves known diagnoses and bounds remaining observation gaps; it does not
+initialize the engine. Medication use and duration
 of control are not established by the currently ingested fields.
 
 There are 236 eligible records in the public age top-code. The
