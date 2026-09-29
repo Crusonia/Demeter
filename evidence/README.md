@@ -32,6 +32,11 @@ Grades do not replace study-level appraisal and must not be converted mechanical
 
 Never invent a value or citation to make the model run. An unresolved parameter is a valid state; a fabricated parameter is not.
 
+`observation_partial_mapping` registers a separate partial-observation alternative
+to the complete-case state audit. It reports compatible-category bounds and
+separate sampling intervals without imputation or engine activation. See
+[partial observations](../docs/PARTIAL_OBSERVATIONS.md).
+
 ## Clinical candidate appraisals
 
 The `food_exposure_ontology` dataset supplies the typed food/nutrient contract,
@@ -64,3 +69,10 @@ changes page markup; a reviewed source-receipt update is then required. The orig
 raw retrieval and six extraction results are recorded in
 `docs/validation/issue-1-clinical-sources.json`. Only small factual estimates and
 receipts are committed; full articles are not redistributed.
+
+The [food-intake reproduction](../docs/FOOD_INTAKE_REPRODUCTION.md) adds a pinned
+author archive and an estimated, benchmark-only paired menu contrast. Its own
+`demeter evidence food-intake --archive PATH` command verifies and analyzes the
+daily table; `verify-sources` only checks this archive's byte identity. Analysis
+constants and the interval are registered, and the raw ZIP is excluded from all
+distributions. This intake endpoint does not identify a diabetes or mortality effect.

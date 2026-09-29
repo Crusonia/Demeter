@@ -1,0 +1,175 @@
+{
+  "analysis_id": "hall2019-daily-intake-reproduction-v1",
+  "assessment": "Used-data numerical reproduction, not independent validation or an engine effect",
+  "geography": "NIH Clinical Center, Bethesda, Maryland, United States",
+  "limitations": [
+    "This is a contrast between whole offered menu regimens in a short inpatient crossover, not an isolated processing or ingredient effect.",
+    "No washout separates the diets; an order/period sensitivity does not prove absence of carryover.",
+    "The archive is the author's derived daily-intake table, not a new audit of meal records or original measurement systems.",
+    "Meal-specific macronutrients, body-composition adjustments and all other endpoints are outside this reproduction.",
+    "No conversion from kcal/day to a continuous UPF dose, diabetes hazard, mortality or healthspan is identified. The engine and scientific-release blockers remain unchanged.",
+    "Participant-level sampling intervals under the stated model; no national transport, food-category dose response, dietary hazard, mortality, missingness, measurement-error or carryover uncertainty is claimed to be resolved."
+  ],
+  "model_role": "benchmark_only",
+  "population": "Twenty adult inpatient volunteers; paired offered-menu contrast, not a national cohort",
+  "provenance": {
+    "corrections": [
+      {
+        "assessment": "The accessible PMC notice describes a meal-level diet-order error and states that the primary total-daily-intake endpoint was unaffected.",
+        "doi": "10.1016/j.cmet.2019.05.020",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7959109/"
+      },
+      {
+        "assessment": "PubMed verifies the separate erratum. Publisher body was unavailable during intake; Hall's January 21, 2021 response associates it with the meal-label correction. Preserve both identifiers; do not infer a different daily-intake adjustment from their inconsistent chronology.",
+        "doi": "10.1016/j.cmet.2020.08.014",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33027677/"
+      }
+    ],
+    "definition_sha256": "bfa8db572578822bbf811bb3a34650445592c413f622d488d2472bbfbee7e81d",
+    "estimate_parameter_sha256": "a436b068a335de021f431c26c34d2544219fe278131628b31f64eb712d1ce807",
+    "individual_results_exported": false,
+    "member": "dailyintake.sas7bdat",
+    "member_sha256": "343544424ef6e810d3654f36062a5e0b1210184b712def58664b65082b19a99e",
+    "protocol_sha256": "63b13182e3d1d5bdcf11be34d4c085c1753c580c137c587b5246941a77ecffe8",
+    "raw_redistributed": false,
+    "source": {
+      "citation": "Hall KD et al. Cell Metabolism. 2019;30(1):67-77.e3. Author OSF ADLDataSAScode2.zip, uploaded January 28, 2021, version 1.",
+      "correction_note": "Both errata retained in the reproduction protocol: 10.1016/j.cmet.2019.05.020 and 10.1016/j.cmet.2020.08.014. Accessible PMC notice says total daily intake is unaffected by the meal-label correction. Author archive uploaded after January 2021 correction discussion; body-composition and meal-level endpoints excluded.",
+      "correction_url": "https://pubmed.ncbi.nlm.nih.gov/33027677/",
+      "doi": "10.1016/j.cmet.2019.05.008",
+      "license": "No explicit OSF node license recorded. Raw data/code are fetch-only in ignored local storage; no raw redistribution permission is asserted.",
+      "raw_filename": "hall2019-intake.zip",
+      "retrieved_at": "2026-09-29T02:55:39.558901Z",
+      "sha256": "c941c1cd33abb0cf17fb982aaec0fb23da034c94e5b86ec949a0e73704a6fbb8",
+      "url": "https://osf.io/download/fsqb7/"
+    },
+    "transform_sha256": "dc7d9c97bda74437d2e713d5de66040d8d9b1731be27d600da3538bafe14c31c"
+  },
+  "results": {
+    "by_randomized_sequence": {
+      "PU": {
+        "confidence_level": 0.95,
+        "degrees_of_freedom": 9,
+        "interval": [
+          140.620673361,
+          854.188183782
+        ],
+        "interval_note": "Student t interval across participants",
+        "mean": 497.404428571,
+        "participants": 10,
+        "sample_sd": 498.74929874,
+        "standard_error": 157.718376543,
+        "sufficient_statistics": {
+          "sum": 4974.04428571,
+          "sum_squares": 4712869.42256
+        },
+        "two_sided_p_value": 0.0116669236063
+      },
+      "UP": {
+        "confidence_level": 0.95,
+        "degrees_of_freedom": 9,
+        "interval": [
+          180.224230942,
+          855.896626201
+        ],
+        "interval_note": "Student t interval across participants",
+        "mean": 518.060428571,
+        "participants": 10,
+        "sample_sd": 472.262439632,
+        "standard_error": 149.342496258,
+        "sufficient_statistics": {
+          "sum": 5180.60428571,
+          "sum_squares": 4691152.3835
+        },
+        "two_sided_p_value": 0.0070605355156
+      }
+    },
+    "contrast": "PROC minus UNPROC",
+    "coverage": {
+      "daily_records": 560,
+      "days_per_participant_per_diet": 14,
+      "missing_or_excluded_records": 0,
+      "participants": 20
+    },
+    "diet_means": {
+      "PROC": 2978.2595,
+      "UNPROC": 2470.52707143
+    },
+    "paired_difference": {
+      "confidence_level": 0.95,
+      "degrees_of_freedom": 19,
+      "interval": [
+        286.431240915,
+        729.033616228
+      ],
+      "interval_note": "Student t interval across participants",
+      "mean": 507.732428571,
+      "participants": 20,
+      "sample_sd": 472.851229837,
+      "standard_error": 105.732749316,
+      "sufficient_statistics": {
+        "sum": 10154.6485714,
+        "sum_squares": 9404021.80606
+      },
+      "two_sided_p_value": 0.000123897770808
+    },
+    "period_sensitivity": {
+      "confidence_level": 0.95,
+      "covariance": [
+        [
+          11794.566872,
+          0.0
+        ],
+        [
+          0.0,
+          11794.566872
+        ]
+      ],
+      "degrees_of_freedom": 18,
+      "design": "paired difference = diet_contrast + common_period_effect * (+1 PROC second, -1 PROC first)",
+      "limitation": "Additive common period assumption; differential carryover is not identified",
+      "parameter_order": [
+        "diet_contrast",
+        "common_period_effect"
+      ],
+      "terms": {
+        "common_period_effect": {
+          "interval": [
+            -217.838003618,
+            238.494003618
+          ],
+          "standard_error": 108.602794034,
+          "value": 10.328
+        },
+        "diet_contrast": {
+          "interval": [
+            279.566424953,
+            735.898432189
+          ],
+          "standard_error": 108.602794034,
+          "value": 507.732428571
+        }
+      }
+    },
+    "published_comparison": [
+      {
+        "agrees_at_reported_precision": true,
+        "published": 508,
+        "reproduced": 507.732428571,
+        "statistic": "mean"
+      },
+      {
+        "agrees_at_reported_precision": true,
+        "published": 106,
+        "reproduced": 105.732749316,
+        "statistic": "standard_error"
+      }
+    ],
+    "published_reproduction_passed": true,
+    "status": "estimated",
+    "unit": "kcal/day"
+  },
+  "schema_version": 1,
+  "scientific_release_ready": false,
+  "time_period": "2018 trial; two consecutive 14-day diet periods; author archive January 2021"
+}

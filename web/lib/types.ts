@@ -56,6 +56,9 @@ export type Guide = {
   mechanism: string;
   try: string;
   limit: string;
+  predict?: string;
+  challenge?: string;
+  evidence?: string;
 };
 export type Parameter = {
   key: string;
@@ -67,6 +70,12 @@ export type Parameter = {
   source_url: string | null;
   citation: string | null;
   notes: string | null;
+  population?: string | null;
+  geography?: string | null;
+  time_period?: string | null;
+  transformation?: string | null;
+  unresolved?: boolean;
+  model_role?: string;
   uncertainty: {
     kind: string;
     low: number | null;
@@ -86,7 +95,29 @@ export type Trace = {
   [key: string]: Json | undefined;
 };
 export type Figure = { data: Trace[]; layout: Record<string, Json> };
-export type Chart = { id: string; figure: Figure; guide: Guide };
+export type ChartEvidence = {
+  scope: string;
+  note: string;
+  scenario?: Scenario;
+  evidence_sha256: string;
+  parameters: Parameter[];
+  sources: { key: string; record: Record<string, Json> }[];
+  mechanisms: {
+    id: string;
+    label: string;
+    parameters: string[];
+    note: string;
+  }[];
+  sampled_parameters: string[];
+  limitations: string[];
+  unresolved: string[];
+};
+export type Chart = {
+  id: string;
+  figure: Figure;
+  guide: Guide;
+  evidence?: ChartEvidence;
+};
 export type Receipt = {
   id: string;
   name: string;

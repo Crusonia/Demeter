@@ -1,0 +1,32 @@
+{
+  "before_commit": "bf33ca0",
+  "checks": [
+    {
+      "after_evidence_sha256": "3e040acf7af428ef7bf8f85e52ce521f8ddc468dfafc7b11672cfde523cbc5b7",
+      "after_sha256": "287f44e0c1a58978a3298f028ef756f2e8d2ec1955a136ae539b05b3a7a6bd54",
+      "all_other_outputs_identical": true,
+      "before_evidence_sha256": "2e74bf3e259d9568d5434a1d193b017574f1c8b1f1c125a968421d0c723bd054",
+      "before_sha256": "287f44e0c1a58978a3298f028ef756f2e8d2ec1955a136ae539b05b3a7a6bd54",
+      "scenario": "baseline"
+    },
+    {
+      "after_evidence_sha256": "3e040acf7af428ef7bf8f85e52ce521f8ddc468dfafc7b11672cfde523cbc5b7",
+      "after_sha256": "3aa567d9e1f93e04913ae0f059e106ea2195cd67cf62db30cc5e4238e9153afe",
+      "all_other_outputs_identical": true,
+      "before_evidence_sha256": "2e74bf3e259d9568d5434a1d193b017574f1c8b1f1c125a968421d0c723bd054",
+      "before_sha256": "3aa567d9e1f93e04913ae0f059e106ea2195cd67cf62db30cc5e4238e9153afe",
+      "scenario": "prechronic_baseline"
+    },
+    {
+      "after_evidence_sha256": "3e040acf7af428ef7bf8f85e52ce521f8ddc468dfafc7b11672cfde523cbc5b7",
+      "after_sha256": "c14dd33eb0e1df2dbe03cf7d29b5c645cbc46136f466a5788e24fbed22f2f505",
+      "all_other_outputs_identical": true,
+      "before_evidence_sha256": "2e74bf3e259d9568d5434a1d193b017574f1c8b1f1c125a968421d0c723bd054",
+      "before_sha256": "c14dd33eb0e1df2dbe03cf7d29b5c645cbc46136f466a5788e24fbed22f2f505",
+      "scenario": "reduce_upf_30"
+    }
+  ],
+  "schema_version": 1,
+  "scientific_release_ready": false,
+  "scope": "Exact canonical equality of the complete simulation result excluding only metadata.evidence_sha256 and healthspan.evidence_sha256"
+}

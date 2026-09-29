@@ -59,6 +59,16 @@ mechanics, but it must not populate a business case or establish a clinical effe
 
 ## Acquisition and implementation order
 
+The proposed health evidence acquisition contracts are
+[RFC-57](../rfcs/RFC-57-longitudinal-identification.md) for repeated-state
+progression/reversal and [RFC-58](../rfcs/RFC-58-food-pathway-identification.md) for
+a defined dietary contrast. They feed I-01/I-07 and P-02 without activating the
+later economic feedbacks or treating menu labels as clinical parameters.
+
+The [food-intake reproduction](../FOOD_INTAKE_REPRODUCTION.md) implements the
+upstream menu/intake benchmark from RFC-58. It supplies a traceable paired estimate
+for I-07 while leaving the dose, timing, population and disease-transition bridge open.
+
 1. Finish I-01 and the applicable health evidence/definition work in I-07 for the
    existing v0.1 acceptance criteria. A separate PreChronic cohort remains later
    work; do not insert it merely to satisfy the broader scenario narrative.

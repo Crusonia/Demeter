@@ -50,6 +50,7 @@ def explore(
 ) -> None:
     """Open the local educational interface with working model reruns (studio extra)."""
     from demeter.explorer.launcher import launch
+
     try:
         launch(project, destination, port, browser)
     except (ValueError, RuntimeError, OSError) as exc:
@@ -223,6 +224,29 @@ def evidence_audit(evidence: Path = DEFAULT_EVIDENCE) -> None:
     emit(registry(evidence).audit())
 
 
+@evidence_app.command("food-intake")
+def food_intake_evidence(
+    archive: Annotated[Path, typer.Option(help="Local pinned author ZIP; never downloaded implicitly")],
+    evidence: Path = DEFAULT_EVIDENCE,
+    output: Path | None = None,
+) -> None:
+    """Reproduce the paired menu/intake benchmark; no disease effect is activated."""
+    from demeter.analysis.food_intake import reproduce_intake
+    from demeter.data.nhanes import encoded
+
+    try:
+        report = reproduce_intake(registry(evidence), archive)
+    except (ValueError, OSError) as exc:
+        typer.echo(str(exc), err=True)
+        raise typer.Exit(1) from exc
+    if output:
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_bytes(encoded(report))
+    emit(report)
+    if not report["results"]["published_reproduction_passed"]:
+        raise typer.Exit(1)
+
+
 @evidence_app.command("applicability")
 def evidence_applicability(evidence: Path = DEFAULT_EVIDENCE, output: Path | None = None) -> None:
     """Show candidate estimates and unresolved population/endpoint mappings."""
@@ -314,6 +338,24 @@ def healthspan_benchmark(evidence: Path = DEFAULT_EVIDENCE, output: Path | None 
 def population_evidence(evidence: Path = DEFAULT_EVIDENCE, output: Path | None = None) -> None:
     """Read pinned age/sex glycemic prevalence; never substitute it for T2D states."""
     emit(load_nhanes(registry(evidence)), output)
+
+
+@evidence_app.command("state-mapping")
+def state_mapping_evidence(
+    evidence: Path = DEFAULT_EVIDENCE,
+    output: Path | None = None,
+    partial: Annotated[bool, typer.Option(help="Preserve known categories and bound incomplete observations")] = False,
+) -> None:
+    """Audit observed categories, unclassified coverage and unresolved engine mappings."""
+    from demeter.data.state_mapping import mapping_report
+    from demeter.data.nhanes import encoded
+    from demeter.data.partial_observations import partial_report
+
+    report = (partial_report if partial else mapping_report)(registry(evidence))
+    if output:
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_bytes(encoded(report))
+    emit(report)
 
 
 @data_app.command("rebuild-prechronic")

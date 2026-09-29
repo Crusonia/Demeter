@@ -20,7 +20,7 @@ It preserves the full [issue #1 objective](CODEX_V0_1_OBJECTIVE.md).
 | --- | --- | --- |
 | Age/sex mortality and period life-table arithmetic | Archived CDC/NCHS life tables, Census initialization, nine reconstruction checks and independent arithmetic fixtures; `demeter validate`, `tests/test_life_table.py`, `tests/test_cohorts.py` | Numerical reproduction supported within documented tolerance. Synthetic state ratios are not identified by this match. |
 | Survey glycemic prevalence | [NHANES reconstruction](NHANES_PREVALENCE.md), archived labs/interviews, survey weights, published table comparisons | Observation reconstruction supported. Normoglycemia, prediabetes and all-type diabetes do not automatically identify metabolic health, insulin resistance and T2D engine stocks. |
-| Baseline-category mortality prediction | [Development benchmark](MORTALITY_DEVELOPMENT.md), 2011–2012 NHANES/2019 linkage, four fitted models and joint survey covariance | Estimation and numerical checks performed. No independent prediction validation yet; selection, perturbed follow-up and transport remain unresolved. |
+| Baseline-category mortality prediction | [Development benchmark](MORTALITY_DEVELOPMENT.md) and [reserved-cycle evaluation](MORTALITY_VALIDATION.md), with four frozen fits, pre-outcome protocol and survey intervals | Temporal prediction evaluated without refitting. Aggregate glycemic score contrasts have intervals spanning zero; no clinical acceptance, causal state-hazard identification or winning form. Selection, perturbed follow-up and transport remain unresolved. |
 | Dependence on age specification | Original Gompertz versus continuous piecewise attained-age log hazard, each with matched age/sex null; analytic integration and independent numerical checks | Alternative is implemented after the original development fit, with declaration before alternative fitting. Both results retained; coefficient changes disclosed. No model selected or clinically accepted from this comparison. |
 | Progression and reversal | Corrected ARIC/LEADR estimates and [clinical appraisals](CLINICAL_EVIDENCE.md) | Population, endpoint, follow-up and competing-risk mismatches remain. No national current-state transition likelihood is established. |
 | Dietary intervention, dose and lag | Archived dietary baselines; [Look AHEAD response challenge](DIET_DYNAMICS.md); candidate prospective evidence | Observed intake and a multicomponent trial do not identify the current UPF coefficient, both progression pathways or the lag. Engine parameters remain synthetic. |
@@ -55,11 +55,14 @@ the zero-hinge reduction, preserve weight-scale invariance and empty-domain PSUs
 and reject nonconvergence or unidentified information. These checks do not test
 unmeasured confounding or supply missing state-transition observations.
 
-## Next validation record, before reserved outcomes are inspected
+## Pre-outcome requirements and subsequent execution
 
-The reserved NHANES 2013–2014/2019 linkage remains uninspected in this work.
-Further descriptive validation may proceed without an external expert once its
-executable protocol is frozen. The record must fix source versions, observation
+The following requirements were recorded before inspecting the reserved NHANES
+2013–2014/2019 linkage. They were implemented in
+[RFC-55](rfcs/RFC-55-mortality-holdout.md), frozen at `f1cab86`, and evaluated only
+after that commit and draft PR publication. The
+[September 29 assessment](MORTALITY_VALIDATION.md) now records the executed result;
+the cycle is used evidence for any subsequent model changes. The record fixes source versions, observation
 definitions, the four development fits, exclusions, domain handling, numerical
 controls, coefficient uncertainty treatment and the following metrics:
 
@@ -84,9 +87,10 @@ collection, implementation or predeclared evaluation. External expert review
 remains pending and is not impersonated by this report or by automated review.
 The policy approval is recorded separately from PR merge authority.
 
-Current supported conclusions are limited to source reconstruction and numerical
-development estimation. Independent mortality prediction, engine state mapping,
-causal dietary pathways and full scientific v0.1 acceptance remain unresolved.
+Current supported conclusions include source reconstruction, numerical development
+estimation and the scoped descriptive temporal prediction results. Clinical
+mortality acceptance, engine state mapping, causal dietary pathways and full
+scientific v0.1 acceptance remain unresolved.
 The release gate stays false for those substantive reasons. Closing issue #1
 still requires its full acceptance evidence; this report is the record through
 which that work proceeds, not a replacement for it.

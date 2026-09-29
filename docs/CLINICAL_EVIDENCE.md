@@ -49,6 +49,24 @@ alternative strata, not independent effects to multiply together.
 
 ## Dietary identification remains unresolved
 
+The next implementation contracts are
+[RFC-57: longitudinal identification](rfcs/RFC-57-longitudinal-identification.md)
+and [RFC-58: food-pathway identification](rfcs/RFC-58-food-pathway-identification.md).
+They define the needed observation histories and distinguish reproducible
+randomized menu contrasts from the still-unidentified disease-transition bridge.
+
+The [longitudinal source appraisal](LONGITUDINAL_SOURCE_APPRAISAL.md) verifies two
+open cohort workbooks against publisher checksums and records their actual field
+coverage. Neither supplies the full treatment, post-diabetes and competing-death
+history required for the proposed dynamics. A possible restricted Chen
+baseline/final-glucose analysis remains distinct from engine calibration; no
+transition fit or parameter promotion has occurred.
+
+The [paired daily-intake reproduction](FOOD_INTAKE_REPRODUCTION.md) now reproduces
+the Hall author archive's published mean and standard error, with a participant-level
+interval and order/period sensitivity. Its estimated parameter remains benchmark-only;
+it cannot replace a dietary hazard coefficient or supply a national forecast.
+
 [Chen et al. (2023)](https://pmc.ncbi.nlm.nih.gov/articles/PMC10300524/),
 doi:10.2337/dc22-1993, reports prospective associations with incident T2D. Its
 extreme-quintile comparison uses UPF as a share of food weight; the main Table 2

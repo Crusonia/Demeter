@@ -110,6 +110,30 @@ def verify() -> None:
                 assert "healthy" in (artifacts / "stocks.csv").read_text()
                 views.get_by_role("button", name="Sources", exact=True).click()
                 expect(page.locator(".chart-pane .source").first).to_be_visible()
+                page.get_by_text("Test your explanation", exact=True).click()
+                expect(page.get_by_text("Predict before running", exact=True)).to_be_visible()
+                panel = page.locator(".chart-pane > .source-list")
+                mechanism = panel.get_by_role(
+                    "combobox", name="Evidence for a mechanism", exact=True
+                )
+                mechanism.select_option(label="upf exposure → lagged response")
+                expect(panel.locator(".source")).to_have_count(2)
+                expect(panel.get_by_text("diet lag years", exact=True)).to_be_visible()
+                panel.get_by_text("Saved scenario assumptions", exact=True).click()
+                expect(panel.locator(".scenario-assumptions")).to_contain_text(
+                    "Browser first experiment"
+                )
+                panel.get_by_text("Unresolved evidence and limits", exact=True).click()
+                expect(panel).to_contain_text("no clinical dose range, saturation or timing")
+                page.screenshot(path=str(artifacts / "mechanism-evidence-desktop.png"))
+                mechanism.select_option("")
+                picker = page.get_by_role("combobox", name="Question / chart", exact=True)
+                picker.select_option("history_e0_both_sexes")
+                views.get_by_role("button", name="Sources", exact=True).click()
+                expect(panel.locator(".source")).to_have_count(1)
+                expect(panel.get_by_text("U.S., all races, Both Sexes", exact=True)).to_be_visible()
+                expect(panel.get_by_text("beta upf progression", exact=True)).to_have_count(0)
+                picker.select_option("stocks")
                 page.get_by_role(
                     "textbox", name="Your explanation & next question", exact=True
                 ).fill("I will challenge the lag next.")
@@ -120,6 +144,22 @@ def verify() -> None:
                 with page.expect_download() as download:
                     page.get_by_role("button", name="↓ Offline report", exact=True).click()
                 download.value.save_as(artifacts / "report.html")
+                offline = browser.new_page()
+                offline.route("http**://**/*", lambda route: route.abort())
+                offline.goto((artifacts / "report.html").as_uri())
+                offline.locator("#stocks .chart-evidence > summary").click()
+                expect(offline.locator("#stocks .chart-evidence > .source").first).to_be_visible()
+                offline.locator("#stocks .scenario-assumptions > summary").click()
+                expect(offline.locator("#stocks .scenario-assumptions")).to_contain_text(
+                    "Browser first experiment"
+                )
+                expect(offline.locator("#stocks .chart-evidence")).to_contain_text(
+                    "no clinical dose range, saturation or timing"
+                )
+                expect(offline.locator("#stocks .teaching")).to_contain_text(
+                    "Predict before running"
+                )
+                offline.close()
                 assert "Why it happens in this model" in (artifacts / "report.html").read_text(
                     encoding="utf-8"
                 )
@@ -146,6 +186,31 @@ def verify() -> None:
                     json.loads(path.read_text()) for path in destination.glob("*/request.json")
                 ]
                 assert len(saved) == 2 and any(r["reference_id"] == first_id for r in saved)
+                second = next(
+                    path.parent
+                    for path in destination.glob("*/request.json")
+                    if json.loads(path.read_text())["reference_id"] == first_id
+                )
+                experiment_charts = json.loads((second / "report/charts.json").read_text())
+                reference_charts = json.loads((second / "reference-charts.json").read_text())
+
+                def beta(charts):
+                    stocks = next(c for c in charts["charts"] if c["id"] == "stocks")
+                    return next(
+                        p["value"]
+                        for p in stocks["evidence"]["parameters"]
+                        if p["key"] == "beta_upf_progression"
+                    )
+
+                assert beta(experiment_charts) == 0.5 and beta(reference_charts) != 0.5
+                views.get_by_role("button", name="Sources", exact=True).click()
+                panel.get_by_text("Saved scenario assumptions", exact=True).click()
+                expect(panel.locator(".scenario-assumptions")).to_contain_text(
+                    "Browser changed assumption"
+                )
+                expect(panel.locator(".scenario-assumptions")).not_to_contain_text(
+                    "Browser first experiment"
+                )
                 page.get_by_text("See the exact assumptions diff", exact=False).click()
                 expect(
                     page.get_by_text("overrides.beta_upf_progression", exact=True)
@@ -179,11 +244,40 @@ def verify() -> None:
                 page.locator(".chart-story").scroll_into_view_if_needed()
                 page.screenshot(path=str(artifacts / "chart-mobile.png"))
                 assert page.evaluate("document.documentElement.scrollWidth <= innerWidth + 1")
+                views.get_by_role("button", name="Sources", exact=True).click()
+                page.locator(".chart-story").scroll_into_view_if_needed()
+                expect(page.locator(".chart-pane .source").first).to_be_visible()
+                page.screenshot(path=str(artifacts / "evidence-mobile.png"))
+                assert page.evaluate("document.documentElement.scrollWidth <= innerWidth + 1")
                 nav.get_by_role("button", name="Experiment", exact=True).click()
                 page.get_by_role("combobox", name="Model / scenario", exact=True).select_option(
                     label="Experimental · Glp1 access"
                 )
                 expect(page.get_by_label("Access (%) · step 1", exact=True)).to_be_visible()
+                for step in (4, 3, 2):
+                    page.get_by_role(
+                        "button", name=f"Remove access step {step}", exact=True
+                    ).click()
+                page.get_by_label("Model years", exact=True).fill("2")
+                page.get_by_label("Experiment name", exact=True).fill("Browser GLP-1 assumptions")
+                page.get_by_role("button", name="Run experiment →", exact=True).click()
+                expect(page.get_by_role("button", name="Use these assumptions")).to_be_visible(
+                    timeout=180000
+                )
+                picker.select_option("glp1_capacity")
+                views.get_by_role("button", name="Sources", exact=True).click()
+                panel.get_by_text("Saved scenario assumptions", exact=True).click()
+                expect(panel.locator(".scenario-assumptions")).to_contain_text(
+                    '"monthly_price_usd": 900'
+                )
+                expect(panel.locator(".scenario-assumptions")).to_contain_text(
+                    '"supply_fraction": 0.03'
+                )
+                panel.get_by_text("Unresolved evidence and limits", exact=True).click()
+                expect(panel).to_contain_text("interactions, adverse-event outcomes")
+                page.screenshot(path=str(artifacts / "glp1-evidence-mobile.png"))
+                assert page.evaluate("document.documentElement.scrollWidth <= innerWidth + 1")
+                nav.get_by_role("button", name="Experiment", exact=True).click()
                 page.get_by_role("combobox", name="Model / scenario", exact=True).select_option(
                     label="Experimental · Diet dynamics"
                 )

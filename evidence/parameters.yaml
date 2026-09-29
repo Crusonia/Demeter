@@ -1632,7 +1632,169 @@ parameters:
         row_occurrence: 0
         column_index: 3
         scale: 0.01
+  hall2019_menu_intake_difference:
+    key: hall2019_menu_intake_difference
+    value: 507.732428571
+    unit: kcal/day
+    status: estimated
+    evidence_grade: B
+    source: Paired reproduction of Hall et al. author daily-intake data
+    source_url: https://osf.io/download/fsqb7/
+    source_id: hall2019_intake_archive
+    citation: Hall KD et al. Cell Metabolism. 2019;30(1):67-77.e3. doi:10.1016/j.cmet.2019.05.008; author
+      archive version ADLDataSAScode2.zip (2021)
+    population: Twenty adult inpatient volunteers; paired offered-menu contrast, not a national cohort
+    geography: NIH Clinical Center, Bethesda, Maryland, United States
+    time_period: 2018 trial; two consecutive 14-day diet periods; author archive January 2021
+    exposure_definition: Offered PROC versus UNPROC whole menus, ad libitum in the NIH inpatient protocol
+    outcome_definition: Participant mean daily energy intake, PROC minus UNPROC
+    uncertainty:
+      kind: interval
+      low: 286.431240915
+      high: 729.033616228
+      rationale: Paired Student t 95% sampling interval across 20 participants, 19 df; not an engine
+        sampling distribution or transport interval
+    transformation: Average daily EI within each participant and diet; paired difference; reproduce
+      from checksum-pinned author archive and recorded protocol
+    model_role: benchmark_only
+    notes: Limited randomized regimen contrast; no isolated processing, continuous UPF dose, diabetes
+      transition, mortality or healthspan effect. No national transport; carryover unresolved.
 datasets:
+  mortality_validation:
+    status: derived
+    evidence_grade: C
+    model_role: prediction_benchmark_only
+    protocol: docs/validation/mortality-validation-protocol-v1.json
+    protocol_sha256: 440c44a18a743e6c9d1cc345aabbaf7631033fdb640d9062bba6a748c0abb091
+    implementation_amendment:
+      path: docs/validation/mortality-validation-implementation-amendment-1.json
+      sha256: 482f1289c0925bdcfeb823e10ba0b366418cdcf24e6345cf28e85a57bf4b323a
+    rfc: docs/rfcs/RFC-55-mortality-holdout.md
+    development_cycle: 2011-2012
+    validation_cycle: 2013-2014
+    mortality_release: 2019 public-use
+    source_store: data/sources/nhanes-mortality/2013-2014
+    population: Complete adult fasting baseline below age top-code, linked, with positive examination follow-up;
+      frozen RFC-1 domain
+    geography: United States
+    unit: Censored log score, integrated event intensity, observed/expected ratio, record counts
+    numerical_controls: Frozen existing mortality_development and nhanes_glycemic_prevalence.analysis; no
+      new numerical calibration or thresholds
+    uncertainty: Pointwise survey-design uncertainty conditional on all four frozen fitted models. No coefficient
+      resampling, multiplicity-adjusted superiority claim, clinical pass tolerance or total-uncertainty
+      claim.
+    transformation: demeter.analysis.mortality_validation.validation_report
+  observation_state_mapping:
+    status: derived
+    evidence_grade: C
+    model_role: benchmark_only
+    population: U.S. noninstitutionalized adults in the positive-weight NHANES 2017-March 2020 fasting subsample,
+      excluding known pregnancy within the public age window
+    geography: United States
+    time_period: 2017-March 2020
+    unit: fraction of eligible survey weight; unweighted records
+    rfc: docs/rfcs/RFC-56-observation-state-mapping.md
+    definitions:
+    - nhanes_glycemic_prevalence.analysis
+    - nhanes_prechronic_candidates.analysis
+    topcoded_age: 80
+    definition_sources:
+      age_and_population: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_DEMO.htm
+      diagnosis: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_DIQ.htm
+    uncertainty: Existing Taylor logit-t pointwise survey intervals; shared observations, not independent
+      draws. Missingness, diagnostic error, definition and transport uncertainty not identified.
+    direct_initialization_allowed: false
+    crosswalk:
+    - observation: normoglycemia
+      structure: legacy
+      candidate_state: healthy
+      mapping_status: unresolved
+      reason: Normal glycemia does not identify overall metabolic health or absence of other disease.
+    - observation: prediabetes
+      structure: legacy
+      candidate_state: ir
+      mapping_status: unresolved
+      reason: The glycemic threshold category does not identify all insulin resistance.
+    - observation: diabetes_any_type
+      structure: all
+      candidate_state: t2d
+      mapping_status: unresolved
+      reason: Diabetes type is not identified; no subtraction or assumed T2D fraction.
+    - observation: lower_measured_risk
+      structure: risk_1/risk_2
+      candidate_state: healthy
+      mapping_status: unresolved
+      reason: Lower measured risk is not proof of general health; diagnoses and markers are incomplete.
+    - observation: prechronic_candidate
+      structure: risk_1/risk_2
+      candidate_state: prechronic
+      mapping_status: definition_only
+      reason: Matches a candidate observation rule, not a clinical diagnosis or transported national stock.
+    - observation: prediabetes
+      structure: risk_1/risk_2
+      candidate_state: prediabetes
+      mapping_status: definition_only
+      reason: Observation label aligns; complete-case selection, age and temporal transport remain unresolved.
+    - observation: other_reported_diagnosis
+      structure: risk_1/risk_2
+      candidate_state: null
+      mapping_status: unrepresented
+      reason: No corresponding engine stock. These people must not be dropped or declared healthy.
+    - observation: unclassified
+      structure: all
+      candidate_state: null
+      mapping_status: unclassified
+      reason: Missing interview or measurements remain unknown; no imputation or healthy assignment.
+    limitations:
+    - Public cross-sectional observations cannot identify latent state or transition rates.
+    - Adult, noninstitutionalized survey population and 2017-March 2020 period do not directly initialize
+      every age of the 2024 engine population.
+    - Public age top-coding prevents single-age decomposition in the oldest group; no pediatric interpolation
+      is performed.
+    - Known diagnoses retain precedence within complete cases; incomplete records can remain unclassified
+      despite known diabetes.
+    - Treatment use, control duration, diabetes type, all chronic diseases and confirmed remission are not
+      identified.
+    - PreChronic alternatives and overlapping age domains share observations and must not be summed.
+    - No active model parameter or numerical engine output changes.
+  observation_partial_mapping:
+    status: derived
+    evidence_grade: C
+    model_role: benchmark_only
+    direct_initialization_allowed: false
+    method: compatible_categories_v1
+    rfc: docs/rfcs/RFC-56-observation-state-mapping.md
+    definitions:
+    - observation_state_mapping
+    - nhanes_glycemic_prevalence.analysis
+    - nhanes_prechronic_candidates.analysis
+    population: U.S. noninstitutionalized adults in the eligible NHANES 2017-March 2020 fasting subsample
+    geography: United States
+    time_period: 2017-March 2020
+    unit: fraction of all eligible survey weight; unweighted records
+    interview_codes:
+      'yes': 1
+      'no': 2
+      no_diabetes_diagnosis: [2, 3]
+    definition_sources:
+      diagnosis: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_DIQ.htm
+      glucose: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_GLU.htm
+      hba1c: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_GHB.htm
+    blood_pressure_missingness: Treat the marker as unknown unless all six existing required readings
+      are finite and positive; do not average fewer readings. This coarsening gives conservative bounds.
+    uncertainty: Logical compatible-category bounds conditional on recorded rules, with separate Taylor
+      logit-t sampling intervals for each bound endpoint. Not a simultaneous confidence region or an
+      initialization distribution. No missing-at-random assumption or diagnostic-error model.
+    limitations:
+    - Bounds concern the registered observation categories, not true latent health states.
+    - Any-type diabetes does not identify T2D; normoglycemia does not identify general metabolic health.
+    - Adult survey observations from 2017-March 2020 do not resolve pediatric, oldest-age, institutionalized
+      or current-year population transport. Survey-selection and diagnostic errors remain unresolved.
+    - A single high laboratory measurement is an observation category, not a confirmed clinical diagnosis.
+    - Partially observed blood-pressure blocks are coarsened; bounds need not be sharp over raw completions.
+    - Known diabetes takes priority despite unrelated missing measurements in this alternative;
+      the original complete-case report remains available separately.
+    - Unknown values remain sets of possible categories; no imputation or automatic engine allocation.
   mortality_development:
     status: derived
     evidence_grade: C
@@ -2069,6 +2231,38 @@ datasets:
     manifest: src/demeter/data/bundled/manifest.json
     transformation: Select SEX 0/1/2, AGE 0..100, POPESTIMATE year; 100 is open group
     uncertainty: Published estimates treated as fixed; demographic uncertainty not propagated
+  food_intake_reproduction:
+    estimate_parameter: hall2019_menu_intake_difference
+    status: derived
+    evidence_grade: B
+    model_role: benchmark_only
+    source_id: hall2019_intake_archive
+    population: Twenty adult inpatient volunteers; paired offered-menu contrast, not a national cohort
+    geography: NIH Clinical Center, Bethesda, Maryland, United States
+    time_period: 2018 trial; two consecutive 14-day diet periods; author archive January 2021
+    unit: kcal/day
+    uncertainty: Participant-level paired t intervals and additive common-period sensitivity; no resolved
+      national transport or disease bridge
+    protocol_path: docs/validation/food-intake-reproduction-protocol-v1.json
+    protocol_sha256: 63b13182e3d1d5bdcf11be34d4c085c1753c580c137c587b5246941a77ecffe8
+    analysis:
+      participants: 20
+      days_per_diet: 14
+      diets:
+      - PROC
+      - UNPROC
+      sequences:
+        PU:
+        - PROC
+        - UNPROC
+        UP:
+        - UNPROC
+        - PROC
+      confidence_level: 0.95
+      published_difference_kcal_per_day: 508
+      published_standard_error_kcal_per_day: 106
+      published_rounding_unit_kcal_per_day: 1
+    published_summary_source: https://pubmed.ncbi.nlm.nih.gov/31105044/
 scientific_blockers:
 - National age-specific metabolic transition hazards are unresolved.
 - Age-specific T2D/prediabetes initial prevalence is not calibrated; CDC total diabetes includes
@@ -2098,3 +2292,18 @@ sources:
     sha256: 11f57aa0827c0d26a096c046268aad39c70512b969da4659423458684ccfd085
     retrieved_at: '2026-09-26T03:10:59.458462+00:00'
     license: CC-BY; authors and publication attributed; raw article not bundled.
+  hall2019_intake_archive:
+    url: https://osf.io/download/fsqb7/
+    citation: Hall KD et al. Cell Metabolism. 2019;30(1):67-77.e3. Author OSF ADLDataSAScode2.zip, uploaded
+      January 28, 2021, version 1.
+    doi: 10.1016/j.cmet.2019.05.008
+    raw_filename: hall2019-intake.zip
+    sha256: c941c1cd33abb0cf17fb982aaec0fb23da034c94e5b86ec949a0e73704a6fbb8
+    retrieved_at: '2026-09-29T02:55:39.558901+00:00'
+    license: No explicit OSF node license recorded. Raw data/code are fetch-only in ignored local storage;
+      no raw redistribution permission is asserted.
+    correction_url: https://pubmed.ncbi.nlm.nih.gov/33027677/
+    correction_note: 'Both errata retained in the reproduction protocol: 10.1016/j.cmet.2019.05.020
+      and 10.1016/j.cmet.2020.08.014. Accessible PMC notice says total daily intake is unaffected by
+      the meal-label correction. Author archive uploaded after January 2021 correction discussion; body-composition
+      and meal-level endpoints excluded.'

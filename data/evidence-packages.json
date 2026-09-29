@@ -354,6 +354,114 @@
       ],
       "model_role": "development_benchmark_only",
       "redistribution": "Demeter-derived aggregate estimates and covariance from archived CDC public-use files; source terms retained. No joined person-level exports."
+    },
+    "food_intake_reproduction": {
+      "artifacts": [
+        {
+          "path": "docs/validation/food-intake-reproduction-protocol-v1.json",
+          "sha256": "63b13182e3d1d5bdcf11be34d4c085c1753c580c137c587b5246941a77ecffe8"
+        },
+        {
+          "path": "docs/validation/issue-58-food-intake.json",
+          "sha256": "065f674c095f3129ab9b82ad946daaae0ef8cc9611d82ded6a939229579b422a"
+        },
+        {
+          "path": "docs/validation/issue-58-food-intake-before-after.json",
+          "sha256": "df91ef87d07e75f001d6681af3a8e74a91f83263194109a82b08b81c8bf07fc7"
+        }
+      ],
+      "dependencies": [],
+      "model_role": "benchmark_only",
+      "rebuild": [
+        "uv run demeter evidence food-intake --archive data/raw/clinical/hall2019-intake.zip --output outputs/food-intake.json"
+      ],
+      "redistribution": "Demeter aggregate estimates, protocol, source receipts and code only. Raw author records/code are fetch-only and excluded from archives; full reproduction requires separately obtained matching bytes.",
+      "registry_datasets": [
+        "food_intake_reproduction"
+      ],
+      "registry_parameters": [
+        "hall2019_menu_intake_difference"
+      ],
+      "store": null,
+      "transform_files": [
+        "src/demeter/analysis/food_intake.py"
+      ]
+    },
+    "mortality_validation": {
+      "store": "mortality_validation",
+      "dependencies": [
+        "mortality_development"
+      ],
+      "registry_datasets": [
+        "mortality_validation"
+      ],
+      "registry_parameters": [],
+      "artifacts": [
+        {
+          "path": "docs/validation/issue-55-mortality-validation.json",
+          "sha256": "7f77a6ffcc430086f0d811d9404c2d1b9d7f0f24a37464d2d8120be3e5923852"
+        },
+        {
+          "path": "docs/validation/issue-55-mortality-validation-before-after.json",
+          "sha256": "ada8f78b1510fa5439c8449ed94b19579bf90f026943b2d1d2a69f6d4a61c7a9"
+        },
+        {
+          "path": "docs/validation/mortality-validation-implementation-amendment-1.json",
+          "sha256": "482f1289c0925bdcfeb823e10ba0b366418cdcf24e6345cf28e85a57bf4b323a"
+        },
+        {
+          "path": "docs/validation/issue-55-mortality-validation-amended.json",
+          "sha256": "cd7ec4aca53d47d8b02d4464e1a578921e88c6a4543c8e9b76a31d0ab7728974"
+        }
+      ],
+      "transform_files": [
+        "src/demeter/analysis/mortality_validation.py",
+        "scripts/validate_mortality_holdout.py"
+      ],
+      "rebuild": [
+        "uv run python scripts/validate_mortality_holdout.py"
+      ],
+      "model_role": "prediction_benchmark_only",
+      "redistribution": "Frozen Demeter protocol and aggregate diagnostics with source terms retained; no joined individual-level exports."
+    },
+    "observation_state_mapping": {
+      "store": null,
+      "dependencies": [
+        "nhanes_prechronic_risk"
+      ],
+      "registry_datasets": [
+        "observation_state_mapping",
+        "observation_partial_mapping"
+      ],
+      "registry_parameters": [],
+      "artifacts": [
+        {
+          "path": "docs/validation/issue-56-state-mapping.json",
+          "sha256": "64edfc92f5ba4874ad2ed355049f731215877fddf769eaefaa472a86fb22da32"
+        },
+        {
+          "path": "docs/validation/issue-56-state-mapping-before-after.json",
+          "sha256": "2f2579024eeeeb88b301f732d146850b84b8341704657ffe705e781f2f30d74e"
+        },
+        {
+          "path": "docs/validation/issue-56-partial-observations.json",
+          "sha256": "af66f154e6bb7595b72953be0d164c35a7369bba7d1ab721a3112d4d95fc4eb5"
+        },
+        {
+          "path": "docs/validation/issue-56-partial-before-after.json",
+          "sha256": "6cb1145eb8a859c262ad3ecc10a141978b0cb4330f4ae84c8134069dc60df553"
+        }
+      ],
+      "transform_files": [
+        "src/demeter/data/state_mapping.py",
+        "src/demeter/data/partial_observations.py"
+      ],
+      "rebuild": [
+        "uv run demeter evidence state-mapping --output outputs/state-mapping.json",
+        "uv run demeter evidence state-mapping --partial --output outputs/partial-observations.json"
+      ],
+      "model_role": "benchmark_only",
+      "redistribution": "Demeter aggregate observation audit from existing archived CDC/NCHS public-use files; retain upstream terms and citations. No joined person-level output."
     }
   },
   "supporting_artifacts": [
@@ -392,6 +500,10 @@
     {
       "path": "docs/validation/issue-1-mortality-development-before-after.json",
       "sha256": "0abefaa60a50c6d476be2428f3a70908ebd2bff4c991c768c928b94e7239f050"
+    },
+    {
+      "path": "docs/validation/mortality-validation-protocol-v1.json",
+      "sha256": "440c44a18a743e6c9d1cc345aabbaf7631033fdb640d9062bba6a748c0abb091"
     }
   ]
 }

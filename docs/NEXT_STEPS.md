@@ -1,0 +1,52 @@
+# Evidence and learning work after Explorer
+
+Implementation tracking for the maintainer's requested next steps, September 29,
+2026. This preserves the full scientific objective; a completed software feature
+does not satisfy an unresolved empirical requirement.
+
+| Work | Tracking | Completion evidence |
+| --- | --- | --- |
+| Independent mortality prediction | [#55](https://github.com/Crusonia/Demeter/issues/55) | Frozen models/protocol, untouched-cycle evaluation, uncertainty, source receipts and a scoped assessment |
+| Observation-to-state mapping | [#56](https://github.com/Crusonia/Demeter/issues/56) | Explicit definitions, age/sex coverage, unclassified remainder and evidence-supported initialization |
+| Progression and reversal | [#57](https://github.com/Crusonia/Demeter/issues/57) | Identifiable longitudinal likelihood, compatible evidence, joint uncertainty and independent checks |
+| One food-to-health pathway | [#58](https://github.com/Crusonia/Demeter/issues/58) | Matched exposure/dose/endpoint/lag, causal appraisal, reproducible estimates and appropriate validation |
+| Explorer evidence explanations | [#59](https://github.com/Crusonia/Demeter/issues/59) | Chart/mechanism-specific sources, uncertainty and guided exercises verified in the browser and offline exports |
+
+The first [mortality prediction evaluation](MORTALITY_VALIDATION.md) is implemented
+in [PR #60](https://github.com/Crusonia/Demeter/pull/60). It retains inconclusive
+comparisons and does not close the remaining health-model acceptance gates.
+The assessment also records a post-intake source-guard correction without
+rewriting the original protocol or numerical result.
+
+Issue #1 was reopened to match its scientific acceptance state. These tasks feed
+[milestone #27](https://github.com/Crusonia/Demeter/issues/27); none automatically
+authorizes a scientific release. Each missing value or unidentifiable relationship
+remains visible until evidence resolves it. The mortality prediction benchmark is
+not a substitute for state transitions, dietary causality or national transport.
+
+After the health foundations meet their acceptance criteria, the next upstream
+and downstream implementation priorities are [prices and substitution (#11)](https://github.com/Crusonia/Demeter/issues/11)
+and [utilization/provider economics (#10)](https://github.com/Crusonia/Demeter/issues/10).
+Their requirements remain in the existing roadmap. The local Explorer is separate
+from the [future public Simulator (#20)](https://github.com/Crusonia/Demeter/issues/20).
+
+## Integrated review branch
+
+[PR #63](https://github.com/Crusonia/Demeter/pull/63) combines the mortality
+evaluation from #60, observation mapping from #61, Explorer explanations from
+#62, and the longitudinal/food-pathway work. It provides one integration target
+for maintainer review; the individual PRs retain their development history.
+No merge to `main` or scientific acceptance is implied.
+
+Shared registry and package-manifest conflicts are resolved by preserving each
+branch's evidence definitions and artifact entries. The two observation reports
+are rebuilt against the combined registry: only their evidence-registry hash
+changes, with all observations, estimates, intervals, source receipts and
+implementation hashes retained. Original mortality protocols, amendments and
+intake receipts remain unchanged. Package checks cover the combined inventory.
+
+The [source appraisal and access brief](LONGITUDINAL_SOURCE_APPRAISAL.md)
+describe the next empirical dependency. The integration does not provide national
+state initialization, identified progression/reversal hazards or an active
+food-to-disease effect. Those requirements keep #1, #56, #57, #58 and milestone
+#27 open; synthetic dietary trajectories remain validation-only.

@@ -36,6 +36,12 @@ CDC/NCHS files for the 2011–2012 development cycle and mortality through 2019.
 aggregate event counts offline. These are feasibility diagnostics, not fitted
 health hazards or an independent validation pass.
 
+The [frozen mortality evaluation](../docs/MORTALITY_VALIDATION.md) adds five original
+2013–2014 public-use files and an aggregate prediction receipt. Its protocol and
+four fitted models were committed before outcome intake. Run
+`uv run python scripts/validate_mortality_holdout.py` to reproduce offline. This
+descriptive temporal check does not identify causal state or dietary effects.
+
 The [GLP-1 store](../docs/GLP1.md) contains official ClinicalTrials.gov STEP 1 and
 STEP 4 JSON responses and a separately labeled persistence-study extraction.
 `uv run demeter data rebuild-glp1` reconstructs their benchmark bundle offline.
@@ -122,6 +128,12 @@ Never upload identifiable health records, credentials, or full articles without
 redistribution rights. Clinical source receipts currently live in the evidence
 registry; full publisher articles are not included in this archive.
 
+The [food-intake reproduction](../docs/FOOD_INTAKE_REPRODUCTION.md) is another
+explicit exception: the author's public trial ZIP has no recorded redistribution
+license. The repository contains the pinned receipt, method, Python transform
+and aggregate results; raw participant records and author code stay in ignored
+local storage. Its command accepts a separately obtained archive and works offline.
+
 ## Source credit and terms
 
 The dietary timing store retains an official NIDDK HTML summary and a small
@@ -147,7 +159,7 @@ from the modeled quantities, and leave unsupported mappings explicitly unresolve
 
 ## NHANES and official JSON additions
 
-The [machine-readable catalog](catalog.json) covers all 46 archived source files, including
+The [machine-readable catalog](catalog.json) covers all 51 archived source files, including
 four deidentified NHANES 2017-March 2020 XPORT files and four official JSON
 snapshots and the NCHS healthspan method PDF. The original baseline and historical
 archives above remain canonical.

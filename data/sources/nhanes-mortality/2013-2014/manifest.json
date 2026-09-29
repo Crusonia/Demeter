@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "cycle": "2013-2014",
+  "protocol_sha256": "440c44a18a743e6c9d1cc345aabbaf7631033fdb640d9062bba6a748c0abb091",
+  "protocol_freeze_commit": "f1cab860b13cb7089b7adf3a73bdc98bcfbbf605",
+  "usage": "Public-use statistical analysis only; no identification; retain CDC/NCHS terms.",
+  "sources": {
+    "DEMO_H.xpt": {
+      "documentation": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2013/DataFiles/DEMO_H.htm",
+      "format": "SAS XPORT",
+      "publisher": "CDC/NCHS",
+      "title": "NHANES 2013-2014 Demographic Variables and Sample Weights",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2013/DataFiles/DEMO_H.xpt",
+      "use_terms": "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+      "vintage": "NHANES 2013-2014",
+      "sha256": "f8f0cbb3085a323d4cde22349b164878fea1e64dbc404e65b5815c7816b547d7",
+      "retrieved_at": "2026-09-29T01:55:02.398472+00:00"
+    },
+    "DIQ_H.xpt": {
+      "documentation": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2013/DataFiles/DIQ_H.htm",
+      "format": "SAS XPORT",
+      "publisher": "CDC/NCHS",
+      "title": "NHANES 2013-2014 Diabetes Questionnaire",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2013/DataFiles/DIQ_H.xpt",
+      "use_terms": "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+      "vintage": "NHANES 2013-2014",
+      "sha256": "c74c7ccef65e6997dfac1db1e73bc3f63dec67c70b2e322ffc14f14ce27429a9",
+      "retrieved_at": "2026-09-29T01:55:02.737741+00:00"
+    },
+    "GHB_H.xpt": {
+      "documentation": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2013/DataFiles/GHB_H.htm",
+      "format": "SAS XPORT",
+      "publisher": "CDC/NCHS",
+      "title": "NHANES 2013-2014 Glycohemoglobin",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2013/DataFiles/GHB_H.xpt",
+      "use_terms": "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+      "vintage": "NHANES 2013-2014",
+      "sha256": "0695894ad55ac96f315a8415401977b0856c402d16762115b534bcd5dfeae89e",
+      "retrieved_at": "2026-09-29T01:55:03.010703+00:00"
+    },
+    "GLU_H.xpt": {
+      "documentation": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2013/DataFiles/GLU_H.htm",
+      "format": "SAS XPORT",
+      "publisher": "CDC/NCHS",
+      "title": "NHANES 2013-2014 Plasma Fasting Glucose",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2013/DataFiles/GLU_H.xpt",
+      "use_terms": "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+      "vintage": "NHANES 2013-2014",
+      "sha256": "8aa3a41a8135eea6ad761bf7711ec18b29698d76aca3ae8fe487ef89ec9631da",
+      "retrieved_at": "2026-09-29T01:55:03.317077+00:00"
+    },
+    "NHANES_2013_2014_MORT_2019_PUBLIC.dat": {
+      "documentation": "https://www.cdc.gov/nchs/data/datalinkage/public-use-linked-mortality-file-description.pdf",
+      "format": "fixed-width ASCII",
+      "publisher": "CDC/NCHS",
+      "title": "NHANES 2013-2014 public-use linked mortality through 2019",
+      "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_2013_2014_MORT_2019_PUBLIC.dat",
+      "use_terms": "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+      "vintage": "NHANES 2013-2014; mortality follow-up through 2019 (May 2022 public release)",
+      "sha256": "588acea1d4cdf47a14cc9a35bd56e372739b8788d63ca0af98bf954c70c29905",
+      "retrieved_at": "2026-09-29T01:55:06.598964+00:00"
+    }
+  }
+}

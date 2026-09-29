@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "analysis_id": "hall2019-daily-intake-reproduction-v1",
+  "declared_at": "2026-09-29",
+  "status": "Post-publication reproduction plan; not preregistration or independent validation",
+  "prior_inspection": "Published effect, author analysis code, archive headers, missingness, counts, diet/order/day labels and corrections were inspected before this plan. No paired effect was newly fitted before this plan was recorded.",
+  "source_id": "hall2019_intake_archive",
+  "archive_sha256": "c941c1cd33abb0cf17fb982aaec0fb23da034c94e5b86ec949a0e73704a6fbb8",
+  "archive_version": "ADLDataSAScode2.zip; OSF file 6012eb8bdd222502a058d064, version 1, uploaded 2021-01-28",
+  "member": "dailyintake.sas7bdat",
+  "member_sha256": "343544424ef6e810d3654f36062a5e0b1210184b712def58664b65082b19a99e",
+  "author_code_sha256": "da7e53250c9915b086dfd0fa4f04437a5b991ba814d6707a6a0c12a2bd8aee7c",
+  "analysis": {
+    "participants": 20,
+    "days_per_diet": 14,
+    "diets": ["PROC", "UNPROC"],
+    "sequences": {"PU": ["PROC", "UNPROC"], "UP": ["UNPROC", "PROC"]},
+    "confidence_level": 0.95,
+    "published_difference_kcal_per_day": 508,
+    "published_standard_error_kcal_per_day": 106,
+    "published_rounding_unit_kcal_per_day": 1
+  },
+  "eligibility": "Require all expected participants, both diet labels, every within-diet day exactly once, valid sequence/calendar-day consistency, finite nonnegative daily EI and complete identifiers. Reject incomplete, duplicate or inconsistent inputs rather than silently dropping or imputing them.",
+  "primary": "Average EI over all days within each participant and diet. Form PROC minus UNPROC for each participant, then the unweighted mean paired difference, sample standard error and two-sided Student t interval with n-1 degrees of freedom. This reproduces the treatment contrast in the balanced participant-plus-diet fixed-effects author analysis, not every table or marginal-mean standard error.",
+  "sensitivity": "Show paired contrasts separately by randomized sequence. Regress each paired difference on an intercept and sign (+1 if PROC was second, -1 if PROC was first). Report the intercept, common period coefficient and their covariance, residual degrees of freedom and t intervals. This sensitivity assumes an additive common period effect and does not identify differential carryover.",
+  "comparison": "Compare mean and paired standard error with the published summary at its reported integer precision. Agreement is a numerical reproduction check, never a clinical or causal-release pass.",
+  "uncertainty": "Participant-level sampling intervals under the stated model; no national transport, food-category dose response, dietary hazard, mortality, missingness, measurement-error or carryover uncertainty is claimed to be resolved.",
+  "distribution": "Keep the author ZIP and individual records in ignored local storage. Publish only source receipts, this plan, Demeter code and aggregate results. OSF node license metadata is null; raw redistribution permission remains unresolved.",
+  "corrections": [
+    {"doi": "10.1016/j.cmet.2019.05.020", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7959109/", "assessment": "The accessible PMC notice describes a meal-level diet-order error and states that the primary total-daily-intake endpoint was unaffected."},
+    {"doi": "10.1016/j.cmet.2020.08.014", "url": "https://pubmed.ncbi.nlm.nih.gov/33027677/", "assessment": "PubMed verifies the separate erratum. Publisher body was unavailable during intake; Hall's January 21, 2021 response associates it with the meal-label correction. Preserve both identifiers; do not infer a different daily-intake adjustment from their inconsistent chronology."}
+  ],
+  "limits": [
+    "This is a contrast between whole offered menu regimens in a short inpatient crossover, not an isolated processing or ingredient effect.",
+    "No washout separates the diets; an order/period sensitivity does not prove absence of carryover.",
+    "The archive is the author's derived daily-intake table, not a new audit of meal records or original measurement systems.",
+    "Meal-specific macronutrients, body-composition adjustments and all other endpoints are outside this reproduction.",
+    "No conversion from kcal/day to a continuous UPF dose, diabetes hazard, mortality or healthspan is identified. The engine and scientific-release blockers remain unchanged."
+  ]
+}

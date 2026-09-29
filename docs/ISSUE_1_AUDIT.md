@@ -1,5 +1,19 @@
 # Issue #1 audit and resume contract
 
+## September 29 reserved-cycle evaluation
+
+[RFC-55's frozen evaluation](MORTALITY_VALIDATION.md) now evaluates all four
+development predictors on the previously reserved NHANES cycle. The protocol
+was committed and a draft PR opened before outcome intake. The small paired
+glycemic-versus-null score differences have intervals spanning zero; no clinical
+pass or winning age form is declared. Sources, subgroup results and uncertainty
+are retained. Active model parameters and canonical numerical outputs are unchanged.
+
+Issue #1 was reopened after PR #53 closed it automatically. The remaining work
+is tracked in [next steps](NEXT_STEPS.md), including state mapping, longitudinal
+hazards, dietary identification and full health validation. The historical
+"untouched" statements below describe the development stage, not current data status.
+
 ## September 28 validation continuation
 
 The [public linked-mortality audit](LINKED_MORTALITY.md) adds a reproducible
@@ -12,7 +26,7 @@ The subsequent [development mortality benchmark](MORTALITY_DEVELOPMENT.md)
 fits the proposed baseline-category prediction model and its age/sex-only null,
 with survey covariance and explicit exclusions. These estimates are registered
 as benchmark-only; they do not replace current-state mortality parameters or
-satisfy the independent health validation gate. The reserved cycle is untouched.
+satisfy the independent health validation gate. At that stage the reserved cycle was untouched.
 
 The four current `validate.prevalence` rows are unresolved population/state
 comparisons, with `passed: false` by construction. They are not four statistical
