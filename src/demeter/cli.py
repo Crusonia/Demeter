@@ -50,6 +50,7 @@ def explore(
 ) -> None:
     """Open the local educational interface with working model reruns (studio extra)."""
     from demeter.explorer.launcher import launch
+
     try:
         launch(project, destination, port, browser)
     except (ValueError, RuntimeError, OSError) as exc:
@@ -320,8 +321,13 @@ def population_evidence(evidence: Path = DEFAULT_EVIDENCE, output: Path | None =
 def state_mapping_evidence(evidence: Path = DEFAULT_EVIDENCE, output: Path | None = None) -> None:
     """Audit observed categories, unclassified coverage and unresolved engine mappings."""
     from demeter.data.state_mapping import mapping_report
+    from demeter.data.nhanes import encoded
 
-    emit(mapping_report(registry(evidence)), output)
+    report = mapping_report(registry(evidence))
+    if output:
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_bytes(encoded(report))
+    emit(report)
 
 
 @data_app.command("rebuild-prechronic")

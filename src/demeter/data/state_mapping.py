@@ -14,6 +14,7 @@ from demeter.data.nhanes import (
     definition as glycemic_definition,
     encoded,
     survey_proportion,
+    storage_numbers,
 )
 from demeter.data.prechronic import (
     STATES as RISK_STATES,
@@ -63,9 +64,13 @@ def assess(frame: pd.DataFrame, registry: EvidenceRegistry) -> dict:
     )
     definitions = []
     for key, state in categories.items():
-        names = (*GLYCEMIC_STATES, "unclassified") if key == "glycemic" else (
-            *RISK_STATES,
-            "unclassified",
+        names = (
+            (*GLYCEMIC_STATES, "unclassified")
+            if key == "glycemic"
+            else (
+                *RISK_STATES,
+                "unclassified",
+            )
         )
         partition = state.fillna("unclassified")
         if not partition.isin(names).all():
@@ -167,4 +172,4 @@ def mapping_report(registry: EvidenceRegistry) -> dict:
             "risk": risk_definition(registry)["analysis"],
         },
     }
-    return report
+    return storage_numbers(report)

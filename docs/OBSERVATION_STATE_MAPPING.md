@@ -105,6 +105,12 @@ rejection of direct initialization, offline source reload and all age/sex
 comparisons with the prior benchmark bundles. This verifies observation accounting,
 not the validity of a latent-state measurement model.
 
+Derived storage uses the existing twelve-significant-digit normalization, after
+survey calculations, to remove platform-dependent floating-point tail bits. This
+is a serialization convention, not a claim of measurement precision. The CLI
+writes canonical UTF-8/LF JSON; CI compares its bytes with the checksummed report
+on every supported platform. Raw source bytes and the estimation method are unchanged.
+
 Author/date: Codex-assisted analysis for the Food is Health-affiliated project,
 September 29, 2026 (UTC). External expert review and maintainer disposition remain
 pending; independent human review is not claimed. Type-specific classification,

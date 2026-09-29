@@ -150,3 +150,8 @@ def test_cli_outputs_aggregate_report_with_crosswalk(tmp_path):
     assert not report["direct_initialization_allowed"]
     assert all(row["mapping_status"] != "accepted" for row in report["crosswalk"])
     assert "SEQN" not in Path(destination).read_text(encoding="utf-8")
+    # CI runs on Linux, macOS and Windows: both storage precision and LF bytes
+    # must reproduce the exact checksummed artifact, not just approximate values.
+    assert (
+        destination.read_bytes() == Path("docs/validation/issue-56-state-mapping.json").read_bytes()
+    )

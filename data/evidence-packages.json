@@ -367,7 +367,7 @@
       "artifacts": [
         {
           "path": "docs/validation/issue-56-state-mapping.json",
-          "sha256": "230a872486c431f416fa495ddebc1e2f115e0a5fcb84ad56c76f0adf6ddb6291"
+          "sha256": "fcd875b7e6ac5dc1e79878d3067aa97d1e1b96098a8de3be3f0c40f70cc240f1"
         },
         {
           "path": "docs/validation/issue-56-state-mapping-before-after.json",
