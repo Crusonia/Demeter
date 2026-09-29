@@ -1,6 +1,13 @@
 # RFC-59: Explain the evidence saved with each chart
 
-Status: implemented; maintainer review pending. Supports #59 and #27. September 29, 2026.
+- Status: proposed
+- Issue and PR: [#59](https://github.com/Crusonia/Demeter/issues/59), [PR #62](https://github.com/Crusonia/Demeter/pull/62); supports #27
+- Authors and date: Codex-assisted work for the Food is Health-affiliated project, September 29, 2026 (UTC)
+- Implementation: implemented in [254b943](https://github.com/Crusonia/Demeter/commit/254b9438fb44d46c2a6974db9924718df8d59eca); verification below
+- Scientific assessment: presentation/scope assessment below; external expert review pending
+- Scientific use: validation-only; no model-parameter or clinical-claim change
+- Supersedes / superseded by: none
+- Maintainer disposition: pending; implementation does not imply RFC acceptance
 
 The Sources tab currently shows the registry for almost every chart. A beginner
 cannot distinguish a plotted historical observation from an active synthetic
