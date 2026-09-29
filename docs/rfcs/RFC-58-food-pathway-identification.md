@@ -36,13 +36,28 @@ files. Headers and missingness were inspected; no new estimate has been fitted.
 The author code calculates participant-period mean intake before the paired
 comparison. Its archive also documents a later body-composition timing adjustment.
 
-The [published correction](https://pubmed.ncbi.nlm.nih.gov/31269427/),
-doi:10.1016/j.cmet.2019.05.020, must remain attached to the source. Do not substitute
+Both published corrections must remain attached to the source:
+[2019 notice](https://pubmed.ncbi.nlm.nih.gov/31269427/),
+doi:10.1016/j.cmet.2019.05.020, and
+[2020 notice](https://pubmed.ncbi.nlm.nih.gov/33027677/),
+doi:10.1016/j.cmet.2020.08.014. Do not substitute
 the earlier preprint for the corrected publication. Before reproduction, verify
 diet order and corrections against the selected endpoint and pin the actual
 download version. The inspected OSF node metadata did not declare a license;
 downloadability alone does not authorize redistributing its participant files.
 The research copies remain in ignored storage. No raw archive is committed here.
+
+The [recorded reproduction plan](../validation/food-intake-reproduction-protocol-v1.json)
+pins the January 2021 author archive and daily-intake member. It specifies complete
+participant pairs, a paired t interval and a separate order/period sensitivity.
+The plan follows inspection of published outcomes, code and input structure; it
+is not preregistration. The [accessible PMC correction](https://pmc.ncbi.nlm.nih.gov/articles/PMC7959109/)
+says the meal-label error did not affect total daily intake. Hall's
+[January 2021 response, pp. 1 and 9](https://retractionwatch.com/wp-content/uploads/2021/01/Response-to-Blog-post-1-update-1.pdf)
+associates that error with the October 2020 notice and says archive updates were
+then pending. The selected ZIP was uploaded afterward. The chronology differs
+across these sources; both identifiers are retained without inventing another
+daily-intake correction. The 2020 publisher body could not be retrieved.
 
 ## A newer study tests a different contrast
 
