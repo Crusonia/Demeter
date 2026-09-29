@@ -21,6 +21,10 @@ Historical charts use their own series source receipt. Trial benchmarks retain
 their own eligibility, estimand, follow-up and uncertainty. Selecting an arrow
 shows its directly declared parameters, not a claim of full causal identification.
 Parameter-free arrows and missing replacement-module dependencies stay explicit.
+Display the saved scenario separately from evidence, including exposure and access
+schedules, coverage, prices and supply. Model contexts retain the saved component
+limitations for diet response and GLP-1; independent benchmark views retain their
+own study limits instead. Missing scenario context in older records is explicit.
 
 The browser renders serialized Python results without implementing equations.
 Reference charts retain separate evidence. Older saved runs that lack a context
@@ -39,8 +43,9 @@ Run Python/frontend checks and exercise desktop/mobile charts, reruns and offlin
 exports in a real browser. External scientific review and maintainer disposition
 remain distinct from software verification.
 
-Verification: all 437 Python tests, Ruff, frontend type checks, three JavaScript tests
-and the static Next.js build pass. Real Chromium checks cover two model runs,
-mechanism and historical evidence, distinct references, notes, desktop/mobile and
-offline exports with external requests blocked. One existing Starlette/httpx
+Verification: all 440 Python tests, Ruff, frontend type checks, three JavaScript tests
+and the static Next.js build pass. Real Chromium checks cover three model runs,
+mechanism and historical evidence, saved scenario choices, GLP-1 assumptions and
+limits, distinct references, notes, desktop/mobile and offline exports with external
+requests blocked. One existing Starlette/httpx
 deprecation warning remains. No independent human scientific review is implied.

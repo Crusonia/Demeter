@@ -98,6 +98,7 @@ export type Figure = { data: Trace[]; layout: Record<string, Json> };
 export type ChartEvidence = {
   scope: string;
   note: string;
+  scenario?: Scenario;
   evidence_sha256: string;
   parameters: Parameter[];
   sources: { key: string; record: Record<string, Json> }[];

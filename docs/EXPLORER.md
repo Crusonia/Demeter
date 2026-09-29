@@ -57,6 +57,10 @@ parameters. Historical charts show their own observation receipt, while trial
 benchmarks keep their population, follow-up and estimand. Synthetic assumptions,
 missing metadata and unresolved applicability remain visible. The reference has
 its own evidence panel; editing assumptions does not rewrite either saved record.
+Open **Saved scenario assumptions** for the frozen exposure and treatment schedules,
+access, coverage, price and supply choices, separately from source evidence. The
+limits section includes the saved diet-response and GLP-1 caveats when those
+components are present. Historical and trial benchmarks keep their own limits.
 
 Open **Test your explanation** for three prompts: predict a change before running,
 challenge a weak assumption, and name the evidence that could change your view.

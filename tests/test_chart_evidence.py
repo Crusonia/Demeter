@@ -7,6 +7,7 @@ from demeter.analysis.chart_evidence import chart_evidence, evidence_html
 from demeter.analysis.observability import observe
 from demeter.analysis.teaching import guide_for, guide_html
 from demeter.analysis.visualization import build_figures
+from demeter.model import simulate
 from demeter.schema import EvidenceRegistry, Scenario
 
 
@@ -60,14 +61,62 @@ def test_historical_evidence_is_its_own_observation_not_model_coefficients(saved
     assert "forecasts are derived" in row["status"]
 
 
+@pytest.mark.parametrize(
+    ("path", "component", "charts"),
+    [
+        (
+            "scenarios/diet_dynamics.yaml",
+            "diet_response",
+            ["diet_response", "diet_memory", "diet_duration", "diet_timing"],
+        ),
+        (
+            "scenarios/glp1_access.yaml",
+            "glp1",
+            ["glp1_response", "glp1_capacity", "glp1_treatment_stocks"],
+        ),
+    ],
+)
+def test_model_charts_keep_saved_component_limits_and_schedules(saved, path, component, charts):
+    payload = deepcopy(saved)
+    registry = EvidenceRegistry.from_yaml("evidence/parameters.yaml")
+    scenario = Scenario.from_yaml(path)
+    payload["simulation"] = simulate(registry, scenario, diagnostics=True).to_dict()
+    metadata = payload["simulation"]["metadata"]
+    limits = metadata[component]["limitations"]
+    assert limits
+    for name in charts + ["stocks", "transitions", "dependencies", "sensitivity"]:
+        context = chart_evidence(payload, name)
+        assert set(limits) <= set(context["limitations"])
+        assert context["scenario"] == scenario.model_dump()
+        rendered = evidence_html(context)
+        assert "Saved scenario assumptions" in rendered
+        assert all(limit in rendered for limit in limits)
+        assert ("monthly_price_usd" if component == "glp1" else "percent_energy") in rendered
+    historical = chart_evidence(payload, "history_e0_both_sexes")
+    assert historical["limitations"] == payload["historical"]["limitations"]
+    assert not set(limits) & set(historical["limitations"])
+
+
+def test_scenario_context_is_frozen_escaped_and_missing_is_explicit(saved):
+    context = chart_evidence(saved, "diet_duration")
+    context["scenario"]["name"] = '<img src=x onerror="alert(1)">'
+    assert context["scenario"]["name"] != saved["simulation"]["metadata"]["scenario"]["name"]
+    rendered = evidence_html(context)
+    assert "&lt;img" in rendered and "<img" not in rendered
+    context.pop("scenario")
+    assert "Scenario assumptions were not saved" in evidence_html(context)
+
+
 def test_trials_and_lag_challenge_keep_benchmark_scope(saved):
     from demeter.data.glp1 import load_glp1
     from demeter.analysis.diet_response import historical_lag_challenge
 
     payload = deepcopy(saved)
+    payload["simulation"]["metadata"]["glp1"] = {"limitations": ["Model-specific caveat"]}
     registry = EvidenceRegistry.from_yaml("evidence/parameters.yaml")
     payload["glp1_benchmarks"] = load_glp1(registry)
     trial = chart_evidence(payload, "glp1_trial_benchmarks")
+    assert "Model-specific caveat" not in trial["limitations"]
     assert trial["parameters"] == []
     assert len(trial["sources"]) == 2
     for row in trial["sources"]:
@@ -76,6 +125,7 @@ def test_trials_and_lag_challenge_keep_benchmark_scope(saved):
         assert row["record"]["uncertainty"][0]["estimand"] == "Treatment policy estimand"
     payload["diet_lag_challenge"] = historical_lag_challenge(registry)
     challenge = chart_evidence(payload, "diet_lag_challenge")
+    assert "Model-specific caveat" not in challenge["limitations"]
     assert [p["key"] for p in challenge["parameters"]] == ["diet_lag_years"]
     assert "shortcut" in challenge["scope"]
 

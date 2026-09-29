@@ -31,6 +31,33 @@ export default function EvidencePanel({
     <div className="source-list">
       <h3>{evidence.scope}</h3>
       <p>{evidence.note}</p>
+      <details className="scenario-assumptions">
+        <summary>Saved scenario assumptions</summary>
+        <p>
+          Frozen choices for this model run, separate from source evidence.
+          Benchmark charts retain their own study protocols and observations.
+        </p>
+        {evidence.scenario ? (
+          <dl className="evidence-fields">
+            {Object.entries(evidence.scenario).map(([key, value]) => (
+              <div key={key}>
+                <dt>{key.replaceAll("_", " ")}</dt>
+                <dd>
+                  {value !== null && typeof value === "object" ? (
+                    <pre>{JSON.stringify(value, null, 2)}</pre>
+                  ) : value === null ? (
+                    "None"
+                  ) : (
+                    text(value)
+                  )}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        ) : (
+          <p>Scenario assumptions were not saved in this chart context.</p>
+        )}
+      </details>
       {evidence.mechanisms.length > 0 && (
         <label>
           Evidence for a mechanism

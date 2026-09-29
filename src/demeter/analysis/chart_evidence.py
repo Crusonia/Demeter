@@ -12,6 +12,10 @@ def chart_evidence(payload: dict, name: str) -> dict:
     structure = sim["diagnostics"]["structure"]
     active = structure["evidence"]
     snapshot = payload.get("evidence_context", {})
+    metadata = sim["metadata"]
+    model_limits = list(metadata["limitations"])
+    for component in ("diet_response", "glp1"):
+        model_limits.extend(metadata.get(component, {}).get("limitations", []))
     context = {
         "schema_version": 1,
         "scope": "Active model inputs",
@@ -21,7 +25,7 @@ def chart_evidence(payload: dict, name: str) -> dict:
         "sources": [],
         "mechanisms": [],
         "sampled_parameters": [],
-        "limitations": list(sim["metadata"]["limitations"]),
+        "limitations": list(dict.fromkeys(model_limits)),
         "unresolved": list(sim["metadata"]["scientific_blockers"]),
     }
 
@@ -198,9 +202,27 @@ def evidence_html(context: dict) -> str:
         + "</details>"
         for m in context["mechanisms"]
     )
+    scenario = context.get("scenario")
+    assumptions = (
+        "<dl>"
+        + "".join(
+            f"<dt>{escaped(key.replace('_', ' '))}</dt><dd><pre>"
+            + escaped(json.dumps(value, indent=2, ensure_ascii=False))
+            + "</pre></dd>"
+            for key, value in scenario.items()
+        )
+        + "</dl>"
+        if scenario is not None
+        else "<p>Scenario assumptions were not saved in this chart context.</p>"
+    )
     return (
         '<details class="chart-evidence"><summary>Evidence for this chart</summary>'
         + f"<h3>{escaped(context['scope'])}</h3><p>{escaped(context['note'])}</p>"
+        + '<details class="scenario-assumptions"><summary>Saved scenario assumptions</summary>'
+        + "<p>Frozen choices for this model run, separate from source evidence. "
+        + "Benchmark charts retain their own study protocols and observations.</p>"
+        + assumptions
+        + "</details>"
         + mechanisms
         + "".join(record(k, p) for k, p in parameters.items())
         + "".join(record(s["key"], s["record"]) for s in context["sources"])

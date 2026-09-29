@@ -113,10 +113,18 @@ def verify() -> None:
                 page.get_by_text("Test your explanation", exact=True).click()
                 expect(page.get_by_text("Predict before running", exact=True)).to_be_visible()
                 panel = page.locator(".chart-pane > .source-list")
-                mechanism = panel.get_by_role("combobox", name="Evidence for a mechanism", exact=True)
+                mechanism = panel.get_by_role(
+                    "combobox", name="Evidence for a mechanism", exact=True
+                )
                 mechanism.select_option(label="upf exposure → lagged response")
                 expect(panel.locator(".source")).to_have_count(2)
                 expect(panel.get_by_text("diet lag years", exact=True)).to_be_visible()
+                panel.get_by_text("Saved scenario assumptions", exact=True).click()
+                expect(panel.locator(".scenario-assumptions")).to_contain_text(
+                    "Browser first experiment"
+                )
+                panel.get_by_text("Unresolved evidence and limits", exact=True).click()
+                expect(panel).to_contain_text("no clinical dose range, saturation or timing")
                 page.screenshot(path=str(artifacts / "mechanism-evidence-desktop.png"))
                 mechanism.select_option("")
                 picker = page.get_by_role("combobox", name="Question / chart", exact=True)
@@ -141,6 +149,13 @@ def verify() -> None:
                 offline.goto((artifacts / "report.html").as_uri())
                 offline.locator("#stocks .chart-evidence > summary").click()
                 expect(offline.locator("#stocks .chart-evidence > .source").first).to_be_visible()
+                offline.locator("#stocks .scenario-assumptions > summary").click()
+                expect(offline.locator("#stocks .scenario-assumptions")).to_contain_text(
+                    "Browser first experiment"
+                )
+                expect(offline.locator("#stocks .chart-evidence")).to_contain_text(
+                    "no clinical dose range, saturation or timing"
+                )
                 expect(offline.locator("#stocks .teaching")).to_contain_text(
                     "Predict before running"
                 )
@@ -188,6 +203,14 @@ def verify() -> None:
                     )
 
                 assert beta(experiment_charts) == 0.5 and beta(reference_charts) != 0.5
+                views.get_by_role("button", name="Sources", exact=True).click()
+                panel.get_by_text("Saved scenario assumptions", exact=True).click()
+                expect(panel.locator(".scenario-assumptions")).to_contain_text(
+                    "Browser changed assumption"
+                )
+                expect(panel.locator(".scenario-assumptions")).not_to_contain_text(
+                    "Browser first experiment"
+                )
                 page.get_by_text("See the exact assumptions diff", exact=False).click()
                 expect(
                     page.get_by_text("overrides.beta_upf_progression", exact=True)
@@ -231,6 +254,30 @@ def verify() -> None:
                     label="Experimental · Glp1 access"
                 )
                 expect(page.get_by_label("Access (%) · step 1", exact=True)).to_be_visible()
+                for step in (4, 3, 2):
+                    page.get_by_role(
+                        "button", name=f"Remove access step {step}", exact=True
+                    ).click()
+                page.get_by_label("Model years", exact=True).fill("2")
+                page.get_by_label("Experiment name", exact=True).fill("Browser GLP-1 assumptions")
+                page.get_by_role("button", name="Run experiment →", exact=True).click()
+                expect(page.get_by_role("button", name="Use these assumptions")).to_be_visible(
+                    timeout=180000
+                )
+                picker.select_option("glp1_capacity")
+                views.get_by_role("button", name="Sources", exact=True).click()
+                panel.get_by_text("Saved scenario assumptions", exact=True).click()
+                expect(panel.locator(".scenario-assumptions")).to_contain_text(
+                    '"monthly_price_usd": 900'
+                )
+                expect(panel.locator(".scenario-assumptions")).to_contain_text(
+                    '"supply_fraction": 0.03'
+                )
+                panel.get_by_text("Unresolved evidence and limits", exact=True).click()
+                expect(panel).to_contain_text("interactions, adverse-event outcomes")
+                page.screenshot(path=str(artifacts / "glp1-evidence-mobile.png"))
+                assert page.evaluate("document.documentElement.scrollWidth <= innerWidth + 1")
+                nav.get_by_role("button", name="Experiment", exact=True).click()
                 page.get_by_role("combobox", name="Model / scenario", exact=True).select_option(
                     label="Experimental · Diet dynamics"
                 )
