@@ -1633,6 +1633,79 @@ parameters:
         column_index: 3
         scale: 0.01
 datasets:
+  observation_state_mapping:
+    status: derived
+    evidence_grade: C
+    model_role: benchmark_only
+    population: U.S. noninstitutionalized adults in the positive-weight NHANES 2017-March 2020 fasting subsample,
+      excluding known pregnancy within the public age window
+    geography: United States
+    time_period: 2017-March 2020
+    unit: fraction of eligible survey weight; unweighted records
+    rfc: docs/rfcs/RFC-56-observation-state-mapping.md
+    definitions:
+    - nhanes_glycemic_prevalence.analysis
+    - nhanes_prechronic_candidates.analysis
+    topcoded_age: 80
+    definition_sources:
+      age_and_population: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_DEMO.htm
+      diagnosis: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_DIQ.htm
+    uncertainty: Existing Taylor logit-t pointwise survey intervals; shared observations, not independent
+      draws. Missingness, diagnostic error, definition and transport uncertainty not identified.
+    direct_initialization_allowed: false
+    crosswalk:
+    - observation: normoglycemia
+      structure: legacy
+      candidate_state: healthy
+      mapping_status: unresolved
+      reason: Normal glycemia does not identify overall metabolic health or absence of other disease.
+    - observation: prediabetes
+      structure: legacy
+      candidate_state: ir
+      mapping_status: unresolved
+      reason: The glycemic threshold category does not identify all insulin resistance.
+    - observation: diabetes_any_type
+      structure: all
+      candidate_state: t2d
+      mapping_status: unresolved
+      reason: Diabetes type is not identified; no subtraction or assumed T2D fraction.
+    - observation: lower_measured_risk
+      structure: risk_1/risk_2
+      candidate_state: healthy
+      mapping_status: unresolved
+      reason: Lower measured risk is not proof of general health; diagnoses and markers are incomplete.
+    - observation: prechronic_candidate
+      structure: risk_1/risk_2
+      candidate_state: prechronic
+      mapping_status: definition_only
+      reason: Matches a candidate observation rule, not a clinical diagnosis or transported national stock.
+    - observation: prediabetes
+      structure: risk_1/risk_2
+      candidate_state: prediabetes
+      mapping_status: definition_only
+      reason: Observation label aligns; complete-case selection, age and temporal transport remain unresolved.
+    - observation: other_reported_diagnosis
+      structure: risk_1/risk_2
+      candidate_state: null
+      mapping_status: unrepresented
+      reason: No corresponding engine stock. These people must not be dropped or declared healthy.
+    - observation: unclassified
+      structure: all
+      candidate_state: null
+      mapping_status: unclassified
+      reason: Missing interview or measurements remain unknown; no imputation or healthy assignment.
+    limitations:
+    - Public cross-sectional observations cannot identify latent state or transition rates.
+    - Adult, noninstitutionalized survey population and 2017-March 2020 period do not directly initialize
+      every age of the 2024 engine population.
+    - Public age top-coding prevents single-age decomposition in the oldest group; no pediatric interpolation
+      is performed.
+    - Known diagnoses retain precedence within complete cases; incomplete records can remain unclassified
+      despite known diabetes.
+    - Treatment use, control duration, diabetes type, all chronic diseases and confirmed remission are not
+      identified.
+    - PreChronic alternatives and overlapping age domains share observations and must not be summed.
+    - No active model parameter or numerical engine output changes.
   mortality_development:
     status: derived
     evidence_grade: C

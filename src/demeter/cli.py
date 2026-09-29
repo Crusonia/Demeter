@@ -316,6 +316,14 @@ def population_evidence(evidence: Path = DEFAULT_EVIDENCE, output: Path | None =
     emit(load_nhanes(registry(evidence)), output)
 
 
+@evidence_app.command("state-mapping")
+def state_mapping_evidence(evidence: Path = DEFAULT_EVIDENCE, output: Path | None = None) -> None:
+    """Audit observed categories, unclassified coverage and unresolved engine mappings."""
+    from demeter.data.state_mapping import mapping_report
+
+    emit(mapping_report(registry(evidence)), output)
+
+
 @data_app.command("rebuild-prechronic")
 def rebuild_risk_data(
     evidence: Path = DEFAULT_EVIDENCE,

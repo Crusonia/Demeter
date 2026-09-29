@@ -211,6 +211,9 @@ NHANES survey files, official JSON snapshots, and the NCHS healthspan method
 reference, plus the derived bundles. See the
 [data catalog and contribution policy](data/README.md) for locations, source terms,
 and the distinction between raw observations, derived inputs, and assumptions.
+The [observation-to-state audit](docs/OBSERVATION_STATE_MAPPING.md) explains how
+survey categories relate to model stocks, including unclassified people and
+unsupported substitutions. Reproduce it with `uv run demeter evidence state-mapping`.
 Verify the archive and reproduce the bundles without network access or changes
 to committed files:
 

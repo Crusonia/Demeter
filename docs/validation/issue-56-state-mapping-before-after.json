@@ -1,0 +1,30 @@
+{
+  "base_commit": "031a59e43381e284273b3c782390a84aa433fe52",
+  "before_evidence_sha256": "03c78a850a345be6cfdbe7353dc9c76219d7e17ecb888664817009e60b438094",
+  "after_evidence_sha256": "2e74bf3e259d9568d5434a1d193b017574f1c8b1f1c125a968421d0c723bd054",
+  "scenarios": {
+    "baseline": {
+      "changed_paths": [
+        "/metadata/evidence_sha256",
+        "/healthspan/evidence_sha256"
+      ],
+      "all_other_outputs_identical": true
+    },
+    "reduce_upf_30": {
+      "changed_paths": [
+        "/metadata/evidence_sha256",
+        "/healthspan/evidence_sha256"
+      ],
+      "all_other_outputs_identical": true
+    },
+    "prechronic_baseline": {
+      "changed_paths": [
+        "/metadata/evidence_sha256",
+        "/healthspan/evidence_sha256"
+      ],
+      "all_other_outputs_identical": true
+    }
+  },
+  "interpretation": "Software equivalence only; no scientific initialization acceptance",
+  "scope": "Unchanged engine and original observation classifiers; only an optional coverage report and its metadata are added"
+}

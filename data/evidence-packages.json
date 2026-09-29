@@ -354,6 +354,34 @@
       ],
       "model_role": "development_benchmark_only",
       "redistribution": "Demeter-derived aggregate estimates and covariance from archived CDC public-use files; source terms retained. No joined person-level exports."
+    },
+    "observation_state_mapping": {
+      "store": null,
+      "dependencies": [
+        "nhanes_prechronic_risk"
+      ],
+      "registry_datasets": [
+        "observation_state_mapping"
+      ],
+      "registry_parameters": [],
+      "artifacts": [
+        {
+          "path": "docs/validation/issue-56-state-mapping.json",
+          "sha256": "230a872486c431f416fa495ddebc1e2f115e0a5fcb84ad56c76f0adf6ddb6291"
+        },
+        {
+          "path": "docs/validation/issue-56-state-mapping-before-after.json",
+          "sha256": "2f2579024eeeeb88b301f732d146850b84b8341704657ffe705e781f2f30d74e"
+        }
+      ],
+      "transform_files": [
+        "src/demeter/data/state_mapping.py"
+      ],
+      "rebuild": [
+        "uv run demeter evidence state-mapping --output outputs/state-mapping.json"
+      ],
+      "model_role": "benchmark_only",
+      "redistribution": "Demeter aggregate observation audit from existing archived CDC/NCHS public-use files; retain upstream terms and citations. No joined person-level output."
     }
   },
   "supporting_artifacts": [

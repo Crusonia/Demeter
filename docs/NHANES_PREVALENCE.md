@@ -5,6 +5,11 @@ national T2D state mapping, longitudinal transition estimation, dietary-response
 identification, or independent health holdout. Engine parameters and trajectories
 remain validation-only.
 
+The [observation-to-state audit](OBSERVATION_STATE_MAPPING.md) now reports the
+unclassified remainder alongside each age/sex category and an explicit engine
+crosswalk. It preserves this benchmark's complete-case definition and explains
+why its categories cannot yet initialize the model directly.
+
 ## Sources and definitions
 
 Four original CDC/NCHS NHANES 2017-March 2020 files are committed in
