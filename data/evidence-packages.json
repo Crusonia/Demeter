@@ -354,6 +354,26 @@
       ],
       "model_role": "development_benchmark_only",
       "redistribution": "Demeter-derived aggregate estimates and covariance from archived CDC public-use files; source terms retained. No joined person-level exports."
+    },
+    "mortality_validation": {
+      "store": null,
+      "dependencies": [
+        "mortality_development"
+      ],
+      "registry_datasets": [
+        "mortality_validation"
+      ],
+      "registry_parameters": [],
+      "artifacts": [],
+      "transform_files": [
+        "src/demeter/analysis/mortality_validation.py",
+        "scripts/validate_mortality_holdout.py"
+      ],
+      "rebuild": [
+        "uv run python scripts/validate_mortality_holdout.py"
+      ],
+      "model_role": "prediction_benchmark_only",
+      "redistribution": "Frozen Demeter protocol and aggregate diagnostics with source terms retained; no joined individual-level exports."
     }
   },
   "supporting_artifacts": [
@@ -392,6 +412,10 @@
     {
       "path": "docs/validation/issue-1-mortality-development-before-after.json",
       "sha256": "0abefaa60a50c6d476be2428f3a70908ebd2bff4c991c768c928b94e7239f050"
+    },
+    {
+      "path": "docs/validation/mortality-validation-protocol-v1.json",
+      "sha256": "440c44a18a743e6c9d1cc345aabbaf7631033fdb640d9062bba6a748c0abb091"
     }
   ]
 }
