@@ -55,6 +55,11 @@ and [RFC-58: food-pathway identification](rfcs/RFC-58-food-pathway-identificatio
 They define the needed observation histories and distinguish reproducible
 randomized menu contrasts from the still-unidentified disease-transition bridge.
 
+The [paired daily-intake reproduction](FOOD_INTAKE_REPRODUCTION.md) now reproduces
+the Hall author archive's published mean and standard error, with a participant-level
+interval and order/period sensitivity. Its estimated parameter remains benchmark-only;
+it cannot replace a dietary hazard coefficient or supply a national forecast.
+
 [Chen et al. (2023)](https://pmc.ncbi.nlm.nih.gov/articles/PMC10300524/),
 doi:10.2337/dc22-1993, reports prospective associations with incident T2D. Its
 extreme-quintile comparison uses UPF as a share of food weight; the main Table 2

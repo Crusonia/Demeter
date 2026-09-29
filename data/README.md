@@ -122,6 +122,12 @@ Never upload identifiable health records, credentials, or full articles without
 redistribution rights. Clinical source receipts currently live in the evidence
 registry; full publisher articles are not included in this archive.
 
+The [food-intake reproduction](../docs/FOOD_INTAKE_REPRODUCTION.md) is another
+explicit exception: the author's public trial ZIP has no recorded redistribution
+license. The repository contains the pinned receipt, method, Python transform
+and aggregate results; raw participant records and author code stay in ignored
+local storage. Its command accepts a separately obtained archive and works offline.
+
 ## Source credit and terms
 
 The dietary timing store retains an official NIDDK HTML summary and a small

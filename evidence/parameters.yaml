@@ -1632,6 +1632,33 @@ parameters:
         row_occurrence: 0
         column_index: 3
         scale: 0.01
+  hall2019_menu_intake_difference:
+    key: hall2019_menu_intake_difference
+    value: 507.732428571
+    unit: kcal/day
+    status: estimated
+    evidence_grade: B
+    source: Paired reproduction of Hall et al. author daily-intake data
+    source_url: https://osf.io/download/fsqb7/
+    source_id: hall2019_intake_archive
+    citation: Hall KD et al. Cell Metabolism. 2019;30(1):67-77.e3. doi:10.1016/j.cmet.2019.05.008; author
+      archive version ADLDataSAScode2.zip (2021)
+    population: Twenty adult inpatient volunteers; paired offered-menu contrast, not a national cohort
+    geography: NIH Clinical Center, Bethesda, Maryland, United States
+    time_period: 2018 trial; two consecutive 14-day diet periods; author archive January 2021
+    exposure_definition: Offered PROC versus UNPROC whole menus, ad libitum in the NIH inpatient protocol
+    outcome_definition: Participant mean daily energy intake, PROC minus UNPROC
+    uncertainty:
+      kind: interval
+      low: 286.431240915
+      high: 729.033616228
+      rationale: Paired Student t 95% sampling interval across 20 participants, 19 df; not an engine
+        sampling distribution or transport interval
+    transformation: Average daily EI within each participant and diet; paired difference; reproduce
+      from checksum-pinned author archive and recorded protocol
+    model_role: benchmark_only
+    notes: Limited randomized regimen contrast; no isolated processing, continuous UPF dose, diabetes
+      transition, mortality or healthspan effect. No national transport; carryover unresolved.
 datasets:
   mortality_development:
     status: derived
@@ -2069,6 +2096,38 @@ datasets:
     manifest: src/demeter/data/bundled/manifest.json
     transformation: Select SEX 0/1/2, AGE 0..100, POPESTIMATE year; 100 is open group
     uncertainty: Published estimates treated as fixed; demographic uncertainty not propagated
+  food_intake_reproduction:
+    estimate_parameter: hall2019_menu_intake_difference
+    status: derived
+    evidence_grade: B
+    model_role: benchmark_only
+    source_id: hall2019_intake_archive
+    population: Twenty adult inpatient volunteers; paired offered-menu contrast, not a national cohort
+    geography: NIH Clinical Center, Bethesda, Maryland, United States
+    time_period: 2018 trial; two consecutive 14-day diet periods; author archive January 2021
+    unit: kcal/day
+    uncertainty: Participant-level paired t intervals and additive common-period sensitivity; no resolved
+      national transport or disease bridge
+    protocol_path: docs/validation/food-intake-reproduction-protocol-v1.json
+    protocol_sha256: 63b13182e3d1d5bdcf11be34d4c085c1753c580c137c587b5246941a77ecffe8
+    analysis:
+      participants: 20
+      days_per_diet: 14
+      diets:
+      - PROC
+      - UNPROC
+      sequences:
+        PU:
+        - PROC
+        - UNPROC
+        UP:
+        - UNPROC
+        - PROC
+      confidence_level: 0.95
+      published_difference_kcal_per_day: 508
+      published_standard_error_kcal_per_day: 106
+      published_rounding_unit_kcal_per_day: 1
+    published_summary_source: https://pubmed.ncbi.nlm.nih.gov/31105044/
 scientific_blockers:
 - National age-specific metabolic transition hazards are unresolved.
 - Age-specific T2D/prediabetes initial prevalence is not calibrated; CDC total diabetes includes
@@ -2098,3 +2157,18 @@ sources:
     sha256: 11f57aa0827c0d26a096c046268aad39c70512b969da4659423458684ccfd085
     retrieved_at: '2026-09-26T03:10:59.458462+00:00'
     license: CC-BY; authors and publication attributed; raw article not bundled.
+  hall2019_intake_archive:
+    url: https://osf.io/download/fsqb7/
+    citation: Hall KD et al. Cell Metabolism. 2019;30(1):67-77.e3. Author OSF ADLDataSAScode2.zip, uploaded
+      January 28, 2021, version 1.
+    doi: 10.1016/j.cmet.2019.05.008
+    raw_filename: hall2019-intake.zip
+    sha256: c941c1cd33abb0cf17fb982aaec0fb23da034c94e5b86ec949a0e73704a6fbb8
+    retrieved_at: '2026-09-29T02:55:39.558901+00:00'
+    license: No explicit OSF node license recorded. Raw data/code are fetch-only in ignored local storage;
+      no raw redistribution permission is asserted.
+    correction_url: https://pubmed.ncbi.nlm.nih.gov/33027677/
+    correction_note: 'Both errata retained in the reproduction protocol: 10.1016/j.cmet.2019.05.020
+      and 10.1016/j.cmet.2020.08.014. Accessible PMC notice says total daily intake is unaffected by
+      the meal-label correction. Author archive uploaded after January 2021 correction discussion; body-composition
+      and meal-level endpoints excluded.'

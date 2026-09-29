@@ -3,7 +3,7 @@
 - Status: proposed
 - Issue and PR: [#58](https://github.com/Crusonia/Demeter/issues/58), [PR #63](https://github.com/Crusonia/Demeter/pull/63); supports I-07 and the health portion of P-02
 - Authors and date: Codex-assisted work for the Food is Health-affiliated project, September 29, 2026 (UTC)
-- Implementation: not started; source intake/appraisal only, no fitted effect or engine activation
+- Implementation: paired daily-intake reproduction implemented; no disease bridge or engine activation
 - Scientific assessment: scoped source/identification appraisal below; external expert review pending
 - Scientific use: validation-only; no clinical parameter promotion
 - Supersedes / superseded by: none
@@ -32,7 +32,8 @@ The [author's OSF project](https://osf.io/rx6vm/) links the
 [data and SAS code](https://osf.io/khqug/). The public API and downloads were
 accessible during this appraisal, even though the browser rendering of OSF failed.
 The intake archive contains daily intake, baseline, weight and other endpoint
-files. Headers and missingness were inspected; no new estimate has been fitted.
+files. Headers and missingness were inspected before the reproduction plan;
+the [subsequent aggregate reproduction](../FOOD_INTAKE_REPRODUCTION.md) is now implemented.
 The author code calculates participant-period mean intake before the paired
 comparison. Its archive also documents a later body-composition timing adjustment.
 
@@ -114,9 +115,10 @@ must distinguish that associational option from a randomized regimen contrast.
 
 ## Current disposition
 
-This RFC selects an auditable upstream candidate and explains why it cannot yet
-replace the health coefficient. No disease bridge, new model state, clinical
-grade, effect estimate or economic conclusion is activated. Next: verify rights
-and corrected source identity, register and reproduce the narrow endpoint, then
-choose and validate a compatible disease bridge or explicitly narrow the model's
-claim. #58 and scientific v0.1 remain open.
+The [executed intake reproduction](../FOOD_INTAKE_REPRODUCTION.md) registers the
+source, constants and benchmark-only paired estimate. It reproduces the published
+rounded mean and standard error. Raw redistribution permission remains unresolved;
+the author ZIP is fetch-only and excluded from the repository. No disease bridge,
+new model state, active effect or economic conclusion is introduced. Next: choose
+and validate a compatible disease bridge with supported timing, dose and population.
+#58 and scientific v0.1 remain open; numerical reproduction does not close them.

@@ -118,8 +118,12 @@ Without article access, committed estimates, intervals, locators and the prior
 verification receipt remain inspectable. That is **not** fresh re-extraction.
 Public NHANES and aggregate government packages provide offline learning and
 pipeline alternatives; they cannot replace ARIC/LEADR longitudinal estimands.
-Restricted NHANES, identifiable EHR data, private claims data and patient-level
-trial records are not included or supported by the public package. An article's
+Restricted NHANES, identifiable EHR data and private claims data are not included
+or supported by the public package. Participant-level trial records are not included.
+The optional [food-intake reproduction](../docs/FOOD_INTAKE_REPRODUCTION.md) accepts
+a separately obtained public author archive in local ignored storage; its source
+receipt and conservative fetch-only disposition are in the rights inventory.
+Only Demeter-generated aggregates, method and code are distributed. An article's
 open license does not make its underlying clinical records open.
 
 ## Distribution and contribution controls

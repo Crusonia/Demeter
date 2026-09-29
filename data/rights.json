@@ -130,6 +130,22 @@
         "No full-text redistribution permission is recorded for the ARIC article. The package contains citations, receipts and numeric facts only.",
         "A public PMC URL is not a blanket redistribution license."
       ]
+    },
+    "author_trial_fetch_only": {
+      "checked_on": "2026-09-29",
+      "conditions": [
+        "OSF node license metadata was null on inspection; the repository does not assert a redistribution license.",
+        "Raw author data/code and individual outputs are excluded from distributions. Reassess permission before proposing any raw redistribution.",
+        "Attribute the trial, archive version and corrections. Statistical reproduction is not clinical transport or a validated disease pathway."
+      ],
+      "download": "Author provides a public archive; obtain pinned bytes in ignored local research storage.",
+      "redistribution": "not_permitted",
+      "terms_urls": [
+        "https://osf.io/khqug/",
+        "https://api.osf.io/v2/nodes/khqug/"
+      ],
+      "title": "Public author trial archive; no raw redistribution permission recorded",
+      "transform": "Demeter reproduces aggregate statistics without publishing participant records or executing author code."
     }
   },
   "source_files": {
@@ -666,6 +682,19 @@
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9021905/",
       "sha256": "11f57aa0827c0d26a096c046268aad39c70512b969da4659423458684ccfd085",
       "retrieved_at": "2026-09-26T03:10:59.458462+00:00"
+    },
+    "hall2019_intake_archive": {
+      "alternative": "Inspect the aggregate reproduction report and protocol offline. Reproduce from the exact author ZIP using demeter evidence food-intake --archive PATH; no silent replacement.",
+      "citation": "Hall KD et al. Cell Metabolism. 2019;30(1):67-77.e3. Author OSF ADLDataSAScode2.zip, uploaded January 28, 2021, version 1.",
+      "distribution": "fetch_only",
+      "notes": "Public author-provided participant research records; no identification or person-level exports. Complete menu contrast only.",
+      "policy": "author_trial_fetch_only",
+      "privacy": "public_use_microdata",
+      "publisher": "Kevin D. Hall and coauthors via OSF",
+      "retrieved_at": "2026-09-29T02:55:39.558901+00:00",
+      "sha256": "c941c1cd33abb0cf17fb982aaec0fb23da034c94e5b86ec949a0e73704a6fbb8",
+      "url": "https://osf.io/download/fsqb7/",
+      "vintage": "ADLDataSAScode2.zip uploaded 2021-01-28, version 1"
     }
   }
 }

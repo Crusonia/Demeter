@@ -354,6 +354,38 @@
       ],
       "model_role": "development_benchmark_only",
       "redistribution": "Demeter-derived aggregate estimates and covariance from archived CDC public-use files; source terms retained. No joined person-level exports."
+    },
+    "food_intake_reproduction": {
+      "artifacts": [
+        {
+          "path": "docs/validation/food-intake-reproduction-protocol-v1.json",
+          "sha256": "63b13182e3d1d5bdcf11be34d4c085c1753c580c137c587b5246941a77ecffe8"
+        },
+        {
+          "path": "docs/validation/issue-58-food-intake.json",
+          "sha256": "065f674c095f3129ab9b82ad946daaae0ef8cc9611d82ded6a939229579b422a"
+        },
+        {
+          "path": "docs/validation/issue-58-food-intake-before-after.json",
+          "sha256": "df91ef87d07e75f001d6681af3a8e74a91f83263194109a82b08b81c8bf07fc7"
+        }
+      ],
+      "dependencies": [],
+      "model_role": "benchmark_only",
+      "rebuild": [
+        "uv run demeter evidence food-intake --archive data/raw/clinical/hall2019-intake.zip --output outputs/food-intake.json"
+      ],
+      "redistribution": "Demeter aggregate estimates, protocol, source receipts and code only. Raw author records/code are fetch-only and excluded from archives; full reproduction requires separately obtained matching bytes.",
+      "registry_datasets": [
+        "food_intake_reproduction"
+      ],
+      "registry_parameters": [
+        "hall2019_menu_intake_difference"
+      ],
+      "store": null,
+      "transform_files": [
+        "src/demeter/analysis/food_intake.py"
+      ]
     }
   },
   "supporting_artifacts": [
