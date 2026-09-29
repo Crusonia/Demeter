@@ -59,7 +59,7 @@ mechanics, but it must not populate a business case or establish a clinical effe
 
 ## Acquisition and implementation order
 
-The current health evidence acquisition contracts are
+The proposed health evidence acquisition contracts are
 [RFC-57](../rfcs/RFC-57-longitudinal-identification.md) for repeated-state
 progression/reversal and [RFC-58](../rfcs/RFC-58-food-pathway-identification.md) for
 a defined dietary contrast. They feed I-01/I-07 and P-02 without activating the

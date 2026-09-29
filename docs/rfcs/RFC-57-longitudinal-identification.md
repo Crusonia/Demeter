@@ -1,8 +1,13 @@
 # RFC-57: Identify progression and reversal before calibrating them
 
-Status: design contract; no fit or engine activation. Supports #57, #56 and #1.
-Author/date: Codex-assisted work, September 29, 2026 (UTC). External expert review
-and maintainer disposition pending.
+- Status: proposed
+- Issue and PR: [#57](https://github.com/Crusonia/Demeter/issues/57), [PR #63](https://github.com/Crusonia/Demeter/pull/63); supports #56 and #1
+- Authors and date: Codex-assisted work for the Food is Health-affiliated project, September 29, 2026 (UTC)
+- Implementation: not started; no longitudinal fit or engine activation
+- Scientific assessment: scoped source/identification appraisal below; external expert review pending
+- Scientific use: validation-only; no clinical parameter promotion
+- Supersedes / superseded by: none
+- Maintainer disposition: pending; proposal status does not imply design acceptance
 
 ## Decision and boundary
 

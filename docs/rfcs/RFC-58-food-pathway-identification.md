@@ -1,7 +1,13 @@
 # RFC-58: Separate a randomized food contrast from the disease bridge
 
-Status: source appraisal and proposed analysis boundary; no engine activation.
-Supports #58, I-07 and the health portion of P-02. September 29, 2026 (UTC).
+- Status: proposed
+- Issue and PR: [#58](https://github.com/Crusonia/Demeter/issues/58), [PR #63](https://github.com/Crusonia/Demeter/pull/63); supports I-07 and the health portion of P-02
+- Authors and date: Codex-assisted work for the Food is Health-affiliated project, September 29, 2026 (UTC)
+- Implementation: not started; source intake/appraisal only, no fitted effect or engine activation
+- Scientific assessment: scoped source/identification appraisal below; external expert review pending
+- Scientific use: validation-only; no clinical parameter promotion
+- Supersedes / superseded by: none
+- Maintainer disposition: pending; proposal status does not imply design acceptance
 
 ## A precise first contrast
 
