@@ -2,7 +2,7 @@
 
 Demeter's MIT license covers its code and original documentation. It does not
 relicense source data, articles, logos, or restricted records. The machine-readable
-[rights inventory](rights.json) identifies all 46 archived artifacts and both
+[rights inventory](rights.json) identifies all 51 archived artifacts and both
 fetch-only clinical articles by URL, publisher, vintage, retrieval time, checksum,
 privacy class and citation. Its policies distinguish download, transformation
 and redistribution conditions. These are packaging decisions; the linked source

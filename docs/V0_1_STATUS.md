@@ -16,6 +16,7 @@ Release identifier: **0.1.0a1**. Engineering functionality is implemented; scien
 | Authoritative mortality calibration | Pass | All-age e_x error below 0.001 year |
 | U.S. diabetes/prediabetes prevalence | Benchmarks reconstructed; engine mapping unresolved | NHANES age/sex shares with survey uncertainty and 12 published cross-checks; total diabetes and glycemic states not silently relabeled as T2D/metabolic health |
 | Historical backtest | Limited benchmark implemented | Frozen 2022 mortality predicts 2023; no diet-effect validation |
+| Reserved-cycle mortality prediction | Descriptive evaluation performed; clinical acceptance unresolved | [Four frozen models evaluated on NHANES 2013–2014](MORTALITY_VALIDATION.md); no refitting, no demonstrated glycemic score improvement, no causal state-hazard validation |
 | Uncertainty propagation | Implemented | Seeded independent draws and paired scenario deltas |
 | Sensitivity | Implemented | SALib Sobol indices with confidence half-widths |
 | Food leverage and pathway attribution | Engineering implemented; scientific effects unresolved | Exact dietary-hazard Shapley allocation, paired sensitivity, sampling intervals and evidence overlays; [method and limits](LEVERAGE.md) |

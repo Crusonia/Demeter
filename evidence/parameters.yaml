@@ -1660,6 +1660,30 @@ parameters:
     notes: Limited randomized regimen contrast; no isolated processing, continuous UPF dose, diabetes
       transition, mortality or healthspan effect. No national transport; carryover unresolved.
 datasets:
+  mortality_validation:
+    status: derived
+    evidence_grade: C
+    model_role: prediction_benchmark_only
+    protocol: docs/validation/mortality-validation-protocol-v1.json
+    protocol_sha256: 440c44a18a743e6c9d1cc345aabbaf7631033fdb640d9062bba6a748c0abb091
+    implementation_amendment:
+      path: docs/validation/mortality-validation-implementation-amendment-1.json
+      sha256: 482f1289c0925bdcfeb823e10ba0b366418cdcf24e6345cf28e85a57bf4b323a
+    rfc: docs/rfcs/RFC-55-mortality-holdout.md
+    development_cycle: 2011-2012
+    validation_cycle: 2013-2014
+    mortality_release: 2019 public-use
+    source_store: data/sources/nhanes-mortality/2013-2014
+    population: Complete adult fasting baseline below age top-code, linked, with positive examination follow-up;
+      frozen RFC-1 domain
+    geography: United States
+    unit: Censored log score, integrated event intensity, observed/expected ratio, record counts
+    numerical_controls: Frozen existing mortality_development and nhanes_glycemic_prevalence.analysis; no
+      new numerical calibration or thresholds
+    uncertainty: Pointwise survey-design uncertainty conditional on all four frozen fitted models. No coefficient
+      resampling, multiplicity-adjusted superiority claim, clinical pass tolerance or total-uncertainty
+      claim.
+    transformation: demeter.analysis.mortality_validation.validation_report
   mortality_development:
     status: derived
     evidence_grade: C

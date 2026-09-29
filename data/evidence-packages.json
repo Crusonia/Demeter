@@ -386,6 +386,43 @@
       "transform_files": [
         "src/demeter/analysis/food_intake.py"
       ]
+    },
+    "mortality_validation": {
+      "store": "mortality_validation",
+      "dependencies": [
+        "mortality_development"
+      ],
+      "registry_datasets": [
+        "mortality_validation"
+      ],
+      "registry_parameters": [],
+      "artifacts": [
+        {
+          "path": "docs/validation/issue-55-mortality-validation.json",
+          "sha256": "7f77a6ffcc430086f0d811d9404c2d1b9d7f0f24a37464d2d8120be3e5923852"
+        },
+        {
+          "path": "docs/validation/issue-55-mortality-validation-before-after.json",
+          "sha256": "ada8f78b1510fa5439c8449ed94b19579bf90f026943b2d1d2a69f6d4a61c7a9"
+        },
+        {
+          "path": "docs/validation/mortality-validation-implementation-amendment-1.json",
+          "sha256": "482f1289c0925bdcfeb823e10ba0b366418cdcf24e6345cf28e85a57bf4b323a"
+        },
+        {
+          "path": "docs/validation/issue-55-mortality-validation-amended.json",
+          "sha256": "cd7ec4aca53d47d8b02d4464e1a578921e88c6a4543c8e9b76a31d0ab7728974"
+        }
+      ],
+      "transform_files": [
+        "src/demeter/analysis/mortality_validation.py",
+        "scripts/validate_mortality_holdout.py"
+      ],
+      "rebuild": [
+        "uv run python scripts/validate_mortality_holdout.py"
+      ],
+      "model_role": "prediction_benchmark_only",
+      "redistribution": "Frozen Demeter protocol and aggregate diagnostics with source terms retained; no joined individual-level exports."
     }
   },
   "supporting_artifacts": [
@@ -424,6 +461,10 @@
     {
       "path": "docs/validation/issue-1-mortality-development-before-after.json",
       "sha256": "0abefaa60a50c6d476be2428f3a70908ebd2bff4c991c768c928b94e7239f050"
+    },
+    {
+      "path": "docs/validation/mortality-validation-protocol-v1.json",
+      "sha256": "440c44a18a743e6c9d1cc345aabbaf7631033fdb640d9062bba6a748c0abb091"
     }
   ]
 }

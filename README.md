@@ -206,9 +206,10 @@ Core equations use transparent NumPy arrays. BPTK-Py remains available for later
 
 ## Source data travel with the model
 
-The repository contains 28 public source files: baseline and historical inputs,
+The repository contains 51 public source files: baseline and historical inputs,
 NHANES survey files, official JSON snapshots, and the NCHS healthspan method
-reference, plus the derived bundles. See the
+reference, plus the derived bundles. The [frozen mortality evaluation](docs/MORTALITY_VALIDATION.md)
+adds a reproducible reserved-cycle prediction check without changing active health parameters. See the
 [data catalog and contribution policy](data/README.md) for locations, source terms,
 and the distinction between raw observations, derived inputs, and assumptions.
 Verify the archive and reproduce the bundles without network access or changes

@@ -2,7 +2,9 @@
 
 This executes the development part of [RFC-1](rfcs/RFC-1-health-calibration.md).
 It does not complete issue #1 or establish a clinical calibration. NHANES
-2013–2014 remains reserved and was not loaded or evaluated by this implementation.
+2013–2014 was reserved and was not loaded or evaluated by the development implementation.
+The subsequent [frozen evaluation](MORTALITY_VALIDATION.md) records its first outcome
+intake on September 29, 2026, after a separately committed protocol; it is now used evidence.
 External expert review and clinical holdout tolerances remain pending. The
 approved [research-backed assessment path](SCIENTIFIC_REVIEW.md) permits further
 implementation and descriptive validation under predeclared metrics. Missing
