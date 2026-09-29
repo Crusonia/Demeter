@@ -122,6 +122,19 @@
         "JSON"
       ],
       "model_role": "discovery_reference_only"
+    },
+    {
+      "id": "mortality_validation",
+      "manifest": "sources/nhanes-mortality/2013-2014/manifest.json",
+      "publisher": "CDC/NCHS",
+      "description": "Reserved 2013-2014 public-use baseline and 2019 linked mortality evaluated under the pre-outcome RFC-55 protocol; descriptive prediction benchmark only",
+      "format": [
+        "SAS XPORT",
+        "fixed-width ASCII"
+      ],
+      "derived_bundle": "../docs/validation/issue-55-mortality-validation.json",
+      "model_role": "prediction_benchmark_only",
+      "reload": "uv run python scripts/validate_mortality_holdout.py"
     }
   ],
   "official_json_services": [

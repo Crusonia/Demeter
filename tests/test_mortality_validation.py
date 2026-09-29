@@ -17,6 +17,7 @@ from demeter.analysis.mortality_validation import (
     read_validation_store,
     survey_mean,
     survey_variance,
+    validation_report,
 )
 from demeter.schema import EvidenceRegistry
 
@@ -183,3 +184,47 @@ def test_reserved_source_identity_and_bytes_fail_before_parsing(tmp_path):
     (tmp_path / "manifest.json").write_text(json.dumps(manifest))
     with pytest.raises(ValueError, match="Unexpected reserved-cycle"):
         read_validation_store(protocol, tmp_path)
+
+
+def test_archived_holdout_reproduces_every_domain_offline_without_refitting(monkeypatch):
+    def forbidden(*args, **kwargs):
+        pytest.fail("Archived validation must neither fetch nor refit")
+
+    monkeypatch.setattr("urllib.request.urlopen", forbidden)
+    monkeypatch.setattr("demeter.analysis.mortality_development.fit", forbidden)
+    actual = validation_report()
+    saved = json.loads(Path("docs/validation/issue-55-mortality-validation.json").read_bytes())
+    assert actual["independent_prediction_evaluated"]
+    assert not actual["scientific_release_ready"]
+    assert actual["counts"]["included_n"] == 2213
+    assert actual["counts"]["deaths_n"] == 93
+    assert actual["provenance"]["protocol_sha256"] == saved["provenance"]["protocol_sha256"]
+    assert actual["provenance"]["source_sha256"] == saved["provenance"]["source_sha256"]
+    assert actual["provenance"]["frozen_models"] == load_protocol()["models"]
+    assert actual["provenance"]["evidence_sha256"] == EvidenceRegistry.from_yaml(
+        "evidence/parameters.yaml"
+    ).content_hash
+    # The whole registry can acquire unrelated entries without changing this frozen
+    # predictor. Its specific parameter/definition contract is checked by load_protocol.
+    saved["provenance"]["evidence_sha256"] = actual["provenance"]["evidence_sha256"]
+
+    def compare(left, right):
+        if isinstance(right, float):
+            assert left == pytest.approx(right, rel=1e-10, abs=1e-12)
+        elif isinstance(right, dict):
+            assert left.keys() == right.keys()
+            for key in right:
+                compare(left[key], right[key])
+        elif isinstance(right, list):
+            assert len(left) == len(right)
+            for x, y in zip(left, right, strict=True):
+                compare(x, y)
+        else:
+            assert left == right
+
+    compare(actual, saved)
+    for model in actual["models"].values():
+        for row in model["domains"]:
+            if row["deaths"] == 0:
+                assert row["event_intensity_ratio"]["interval"] is None
+                assert row["event_intensity_ratio"]["unavailable_reason"]

@@ -356,7 +356,7 @@
       "redistribution": "Demeter-derived aggregate estimates and covariance from archived CDC public-use files; source terms retained. No joined person-level exports."
     },
     "mortality_validation": {
-      "store": null,
+      "store": "mortality_validation",
       "dependencies": [
         "mortality_development"
       ],
@@ -364,7 +364,16 @@
         "mortality_validation"
       ],
       "registry_parameters": [],
-      "artifacts": [],
+      "artifacts": [
+        {
+          "path": "docs/validation/issue-55-mortality-validation.json",
+          "sha256": "7f77a6ffcc430086f0d811d9404c2d1b9d7f0f24a37464d2d8120be3e5923852"
+        },
+        {
+          "path": "docs/validation/issue-55-mortality-validation-before-after.json",
+          "sha256": "ada8f78b1510fa5439c8449ed94b19579bf90f026943b2d1d2a69f6d4a61c7a9"
+        }
+      ],
       "transform_files": [
         "src/demeter/analysis/mortality_validation.py",
         "scripts/validate_mortality_holdout.py"

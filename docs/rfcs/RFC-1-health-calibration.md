@@ -232,3 +232,13 @@ validation report while external expert review is pending. See the
 reviewer-recruitment prerequisite, not the missing evidence or scientific tests.
 Rollback is removal of the optional benchmark; existing engine semantics and
 scientific gate remain unchanged.
+
+## September 29 execution note
+
+The prior statements that NHANES 2013–2014 outcomes were uninspected describe
+the development stage. [RFC-55](RFC-55-mortality-holdout.md) subsequently froze
+the evaluator and all four predictors before the first outcome intake.
+The [temporal assessment](../MORTALITY_VALIDATION.md) records the chronology,
+inconclusive score contrasts, source receipts and unchanged engine outputs.
+That cycle is now used evidence; it cannot be treated as untouched when revising
+models after this evaluation. The full RFC-1 health objective remains unresolved.
