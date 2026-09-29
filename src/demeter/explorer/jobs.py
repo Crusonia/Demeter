@@ -23,6 +23,7 @@ from demeter.explorer.experiments import (
     yaml_text,
 )
 from demeter.analysis.teaching import guide_for, summary, teaching_content
+from demeter.analysis.chart_evidence import chart_evidence
 from demeter.schema import EvidenceRegistry, Scenario
 
 ACTIVE = {"queued", "running"}
@@ -82,7 +83,14 @@ def render_artifacts(payload: dict, path: Path, records: dict) -> dict:
         # Plain arrays rather than Plotly's compact typed-array encoding make Data
         # and CSV views exact, portable and independently inspectable.
         graph = json.loads(json.dumps(figure.to_plotly_json(), cls=PlotlyJSONEncoder))
-        charts.append({"id": name, "figure": graph, "guide": guide_for(name, records)})
+        charts.append(
+            {
+                "id": name,
+                "figure": graph,
+                "guide": guide_for(name, records),
+                "evidence": chart_evidence(payload, name),
+            }
+        )
     render_report(payload, path, teaching_records=records)
     write_json(path / "charts.json", {"charts": charts, "summary": summary(payload)})
     return payload["simulation"]

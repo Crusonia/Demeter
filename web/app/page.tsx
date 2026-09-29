@@ -590,7 +590,6 @@ export default function Page() {
                   <ChartView
                     chart={currentChart}
                     reference={referenceChart}
-                    sources={evidence}
                     scenarioName={result.receipt.name}
                     onExperiment={() => setTab("Experiment")}
                   />

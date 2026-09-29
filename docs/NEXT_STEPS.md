@@ -29,3 +29,24 @@ and downstream implementation priorities are [prices and substitution (#11)](htt
 and [utilization/provider economics (#10)](https://github.com/Crusonia/Demeter/issues/10).
 Their requirements remain in the existing roadmap. The local Explorer is separate
 from the [future public Simulator (#20)](https://github.com/Crusonia/Demeter/issues/20).
+
+## Integrated review branch
+
+[PR #63](https://github.com/Crusonia/Demeter/pull/63) combines the mortality
+evaluation from #60, observation mapping from #61, Explorer explanations from
+#62, and the longitudinal/food-pathway work. It provides one integration target
+for maintainer review; the individual PRs retain their development history.
+No merge to `main` or scientific acceptance is implied.
+
+Shared registry and package-manifest conflicts are resolved by preserving each
+branch's evidence definitions and artifact entries. The two observation reports
+are rebuilt against the combined registry: only their evidence-registry hash
+changes, with all observations, estimates, intervals, source receipts and
+implementation hashes retained. Original mortality protocols, amendments and
+intake receipts remain unchanged. Package checks cover the combined inventory.
+
+The [source appraisal and access brief](LONGITUDINAL_SOURCE_APPRAISAL.md)
+describe the next empirical dependency. The integration does not provide national
+state initialization, identified progression/reversal hazards or an active
+food-to-disease effect. Those requirements keep #1, #56, #57, #58 and milestone
+#27 open; synthetic dietary trajectories remain validation-only.

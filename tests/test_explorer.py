@@ -194,6 +194,10 @@ def test_worker_parity_reference_charts_and_saved_metadata(completed):
     stocks = next(c for c in charts if c["id"] == "stocks")
     assert isinstance(stocks["figure"]["data"][0]["y"], list)
     assert "no births or migration" in stocks["guide"]["mechanism"].lower()
+    assert stocks["evidence"]["evidence_sha256"] == evidence.content_hash
+    assert stocks["evidence"]["parameters"] == list(
+        result["simulation"]["diagnostics"]["structure"]["evidence"].values()
+    )
     assert "Why it happens in this model" in (path / "report/index.html").read_text(
         encoding="utf-8"
     )
@@ -276,7 +280,16 @@ def test_teaching_families_and_comparison_guards(completed):
         "glp1_flows",
         "lx",
     ):
-        assert set(guide_for(name, records)) == {"question", "read", "mechanism", "try", "limit"}
+        assert set(guide_for(name, records)) == {
+            "question",
+            "read",
+            "mechanism",
+            "try",
+            "limit",
+            "predict",
+            "challenge",
+            "evidence",
+        }
     directory, key = completed
     right = read_json(directory / key / "result.json")
     left = read_json(directory / key / "reference-result.json")

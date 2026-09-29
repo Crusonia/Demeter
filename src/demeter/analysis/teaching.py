@@ -42,6 +42,9 @@ def guide_html(name: str, records: dict | None = None) -> str:
         "read": "How to read it",
         "mechanism": "Why it happens in this model",
         "try": "Try an experiment",
+        "predict": "Predict before running",
+        "challenge": "Challenge an assumption",
+        "evidence": "What evidence would change your interpretation?",
         "limit": "What this cannot establish",
     }
     return (
@@ -51,6 +54,7 @@ def guide_html(name: str, records: dict | None = None) -> str:
         + "".join(
             f"<p><strong>{label}.</strong> {html.escape(guide[key])}</p>"
             for key, label in labels.items()
+            if key in guide
         )
         + "</aside>"
     )
