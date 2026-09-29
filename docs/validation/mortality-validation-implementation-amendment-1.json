@@ -1,0 +1,15 @@
+{
+  "amended_file_sha256": "075423d945ab901350d3452820110c98ef26755af9c2b5b604e34c438b2003b5",
+  "created_at": "2026-09-29T02:26:45.460969+00:00",
+  "file": "src/demeter/analysis/mortality_validation.py",
+  "first_result_commit": "c9241a2b72fe773c428d36deb66fe8475a98c307",
+  "numerical_methods_changed": false,
+  "original_file_sha256": "d486946838c8cf8aa8925b450921299100c5de88982f5763d1843599426b0949",
+  "original_freeze_commit": "f1cab860b13cb7089b7adf3a73bdc98bcfbbf605",
+  "outcomes_already_inspected": true,
+  "protocol_sha256": "440c44a18a743e6c9d1cc345aabbaf7631033fdb640d9062bba6a748c0abb091",
+  "reason": "Reject a missing or mismatched manifest protocol identity before opening, parsing or joining any reserved source. Add explicit amendment provenance; no evaluation arithmetic, source definitions or fitted values change.",
+  "review_url": "https://github.com/Crusonia/Demeter/pull/60#discussion_r4128954589",
+  "schema_version": 1,
+  "scientific_interpretation": "Post-intake software guard correction, not a new untouched validation or a re-registration of scientific choices."
+}

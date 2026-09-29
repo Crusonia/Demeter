@@ -132,7 +132,7 @@
         "SAS XPORT",
         "fixed-width ASCII"
       ],
-      "derived_bundle": "../docs/validation/issue-55-mortality-validation.json",
+      "derived_bundle": "../docs/validation/issue-55-mortality-validation-amended.json",
       "model_role": "prediction_benchmark_only",
       "reload": "uv run python scripts/validate_mortality_holdout.py"
     }

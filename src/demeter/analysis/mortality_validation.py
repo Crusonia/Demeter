@@ -16,9 +16,34 @@ from demeter.data.nhanes import classify, read_xpt
 from demeter.schema import EvidenceRegistry
 
 PROTOCOL = Path("docs/validation/mortality-validation-protocol-v1.json")
+AMENDMENT = Path("docs/validation/mortality-validation-implementation-amendment-1.json")
+INTERPRETER = "src/demeter/analysis/mortality_validation.py"
 STORE = Path("data/sources/nhanes-mortality/2013-2014")
 MODELS = ("glycemic", "null", "glycemic_piecewise", "null_piecewise")
 STATES = ("normoglycemia", "prediabetes", "diabetes_any_type")
+
+
+def implementation_amendment(root: Path, spec: dict, protocol: dict) -> dict | None:
+    """Preserve the original freeze while disclosing a pinned post-intake guard fix."""
+    reference = spec.get("implementation_amendment")
+    if reference is None:
+        return None
+    if reference["path"] != AMENDMENT.as_posix():
+        raise ValueError("Unknown implementation amendment")
+    content = (root / AMENDMENT).read_bytes()
+    if digest(content) != reference["sha256"]:
+        raise ValueError("Implementation amendment checksum mismatch")
+    amendment = json.loads(content)
+    if (
+        amendment["schema_version"] != 1
+        or amendment["protocol_sha256"] != spec["protocol_sha256"]
+        or amendment["original_file_sha256"] != protocol["protected_files"][INTERPRETER]
+        or amendment["file"] != INTERPRETER
+        or amendment["numerical_methods_changed"] is not False
+        or amendment["outcomes_already_inspected"] is not True
+    ):
+        raise ValueError("Invalid post-intake implementation amendment")
+    return amendment
 
 
 def load_protocol(root: Path = Path("."), registry: EvidenceRegistry | None = None) -> dict:
@@ -36,7 +61,11 @@ def load_protocol(root: Path = Path("."), registry: EvidenceRegistry | None = No
         raise ValueError("Invalid mortality validation scope")
     if set(protocol["models"]) != set(MODELS):
         raise ValueError("All four frozen models are required")
-    for path, sha in protocol["protected_files"].items():
+    protected = dict(protocol["protected_files"])
+    amendment = implementation_amendment(root, spec, protocol)
+    if amendment:
+        protected[INTERPRETER] = amendment["amended_file_sha256"]
+    for path, sha in protected.items():
         if digest((root / path).read_bytes()) != sha:
             raise ValueError(f"Frozen implementation or development receipt changed: {path}")
     for key, value in protocol["parameter_contract"].items():
@@ -57,6 +86,11 @@ def read_validation_store(protocol: dict, source: Path = STORE) -> tuple[pd.Data
         or set(manifest["sources"]) != set(protocol["sources"])
     ):
         raise ValueError("Unexpected reserved-cycle source manifest")
+    # The protocol artifact has a canonical JSON encoding established by the
+    # freeze script. Check its identity before opening even the first source.
+    protocol_bytes = (json.dumps(protocol, indent=2, sort_keys=True, allow_nan=False) + "\n").encode()
+    if manifest.get("protocol_sha256") != digest(protocol_bytes):
+        raise ValueError("Reserved intake belongs to a different frozen protocol")
     for name, expected in protocol["sources"].items():
         receipt = manifest["sources"][name]
         if (
@@ -339,4 +373,15 @@ def validation_report(root: Path = Path(".")) -> dict:
         "frozen_models": protocol["models"],
         "protected_implementation": protocol["protected_files"],
     }
+    amendment = implementation_amendment(root, registry.datasets["mortality_validation"], protocol)
+    if amendment:
+        report["provenance"]["implementation_amendment"] = {
+            "path": AMENDMENT.as_posix(),
+            "sha256": digest((root / AMENDMENT).read_bytes()),
+            "record": amendment,
+        }
+        report["provenance"]["executed_implementation"] = {
+            **protocol["protected_files"],
+            INTERPRETER: amendment["amended_file_sha256"],
+        }
     return report

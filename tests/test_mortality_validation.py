@@ -10,6 +10,7 @@ import pytest
 from scipy.stats import t
 
 from demeter.analysis.mortality_validation import (
+    AMENDMENT,
     PROTOCOL,
     evaluate,
     event_ratio,
@@ -161,7 +162,7 @@ def test_protocol_detects_parameter_definition_and_source_code_drift(tmp_path):
     registry.datasets["nhanes_glycemic_prevalence"]["analysis"]["adult_age_min"] += 1
     with pytest.raises(ValueError, match="observation definition changed"):
         load_protocol(registry=registry)
-    for path in [PROTOCOL, *map(Path, protocol["protected_files"])]:
+    for path in [PROTOCOL, AMENDMENT, *map(Path, protocol["protected_files"])]:
         destination = tmp_path / path
         destination.parent.mkdir(parents=True, exist_ok=True)
         destination.write_bytes(path.read_bytes())
@@ -173,7 +174,14 @@ def test_protocol_detects_parameter_definition_and_source_code_drift(tmp_path):
 
 def test_reserved_source_identity_and_bytes_fail_before_parsing(tmp_path):
     protocol = load_protocol()
-    manifest = {"schema_version": 1, "cycle": "2013-2014", "sources": {}}
+    from demeter.data.ingest import digest
+
+    manifest = {
+        "schema_version": 1,
+        "cycle": "2013-2014",
+        "protocol_sha256": digest(PROTOCOL.read_bytes()),
+        "sources": {},
+    }
     for name, row in protocol["sources"].items():
         manifest["sources"][name] = {"url": row["url"], "sha256": "0" * 64}
         (tmp_path / name).write_bytes(b"deliberately corrupted fixture")
@@ -193,7 +201,9 @@ def test_archived_holdout_reproduces_every_domain_offline_without_refitting(monk
     monkeypatch.setattr("urllib.request.urlopen", forbidden)
     monkeypatch.setattr("demeter.analysis.mortality_development.fit", forbidden)
     actual = validation_report()
-    saved = json.loads(Path("docs/validation/issue-55-mortality-validation.json").read_bytes())
+    saved = json.loads(
+        Path("docs/validation/issue-55-mortality-validation-amended.json").read_bytes()
+    )
     assert actual["independent_prediction_evaluated"]
     assert not actual["scientific_release_ready"]
     assert actual["counts"]["included_n"] == 2213
@@ -228,3 +238,38 @@ def test_archived_holdout_reproduces_every_domain_offline_without_refitting(monk
             if row["deaths"] == 0:
                 assert row["event_intensity_ratio"]["interval"] is None
                 assert row["event_intensity_ratio"]["unavailable_reason"]
+
+
+@pytest.mark.parametrize("protocol_sha", [None, "0" * 64])
+def test_wrong_protocol_fails_before_opening_any_reserved_source(tmp_path, monkeypatch, protocol_sha):
+    def forbidden(*args, **kwargs):
+        pytest.fail("Mismatched protocol must be rejected before any source parser")
+
+    monkeypatch.setattr("demeter.analysis.mortality_validation.read_xpt", forbidden)
+    monkeypatch.setattr("demeter.analysis.mortality_validation.read_mortality", forbidden)
+    # No source files exist: the protocol guard must fail before even hashing one.
+    manifest = json.loads(Path("data/sources/nhanes-mortality/2013-2014/manifest.json").read_bytes())
+    if protocol_sha is None:
+        manifest.pop("protocol_sha256")
+    else:
+        manifest["protocol_sha256"] = protocol_sha
+    (tmp_path / "manifest.json").write_text(json.dumps(manifest), encoding="utf-8")
+    with pytest.raises(ValueError, match="different frozen protocol"):
+        read_validation_store(load_protocol(), tmp_path)
+
+
+def test_post_intake_amendment_is_pinned_and_preserves_original_numerical_results():
+    from demeter.data.ingest import digest
+
+    evidence = EvidenceRegistry.from_yaml("evidence/parameters.yaml")
+    evidence.datasets["mortality_validation"]["implementation_amendment"]["sha256"] = "0" * 64
+    with pytest.raises(ValueError, match="amendment checksum"):
+        load_protocol(registry=evidence)
+    original = json.loads(Path("docs/validation/issue-55-mortality-validation.json").read_bytes())
+    amended = json.loads(Path("docs/validation/issue-55-mortality-validation-amended.json").read_bytes())
+    original_provenance, amended_provenance = original.pop("provenance"), amended.pop("provenance")
+    assert original == amended
+    assert original_provenance["protocol_sha256"] == digest(PROTOCOL.read_bytes())
+    assert original_provenance["source_sha256"] == amended_provenance["source_sha256"]
+    assert original_provenance["protected_implementation"] == amended_provenance["protected_implementation"]
+    assert amended_provenance["implementation_amendment"]["record"]["outcomes_already_inspected"]

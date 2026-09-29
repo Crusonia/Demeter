@@ -1639,6 +1639,9 @@ datasets:
     model_role: prediction_benchmark_only
     protocol: docs/validation/mortality-validation-protocol-v1.json
     protocol_sha256: 440c44a18a743e6c9d1cc345aabbaf7631033fdb640d9062bba6a748c0abb091
+    implementation_amendment:
+      path: docs/validation/mortality-validation-implementation-amendment-1.json
+      sha256: 482f1289c0925bdcfeb823e10ba0b366418cdcf24e6345cf28e85a57bf4b323a
     rfc: docs/rfcs/RFC-55-mortality-holdout.md
     development_cycle: 2011-2012
     validation_cycle: 2013-2014

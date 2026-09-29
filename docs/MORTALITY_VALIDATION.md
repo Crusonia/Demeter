@@ -26,17 +26,40 @@ remain pending; no independent human review is claimed.
   the mortality file receipt is 01:55:06 UTC. Original bytes, URLs, source
   documentation, terms and exact times remain in the
   [source manifest](../data/sources/nhanes-mortality/2013-2014/manifest.json).
-- This assessment follows that intake. The frozen interpreter, source definitions,
-  coefficients, protocol and metrics are unchanged. The reserved cycle is now
+- This assessment follows that intake. Source definitions, coefficients, protocol
+  and metrics are unchanged; the later interpreter guard correction is disclosed
+  below. The reserved cycle is now
   **used evidence**; later model revisions cannot call it untouched validation.
 
 The [protocol snapshot](validation/mortality-validation-protocol-v1.json) has
 SHA-256 `440c44a18a743e6c9d1cc345aabbaf7631033fdb640d9062bba6a748c0abb091`.
 Its original RFC describes the pre-outcome stage and remains unchanged as part
-of that snapshot. The [aggregate receipt](validation/issue-55-mortality-validation.json)
+of that snapshot. The [original aggregate receipt](validation/issue-55-mortality-validation.json)
 records every prespecified domain and comparison, source/code hashes, the
 freeze commit and the exact evidence-registry hash used for this evaluation.
 Only aggregate analysis results are exported; public files are joined in memory.
+
+### Post-intake implementation amendment
+
+The [automated review](https://github.com/Crusonia/Demeter/pull/60#discussion_r4128954589)
+found that a manifest from another protocol was rejected only after its data had
+been parsed. The corrected reader rejects a missing or mismatched protocol hash
+before opening any outcome or baseline source. Regression tests prohibit parser
+calls and omit the data files entirely to verify this ordering.
+
+Outcomes had already been inspected when this correction was made. The
+[pinned amendment](validation/mortality-validation-implementation-amendment-1.json)
+retains the original and amended interpreter hashes, original freeze/result
+commits, review link and explicit post-intake disposition. The original protocol,
+RFC, source archive and first result are unchanged; no scientific choice is
+re-registered. Only this documented interpreter override is allowed; every other
+protected file and all coefficient/definition contracts remain checked.
+
+The [amended receipt](validation/issue-55-mortality-validation-amended.json)
+is the current offline command's output. Its provenance distinguishes the original
+protected implementation from the actual executed implementation and includes the
+amendment hash. Every non-provenance result is exactly identical to the original
+receipt. This is a software guard correction, not a new independent data test.
 
 From a source checkout on macOS, Linux or Windows:
 

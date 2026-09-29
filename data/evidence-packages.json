@@ -372,6 +372,14 @@
         {
           "path": "docs/validation/issue-55-mortality-validation-before-after.json",
           "sha256": "ada8f78b1510fa5439c8449ed94b19579bf90f026943b2d1d2a69f6d4a61c7a9"
+        },
+        {
+          "path": "docs/validation/mortality-validation-implementation-amendment-1.json",
+          "sha256": "482f1289c0925bdcfeb823e10ba0b366418cdcf24e6345cf28e85a57bf4b323a"
+        },
+        {
+          "path": "docs/validation/issue-55-mortality-validation-amended.json",
+          "sha256": "cd7ec4aca53d47d8b02d4464e1a578921e88c6a4543c8e9b76a31d0ab7728974"
         }
       ],
       "transform_files": [

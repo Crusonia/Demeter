@@ -15,6 +15,8 @@ does not satisfy an unresolved empirical requirement.
 The first [mortality prediction evaluation](MORTALITY_VALIDATION.md) is implemented
 in [PR #60](https://github.com/Crusonia/Demeter/pull/60). It retains inconclusive
 comparisons and does not close the remaining health-model acceptance gates.
+The assessment also records a post-intake source-guard correction without
+rewriting the original protocol or numerical result.
 
 Issue #1 was reopened to match its scientific acceptance state. These tasks feed
 [milestone #27](https://github.com/Crusonia/Demeter/issues/27); none automatically
