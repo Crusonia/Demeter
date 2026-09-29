@@ -181,6 +181,115 @@ downloaded. No ARIC participant data were accessed. The next access decision nee
 a responsible research applicant, an eligible purpose and permitted output terms;
 the dictionary alone does not resolve those requirements.
 
+### NHIS: public follow-up measures diagnosis reports, not glycemic recovery
+
+The [2020 NHIS release](https://www.cdc.gov/nchs/nhis/documentation/2020-nhis.html)
+includes a public linkage file for adults interviewed in both 2019 and 2020.
+Its [longitudinal codebook](https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/NHIS/2020/adultlong-codebook.pdf)
+contains household linkage keys and `WTSA_L`, not the health observations
+themselves. The [survey description](https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/NHIS/2020/srvydesc-508.pdf),
+pp. 54-57, joins `adult19`, `adult20` and `adultlong20` through `HHX_2019` and
+`HHX_2020`. Longitudinal analysis uses `WTSA_L` and the **2019** `PSTRAT`/`PPSU`
+variance design. Annual `WTFA_A` and pooled-sample `WTSA_P` serve different purposes;
+they cannot be substituted for the longitudinal weight.
+
+The actual [2019 adult codebook](https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/NHIS/2019/adult-codebook.pdf)
+and [2020 adult codebook](https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/NHIS/2020/adult-codebook.pdf)
+give the following observation contract. Page references are PDF pages.
+
+| Field | 2019 / 2020 pages | Meaning and implication |
+| --- | --- | --- |
+| `PREDIB_A` | 117 / 118 | Whether a professional ever diagnosed prediabetes; not current laboratory-defined prediabetes |
+| `DIBEV_A` | 119 / 120 | Whether a professional ever diagnosed diabetes, excluding the specified gestational/prediabetes responses; not current glycemic control |
+| `DIBTYPE_A` | 127 / 128 | Self-reported type among respondents reporting diabetes; other type, refusal and unknown remain separate |
+| `DIBPILL_A`, `DIBINS_A` | 122-123 / 123-124 | Current pills/insulin among people reporting prediabetes or diabetes; not complete treatment start/stop histories |
+| `DIBAGETC_A`, `DIFYRSTC_A` | 2020: 121-122 | Coarsened diagnosis age/duration, with top-coding and missing codes; not exact disease-onset times |
+
+A yes-to-no change in an **ever-diagnosed** answer is inconsistent reporting,
+correction or another observation issue; it does not identify remission. A
+no-to-yes change concerns a newly reported diagnosis, which can follow biological
+onset by an unknown interval. The two questionnaires do not supply repeated
+measured fasting glucose/HbA1c with which to identify glycemic reversal. Current
+medication answers do not resolve that missing measurement or establish sustained
+control off medication. These are interpretation limits, not estimated error rates.
+
+The survey description, pp. 16-17, also records telephone/contact eligibility,
+exclusion of proxy interviews from followback, and termination when death or
+incapacity is learned. The [weighting and bias report](https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/NHIS/2020/nonresponse-report-508.pdf),
+pp. 7-11 and 24-25, describes weights targeting the original population and residual
+selection: the reinterview sample consists of survivors. Weight adjustment does
+not restore their missing death events or make this a complete competing-risk
+history. Pandemic-period changes in care, detection and interview mode also
+prevent treating these observations as an ordinary year of untreated biology.
+
+For #56, NHIS remains a candidate **diagnosed-type observation benchmark**. CDC's
+[national diabetes methods](https://usdss.cdc.gov/diabetes/data/socrata/National_Burden_Magnitude_methods.html)
+combine reported type with current insulin use. That operational algorithm does
+not clinically confirm each person's type or classify undiagnosed diabetes.
+It must not be silently applied to NHANES participants, whose type is unmeasured,
+or used to allocate all diabetes to T2D. Combining the surveys requires a separate
+measurement/transport model, compatible populations and joint uncertainty.
+
+Disposition: do not fit Demeter's progression/reversal hazards from these answers.
+An NHIS diagnosis-report analysis would answer a narrower question and would not
+close #56 or #57. Only public documentation was downloaded and inspected here;
+no participant records were linked, no prevalence was estimated, and no model
+input was adopted. Any future record analysis must follow the
+[NCHS public-use agreement](https://www.cdc.gov/nchs/policy/data-user-agreement.html),
+including statistical use and no attempted identification. Public availability
+does not erase those conditions.
+
+The downloaded documentation is pinned below. The three 2020 diagnosis/type
+pages, survey join instructions and survivor-selection discussion were also
+checked as rendered pages. Receipts and PDFs remain in ignored local research
+storage; no source PDF is required by the simulation or redistributed in this PR.
+These hashes and locators are provenance, not new clinical parameters.
+
+| Document | Bytes | SHA-256 | Retrieved UTC on 2026-09-29 |
+| --- | --- | --- | --- |
+| 2019 adult codebook | 3,214,744 | `b110ac796cd223a6ebf8de5f70ab4138eed0069164253105f1b6579351e2d710` | 05:34:50.878216 |
+| 2020 adult codebook | 2,118,199 | `2fa74451239e279d1c69ebed590b42719255f16790072fc448e99e1f68efd324` | 05:32:57.305332 |
+| 2020 longitudinal codebook | 119,312 | `1dc189f3fb4ce52c1efab87ad99276352a6e3100786ac0c9c7093dc494fea9d0` | 05:32:44.800330 |
+| 2020 survey description | 2,764,536 | `9d707334254ed422103bd1513df88d28fb67a61a1f271e7c6f38e61c341e28f7` | 05:33:00.173500 |
+| 2020 weighting/bias report | 563,612 | `a61d89cae88950dcf08e599147e0417ac35721ab611213eb382dcf8ecd27b396` | 05:32:47.246144 |
+
+### Research-access brief for the maintainer
+
+This is an unsubmitted research brief, not a claim of institutional approval or
+permission to obtain restricted records. It makes the next access decision
+concrete without replacing the full model objective with a diagnosis benchmark.
+
+- **Research question:** estimate supported-population movement between measured
+  glycemic categories while retaining diagnosis history, treatment, death and
+  observation timing; evaluate what can be transported to Demeter's target
+  population. Food effects require their own intervention evidence.
+- **Candidate package:** ARIC's visit-level lab and collection-time fields,
+  diagnosis/medication histories and matching mortality/last-contact release
+  identified above. The first intake must verify units, consent coverage and
+  joins before selecting observations or freezing a fit/validation protocol.
+- **Analysis:** follow RFC-57's competing-transition and observation-model
+  alternatives, identifiability checks, joint uncertainty and independent
+  prediction. Do not claim a nationally applicable rate from a selected cohort.
+- **Intended public outputs:** Demeter-written analysis code, documented
+  assumptions, approved aggregate estimates with joint uncertainty and validation
+  reports. Participant records and restricted extracts would remain outside the
+  public repository. Permission to distribute each derived output must be
+  checked against the actual agreement; it is not inferred from aggregation.
+- **Inputs still needed from a responsible researcher:** principal investigator
+  and institution, intended research and downstream uses, institutional review
+  documentation, permitted storage/access arrangements and an authorized signing
+  official. No names, approvals, commitments or signatures are supplied by Codex.
+- **Decision before requesting access:** ARIC's noncommercial condition must be
+  compatible with the proposed research and outputs. If unrestricted commercial
+  reuse is required, this release is not an assumed solution; an alternative
+  permitted package or sufficient published aggregate evidence is needed.
+
+The [BioLINCC FAQ](https://biolincc.nhlbi.nih.gov/faq/) describes the application,
+institutional review and signed distribution agreement. No application, account,
+agreement or investigator message has been initiated. An approved research
+partner/package would enable the next intake; the current public-source appraisal
+does not identify all required transition, mortality and dietary parameters.
+
 ## Repeat the structural inspection
 
 Download the two pinned files using the links above and keep them outside tracked

@@ -103,6 +103,10 @@ are introduced. The [source appraisal](../LONGITUDINAL_SOURCE_APPRAISAL.md) now
 records verified intake of two open workbooks and their field-level gaps. Chen's
 baseline/final glucose could support a restricted analysis under an explicit
 observation/censoring model; neither release completes the requested dynamics.
+The appraisal also checks the public NHIS followback: its ever-diagnosed answers
+and survivor sample cannot be treated as measured glycemic recovery or complete
+competing-event histories. A maintainer-facing research-access brief specifies
+the ARIC candidate fields, intended outputs and applicant information still needed.
 No fit has been performed. The next concrete action is to obtain a permitted
 package with the missing histories, or identify sufficient compatible aggregate
 evidence, then freeze the estimable likelihood and validation partition. #57
