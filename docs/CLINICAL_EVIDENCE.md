@@ -49,6 +49,12 @@ alternative strata, not independent effects to multiply together.
 
 ## Dietary identification remains unresolved
 
+The next implementation contracts are
+[RFC-57: longitudinal identification](rfcs/RFC-57-longitudinal-identification.md)
+and [RFC-58: food-pathway identification](rfcs/RFC-58-food-pathway-identification.md).
+They define the needed observation histories and distinguish reproducible
+randomized menu contrasts from the still-unidentified disease-transition bridge.
+
 [Chen et al. (2023)](https://pmc.ncbi.nlm.nih.gov/articles/PMC10300524/),
 doi:10.2337/dc22-1993, reports prospective associations with incident T2D. Its
 extreme-quintile comparison uses UPF as a share of food weight; the main Table 2
