@@ -55,6 +55,13 @@ and [RFC-58: food-pathway identification](rfcs/RFC-58-food-pathway-identificatio
 They define the needed observation histories and distinguish reproducible
 randomized menu contrasts from the still-unidentified disease-transition bridge.
 
+The [longitudinal source appraisal](LONGITUDINAL_SOURCE_APPRAISAL.md) verifies two
+open cohort workbooks against publisher checksums and records their actual field
+coverage. Neither supplies the full treatment, post-diabetes and competing-death
+history required for the proposed dynamics. A possible restricted Chen
+baseline/final-glucose analysis remains distinct from engine calibration; no
+transition fit or parameter promotion has occurred.
+
 The [paired daily-intake reproduction](FOOD_INTAKE_REPRODUCTION.md) now reproduces
 the Hall author archive's published mean and standard error, with a participant-level
 interval and order/period sensitivity. Its estimated parameter remains benchmark-only;

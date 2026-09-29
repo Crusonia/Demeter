@@ -32,6 +32,7 @@ and controlled diabetes is not absence of a diabetes history.
 | DPP/DPPOS | Randomized prevention interventions followed by repeated high-risk participant observations | Review the actual release dictionaries, observation schedule, diagnosis/treatment rules and attrition; selected trial participants do not identify national rates |
 | Permitted published aggregate transition tables | Potentially sufficient if they retain initial/final categories, intervals, event denominators and joint uncertainty | Assess identifiability from the actual tables; marginals or endpoint incidence alone are insufficient |
 | NHANES cross-sections and linked mortality | Population benchmarks and baseline-category mortality prediction | No repeated metabolic-state history; cannot identify the required reversal hazards |
+| Chen 2018 and Okamura 2019 open releases | Verified original workbook identities and field-level inspection; Chen includes baseline/final glucose, Okamura includes baseline glycemia and incident diabetes | Neither release supplies the full treatment, post-diabetes and competing-death history; see the [source appraisal](../LONGITUDINAL_SOURCE_APPRAISAL.md) before proposing a narrower fit |
 
 The [NIH DPP overview](https://www.niddk.nih.gov/about-niddk/research-areas/diabetes/diabetes-prevention-program-dpp)
 documents the multicomponent lifestyle intervention and changed treatment after
@@ -98,7 +99,11 @@ reproducibility and before/after canonical outputs remain required.
 ## Current disposition
 
 No new clinical values, evidence grades, equations or uncertainty distributions
-are introduced. The missing input is a permitted, sufficiently detailed
-longitudinal observation package. The next concrete action is to select that
-package against the intake table, complete its field-level mapping, and freeze
-the estimable likelihood and validation partition. #57 stays open.
+are introduced. The [source appraisal](../LONGITUDINAL_SOURCE_APPRAISAL.md) now
+records verified intake of two open workbooks and their field-level gaps. Chen's
+baseline/final glucose could support a restricted analysis under an explicit
+observation/censoring model; neither release completes the requested dynamics.
+No fit has been performed. The next concrete action is to obtain a permitted
+package with the missing histories, or identify sufficient compatible aggregate
+evidence, then freeze the estimable likelihood and validation partition. #57
+stays open; an incidence benchmark would not close it.
