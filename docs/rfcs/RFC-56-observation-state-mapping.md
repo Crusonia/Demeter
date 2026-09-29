@@ -102,3 +102,61 @@ Rollback removes the optional report; no engine migration is needed. Issue #56
 remains open for evidence-supported initialization, including type, age, missing-
 data and temporal transport decisions. This RFC cannot satisfy those requirements
 by documenting that they are missing.
+
+## Proposed extension: partial observations, September 29, 2026
+
+The complete-case audit found reported diabetes excluded when unrelated data are
+missing. Add a separately selected partial-observation report; preserve the
+existing classifications and published-table comparisons. This extension follows
+inspection of the source observations and is not a preregistered analysis.
+It advances the same I-01/I-07 and F-08 observation contract; it does not change
+engine states, hazards or initialization.
+
+For each record, retain a set of categories compatible with the observed fields:
+
+- A reported diabetes diagnosis, or an observed valid laboratory value above the
+  registered diabetes threshold, establishes the survey's any-type diabetes
+  category regardless of unrelated missing fields. This is not a confirmed
+  clinical diagnosis or evidence of diabetes type.
+- Otherwise a missing glycemic measurement can fall in any registered glycemic
+  band. Missing/refused/unknown interview responses allow either answer; they
+  are never treated as a negative response. Keep the existing treatment of
+  the codebook's borderline response, without inferring treatment or remission.
+- Apply the existing priority: diabetes, prediabetes, other listed diagnosis,
+  earlier-risk candidate, lower measured risk. A higher-priority known category
+  cannot be discarded for lack of lower-priority information.
+- For the candidate risk rules, retain each observed waist, HDL and triglyceride
+  marker. Treat the blood-pressure marker as unknown unless all six required
+  readings are valid, matching the original measurement block. This deliberately
+  coarsens partially observed blood-pressure readings; resulting category bounds
+  are conservative and not necessarily sharp over raw-value completions.
+- The minimum/maximum possible number of risk markers determines whether each
+  candidate category remains possible. A singleton set is classified. Multiple
+  possibilities remain unresolved, with their joint category-set partition shown.
+
+For category C in an eligible age/sex domain, the lower proportion is the weighted
+share whose only possible category is C; the upper proportion is the weighted
+share whose set includes C. Use all eligible survey weight for both. These are
+logical bounds conditional on the recorded observation rules, not imputed
+prevalence, clinical-error bounds or national initialization probabilities.
+Report Taylor logit-t sampling intervals separately for each endpoint. Those
+pointwise intervals are not a simultaneous confidence region for the identified
+set and cannot be sampled as independent category probabilities.
+
+Register this as a separate derived, grade-C, benchmark-only dataset. Reuse source
+bytes, thresholds, eligible population, survey design and age domains. The
+[DIQ codebook](https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_DIQ.htm)
+distinguishes yes/no/borderline from refused/unknown responses; the
+[glucose](https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_GLU.htm) and
+[glycohemoglobin](https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_GHB.htm)
+codebooks document the measured fields. No assumption about missing-at-random is
+introduced. Selection into the positive-weight sample, diagnostic error, type,
+age and calendar transport remain separate unresolved problems.
+
+Before implementation, require: complete-case equivalence; diagnosis priority
+despite missing lower-priority data; all-missing and threshold-boundary cases;
+exhaustive comparison with independent completed binary-marker combinations;
+weighted partition conservation; lower/upper bound arithmetic; tightening sets
+when observations are added; offline source integrity and canonical output;
+unchanged engine trajectories. Record actual results in the report documentation.
+Maintainer and external scientific disposition remain pending.
