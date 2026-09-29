@@ -77,6 +77,66 @@ No data request or message has been sent. A comparison with this study must reta
 its different regimen, population, setting, endpoint and duration. Do not pool
 the two studies as interchangeable dose-response observations.
 
+## Direct diabetes endpoints: compatibility appraisal
+
+The following alternatives were checked on September 29, 2026. They address
+disease endpoints, but neither supplies a coefficient that can be inserted into
+the current health engine without a new, justified observation/transition mapping.
+No effect from these sources has been extracted into an active parameter.
+
+### PREDIMED: incident diabetes after assignment to a dietary regimen
+
+The [multicenter diabetes subgroup report](https://doi.org/10.7326/M13-1725)
+compares Mediterranean dietary regimens with low-fat dietary advice in older
+Spanish participants at high cardiovascular risk without baseline diabetes.
+Its [2018 correction](https://doi.org/10.7326/L18-0363) is identified by the
+[PubMed correction record](https://pubmed.ncbi.nlm.nih.gov/30128530/); the full
+correction body was not retrieved in this appraisal, so no corrected estimate is
+claimed. The related Reus report has a separate
+[correction](https://doi.org/10.2337/dc18-er10), whose
+[revised table](https://pmc.ncbi.nlm.nih.gov/articles/PMC6150430/) explicitly
+distinguishes original estimates from estimates excluding nonrandomized partners.
+The Reus and broader PREDIMED results must not be counted as independent trials.
+
+The estimand is an assigned-regimen contrast for first diabetes occurrence, not
+an effect per unit of UPF or an isolated ingredient. A baseline nondiabetic group
+does not identify which current-state progression or reversal hazard changed.
+Selecting this route requires the corrected analysis and a protocol connecting
+observations, exposure, intermediate states and timing. Applying its incidence
+ratio to both progression arrows would double-assign an unidentified mechanism.
+
+### DiRECT: remission after an integrated treatment program
+
+The [primary trial](https://doi.org/10.1016/S0140-6736(17)33102-1) and its
+[author manuscript](https://eprints.gla.ac.uk/153078/13/153078.pdf), PDF pp. 4,
+6-10, concern selected adults with recently diagnosed T2D who were not receiving
+insulin. The intervention combines formula diet replacement, medication
+withdrawal, food reintroduction and maintenance support. The endpoint requires
+glycemic control while off diabetes medication; it is not prediabetes regression
+or a UPF-dose contrast. The manuscript is an accepted version, not the version of
+record. Its [supplement](https://eprints.gla.ac.uk/153078/2/153078Suppl.pdf), p. 11,
+also separates the per-protocol analysis from the main analysis.
+
+Practice-level randomization, mixed-effects logistic analysis and the main
+analysis's treatment of missing endpoints must be retained. An adjusted remission
+odds ratio is neither an annual transition hazard nor an individual causal
+weight-loss dose-response. Demeter currently has no T2D-to-remission flow in
+either health structure. Adoption therefore requires explicit diagnosed-history,
+remission and relapse semantics, compatible longitudinal evidence and treatment
+timing; relabeling remission as never-diabetic healthy would erase clinical history.
+
+### Decision before implementation
+
+Keep both as candidates, not accepted disease bridges. A qualifying package must
+identify the proposed transition or support a clearly stated alternative state
+model, preserve treatment and competing-event histories, and support a meaningful
+validation test. A published treatment effect alone does not identify all of those
+quantities. [RFC-57](RFC-57-longitudinal-identification.md) and the
+[actual cohort-release appraisal](../LONGITUDINAL_SOURCE_APPRAISAL.md) identify
+the companion data requirements. This is a source-to-model compatibility decision,
+not a conclusion that the interventions have no health effect. It does not close
+#58 or replace its full acceptance criteria with another upstream benchmark.
+
 ## What must be registered before reproduction
 
 - Exact source receipts, corrections and redistribution disposition. Separate
