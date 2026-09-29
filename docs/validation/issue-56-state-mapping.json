@@ -1,0 +1,4040 @@
+{
+  "counts": {
+    "eligible_n": 3769,
+    "known_pregnancy_n": 32,
+    "positive_weight_n": 4476,
+    "source_n": 15560,
+    "under_adult_minimum_n": 675
+  },
+  "crosswalk": [
+    {
+      "candidate_state": "healthy",
+      "mapping_status": "unresolved",
+      "observation": "normoglycemia",
+      "reason": "Normal glycemia does not identify overall metabolic health or absence of other disease.",
+      "structure": "legacy"
+    },
+    {
+      "candidate_state": "ir",
+      "mapping_status": "unresolved",
+      "observation": "prediabetes",
+      "reason": "The glycemic threshold category does not identify all insulin resistance.",
+      "structure": "legacy"
+    },
+    {
+      "candidate_state": "t2d",
+      "mapping_status": "unresolved",
+      "observation": "diabetes_any_type",
+      "reason": "Diabetes type is not identified; no subtraction or assumed T2D fraction.",
+      "structure": "all"
+    },
+    {
+      "candidate_state": "healthy",
+      "mapping_status": "unresolved",
+      "observation": "lower_measured_risk",
+      "reason": "Lower measured risk is not proof of general health; diagnoses and markers are incomplete.",
+      "structure": "risk_1/risk_2"
+    },
+    {
+      "candidate_state": "prechronic",
+      "mapping_status": "definition_only",
+      "observation": "prechronic_candidate",
+      "reason": "Matches a candidate observation rule, not a clinical diagnosis or transported national stock.",
+      "structure": "risk_1/risk_2"
+    },
+    {
+      "candidate_state": "prediabetes",
+      "mapping_status": "definition_only",
+      "observation": "prediabetes",
+      "reason": "Observation label aligns; complete-case selection, age and temporal transport remain unresolved.",
+      "structure": "risk_1/risk_2"
+    },
+    {
+      "candidate_state": null,
+      "mapping_status": "unrepresented",
+      "observation": "other_reported_diagnosis",
+      "reason": "No corresponding engine stock. These people must not be dropped or declared healthy.",
+      "structure": "risk_1/risk_2"
+    },
+    {
+      "candidate_state": null,
+      "mapping_status": "unclassified",
+      "observation": "unclassified",
+      "reason": "Missing interview or measurements remain unknown; no imputation or healthy assignment.",
+      "structure": "all"
+    }
+  ],
+  "definitions": [
+    {
+      "domains": [
+        {
+          "age_group": "20_plus",
+          "categories": {
+            "diabetes_any_type": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.161563998394,
+                "interval": {
+                  "high": 0.182801717427,
+                  "level": 0.95,
+                  "low": 0.142363815316,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 3769,
+                "standard_error": 0.00981044772253,
+                "status": "estimated"
+              },
+              "sample_n": 847
+            },
+            "normoglycemia": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.326644247946,
+                "interval": {
+                  "high": 0.35627115064,
+                  "level": 0.95,
+                  "low": 0.298339243832,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 3769,
+                "standard_error": 0.0140773182233,
+                "status": "estimated"
+              },
+              "sample_n": 1083
+            },
+            "prediabetes": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.508136799081,
+                "interval": {
+                  "high": 0.5336443772,
+                  "level": 0.95,
+                  "low": 0.482586786475,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 3769,
+                "standard_error": 0.0124061808328,
+                "status": "estimated"
+              },
+              "sample_n": 1827
+            },
+            "unclassified": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0036549545795,
+                "interval": {
+                  "high": 0.00894032862661,
+                  "level": 0.95,
+                  "low": 0.00148950988815,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 3769,
+                "standard_error": 0.00159100470383,
+                "status": "estimated"
+              },
+              "sample_n": 12
+            }
+          },
+          "classified_n": 3757,
+          "diagnosis_checks_n": {
+            "reported_diabetes_but_unclassified": 1,
+            "reported_diabetes_with_subdiabetic_labs": 130
+          },
+          "eligible_n": 3769,
+          "eligible_weight": 238463455.771,
+          "public_age_topcode_n": 236,
+          "sex": "all",
+          "unclassified_n": 12,
+          "unclassified_reasons_n": {
+            "incomplete_glycemic_observation": 12,
+            "incomplete_other_risk_or_diagnosis": 0
+          }
+        },
+        {
+          "age_group": "20_plus",
+          "categories": {
+            "diabetes_any_type": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.176954727001,
+                "interval": {
+                  "high": 0.20114303969,
+                  "level": 0.95,
+                  "low": 0.155110384309,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1822,
+                "standard_error": 0.0111696666,
+                "status": "estimated"
+              },
+              "sample_n": 443
+            },
+            "normoglycemia": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.261404521063,
+                "interval": {
+                  "high": 0.304134954427,
+                  "level": 0.95,
+                  "low": 0.222755821257,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1822,
+                "standard_error": 0.0197799982361,
+                "status": "estimated"
+              },
+              "sample_n": 420
+            },
+            "prediabetes": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.560313881272,
+                "interval": {
+                  "high": 0.598542037199,
+                  "level": 0.95,
+                  "low": 0.521356526547,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1822,
+                "standard_error": 0.0187753229626,
+                "status": "estimated"
+              },
+              "sample_n": 954
+            },
+            "unclassified": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.00132687066332,
+                "interval": {
+                  "high": 0.00348298508727,
+                  "level": 0.95,
+                  "low": 0.000504805721291,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1822,
+                "standard_error": 0.000622315722547,
+                "status": "estimated"
+              },
+              "sample_n": 5
+            }
+          },
+          "classified_n": 1817,
+          "diagnosis_checks_n": {
+            "reported_diabetes_but_unclassified": 1,
+            "reported_diabetes_with_subdiabetic_labs": 71
+          },
+          "eligible_n": 1822,
+          "eligible_weight": 116425403.517,
+          "public_age_topcode_n": 126,
+          "sex": "male",
+          "unclassified_n": 5,
+          "unclassified_reasons_n": {
+            "incomplete_glycemic_observation": 5,
+            "incomplete_other_risk_or_diagnosis": 0
+          }
+        },
+        {
+          "age_group": "20_plus",
+          "categories": {
+            "diabetes_any_type": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.146881104366,
+                "interval": {
+                  "high": 0.175904533659,
+                  "level": 0.95,
+                  "low": 0.121937838061,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1947,
+                "standard_error": 0.0130768655576,
+                "status": "estimated"
+              },
+              "sample_n": 404
+            },
+            "normoglycemia": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.388883536327,
+                "interval": {
+                  "high": 0.431681745091,
+                  "level": 0.95,
+                  "low": 0.347732252652,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1947,
+                "standard_error": 0.0204259812668,
+                "status": "estimated"
+              },
+              "sample_n": 663
+            },
+            "prediabetes": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.458359391655,
+                "interval": {
+                  "high": 0.49358999324,
+                  "level": 0.95,
+                  "low": 0.42354028772,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1947,
+                "standard_error": 0.017033865974,
+                "status": "estimated"
+              },
+              "sample_n": 873
+            },
+            "unclassified": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0058759676517,
+                "interval": {
+                  "high": 0.0171272678973,
+                  "level": 0.95,
+                  "low": 0.00200086141473,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1947,
+                "standard_error": 0.00306654546932,
+                "status": "estimated"
+              },
+              "sample_n": 7
+            }
+          },
+          "classified_n": 1940,
+          "diagnosis_checks_n": {
+            "reported_diabetes_but_unclassified": 0,
+            "reported_diabetes_with_subdiabetic_labs": 59
+          },
+          "eligible_n": 1947,
+          "eligible_weight": 122038052.254,
+          "public_age_topcode_n": 110,
+          "sex": "female",
+          "unclassified_n": 7,
+          "unclassified_reasons_n": {
+            "incomplete_glycemic_observation": 7,
+            "incomplete_other_risk_or_diagnosis": 0
+          }
+        },
+        {
+          "age_group": "20_39",
+          "categories": {
+            "diabetes_any_type": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0432199433248,
+                "interval": {
+                  "high": 0.0614410376364,
+                  "level": 0.95,
+                  "low": 0.0302284997885,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1106,
+                "standard_error": 0.00744911596245,
+                "status": "estimated"
+              },
+              "sample_n": 59
+            },
+            "normoglycemia": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.534372640239,
+                "interval": {
+                  "high": 0.584453634263,
+                  "level": 0.95,
+                  "low": 0.483588966792,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1106,
+                "standard_error": 0.02457035243,
+                "status": "estimated"
+              },
+              "sample_n": 589
+            },
+            "prediabetes": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.414672168852,
+                "interval": {
+                  "high": 0.465749073872,
+                  "level": 0.95,
+                  "low": 0.365365955188,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1106,
+                "standard_error": 0.0244500329369,
+                "status": "estimated"
+              },
+              "sample_n": 452
+            },
+            "unclassified": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.00773524758391,
+                "interval": {
+                  "high": 0.0239654591421,
+                  "level": 0.95,
+                  "low": 0.0024688755415,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1106,
+                "standard_error": 0.0042757833894,
+                "status": "estimated"
+              },
+              "sample_n": 6
+            }
+          },
+          "classified_n": 1100,
+          "diagnosis_checks_n": {
+            "reported_diabetes_but_unclassified": 0,
+            "reported_diabetes_with_subdiabetic_labs": 9
+          },
+          "eligible_n": 1106,
+          "eligible_weight": 85071060.2537,
+          "public_age_topcode_n": 0,
+          "sex": "all",
+          "unclassified_n": 6,
+          "unclassified_reasons_n": {
+            "incomplete_glycemic_observation": 6,
+            "incomplete_other_risk_or_diagnosis": 0
+          }
+        },
+        {
+          "age_group": "20_39",
+          "categories": {
+            "diabetes_any_type": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0397452020818,
+                "interval": {
+                  "high": 0.07974350448,
+                  "level": 0.95,
+                  "low": 0.0193868711858,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 523,
+                "standard_error": 0.0136921203678,
+                "status": "estimated"
+              },
+              "sample_n": 22
+            },
+            "normoglycemia": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.455487538432,
+                "interval": {
+                  "high": 0.520839713184,
+                  "level": 0.95,
+                  "low": 0.391633245093,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 523,
+                "standard_error": 0.0315427132408,
+                "status": "estimated"
+              },
+              "sample_n": 245
+            },
+            "prediabetes": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.501962934379,
+                "interval": {
+                  "high": 0.565923360224,
+                  "level": 0.95,
+                  "low": 0.437938201041,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 523,
+                "standard_error": 0.0312426550682,
+                "status": "estimated"
+              },
+              "sample_n": 253
+            },
+            "unclassified": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.00280432510649,
+                "interval": {
+                  "high": 0.0109858349978,
+                  "level": 0.95,
+                  "low": 0.000711469505817,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 523,
+                "standard_error": 0.00186519860282,
+                "status": "estimated"
+              },
+              "sample_n": 3
+            }
+          },
+          "classified_n": 520,
+          "diagnosis_checks_n": {
+            "reported_diabetes_but_unclassified": 0,
+            "reported_diabetes_with_subdiabetic_labs": 3
+          },
+          "eligible_n": 523,
+          "eligible_weight": 43466794.101,
+          "public_age_topcode_n": 0,
+          "sex": "male",
+          "unclassified_n": 3,
+          "unclassified_reasons_n": {
+            "incomplete_glycemic_observation": 3,
+            "incomplete_other_risk_or_diagnosis": 0
+          }
+        },
+        {
+          "age_group": "20_39",
+          "categories": {
+            "diabetes_any_type": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0468502407949,
+                "interval": {
+                  "high": 0.0678427514299,
+                  "level": 0.95,
+                  "low": 0.0321295274897,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 583,
+                "standard_error": 0.00851040749166,
+                "status": "estimated"
+              },
+              "sample_n": 37
+            },
+            "normoglycemia": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.616789247836,
+                "interval": {
+                  "high": 0.672623997659,
+                  "level": 0.95,
+                  "low": 0.557693749137,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 583,
+                "standard_error": 0.0280178169537,
+                "status": "estimated"
+              },
+              "sample_n": 344
+            },
+            "prediabetes": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.323473595174,
+                "interval": {
+                  "high": 0.380415498305,
+                  "level": 0.95,
+                  "low": 0.27132252762,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 583,
+                "standard_error": 0.0265713403181,
+                "status": "estimated"
+              },
+              "sample_n": 199
+            },
+            "unclassified": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0128869161957,
+                "interval": {
+                  "high": 0.0486834493316,
+                  "level": 0.95,
+                  "low": 0.0033194328963,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 583,
+                "standard_error": 0.00843756502064,
+                "status": "estimated"
+              },
+              "sample_n": 3
+            }
+          },
+          "classified_n": 580,
+          "diagnosis_checks_n": {
+            "reported_diabetes_but_unclassified": 0,
+            "reported_diabetes_with_subdiabetic_labs": 6
+          },
+          "eligible_n": 583,
+          "eligible_weight": 41604266.1527,
+          "public_age_topcode_n": 0,
+          "sex": "female",
+          "unclassified_n": 3,
+          "unclassified_reasons_n": {
+            "incomplete_glycemic_observation": 3,
+            "incomplete_other_risk_or_diagnosis": 0
+          }
+        },
+        {
+          "age_group": "40_59",
+          "categories": {
+            "diabetes_any_type": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.164242228641,
+                "interval": {
+                  "high": 0.198497608517,
+                  "level": 0.95,
+                  "low": 0.134903417505,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1282,
+                "standard_error": 0.015415012477,
+                "status": "estimated"
+              },
+              "sample_n": 283
+            },
+            "normoglycemia": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.26450923258,
+                "interval": {
+                  "high": 0.306048086044,
+                  "level": 0.95,
+                  "low": 0.226765972927,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1282,
+                "standard_error": 0.0192699803071,
+                "status": "estimated"
+              },
+              "sample_n": 314
+            },
+            "prediabetes": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.570325295412,
+                "interval": {
+                  "high": 0.620253086653,
+                  "level": 0.95,
+                  "low": 0.518924544148,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1282,
+                "standard_error": 0.0246827539968,
+                "status": "estimated"
+              },
+              "sample_n": 682
+            },
+            "unclassified": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.000923243367192,
+                "interval": {
+                  "high": 0.00301508528297,
+                  "level": 0.95,
+                  "low": 0.000282293613074,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1282,
+                "standard_error": 0.000530980252101,
+                "status": "estimated"
+              },
+              "sample_n": 3
+            }
+          },
+          "classified_n": 1279,
+          "diagnosis_checks_n": {
+            "reported_diabetes_but_unclassified": 0,
+            "reported_diabetes_with_subdiabetic_labs": 39
+          },
+          "eligible_n": 1282,
+          "eligible_weight": 81964096.262,
+          "public_age_topcode_n": 0,
+          "sex": "all",
+          "unclassified_n": 3,
+          "unclassified_reasons_n": {
+            "incomplete_glycemic_observation": 3,
+            "incomplete_other_risk_or_diagnosis": 0
+          }
+        },
+        {
+          "age_group": "40_59",
+          "categories": {
+            "diabetes_any_type": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.170571138853,
+                "interval": {
+                  "high": 0.220332609546,
+                  "level": 0.95,
+                  "low": 0.130171794063,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 595,
+                "standard_error": 0.0218345803815,
+                "status": "estimated"
+              },
+              "sample_n": 140
+            },
+            "normoglycemia": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.19458027755,
+                "interval": {
+                  "high": 0.254375184207,
+                  "level": 0.95,
+                  "low": 0.14608722529,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 595,
+                "standard_error": 0.0262605752045,
+                "status": "estimated"
+              },
+              "sample_n": 105
+            },
+            "prediabetes": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.634153004733,
+                "interval": {
+                  "high": 0.699433168404,
+                  "level": 0.95,
+                  "low": 0.563542069778,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 595,
+                "standard_error": 0.0331776692709,
+                "status": "estimated"
+              },
+              "sample_n": 349
+            },
+            "unclassified": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0006955788638,
+                "interval": {
+                  "high": 0.00518783350188,
+                  "level": 0.95,
+                  "low": 9.28991728548e-05,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 595,
+                "standard_error": 0.000679669248094,
+                "status": "estimated"
+              },
+              "sample_n": 1
+            }
+          },
+          "classified_n": 594,
+          "diagnosis_checks_n": {
+            "reported_diabetes_but_unclassified": 0,
+            "reported_diabetes_with_subdiabetic_labs": 18
+          },
+          "eligible_n": 595,
+          "eligible_weight": 39531928.3518,
+          "public_age_topcode_n": 0,
+          "sex": "male",
+          "unclassified_n": 1,
+          "unclassified_reasons_n": {
+            "incomplete_glycemic_observation": 1,
+            "incomplete_other_risk_or_diagnosis": 0
+          }
+        },
+        {
+          "age_group": "40_59",
+          "categories": {
+            "diabetes_any_type": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.158345899573,
+                "interval": {
+                  "high": 0.217813148009,
+                  "level": 0.95,
+                  "low": 0.112773551027,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 687,
+                "standard_error": 0.0253747575779,
+                "status": "estimated"
+              },
+              "sample_n": 143
+            },
+            "normoglycemia": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.329658542082,
+                "interval": {
+                  "high": 0.383751215227,
+                  "level": 0.95,
+                  "low": 0.279729583007,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 687,
+                "standard_error": 0.0253301517579,
+                "status": "estimated"
+              },
+              "sample_n": 209
+            },
+            "prediabetes": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.510860211349,
+                "interval": {
+                  "high": 0.584847100976,
+                  "level": 0.95,
+                  "low": 0.436394421794,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 687,
+                "standard_error": 0.0363084612199,
+                "status": "estimated"
+              },
+              "sample_n": 333
+            },
+            "unclassified": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.00113534699705,
+                "interval": {
+                  "high": 0.00490927702727,
+                  "level": 0.95,
+                  "low": 0.000261803449395,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 687,
+                "standard_error": 0.000808320548283,
+                "status": "estimated"
+              },
+              "sample_n": 2
+            }
+          },
+          "classified_n": 685,
+          "diagnosis_checks_n": {
+            "reported_diabetes_but_unclassified": 0,
+            "reported_diabetes_with_subdiabetic_labs": 21
+          },
+          "eligible_n": 687,
+          "eligible_weight": 42432167.9102,
+          "public_age_topcode_n": 0,
+          "sex": "female",
+          "unclassified_n": 2,
+          "unclassified_reasons_n": {
+            "incomplete_glycemic_observation": 2,
+            "incomplete_other_risk_or_diagnosis": 0
+          }
+        },
+        {
+          "age_group": "60_plus",
+          "categories": {
+            "diabetes_any_type": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.299438421003,
+                "interval": {
+                  "high": 0.328525208335,
+                  "level": 0.95,
+                  "low": 0.271884161587,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1381,
+                "standard_error": 0.0137617372129,
+                "status": "estimated"
+              },
+              "sample_n": 505
+            },
+            "normoglycemia": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.150539898162,
+                "interval": {
+                  "high": 0.181863064635,
+                  "level": 0.95,
+                  "low": 0.123795345268,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1381,
+                "standard_error": 0.0140695121138,
+                "status": "estimated"
+              },
+              "sample_n": 180
+            },
+            "prediabetes": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.548091709387,
+                "interval": {
+                  "high": 0.577289143262,
+                  "level": 0.95,
+                  "low": 0.518559434806,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1381,
+                "standard_error": 0.0142742479795,
+                "status": "estimated"
+              },
+              "sample_n": 693
+            },
+            "unclassified": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.00192997144886,
+                "interval": {
+                  "high": 0.0104652049571,
+                  "level": 0.95,
+                  "low": 0.000353434996126,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1381,
+                "standard_error": 0.00158917214254,
+                "status": "estimated"
+              },
+              "sample_n": 3
+            }
+          },
+          "classified_n": 1378,
+          "diagnosis_checks_n": {
+            "reported_diabetes_but_unclassified": 1,
+            "reported_diabetes_with_subdiabetic_labs": 82
+          },
+          "eligible_n": 1381,
+          "eligible_weight": 71428299.2549,
+          "public_age_topcode_n": 236,
+          "sex": "all",
+          "unclassified_n": 3,
+          "unclassified_reasons_n": {
+            "incomplete_glycemic_observation": 3,
+            "incomplete_other_risk_or_diagnosis": 0
+          }
+        },
+        {
+          "age_group": "60_plus",
+          "categories": {
+            "diabetes_any_type": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.362926337698,
+                "interval": {
+                  "high": 0.419901370318,
+                  "level": 0.95,
+                  "low": 0.309556714535,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 704,
+                "standard_error": 0.0268878839591,
+                "status": "estimated"
+              },
+              "sample_n": 281
+            },
+            "normoglycemia": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0880557121674,
+                "interval": {
+                  "high": 0.134650097364,
+                  "level": 0.95,
+                  "low": 0.0565315523142,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 704,
+                "standard_error": 0.0186043804154,
+                "status": "estimated"
+              },
+              "sample_n": 70
+            },
+            "prediabetes": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.548865710772,
+                "interval": {
+                  "high": 0.599245014138,
+                  "level": 0.95,
+                  "low": 0.497464316954,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 704,
+                "standard_error": 0.0247946030098,
+                "status": "estimated"
+              },
+              "sample_n": 352
+            },
+            "unclassified": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.000152239361697,
+                "interval": {
+                  "high": 0.00117880026927,
+                  "level": 0.95,
+                  "low": 1.96437838255e-05,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 704,
+                "standard_error": 0.000151350511971,
+                "status": "estimated"
+              },
+              "sample_n": 1
+            }
+          },
+          "classified_n": 703,
+          "diagnosis_checks_n": {
+            "reported_diabetes_but_unclassified": 1,
+            "reported_diabetes_with_subdiabetic_labs": 50
+          },
+          "eligible_n": 704,
+          "eligible_weight": 33426681.0638,
+          "public_age_topcode_n": 126,
+          "sex": "male",
+          "unclassified_n": 1,
+          "unclassified_reasons_n": {
+            "incomplete_glycemic_observation": 1,
+            "incomplete_other_risk_or_diagnosis": 0
+          }
+        },
+        {
+          "age_group": "60_plus",
+          "categories": {
+            "diabetes_any_type": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.243593684809,
+                "interval": {
+                  "high": 0.299227958771,
+                  "level": 0.95,
+                  "low": 0.195418761139,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 677,
+                "standard_error": 0.0252379754291,
+                "status": "estimated"
+              },
+              "sample_n": 224
+            },
+            "normoglycemia": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.20550174074,
+                "interval": {
+                  "high": 0.281758380189,
+                  "level": 0.95,
+                  "low": 0.145697045165,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 677,
+                "standard_error": 0.0330182230717,
+                "status": "estimated"
+              },
+              "sample_n": 110
+            },
+            "prediabetes": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.547410888446,
+                "interval": {
+                  "high": 0.596299959601,
+                  "level": 0.95,
+                  "low": 0.497589599686,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 677,
+                "standard_error": 0.0240417620004,
+                "status": "estimated"
+              },
+              "sample_n": 341
+            },
+            "unclassified": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.00349368600426,
+                "interval": {
+                  "high": 0.0197376004689,
+                  "level": 0.95,
+                  "low": 0.000610085332398,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 677,
+                "standard_error": 0.00295485552116,
+                "status": "estimated"
+              },
+              "sample_n": 2
+            }
+          },
+          "classified_n": 675,
+          "diagnosis_checks_n": {
+            "reported_diabetes_but_unclassified": 0,
+            "reported_diabetes_with_subdiabetic_labs": 32
+          },
+          "eligible_n": 677,
+          "eligible_weight": 38001618.1911,
+          "public_age_topcode_n": 110,
+          "sex": "female",
+          "unclassified_n": 2,
+          "unclassified_reasons_n": {
+            "incomplete_glycemic_observation": 2,
+            "incomplete_other_risk_or_diagnosis": 0
+          }
+        }
+      ],
+      "id": "glycemic"
+    },
+    {
+      "domains": [
+        {
+          "age_group": "20_plus",
+          "categories": {
+            "diabetes_any_type": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.136365844837,
+                "interval": {
+                  "high": 0.153709043787,
+                  "level": 0.95,
+                  "low": 0.120700410024,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 3769,
+                "standard_error": 0.00800594829328,
+                "status": "estimated"
+              },
+              "sample_n": 693
+            },
+            "lower_measured_risk": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0933806666157,
+                "interval": {
+                  "high": 0.111358139178,
+                  "level": 0.95,
+                  "low": 0.0780505387161,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 3769,
+                "standard_error": 0.00806082883987,
+                "status": "estimated"
+              },
+              "sample_n": 289
+            },
+            "other_reported_diagnosis": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.104719928445,
+                "interval": {
+                  "high": 0.123295722725,
+                  "level": 0.95,
+                  "low": 0.088659750503,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 3769,
+                "standard_error": 0.00838796870164,
+                "status": "estimated"
+              },
+              "sample_n": 336
+            },
+            "prechronic_candidate": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0940478692523,
+                "interval": {
+                  "high": 0.111588938472,
+                  "level": 0.95,
+                  "low": 0.0790188947957,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 3769,
+                "standard_error": 0.00788385653619,
+                "status": "estimated"
+              },
+              "sample_n": 319
+            },
+            "prediabetes": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.450862914912,
+                "interval": {
+                  "high": 0.475274104893,
+                  "level": 0.95,
+                  "low": 0.42668598817,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 3769,
+                "standard_error": 0.0118050778729,
+                "status": "estimated"
+              },
+              "sample_n": 1574
+            },
+            "unclassified": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.120622775938,
+                "interval": {
+                  "high": 0.150172595992,
+                  "level": 0.95,
+                  "low": 0.0962291368622,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 3769,
+                "standard_error": 0.0130456607512,
+                "status": "estimated"
+              },
+              "sample_n": 558
+            }
+          },
+          "classified_n": 3211,
+          "diagnosis_checks_n": {
+            "reported_diabetes_but_unclassified": 120,
+            "reported_diabetes_with_subdiabetic_labs": 130
+          },
+          "eligible_n": 3769,
+          "eligible_weight": 238463455.771,
+          "public_age_topcode_n": 236,
+          "sex": "all",
+          "unclassified_n": 558,
+          "unclassified_reasons_n": {
+            "incomplete_glycemic_observation": 12,
+            "incomplete_other_risk_or_diagnosis": 546
+          }
+        },
+        {
+          "age_group": "20_plus",
+          "categories": {
+            "diabetes_any_type": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.153565599318,
+                "interval": {
+                  "high": 0.175477014728,
+                  "level": 0.95,
+                  "low": 0.133945738068,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1822,
+                "standard_error": 0.0100732994544,
+                "status": "estimated"
+              },
+              "sample_n": 376
+            },
+            "lower_measured_risk": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.088494399354,
+                "interval": {
+                  "high": 0.115106812107,
+                  "level": 0.95,
+                  "low": 0.0675649274905,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1822,
+                "standard_error": 0.0114579865904,
+                "status": "estimated"
+              },
+              "sample_n": 134
+            },
+            "other_reported_diagnosis": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0807379690104,
+                "interval": {
+                  "high": 0.111581558874,
+                  "level": 0.95,
+                  "low": 0.0578649142103,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1822,
+                "standard_error": 0.012889498934,
+                "status": "estimated"
+              },
+              "sample_n": 131
+            },
+            "prechronic_candidate": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0738971528503,
+                "interval": {
+                  "high": 0.0954947632949,
+                  "level": 0.95,
+                  "low": 0.0568770194052,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1822,
+                "standard_error": 0.00930392513562,
+                "status": "estimated"
+              },
+              "sample_n": 113
+            },
+            "prediabetes": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.510197764124,
+                "interval": {
+                  "high": 0.54739377745,
+                  "level": 0.95,
+                  "low": 0.472888487588,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1822,
+                "standard_error": 0.0181214266936,
+                "status": "estimated"
+              },
+              "sample_n": 852
+            },
+            "unclassified": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0931071153431,
+                "interval": {
+                  "high": 0.117884025445,
+                  "level": 0.95,
+                  "low": 0.0731062390628,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1822,
+                "standard_error": 0.010809340412,
+                "status": "estimated"
+              },
+              "sample_n": 216
+            }
+          },
+          "classified_n": 1606,
+          "diagnosis_checks_n": {
+            "reported_diabetes_but_unclassified": 58,
+            "reported_diabetes_with_subdiabetic_labs": 71
+          },
+          "eligible_n": 1822,
+          "eligible_weight": 116425403.517,
+          "public_age_topcode_n": 126,
+          "sex": "male",
+          "unclassified_n": 216,
+          "unclassified_reasons_n": {
+            "incomplete_glycemic_observation": 5,
+            "incomplete_other_risk_or_diagnosis": 211
+          }
+        },
+        {
+          "age_group": "20_plus",
+          "categories": {
+            "diabetes_any_type": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.119957123795,
+                "interval": {
+                  "high": 0.143886302088,
+                  "level": 0.95,
+                  "low": 0.0995447899811,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1947,
+                "standard_error": 0.010736278001,
+                "status": "estimated"
+              },
+              "sample_n": 317
+            },
+            "lower_measured_risk": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0980422096928,
+                "interval": {
+                  "high": 0.125068764008,
+                  "level": 0.95,
+                  "low": 0.0763462995551,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1947,
+                "standard_error": 0.0117598675065,
+                "status": "estimated"
+              },
+              "sample_n": 155
+            },
+            "other_reported_diagnosis": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.127598934237,
+                "interval": {
+                  "high": 0.159705987805,
+                  "level": 0.95,
+                  "low": 0.101169497037,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1947,
+                "standard_error": 0.0141577759012,
+                "status": "estimated"
+              },
+              "sample_n": 205
+            },
+            "prechronic_candidate": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.113271834605,
+                "interval": {
+                  "high": 0.135954290333,
+                  "level": 0.95,
+                  "low": 0.0939621615168,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1947,
+                "standard_error": 0.0101654268687,
+                "status": "estimated"
+              },
+              "sample_n": 206
+            },
+            "prediabetes": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.394256933135,
+                "interval": {
+                  "high": 0.429541991333,
+                  "level": 0.95,
+                  "low": 0.360041011511,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1947,
+                "standard_error": 0.016898801527,
+                "status": "estimated"
+              },
+              "sample_n": 722
+            },
+            "unclassified": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.146872964535,
+                "interval": {
+                  "high": 0.190489570554,
+                  "level": 0.95,
+                  "low": 0.111863242189,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1947,
+                "standard_error": 0.0190128443993,
+                "status": "estimated"
+              },
+              "sample_n": 342
+            }
+          },
+          "classified_n": 1605,
+          "diagnosis_checks_n": {
+            "reported_diabetes_but_unclassified": 62,
+            "reported_diabetes_with_subdiabetic_labs": 59
+          },
+          "eligible_n": 1947,
+          "eligible_weight": 122038052.254,
+          "public_age_topcode_n": 110,
+          "sex": "female",
+          "unclassified_n": 342,
+          "unclassified_reasons_n": {
+            "incomplete_glycemic_observation": 7,
+            "incomplete_other_risk_or_diagnosis": 335
+          }
+        },
+        {
+          "age_group": "20_39",
+          "categories": {
+            "diabetes_any_type": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0340548889121,
+                "interval": {
+                  "high": 0.048516663194,
+                  "level": 0.95,
+                  "low": 0.0237960494217,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1106,
+                "standard_error": 0.00589400069706,
+                "status": "estimated"
+              },
+              "sample_n": 47
+            },
+            "lower_measured_risk": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.198234689472,
+                "interval": {
+                  "high": 0.23918400088,
+                  "level": 0.95,
+                  "low": 0.162795956434,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1106,
+                "standard_error": 0.0185370516398,
+                "status": "estimated"
+              },
+              "sample_n": 212
+            },
+            "other_reported_diagnosis": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.095577494618,
+                "interval": {
+                  "high": 0.125211543211,
+                  "level": 0.95,
+                  "low": 0.0723767169249,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1106,
+                "standard_error": 0.01273346518,
+                "status": "estimated"
+              },
+              "sample_n": 98
+            },
+            "prechronic_candidate": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.180548061738,
+                "interval": {
+                  "high": 0.220312596042,
+                  "level": 0.95,
+                  "low": 0.146611104298,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1106,
+                "standard_error": 0.0178724753078,
+                "status": "estimated"
+              },
+              "sample_n": 198
+            },
+            "prediabetes": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.376541391755,
+                "interval": {
+                  "high": 0.42106791237,
+                  "level": 0.95,
+                  "low": 0.334006879865,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1106,
+                "standard_error": 0.0211857668336,
+                "status": "estimated"
+              },
+              "sample_n": 404
+            },
+            "unclassified": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.115043473504,
+                "interval": {
+                  "high": 0.148766465434,
+                  "level": 0.95,
+                  "low": 0.0881731127294,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1106,
+                "standard_error": 0.0146280959473,
+                "status": "estimated"
+              },
+              "sample_n": 147
+            }
+          },
+          "classified_n": 959,
+          "diagnosis_checks_n": {
+            "reported_diabetes_but_unclassified": 8,
+            "reported_diabetes_with_subdiabetic_labs": 9
+          },
+          "eligible_n": 1106,
+          "eligible_weight": 85071060.2537,
+          "public_age_topcode_n": 0,
+          "sex": "all",
+          "unclassified_n": 147,
+          "unclassified_reasons_n": {
+            "incomplete_glycemic_observation": 6,
+            "incomplete_other_risk_or_diagnosis": 141
+          }
+        },
+        {
+          "age_group": "20_39",
+          "categories": {
+            "diabetes_any_type": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0325168512574,
+                "interval": {
+                  "high": 0.069573886541,
+                  "level": 0.95,
+                  "low": 0.0148817546091,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 523,
+                "standard_error": 0.0122152275867,
+                "status": "estimated"
+              },
+              "sample_n": 19
+            },
+            "lower_measured_risk": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.178592063875,
+                "interval": {
+                  "high": 0.230545894131,
+                  "level": 0.95,
+                  "low": 0.136272602014,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 523,
+                "standard_error": 0.0228417189176,
+                "status": "estimated"
+              },
+              "sample_n": 99
+            },
+            "other_reported_diagnosis": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0877572409683,
+                "interval": {
+                  "high": 0.127621363669,
+                  "level": 0.95,
+                  "low": 0.0594959473369,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 523,
+                "standard_error": 0.0162937056929,
+                "status": "estimated"
+              },
+              "sample_n": 42
+            },
+            "prechronic_candidate": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.15715078186,
+                "interval": {
+                  "high": 0.214322550959,
+                  "level": 0.95,
+                  "low": 0.113035756698,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 523,
+                "standard_error": 0.0244721351248,
+                "status": "estimated"
+              },
+              "sample_n": 80
+            },
+            "prediabetes": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.453820117697,
+                "interval": {
+                  "high": 0.509401887206,
+                  "level": 0.95,
+                  "low": 0.399366130879,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 523,
+                "standard_error": 0.0268213468666,
+                "status": "estimated"
+              },
+              "sample_n": 229
+            },
+            "unclassified": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0901629443421,
+                "interval": {
+                  "high": 0.130165335282,
+                  "level": 0.95,
+                  "low": 0.061583708519,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 523,
+                "standard_error": 0.0164163402016,
+                "status": "estimated"
+              },
+              "sample_n": 54
+            }
+          },
+          "classified_n": 469,
+          "diagnosis_checks_n": {
+            "reported_diabetes_but_unclassified": 2,
+            "reported_diabetes_with_subdiabetic_labs": 3
+          },
+          "eligible_n": 523,
+          "eligible_weight": 43466794.101,
+          "public_age_topcode_n": 0,
+          "sex": "male",
+          "unclassified_n": 54,
+          "unclassified_reasons_n": {
+            "incomplete_glycemic_observation": 3,
+            "incomplete_other_risk_or_diagnosis": 51
+          }
+        },
+        {
+          "age_group": "20_39",
+          "categories": {
+            "diabetes_any_type": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0356617809989,
+                "interval": {
+                  "high": 0.0558561661239,
+                  "level": 0.95,
+                  "low": 0.0225938074435,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 583,
+                "standard_error": 0.00784575224619,
+                "status": "estimated"
+              },
+              "sample_n": 28
+            },
+            "lower_measured_risk": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.218756670543,
+                "interval": {
+                  "high": 0.287475512002,
+                  "level": 0.95,
+                  "low": 0.16271331361,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 583,
+                "standard_error": 0.0303087467128,
+                "status": "estimated"
+              },
+              "sample_n": 113
+            },
+            "other_reported_diagnosis": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.103747843158,
+                "interval": {
+                  "high": 0.140217667084,
+                  "level": 0.95,
+                  "low": 0.0759259573683,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 583,
+                "standard_error": 0.0154756428134,
+                "status": "estimated"
+              },
+              "sample_n": 56
+            },
+            "prechronic_candidate": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.204992784385,
+                "interval": {
+                  "high": 0.247715601578,
+                  "level": 0.95,
+                  "low": 0.167992838285,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 583,
+                "standard_error": 0.0193506459841,
+                "status": "estimated"
+              },
+              "sample_n": 118
+            },
+            "prediabetes": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.2958030738,
+                "interval": {
+                  "high": 0.346421689973,
+                  "level": 0.95,
+                  "low": 0.249754390999,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 583,
+                "standard_error": 0.02352118296,
+                "status": "estimated"
+              },
+              "sample_n": 175
+            },
+            "unclassified": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.141037847116,
+                "interval": {
+                  "high": 0.193938447474,
+                  "level": 0.95,
+                  "low": 0.100763136394,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 583,
+                "standard_error": 0.0224745506808,
+                "status": "estimated"
+              },
+              "sample_n": 93
+            }
+          },
+          "classified_n": 490,
+          "diagnosis_checks_n": {
+            "reported_diabetes_but_unclassified": 6,
+            "reported_diabetes_with_subdiabetic_labs": 6
+          },
+          "eligible_n": 583,
+          "eligible_weight": 41604266.1527,
+          "public_age_topcode_n": 0,
+          "sex": "female",
+          "unclassified_n": 93,
+          "unclassified_reasons_n": {
+            "incomplete_glycemic_observation": 3,
+            "incomplete_other_risk_or_diagnosis": 90
+          }
+        },
+        {
+          "age_group": "40_59",
+          "categories": {
+            "diabetes_any_type": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.142870990913,
+                "interval": {
+                  "high": 0.173767381211,
+                  "level": 0.95,
+                  "low": 0.116692210519,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1282,
+                "standard_error": 0.0138235634514,
+                "status": "estimated"
+              },
+              "sample_n": 237
+            },
+            "lower_measured_risk": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0570597256194,
+                "interval": {
+                  "high": 0.0795873434138,
+                  "level": 0.95,
+                  "low": 0.0406272062559,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1282,
+                "standard_error": 0.00932472355827,
+                "status": "estimated"
+              },
+              "sample_n": 66
+            },
+            "other_reported_diagnosis": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.116226172515,
+                "interval": {
+                  "high": 0.144108791218,
+                  "level": 0.95,
+                  "low": 0.0931512231803,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1282,
+                "standard_error": 0.012323311497,
+                "status": "estimated"
+              },
+              "sample_n": 124
+            },
+            "prechronic_candidate": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0693429883612,
+                "interval": {
+                  "high": 0.100992973609,
+                  "level": 0.95,
+                  "low": 0.0470921616358,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1282,
+                "standard_error": 0.0128654881941,
+                "status": "estimated"
+              },
+              "sample_n": 95
+            },
+            "prediabetes": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.50378837515,
+                "interval": {
+                  "high": 0.555228692782,
+                  "level": 0.95,
+                  "low": 0.452267732133,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1282,
+                "standard_error": 0.0250850122798,
+                "status": "estimated"
+              },
+              "sample_n": 592
+            },
+            "unclassified": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.110711747441,
+                "interval": {
+                  "high": 0.162736177652,
+                  "level": 0.95,
+                  "low": 0.073851787013,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1282,
+                "standard_error": 0.0212959530327,
+                "status": "estimated"
+              },
+              "sample_n": 168
+            }
+          },
+          "classified_n": 1114,
+          "diagnosis_checks_n": {
+            "reported_diabetes_but_unclassified": 32,
+            "reported_diabetes_with_subdiabetic_labs": 39
+          },
+          "eligible_n": 1282,
+          "eligible_weight": 81964096.262,
+          "public_age_topcode_n": 0,
+          "sex": "all",
+          "unclassified_n": 168,
+          "unclassified_reasons_n": {
+            "incomplete_glycemic_observation": 3,
+            "incomplete_other_risk_or_diagnosis": 165
+          }
+        },
+        {
+          "age_group": "40_59",
+          "categories": {
+            "diabetes_any_type": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.146762914323,
+                "interval": {
+                  "high": 0.189263836511,
+                  "level": 0.95,
+                  "low": 0.11248182833,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 595,
+                "standard_error": 0.0185699701861,
+                "status": "estimated"
+              },
+              "sample_n": 121
+            },
+            "lower_measured_risk": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0548496722163,
+                "interval": {
+                  "high": 0.0906154637435,
+                  "level": 0.95,
+                  "low": 0.0326930799681,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 595,
+                "standard_error": 0.0136077009404,
+                "status": "estimated"
+              },
+              "sample_n": 27
+            },
+            "other_reported_diagnosis": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0896350058872,
+                "interval": {
+                  "high": 0.138601602814,
+                  "level": 0.95,
+                  "low": 0.0568265854013,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 595,
+                "standard_error": 0.019459607558,
+                "status": "estimated"
+              },
+              "sample_n": 44
+            },
+            "prechronic_candidate": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.040807893372,
+                "interval": {
+                  "high": 0.0744163390744,
+                  "level": 0.95,
+                  "low": 0.022016886006,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 595,
+                "standard_error": 0.0120963859838,
+                "status": "estimated"
+              },
+              "sample_n": 27
+            },
+            "prediabetes": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.574702358957,
+                "interval": {
+                  "high": 0.641711031696,
+                  "level": 0.95,
+                  "low": 0.504831791559,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 595,
+                "standard_error": 0.0334354529255,
+                "status": "estimated"
+              },
+              "sample_n": 310
+            },
+            "unclassified": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0932421552444,
+                "interval": {
+                  "high": 0.139163914209,
+                  "level": 0.95,
+                  "low": 0.0613930962403,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 595,
+                "standard_error": 0.0185728780727,
+                "status": "estimated"
+              },
+              "sample_n": 66
+            }
+          },
+          "classified_n": 529,
+          "diagnosis_checks_n": {
+            "reported_diabetes_but_unclassified": 14,
+            "reported_diabetes_with_subdiabetic_labs": 18
+          },
+          "eligible_n": 595,
+          "eligible_weight": 39531928.3518,
+          "public_age_topcode_n": 0,
+          "sex": "male",
+          "unclassified_n": 66,
+          "unclassified_reasons_n": {
+            "incomplete_glycemic_observation": 1,
+            "incomplete_other_risk_or_diagnosis": 65
+          }
+        },
+        {
+          "age_group": "40_59",
+          "categories": {
+            "diabetes_any_type": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.13924508055,
+                "interval": {
+                  "high": 0.193746837223,
+                  "level": 0.95,
+                  "low": 0.0982073914107,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 687,
+                "standard_error": 0.0230296389366,
+                "status": "estimated"
+              },
+              "sample_n": 116
+            },
+            "lower_measured_risk": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0591187218265,
+                "interval": {
+                  "high": 0.0911488687668,
+                  "level": 0.95,
+                  "low": 0.0378750625022,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 687,
+                "standard_error": 0.0126283847701,
+                "status": "estimated"
+              },
+              "sample_n": 39
+            },
+            "other_reported_diagnosis": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.140999832351,
+                "interval": {
+                  "high": 0.18683178435,
+                  "level": 0.95,
+                  "low": 0.104959773187,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 687,
+                "standard_error": 0.0197762688187,
+                "status": "estimated"
+              },
+              "sample_n": 80
+            },
+            "prechronic_candidate": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.095927709015,
+                "interval": {
+                  "high": 0.14575386642,
+                  "level": 0.95,
+                  "low": 0.0619004348703,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 687,
+                "standard_error": 0.020002492386,
+                "status": "estimated"
+              },
+              "sample_n": 68
+            },
+            "prediabetes": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.43772136361,
+                "interval": {
+                  "high": 0.517252764177,
+                  "level": 0.95,
+                  "low": 0.361267190442,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 687,
+                "standard_error": 0.0381756958917,
+                "status": "estimated"
+              },
+              "sample_n": 282
+            },
+            "unclassified": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.126987292648,
+                "interval": {
+                  "high": 0.207165202691,
+                  "level": 0.95,
+                  "low": 0.0749083215363,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 687,
+                "standard_error": 0.0315307391407,
+                "status": "estimated"
+              },
+              "sample_n": 102
+            }
+          },
+          "classified_n": 585,
+          "diagnosis_checks_n": {
+            "reported_diabetes_but_unclassified": 18,
+            "reported_diabetes_with_subdiabetic_labs": 21
+          },
+          "eligible_n": 687,
+          "eligible_weight": 42432167.9102,
+          "public_age_topcode_n": 0,
+          "sex": "female",
+          "unclassified_n": 102,
+          "unclassified_reasons_n": {
+            "incomplete_glycemic_observation": 2,
+            "incomplete_other_risk_or_diagnosis": 100
+          }
+        },
+        {
+          "age_group": "60_plus",
+          "categories": {
+            "diabetes_any_type": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.250753463779,
+                "interval": {
+                  "high": 0.278129673203,
+                  "level": 0.95,
+                  "low": 0.225231132157,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1381,
+                "standard_error": 0.0128477504032,
+                "status": "estimated"
+              },
+              "sample_n": 409
+            },
+            "lower_measured_risk": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0101779324871,
+                "interval": {
+                  "high": 0.0218320642973,
+                  "level": 0.95,
+                  "low": 0.00471488384547,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1381,
+                "standard_error": 0.00379096177699,
+                "status": "estimated"
+              },
+              "sample_n": 11
+            },
+            "other_reported_diagnosis": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.10240512662,
+                "interval": {
+                  "high": 0.1431458883,
+                  "level": 0.95,
+                  "low": 0.0722814596425,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1381,
+                "standard_error": 0.0170211363489,
+                "status": "estimated"
+              },
+              "sample_n": 114
+            },
+            "prechronic_candidate": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0193750867966,
+                "interval": {
+                  "high": 0.0311672125177,
+                  "level": 0.95,
+                  "low": 0.0119893042183,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1381,
+                "standard_error": 0.00449707812361,
+                "status": "estimated"
+              },
+              "sample_n": 26
+            },
+            "prediabetes": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.478647746383,
+                "interval": {
+                  "high": 0.507240174775,
+                  "level": 0.95,
+                  "low": 0.450194540256,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1381,
+                "standard_error": 0.0138641544831,
+                "status": "estimated"
+              },
+              "sample_n": 578
+            },
+            "unclassified": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.138640643935,
+                "interval": {
+                  "high": 0.174998585775,
+                  "level": 0.95,
+                  "low": 0.108839930468,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1381,
+                "standard_error": 0.0160045862243,
+                "status": "estimated"
+              },
+              "sample_n": 243
+            }
+          },
+          "classified_n": 1138,
+          "diagnosis_checks_n": {
+            "reported_diabetes_but_unclassified": 80,
+            "reported_diabetes_with_subdiabetic_labs": 82
+          },
+          "eligible_n": 1381,
+          "eligible_weight": 71428299.2549,
+          "public_age_topcode_n": 236,
+          "sex": "all",
+          "unclassified_n": 243,
+          "unclassified_reasons_n": {
+            "incomplete_glycemic_observation": 3,
+            "incomplete_other_risk_or_diagnosis": 240
+          }
+        },
+        {
+          "age_group": "60_plus",
+          "categories": {
+            "diabetes_any_type": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.319017989086,
+                "interval": {
+                  "high": 0.380067681825,
+                  "level": 0.95,
+                  "low": 0.26360481681,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 704,
+                "standard_error": 0.0283777173763,
+                "status": "estimated"
+              },
+              "sample_n": 236
+            },
+            "lower_measured_risk": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0111245975129,
+                "interval": {
+                  "high": 0.0329733515589,
+                  "level": 0.95,
+                  "low": 0.00369787198875,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 704,
+                "standard_error": 0.00592300114007,
+                "status": "estimated"
+              },
+              "sample_n": 8
+            },
+            "other_reported_diagnosis": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0610883282926,
+                "interval": {
+                  "high": 0.110493728796,
+                  "level": 0.95,
+                  "low": 0.0329552757589,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 704,
+                "standard_error": 0.0180098906303,
+                "status": "estimated"
+              },
+              "sample_n": 45
+            },
+            "prechronic_candidate": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.00477015483962,
+                "interval": {
+                  "high": 0.0157539748802,
+                  "level": 0.95,
+                  "low": 0.00143320663882,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 704,
+                "standard_error": 0.00277949218389,
+                "status": "estimated"
+              },
+              "sample_n": 6
+            },
+            "prediabetes": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.507223030497,
+                "interval": {
+                  "high": 0.554822385358,
+                  "level": 0.95,
+                  "low": 0.459492365386,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 704,
+                "standard_error": 0.0232140167004,
+                "status": "estimated"
+              },
+              "sample_n": 313
+            },
+            "unclassified": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0967758997717,
+                "interval": {
+                  "high": 0.134315720005,
+                  "level": 0.95,
+                  "low": 0.0688930861138,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 704,
+                "standard_error": 0.0157138532166,
+                "status": "estimated"
+              },
+              "sample_n": 96
+            }
+          },
+          "classified_n": 608,
+          "diagnosis_checks_n": {
+            "reported_diabetes_but_unclassified": 42,
+            "reported_diabetes_with_subdiabetic_labs": 50
+          },
+          "eligible_n": 704,
+          "eligible_weight": 33426681.0638,
+          "public_age_topcode_n": 126,
+          "sex": "male",
+          "unclassified_n": 96,
+          "unclassified_reasons_n": {
+            "incomplete_glycemic_observation": 1,
+            "incomplete_other_risk_or_diagnosis": 95
+          }
+        },
+        {
+          "age_group": "60_plus",
+          "categories": {
+            "diabetes_any_type": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.190707165121,
+                "interval": {
+                  "high": 0.236905942436,
+                  "level": 0.95,
+                  "low": 0.151726265078,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 677,
+                "standard_error": 0.0206607115242,
+                "status": "estimated"
+              },
+              "sample_n": 173
+            },
+            "lower_measured_risk": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.00934523452847,
+                "interval": {
+                  "high": 0.0339320724141,
+                  "level": 0.95,
+                  "low": 0.00252716791232,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 677,
+                "standard_error": 0.00590941993866,
+                "status": "estimated"
+              },
+              "sample_n": 3
+            },
+            "other_reported_diagnosis": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.13874788006,
+                "interval": {
+                  "high": 0.223517037603,
+                  "level": 0.95,
+                  "low": 0.0827033689608,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 677,
+                "standard_error": 0.0336779290749,
+                "status": "estimated"
+              },
+              "sample_n": 69
+            },
+            "prechronic_candidate": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0322217608522,
+                "interval": {
+                  "high": 0.0555704647872,
+                  "level": 0.95,
+                  "low": 0.0184912613386,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 677,
+                "standard_error": 0.00862177824004,
+                "status": "estimated"
+              },
+              "sample_n": 20
+            },
+            "prediabetes": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.453512582307,
+                "interval": {
+                  "high": 0.507388723639,
+                  "level": 0.95,
+                  "low": 0.400703771142,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 677,
+                "standard_error": 0.0259982692348,
+                "status": "estimated"
+              },
+              "sample_n": 265
+            },
+            "unclassified": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.175465377132,
+                "interval": {
+                  "high": 0.223126444947,
+                  "level": 0.95,
+                  "low": 0.136200124424,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 677,
+                "standard_error": 0.0210628765464,
+                "status": "estimated"
+              },
+              "sample_n": 147
+            }
+          },
+          "classified_n": 530,
+          "diagnosis_checks_n": {
+            "reported_diabetes_but_unclassified": 38,
+            "reported_diabetes_with_subdiabetic_labs": 32
+          },
+          "eligible_n": 677,
+          "eligible_weight": 38001618.1911,
+          "public_age_topcode_n": 110,
+          "sex": "female",
+          "unclassified_n": 147,
+          "unclassified_reasons_n": {
+            "incomplete_glycemic_observation": 2,
+            "incomplete_other_risk_or_diagnosis": 145
+          }
+        }
+      ],
+      "id": "risk_1"
+    },
+    {
+      "domains": [
+        {
+          "age_group": "20_plus",
+          "categories": {
+            "diabetes_any_type": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.136365844837,
+                "interval": {
+                  "high": 0.153709043787,
+                  "level": 0.95,
+                  "low": 0.120700410024,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 3769,
+                "standard_error": 0.00800594829328,
+                "status": "estimated"
+              },
+              "sample_n": 693
+            },
+            "lower_measured_risk": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.15368697176,
+                "interval": {
+                  "high": 0.174716851056,
+                  "level": 0.95,
+                  "low": 0.134774988338,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 3769,
+                "standard_error": 0.00968849255545,
+                "status": "estimated"
+              },
+              "sample_n": 491
+            },
+            "other_reported_diagnosis": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.104719928445,
+                "interval": {
+                  "high": 0.123295722725,
+                  "level": 0.95,
+                  "low": 0.088659750503,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 3769,
+                "standard_error": 0.00838796870164,
+                "status": "estimated"
+              },
+              "sample_n": 336
+            },
+            "prechronic_candidate": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.033741564108,
+                "interval": {
+                  "high": 0.0436156845676,
+                  "level": 0.95,
+                  "low": 0.0260419690886,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 3769,
+                "standard_error": 0.00422601792664,
+                "status": "estimated"
+              },
+              "sample_n": 117
+            },
+            "prediabetes": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.450862914912,
+                "interval": {
+                  "high": 0.475274104893,
+                  "level": 0.95,
+                  "low": 0.42668598817,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 3769,
+                "standard_error": 0.0118050778729,
+                "status": "estimated"
+              },
+              "sample_n": 1574
+            },
+            "unclassified": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.120622775938,
+                "interval": {
+                  "high": 0.150172595992,
+                  "level": 0.95,
+                  "low": 0.0962291368622,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 3769,
+                "standard_error": 0.0130456607512,
+                "status": "estimated"
+              },
+              "sample_n": 558
+            }
+          },
+          "classified_n": 3211,
+          "diagnosis_checks_n": {
+            "reported_diabetes_but_unclassified": 120,
+            "reported_diabetes_with_subdiabetic_labs": 130
+          },
+          "eligible_n": 3769,
+          "eligible_weight": 238463455.771,
+          "public_age_topcode_n": 236,
+          "sex": "all",
+          "unclassified_n": 558,
+          "unclassified_reasons_n": {
+            "incomplete_glycemic_observation": 12,
+            "incomplete_other_risk_or_diagnosis": 546
+          }
+        },
+        {
+          "age_group": "20_plus",
+          "categories": {
+            "diabetes_any_type": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.153565599318,
+                "interval": {
+                  "high": 0.175477014728,
+                  "level": 0.95,
+                  "low": 0.133945738068,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1822,
+                "standard_error": 0.0100732994544,
+                "status": "estimated"
+              },
+              "sample_n": 376
+            },
+            "lower_measured_risk": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.14065016257,
+                "interval": {
+                  "high": 0.171539148164,
+                  "level": 0.95,
+                  "low": 0.114554243473,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1822,
+                "standard_error": 0.0137997474643,
+                "status": "estimated"
+              },
+              "sample_n": 209
+            },
+            "other_reported_diagnosis": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0807379690104,
+                "interval": {
+                  "high": 0.111581558874,
+                  "level": 0.95,
+                  "low": 0.0578649142103,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1822,
+                "standard_error": 0.012889498934,
+                "status": "estimated"
+              },
+              "sample_n": 131
+            },
+            "prechronic_candidate": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0217413896339,
+                "interval": {
+                  "high": 0.0332623733714,
+                  "level": 0.95,
+                  "low": 0.0141524744299,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1822,
+                "standard_error": 0.00451344443069,
+                "status": "estimated"
+              },
+              "sample_n": 38
+            },
+            "prediabetes": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.510197764124,
+                "interval": {
+                  "high": 0.54739377745,
+                  "level": 0.95,
+                  "low": 0.472888487588,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1822,
+                "standard_error": 0.0181214266936,
+                "status": "estimated"
+              },
+              "sample_n": 852
+            },
+            "unclassified": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0931071153431,
+                "interval": {
+                  "high": 0.117884025445,
+                  "level": 0.95,
+                  "low": 0.0731062390628,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1822,
+                "standard_error": 0.010809340412,
+                "status": "estimated"
+              },
+              "sample_n": 216
+            }
+          },
+          "classified_n": 1606,
+          "diagnosis_checks_n": {
+            "reported_diabetes_but_unclassified": 58,
+            "reported_diabetes_with_subdiabetic_labs": 71
+          },
+          "eligible_n": 1822,
+          "eligible_weight": 116425403.517,
+          "public_age_topcode_n": 126,
+          "sex": "male",
+          "unclassified_n": 216,
+          "unclassified_reasons_n": {
+            "incomplete_glycemic_observation": 5,
+            "incomplete_other_risk_or_diagnosis": 211
+          }
+        },
+        {
+          "age_group": "20_plus",
+          "categories": {
+            "diabetes_any_type": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.119957123795,
+                "interval": {
+                  "high": 0.143886302088,
+                  "level": 0.95,
+                  "low": 0.0995447899811,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1947,
+                "standard_error": 0.010736278001,
+                "status": "estimated"
+              },
+              "sample_n": 317
+            },
+            "lower_measured_risk": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.166124205413,
+                "interval": {
+                  "high": 0.193981611972,
+                  "level": 0.95,
+                  "low": 0.14156472217,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1947,
+                "standard_error": 0.0127127323362,
+                "status": "estimated"
+              },
+              "sample_n": 282
+            },
+            "other_reported_diagnosis": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.127598934237,
+                "interval": {
+                  "high": 0.159705987805,
+                  "level": 0.95,
+                  "low": 0.101169497037,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1947,
+                "standard_error": 0.0141577759012,
+                "status": "estimated"
+              },
+              "sample_n": 205
+            },
+            "prechronic_candidate": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0451898388847,
+                "interval": {
+                  "high": 0.0596694540786,
+                  "level": 0.95,
+                  "low": 0.0340964954468,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1947,
+                "standard_error": 0.00614320342448,
+                "status": "estimated"
+              },
+              "sample_n": 79
+            },
+            "prediabetes": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.394256933135,
+                "interval": {
+                  "high": 0.429541991333,
+                  "level": 0.95,
+                  "low": 0.360041011511,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1947,
+                "standard_error": 0.016898801527,
+                "status": "estimated"
+              },
+              "sample_n": 722
+            },
+            "unclassified": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.146872964535,
+                "interval": {
+                  "high": 0.190489570554,
+                  "level": 0.95,
+                  "low": 0.111863242189,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1947,
+                "standard_error": 0.0190128443993,
+                "status": "estimated"
+              },
+              "sample_n": 342
+            }
+          },
+          "classified_n": 1605,
+          "diagnosis_checks_n": {
+            "reported_diabetes_but_unclassified": 62,
+            "reported_diabetes_with_subdiabetic_labs": 59
+          },
+          "eligible_n": 1947,
+          "eligible_weight": 122038052.254,
+          "public_age_topcode_n": 110,
+          "sex": "female",
+          "unclassified_n": 342,
+          "unclassified_reasons_n": {
+            "incomplete_glycemic_observation": 7,
+            "incomplete_other_risk_or_diagnosis": 335
+          }
+        },
+        {
+          "age_group": "20_39",
+          "categories": {
+            "diabetes_any_type": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0340548889121,
+                "interval": {
+                  "high": 0.048516663194,
+                  "level": 0.95,
+                  "low": 0.0237960494217,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1106,
+                "standard_error": 0.00589400069706,
+                "status": "estimated"
+              },
+              "sample_n": 47
+            },
+            "lower_measured_risk": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.306799702848,
+                "interval": {
+                  "high": 0.357272572651,
+                  "level": 0.95,
+                  "low": 0.260566538881,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1106,
+                "standard_error": 0.0235338069593,
+                "status": "estimated"
+              },
+              "sample_n": 330
+            },
+            "other_reported_diagnosis": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.095577494618,
+                "interval": {
+                  "high": 0.125211543211,
+                  "level": 0.95,
+                  "low": 0.0723767169249,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1106,
+                "standard_error": 0.01273346518,
+                "status": "estimated"
+              },
+              "sample_n": 98
+            },
+            "prechronic_candidate": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.071983048363,
+                "interval": {
+                  "high": 0.093099243443,
+                  "level": 0.95,
+                  "low": 0.0553639150996,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1106,
+                "standard_error": 0.00909003443702,
+                "status": "estimated"
+              },
+              "sample_n": 80
+            },
+            "prediabetes": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.376541391755,
+                "interval": {
+                  "high": 0.42106791237,
+                  "level": 0.95,
+                  "low": 0.334006879865,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1106,
+                "standard_error": 0.0211857668336,
+                "status": "estimated"
+              },
+              "sample_n": 404
+            },
+            "unclassified": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.115043473504,
+                "interval": {
+                  "high": 0.148766465434,
+                  "level": 0.95,
+                  "low": 0.0881731127294,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1106,
+                "standard_error": 0.0146280959473,
+                "status": "estimated"
+              },
+              "sample_n": 147
+            }
+          },
+          "classified_n": 959,
+          "diagnosis_checks_n": {
+            "reported_diabetes_but_unclassified": 8,
+            "reported_diabetes_with_subdiabetic_labs": 9
+          },
+          "eligible_n": 1106,
+          "eligible_weight": 85071060.2537,
+          "public_age_topcode_n": 0,
+          "sex": "all",
+          "unclassified_n": 147,
+          "unclassified_reasons_n": {
+            "incomplete_glycemic_observation": 6,
+            "incomplete_other_risk_or_diagnosis": 141
+          }
+        },
+        {
+          "age_group": "20_39",
+          "categories": {
+            "diabetes_any_type": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0325168512574,
+                "interval": {
+                  "high": 0.069573886541,
+                  "level": 0.95,
+                  "low": 0.0148817546091,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 523,
+                "standard_error": 0.0122152275867,
+                "status": "estimated"
+              },
+              "sample_n": 19
+            },
+            "lower_measured_risk": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.286216109964,
+                "interval": {
+                  "high": 0.349680407179,
+                  "level": 0.95,
+                  "low": 0.230192978975,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 523,
+                "standard_error": 0.0291027741857,
+                "status": "estimated"
+              },
+              "sample_n": 151
+            },
+            "other_reported_diagnosis": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0877572409683,
+                "interval": {
+                  "high": 0.127621363669,
+                  "level": 0.95,
+                  "low": 0.0594959473369,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 523,
+                "standard_error": 0.0162937056929,
+                "status": "estimated"
+              },
+              "sample_n": 42
+            },
+            "prechronic_candidate": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0495267357711,
+                "interval": {
+                  "high": 0.0807186482654,
+                  "level": 0.95,
+                  "low": 0.0299949515366,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 523,
+                "standard_error": 0.0119270872921,
+                "status": "estimated"
+              },
+              "sample_n": 28
+            },
+            "prediabetes": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.453820117697,
+                "interval": {
+                  "high": 0.509401887206,
+                  "level": 0.95,
+                  "low": 0.399366130879,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 523,
+                "standard_error": 0.0268213468666,
+                "status": "estimated"
+              },
+              "sample_n": 229
+            },
+            "unclassified": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0901629443421,
+                "interval": {
+                  "high": 0.130165335282,
+                  "level": 0.95,
+                  "low": 0.061583708519,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 523,
+                "standard_error": 0.0164163402016,
+                "status": "estimated"
+              },
+              "sample_n": 54
+            }
+          },
+          "classified_n": 469,
+          "diagnosis_checks_n": {
+            "reported_diabetes_but_unclassified": 2,
+            "reported_diabetes_with_subdiabetic_labs": 3
+          },
+          "eligible_n": 523,
+          "eligible_weight": 43466794.101,
+          "public_age_topcode_n": 0,
+          "sex": "male",
+          "unclassified_n": 54,
+          "unclassified_reasons_n": {
+            "incomplete_glycemic_observation": 3,
+            "incomplete_other_risk_or_diagnosis": 51
+          }
+        },
+        {
+          "age_group": "20_39",
+          "categories": {
+            "diabetes_any_type": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0356617809989,
+                "interval": {
+                  "high": 0.0558561661239,
+                  "level": 0.95,
+                  "low": 0.0225938074435,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 583,
+                "standard_error": 0.00784575224619,
+                "status": "estimated"
+              },
+              "sample_n": 28
+            },
+            "lower_measured_risk": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.328304776161,
+                "interval": {
+                  "high": 0.396514279195,
+                  "level": 0.95,
+                  "low": 0.266644487247,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 583,
+                "standard_error": 0.0316777297248,
+                "status": "estimated"
+              },
+              "sample_n": 179
+            },
+            "other_reported_diagnosis": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.103747843158,
+                "interval": {
+                  "high": 0.140217667084,
+                  "level": 0.95,
+                  "low": 0.0759259573683,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 583,
+                "standard_error": 0.0154756428134,
+                "status": "estimated"
+              },
+              "sample_n": 56
+            },
+            "prechronic_candidate": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0954446787669,
+                "interval": {
+                  "high": 0.124286394015,
+                  "level": 0.95,
+                  "low": 0.0727399866711,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 583,
+                "standard_error": 0.0124268958656,
+                "status": "estimated"
+              },
+              "sample_n": 52
+            },
+            "prediabetes": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.2958030738,
+                "interval": {
+                  "high": 0.346421689973,
+                  "level": 0.95,
+                  "low": 0.249754390999,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 583,
+                "standard_error": 0.02352118296,
+                "status": "estimated"
+              },
+              "sample_n": 175
+            },
+            "unclassified": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.141037847116,
+                "interval": {
+                  "high": 0.193938447474,
+                  "level": 0.95,
+                  "low": 0.100763136394,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 583,
+                "standard_error": 0.0224745506808,
+                "status": "estimated"
+              },
+              "sample_n": 93
+            }
+          },
+          "classified_n": 490,
+          "diagnosis_checks_n": {
+            "reported_diabetes_but_unclassified": 6,
+            "reported_diabetes_with_subdiabetic_labs": 6
+          },
+          "eligible_n": 583,
+          "eligible_weight": 41604266.1527,
+          "public_age_topcode_n": 0,
+          "sex": "female",
+          "unclassified_n": 93,
+          "unclassified_reasons_n": {
+            "incomplete_glycemic_observation": 3,
+            "incomplete_other_risk_or_diagnosis": 90
+          }
+        },
+        {
+          "age_group": "40_59",
+          "categories": {
+            "diabetes_any_type": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.142870990913,
+                "interval": {
+                  "high": 0.173767381211,
+                  "level": 0.95,
+                  "low": 0.116692210519,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1282,
+                "standard_error": 0.0138235634514,
+                "status": "estimated"
+              },
+              "sample_n": 237
+            },
+            "lower_measured_risk": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.108208896804,
+                "interval": {
+                  "high": 0.138652571951,
+                  "level": 0.95,
+                  "low": 0.0837993579407,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1282,
+                "standard_error": 0.0132431845008,
+                "status": "estimated"
+              },
+              "sample_n": 134
+            },
+            "other_reported_diagnosis": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.116226172515,
+                "interval": {
+                  "high": 0.144108791218,
+                  "level": 0.95,
+                  "low": 0.0931512231803,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1282,
+                "standard_error": 0.012323311497,
+                "status": "estimated"
+              },
+              "sample_n": 124
+            },
+            "prechronic_candidate": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0181938171769,
+                "interval": {
+                  "high": 0.0350305782299,
+                  "level": 0.95,
+                  "low": 0.00937073222185,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1282,
+                "standard_error": 0.00583218488956,
+                "status": "estimated"
+              },
+              "sample_n": 27
+            },
+            "prediabetes": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.50378837515,
+                "interval": {
+                  "high": 0.555228692782,
+                  "level": 0.95,
+                  "low": 0.452267732133,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1282,
+                "standard_error": 0.0250850122798,
+                "status": "estimated"
+              },
+              "sample_n": 592
+            },
+            "unclassified": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.110711747441,
+                "interval": {
+                  "high": 0.162736177652,
+                  "level": 0.95,
+                  "low": 0.073851787013,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1282,
+                "standard_error": 0.0212959530327,
+                "status": "estimated"
+              },
+              "sample_n": 168
+            }
+          },
+          "classified_n": 1114,
+          "diagnosis_checks_n": {
+            "reported_diabetes_but_unclassified": 32,
+            "reported_diabetes_with_subdiabetic_labs": 39
+          },
+          "eligible_n": 1282,
+          "eligible_weight": 81964096.262,
+          "public_age_topcode_n": 0,
+          "sex": "all",
+          "unclassified_n": 168,
+          "unclassified_reasons_n": {
+            "incomplete_glycemic_observation": 3,
+            "incomplete_other_risk_or_diagnosis": 165
+          }
+        },
+        {
+          "age_group": "40_59",
+          "categories": {
+            "diabetes_any_type": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.146762914323,
+                "interval": {
+                  "high": 0.189263836511,
+                  "level": 0.95,
+                  "low": 0.11248182833,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 595,
+                "standard_error": 0.0185699701861,
+                "status": "estimated"
+              },
+              "sample_n": 121
+            },
+            "lower_measured_risk": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0867722645626,
+                "interval": {
+                  "high": 0.132722591297,
+                  "level": 0.95,
+                  "low": 0.0557086786283,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 595,
+                "standard_error": 0.0183376896507,
+                "status": "estimated"
+              },
+              "sample_n": 46
+            },
+            "other_reported_diagnosis": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0896350058872,
+                "interval": {
+                  "high": 0.138601602814,
+                  "level": 0.95,
+                  "low": 0.0568265854013,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 595,
+                "standard_error": 0.019459607558,
+                "status": "estimated"
+              },
+              "sample_n": 44
+            },
+            "prechronic_candidate": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.00888530102577,
+                "interval": {
+                  "high": 0.0209352339766,
+                  "level": 0.95,
+                  "low": 0.00374455976249,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 595,
+                "standard_error": 0.00371688978264,
+                "status": "estimated"
+              },
+              "sample_n": 8
+            },
+            "prediabetes": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.574702358957,
+                "interval": {
+                  "high": 0.641711031696,
+                  "level": 0.95,
+                  "low": 0.504831791559,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 595,
+                "standard_error": 0.0334354529255,
+                "status": "estimated"
+              },
+              "sample_n": 310
+            },
+            "unclassified": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0932421552444,
+                "interval": {
+                  "high": 0.139163914209,
+                  "level": 0.95,
+                  "low": 0.0613930962403,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 595,
+                "standard_error": 0.0185728780727,
+                "status": "estimated"
+              },
+              "sample_n": 66
+            }
+          },
+          "classified_n": 529,
+          "diagnosis_checks_n": {
+            "reported_diabetes_but_unclassified": 14,
+            "reported_diabetes_with_subdiabetic_labs": 18
+          },
+          "eligible_n": 595,
+          "eligible_weight": 39531928.3518,
+          "public_age_topcode_n": 0,
+          "sex": "male",
+          "unclassified_n": 66,
+          "unclassified_reasons_n": {
+            "incomplete_glycemic_observation": 1,
+            "incomplete_other_risk_or_diagnosis": 65
+          }
+        },
+        {
+          "age_group": "40_59",
+          "categories": {
+            "diabetes_any_type": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.13924508055,
+                "interval": {
+                  "high": 0.193746837223,
+                  "level": 0.95,
+                  "low": 0.0982073914107,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 687,
+                "standard_error": 0.0230296389366,
+                "status": "estimated"
+              },
+              "sample_n": 116
+            },
+            "lower_measured_risk": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.128180334786,
+                "interval": {
+                  "high": 0.17085766611,
+                  "level": 0.95,
+                  "low": 0.0949424227484,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 687,
+                "standard_error": 0.018317209518,
+                "status": "estimated"
+              },
+              "sample_n": 88
+            },
+            "other_reported_diagnosis": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.140999832351,
+                "interval": {
+                  "high": 0.18683178435,
+                  "level": 0.95,
+                  "low": 0.104959773187,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 687,
+                "standard_error": 0.0197762688187,
+                "status": "estimated"
+              },
+              "sample_n": 80
+            },
+            "prechronic_candidate": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0268660960557,
+                "interval": {
+                  "high": 0.05451037571,
+                  "level": 0.95,
+                  "low": 0.0130478100627,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 687,
+                "standard_error": 0.00934734812852,
+                "status": "estimated"
+              },
+              "sample_n": 19
+            },
+            "prediabetes": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.43772136361,
+                "interval": {
+                  "high": 0.517252764177,
+                  "level": 0.95,
+                  "low": 0.361267190442,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 687,
+                "standard_error": 0.0381756958917,
+                "status": "estimated"
+              },
+              "sample_n": 282
+            },
+            "unclassified": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.126987292648,
+                "interval": {
+                  "high": 0.207165202691,
+                  "level": 0.95,
+                  "low": 0.0749083215363,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 687,
+                "standard_error": 0.0315307391407,
+                "status": "estimated"
+              },
+              "sample_n": 102
+            }
+          },
+          "classified_n": 585,
+          "diagnosis_checks_n": {
+            "reported_diabetes_but_unclassified": 18,
+            "reported_diabetes_with_subdiabetic_labs": 21
+          },
+          "eligible_n": 687,
+          "eligible_weight": 42432167.9102,
+          "public_age_topcode_n": 0,
+          "sex": "female",
+          "unclassified_n": 102,
+          "unclassified_reasons_n": {
+            "incomplete_glycemic_observation": 2,
+            "incomplete_other_risk_or_diagnosis": 100
+          }
+        },
+        {
+          "age_group": "60_plus",
+          "categories": {
+            "diabetes_any_type": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.250753463779,
+                "interval": {
+                  "high": 0.278129673203,
+                  "level": 0.95,
+                  "low": 0.225231132157,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1381,
+                "standard_error": 0.0128477504032,
+                "status": "estimated"
+              },
+              "sample_n": 409
+            },
+            "lower_measured_risk": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0235159729337,
+                "interval": {
+                  "high": 0.0410037715462,
+                  "level": 0.95,
+                  "low": 0.0133825082805,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1381,
+                "standard_error": 0.00640047175626,
+                "status": "estimated"
+              },
+              "sample_n": 27
+            },
+            "other_reported_diagnosis": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.10240512662,
+                "interval": {
+                  "high": 0.1431458883,
+                  "level": 0.95,
+                  "low": 0.0722814596425,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1381,
+                "standard_error": 0.0170211363489,
+                "status": "estimated"
+              },
+              "sample_n": 114
+            },
+            "prechronic_candidate": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.00603704635,
+                "interval": {
+                  "high": 0.015073009,
+                  "level": 0.95,
+                  "low": 0.00240473422554,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1381,
+                "standard_error": 0.00269249345544,
+                "status": "estimated"
+              },
+              "sample_n": 10
+            },
+            "prediabetes": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.478647746383,
+                "interval": {
+                  "high": 0.507240174775,
+                  "level": 0.95,
+                  "low": 0.450194540256,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1381,
+                "standard_error": 0.0138641544831,
+                "status": "estimated"
+              },
+              "sample_n": 578
+            },
+            "unclassified": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.138640643935,
+                "interval": {
+                  "high": 0.174998585775,
+                  "level": 0.95,
+                  "low": 0.108839930468,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 1381,
+                "standard_error": 0.0160045862243,
+                "status": "estimated"
+              },
+              "sample_n": 243
+            }
+          },
+          "classified_n": 1138,
+          "diagnosis_checks_n": {
+            "reported_diabetes_but_unclassified": 80,
+            "reported_diabetes_with_subdiabetic_labs": 82
+          },
+          "eligible_n": 1381,
+          "eligible_weight": 71428299.2549,
+          "public_age_topcode_n": 236,
+          "sex": "all",
+          "unclassified_n": 243,
+          "unclassified_reasons_n": {
+            "incomplete_glycemic_observation": 3,
+            "incomplete_other_risk_or_diagnosis": 240
+          }
+        },
+        {
+          "age_group": "60_plus",
+          "categories": {
+            "diabetes_any_type": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.319017989086,
+                "interval": {
+                  "high": 0.380067681825,
+                  "level": 0.95,
+                  "low": 0.26360481681,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 704,
+                "standard_error": 0.0283777173763,
+                "status": "estimated"
+              },
+              "sample_n": 236
+            },
+            "lower_measured_risk": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.015080176975,
+                "interval": {
+                  "high": 0.0346338603614,
+                  "level": 0.95,
+                  "low": 0.00649192778354,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 704,
+                "standard_error": 0.00614078423507,
+                "status": "estimated"
+              },
+              "sample_n": 12
+            },
+            "other_reported_diagnosis": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0610883282926,
+                "interval": {
+                  "high": 0.110493728796,
+                  "level": 0.95,
+                  "low": 0.0329552757589,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 704,
+                "standard_error": 0.0180098906303,
+                "status": "estimated"
+              },
+              "sample_n": 45
+            },
+            "prechronic_candidate": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.000814575377496,
+                "interval": {
+                  "high": 0.00380448569353,
+                  "level": 0.95,
+                  "low": 0.0001739976689,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 704,
+                "standard_error": 0.000610280567351,
+                "status": "estimated"
+              },
+              "sample_n": 2
+            },
+            "prediabetes": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.507223030497,
+                "interval": {
+                  "high": 0.554822385358,
+                  "level": 0.95,
+                  "low": 0.459492365386,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 704,
+                "standard_error": 0.0232140167004,
+                "status": "estimated"
+              },
+              "sample_n": 313
+            },
+            "unclassified": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0967758997717,
+                "interval": {
+                  "high": 0.134315720005,
+                  "level": 0.95,
+                  "low": 0.0688930861138,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 704,
+                "standard_error": 0.0157138532166,
+                "status": "estimated"
+              },
+              "sample_n": 96
+            }
+          },
+          "classified_n": 608,
+          "diagnosis_checks_n": {
+            "reported_diabetes_but_unclassified": 42,
+            "reported_diabetes_with_subdiabetic_labs": 50
+          },
+          "eligible_n": 704,
+          "eligible_weight": 33426681.0638,
+          "public_age_topcode_n": 126,
+          "sex": "male",
+          "unclassified_n": 96,
+          "unclassified_reasons_n": {
+            "incomplete_glycemic_observation": 1,
+            "incomplete_other_risk_or_diagnosis": 95
+          }
+        },
+        {
+          "age_group": "60_plus",
+          "categories": {
+            "diabetes_any_type": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.190707165121,
+                "interval": {
+                  "high": 0.236905942436,
+                  "level": 0.95,
+                  "low": 0.151726265078,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 677,
+                "standard_error": 0.0206607115242,
+                "status": "estimated"
+              },
+              "sample_n": 173
+            },
+            "lower_measured_risk": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0309362006622,
+                "interval": {
+                  "high": 0.059764505772,
+                  "level": 0.95,
+                  "low": 0.0157802756595,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 677,
+                "standard_error": 0.0100246687002,
+                "status": "estimated"
+              },
+              "sample_n": 15
+            },
+            "other_reported_diagnosis": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.13874788006,
+                "interval": {
+                  "high": 0.223517037603,
+                  "level": 0.95,
+                  "low": 0.0827033689608,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 677,
+                "standard_error": 0.0336779290749,
+                "status": "estimated"
+              },
+              "sample_n": 69
+            },
+            "prechronic_candidate": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.0106307947184,
+                "interval": {
+                  "high": 0.0274604175072,
+                  "level": 0.95,
+                  "low": 0.00407232693691,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 677,
+                "standard_error": 0.00493398252066,
+                "status": "estimated"
+              },
+              "sample_n": 8
+            },
+            "prediabetes": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.453512582307,
+                "interval": {
+                  "high": 0.507388723639,
+                  "level": 0.95,
+                  "low": 0.400703771142,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 677,
+                "standard_error": 0.0259982692348,
+                "status": "estimated"
+              },
+              "sample_n": 265
+            },
+            "unclassified": {
+              "eligible_weight_proportion": {
+                "degrees_of_freedom": 25,
+                "estimate": 0.175465377132,
+                "interval": {
+                  "high": 0.223126444947,
+                  "level": 0.95,
+                  "low": 0.136200124424,
+                  "method": "Taylor-linearized logit-t; domain degrees of freedom"
+                },
+                "n": 677,
+                "standard_error": 0.0210628765464,
+                "status": "estimated"
+              },
+              "sample_n": 147
+            }
+          },
+          "classified_n": 530,
+          "diagnosis_checks_n": {
+            "reported_diabetes_but_unclassified": 38,
+            "reported_diabetes_with_subdiabetic_labs": 32
+          },
+          "eligible_n": 677,
+          "eligible_weight": 38001618.1911,
+          "public_age_topcode_n": 110,
+          "sex": "female",
+          "unclassified_n": 147,
+          "unclassified_reasons_n": {
+            "incomplete_glycemic_observation": 2,
+            "incomplete_other_risk_or_diagnosis": 145
+          }
+        }
+      ],
+      "id": "risk_2"
+    }
+  ],
+  "denominator": "All eligible weight in each age/sex domain, including unclassified records",
+  "direct_initialization_allowed": false,
+  "geography": "United States",
+  "kind": "observation_state_mapping",
+  "limitations": [
+    "Public cross-sectional observations cannot identify latent state or transition rates.",
+    "Adult, noninstitutionalized survey population and 2017-March 2020 period do not directly initialize every age of the 2024 engine population.",
+    "Public age top-coding prevents single-age decomposition in the oldest group; no pediatric interpolation is performed.",
+    "Known diagnoses retain precedence within complete cases; incomplete records can remain unclassified despite known diabetes.",
+    "Treatment use, control duration, diabetes type, all chronic diseases and confirmed remission are not identified.",
+    "PreChronic alternatives and overlapping age domains share observations and must not be summed.",
+    "No active model parameter or numerical engine output changes."
+  ],
+  "model_role": "benchmark_only",
+  "population": "U.S. noninstitutionalized adults in the positive-weight NHANES 2017-March 2020 fasting subsample, excluding known pregnancy within the public age window",
+  "provenance": {
+    "definitions": {
+      "glycemic": {
+        "adult_age_min": 20,
+        "age_groups": [
+          {
+            "id": "20_plus",
+            "max": null,
+            "min": 20
+          },
+          {
+            "id": "20_39",
+            "max": 39,
+            "min": 20
+          },
+          {
+            "id": "40_59",
+            "max": 59,
+            "min": 40
+          },
+          {
+            "id": "60_plus",
+            "max": null,
+            "min": 60
+          }
+        ],
+        "confidence_level": 0.95,
+        "definition_status": "derived",
+        "glucose_diabetes_min": 126,
+        "glucose_prediabetes_min": 100,
+        "glucose_unit": "mg/dL",
+        "hba1c_diabetes_min": 6.5,
+        "hba1c_prediabetes_min": 5.7,
+        "hba1c_unit": "percent",
+        "pregnancy_exclusion_age_max": 44
+      },
+      "observation_state_mapping": {
+        "crosswalk": [
+          {
+            "candidate_state": "healthy",
+            "mapping_status": "unresolved",
+            "observation": "normoglycemia",
+            "reason": "Normal glycemia does not identify overall metabolic health or absence of other disease.",
+            "structure": "legacy"
+          },
+          {
+            "candidate_state": "ir",
+            "mapping_status": "unresolved",
+            "observation": "prediabetes",
+            "reason": "The glycemic threshold category does not identify all insulin resistance.",
+            "structure": "legacy"
+          },
+          {
+            "candidate_state": "t2d",
+            "mapping_status": "unresolved",
+            "observation": "diabetes_any_type",
+            "reason": "Diabetes type is not identified; no subtraction or assumed T2D fraction.",
+            "structure": "all"
+          },
+          {
+            "candidate_state": "healthy",
+            "mapping_status": "unresolved",
+            "observation": "lower_measured_risk",
+            "reason": "Lower measured risk is not proof of general health; diagnoses and markers are incomplete.",
+            "structure": "risk_1/risk_2"
+          },
+          {
+            "candidate_state": "prechronic",
+            "mapping_status": "definition_only",
+            "observation": "prechronic_candidate",
+            "reason": "Matches a candidate observation rule, not a clinical diagnosis or transported national stock.",
+            "structure": "risk_1/risk_2"
+          },
+          {
+            "candidate_state": "prediabetes",
+            "mapping_status": "definition_only",
+            "observation": "prediabetes",
+            "reason": "Observation label aligns; complete-case selection, age and temporal transport remain unresolved.",
+            "structure": "risk_1/risk_2"
+          },
+          {
+            "candidate_state": null,
+            "mapping_status": "unrepresented",
+            "observation": "other_reported_diagnosis",
+            "reason": "No corresponding engine stock. These people must not be dropped or declared healthy.",
+            "structure": "risk_1/risk_2"
+          },
+          {
+            "candidate_state": null,
+            "mapping_status": "unclassified",
+            "observation": "unclassified",
+            "reason": "Missing interview or measurements remain unknown; no imputation or healthy assignment.",
+            "structure": "all"
+          }
+        ],
+        "definition_sources": {
+          "age_and_population": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_DEMO.htm",
+          "diagnosis": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_DIQ.htm"
+        },
+        "definitions": [
+          "nhanes_glycemic_prevalence.analysis",
+          "nhanes_prechronic_candidates.analysis"
+        ],
+        "direct_initialization_allowed": false,
+        "evidence_grade": "C",
+        "geography": "United States",
+        "limitations": [
+          "Public cross-sectional observations cannot identify latent state or transition rates.",
+          "Adult, noninstitutionalized survey population and 2017-March 2020 period do not directly initialize every age of the 2024 engine population.",
+          "Public age top-coding prevents single-age decomposition in the oldest group; no pediatric interpolation is performed.",
+          "Known diagnoses retain precedence within complete cases; incomplete records can remain unclassified despite known diabetes.",
+          "Treatment use, control duration, diabetes type, all chronic diseases and confirmed remission are not identified.",
+          "PreChronic alternatives and overlapping age domains share observations and must not be summed.",
+          "No active model parameter or numerical engine output changes."
+        ],
+        "model_role": "benchmark_only",
+        "population": "U.S. noninstitutionalized adults in the positive-weight NHANES 2017-March 2020 fasting subsample, excluding known pregnancy within the public age window",
+        "rfc": "docs/rfcs/RFC-56-observation-state-mapping.md",
+        "status": "derived",
+        "time_period": "2017-March 2020",
+        "topcoded_age": 80,
+        "uncertainty": "Existing Taylor logit-t pointwise survey intervals; shared observations, not independent draws. Missingness, diagnostic error, definition and transport uncertainty not identified.",
+        "unit": "fraction of eligible survey weight; unweighted records"
+      },
+      "risk": {
+        "bp_rule": "Mean of all three oscillometric readings; either mean at least threshold; one combined BP marker",
+        "definition_status": "Synthetic operational choices for structural comparison, not clinically validated PreChronic thresholds; individual marker cutoffs are sourced definitions",
+        "definitions": {
+          "risk_1": 1,
+          "risk_2": 2
+        },
+        "diagnosis_columns": [
+          "BPQ020",
+          "BPQ080",
+          "MCQ160B",
+          "MCQ160C",
+          "MCQ160D",
+          "MCQ160E",
+          "MCQ160F",
+          "MCQ220"
+        ],
+        "diagnosis_rule": "Yes to known hypertension, high cholesterol, CHF, CHD, angina, MI, stroke or cancer excludes candidate status; unknown responses excluded",
+        "diastolic_mmhg": 85,
+        "glycemic_definition": "Inherit registered nhanes_glycemic_prevalence analysis; diabetes then prediabetes take priority",
+        "hdl_female_mg_dl": 50,
+        "hdl_male_mg_dl": 40,
+        "hdl_rule": "Strictly less than threshold",
+        "systolic_mmhg": 130,
+        "triglyceride_rule": "Strictly greater than threshold per cited NHLBI page",
+        "triglycerides_mg_dl": 150,
+        "waist_female_cm": 88.9,
+        "waist_male_cm": 101.6,
+        "waist_rule": "Strictly greater than NHLBI 40/35 inches converted at exactly 2.54 cm/inch; not ethnicity-specific"
+      }
+    },
+    "evidence_sha256": "8b2782a21113f21ec007dfdcc2d50db54b0eeacda30dc85818aed7638d8f024a",
+    "implementation_sha256": {
+      "src/demeter/data/nhanes.py": "cac20cd09b1dddceab5b08b3b39b4b5f0ae36d27c509a4703daf4feac8add481",
+      "src/demeter/data/prechronic.py": "09286f59eb2f01b00845b2ef5be51f200bb21ac7c0f311a57248799ba88a3dcf",
+      "src/demeter/data/state_mapping.py": "22bf586acdb4a02bd24bb106c9f6e01c37c4cd096615fc3b0527bde69668ce2d"
+    },
+    "source_receipts_sha256": "7ea18436feaf6fa6bc9a817a64f75643fbd4959b74eafa1dcadabc814a2193ad",
+    "source_sha256": {
+      "glycemic": {
+        "P_DEMO.xpt": "2e46c6c26bf77cd8989f64011ace12cbf42c0f3e03414eb59acc5328c8f87913",
+        "P_DIQ.xpt": "79153f799fc2171792771c4aa250029c62807f14915f1f81405b03233b1e5ae3",
+        "P_GHB.xpt": "dac9e423f56041c2ec46486cb16be16d3347e0a81a575985882ffad5a60e1195",
+        "P_GLU.xpt": "91b83c46fb4707c431838159135e93693a0572bce54074f5a890f0ee104732b3"
+      },
+      "risk": {
+        "P_BMX.xpt": "7038d0da3169420a4a3cbaec09ac586a701b38e1c7b925431b60e13ac24fed66",
+        "P_BPQ.xpt": "88af3557dd185cee2533c94c5302b361e89a54eb50754704f35d4e8120868c02",
+        "P_BPXO.xpt": "5edbcb81e99fe8dad38deb8b642570278b200c525d88ffa29ae3ceb4dd38bde4",
+        "P_HDL.xpt": "04a344f00fe34b3dc4202ee9e47cf61e67d1f985d7c9ece228e25caa85c7fbd7",
+        "P_MCQ.xpt": "1de8e4e184ed375fddc053dbb5b82db13ee55e4d4d0ae12da9e407537230125c",
+        "P_TRIGLY.xpt": "d3eb2df386f24a559ae4db992f0ec9aaf3d2c0caec173aa1921e78100ee88b31"
+      }
+    }
+  },
+  "schema_version": 1,
+  "scientific_release_ready": false,
+  "time_period": "2017-March 2020",
+  "uncertainty": "Existing Taylor logit-t pointwise survey intervals; shared observations, not independent draws. Missingness, diagnostic error, definition and transport uncertainty not identified.",
+  "unit": "fraction of eligible survey weight; unweighted records",
+  "validation_only": true
+}

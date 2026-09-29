@@ -6,6 +6,10 @@ The user-selected execution sequence builds and tests these mechanics before a
 separate scientific calibration pass. Existing scenarios retain the three-state
 `legacy` structure; the four-state scenarios remain validation-only.
 
+The [observation-to-state audit](OBSERVATION_STATE_MAPPING.md) retains missing
+records in a separate coverage denominator and shows diagnosis and age limitations.
+Its crosswalk does not activate survey-derived initialization.
+
 ## Observable candidate definitions
 
 The `nhanes_prechronic_candidates` dataset defines two research candidates among

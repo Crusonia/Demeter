@@ -111,8 +111,8 @@ def test_real_packages_cover_every_source_and_bundle_without_network(monkeypatch
     report = verify_packages()
     assert report["passed"], [c for c in report["checks"] if not c["passed"]]
     assert len(report["sources"]) == 54
-    assert len(report["artifacts"]) == 35
-    assert len(report["packages"]) == 16
+    assert len(report["artifacts"]) == 39
+    assert len(report["packages"]) == 17
     assert not report["network_used"]
     assert {s["distribution"] for s in report["sources"]} == {"archived", "fetch_only"}
 

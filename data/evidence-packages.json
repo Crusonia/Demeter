@@ -423,6 +423,45 @@
       ],
       "model_role": "prediction_benchmark_only",
       "redistribution": "Frozen Demeter protocol and aggregate diagnostics with source terms retained; no joined individual-level exports."
+    },
+    "observation_state_mapping": {
+      "store": null,
+      "dependencies": [
+        "nhanes_prechronic_risk"
+      ],
+      "registry_datasets": [
+        "observation_state_mapping",
+        "observation_partial_mapping"
+      ],
+      "registry_parameters": [],
+      "artifacts": [
+        {
+          "path": "docs/validation/issue-56-state-mapping.json",
+          "sha256": "64edfc92f5ba4874ad2ed355049f731215877fddf769eaefaa472a86fb22da32"
+        },
+        {
+          "path": "docs/validation/issue-56-state-mapping-before-after.json",
+          "sha256": "2f2579024eeeeb88b301f732d146850b84b8341704657ffe705e781f2f30d74e"
+        },
+        {
+          "path": "docs/validation/issue-56-partial-observations.json",
+          "sha256": "af66f154e6bb7595b72953be0d164c35a7369bba7d1ab721a3112d4d95fc4eb5"
+        },
+        {
+          "path": "docs/validation/issue-56-partial-before-after.json",
+          "sha256": "6cb1145eb8a859c262ad3ecc10a141978b0cb4330f4ae84c8134069dc60df553"
+        }
+      ],
+      "transform_files": [
+        "src/demeter/data/state_mapping.py",
+        "src/demeter/data/partial_observations.py"
+      ],
+      "rebuild": [
+        "uv run demeter evidence state-mapping --output outputs/state-mapping.json",
+        "uv run demeter evidence state-mapping --partial --output outputs/partial-observations.json"
+      ],
+      "model_role": "benchmark_only",
+      "redistribution": "Demeter aggregate observation audit from existing archived CDC/NCHS public-use files; retain upstream terms and citations. No joined person-level output."
     }
   },
   "supporting_artifacts": [
