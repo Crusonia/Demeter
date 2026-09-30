@@ -344,6 +344,33 @@ def pathway_compatibility_evidence(
         raise typer.Exit(1)
 
 
+@evidence_app.command("dpp-observations")
+def dpp_observation_evidence(
+    evidence: Path = DEFAULT_EVIDENCE,
+    raw: Annotated[
+        Path | None,
+        typer.Option(
+            help="Optional directory of pinned public documentation; no participant records"
+        ),
+    ] = None,
+    output: Path | None = None,
+) -> None:
+    """Audit DPP documentation and synthetic observation preservation offline."""
+    from demeter.analysis.dpp_observations import audit_dpp_observations
+
+    try:
+        report = audit_dpp_observations(registry(evidence), raw)
+    except (ValueError, OSError, KeyError) as exc:
+        typer.echo(str(exc), err=True)
+        raise typer.Exit(1) from exc
+    emit(report, output)
+    if (
+        not report["results"]["software_witnesses_passed"]
+        or report["results"]["documentation_bytes_passed"] is False
+    ):
+        raise typer.Exit(1)
+
+
 @evidence_app.command("applicability")
 def evidence_applicability(evidence: Path = DEFAULT_EVIDENCE, output: Path | None = None) -> None:
     """Show candidate estimates and unresolved population/endpoint mappings."""

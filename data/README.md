@@ -7,6 +7,11 @@ inputs, model assumptions, and simulation results distinct.
 
 Start with [dataset reuse and citation notices](NOTICE.md), the per-source
 [rights inventory](rights.json), and [evidence-package manifests](evidence-packages.json).
+
+The [DPP preservation package](../docs/DPP_OBSERVATION_ADAPTER.md) contains public
+documentation receipts, a frozen field contract and synthetic aggregate checks.
+Full documents are fetch-only and participant records are request-only. Its
+offline command imports no participant data and does not fit a clinical model.
 `uv run demeter data verify-packages --check-tracked` audits their coverage and
 receipt consistency, checks source/bundle bytes, and rejects undeclared tracked
 data and caches. The notices also explain fetch-only articles and wheel contents.

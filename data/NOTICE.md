@@ -146,6 +146,15 @@ use with attribution. Demeter does not redistribute either full article. The
 locators, receipts and original code only; these do not relicense publisher work.
 The correction is separate from the unavailable multicenter Annals correction.
 No participant data or reestimated clinical fit is distributed.
+
+The DPP preservation package records four public documentation sources: the
+primary report, protocol version 4.5, February 2008 release codebook and Version 9
+catalog snapshot. Full content stays fetch-only; only factual definitions,
+receipts, arbitrary synthetic fixtures/aggregates and MIT software are distributed.
+The historical phrase "public release" does not grant current participant-record
+access. No records have been requested or acquired and no clinical fit is supplied.
+Source-version and timing uncertainties remain explicit in the
+[DPP guide](../docs/DPP_OBSERVATION_ADAPTER.md).
 See the [public evidence route](../docs/PUBLIC_EVIDENCE_ROADMAP.md).
 
 Source distributions carry reviewed source bytes, manifests, transforms and

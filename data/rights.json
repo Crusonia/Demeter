@@ -163,6 +163,24 @@
         "Public data do not authorize identification or linkage to identifiable people.",
         "Full article rights are separate from the dataset dedication."
       ]
+    },
+    "dpp_documentation_fetch_only": {
+      "checked_on": "2026-09-30",
+      "conditions": [
+        "Full source articles, protocols, codebooks and catalog HTML stay fetch-only; public viewing is not a redistribution license.",
+        "No participant-record request, access or permitted-use determination is supplied by this documentation appraisal.",
+        "Credit source authors/NIDDK; preserve distinct original-report, historical-release and protocol versions, cutoffs and exact byte pins."
+      ],
+      "download": "Public methods/codebooks/protocol/catalog URLs only; current participant records are available for request and have not been acquired.",
+      "redistribution": "facts_only",
+      "terms_urls": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC1370926/",
+        "https://dppos.bsc.gwu.edu/documents/1124073/1127212/DPPPROTOCOL.PDF/807eddd1-d9bf-497d-89f0-5de15fc43d79",
+        "https://repository.niddk.nih.gov/media/studies/dpp/Documents/Documentation%20for%20full%20scale%20DPP%20data%20release.pdf",
+        "https://repository.niddk.nih.gov/study/38"
+      ],
+      "title": "DPP public documentation; conservative facts-only distribution",
+      "transform": "Factual definitions and source receipts with original MIT software; no clinical effects or underlying participant records distributed."
     }
   },
   "source_files": {
@@ -390,7 +408,7 @@
       "policy": "census",
       "privacy": "aggregate",
       "publisher": "U.S. Census Bureau",
-      "vintage": "2025 (using 2022–2024 estimates)",
+      "vintage": "2025 (using 2022\u20132024 estimates)",
       "citation": "U.S. Census Bureau. Resident population by single year of age and sex, Vintage 2025",
       "notes": "Unmodified source snapshot; source terms apply separately from Demeter MIT code.",
       "url": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/national/asrh/nc-est2025-agesex-res.csv",
@@ -806,6 +824,58 @@
       "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6150430/fullTextXML",
       "sha256": "f38177b1b74c1ae9e8cbc48777c55bbfedf95ed22a4a80659343c2d7c01e31ff",
       "retrieved_at": "2026-09-30T18:22:57.057974Z"
+    },
+    "dpp2002_primary": {
+      "alternative": "Offline frozen observation contract and explicitly synthetic audit. Optionally verify matching locally cached public documents with demeter evidence dpp-observations --raw PATH. No participant-record importer or clinical fit.",
+      "citation": "Diabetes Prevention Program Research Group. Reduction in the incidence of type 2 diabetes with lifestyle intervention or metformin. NEJM 2002;346:393-403.",
+      "distribution": "fetch_only",
+      "notes": "Documentation source only; matching bytes do not establish source-record completeness, clinical identification or unrestricted participant-data rights.",
+      "policy": "dpp_documentation_fetch_only",
+      "privacy": "publication",
+      "publisher": "DPP Research Group / NIDDK Central Repository; source-specific attribution in citation",
+      "retrieved_at": "2026-09-30T19:16:23.469918+00:00",
+      "sha256": "345d769a09a5ac2308d3df9a75490580f899226684ff30032dc06e6c7929d1ee",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1370926/",
+      "vintage": "Original three-arm report, cutoff March 31, 2001"
+    },
+    "dpp_catalog_v9": {
+      "alternative": "Offline frozen observation contract and explicitly synthetic audit. Optionally verify matching locally cached public documents with demeter evidence dpp-observations --raw PATH. No participant-record importer or clinical fit.",
+      "citation": "NIDDK Central Repository. Diabetes Prevention Program, study 38, data version 9.",
+      "distribution": "fetch_only",
+      "notes": "Documentation source only; matching bytes do not establish source-record completeness, clinical identification or unrestricted participant-data rights.",
+      "policy": "dpp_documentation_fetch_only",
+      "privacy": "metadata",
+      "publisher": "DPP Research Group / NIDDK Central Repository; source-specific attribution in citation",
+      "retrieved_at": "2026-09-30T19:16:24.200766+00:00",
+      "sha256": "4b05f80032ae8f0fd41bc9b63576fdd312024cfbabf949a4c8e97ae97eb0e877",
+      "url": "https://repository.niddk.nih.gov/study/38",
+      "vintage": "Catalog snapshot retrieved September 30, 2026; data version 9"
+    },
+    "dpp_protocol_4_5": {
+      "alternative": "Offline frozen observation contract and explicitly synthetic audit. Optionally verify matching locally cached public documents with demeter evidence dpp-observations --raw PATH. No participant-record importer or clinical fit.",
+      "citation": "Diabetes Prevention Program. Protocol version 4.5, November 6, 2001.",
+      "distribution": "fetch_only",
+      "notes": "Documentation source only; matching bytes do not establish source-record completeness, clinical identification or unrestricted participant-data rights.",
+      "policy": "dpp_documentation_fetch_only",
+      "privacy": "publication",
+      "publisher": "DPP Research Group / NIDDK Central Repository; source-specific attribution in citation",
+      "retrieved_at": "2026-09-30T19:16:23.676167+00:00",
+      "sha256": "b4aec46d754f499623a0ec5981b3521a7df24a7ddee1b9daf74fac0ccba79bc9",
+      "url": "https://dppos.bsc.gwu.edu/documents/1124073/1127212/DPPPROTOCOL.PDF/807eddd1-d9bf-497d-89f0-5de15fc43d79",
+      "vintage": "Version 4.5; postdates original report cutoff"
+    },
+    "dpp_release_2008": {
+      "alternative": "Offline frozen observation contract and explicitly synthetic audit. Optionally verify matching locally cached public documents with demeter evidence dpp-observations --raw PATH. No participant-record importer or clinical fit.",
+      "citation": "Diabetes Prevention Program. Documentation for full-scale DPP data release, February 2008.",
+      "distribution": "fetch_only",
+      "notes": "Documentation source only; matching bytes do not establish source-record completeness, clinical identification or unrestricted participant-data rights.",
+      "policy": "dpp_documentation_fetch_only",
+      "privacy": "publication",
+      "publisher": "DPP Research Group / NIDDK Central Repository; source-specific attribution in citation",
+      "retrieved_at": "2026-09-30T19:21:17.919332+00:00",
+      "sha256": "b5611c850dcfd56b0cb859668e44e91be0f6912b6529c13d148551661805c16c",
+      "url": "https://repository.niddk.nih.gov/media/studies/dpp/Documents/Documentation%20for%20full%20scale%20DPP%20data%20release.pdf",
+      "vintage": "Historical four-arm release; cutoff July 31, 2001"
     }
   }
 }

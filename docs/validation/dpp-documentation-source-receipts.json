@@ -1,0 +1,42 @@
+{
+  "full_documents_redistributed": false,
+  "participant_records_acquired": false,
+  "sources": {
+    "dpp2002_primary": {
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1370926/",
+      "retrieved_utc": "2026-09-30T19:16:23.469918+00:00",
+      "sha256": "345d769a09a5ac2308d3df9a75490580f899226684ff30032dc06e6c7929d1ee",
+      "size_bytes": 193548,
+      "status": 200,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1370926/"
+    },
+    "dpp_catalog_v9": {
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://repository.niddk.nih.gov/study/38",
+      "retrieved_utc": "2026-09-30T19:16:24.200766+00:00",
+      "sha256": "4b05f80032ae8f0fd41bc9b63576fdd312024cfbabf949a4c8e97ae97eb0e877",
+      "size_bytes": 176023,
+      "status": 200,
+      "url": "https://repository.niddk.nih.gov/study/38"
+    },
+    "dpp_protocol_4_5": {
+      "content_type": "application/pdf",
+      "final_url": "https://dppos.bsc.gwu.edu/documents/1124073/1127212/DPPPROTOCOL.PDF/807eddd1-d9bf-497d-89f0-5de15fc43d79",
+      "retrieved_utc": "2026-09-30T19:16:23.676167+00:00",
+      "sha256": "b4aec46d754f499623a0ec5981b3521a7df24a7ddee1b9daf74fac0ccba79bc9",
+      "size_bytes": 1456934,
+      "status": 200,
+      "url": "https://dppos.bsc.gwu.edu/documents/1124073/1127212/DPPPROTOCOL.PDF/807eddd1-d9bf-497d-89f0-5de15fc43d79"
+    },
+    "dpp_release_2008": {
+      "content_type": "application/pdf",
+      "final_url": "https://repository.niddk.nih.gov/media/studies/dpp/Documents/Documentation%20for%20full%20scale%20DPP%20data%20release.pdf",
+      "retrieved_utc": "2026-09-30T19:21:17.919332+00:00",
+      "sha256": "b5611c850dcfd56b0cb859668e44e91be0f6912b6529c13d148551661805c16c",
+      "size_bytes": 271820,
+      "status": 200,
+      "url": "https://repository.niddk.nih.gov/media/studies/dpp/Documents/Documentation%20for%20full%20scale%20DPP%20data%20release.pdf"
+    }
+  }
+}

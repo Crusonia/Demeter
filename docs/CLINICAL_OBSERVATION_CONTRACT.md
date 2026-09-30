@@ -6,6 +6,12 @@ what a source-to-model review must resolve before clinical fitting or state
 activation. It introduces no clinical thresholds, empirical values, active
 parameters or observation-model implementation.
 
+The executable [DPP preservation adapter](DPP_OBSERVATION_ADAPTER.md) implements
+strict normalized observation objects and aggregate software diagnostics. It
+preserves measurements and unknowns; it supplies no clinical likelihood, inferred
+state or fitted parameter. Public documentation receipts and synthetic checks
+are separate from participant-record coverage and scientific validation.
+
 The [project vision](PROJECT_VISION.md), [architecture](SYSTEM_ARCHITECTURE.md)
 and [scenario catalog](SCENARIO_CATALOG.md) preserve the broader program. The
 current work remains within the v0.1 health slice. Its design chain is the health

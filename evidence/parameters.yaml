@@ -2654,6 +2654,336 @@ datasets:
         distributions.
       units: hazards per year; lag/time in years; normalized expected person counts and dimensionless log-response
 
+  dpp_observation_contract:
+    model_role: benchmark_only
+    status: derived
+    evidence_grade: C
+    population: Selected DPP participants with impaired glucose tolerance and elevated
+      fasting glucose; no U.S. population transport
+    geography: United States
+    time_period: Original DPP 1996-2001; distinct report/release windows
+    source_pins:
+      dpp2002_primary:
+        url: https://pmc.ncbi.nlm.nih.gov/articles/PMC1370926/
+        citation: Diabetes Prevention Program Research Group. Reduction in the incidence
+          of type 2 diabetes with lifestyle intervention or metformin. NEJM 2002;346:393-403.
+        doi: 10.1056/NEJMoa012512
+        raw_filename: primary-report.html
+        sha256: 345d769a09a5ac2308d3df9a75490580f899226684ff30032dc06e6c7929d1ee
+        retrieved_at: '2026-09-30T19:16:23.469918+00:00'
+        license: Public documentation access only; no unrestricted participant-record
+          access or full-content redistribution license assumed.
+        correction_note: Original three-arm report, cutoff March 31, 2001
+      dpp_protocol_4_5:
+        url: https://dppos.bsc.gwu.edu/documents/1124073/1127212/DPPPROTOCOL.PDF/807eddd1-d9bf-497d-89f0-5de15fc43d79
+        citation: Diabetes Prevention Program. Protocol version 4.5, November 6, 2001.
+        doi: ''
+        raw_filename: dpp-protocol-v4.5.pdf
+        sha256: b4aec46d754f499623a0ec5981b3521a7df24a7ddee1b9daf74fac0ccba79bc9
+        retrieved_at: '2026-09-30T19:16:23.676167+00:00'
+        license: Public documentation access only; no unrestricted participant-record
+          access or full-content redistribution license assumed.
+        correction_note: Version 4.5; postdates original report cutoff
+      dpp_release_2008:
+        url: https://repository.niddk.nih.gov/media/studies/dpp/Documents/Documentation%20for%20full%20scale%20DPP%20data%20release.pdf
+        citation: Diabetes Prevention Program. Documentation for full-scale DPP data
+          release, February 2008.
+        doi: ''
+        raw_filename: niddk-full-scale-release-documentation.pdf
+        sha256: b5611c850dcfd56b0cb859668e44e91be0f6912b6529c13d148551661805c16c
+        retrieved_at: '2026-09-30T19:21:17.919332+00:00'
+        license: Public documentation access only; no unrestricted participant-record
+          access or full-content redistribution license assumed.
+        correction_note: Historical four-arm release; cutoff July 31, 2001
+      dpp_catalog_v9:
+        url: https://repository.niddk.nih.gov/study/38
+        citation: NIDDK Central Repository. Diabetes Prevention Program, study 38, data
+          version 9.
+        doi: 10.58020/3hw5-cf91
+        raw_filename: niddk-study-38.html
+        sha256: 4b05f80032ae8f0fd41bc9b63576fdd312024cfbabf949a4c8e97ae97eb0e877
+        retrieved_at: '2026-09-30T19:16:24.200766+00:00'
+        license: Public documentation access only; no unrestricted participant-record
+          access or full-content redistribution license assumed.
+        correction_note: Catalog snapshot retrieved September 30, 2026; data version
+          9
+    field_contract:
+      DIABF:
+        unit: source_binary_code
+        codes:
+          'no': 0
+          'yes': 1
+        meaning: Ever diagnosed during DPP, not current state or lifetime history
+        locator: Release documentation physical page 25, section 4.12.2
+      DIABT:
+        unit: source_reported_year
+        meaning: Randomization to diagnosis visit if DIABF yes; otherwise last glucose
+          visit
+        year_denominator: null
+        trigger_or_confirmation_date: null
+        locator: Release documentation physical page 25
+      DIABV:
+        unit: grouped_period_code
+        allowed_codes:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+        meaning: Diagnosis period if DIABF yes; otherwise final glucose period; first
+          interval begins at randomization
+        interval_bounds: null
+        locator: Release documentation physical page 25
+      TOTALTIM:
+        unit: source_reported_year
+        meaning: Randomization to final recorded visit of any type, not independently
+          established last contact
+        year_denominator: null
+        locator: Release documentation physical page 26
+      DAYSRAND:
+        unit: relative_day
+        origin: randomization
+        negative_screening_values_allowed: true
+        locator: Release documentation physical page 11, section 4.3
+      DEATH:
+        unit: source_binary_code
+        codes:
+          'no': 0
+          'yes': 1
+        unknown_is_alive: false
+        locator: Release documentation physical page 25
+      DEATHDAYS:
+        unit: relative_day
+        origin: randomization
+        meaning: Recorded death day; absent for alive-at-end participants, no default
+          for unknown status
+        locator: Release documentation physical page 25
+      CON:
+        unit: visit_purpose_label
+        meaning: Confirmation visit does not alone establish a positive result or confirmed
+          diagnosis
+        locator: Release documentation physical pages 11,16-17
+    source_context:
+      status: observed
+      evidence_grade: C
+      original_report_participants: 3234
+      original_report_arms: 3
+      original_report_cutoff: '2001-03-31'
+      release_arms: 4
+      release_cutoff: '2001-07-31'
+      release_version: February 2008
+      protocol_version: '4.5'
+      protocol_date: '2001-11-06'
+      catalog_version: '9'
+      catalog_participants: 3665
+      reported_grouping_months: 6
+      reported_target_window_half_width_months: 3
+      source_locators:
+        primary: Methods/Statistical Analysis and Results
+        release: Physical pages 4-8,25-26
+        catalog: Study 38 snapshot
+      interpretation: Source context only; no bin reconstruction, day/year conversion,
+        endpoint rates or clinical thresholds implemented
+    input_contract: Explicit normalized clinical_observations_v1 records; no SAS importer
+      or verified participant records
+    unresolved:
+    - Permitted participant-data use, output terms and actual record coverage
+    - Historical release versus current version and original report window/arms
+    - DIABT trigger versus confirmation dating and source-year denominator
+    - DIABV actual boundaries, first bin and out-of-window event rules
+    - Prior diagnosis/type, physiological-state mapping and remission definitions
+    - Informative testing, missing visits, treatment changes, death and censoring coverage
+    - Observation likelihood, estimand, identification, joint uncertainty and reserved
+      evaluation
+    - Isolated dietary exposure/dose/lag and applicability to U.S./PreChronic populations
+    protocol_path: docs/validation/dpp-observation-contract-v1.json
+    protocol_sha256: 9a427e7bd01c03beea139e12977b14607a06bc312efff73d146ad4e399a4f187
+    uncertainty: Definitions and documented units only; coding/coverage/measurement/selection
+      uncertainty unresolved
+    clinical_fitting_allowed: false
+    direct_initialization_allowed: false
+  dpp_observation_software_witness:
+    status: synthetic
+    evidence_grade: E
+    model_role: benchmark_only
+    input:
+      schema_version: clinical_observations_v1
+      source_id: synthetic_dpp_shape
+      source_version: software-fixture-v1
+      synthetic: true
+      relative_day_origin: randomization
+      relative_day_unit: relative_day
+      participants:
+      - record_id: synthetic-confirmed
+        events:
+          diagnosed_during_source_followup: true
+          prior_diabetes_diagnosis: null
+          diabetes_type: null
+          source_glucose_endpoint_years: 1.0
+          source_visit_group: 2
+          source_last_visit_years: 2.0
+          source_year_unit: source_reported_year
+          death_status: false
+          death_time:
+            kind: unknown
+        glucose_observations:
+        - observation_id: trigger
+          test: ogtt_2h
+          time:
+            kind: exact
+            day: 300
+          status: observed
+          value: 250.0
+          unit: mg/dL
+          unit_status: documented
+          visit_purpose: scheduled
+        - observation_id: confirmation
+          test: fasting_glucose
+          time:
+            kind: exact
+            day: 330
+          status: observed
+          value: 137.0
+          unit: mg/dL
+          unit_status: documented
+          visit_purpose: confirmation
+        - observation_id: later
+          test: fasting_glucose
+          time:
+            kind: exact
+            day: 700
+          status: observed
+          value: 100.0
+          unit: mg/dL
+          unit_status: documented
+          visit_purpose: post_confirmed_outcome
+        diagnosis_observations:
+        - outcome: confirmed
+          first_positive_time:
+            kind: exact
+            day: 300
+          confirmation_time:
+            kind: exact
+            day: 330
+          source_definition: Externally assigned synthetic outcome; no threshold evaluated
+          test_reference_ids:
+          - trigger
+          - confirmation
+        treatment_changes:
+        - treatment: synthetic medication
+          action: start
+          time:
+            kind: exact
+            day: 340
+        follow_up:
+          last_glucose_time:
+            kind: exact
+            day: 700
+          last_contact_time:
+            kind: exact
+            day: 720
+          censoring_reason: diagnosis
+        test_history_complete: false
+        treatment_history_complete: false
+      - record_id: synthetic-not-diagnosed
+        events:
+          diagnosed_during_source_followup: false
+          prior_diabetes_diagnosis: null
+          source_glucose_endpoint_years: 2.0
+          source_visit_group: 1
+          source_last_visit_years: 3.0
+          death_status: null
+          death_time:
+            kind: unknown
+        glucose_observations:
+        - observation_id: screening
+          test: fasting_glucose
+          time:
+            kind: exact
+            day: -10
+          status: observed
+          value: 110.0
+          unit: mg/dL
+          unit_status: documented
+        - observation_id: missing-ogtt
+          test: ogtt_2h
+          time:
+            kind: exact
+            day: 180
+          status: missing
+          value: null
+          unit: mg/dL
+          unit_status: documented
+          source_missing_code: synthetic-refused
+        - observation_id: confirmation-visit-only
+          test: fasting_glucose
+          time:
+            kind: exact
+            day: 180
+          status: observed
+          value: 100.0
+          unit: mg/dL
+          unit_status: documented
+          visit_purpose: confirmation
+        follow_up:
+          last_glucose_time:
+            kind: exact
+            day: 180
+          last_contact_time:
+            kind: exact
+            day: 365
+          censoring_reason: unknown
+        test_history_complete: null
+        treatment_history_complete: null
+      - record_id: synthetic-death
+        events:
+          diagnosed_during_source_followup: null
+          prior_diabetes_diagnosis: null
+          death_status: true
+          death_time:
+            kind: exact
+            day: 400
+        glucose_observations:
+        - observation_id: unknown-test
+          test: fasting_glucose
+          time:
+            kind: unknown
+          status: unknown
+          value: null
+          unit: null
+          unit_status: unresolved
+        follow_up:
+          last_glucose_time:
+            kind: exact
+            day: 100
+          last_contact_time:
+            kind: exact
+            day: 390
+          censoring_reason: death
+        test_history_complete: false
+        treatment_history_complete: null
+    expected:
+      participant_count: 3
+      source_units_preserved: true
+      unknowns_not_replaced: true
+      confirmation_visit_not_diagnosis: true
+      later_low_value_not_remission: true
+      glucose_and_contact_censoring_distinct: true
+      death_and_diagnosis_history_preserved: true
+    uncertainty: Fixed arbitrary synthetic record values test preservation only; no
+      empirical precision or clinical uncertainty implied
+    protocol_path: docs/validation/dpp-observation-contract-v1.json
+    protocol_sha256: 9a427e7bd01c03beea139e12977b14607a06bc312efff73d146ad4e399a4f187
+    population: Synthetic software fixture only
+    geography: None
+    time_period: None
+    unit: Observation records with separate source-year and relative-day units
+
 scientific_blockers:
 - National age-specific metabolic transition hazards are unresolved.
 - Age-specific T2D/prediabetes initial prevalence is not calibrated; CDC total diabetes includes
@@ -2738,3 +3068,47 @@ sources:
     correction_url: https://doi.org/10.2337/dc18-er10
     correction_note: Separate Reus correction; not the multicenter Annals correction. Excludes nonrandomized
       household partners. Weight-change adjustment and original/corrected age/sex footnote discrepancy retained.
+
+  dpp2002_primary:
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC1370926/
+    citation: Diabetes Prevention Program Research Group. Reduction in the incidence
+      of type 2 diabetes with lifestyle intervention or metformin. NEJM 2002;346:393-403.
+    doi: 10.1056/NEJMoa012512
+    raw_filename: primary-report.html
+    sha256: 345d769a09a5ac2308d3df9a75490580f899226684ff30032dc06e6c7929d1ee
+    retrieved_at: '2026-09-30T19:16:23.469918+00:00'
+    license: Public documentation access only; no unrestricted participant-record access
+      or full-content redistribution license assumed.
+    correction_note: Original three-arm report, cutoff March 31, 2001
+  dpp_protocol_4_5:
+    url: https://dppos.bsc.gwu.edu/documents/1124073/1127212/DPPPROTOCOL.PDF/807eddd1-d9bf-497d-89f0-5de15fc43d79
+    citation: Diabetes Prevention Program. Protocol version 4.5, November 6, 2001.
+    doi: ''
+    raw_filename: dpp-protocol-v4.5.pdf
+    sha256: b4aec46d754f499623a0ec5981b3521a7df24a7ddee1b9daf74fac0ccba79bc9
+    retrieved_at: '2026-09-30T19:16:23.676167+00:00'
+    license: Public documentation access only; no unrestricted participant-record access
+      or full-content redistribution license assumed.
+    correction_note: Version 4.5; postdates original report cutoff
+  dpp_release_2008:
+    url: https://repository.niddk.nih.gov/media/studies/dpp/Documents/Documentation%20for%20full%20scale%20DPP%20data%20release.pdf
+    citation: Diabetes Prevention Program. Documentation for full-scale DPP data release,
+      February 2008.
+    doi: ''
+    raw_filename: niddk-full-scale-release-documentation.pdf
+    sha256: b5611c850dcfd56b0cb859668e44e91be0f6912b6529c13d148551661805c16c
+    retrieved_at: '2026-09-30T19:21:17.919332+00:00'
+    license: Public documentation access only; no unrestricted participant-record access
+      or full-content redistribution license assumed.
+    correction_note: Historical four-arm release; cutoff July 31, 2001
+  dpp_catalog_v9:
+    url: https://repository.niddk.nih.gov/study/38
+    citation: NIDDK Central Repository. Diabetes Prevention Program, study 38, data
+      version 9.
+    doi: 10.58020/3hw5-cf91
+    raw_filename: niddk-study-38.html
+    sha256: 4b05f80032ae8f0fd41bc9b63576fdd312024cfbabf949a4c8e97ae97eb0e877
+    retrieved_at: '2026-09-30T19:16:24.200766+00:00'
+    license: Public documentation access only; no unrestricted participant-record access
+      or full-content redistribution license assumed.
+    correction_note: Catalog snapshot retrieved September 30, 2026; data version 9

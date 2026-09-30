@@ -250,6 +250,13 @@ The manifests record source URLs, retrieval times, vintages, hashes, and transfo
 
 ## Next scientific gate
 
+The [DPP observation adapter](docs/DPP_OBSERVATION_ADAPTER.md) provides an offline
+learning exercise: `uv run demeter evidence dpp-observations --output outputs/dpp-observations.json`.
+It preserves distinct tests, confirmation, treatment, death and censoring with
+explicit unknowns. Its records are synthetic; public documentation is pinned,
+while participant data remain request-only. It does not fit clinical rates or
+change simulation results.
+
 We are pursuing [public evidence first](docs/PUBLIC_EVIDENCE_ROADMAP.md), with
 reproducible source audits and progressively supported model components. The
 public-cohort intake provides a concrete next contribution without institutional

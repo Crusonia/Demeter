@@ -96,3 +96,12 @@ invented. The synthetic/E compatibility dataset pins seven existing reference
 definitions and both invoked engine helpers before executing software witnesses.
 Neither dataset activates a clinical effect. Use `demeter evidence reus-diabetes`
 with local source XML, or `demeter evidence pathway-compatibility` offline.
+
+`dpp_observation_contract` registers documentation definitions and their four
+source pins; `dpp_observation_software_witness` registers an arbitrary synthetic/E
+fixture. The dedicated `demeter evidence dpp-observations` command checks the
+frozen contract and exports only aggregate software diagnostics. Optional `--raw`
+verifies matching public documentation bytes. It does not re-extract clinical
+tables, import participant records or establish their permitted use. Source-year
+conversion, event/confirmation dating, clinical likelihood and engine activation
+remain unresolved. See the [DPP guide](../docs/DPP_OBSERVATION_ADAPTER.md).

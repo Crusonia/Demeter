@@ -110,9 +110,9 @@ def test_real_packages_cover_every_source_and_bundle_without_network(monkeypatch
     monkeypatch.setattr("urllib.request.urlopen", no_network)
     report = verify_packages()
     assert report["passed"], [c for c in report["checks"] if not c["passed"]]
-    assert len(report["sources"]) == 57
-    assert len(report["artifacts"]) == 53
-    assert len(report["packages"]) == 20
+    assert len(report["sources"]) == 61
+    assert len(report["artifacts"]) == 58
+    assert len(report["packages"]) == 21
     assert not report["network_used"]
     assert {s["distribution"] for s in report["sources"]} == {"archived", "fetch_only"}
 
