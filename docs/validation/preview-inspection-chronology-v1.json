@@ -1,0 +1,99 @@
+{
+  "document_role": "used-source inspection record; not preregistration or independent validation",
+  "recorded_at_utc": "2026-09-30T21:54:52.782309+00:00",
+  "time_limitation": "Earlier tool inspection times were not instrumented. Events below give documented order and scope, not invented exact timestamps; retained receipts expose file times as proxies.",
+  "events": [
+    {
+      "order": 1,
+      "actor": "restricted_estimands",
+      "surface": "primary PREVIEW secondary-analysis search results",
+      "scope": "abstract/result snippets including endpoint proportions and adjusted RR/CI encountered during finite source search",
+      "used_source": true
+    },
+    {
+      "order": 2,
+      "actor": "restricted_estimands",
+      "surface": "secondary-analysis main publisher HTML",
+      "scope": "main methods/results through discussion plus data availability/license; exact main endpoint y/n/N cells and adjusted RR/CI inspected",
+      "cache": "preview.html",
+      "used_source": true
+    },
+    {
+      "order": 3,
+      "actor": "restricted_estimands",
+      "surface": "secondary-analysis ESM PDF",
+      "scope": "pages1-5 methods intentionally inspected; pages6-8 auxiliary results and completer/non-completer table inadvertently printed in a first-eight-page extraction",
+      "cache": "preview-esm.pdf",
+      "used_source": true,
+      "disclosure": "Parent informed immediately; these results must never be represented as held out."
+    },
+    {
+      "order": 4,
+      "actor": "root",
+      "surface": "secondary-analysis whole main HTML",
+      "scope": "Parent explicitly reports browsing whole main HTML including results",
+      "used_source": true,
+      "time_exact_utc": null
+    },
+    {
+      "order": 5,
+      "actor": "restricted_estimands",
+      "surface": "original2021 report search excerpts and first-six-page PDF keyword extraction",
+      "scope": "original report abstract/results and beginning§3 encountered while locating methods;§2.3,§2.4,§2.6,§2.7 intentionally inspected",
+      "cache": "preview-main-2021.pdf",
+      "used_source": true
+    },
+    {
+      "order": 6,
+      "actor": "restricted_estimands",
+      "surface": "original2017 protocol, search-engine cached Auckland author PDF",
+      "scope": "§2.4,§2.5.1,§2.7 and supplementary-material locator inspected; no new result-table extraction",
+      "used_source": true
+    },
+    {
+      "order": 7,
+      "actor": "restricted_estimands",
+      "surface": "fresh main HTML and original2017 public author-repository PDF",
+      "scope": "public byte pinning; original2017 methods-only keyword excerpts before§3; no effect calculations",
+      "cache": "preview-secondary-main-pinned.html; preview-original-protocol-2017-pinned.pdf",
+      "used_source": true
+    },
+    {
+      "order": 8,
+      "actor": "public_timing_sources",
+      "surface": "secondary ESMp2/original2021p4 methods visual review",
+      "scope": "Methods-only review intent, but full secondary HTML and automatic web excerpts exposed results. Original2021 extraction printed pages3-6 including beginning results/tables; later page11 keyword context included discussion results. Rendered ESMp2/original2021p4 methods inspected. All are used-source; no endpoint arithmetic or numerical registration performed.",
+      "used_source": true
+    },
+    {
+      "order": 9,
+      "actor": "root",
+      "surface": "fresh ESM and original2021 acquisition receipts",
+      "scope": "Fresh identical downloads obtained actual acquisition UTC; retained old bytes unchanged. File modification times are not retrieval timestamps.",
+      "used_source": true,
+      "receipt_path": "docs/validation/preview-source-receipts.json"
+    },
+    {
+      "order": 10,
+      "actor": "root",
+      "surface": "draft protocol, chronology, source brief and primary publisher web opening",
+      "scope": "All main cells already seen. Source methods/results re-exposed during specification review; no numerical reproduction before freeze.",
+      "used_source": true
+    },
+    {
+      "order": 11,
+      "actor": "public_timing_sources",
+      "surface": "independent protocol review",
+      "scope": "Corrected baseline/randomization distinction and nonsignificant versus zero-effect wording; disclosed all earlier result exposure.",
+      "used_source": true
+    }
+  ],
+  "freeze_requirement": "Whole source family remains used-source. Immutable protocol commit precedes numerical reproduction; no retrospective holdout designation.",
+  "calculations_performed": {
+    "participant_aggregation": false,
+    "derived_effects": false,
+    "hazard_fit": false,
+    "dose_or_lag_fit": false
+  },
+  "freeze_recorded_at_utc": "2026-09-30T22:41:14.109043+00:00"
+}
