@@ -132,6 +132,11 @@ The Chen et al. cohort is available under the dataset's CC0 dedication, verified
 in Dryad and Zenodo metadata. Its large workbook remains fetch-only by packaging
 choice; this is not a restricted-access requirement. Demeter distributes the
 aggregate intake, protocol, source receipt and code. Article rights are separate.
+The timing package adds aggregate diagnostics, a frozen protocol/amendment and
+metadata receipts, with the same fetch-only workbook disposition. Article and
+review-response PDFs are not distributed; factual locators and byte receipts
+are retained. The later Sheng supplement contains the same workbook and adds
+no independent participant records. See the [timing audit](../docs/CHEN_TIMING_AUDIT.md).
 See the [public evidence route](../docs/PUBLIC_EVIDENCE_ROADMAP.md).
 
 Source distributions carry reviewed source bytes, manifests, transforms and

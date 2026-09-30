@@ -1,0 +1,85 @@
+{
+  "after_evidence_sha256": "3b3d896c4bd6e81946af4461ee713809a6ba1de129f18a54f555f54da117f29a",
+  "base_commit": "e729fba80f1254b42a9c097b4c80d26f7f67916e",
+  "before_evidence_sha256": "270388376c952aaa74b1fef70a29a53a60ea6ac2f79e31ac8a4a3f28babf64e9",
+  "interpretation": "Software equivalence only; no accepted hazard, likelihood or scientific release",
+  "refreshed_observation_reports": {
+    "issue-56-partial-observations.json": {
+      "all_other_outputs_identical": true,
+      "changed_paths": [
+        "/provenance/evidence_sha256"
+      ]
+    },
+    "issue-56-state-mapping.json": {
+      "all_other_outputs_identical": true,
+      "changed_paths": [
+        "/provenance/evidence_sha256"
+      ]
+    }
+  },
+  "registry_change": {
+    "added_benchmark_dataset": "chen_followup_timing_audit",
+    "after": {
+      "amendment_path": "docs/validation/chen-followup-timing-amendment-1.json",
+      "amendment_sha256": "a1a5af245f847d3e6ecfa2862604ad0121beec3da12002b69a4b7a05d727eb10",
+      "analysis": {
+        "crude_incidence_scale": 1000,
+        "diagnostic_days_per_year": [
+          365,
+          365.25,
+          366
+        ],
+        "integer_day_absolute_tolerance": 1e-06,
+        "numerical_tolerance_rationale": "Floating-point diagnostic tolerance in days, not an empirical effect or a source-defined year conversion.",
+        "numerical_tolerance_status": "synthetic",
+        "publication_rounding_assumption": "Compare within half the displayed rounding unit, without changing the released durations. The article does not document its rounding algorithm.",
+        "published_crude_incidence_decimal_places": 2,
+        "published_crude_incidence_per_1000_person_years": 6.17,
+        "published_followup_decimal_places": 1,
+        "published_median_followup_years": 3.1,
+        "published_minimum_followup_years": 2,
+        "published_person_years": 660191,
+        "published_person_years_decimal_places": 0,
+        "quantile_method": "linear",
+        "reported_calendar_end_exclusive": "2017-01-01",
+        "reported_calendar_start_inclusive": "2010-01-01"
+      },
+      "geography": "32 sites in 11 Chinese cities",
+      "intake_definition_sha256": "5dc510e3185e076aee1f4a2e4dcb1cd85ed1abc8557ab9be620b1d67853d22e3",
+      "model_role": "benchmark_only",
+      "population": "Selected adults aged at least 20 with repeated health checks and no baseline diabetes",
+      "protocol_path": "docs/validation/chen-followup-timing-protocol-v1.json",
+      "protocol_sha256": "05e394102124e1477408972ff3636b4f424f3ddd55e8af2c3c1a31d982ce4ea5",
+      "source_id": "chen2018_public_cohort",
+      "status": "derived",
+      "time_period": "2010-2016",
+      "uncertainty": "Fixed-release diagnostic arithmetic; no population sampling, measurement, selection or transport uncertainty estimated. Year conversion and observation process unresolved.",
+      "unit": "released follow-up years; arithmetic event counts per 1000 released person-years for source checks only"
+    },
+    "all_other_registry_definitions_identical": true,
+    "before": null
+  },
+  "scenarios": {
+    "baseline": {
+      "all_other_outputs_identical": true,
+      "changed_paths": [
+        "/healthspan/evidence_sha256",
+        "/metadata/evidence_sha256"
+      ]
+    },
+    "prechronic_baseline": {
+      "all_other_outputs_identical": true,
+      "changed_paths": [
+        "/healthspan/evidence_sha256",
+        "/metadata/evidence_sha256"
+      ]
+    },
+    "reduce_upf_30": {
+      "all_other_outputs_identical": true,
+      "changed_paths": [
+        "/healthspan/evidence_sha256",
+        "/metadata/evidence_sha256"
+      ]
+    }
+  }
+}

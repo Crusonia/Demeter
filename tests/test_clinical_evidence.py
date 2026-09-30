@@ -228,6 +228,11 @@ def test_source_network_failure_returns_failed_report(tmp_path, monkeypatch):
             "demeter.analysis.food_intake.reproduce_intake",
             "published_reproduction_passed",
         ),
+        (
+            "chen_followup_timing_audit",
+            "demeter.analysis.public_cohort_timing.audit_timing",
+            "source_reproduction_passed",
+        ),
     ],
 )
 @pytest.mark.parametrize("reproduced", [False, True])

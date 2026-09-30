@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "analysis_id": "chen-followup-timing-v1",
+  "created_on": "2026-09-30",
+  "parent_protocol_sha256": "05e394102124e1477408972ff3636b4f424f3ddd55e8af2c3c1a31d982ce4ea5",
+  "chronology": "After the initial protocol commit, before any new workbook aggregation. Primary-source review identified an additional publication-only arithmetic discrepancy.",
+  "reason": "The paper's Table 2 crude rate can be compared independently with its published event count and person-years, and later with the unchanged released durations.",
+  "analysis_additions": {
+    "published_crude_incidence_per_1000_person_years": 6.17,
+    "published_crude_incidence_decimal_places": 2,
+    "crude_incidence_scale": 1000
+  },
+  "source_locators": {
+    "published_crude_rate": "Chen 2018 Table 2, Total row, Crude incidence rate per 1000 person-years",
+    "published_events_and_person_years": "Chen 2018 Results / Diabetes incidence",
+    "paper": "https://doi.org/10.1136/bmjopen-2018-021768"
+  },
+  "additional_diagnostic": "Report the crude-rate arithmetic implied by the published event count/person-years separately from that implied by the complete release. Compare each with Table 2 at displayed precision. Neither calculation is an accepted hazard estimate.",
+  "limits": ["No replacement denominator, rescaling, row deletion or source correction is authorized.", "The original protocol and published-median failure remain intact."]
+}

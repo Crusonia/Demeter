@@ -1,0 +1,106 @@
+{
+  "correction_search_assessment": "No timing correction identified in the reviewed article, public version listing and supplements; bounded search, not proof of absence",
+  "existing_paper_receipt": {
+    "path_in_prior_receipts": "chen-paper.xml",
+    "receipt_artifact": "docs/validation/public-source-appraisal-receipts.json",
+    "sha256": "421d82fe536942dfbaba3d57569b3263208dd2ae393d61cbb641c2e343c1834f",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6169758/fullTextXML"
+  },
+  "locator_clarifications": [
+    "The frozen initial protocol groups entry and stopping under Study design; stopping is specifically in Ascertainment s2b.",
+    "The two-year visit-interval exclusion is an eligibility rule, not proof of a minimum for every diagnosis-stopped duration."
+  ],
+  "purpose": "Primary-source timing and observation appraisal; facts and receipts only, no publication redistribution",
+  "retrievals": [
+    {
+      "bytes": 7360,
+      "distribution": "fetch_only",
+      "file": "dryad-versions.json",
+      "retrieved_at": "2026-09-30T17:26:14.505143+00:00",
+      "sha256": "17edc130b5d0d801ce9f4c1010c1eb044123840f146034614282477a936bc6b4",
+      "url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.ft8750v/versions"
+    },
+    {
+      "bytes": 7281,
+      "distribution": "fetch_only",
+      "file": "zenodo-current.json",
+      "retrieved_at": "2026-09-30T17:26:13.854155+00:00",
+      "sha256": "9c31c1d11f4ff76ec4818846419788c2878e15f18cef0d0437c0e4601cdf12e6",
+      "url": "https://zenodo.org/api/records/4997196"
+    },
+    {
+      "bytes": 2137376,
+      "distribution": "fetch_only",
+      "file": "chen-supplements.zip",
+      "retrieved_at": "2026-09-30T17:26:49.595778+00:00",
+      "sha256": "7a74ff7f815b610770701c2d07946d0d42b17aacac806b39858a9873a627bfcb",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6169758/supplementaryFiles"
+    }
+  ],
+  "rights": "Original dataset CC0; articles and supplements remain fetch-only with their own source terms. No participant rows exported.",
+  "same_source_comparator": {
+    "article_doi": "10.3389/fendo.2024.1388751",
+    "disposition": "Same-source descriptive comparator only; no independent validation or new visit/death histories. Category boundaries, selection and stopping assumptions need alignment.",
+    "distribution": "fetch_only; source terms retained; factual metadata only",
+    "paper_bytes": 136077,
+    "paper_retrieved_at": "2026-09-30T17:30:55.086320Z",
+    "paper_sha256": "e53d586be6c58989787d865e8c64bd37dc130770d1297f325abddfea2fc3474f",
+    "paper_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11589820/fullTextXML",
+    "source_locators": {
+      "category_definitions": "s2_5",
+      "reuse_and_selection": "s2_1-s2_2",
+      "separate_association_models": "s2_6",
+      "unavailable_followup_exposure": "s4_1"
+    },
+    "supplement_response_sha256": "f2e7f691ebf5c1e402b88c849f0fae8f80f8582ef4fa7fa339f722e667f98f27",
+    "supplement_retrieved_at": "2026-09-30T17:33:37.612195Z",
+    "supplement_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11589820/supplementaryFiles",
+    "workbook_byte_identical_to_pinned_chen": true,
+    "workbook_bytes": 28340131,
+    "workbook_cells_opened_for_comparator_review": false,
+    "workbook_member": "DataSheet2.xlsx",
+    "workbook_sha256": "ffd341a1a91ac65585b9fba70847a2681f5671a6035d9cfbf92e50795d74fbf6"
+  },
+  "schema_version": 1,
+  "supplement_members": [
+    {
+      "bytes": 1754082,
+      "md5": "6c416ec1ecff4922b0f9687d10eeed57",
+      "member": "bmjopen-2018-021768.draft_revisions.pdf",
+      "sha256": "9a56f4ce1860c1a08a467da893cc555b52dfb32507d20de154d37211ddaa5eee"
+    },
+    {
+      "bytes": 303795,
+      "md5": "adf2a05f55cb1ee28dca4d2eb2b74632",
+      "member": "bmjopen-2018-021768.reviewer_comments.pdf",
+      "review_locator": "Physical page 4, author response to reviewer question 3",
+      "sha256": "93100776701ba7086b83495b33959f08dcdd86fc18e71780014f2def50d8f265"
+    },
+    {
+      "bytes": 339680,
+      "md5": "d3d9ea9677795c5bc52c9a4932520c20",
+      "member": "bmjopen-2018-021768supp001.pdf",
+      "sha256": "45c4c83a12828e1c6e5f29f1187238636e57f39379b1bde34956e65f0ef58d4d"
+    }
+  ],
+  "verified_locators": {
+    "crude_rate": "Chen JATS T2, Crude rate row",
+    "diagnosis_or_final_visit_stopping": "Chen JATS s2b",
+    "entry_and_visit_eligibility": "Chen JATS s2a",
+    "missing_death_information": "Reviewer-response PDF physical page 4, author response to question 3",
+    "person_years_and_median": "Chen JATS s3"
+  },
+  "version_assessment": {
+    "dryad_version_changes": [
+      "none"
+    ],
+    "dryad_versions_returned": 1,
+    "zenodo_file_identity": [
+      {
+        "checksum": "md5:b468cc3704b11ba1bd21532451fe2856",
+        "key": "RC Health Care Data-20180820.xlsx",
+        "size": 28340131
+      }
+    ]
+  }
+}

@@ -3,7 +3,7 @@
 - Status: proposed
 - Issue and PR: [#57](https://github.com/Crusonia/Demeter/issues/57), [PR #63](https://github.com/Crusonia/Demeter/pull/63); supports #56 and #1
 - Authors and date: Codex-assisted work for the Food is Health-affiliated project, September 29, 2026 (UTC)
-- Implementation: not started; no longitudinal fit or engine activation
+- Implementation: descriptive source intake and timing audit implemented; no longitudinal fit or engine activation
 - Scientific assessment: scoped source/identification appraisal below; external expert review pending
 - Scientific use: validation-only; no clinical parameter promotion
 - Supersedes / superseded by: none
@@ -102,6 +102,9 @@ The [public-cohort extension](RFC-57-public-cohort-intake.md) now implements a
 descriptive Chen intake under a protocol committed before outcome aggregation.
 Its source discrepancy remains explicit. It adds no likelihood fit or engine rate;
 the earlier source/identification conclusions below remain applicable.
+The [timing extension](RFC-57-chen-timing-and-observation.md) and
+[audit disposition](../CHEN_TIMING_AUDIT.md) now preserve duration and publication
+arithmetic failures and explicitly leave the observation likelihood unresolved.
 
 No new clinical values, evidence grades, equations or uncertainty distributions
 are introduced. The [source appraisal](../LONGITUDINAL_SOURCE_APPRAISAL.md) now

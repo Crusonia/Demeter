@@ -437,7 +437,7 @@
       "artifacts": [
         {
           "path": "docs/validation/issue-56-state-mapping.json",
-          "sha256": "b5a0f7016374126d7a62b805b3c126c4ad95572b42c7008cca6b896638366760"
+          "sha256": "25c35849d5e44adef6e5af73db6b6696cd9d3c2d539a599d3d81457aac512fa9"
         },
         {
           "path": "docs/validation/issue-56-state-mapping-before-after.json",
@@ -445,7 +445,7 @@
         },
         {
           "path": "docs/validation/issue-56-partial-observations.json",
-          "sha256": "23baf4c148ad18756e4b813881a983d971e5067795bd69713add8fc0f99fe6ce"
+          "sha256": "0d719b43250fb515132f35b0221a063476652a04d4156beea114fed3225ec777"
         },
         {
           "path": "docs/validation/issue-56-partial-before-after.json",
@@ -492,6 +492,47 @@
       ],
       "model_role": "benchmark_only",
       "redistribution": "Aggregate public-source audit, protocol, metadata receipts and MIT code. CC0 workbook is fetch-only by size choice; article rights are separate. No person-level exports."
+    },
+    "chen_followup_timing_audit": {
+      "store": null,
+      "dependencies": [
+        "chen_public_intake"
+      ],
+      "registry_datasets": [
+        "chen_followup_timing_audit"
+      ],
+      "registry_parameters": [],
+      "artifacts": [
+        {
+          "path": "docs/validation/chen-followup-timing-protocol-v1.json",
+          "sha256": "05e394102124e1477408972ff3636b4f424f3ddd55e8af2c3c1a31d982ce4ea5"
+        },
+        {
+          "path": "docs/validation/chen-followup-timing-amendment-1.json",
+          "sha256": "a1a5af245f847d3e6ecfa2862604ad0121beec3da12002b69a4b7a05d727eb10"
+        },
+        {
+          "path": "docs/validation/issue-57-chen-timing.json",
+          "sha256": "553031d4035d696a6f2915286658060c09127fe89e6f4aa6f46304d68b570c28"
+        },
+        {
+          "path": "docs/validation/chen-timing-source-receipts.json",
+          "sha256": "5a46d4e54ed105dadc4621cc9ad3eebfb6f09b2e8f9ee2eeacc5a6ce4c5334ad"
+        },
+        {
+          "path": "docs/validation/issue-57-timing-before-after.json",
+          "sha256": "90c6a8cb5643bf91b05d8e35079173093cb412be0de36c3fcd4951ac0e7a4cb4"
+        }
+      ],
+      "transform_files": [
+        "src/demeter/analysis/public_cohort_timing.py",
+        "src/demeter/analysis/public_cohort.py"
+      ],
+      "rebuild": [
+        "uv run demeter evidence public-cohort-timing --workbook data/raw/clinical/chen2018.xlsx --output outputs/chen-timing.json"
+      ],
+      "model_role": "benchmark_only",
+      "redistribution": "Aggregate diagnostics, frozen protocol/amendment, factual receipts and MIT code. CC0 workbook is fetch-only by size; article/supplement rights are separate. No person-level exports."
     }
   },
   "supporting_artifacts": [
