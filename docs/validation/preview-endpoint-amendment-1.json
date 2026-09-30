@@ -1,0 +1,17 @@
+{
+  "status": "used-source clarification before first numerical reproduction",
+  "parent_protocol": "docs/validation/preview-endpoint-protocol-v1.json",
+  "parent_freeze_commit": "0539446a1ef53eeb61e6a81fa62449cbb437d365",
+  "reason": "Final independent source review arrived after protocol commit, before any numerical execution.",
+  "clarifications": {
+    "causal_assignment": "Conditional randomization among responders can be preserved by concealed allocation, identical run-in, and assignment-independent selection. Adherence assumptions concern dose/as-treated effects; an assignment-strategy effect does not automatically require them. Missingness assumptions are still required for available-case inference.",
+    "visit_windows": "Original2017 protocol section2.6, pinned PDF page8, documents nominal visit windows. Actual participant dates and adherence to windows remain unavailable from aggregate cells. Registry records these contextual window quantities before any use; calculations use source-labeled nominal assessments only.",
+    "screening": "ESM pages1-2: HbA1c was not an eligibility measure. Prior-diabetes exclusion at screening does not establish complete biochemical, medication, or diagnosis history.",
+    "envelope_unknowns": "Only endpoint-unclassified persons enter N-n. Unknown treatment/history among assessed persons blocks untreated-remission interpretation but does not enlarge endpoint missingness. Mathematical binary-label completions do not assert survival or clinical state.",
+    "run_in": "Common run-in changes cannot identify its causal weight-loss effect without a comparison for that phase."
+  },
+  "analytical_selection_changed": false,
+  "new_results_inspected": false,
+  "derived_effects_already_computed": false,
+  "clinical_fit_or_activation_allowed": false
+}
