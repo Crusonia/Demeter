@@ -254,6 +254,9 @@ We are pursuing [public evidence first](docs/PUBLIC_EVIDENCE_ROADMAP.md), with
 reproducible source audits and progressively supported model components. The
 public-cohort intake provides a concrete next contribution without institutional
 data access; unresolved source discrepancies remain visible before any calibration.
+The [Chen timing audit](docs/CHEN_TIMING_AUDIT.md) now preserves discrepancies
+in duration totals and published rates too, and explains why fitting remains
+disabled while compatible observations are sought.
 
 Optional [dietary timing experiments](docs/DIET_DYNAMICS.md) add scheduled changes,
 fading exposure memory, independent recovery lags and timing sensitivity. Run

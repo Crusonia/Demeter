@@ -73,6 +73,15 @@ receipts are committed; full articles are not redistributed.
 The [food-intake reproduction](../docs/FOOD_INTAKE_REPRODUCTION.md) adds a pinned
 author archive and an estimated, benchmark-only paired menu contrast. Its own
 `demeter evidence food-intake --archive PATH` command verifies and analyzes the
-daily table; `verify-sources` only checks this archive's byte identity. Analysis
+daily table; `verify-sources` checks archive bytes and repeats its registered
+analysis through the dataset-specific verifier. Analysis
 constants and the interval are registered, and the raw ZIP is excluded from all
 distributions. This intake endpoint does not identify a diabetes or mortality effect.
+
+`chen_followup_timing_audit` adds separate, benchmark-only duration and publication
+arithmetic diagnostics under frozen protocol and amendment hashes. Run
+`demeter evidence public-cohort-timing --workbook PATH --output PATH` against the
+pinned Chen archive. It retains failing source checks and exits 1 after saving
+the report; fitting and engine activation remain disabled. It does not change
+the original intake protocol or receipt. See the
+[timing audit](../docs/CHEN_TIMING_AUDIT.md).

@@ -48,9 +48,13 @@ intake receipts remain unchanged. Package checks cover the combined inventory.
 
 The maintainer selected [public sources](PUBLIC_EVIDENCE_ROADMAP.md) as the next
 route. The executable Chen cohort intake reproduces cohort/event totals while
-retaining a follow-up discrepancy; it does not fit or activate rates. Institutional
+retaining a follow-up discrepancy; it does not fit or activate rates. The
+[timing audit](CHEN_TIMING_AUDIT.md) now checks duration totals, mean/median,
+calendar bounds and publication-rate arithmetic. It keeps Chen as a descriptive
+benchmark while compatible observations are sought. Institutional
 access is optional. The [source appraisal and access brief](LONGITUDINAL_SOURCE_APPRAISAL.md)
 preserve alternative routes. The integration does not provide national
 state initialization, identified progression/reversal hazards or an active
-food-to-disease effect. Those requirements keep #1, #56, #57, #58 and milestone
-#27 open; synthetic dietary trajectories remain validation-only.
+food-to-disease effect. Those requirements keep #1, #57, #58 and milestone #27
+open; the bounded #56 software work is complete, with scientific state
+initialization still unresolved. Synthetic dietary trajectories remain validation-only.

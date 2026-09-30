@@ -2,12 +2,6 @@
   "schema_version": 1,
   "packages": {
     "glp1_benchmarks": {
-      "store": "glp1_benchmarks",
-      "dependencies": [],
-      "registry_datasets": [
-        "glp1_benchmarks"
-      ],
-      "registry_parameters": [],
       "artifacts": [
         {
           "path": "src/demeter/data/bundled/glp1_benchmarks.json",
@@ -18,22 +12,22 @@
           "sha256": "7269237961fc929bb08e088babf80ec20b76620d734ccab9161884c39813a8a1"
         }
       ],
-      "transform_files": [
-        "src/demeter/data/glp1.py"
-      ],
+      "dependencies": [],
+      "model_role": "benchmark_only",
       "rebuild": [
         "uv run demeter data rebuild-glp1"
       ],
-      "model_role": "benchmark_only",
-      "redistribution": "Derived aggregates/metadata with all upstream source notices and citations; Demeter transformations are MIT, source data are not relicensed."
-    },
-    "diet_response_challenge": {
-      "store": "diet_response_challenge",
-      "dependencies": [],
+      "redistribution": "Derived aggregates/metadata with all upstream source notices and citations; Demeter transformations are MIT, source data are not relicensed.",
       "registry_datasets": [
-        "diet_response_challenge"
+        "glp1_benchmarks"
       ],
       "registry_parameters": [],
+      "store": "glp1_benchmarks",
+      "transform_files": [
+        "src/demeter/data/glp1.py"
+      ]
+    },
+    "diet_response_challenge": {
       "artifacts": [
         {
           "path": "src/demeter/data/bundled/diet_response_challenge.json",
@@ -44,24 +38,22 @@
           "sha256": "f93c012c2a9bb235f511891cd34d7ebaff981b6f65d2ffa80c85d96a560f2ef1"
         }
       ],
-      "transform_files": [
-        "src/demeter/data/diet_response.py"
-      ],
+      "dependencies": [],
+      "model_role": "historical_challenge_only",
       "rebuild": [
         "uv run demeter data rebuild-diet-response"
       ],
-      "model_role": "historical_challenge_only",
-      "redistribution": "Derived aggregates/metadata with all upstream source notices and citations; Demeter transformations are MIT, source data are not relicensed."
-    },
-    "dietary_baselines": {
-      "store": "dietary_baselines",
-      "dependencies": [
-        "nhanes_2017_2020"
-      ],
+      "redistribution": "Derived aggregates/metadata with all upstream source notices and citations; Demeter transformations are MIT, source data are not relicensed.",
       "registry_datasets": [
-        "dietary_baselines"
+        "diet_response_challenge"
       ],
       "registry_parameters": [],
+      "store": "diet_response_challenge",
+      "transform_files": [
+        "src/demeter/data/diet_response.py"
+      ]
+    },
+    "dietary_baselines": {
       "artifacts": [
         {
           "path": "src/demeter/data/bundled/dietary_baselines.json",
@@ -72,24 +64,24 @@
           "sha256": "8e62a34e614c12f804542f7f5f43fac39b075ecddb533d1565ddaef9db44527b"
         }
       ],
-      "transform_files": [
-        "src/demeter/data/dietary.py"
-      ],
-      "rebuild": [
-        "uv run demeter data rebuild-dietary"
-      ],
-      "model_role": "exposure_reference_only",
-      "redistribution": "Derived aggregates/metadata with all upstream source notices and citations; Demeter transformations are MIT, source data are not relicensed."
-    },
-    "nhanes_prechronic_risk": {
-      "store": "nhanes_prechronic_risk",
       "dependencies": [
         "nhanes_2017_2020"
       ],
+      "model_role": "exposure_reference_only",
+      "rebuild": [
+        "uv run demeter data rebuild-dietary"
+      ],
+      "redistribution": "Derived aggregates/metadata with all upstream source notices and citations; Demeter transformations are MIT, source data are not relicensed.",
       "registry_datasets": [
-        "nhanes_prechronic_candidates"
+        "dietary_baselines"
       ],
       "registry_parameters": [],
+      "store": "dietary_baselines",
+      "transform_files": [
+        "src/demeter/data/dietary.py"
+      ]
+    },
+    "nhanes_prechronic_risk": {
       "artifacts": [
         {
           "path": "src/demeter/data/bundled/prechronic_prevalence.json",
@@ -100,22 +92,24 @@
           "sha256": "3d3999a60aea97a688b1fae92244bfc687d7068b081cf6b2bced8905006aefdb"
         }
       ],
-      "transform_files": [
-        "src/demeter/data/prechronic.py"
+      "dependencies": [
+        "nhanes_2017_2020"
       ],
+      "model_role": "benchmark_only",
       "rebuild": [
         "uv run demeter data rebuild-prechronic"
       ],
-      "model_role": "benchmark_only",
-      "redistribution": "Derived aggregates/metadata with all upstream source notices and citations; Demeter transformations are MIT, source data are not relicensed."
-    },
-    "healthspan_nchs_method": {
-      "store": "healthspan_nchs_method",
-      "dependencies": [],
+      "redistribution": "Derived aggregates/metadata with all upstream source notices and citations; Demeter transformations are MIT, source data are not relicensed.",
       "registry_datasets": [
-        "healthspan_method_benchmark"
+        "nhanes_prechronic_candidates"
       ],
       "registry_parameters": [],
+      "store": "nhanes_prechronic_risk",
+      "transform_files": [
+        "src/demeter/data/prechronic.py"
+      ]
+    },
+    "healthspan_nchs_method": {
       "artifacts": [
         {
           "path": "src/demeter/data/bundled/healthspan_benchmark.json",
@@ -126,23 +120,22 @@
           "sha256": "d40e476c786eeee76ef64ff863df1a5323f827c965a86c2b216f9cc64bb31e61"
         }
       ],
-      "transform_files": [
-        "src/demeter/data/healthspan.py"
-      ],
+      "dependencies": [],
+      "model_role": "method_validation_only",
       "rebuild": [
         "uv run demeter data rebuild-healthspan"
       ],
-      "model_role": "method_validation_only",
-      "redistribution": "Derived aggregates/metadata with all upstream source notices and citations; Demeter transformations are MIT, source data are not relicensed."
-    },
-    "us_baseline": {
-      "store": "us_baseline",
-      "dependencies": [],
+      "redistribution": "Derived aggregates/metadata with all upstream source notices and citations; Demeter transformations are MIT, source data are not relicensed.",
       "registry_datasets": [
-        "us_population",
-        "us_mortality"
+        "healthspan_method_benchmark"
       ],
       "registry_parameters": [],
+      "store": "healthspan_nchs_method",
+      "transform_files": [
+        "src/demeter/data/healthspan.py"
+      ]
+    },
+    "us_baseline": {
       "artifacts": [
         {
           "path": "src/demeter/data/bundled/us_baseline.json",
@@ -153,22 +146,23 @@
           "sha256": "27db319bae9db6824525109f5dee8dc41f3b0e10922c4675436f7a01c465d4a8"
         }
       ],
-      "transform_files": [
-        "src/demeter/data/ingest.py"
-      ],
+      "dependencies": [],
+      "model_role": "observed_demographic_inputs",
       "rebuild": [
         "uv run python scripts/verify_source_archive.py --rebuild"
       ],
-      "model_role": "observed_demographic_inputs",
-      "redistribution": "Derived aggregates/metadata with all upstream source notices and citations; Demeter transformations are MIT, source data are not relicensed."
-    },
-    "historical": {
-      "store": "historical",
-      "dependencies": [],
+      "redistribution": "Derived aggregates/metadata with all upstream source notices and citations; Demeter transformations are MIT, source data are not relicensed.",
       "registry_datasets": [
-        "historical_observations"
+        "us_population",
+        "us_mortality"
       ],
       "registry_parameters": [],
+      "store": "us_baseline",
+      "transform_files": [
+        "src/demeter/data/ingest.py"
+      ]
+    },
+    "historical": {
       "artifacts": [
         {
           "path": "src/demeter/data/bundled/historical.json",
@@ -179,22 +173,22 @@
           "sha256": "bab85d561d5924b398a0b3f60569ac0bbc235615bacad11b61bd724842887512"
         }
       ],
-      "transform_files": [
-        "src/demeter/data/historical.py"
-      ],
+      "dependencies": [],
+      "model_role": "historical_benchmarks",
       "rebuild": [
         "uv run python scripts/verify_source_archive.py --rebuild"
       ],
-      "model_role": "historical_benchmarks",
-      "redistribution": "Derived aggregates/metadata with all upstream source notices and citations; Demeter transformations are MIT, source data are not relicensed."
-    },
-    "nhanes_2017_2020": {
-      "store": "nhanes_2017_2020",
-      "dependencies": [],
+      "redistribution": "Derived aggregates/metadata with all upstream source notices and citations; Demeter transformations are MIT, source data are not relicensed.",
       "registry_datasets": [
-        "nhanes_glycemic_prevalence"
+        "historical_observations"
       ],
       "registry_parameters": [],
+      "store": "historical",
+      "transform_files": [
+        "src/demeter/data/historical.py"
+      ]
+    },
+    "nhanes_2017_2020": {
       "artifacts": [
         {
           "path": "src/demeter/data/bundled/nhanes_prevalence.json",
@@ -205,33 +199,44 @@
           "sha256": "fccc65104374aab4e1c720d55465cb0da4dbaae299d8ba9c98b0319534aa741a"
         }
       ],
-      "transform_files": [
-        "src/demeter/data/nhanes.py"
-      ],
+      "dependencies": [],
+      "model_role": "benchmark_only",
       "rebuild": [
         "uv run demeter data rebuild-nhanes"
       ],
-      "model_role": "benchmark_only",
-      "redistribution": "Derived aggregates/metadata with all upstream source notices and citations; Demeter transformations are MIT, source data are not relicensed."
+      "redistribution": "Derived aggregates/metadata with all upstream source notices and citations; Demeter transformations are MIT, source data are not relicensed.",
+      "registry_datasets": [
+        "nhanes_glycemic_prevalence"
+      ],
+      "registry_parameters": [],
+      "store": "nhanes_2017_2020",
+      "transform_files": [
+        "src/demeter/data/nhanes.py"
+      ]
     },
     "official_json_2026_09_27": {
-      "store": "official_json_2026_09_27",
-      "dependencies": [],
-      "registry_datasets": [],
-      "registry_parameters": [],
       "artifacts": [],
-      "transform_files": [
-        "src/demeter/data/store.py"
-      ],
+      "dependencies": [],
+      "model_role": "discovery_reference_only",
       "rebuild": [
         "uv run demeter data verify-store"
       ],
-      "model_role": "discovery_reference_only",
-      "redistribution": "Derived aggregates/metadata with all upstream source notices and citations; Demeter transformations are MIT, source data are not relicensed."
+      "redistribution": "Derived aggregates/metadata with all upstream source notices and citations; Demeter transformations are MIT, source data are not relicensed.",
+      "registry_datasets": [],
+      "registry_parameters": [],
+      "store": "official_json_2026_09_27",
+      "transform_files": [
+        "src/demeter/data/store.py"
+      ]
     },
     "clinical_candidates": {
-      "store": null,
+      "artifacts": [],
       "dependencies": [],
+      "model_role": "benchmark_only",
+      "rebuild": [
+        "uv run demeter evidence verify-sources --raw data/raw/clinical --output outputs/clinical-rebuilt.json"
+      ],
+      "redistribution": "Cited numeric estimates and intervals in the registry; raw articles are fetch-only, including the CC-BY article by packaging choice.",
       "registry_datasets": [],
       "registry_parameters": [
         "aric_hba1c_prediabetes_diabetes_incidence",
@@ -241,61 +246,48 @@
         "leadr_diabetes_progression_hba1c_low",
         "leadr_diabetes_progression_hba1c_high"
       ],
-      "artifacts": [],
+      "store": null,
       "transform_files": [
         "src/demeter/evidence/appraisal.py"
-      ],
-      "rebuild": [
-        "uv run demeter evidence verify-sources --raw data/raw/clinical --output outputs/clinical-rebuilt.json"
-      ],
-      "model_role": "benchmark_only",
-      "redistribution": "Cited numeric estimates and intervals in the registry; raw articles are fetch-only, including the CC-BY article by packaging choice."
+      ]
     },
     "stock_flow_teaching": {
-      "store": null,
+      "artifacts": [],
       "dependencies": [],
+      "model_role": "synthetic_teaching_only_not_a_health_input",
+      "rebuild": [
+        "uv run python -m demeter.examples.stock_flow --output outputs/tutorial/toy.json"
+      ],
+      "redistribution": "Demeter-authored abstract token example and assumptions under MIT; no external dataset or empirical interpretation.",
       "registry_datasets": [],
       "registry_parameters": [
         "toy_initial_tokens",
         "toy_target_fraction",
         "toy_response_fraction"
       ],
-      "artifacts": [],
+      "store": null,
       "transform_files": [
         "src/demeter/examples/stock_flow.py"
-      ],
-      "rebuild": [
-        "uv run python -m demeter.examples.stock_flow --output outputs/tutorial/toy.json"
-      ],
-      "model_role": "synthetic_teaching_only_not_a_health_input",
-      "redistribution": "Demeter-authored abstract token example and assumptions under MIT; no external dataset or empirical interpretation."
+      ]
     },
     "food_exposure_ontology": {
-      "store": null,
+      "artifacts": [],
       "dependencies": [],
+      "model_role": "definition_contract_not_an_observed_dataset",
+      "rebuild": [
+        "uv run demeter food-exposures --output outputs/food-exposures.json"
+      ],
+      "redistribution": "Demeter-authored definitions under MIT; named external standards/definitions retain source attribution in the registry.",
       "registry_datasets": [
         "food_exposure_ontology"
       ],
       "registry_parameters": [],
-      "artifacts": [],
+      "store": null,
       "transform_files": [
         "src/demeter/nutrition/exposures.py"
-      ],
-      "rebuild": [
-        "uv run demeter food-exposures --output outputs/food-exposures.json"
-      ],
-      "model_role": "definition_contract_not_an_observed_dataset",
-      "redistribution": "Demeter-authored definitions under MIT; named external standards/definitions retain source attribution in the registry."
+      ]
     },
     "nhanes_linked_mortality": {
-      "store": "nhanes_linked_mortality",
-      "dependencies": [
-        "nhanes_2017_2020"
-      ],
-      "registry_datasets": [
-        "nhanes_linked_mortality"
-      ],
-      "registry_parameters": [],
       "artifacts": [
         {
           "path": "src/demeter/data/bundled/linked_mortality_audit.json",
@@ -306,21 +298,34 @@
           "sha256": "54cbe9cc861a420fc4caa50e027f515b31599a8c42ee5c58ea00a73829135f6e"
         }
       ],
-      "transform_files": [
-        "src/demeter/data/linked_mortality.py",
-        "src/demeter/data/nhanes.py"
+      "dependencies": [
+        "nhanes_2017_2020"
       ],
+      "model_role": "feasibility_only",
       "rebuild": [
         "uv run demeter data rebuild-linked-mortality"
       ],
-      "model_role": "feasibility_only",
-      "redistribution": "Public-use CDC/NCHS source notices and restrictions retained; derived aggregate audit, not clinical estimates. Demeter transforms are MIT."
+      "redistribution": "Public-use CDC/NCHS source notices and restrictions retained; derived aggregate audit, not clinical estimates. Demeter transforms are MIT.",
+      "registry_datasets": [
+        "nhanes_linked_mortality"
+      ],
+      "registry_parameters": [],
+      "store": "nhanes_linked_mortality",
+      "transform_files": [
+        "src/demeter/data/linked_mortality.py",
+        "src/demeter/data/nhanes.py"
+      ]
     },
     "mortality_development": {
-      "store": null,
+      "artifacts": [],
       "dependencies": [
         "nhanes_linked_mortality"
       ],
+      "model_role": "development_benchmark_only",
+      "rebuild": [
+        "uv run python scripts/fit_mortality_development.py"
+      ],
+      "redistribution": "Demeter-derived aggregate estimates and covariance from archived CDC public-use files; source terms retained. No joined person-level exports.",
       "registry_datasets": [
         "mortality_development"
       ],
@@ -344,16 +349,11 @@
         "mortality_development_null_piecewise_male",
         "mortality_development_null_piecewise_age_hinge"
       ],
-      "artifacts": [],
+      "store": null,
       "transform_files": [
         "src/demeter/analysis/mortality_development.py",
         "scripts/fit_mortality_development.py"
-      ],
-      "rebuild": [
-        "uv run python scripts/fit_mortality_development.py"
-      ],
-      "model_role": "development_benchmark_only",
-      "redistribution": "Demeter-derived aggregate estimates and covariance from archived CDC public-use files; source terms retained. No joined person-level exports."
+      ]
     },
     "food_intake_reproduction": {
       "artifacts": [
@@ -388,14 +388,6 @@
       ]
     },
     "mortality_validation": {
-      "store": "mortality_validation",
-      "dependencies": [
-        "mortality_development"
-      ],
-      "registry_datasets": [
-        "mortality_validation"
-      ],
-      "registry_parameters": [],
       "artifacts": [
         {
           "path": "docs/validation/issue-55-mortality-validation.json",
@@ -414,30 +406,29 @@
           "sha256": "cd7ec4aca53d47d8b02d4464e1a578921e88c6a4543c8e9b76a31d0ab7728974"
         }
       ],
-      "transform_files": [
-        "src/demeter/analysis/mortality_validation.py",
-        "scripts/validate_mortality_holdout.py"
+      "dependencies": [
+        "mortality_development"
       ],
+      "model_role": "prediction_benchmark_only",
       "rebuild": [
         "uv run python scripts/validate_mortality_holdout.py"
       ],
-      "model_role": "prediction_benchmark_only",
-      "redistribution": "Frozen Demeter protocol and aggregate diagnostics with source terms retained; no joined individual-level exports."
-    },
-    "observation_state_mapping": {
-      "store": null,
-      "dependencies": [
-        "nhanes_prechronic_risk"
-      ],
+      "redistribution": "Frozen Demeter protocol and aggregate diagnostics with source terms retained; no joined individual-level exports.",
       "registry_datasets": [
-        "observation_state_mapping",
-        "observation_partial_mapping"
+        "mortality_validation"
       ],
       "registry_parameters": [],
+      "store": "mortality_validation",
+      "transform_files": [
+        "src/demeter/analysis/mortality_validation.py",
+        "scripts/validate_mortality_holdout.py"
+      ]
+    },
+    "observation_state_mapping": {
       "artifacts": [
         {
           "path": "docs/validation/issue-56-state-mapping.json",
-          "sha256": "b5a0f7016374126d7a62b805b3c126c4ad95572b42c7008cca6b896638366760"
+          "sha256": "25c35849d5e44adef6e5af73db6b6696cd9d3c2d539a599d3d81457aac512fa9"
         },
         {
           "path": "docs/validation/issue-56-state-mapping-before-after.json",
@@ -445,31 +436,34 @@
         },
         {
           "path": "docs/validation/issue-56-partial-observations.json",
-          "sha256": "23baf4c148ad18756e4b813881a983d971e5067795bd69713add8fc0f99fe6ce"
+          "sha256": "0d719b43250fb515132f35b0221a063476652a04d4156beea114fed3225ec777"
         },
         {
           "path": "docs/validation/issue-56-partial-before-after.json",
           "sha256": "6cb1145eb8a859c262ad3ecc10a141978b0cb4330f4ae84c8134069dc60df553"
         }
       ],
-      "transform_files": [
-        "src/demeter/data/state_mapping.py",
-        "src/demeter/data/partial_observations.py"
+      "dependencies": [
+        "nhanes_prechronic_risk"
       ],
+      "model_role": "benchmark_only",
       "rebuild": [
         "uv run demeter evidence state-mapping --output outputs/state-mapping.json",
         "uv run demeter evidence state-mapping --partial --output outputs/partial-observations.json"
       ],
-      "model_role": "benchmark_only",
-      "redistribution": "Demeter aggregate observation audit from existing archived CDC/NCHS public-use files; retain upstream terms and citations. No joined person-level output."
-    },
-    "chen_public_intake": {
-      "store": null,
-      "dependencies": [],
+      "redistribution": "Demeter aggregate observation audit from existing archived CDC/NCHS public-use files; retain upstream terms and citations. No joined person-level output.",
       "registry_datasets": [
-        "chen_public_intake"
+        "observation_state_mapping",
+        "observation_partial_mapping"
       ],
       "registry_parameters": [],
+      "store": null,
+      "transform_files": [
+        "src/demeter/data/state_mapping.py",
+        "src/demeter/data/partial_observations.py"
+      ]
+    },
+    "chen_public_intake": {
       "artifacts": [
         {
           "path": "docs/validation/chen-public-intake-protocol-v1.json",
@@ -484,14 +478,61 @@
           "sha256": "6834164d36d4cd165d05761315ae3ef1069ca0f52859527d2a8689b51fab6825"
         }
       ],
-      "transform_files": [
-        "src/demeter/analysis/public_cohort.py"
-      ],
+      "dependencies": [],
+      "model_role": "benchmark_only",
       "rebuild": [
         "uv run demeter evidence public-cohort --workbook data/raw/clinical/chen2018.xlsx --output outputs/chen-intake.json"
       ],
+      "redistribution": "Aggregate public-source audit, protocol, metadata receipts and MIT code. CC0 workbook is fetch-only by size choice; article rights are separate. No person-level exports.",
+      "registry_datasets": [
+        "chen_public_intake"
+      ],
+      "registry_parameters": [],
+      "store": null,
+      "transform_files": [
+        "src/demeter/analysis/public_cohort.py"
+      ]
+    },
+    "chen_followup_timing_audit": {
+      "artifacts": [
+        {
+          "path": "docs/validation/chen-followup-timing-protocol-v1.json",
+          "sha256": "05e394102124e1477408972ff3636b4f424f3ddd55e8af2c3c1a31d982ce4ea5"
+        },
+        {
+          "path": "docs/validation/chen-followup-timing-amendment-1.json",
+          "sha256": "a1a5af245f847d3e6ecfa2862604ad0121beec3da12002b69a4b7a05d727eb10"
+        },
+        {
+          "path": "docs/validation/issue-57-chen-timing.json",
+          "sha256": "553031d4035d696a6f2915286658060c09127fe89e6f4aa6f46304d68b570c28"
+        },
+        {
+          "path": "docs/validation/chen-timing-source-receipts.json",
+          "sha256": "5a46d4e54ed105dadc4621cc9ad3eebfb6f09b2e8f9ee2eeacc5a6ce4c5334ad"
+        },
+        {
+          "path": "docs/validation/issue-57-timing-before-after.json",
+          "sha256": "90c6a8cb5643bf91b05d8e35079173093cb412be0de36c3fcd4951ac0e7a4cb4"
+        }
+      ],
+      "dependencies": [
+        "chen_public_intake"
+      ],
       "model_role": "benchmark_only",
-      "redistribution": "Aggregate public-source audit, protocol, metadata receipts and MIT code. CC0 workbook is fetch-only by size choice; article rights are separate. No person-level exports."
+      "rebuild": [
+        "uv run demeter evidence public-cohort-timing --workbook data/raw/clinical/chen2018.xlsx --output outputs/chen-timing.json"
+      ],
+      "redistribution": "Aggregate diagnostics, frozen protocol/amendment, factual receipts and MIT code. CC0 workbook is fetch-only by size; article/supplement rights are separate. No person-level exports.",
+      "registry_datasets": [
+        "chen_followup_timing_audit"
+      ],
+      "registry_parameters": [],
+      "store": null,
+      "transform_files": [
+        "src/demeter/analysis/public_cohort_timing.py",
+        "src/demeter/analysis/public_cohort.py"
+      ]
     }
   },
   "supporting_artifacts": [

@@ -11,13 +11,13 @@ identify a national causal model. This feeds [#56](https://github.com/Crusonia/D
 
 | Priority | Public evidence | What it can establish | Next deliverable |
 | --- | --- | --- | --- |
-| 1 | [Chen public cohort](https://doi.org/10.5061/dryad.ft8750v), CC0 data | Source-specific baseline/final glucose and recorded incident diabetes | Reproducible intake below; resolve follow-up discrepancy, then define a restricted observation likelihood before fitting |
+| 1 | [Chen public cohort](https://doi.org/10.5061/dryad.ft8750v), CC0 data | Source-specific baseline/final glucose and recorded incident diabetes | [Timing audit complete](CHEN_TIMING_AUDIT.md), source disagreements retained; keep descriptive benchmarks and seek compatible observations before a likelihood fit |
 | 2 | Archived NHANES and NCHS linked mortality | U.S. observed glycemic categories and baseline-category mortality prediction | Carry explicit unknown/type categories forward; assess supported initialization and conditional mortality, keeping the frozen prediction evaluation separate |
 | 3 | Public aggregate longitudinal studies, including corrected ARIC and CARRS tables | External comparisons of progression/recovery under each study's definitions | Record intervals, competing-event handling and covariance availability; test whether any package identifies a compatible joint model |
 | 4 | [Hall intake reproduction](FOOD_INTAKE_REPRODUCTION.md), public dietary-trial reports and supplements | Study-compatible food intervention endpoints | Select one defensible bridge from exposure to a health endpoint; retain null alternatives and avoid combining overlapping dietary effects |
 
 U.S. mortality/population archives, observation mapping and the Hall analysis
-already exist. The new contribution is the executable Chen intake. Later rows
+already exist. The executable Chen intake and timing audit now exist. Later rows
 remain research work, not completed calibration. Controlled ARIC/DPP access stays
 optional; no applicant, agreement or outreach is needed for this public work.
 

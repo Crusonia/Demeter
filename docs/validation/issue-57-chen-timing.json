@@ -1,0 +1,186 @@
+{
+  "analysis_id": "chen-followup-timing-v1",
+  "assessment": "Public-source timing diagnostics and unresolved observation contract",
+  "geography": "32 sites in 11 Chinese cities",
+  "limitations": [
+    "Exact summaries of a fixed selected Chinese screening release; no sampling or population-transport uncertainty is estimated.",
+    "Mean/person-years agreement can motivate a label-confusion hypothesis but cannot confirm an author correction or validate individual durations.",
+    "The year conversion and calendar-envelope interpretation are hypotheses; the workbook contains no visit dates to resolve them.",
+    "Follow-up stopping at diagnosis is outcome-dependent. Scheduled-panel, exact detected-event and interval-detected-event likelihoods require different assumptions.",
+    "Two observations alone do not prove reversible hazards unidentifiable under every possible model. This release's unresolved observation contract prevents a supported fit here.",
+    "No record deletion, hidden endpoint recoding, dietary effect, national hazard or active model parameter is introduced.",
+    "No replacement denominator, rescaling, row deletion or source correction is authorized.",
+    "The original protocol and published-median failure remain intact."
+  ],
+  "model_role": "benchmark_only",
+  "observation_decision": {
+    "engine_activation_permitted": false,
+    "hazard_fit_permitted": false,
+    "likelihood_mode": "unresolved",
+    "model_role": "benchmark_only",
+    "next_action": "Preserve benchmark results and pursue a compatible repeated-observation or aggregate-transition package. Do not wait for a rounded-median clarification before pursuing other public evidence.",
+    "requires_separate_protocol": [
+      "Baseline/final FPG observation accounting under sourced thresholds",
+      "Conditional category movement retaining diagnosis history and missingness"
+    ],
+    "supported_now": [
+      "Exact released-file summaries",
+      "Recorded incident-event fraction with the released-cohort denominator"
+    ],
+    "unresolved": [
+      "Alignment of final FPG with the stopping time",
+      "Intermediate and last-negative visit times",
+      "Detection versus biological onset",
+      "Meaning of diagnosis-field blanks",
+      "Visit selection, treatment histories and censoring mechanisms"
+    ],
+    "unsupported_by_this_release": [
+      "Post-diabetes sustained remission and relapse",
+      "State-specific competing mortality",
+      "Dietary causal effects",
+      "U.S. or PreChronic transition rates"
+    ]
+  },
+  "population": "Selected adults aged at least 20 with repeated health checks and no baseline diabetes",
+  "provenance": {
+    "amendment_sha256": "a1a5af245f847d3e6ecfa2862604ad0121beec3da12002b69a4b7a05d727eb10",
+    "definition_sha256": "209c4cfbd67288c8c52a0c6172a610be1b6ddafe80171689c12f3f648a4eff1c",
+    "individual_results_exported": false,
+    "intake_definition_sha256": "5dc510e3185e076aee1f4a2e4dcb1cd85ed1abc8557ab9be620b1d67853d22e3",
+    "protocol_sha256": "05e394102124e1477408972ff3636b4f424f3ddd55e8af2c3c1a31d982ce4ea5",
+    "raw_redistributed": false,
+    "reader_sha256": "65a177c3dd40819a6931037d631009b83e3879a70f54ad03ef987510efbc1f6a",
+    "source": {
+      "citation": "Chen Y et al. (2018). Data from: Association of body mass index and age with incident diabetes in Chinese adults: a population-based cohort study. Dryad, DOI 10.5061/dryad.ft8750v; identical Zenodo archive 4997196.",
+      "correction_note": "Published study used-data reproduction; no independent holdout. Metadata identities agree; this does not validate every column semantic.",
+      "correction_url": null,
+      "doi": "10.5061/dryad.ft8750v",
+      "license": "CC0-1.0 per Dryad and cc-zero per Zenodo metadata, rechecked 2026-09-30. Workbook kept fetch-only to avoid duplicating a large microdata release.",
+      "raw_filename": "chen2018.xlsx",
+      "retrieved_at": "2026-09-29T04:54:40.667548Z",
+      "sha256": "ffd341a1a91ac65585b9fba70847a2681f5671a6035d9cfbf92e50795d74fbf6",
+      "url": "https://zenodo.org/api/records/4997196/files/RC%20Health%20Care%20Data-20180820.xlsx/content"
+    },
+    "transform_sha256": "59bba9ad28fe1476ba81a5960efc1fe1201df8fb4d7f8eb2da0c03ec5781ed06"
+  },
+  "results": {
+    "calendar_and_day_grid_diagnostics": [
+      {
+        "candidate_days_per_year": 365,
+        "conservative_calendar_upper_bound_years": 7.00547945205,
+        "interpretation": "Conditional conversion diagnostic; counts exceed a conservative calendar bound, not reconstructed visit dates",
+        "maximum_integer_day_residual": 0.499657771,
+        "observed": 211833,
+        "outside_reported_calendar_envelope": 1,
+        "reported_calendar_envelope_days": 2557,
+        "within_integer_day_tolerance": 391
+      },
+      {
+        "candidate_days_per_year": 365.25,
+        "conservative_calendar_upper_bound_years": 7.0006844627,
+        "interpretation": "Conditional conversion diagnostic; counts exceed a conservative calendar bound, not reconstructed visit dates",
+        "maximum_integer_day_residual": 1.82501480595e-08,
+        "observed": 211833,
+        "outside_reported_calendar_envelope": 1,
+        "reported_calendar_envelope_days": 2557,
+        "within_integer_day_tolerance": 211833
+      },
+      {
+        "candidate_days_per_year": 366,
+        "conservative_calendar_upper_bound_years": 6.98633879781,
+        "interpretation": "Conditional conversion diagnostic; counts exceed a conservative calendar bound, not reconstructed visit dates",
+        "maximum_integer_day_residual": 0.4989733158,
+        "observed": 211833,
+        "outside_reported_calendar_envelope": 1,
+        "reported_calendar_envelope_days": 2557,
+        "within_integer_day_tolerance": 531
+      }
+    ],
+    "checks": {
+      "complete_followup": true,
+      "conservative_calendar_bound_under_any_checked_convention": false,
+      "published_crude_rate_from_published_counts": false,
+      "published_crude_rate_from_release": false,
+      "published_median_followup": false,
+      "published_person_years": false
+    },
+    "diagnostic_hypotheses": {
+      "interpretation": "A match motivates a possible label-confusion hypothesis; it cannot confirm a correction or pass the median check",
+      "mean_matches_published_median_at_displayed_precision": true
+    },
+    "eligibility_interval_diagnostic": {
+      "interpretation": "Visit-interval eligibility is not a documented minimum diagnosis-stopping duration; diagnostic only, not a source acceptance check",
+      "observed_durations_below_eligibility_interval": 0,
+      "reported_visit_interval_exclusion_years": 2
+    },
+    "groups": {
+      "all": {
+        "arithmetic_mean_years": 3.12259274481,
+        "complete": true,
+        "maximum_years": 7.5646817248,
+        "minimum_years": 2.0013689254,
+        "missing_or_invalid_followup": 0,
+        "observed_followup": 211833,
+        "ordinary_median_years": 2.9897330595,
+        "records": 211833,
+        "sum_released_years": 661468.188912
+      },
+      "recorded_endpoint_0": {
+        "arithmetic_mean_years": 3.11796278951,
+        "complete": true,
+        "maximum_years": 7.5646817248,
+        "minimum_years": 2.0013689254,
+        "missing_or_invalid_followup": 0,
+        "observed_followup": 207659,
+        "ordinary_median_years": 2.9897330595,
+        "records": 207659,
+        "sum_released_years": 647473.034908
+      },
+      "recorded_endpoint_1": {
+        "arithmetic_mean_years": 3.35293579399,
+        "complete": true,
+        "maximum_years": 5.711156742,
+        "minimum_years": 2.0013689254,
+        "missing_or_invalid_followup": 0,
+        "observed_followup": 4174,
+        "ordinary_median_years": 3.1074606434,
+        "records": 4174,
+        "sum_released_years": 13995.1540041
+      },
+      "unclassified_endpoint": {
+        "arithmetic_mean_years": null,
+        "complete": false,
+        "maximum_years": null,
+        "minimum_years": null,
+        "missing_or_invalid_followup": 0,
+        "observed_followup": 0,
+        "ordinary_median_years": null,
+        "records": 0,
+        "sum_released_years": null
+      }
+    },
+    "original_intake_checks": {
+      "baseline_diabetes_glucose_excluded": true,
+      "known_endpoint_rule_agrees": true,
+      "published_event_count": true,
+      "published_median_followup": false,
+      "published_sex_counts": true,
+      "required_fields_present": true,
+      "unique_present_identifiers": true,
+      "valid_codes_and_values": true
+    },
+    "publication_arithmetic": {
+      "implied_crude_rate_from_complete_release": 6.31020519198,
+      "implied_crude_rate_from_published_counts": 6.32241275631,
+      "implied_mean_years_from_published_total": 3.11656351938,
+      "interpretation": "Arithmetic source comparisons; no accepted hazard estimate",
+      "published_crude_rate_per_1000_person_years": 6.17,
+      "published_person_years": 660191
+    },
+    "sampling_uncertainty": "Not estimated: exact fixed-release diagnostics; selection, measurement and transport unresolved",
+    "source_reproduction_passed": false
+  },
+  "schema_version": 1,
+  "scientific_release_ready": false,
+  "time_period": "2010-2016"
+}

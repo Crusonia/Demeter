@@ -71,10 +71,12 @@ def _verify_dataset(registry: EvidenceRegistry, key: str, path: Path) -> dict:
     """Dispatch explicit dataset contracts; an unrecognized contract cannot pass."""
     from demeter.analysis.food_intake import reproduce_intake
     from demeter.analysis.public_cohort import audit_public_cohort
+    from demeter.analysis.public_cohort_timing import audit_timing
 
     verifiers = {
         "food_intake_reproduction": (reproduce_intake, "published_reproduction_passed"),
         "chen_public_intake": (audit_public_cohort, "source_reproduction_passed"),
+        "chen_followup_timing_audit": (audit_timing, "source_reproduction_passed"),
     }
     if key not in verifiers:
         return {"dataset": key, "passed": False, "reason": "unsupported_dataset_verification"}

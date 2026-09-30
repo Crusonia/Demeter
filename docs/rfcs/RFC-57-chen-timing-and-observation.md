@@ -35,6 +35,13 @@ These fixed-release diagnostics have no sampling intervals; selection, measureme
 and transport uncertainty remain unresolved. All numeric constants are mirrored
 in the evidence registry before executing the audit.
 
+Source review after the first descriptive run clarified two locators/interpretations:
+entry and visit eligibility are in Methods s2a, while diagnosis/final-visit stopping
+is in s2b. The two-year visit-interval exclusion is reported only as an eligibility
+comparison, not a required minimum for every event-stopping duration. This
+implementation clarification adds no cutoff, row exclusion or accepted effect;
+the frozen protocol and original failed median receipt are preserved.
+
 ## Observation and likelihood decision
 
 The release's baseline/final glucose and recorded diabetes flags can support
@@ -50,9 +57,10 @@ visit. Observation modes require different likelihood contributions:
 
 | Mode | Candidate contribution | Evidence needed |
 | --- | --- | --- |
-| Exogenous panel | `[exp(Q t)]_ij` for observed states | Visit timing independent of the unobserved state process, or a modeled observation process; defensible state/measurement mapping |
-| Exact first detected event | `[exp(A t) r]_i`, where A is the transient generator and r its exit hazards | Continuously observed first event and known entry/administrative stopping; detection need not equal biological onset |
-| Interval-detected first event | Integral of the first-event density over the last-negative/first-positive interval | Documented observation interval and ascertainment process |
+| Exogenous/ignorable panel | `[exp(Q t)]_ij` for observed states | Fixed or demonstrably ignorable timing conditional on recorded history; defensible state/measurement mapping. Otherwise the joint timing/state likelihood also needs its observation-process contribution |
+| Exact first detected event | `[exp(A t) r_D]_i`, where A is the transient generator and r_D contains hazards into the specified absorbing recorded-event state D | First recorded-event time observed exactly or modeled at its documented resolution; known entry and justified administrative censoring. Detection does not establish exact biological onset |
+| Interval-detected first event | Integral of the first-event density, conditional on documented observation history and the correct time origin | Last-negative/first-positive interval and ascertainment process; a measured transient state and absence-of-diagnosis history imply different conditioning |
+| Non-event final visit | `[exp(A t)]_ij` for transient endpoint j | Documented no-event history, final-measurement/stopping alignment and independently justified administrative observation/censoring or an explicit joint model |
 | Unresolved | No supported hazard fit | Current Chen disposition |
 
 A generator's hazards have reciprocal-time units. Matrix-exponential panel
@@ -65,6 +73,17 @@ distinguishes panel observations from exact transitions; its
 [manual](https://github.com/chjackson/msm/blob/master/vignettes/msm-manual.Rnw)
 also discusses informative sampling times. This is methodology, not validation
 of a Chen likelihood or a requirement to adopt that software.
+
+The non-event contribution is the joint probability of avoiding the absorbing
+event and observing endpoint j. It is not normalized among event-free people.
+Conditioning the released sample on survival or observation eligibility requires
+separate selection treatment. The exact-event density sums over unobserved
+transient-state paths and does not require continuous observation of those states.
+
+A separately [frozen amendment](../validation/chen-followup-timing-amendment-1.json)
+adds the paper's Table 2 crude-rate arithmetic, identified by primary-source review
+after the initial protocol commit and before new workbook aggregation. Its
+published-count and released-duration calculations remain separate diagnostics.
 
 Two appropriately observed visits can identify some simple reversible models
 under restrictive assumptions. The obstacle here is the unverified observation,
