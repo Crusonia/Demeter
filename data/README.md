@@ -134,6 +134,13 @@ license. The repository contains the pinned receipt, method, Python transform
 and aggregate results; raw participant records and author code stay in ignored
 local storage. Its command accepts a separately obtained archive and works offline.
 
+The [Reus evidence package](../docs/REUS_DIABETES_PATHWAY.md) distributes small
+factual HR/CI extracts, frozen analysis records, source receipts, compatibility
+checks and original code. Both full XML articles stay fetch-only under their
+publisher permissions in ignored local storage. It contains no participant
+records. Downloading articles is optional and separate from offline simulation
+and synthetic compatibility checks.
+
 ## Source credit and terms
 
 The dietary timing store retains an official NIDDK HTML summary and a small

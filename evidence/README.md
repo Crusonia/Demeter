@@ -85,3 +85,14 @@ pinned Chen archive. It retains failing source checks and exits 1 after saving
 the report; fitting and engine activation remain disabled. It does not change
 the original intake protocol or receipt. See the
 [timing audit](../docs/CHEN_TIMING_AUDIT.md).
+
+The [Reus pathway assessment](../docs/REUS_DIABETES_PATHWAY.md) registers six
+estimated, grade-C, benchmark-only Cox HRs and their reported intervals from the
+separate corrected trial. Grade C describes this scoped use: corrected assignment,
+post-randomization adjustment and unresolved engine/population applicability.
+It is not a downgrade of randomized evidence in general. Shared arms and repeated
+analyses have unknown joint covariance; no independent sampling distribution is
+invented. The synthetic/E compatibility dataset pins seven existing reference
+definitions and both invoked engine helpers before executing software witnesses.
+Neither dataset activates a clinical effect. Use `demeter evidence reus-diabetes`
+with local source XML, or `demeter evidence pathway-compatibility` offline.

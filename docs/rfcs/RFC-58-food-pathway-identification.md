@@ -182,3 +182,11 @@ the author ZIP is fetch-only and excluded from the repository. No disease bridge
 new model state, active effect or economic conclusion is introduced. Next: choose
 and validate a compatible disease bridge with supported timing, dose and population.
 #58 and scientific v0.1 remain open; numerical reproduction does not close them.
+
+The [Reus extension](RFC-58-reus-source-and-compatibility.md) and
+[executed assessment](../REUS_DIABETES_PATHWAY.md) now add a corrected
+assigned-regimen/first-diabetes benchmark and synthetic operator compatibility
+witnesses. They retain all frozen contrasts, uncertainty and unresolved
+clinical mapping. No clinical transition or dietary-response coefficient is
+activated. The source-to-observation contract and an appropriate independent
+evaluation are still required to complete #58.

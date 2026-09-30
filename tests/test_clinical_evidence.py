@@ -233,6 +233,11 @@ def test_source_network_failure_returns_failed_report(tmp_path, monkeypatch):
             "demeter.analysis.public_cohort_timing.audit_timing",
             "source_reproduction_passed",
         ),
+        (
+            "reus_corrected_diabetes_benchmark",
+            "demeter.analysis.reus_diabetes.audit_reus",
+            "source_reproduction_passed",
+        ),
     ],
 )
 @pytest.mark.parametrize("reproduced", [False, True])

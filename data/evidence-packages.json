@@ -437,7 +437,7 @@
       "artifacts": [
         {
           "path": "docs/validation/issue-56-state-mapping.json",
-          "sha256": "25c35849d5e44adef6e5af73db6b6696cd9d3c2d539a599d3d81457aac512fa9"
+          "sha256": "8d051a005284e14b94685904a366de5e3db39a1069dd824e7c2ac7f06bf054a1"
         },
         {
           "path": "docs/validation/issue-56-state-mapping-before-after.json",
@@ -445,7 +445,7 @@
         },
         {
           "path": "docs/validation/issue-56-partial-observations.json",
-          "sha256": "0d719b43250fb515132f35b0221a063476652a04d4156beea114fed3225ec777"
+          "sha256": "9df11f974c99b77bb2c98c33d6dfe3173225543cba9cc0525416b046263408f9"
         },
         {
           "path": "docs/validation/issue-56-partial-before-after.json",
@@ -533,6 +533,60 @@
       ],
       "model_role": "benchmark_only",
       "redistribution": "Aggregate diagnostics, frozen protocol/amendment, factual receipts and MIT code. CC0 workbook is fetch-only by size; article/supplement rights are separate. No person-level exports."
+    },
+    "reus_diabetes_pathway": {
+      "store": null,
+      "dependencies": [],
+      "registry_datasets": [
+        "reus_corrected_diabetes_benchmark",
+        "reus_pathway_compatibility"
+      ],
+      "registry_parameters": [
+        "reus_corrected_combined_diabetes_hr",
+        "reus_corrected_nuts_diabetes_hr",
+        "reus_corrected_voo_diabetes_hr",
+        "reus_original_combined_diabetes_hr",
+        "reus_original_nuts_diabetes_hr",
+        "reus_original_voo_diabetes_hr"
+      ],
+      "artifacts": [
+        {
+          "path": "docs/validation/reus-diabetes-protocol-v1.json",
+          "sha256": "df1e72ac4da424c90fc78a2743160bd3698d992c447618d4899224447dd69853"
+        },
+        {
+          "path": "docs/validation/reus-diabetes-amendment-1.json",
+          "sha256": "4aac541bce132a6aeb59962f49779df8c3d1eecf25f67d5c8db99183dda8084e"
+        },
+        {
+          "path": "docs/validation/reus-source-receipts.json",
+          "sha256": "cd8760de9df8689a70851e370504ae169ab2c7524556a79d309bc219d6491b2d"
+        },
+        {
+          "path": "docs/validation/issue-58-reus-diabetes.json",
+          "sha256": "06bdff60f130dd4007948ea43f24d0ee0fd9a29b3295c8e9f9cde8ad29c54bba"
+        },
+        {
+          "path": "docs/validation/issue-58-pathway-compatibility.json",
+          "sha256": "d3c8464dc8c6cfd61b33e89b6a7e6a1bd99f2165869018e660933fe67d476f33"
+        },
+        {
+          "path": "docs/validation/issue-58-reus-before-after.json",
+          "sha256": "2d3bc49e98cf90951a054eb0542303ca52d06416b3a30f555cc94afa214ae53f"
+        }
+      ],
+      "transform_files": [
+        "src/demeter/analysis/reus_diabetes.py",
+        "src/demeter/analysis/pathway_compatibility.py",
+        "src/demeter/health/transitions.py",
+        "src/demeter/nutrition/response.py"
+      ],
+      "rebuild": [
+        "uv run demeter evidence reus-diabetes --correction data/raw/clinical/reus-correction.xml --original data/raw/clinical/reus-original.xml --output outputs/reus-diabetes.json",
+        "uv run demeter evidence pathway-compatibility --output outputs/pathway-compatibility.json"
+      ],
+      "model_role": "benchmark_only",
+      "redistribution": "Factual HR/CI estimates, protocol/amendment, source receipts, software witnesses and original MIT code only. Full XML articles stay fetch-only; no participant data or Cox fit exported."
     }
   },
   "supporting_artifacts": [

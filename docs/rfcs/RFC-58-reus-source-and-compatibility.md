@@ -85,6 +85,10 @@ glycemic history, event ascertainment/timing, treatment and competing-event
 information, measured intervention exposure and a justified observation mapping.
 An independent evaluation must match the claimed population and endpoint.
 
+The [clinical observation contract](../CLINICAL_OBSERVATION_CONTRACT.md)
+provides the reusable review fields and failure dispositions for that bridge.
+It is a design input, with no new clinical likelihood or effect activation.
+
 Compare canonical baseline, UPF and PreChronic outputs before/after; document
 added registry records and unchanged active equations/parameters. Audit rights,
 source pins and distribution. Run targeted and full software checks. Full XML

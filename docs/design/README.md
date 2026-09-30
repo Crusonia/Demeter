@@ -16,6 +16,11 @@ implemented. They are not executable parameters or evidence that a premise is tr
 | [Formulation and validation contracts](05_FORMULATION_AND_TESTS.md) | What equations, units, interfaces, and experiments would make a selected mechanism testable? |
 | [Stakeholder rigidities](06_STAKEHOLDER_RIGIDITIES.md) | Which beliefs that a better, cheaper system is impossible does a question test; which are real constraints and which are misperceived? |
 
+For the current health slice, the [clinical observation contract](../CLINICAL_OBSERVATION_CONTRACT.md)
+details the source, measurement, timing, likelihood and evaluation requirements
+for I-01/I-05/I-07/I-11/I-12 and F-04/F-08. It feeds design; it does not implement
+a clinical observation model or activate a parameter.
+
 ## Methodological basis
 
 This is Demeter's application of a system-dynamics approach informed by Thomas S.
