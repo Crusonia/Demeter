@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "analysis_id": "chen-public-intake-v1",
+  "created_on": "2026-09-30",
+  "chronology": "After article, metadata, published results and headers; before participant-outcome aggregation in this work. No independent holdout.",
+  "source_id": "chen2018_public_cohort",
+  "archive_sha256": "ffd341a1a91ac65585b9fba70847a2681f5671a6035d9cfbf92e50795d74fbf6",
+  "analysis": {
+    "sheet": "RC",
+    "columns": {
+      "id": "id",
+      "age": "Age (y)",
+      "sex": "Gender(1, male; 2, female)",
+      "baseline_fpg": "FPG (mmol/L)",
+      "final_fpg": "FPG of final visit(mmol/L)",
+      "diagnosis": "Diabetes diagnosed during followup（1,Yes）",
+      "endpoint": "censor of diabetes at followup(1, Yes; 0, No)",
+      "followup": "year of followup"
+    },
+    "published_records": 211833,
+    "published_male": 116123,
+    "published_female": 95710,
+    "published_diabetes_events": 4174,
+    "published_median_followup_years": 3.1,
+    "published_followup_decimal_places": 1,
+    "glucose_threshold_mmol_l": 7.0,
+    "minimum_baseline_age_years": 20,
+    "sex_codes": {"male": 1, "female": 2},
+    "binary_codes": [0, 1],
+    "quantiles": [0, 0.25, 0.5, 0.75, 1],
+    "quantile_method": "linear"
+  },
+  "limits": [
+    "Selected repeat health-screening participants in China, 2010-2016; no U.S. transport established.",
+    "Published outcomes were known; source agreement is reproduction, not independent clinical validation.",
+    "Column T defines one but does not document blanks; preserve unknown versus assumed negative.",
+    "Endpoint follow-up varies and ends at diagnosis or last visit; no fixed-horizon annual risk or hazard is estimated.",
+    "The release lacks repeated visit histories, treatment timing, competing-death records and post-diabetes remission histories.",
+    "No dietary causal effect, diabetes-type validation, sustained remission or engine calibration is established."
+  ]
+}
