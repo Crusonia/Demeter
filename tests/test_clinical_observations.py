@@ -16,6 +16,13 @@ from demeter.data.clinical_observations import (
 from demeter.schema import EvidenceRegistry
 
 WITNESS = "dpp_observation_software_witness"
+COLLECTION_FIELDS = (
+    "participants",
+    "glucose_observations",
+    "diagnosis_observations",
+    "treatment_changes",
+    "test_reference_ids",
+)
 
 
 @pytest.fixture
@@ -122,6 +129,77 @@ def test_aggregate_only_receipt_is_order_insensitive_and_offline(registered_payl
     assert before["glucose"]["ogtt_2h"]["status"]["missing"]
     assert before["source_events"]["death_status"] == {"no": 1, "unknown": 1, "yes": 1}
     assert before["diagnosis"]["outcome"] == {"confirmed": 1}
+
+
+def collection_owner(batch, field):
+    if field == "participants":
+        return batch
+    if field == "test_reference_ids":
+        return batch.participants[0].diagnosis_observations[0]
+    return batch.participants[0]
+
+
+def wire_collection_owner(payload, field):
+    if field == "participants":
+        return payload
+    if field == "test_reference_ids":
+        return payload["participants"][0]["diagnosis_observations"][0]
+    return payload["participants"][0]
+
+
+@pytest.mark.parametrize("field", COLLECTION_FIELDS)
+def test_validated_collections_cannot_append_replace_or_assign(registered_payload, field):
+    batch = preserve_observations(registered_payload)
+    owner = collection_owner(batch, field)
+    collection = getattr(owner, field)
+    before = summarize_observations(batch)
+    assert isinstance(collection, tuple)
+    with pytest.raises(AttributeError):
+        collection.append(collection[0])
+    with pytest.raises(TypeError):
+        collection[0] = collection[0]
+    with pytest.raises(ValidationError, match="frozen"):
+        setattr(owner, field, collection + collection)
+    assert summarize_observations(batch) == before
+
+
+@pytest.mark.parametrize("field", COLLECTION_FIELDS)
+def test_wire_list_mutations_do_not_change_validated_histories(registered_payload, field):
+    batch = preserve_observations(registered_payload)
+    before = batch.model_dump(mode="json")
+    summary_before = summarize_observations(batch)
+    collection = wire_collection_owner(registered_payload, field)[field]
+    collection.append(collection[0])
+    supplied = registered_payload["participants"][0]
+    supplied["events"]["diagnosed_during_source_followup"] = None
+    supplied["glucose_observations"][0]["value"] = supplied["glucose_observations"][-1]["value"]
+    supplied["diagnosis_observations"][0]["confirmation_time"]["day"] = supplied[
+        "diagnosis_observations"
+    ][0]["first_positive_time"]["day"]
+    assert batch.model_dump(mode="json") == before
+    assert summarize_observations(batch) == summary_before
+
+
+def test_immutable_collections_preserve_json_array_wire_format(registered_payload):
+    batch = preserve_observations(registered_payload)
+    wire = batch.model_dump(mode="json")
+    assert isinstance(wire["participants"], list)
+    participant = wire["participants"][0]
+    for field in ("glucose_observations", "diagnosis_observations", "treatment_changes"):
+        assert isinstance(participant[field], list)
+    assert isinstance(participant["diagnosis_observations"][0]["test_reference_ids"], list)
+    assert json.loads(batch.model_dump_json()) == wire
+    round_trip = preserve_observations(wire)
+    assert round_trip == batch
+    assert summarize_observations(round_trip) == summarize_observations(batch)
+
+
+@pytest.mark.parametrize("field", ["participants", "glucose_observations", "test_reference_ids"])
+def test_wire_conversion_does_not_coerce_other_iterables(registered_payload, field):
+    owner = wire_collection_owner(registered_payload, field)
+    owner[field] = iter(owner[field])
+    with pytest.raises(ValidationError):
+        preserve_observations(registered_payload)
 
 
 def test_empty_histories_and_absent_metadata_remain_unknown(registered_payload):

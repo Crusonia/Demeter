@@ -5,7 +5,7 @@ from __future__ import annotations
 from collections import Counter
 from typing import Annotated, Literal
 
-from pydantic import BaseModel, ConfigDict, Field, model_validator
+from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
 Finite = Annotated[float, Field(strict=True, allow_inf_nan=False)]
 Nonnegative = Annotated[Finite, Field(ge=0)]
@@ -102,7 +102,12 @@ class DiagnosisObservation(_StrictObservation):
     first_positive_time: RelativeDayTime = Field(default_factory=RelativeDayTime)
     confirmation_time: RelativeDayTime = Field(default_factory=RelativeDayTime)
     source_definition: Text | None = None
-    test_reference_ids: list[Text] = Field(default_factory=list)
+    test_reference_ids: tuple[Text, ...] = ()
+
+    @field_validator("test_reference_ids", mode="before")
+    @classmethod
+    def accept_wire_list(cls, value):
+        return tuple(value) if type(value) is list else value
 
 
 class TreatmentChange(_StrictObservation):
@@ -123,12 +128,19 @@ class FollowUp(_StrictObservation):
 class ParticipantObservations(_StrictObservation):
     record_id: Text
     events: SourceEventsSummary = Field(default_factory=SourceEventsSummary)
-    glucose_observations: list[GlucoseObservation] = Field(default_factory=list)
-    diagnosis_observations: list[DiagnosisObservation] = Field(default_factory=list)
-    treatment_changes: list[TreatmentChange] = Field(default_factory=list)
+    glucose_observations: tuple[GlucoseObservation, ...] = ()
+    diagnosis_observations: tuple[DiagnosisObservation, ...] = ()
+    treatment_changes: tuple[TreatmentChange, ...] = ()
     follow_up: FollowUp = Field(default_factory=FollowUp)
     test_history_complete: bool | None = None
     treatment_history_complete: bool | None = None
+
+    @field_validator(
+        "glucose_observations", "diagnosis_observations", "treatment_changes", mode="before"
+    )
+    @classmethod
+    def accept_wire_list(cls, value):
+        return tuple(value) if type(value) is list else value
 
     @model_validator(mode="after")
     def unique_and_valid_test_references(self):
@@ -151,7 +163,13 @@ class ObservationBatch(_StrictObservation):
     synthetic: bool
     relative_day_origin: Literal["randomization"]
     relative_day_unit: Literal["relative_day"]
-    participants: list[ParticipantObservations]
+    participants: tuple[ParticipantObservations, ...]
+
+    @field_validator("participants", mode="before")
+    @classmethod
+    def accept_wire_list(cls, value):
+        # JSON arrays remain the wire format; do not coerce other iterables or deduplicate.
+        return tuple(value) if type(value) is list else value
 
     @model_validator(mode="after")
     def unique_participants(self):

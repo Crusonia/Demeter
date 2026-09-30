@@ -163,6 +163,12 @@ structural validation. `summarize_observations(batch)` returns aggregate counts,
 unknowns, definite same-unit contradictions and fit blockers. It does not emit
 participant identifiers or individual measurements.
 
+After validation, participants, observations, treatment changes and test
+references are immutable collections inside frozen objects. JSON inputs and
+exports still use arrays. This prevents later edits from bypassing validation;
+duplicate identifiers and references are rejected rather than silently removed.
+The source definitions, synthetic fixture and clinical-fit blockers are unchanged.
+
 The main objects make the distinctions visible:
 
 | Object | Preserved information |
