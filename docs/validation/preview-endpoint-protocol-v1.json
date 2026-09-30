@@ -1,0 +1,171 @@
+{
+  "title": "PREVIEW source-specific observed endpoint reproduction and missing-outcome completion specification",
+  "status": "frozen used-source numerical reproduction specification; not preregistration or independent validation",
+  "created_at_utc": "2026-09-30T21:54:52.782309+00:00",
+  "source_family": "PREVIEW adult trial; original protocol2017, primary report2021, secondary endpoint analysis2025/2026",
+  "source_ids": {
+    "secondary_doi": "10.1007/s00125-025-06560-x",
+    "protocol_doi": "10.3390/nu9060632",
+    "original_report_doi": "10.1111/dom.14219",
+    "trial_registration": "NCT01777893"
+  },
+  "source_bytes": [
+    {
+      "label": "secondary",
+      "file": "preview-secondary-main-pinned.html",
+      "size_bytes": 481036,
+      "sha256": "3b90fb9118f14ac46bb26fb8b23f54e51bd4a9e9b0e91bc1253c335303d73cea",
+      "receipt_path": "docs/validation/preview-source-receipts.json",
+      "receipt_key": "secondary"
+    },
+    {
+      "label": "protocol2017",
+      "file": "preview-original-protocol-2017-pinned.pdf",
+      "size_bytes": 976598,
+      "sha256": "412e30ad3b3ce5f02a37fd647f6220e3c4148eb54e9c7c13332c3ea2a22614da",
+      "receipt_path": "docs/validation/preview-source-receipts.json",
+      "receipt_key": "protocol2017"
+    },
+    {
+      "label": "esm",
+      "file": "preview-esm-reverified-20260930T221301384509Z.pdf",
+      "size_bytes": 1817647,
+      "sha256": "1bd4ccdbe890126efa3e6cab4a826e26bdb5a17be8fea1d722ab0ab648433573",
+      "receipt_path": "docs/validation/preview-source-receipts.json",
+      "receipt_key": "esm"
+    },
+    {
+      "label": "original2021",
+      "file": "preview-original2021-reverified-20260930T221301530928Z.pdf",
+      "size_bytes": 2783263,
+      "sha256": "0d1be2b49e4963a481c4810ebc830460c69bba253f719c2a38209fcd84ee08b5",
+      "receipt_path": "docs/validation/preview-source-receipts.json",
+      "receipt_key": "original2021"
+    }
+  ],
+  "access": {
+    "secondary_article_and_esm": "CC BY4.0, subject to separately credited third-party material",
+    "participant_records": "corresponding-author reasonable request; not unrestricted public",
+    "participant_acquisition_or_outreach_authorized": false
+  },
+  "scope": {
+    "population": "Main secondary-analysis selected phase2 cohort: baseline source-defined prediabetes, overweight/obesity, successful common initial weight-loss phase, then received assigned maintenance intervention.",
+    "randomization": "Baseline four-arm2x2 diet-by-activity assignment, stratified by center/sex/age; allocation concealed until week8 maintenance start.",
+    "selection": "The responder cohort is selected after baseline assignment during a common run-in with concealed maintenance allocation. Conditional randomized inference could be justified if identical run-in, concealment, and assignment-independent selection hold. Observed-endpoint contrasts additionally require missingness assumptions for causal interpretation; no full-recruit or national effect is claimed.",
+    "exposure": "Assigned bundled moderate-protein/moderate-GI versus high-protein/low-GI maintenance regimens; both activity assignments pooled within each diet.",
+    "time_origin": "Nominal study baseline; week52/year1 and week156/year3 include the common initial8weeks. Baseline visit and randomization dates are distinct: original2021 section3 records withdrawals between them. Actual participant dates/windows are unavailable in the aggregate cells.",
+    "baseline_vs_phase2": "Normalization can occur during common run-in. These endpoints do not isolate new phase2 reversals or prove sustained normality.",
+    "endpoint": "Source point-in-time normal fasting plasma glucose AND normal2-hour OGTT glucose at the specified assessment.",
+    "source_thresholds": {
+      "fasting_normal_lt_mmol_per_l": 5.6,
+      "ogtt_2hour_normal_lt_mmol_per_l": 7.8,
+      "role": "source endpoint definition only; not engine state mapping"
+    },
+    "diagnosis_history": "PriorT2D excluded at screening; persistent diagnosis/type and treatment-free remission history are not reconstructed from endpoint counts.",
+    "medication_rule": "Baseline outcome-affecting medication exclusion and concomitant-medication collection are documented; no verified medication-free duration or confirmation rule for this secondary normalization endpoint.",
+    "eligibility_wording_conflict": "Secondary main population criteria use elevated fasting and/or OGTT glucose; its Outcomes paragraph uses and. Retain source wording; no invented reconciliation or baseline engine allocation.",
+    "run_in_wording_conflict": "Original2017 protocol describes >8% loss for maintenance entry; later reports describe >=8%. Preserve literal versions; no silent harmonization."
+  },
+  "allowed_literal_main_cells": {
+    "locator": "Secondary main Methods/Outcomes/Statisticalanalysis; Results/Participants and Prediabetesremission; Figure1a caption. Already inspected used-source cells only.",
+    "selected_phase2_cohort_N": {
+      "MP_MGI": 923,
+      "HP_LGI": 933
+    },
+    "endpoints": [
+      {
+        "nominal_year": 1,
+        "MP_MGI": {
+          "normal_count_y": 159,
+          "source_endpoint_denominator_n": 604
+        },
+        "HP_LGI": {
+          "normal_count_y": 134,
+          "source_endpoint_denominator_n": 646
+        },
+        "published_adjusted_RR_MP_vs_HP": 1.26,
+        "published_RR_CI_lower": 1.04,
+        "published_RR_CI_upper": 1.53
+      },
+      {
+        "nominal_year": 3,
+        "MP_MGI": {
+          "normal_count_y": 97,
+          "source_endpoint_denominator_n": 472
+        },
+        "HP_LGI": {
+          "normal_count_y": 73,
+          "source_endpoint_denominator_n": 471
+        },
+        "published_adjusted_RR_MP_vs_HP": 1.26,
+        "published_RR_CI_lower": 1.06,
+        "published_RR_CI_upper": 1.5
+      }
+    ],
+    "confidence_interval_level": "Source-reported95%; retain as published adjusted-model uncertainty, not a count-derived confidence interval.",
+    "additional_result_cells": "Not authorized for the first numerical reproduction; retain previously viewed auxiliary results as used-source context only."
+  },
+  "denominator_reconciliation": [
+    "Verify literal y,n,N against pinned main source and exact locator, including arm and assessment labels; require integer0<=y<=n<=N.",
+    "Keep selected-phase2 N distinct from all-baseline randomized N, visit attendance/completers, complete-case sensitivity population and available endpoint n.",
+    "m=N-n denotes endpoint-unclassified people for the specified arm/time; it is not the paper dropout count and must not be presented as death/loss count.",
+    "Do not force endpoint n to equal attendance/completer counts. Preserve unexplained missing-test/analysis-selection reasons as unresolved.",
+    "Already inspected ESMp8 Table1 arm header/body denominators are inconsistent with main selected-arm N. Preserve conflict; no guessed typo correction or overwrite of main cells.",
+    "Original2021 report and secondaryESM auxiliary diabetes-incidence results differ in reported totals/analyses. Keep separate source vintages and estimands; never pool."
+  ],
+  "outputs_after_freeze": {
+    "available_endpoint_proportion": "p_obs[a,t]=y[a,t]/n[a,t], descriptive within the source endpoint analysis denominator.",
+    "available_endpoint_absolute_contrast": "delta_obs[t]=p_obs[MP_MGI,t]-p_obs[HP_LGI,t]; units proportion points, optionally displayed as percentage points with explicit conversion.",
+    "published_adjusted_effect": "Retain reported adjustedRR andCI separately. Do not equate it with the raw proportion ratio or reproduce the fitted Poisson model from marginal counts.",
+    "bounds_definition": {
+      "target": "Binary endpoint completion for the original main selected-phase2 cohort; explicitly distinct from normality among survivors or clinical physiological recovery.",
+      "observed_positive": "Retain the published source normalization classification when the endpoint is available; do not infer physiological state or erase diagnosis.",
+      "observed_negative": "Retain the available source binary endpoint noncase classification; missing tests are never negatives.",
+      "death": "Only a verified death before source assessment may be fixed as0 for an explicitly named alive-and-normal composite. It is not a normoglycemia state. No source death count/status is supplied by these main cells; remain unknown, never assume no deaths.",
+      "unknown": "Unclassified endpoint, unknown survival, unknown treatment history and absent test status stay unresolved. The mathematical completion envelope allows unclassified binary values0or1; this is sensitivity analysis, not observed outcomes or survival/remission probability.",
+      "conditions": "Compute selected-cohort completion bounds only after N/y/n reconciliation. If a literal clinical alive-and-normal composite cannot be tied to source assessment/death rules, publish the mathematical envelope with clinical-composite interpretation unavailable.",
+      "formulas": {
+        "lower": "L[a,t]=y[a,t]/N[a]",
+        "upper": "U[a,t]=(y[a,t]+N[a]-n[a,t])/N[a]",
+        "contrast_lower": "L[MP_MGI,t]-U[HP_LGI,t]",
+        "contrast_upper": "U[MP_MGI,t]-L[HP_LGI,t]"
+      },
+      "meaning": "Deterministic extreme missing-outcome completions; not confidence or credible intervals. Do not use the upper completion to imply death absence."
+    },
+    "uncertainty": "Preserve published adjustedRR uncertainty and deterministic missing-endpoint bounds. No new samplingCI, clustering adjustment, imputation or probabilistic sensitivity model in first reproduction."
+  },
+  "null_and_opposing_results": "Retain the original primary first-diabetes endpoint report of no statistically significant dietary difference; this does not establish a zero effect. The selected normal-glucose endpoint favors the moderate-protein/moderate-GI bundle. Neither is a generic Food is Health or UPF effect; no primary incidence coefficient extraction in this unit.",
+  "identification_limits": [
+    "Missing-outcome status is not identified from randomization. No defaultMAR, missing-at-random imputation, last-observation-carried-forward or missing=noncase.",
+    "Conditional selected/assessed-arm contrast is not full randomized intention-to-treat dietary causal effect. Any stronger causal statement requires explicit selection, adherence, missingness and treatment assumptions.",
+    "Marginal endpoint counts do not identify individual transitions, number/direction of intervening changes, onset/recovery dates, annual transition intensities or remission persistence.",
+    "No joint-year overlaps/covariance supplied. Analyze each time separately; no product of year likelihoods, independent repeated-event treatment or pooled inferential effect.",
+    "Pooled diet comparisons average over both physical-activity assignments; separate protein/GI/carbohydrate effects and dose/adherence causal effects are not isolated.",
+    "The source does not identify the active engine UPF dose coefficient or lag, physiological insulin resistance, distinct progression/recovery multipliers, mortality, costs or national transport."
+  ],
+  "activation": {
+    "clinical_hazard_fit": false,
+    "dietary_coefficient_fit": false,
+    "lag_fit": false,
+    "engine_state_mapping": false,
+    "national_parameter_activation": false,
+    "independent_backtest_claim": false
+  },
+  "failure_dispositions": {
+    "hash_or_literal_cell_failure": "Stop numerical reproduction; retain discrepancy with source receipt; no repair by rounded percentages.",
+    "unreconciled_endpoint_denominator": "Retain literal counts and conditionally descriptive source proportion only; block selected-cohort bounds or composite interpretation as needed.",
+    "unresolved_medication_death_or_confirmation": "Block clinical remission/state/competing-risk interpretation; retain source measurement endpoint.",
+    "auxiliary_source_conflict": "Keep source-specific versions; no silent correction or pooling.",
+    "bounds_include_zero_or_allow_opposing_effects": "Report that completion bounds do not identify direction; never tune assumptions to exclude the null."
+  },
+  "verification_after_freeze": [
+    "Frozen byte hashes and literal locators",
+    "Counts and denominators remain separate and bounded",
+    "Missing values never treated as absent diagnosis/death or negative glucose tests",
+    "Endpoint-specific proportion and absolute-contrast arithmetic",
+    "Completion envelope algebra including extreme completions; no derived effect yet",
+    "No participantIDs, latent-state outputs, active registry changes or national claims"
+  ],
+  "frozen_at_utc": "2026-09-30T22:41:14.109043+00:00",
+  "revision_policy": "This v1 file remains immutable after its freeze commit. Any later analytical change requires a separately dated amendment and explicit before/after rationale."
+}

@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "source_family": "PREVIEW",
+  "raw_distribution": "fetch_only",
+  "participant_records_acquired": false,
+  "receipts": {
+    "secondary": {
+      "receipt_version": 1,
+      "purpose": "public source choice; no outcome computation",
+      "requested_url": "https://link.springer.com/article/10.1007/s00125-025-06560-x",
+      "resolved_url": "https://link.springer.com/article/10.1007/s00125-025-06560-x?error=cookies_not_supported&code=b8437dd7-c223-4b26-a066-75ba6237340f",
+      "doi": "10.1007/s00125-025-06560-x",
+      "started_at_utc": "2026-09-30T21:49:14.808686+00:00",
+      "completed_at_utc": "2026-09-30T21:49:16.664840+00:00",
+      "http_status": 200,
+      "response_headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Content-Length": null,
+        "Last-Modified": null,
+        "ETag": "W/\"35dd5f6b304dc0ff004ea51a9cd5ae83\"",
+        "Date": "Wed, 30 Sep 2026 21:49:16 GMT"
+      },
+      "cache_file": "outputs/public-source-search-20260930/preview-secondary-main-pinned.html",
+      "size_bytes": 481036,
+      "sha256": "3b90fb9118f14ac46bb26fb8b23f54e51bd4a9e9b0e91bc1253c335303d73cea",
+      "bytes_preserved": true,
+      "overwrite_policy": "exclusive creation; existing bytes retained"
+    },
+    "protocol2017": {
+      "receipt_version": 1,
+      "purpose": "public original2017 protocol source choice; no outcome computation",
+      "requested_url": "https://cronfa.swan.ac.uk/Record/cronfa34410/Download/0034410-21062017091740.pdf",
+      "resolved_url": "https://cronfa.swan.ac.uk/Record/cronfa34410/Download/0034410-21062017091740.pdf",
+      "doi": "10.3390/nu9060632",
+      "source_relationship": "author institutional version-of-record repository linked by DOI",
+      "started_at_utc": "2026-09-30T21:50:15.888797+00:00",
+      "completed_at_utc": "2026-09-30T21:50:17.842897+00:00",
+      "http_status": 200,
+      "response_headers": {
+        "Content-Type": "application/pdf",
+        "Content-Length": "976598",
+        "Last-Modified": null,
+        "ETag": null,
+        "Date": "Wed, 30 Sep 2026 21:50:16 GMT"
+      },
+      "cache_file": "outputs/public-source-search-20260930/preview-original-protocol-2017-pinned.pdf",
+      "size_bytes": 976598,
+      "sha256": "412e30ad3b3ce5f02a37fd647f6220e3c4148eb54e9c7c13332c3ea2a22614da",
+      "bytes_preserved": true,
+      "overwrite_policy": "exclusive creation; existing bytes retained",
+      "failed_alternative": "Auckland author PDF returnedHTTP404 on2026-09-30; search-engine cached content existed."
+    },
+    "esm": {
+      "receipt_version": 1,
+      "purpose": "Finite public-source provenance verification only; no further result-cell reading or effect calculation",
+      "doi": "10.1007/s00125-025-06560-x",
+      "requested_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1007%2Fs00125-025-06560-x/MediaObjects/125_2025_6560_MOESM1_ESM.pdf",
+      "started_at_utc": "2026-09-30T22:13:01.384509+00:00",
+      "completed_at_utc": "2026-09-30T22:13:02.263579+00:00",
+      "resolved_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1007%2Fs00125-025-06560-x/MediaObjects/125_2025_6560_MOESM1_ESM.pdf",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "size_bytes": 1817647,
+      "sha256": "1bd4ccdbe890126efa3e6cab4a826e26bdb5a17be8fea1d722ab0ab648433573",
+      "cache_filename": "preview-esm-reverified-20260930T221301384509Z.pdf",
+      "expected_retained_sha256": "1bd4ccdbe890126efa3e6cab4a826e26bdb5a17be8fea1d722ab0ab648433573",
+      "retained_cache_filename": "preview-esm.pdf",
+      "retained_current_sha256": "1bd4ccdbe890126efa3e6cab4a826e26bdb5a17be8fea1d722ab0ab648433573",
+      "retained_bytes_unchanged": true,
+      "fresh_matches_retained_pin": true,
+      "passed": true,
+      "failure": null,
+      "overwrite_policy": "Exclusive fresh filenames; no retained cache bytes replaced",
+      "response_headers": {
+        "Content-Length": "1817647",
+        "Last-Modified": "Wed, 15 Oct 2025 20:27:01 GMT",
+        "ETag": "\"ce9052c0653e2f023269716bab5760e2\"",
+        "Date": "Wed, 30 Sep 2026 22:13:01 GMT"
+      },
+      "pdf_signature_present": true
+    },
+    "original2021": {
+      "receipt_version": 1,
+      "purpose": "Finite public-source provenance verification only; no further result-cell reading or effect calculation",
+      "doi": "10.1111/dom.14219",
+      "requested_url": "https://cronfa.swansea.ac.uk/Record/cronfa55357/Download/55357__19030__2bbf34df7331454a91a2476c2bdb611a.pdf",
+      "started_at_utc": "2026-09-30T22:13:01.530928+00:00",
+      "completed_at_utc": "2026-09-30T22:13:09.662844+00:00",
+      "resolved_url": "https://cronfa.swansea.ac.uk/Record/cronfa55357/Download/55357__19030__2bbf34df7331454a91a2476c2bdb611a.pdf",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "size_bytes": 2783263,
+      "sha256": "0d1be2b49e4963a481c4810ebc830460c69bba253f719c2a38209fcd84ee08b5",
+      "cache_filename": "preview-original2021-reverified-20260930T221301530928Z.pdf",
+      "expected_retained_sha256": "0d1be2b49e4963a481c4810ebc830460c69bba253f719c2a38209fcd84ee08b5",
+      "retained_cache_filename": "preview-main-2021.pdf",
+      "retained_current_sha256": "0d1be2b49e4963a481c4810ebc830460c69bba253f719c2a38209fcd84ee08b5",
+      "retained_bytes_unchanged": true,
+      "fresh_matches_retained_pin": true,
+      "passed": true,
+      "failure": null,
+      "overwrite_policy": "Exclusive fresh filenames; no retained cache bytes replaced",
+      "response_headers": {
+        "Content-Length": "2783263",
+        "Last-Modified": null,
+        "ETag": null,
+        "Date": "Wed, 30 Sep 2026 22:13:03 GMT"
+      },
+      "pdf_signature_present": true
+    }
+  }
+}

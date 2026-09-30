@@ -1846,6 +1846,611 @@ parameters:
       rationale: Reported 95% confidence interval only. Shared control, overlapping arms and repeated analyses;
         joint covariance unavailable. Not a sampling distribution or transport uncertainty.
 
+  preview_selected_MP_MGI_n:
+    key: preview_selected_MP_MGI_n
+    value: 923
+    unit: people
+    status: observed
+    evidence_grade: C
+    source: Secondary main Results/Participants, selected phase2 diet-arm totals
+    source_id: preview_secondary2025
+    source_url: https://link.springer.com/article/10.1007/s00125-025-06560-x
+    citation: Zhu R et al. Long-term effects of dietary protein and carbohydrate quality on prediabetes
+      remission. Diabetologia 69:81-92 (2026); published October 15, 2025.
+    population: Selected PREVIEW maintenance-eligible adults with source-defined prediabetes and overweight/obesity
+      after common initial weight loss; diet arms pool both physical-activity assignments.
+    geography: Denmark, Finland, UK, Netherlands, Spain, Bulgaria, Australia, New Zealand
+    time_period: Trial June 2013-March 2018; nominal baseline assessments at week52 and week156 include
+      initial8weeks; secondary report published2025
+    model_role: benchmark_only
+    outcome_definition: Source point-in-time normal fasting AND normal 2-hour OGTT glucose; no diagnosis
+      history, sustained untreated remission, or engine state inferred.
+    uncertainty:
+      kind: fixed
+      rationale: Literal published count or endpoint/schedule definition, not a population estimate or sampling
+        distribution. Missingness and source limitations remain explicit.
+    transformation: Literal source value retained; no annualization, imputation, active calibration or national
+      transport.
+    notes: Used-source benchmark only. Evidence grade describes scoped usefulness with causal uncertainty;
+      randomization alone does not resolve selection, missingness or dose mapping.
+  preview_selected_HP_LGI_n:
+    key: preview_selected_HP_LGI_n
+    value: 933
+    unit: people
+    status: observed
+    evidence_grade: C
+    source: Secondary main Results/Participants, selected phase2 diet-arm totals
+    source_id: preview_secondary2025
+    source_url: https://link.springer.com/article/10.1007/s00125-025-06560-x
+    citation: Zhu R et al. Long-term effects of dietary protein and carbohydrate quality on prediabetes
+      remission. Diabetologia 69:81-92 (2026); published October 15, 2025.
+    population: Selected PREVIEW maintenance-eligible adults with source-defined prediabetes and overweight/obesity
+      after common initial weight loss; diet arms pool both physical-activity assignments.
+    geography: Denmark, Finland, UK, Netherlands, Spain, Bulgaria, Australia, New Zealand
+    time_period: Trial June 2013-March 2018; nominal baseline assessments at week52 and week156 include
+      initial8weeks; secondary report published2025
+    model_role: benchmark_only
+    outcome_definition: Source point-in-time normal fasting AND normal 2-hour OGTT glucose; no diagnosis
+      history, sustained untreated remission, or engine state inferred.
+    uncertainty:
+      kind: fixed
+      rationale: Literal published count or endpoint/schedule definition, not a population estimate or sampling
+        distribution. Missingness and source limitations remain explicit.
+    transformation: Literal source value retained; no annualization, imputation, active calibration or national
+      transport.
+    notes: Used-source benchmark only. Evidence grade describes scoped usefulness with causal uncertainty;
+      randomization alone does not resolve selection, missingness or dose mapping.
+  preview_y1_MP_MGI_normal_count:
+    key: preview_y1_MP_MGI_normal_count
+    value: 159
+    unit: people
+    status: observed
+    evidence_grade: C
+    source: Secondary main Results/Prediabetes remission, year1 MP_MGI numerator
+    source_id: preview_secondary2025
+    source_url: https://link.springer.com/article/10.1007/s00125-025-06560-x
+    citation: Zhu R et al. Long-term effects of dietary protein and carbohydrate quality on prediabetes
+      remission. Diabetologia 69:81-92 (2026); published October 15, 2025.
+    population: Selected PREVIEW maintenance-eligible adults with source-defined prediabetes and overweight/obesity
+      after common initial weight loss; diet arms pool both physical-activity assignments.
+    geography: Denmark, Finland, UK, Netherlands, Spain, Bulgaria, Australia, New Zealand
+    time_period: Trial June 2013-March 2018; nominal baseline assessments at week52 and week156 include
+      initial8weeks; secondary report published2025
+    model_role: benchmark_only
+    outcome_definition: Source point-in-time normal fasting AND normal 2-hour OGTT glucose; no diagnosis
+      history, sustained untreated remission, or engine state inferred.
+    uncertainty:
+      kind: fixed
+      rationale: Literal published count or endpoint/schedule definition, not a population estimate or sampling
+        distribution. Missingness and source limitations remain explicit.
+    transformation: Literal source value retained; no annualization, imputation, active calibration or national
+      transport.
+    notes: Used-source benchmark only. Evidence grade describes scoped usefulness with causal uncertainty;
+      randomization alone does not resolve selection, missingness or dose mapping.
+  preview_y1_MP_MGI_endpoint_n:
+    key: preview_y1_MP_MGI_endpoint_n
+    value: 604
+    unit: people
+    status: observed
+    evidence_grade: C
+    source: Secondary main Results/Prediabetes remission, year1 MP_MGI endpoint denominator
+    source_id: preview_secondary2025
+    source_url: https://link.springer.com/article/10.1007/s00125-025-06560-x
+    citation: Zhu R et al. Long-term effects of dietary protein and carbohydrate quality on prediabetes
+      remission. Diabetologia 69:81-92 (2026); published October 15, 2025.
+    population: Selected PREVIEW maintenance-eligible adults with source-defined prediabetes and overweight/obesity
+      after common initial weight loss; diet arms pool both physical-activity assignments.
+    geography: Denmark, Finland, UK, Netherlands, Spain, Bulgaria, Australia, New Zealand
+    time_period: Trial June 2013-March 2018; nominal baseline assessments at week52 and week156 include
+      initial8weeks; secondary report published2025
+    model_role: benchmark_only
+    outcome_definition: Source point-in-time normal fasting AND normal 2-hour OGTT glucose; no diagnosis
+      history, sustained untreated remission, or engine state inferred.
+    uncertainty:
+      kind: fixed
+      rationale: Literal published count or endpoint/schedule definition, not a population estimate or sampling
+        distribution. Missingness and source limitations remain explicit.
+    transformation: Literal source value retained; no annualization, imputation, active calibration or national
+      transport.
+    notes: Used-source benchmark only. Evidence grade describes scoped usefulness with causal uncertainty;
+      randomization alone does not resolve selection, missingness or dose mapping.
+  preview_y1_HP_LGI_normal_count:
+    key: preview_y1_HP_LGI_normal_count
+    value: 134
+    unit: people
+    status: observed
+    evidence_grade: C
+    source: Secondary main Results/Prediabetes remission, year1 HP_LGI numerator
+    source_id: preview_secondary2025
+    source_url: https://link.springer.com/article/10.1007/s00125-025-06560-x
+    citation: Zhu R et al. Long-term effects of dietary protein and carbohydrate quality on prediabetes
+      remission. Diabetologia 69:81-92 (2026); published October 15, 2025.
+    population: Selected PREVIEW maintenance-eligible adults with source-defined prediabetes and overweight/obesity
+      after common initial weight loss; diet arms pool both physical-activity assignments.
+    geography: Denmark, Finland, UK, Netherlands, Spain, Bulgaria, Australia, New Zealand
+    time_period: Trial June 2013-March 2018; nominal baseline assessments at week52 and week156 include
+      initial8weeks; secondary report published2025
+    model_role: benchmark_only
+    outcome_definition: Source point-in-time normal fasting AND normal 2-hour OGTT glucose; no diagnosis
+      history, sustained untreated remission, or engine state inferred.
+    uncertainty:
+      kind: fixed
+      rationale: Literal published count or endpoint/schedule definition, not a population estimate or sampling
+        distribution. Missingness and source limitations remain explicit.
+    transformation: Literal source value retained; no annualization, imputation, active calibration or national
+      transport.
+    notes: Used-source benchmark only. Evidence grade describes scoped usefulness with causal uncertainty;
+      randomization alone does not resolve selection, missingness or dose mapping.
+  preview_y1_HP_LGI_endpoint_n:
+    key: preview_y1_HP_LGI_endpoint_n
+    value: 646
+    unit: people
+    status: observed
+    evidence_grade: C
+    source: Secondary main Results/Prediabetes remission, year1 HP_LGI endpoint denominator
+    source_id: preview_secondary2025
+    source_url: https://link.springer.com/article/10.1007/s00125-025-06560-x
+    citation: Zhu R et al. Long-term effects of dietary protein and carbohydrate quality on prediabetes
+      remission. Diabetologia 69:81-92 (2026); published October 15, 2025.
+    population: Selected PREVIEW maintenance-eligible adults with source-defined prediabetes and overweight/obesity
+      after common initial weight loss; diet arms pool both physical-activity assignments.
+    geography: Denmark, Finland, UK, Netherlands, Spain, Bulgaria, Australia, New Zealand
+    time_period: Trial June 2013-March 2018; nominal baseline assessments at week52 and week156 include
+      initial8weeks; secondary report published2025
+    model_role: benchmark_only
+    outcome_definition: Source point-in-time normal fasting AND normal 2-hour OGTT glucose; no diagnosis
+      history, sustained untreated remission, or engine state inferred.
+    uncertainty:
+      kind: fixed
+      rationale: Literal published count or endpoint/schedule definition, not a population estimate or sampling
+        distribution. Missingness and source limitations remain explicit.
+    transformation: Literal source value retained; no annualization, imputation, active calibration or national
+      transport.
+    notes: Used-source benchmark only. Evidence grade describes scoped usefulness with causal uncertainty;
+      randomization alone does not resolve selection, missingness or dose mapping.
+  preview_y1_adjusted_rr:
+    key: preview_y1_adjusted_rr
+    value: 1.26
+    unit: risk_ratio
+    status: estimated
+    evidence_grade: C
+    source: Secondary main Results/Prediabetes remission, year1 adjusted MP_MGI versus HP_LGI
+    source_id: preview_secondary2025
+    source_url: https://link.springer.com/article/10.1007/s00125-025-06560-x
+    citation: Zhu R et al. Long-term effects of dietary protein and carbohydrate quality on prediabetes
+      remission. Diabetologia 69:81-92 (2026); published October 15, 2025.
+    population: Selected PREVIEW maintenance-eligible adults with source-defined prediabetes and overweight/obesity
+      after common initial weight loss; diet arms pool both physical-activity assignments.
+    geography: Denmark, Finland, UK, Netherlands, Spain, Bulgaria, Australia, New Zealand
+    time_period: Trial June 2013-March 2018; nominal baseline assessments at week52 and week156 include
+      initial8weeks; secondary report published2025
+    model_role: benchmark_only
+    outcome_definition: Source point-in-time normal fasting AND normal 2-hour OGTT glucose; no diagnosis
+      history, sustained untreated remission, or engine state inferred.
+    uncertainty:
+      kind: interval
+      low: 1.04
+      high: 1.53
+      rationale: Published adjusted modified-Poisson 95% confidence interval; cannot refit from marginal
+        counts or infer joint-year covariance.
+    transformation: Literal source value retained; no annualization, imputation, active calibration or national
+      transport.
+    notes: Used-source benchmark only. Evidence grade describes scoped usefulness with causal uncertainty;
+      randomization alone does not resolve selection, missingness or dose mapping.
+  preview_nominal_year1:
+    key: preview_nominal_year1
+    value: 1
+    unit: years
+    status: observed
+    evidence_grade: C
+    source: Secondary main source-labeled year1 assessment; original2017 section2.6 schedule
+    source_id: preview_secondary2025
+    source_url: https://link.springer.com/article/10.1007/s00125-025-06560-x
+    citation: Zhu R et al. Long-term effects of dietary protein and carbohydrate quality on prediabetes
+      remission. Diabetologia 69:81-92 (2026); published October 15, 2025.
+    population: Selected PREVIEW maintenance-eligible adults with source-defined prediabetes and overweight/obesity
+      after common initial weight loss; diet arms pool both physical-activity assignments.
+    geography: Denmark, Finland, UK, Netherlands, Spain, Bulgaria, Australia, New Zealand
+    time_period: Trial June 2013-March 2018; nominal baseline assessments at week52 and week156 include
+      initial8weeks; secondary report published2025
+    model_role: benchmark_only
+    outcome_definition: Source point-in-time normal fasting AND normal 2-hour OGTT glucose; no diagnosis
+      history, sustained untreated remission, or engine state inferred.
+    uncertainty:
+      kind: fixed
+      rationale: Literal published count or endpoint/schedule definition, not a population estimate or sampling
+        distribution. Missingness and source limitations remain explicit.
+    transformation: Literal source value retained; no annualization, imputation, active calibration or national
+      transport.
+    notes: Used-source benchmark only. Evidence grade describes scoped usefulness with causal uncertainty;
+      randomization alone does not resolve selection, missingness or dose mapping.
+  preview_y3_MP_MGI_normal_count:
+    key: preview_y3_MP_MGI_normal_count
+    value: 97
+    unit: people
+    status: observed
+    evidence_grade: C
+    source: Secondary main Results/Prediabetes remission, year3 MP_MGI numerator
+    source_id: preview_secondary2025
+    source_url: https://link.springer.com/article/10.1007/s00125-025-06560-x
+    citation: Zhu R et al. Long-term effects of dietary protein and carbohydrate quality on prediabetes
+      remission. Diabetologia 69:81-92 (2026); published October 15, 2025.
+    population: Selected PREVIEW maintenance-eligible adults with source-defined prediabetes and overweight/obesity
+      after common initial weight loss; diet arms pool both physical-activity assignments.
+    geography: Denmark, Finland, UK, Netherlands, Spain, Bulgaria, Australia, New Zealand
+    time_period: Trial June 2013-March 2018; nominal baseline assessments at week52 and week156 include
+      initial8weeks; secondary report published2025
+    model_role: benchmark_only
+    outcome_definition: Source point-in-time normal fasting AND normal 2-hour OGTT glucose; no diagnosis
+      history, sustained untreated remission, or engine state inferred.
+    uncertainty:
+      kind: fixed
+      rationale: Literal published count or endpoint/schedule definition, not a population estimate or sampling
+        distribution. Missingness and source limitations remain explicit.
+    transformation: Literal source value retained; no annualization, imputation, active calibration or national
+      transport.
+    notes: Used-source benchmark only. Evidence grade describes scoped usefulness with causal uncertainty;
+      randomization alone does not resolve selection, missingness or dose mapping.
+  preview_y3_MP_MGI_endpoint_n:
+    key: preview_y3_MP_MGI_endpoint_n
+    value: 472
+    unit: people
+    status: observed
+    evidence_grade: C
+    source: Secondary main Results/Prediabetes remission, year3 MP_MGI endpoint denominator
+    source_id: preview_secondary2025
+    source_url: https://link.springer.com/article/10.1007/s00125-025-06560-x
+    citation: Zhu R et al. Long-term effects of dietary protein and carbohydrate quality on prediabetes
+      remission. Diabetologia 69:81-92 (2026); published October 15, 2025.
+    population: Selected PREVIEW maintenance-eligible adults with source-defined prediabetes and overweight/obesity
+      after common initial weight loss; diet arms pool both physical-activity assignments.
+    geography: Denmark, Finland, UK, Netherlands, Spain, Bulgaria, Australia, New Zealand
+    time_period: Trial June 2013-March 2018; nominal baseline assessments at week52 and week156 include
+      initial8weeks; secondary report published2025
+    model_role: benchmark_only
+    outcome_definition: Source point-in-time normal fasting AND normal 2-hour OGTT glucose; no diagnosis
+      history, sustained untreated remission, or engine state inferred.
+    uncertainty:
+      kind: fixed
+      rationale: Literal published count or endpoint/schedule definition, not a population estimate or sampling
+        distribution. Missingness and source limitations remain explicit.
+    transformation: Literal source value retained; no annualization, imputation, active calibration or national
+      transport.
+    notes: Used-source benchmark only. Evidence grade describes scoped usefulness with causal uncertainty;
+      randomization alone does not resolve selection, missingness or dose mapping.
+  preview_y3_HP_LGI_normal_count:
+    key: preview_y3_HP_LGI_normal_count
+    value: 73
+    unit: people
+    status: observed
+    evidence_grade: C
+    source: Secondary main Results/Prediabetes remission, year3 HP_LGI numerator
+    source_id: preview_secondary2025
+    source_url: https://link.springer.com/article/10.1007/s00125-025-06560-x
+    citation: Zhu R et al. Long-term effects of dietary protein and carbohydrate quality on prediabetes
+      remission. Diabetologia 69:81-92 (2026); published October 15, 2025.
+    population: Selected PREVIEW maintenance-eligible adults with source-defined prediabetes and overweight/obesity
+      after common initial weight loss; diet arms pool both physical-activity assignments.
+    geography: Denmark, Finland, UK, Netherlands, Spain, Bulgaria, Australia, New Zealand
+    time_period: Trial June 2013-March 2018; nominal baseline assessments at week52 and week156 include
+      initial8weeks; secondary report published2025
+    model_role: benchmark_only
+    outcome_definition: Source point-in-time normal fasting AND normal 2-hour OGTT glucose; no diagnosis
+      history, sustained untreated remission, or engine state inferred.
+    uncertainty:
+      kind: fixed
+      rationale: Literal published count or endpoint/schedule definition, not a population estimate or sampling
+        distribution. Missingness and source limitations remain explicit.
+    transformation: Literal source value retained; no annualization, imputation, active calibration or national
+      transport.
+    notes: Used-source benchmark only. Evidence grade describes scoped usefulness with causal uncertainty;
+      randomization alone does not resolve selection, missingness or dose mapping.
+  preview_y3_HP_LGI_endpoint_n:
+    key: preview_y3_HP_LGI_endpoint_n
+    value: 471
+    unit: people
+    status: observed
+    evidence_grade: C
+    source: Secondary main Results/Prediabetes remission, year3 HP_LGI endpoint denominator
+    source_id: preview_secondary2025
+    source_url: https://link.springer.com/article/10.1007/s00125-025-06560-x
+    citation: Zhu R et al. Long-term effects of dietary protein and carbohydrate quality on prediabetes
+      remission. Diabetologia 69:81-92 (2026); published October 15, 2025.
+    population: Selected PREVIEW maintenance-eligible adults with source-defined prediabetes and overweight/obesity
+      after common initial weight loss; diet arms pool both physical-activity assignments.
+    geography: Denmark, Finland, UK, Netherlands, Spain, Bulgaria, Australia, New Zealand
+    time_period: Trial June 2013-March 2018; nominal baseline assessments at week52 and week156 include
+      initial8weeks; secondary report published2025
+    model_role: benchmark_only
+    outcome_definition: Source point-in-time normal fasting AND normal 2-hour OGTT glucose; no diagnosis
+      history, sustained untreated remission, or engine state inferred.
+    uncertainty:
+      kind: fixed
+      rationale: Literal published count or endpoint/schedule definition, not a population estimate or sampling
+        distribution. Missingness and source limitations remain explicit.
+    transformation: Literal source value retained; no annualization, imputation, active calibration or national
+      transport.
+    notes: Used-source benchmark only. Evidence grade describes scoped usefulness with causal uncertainty;
+      randomization alone does not resolve selection, missingness or dose mapping.
+  preview_y3_adjusted_rr:
+    key: preview_y3_adjusted_rr
+    value: 1.26
+    unit: risk_ratio
+    status: estimated
+    evidence_grade: C
+    source: Secondary main Results/Prediabetes remission, year3 adjusted MP_MGI versus HP_LGI
+    source_id: preview_secondary2025
+    source_url: https://link.springer.com/article/10.1007/s00125-025-06560-x
+    citation: Zhu R et al. Long-term effects of dietary protein and carbohydrate quality on prediabetes
+      remission. Diabetologia 69:81-92 (2026); published October 15, 2025.
+    population: Selected PREVIEW maintenance-eligible adults with source-defined prediabetes and overweight/obesity
+      after common initial weight loss; diet arms pool both physical-activity assignments.
+    geography: Denmark, Finland, UK, Netherlands, Spain, Bulgaria, Australia, New Zealand
+    time_period: Trial June 2013-March 2018; nominal baseline assessments at week52 and week156 include
+      initial8weeks; secondary report published2025
+    model_role: benchmark_only
+    outcome_definition: Source point-in-time normal fasting AND normal 2-hour OGTT glucose; no diagnosis
+      history, sustained untreated remission, or engine state inferred.
+    uncertainty:
+      kind: interval
+      low: 1.06
+      high: 1.5
+      rationale: Published adjusted modified-Poisson 95% confidence interval; cannot refit from marginal
+        counts or infer joint-year covariance.
+    transformation: Literal source value retained; no annualization, imputation, active calibration or national
+      transport.
+    notes: Used-source benchmark only. Evidence grade describes scoped usefulness with causal uncertainty;
+      randomization alone does not resolve selection, missingness or dose mapping.
+  preview_nominal_year3:
+    key: preview_nominal_year3
+    value: 3
+    unit: years
+    status: observed
+    evidence_grade: C
+    source: Secondary main source-labeled year3 assessment; original2017 section2.6 schedule
+    source_id: preview_secondary2025
+    source_url: https://link.springer.com/article/10.1007/s00125-025-06560-x
+    citation: Zhu R et al. Long-term effects of dietary protein and carbohydrate quality on prediabetes
+      remission. Diabetologia 69:81-92 (2026); published October 15, 2025.
+    population: Selected PREVIEW maintenance-eligible adults with source-defined prediabetes and overweight/obesity
+      after common initial weight loss; diet arms pool both physical-activity assignments.
+    geography: Denmark, Finland, UK, Netherlands, Spain, Bulgaria, Australia, New Zealand
+    time_period: Trial June 2013-March 2018; nominal baseline assessments at week52 and week156 include
+      initial8weeks; secondary report published2025
+    model_role: benchmark_only
+    outcome_definition: Source point-in-time normal fasting AND normal 2-hour OGTT glucose; no diagnosis
+      history, sustained untreated remission, or engine state inferred.
+    uncertainty:
+      kind: fixed
+      rationale: Literal published count or endpoint/schedule definition, not a population estimate or sampling
+        distribution. Missingness and source limitations remain explicit.
+    transformation: Literal source value retained; no annualization, imputation, active calibration or national
+      transport.
+    notes: Used-source benchmark only. Evidence grade describes scoped usefulness with causal uncertainty;
+      randomization alone does not resolve selection, missingness or dose mapping.
+  preview_normal_fasting_threshold:
+    key: preview_normal_fasting_threshold
+    value: 5.6
+    unit: mmol/L
+    status: observed
+    evidence_grade: C
+    source: Secondary main Methods/Outcomes, fasting glucose strictly below threshold
+    source_id: preview_secondary2025
+    source_url: https://link.springer.com/article/10.1007/s00125-025-06560-x
+    citation: Zhu R et al. Long-term effects of dietary protein and carbohydrate quality on prediabetes
+      remission. Diabetologia 69:81-92 (2026); published October 15, 2025.
+    population: Selected PREVIEW maintenance-eligible adults with source-defined prediabetes and overweight/obesity
+      after common initial weight loss; diet arms pool both physical-activity assignments.
+    geography: Denmark, Finland, UK, Netherlands, Spain, Bulgaria, Australia, New Zealand
+    time_period: Trial June 2013-March 2018; nominal baseline assessments at week52 and week156 include
+      initial8weeks; secondary report published2025
+    model_role: benchmark_only
+    outcome_definition: Source point-in-time normal fasting AND normal 2-hour OGTT glucose; no diagnosis
+      history, sustained untreated remission, or engine state inferred.
+    uncertainty:
+      kind: fixed
+      rationale: Literal published count or endpoint/schedule definition, not a population estimate or sampling
+        distribution. Missingness and source limitations remain explicit.
+    transformation: Literal source value retained; no annualization, imputation, active calibration or national
+      transport.
+    notes: Used-source benchmark only. Evidence grade describes scoped usefulness with causal uncertainty;
+      randomization alone does not resolve selection, missingness or dose mapping.
+  preview_normal_ogtt_threshold:
+    key: preview_normal_ogtt_threshold
+    value: 7.8
+    unit: mmol/L
+    status: observed
+    evidence_grade: C
+    source: Secondary main Methods/Outcomes, 2hour glucose strictly below threshold
+    source_id: preview_secondary2025
+    source_url: https://link.springer.com/article/10.1007/s00125-025-06560-x
+    citation: Zhu R et al. Long-term effects of dietary protein and carbohydrate quality on prediabetes
+      remission. Diabetologia 69:81-92 (2026); published October 15, 2025.
+    population: Selected PREVIEW maintenance-eligible adults with source-defined prediabetes and overweight/obesity
+      after common initial weight loss; diet arms pool both physical-activity assignments.
+    geography: Denmark, Finland, UK, Netherlands, Spain, Bulgaria, Australia, New Zealand
+    time_period: Trial June 2013-March 2018; nominal baseline assessments at week52 and week156 include
+      initial8weeks; secondary report published2025
+    model_role: benchmark_only
+    outcome_definition: Source point-in-time normal fasting AND normal 2-hour OGTT glucose; no diagnosis
+      history, sustained untreated remission, or engine state inferred.
+    uncertainty:
+      kind: fixed
+      rationale: Literal published count or endpoint/schedule definition, not a population estimate or sampling
+        distribution. Missingness and source limitations remain explicit.
+    transformation: Literal source value retained; no annualization, imputation, active calibration or national
+      transport.
+    notes: Used-source benchmark only. Evidence grade describes scoped usefulness with causal uncertainty;
+      randomization alone does not resolve selection, missingness or dose mapping.
+  preview_year1_window_weeks:
+    key: preview_year1_window_weeks
+    value: 2
+    unit: weeks
+    status: observed
+    evidence_grade: C
+    source: Original2017 section2.6, pinned PDFp8, year1 nominal visit +/-2weeks
+    source_id: preview_protocol2017
+    source_url: https://cronfa.swan.ac.uk/Record/cronfa34410/Download/0034410-21062017091740.pdf
+    citation: 'Fogelholm M et al. PREVIEW: Prevention of Diabetes through Lifestyle Intervention and Population
+      Studies in Europe and around the World. Nutrients 2017;9(6):632.'
+    population: Selected PREVIEW maintenance-eligible adults with source-defined prediabetes and overweight/obesity
+      after common initial weight loss; diet arms pool both physical-activity assignments.
+    geography: Denmark, Finland, UK, Netherlands, Spain, Bulgaria, Australia, New Zealand
+    time_period: Trial June 2013-March 2018; nominal baseline assessments at week52 and week156 include
+      initial8weeks; secondary report published2025
+    model_role: benchmark_only
+    outcome_definition: Source point-in-time normal fasting AND normal 2-hour OGTT glucose; no diagnosis
+      history, sustained untreated remission, or engine state inferred.
+    uncertainty:
+      kind: fixed
+      rationale: Literal published count or endpoint/schedule definition, not a population estimate or sampling
+        distribution. Missingness and source limitations remain explicit.
+    transformation: Literal source value retained; no annualization, imputation, active calibration or national
+      transport.
+    notes: Used-source benchmark only. Evidence grade describes scoped usefulness with causal uncertainty;
+      randomization alone does not resolve selection, missingness or dose mapping.
+  preview_later_window_weeks:
+    key: preview_later_window_weeks
+    value: 4
+    unit: weeks
+    status: observed
+    evidence_grade: C
+    source: Original2017 section2.6, pinned PDFp8, later nominal visits +/-4weeks
+    source_id: preview_protocol2017
+    source_url: https://cronfa.swan.ac.uk/Record/cronfa34410/Download/0034410-21062017091740.pdf
+    citation: 'Fogelholm M et al. PREVIEW: Prevention of Diabetes through Lifestyle Intervention and Population
+      Studies in Europe and around the World. Nutrients 2017;9(6):632.'
+    population: Selected PREVIEW maintenance-eligible adults with source-defined prediabetes and overweight/obesity
+      after common initial weight loss; diet arms pool both physical-activity assignments.
+    geography: Denmark, Finland, UK, Netherlands, Spain, Bulgaria, Australia, New Zealand
+    time_period: Trial June 2013-March 2018; nominal baseline assessments at week52 and week156 include
+      initial8weeks; secondary report published2025
+    model_role: benchmark_only
+    outcome_definition: Source point-in-time normal fasting AND normal 2-hour OGTT glucose; no diagnosis
+      history, sustained untreated remission, or engine state inferred.
+    uncertainty:
+      kind: fixed
+      rationale: Literal published count or endpoint/schedule definition, not a population estimate or sampling
+        distribution. Missingness and source limitations remain explicit.
+    transformation: Literal source value retained; no annualization, imputation, active calibration or national
+      transport.
+    notes: Used-source benchmark only. Evidence grade describes scoped usefulness with causal uncertainty;
+      randomization alone does not resolve selection, missingness or dose mapping.
+  preview_run_in_weeks:
+    key: preview_run_in_weeks
+    value: 8
+    unit: weeks
+    status: observed
+    evidence_grade: C
+    source: Secondary main Methods/Study design, common initial8weeks
+    source_id: preview_secondary2025
+    source_url: https://link.springer.com/article/10.1007/s00125-025-06560-x
+    citation: Zhu R et al. Long-term effects of dietary protein and carbohydrate quality on prediabetes
+      remission. Diabetologia 69:81-92 (2026); published October 15, 2025.
+    population: Selected PREVIEW maintenance-eligible adults with source-defined prediabetes and overweight/obesity
+      after common initial weight loss; diet arms pool both physical-activity assignments.
+    geography: Denmark, Finland, UK, Netherlands, Spain, Bulgaria, Australia, New Zealand
+    time_period: Trial June 2013-March 2018; nominal baseline assessments at week52 and week156 include
+      initial8weeks; secondary report published2025
+    model_role: benchmark_only
+    outcome_definition: Source point-in-time normal fasting AND normal 2-hour OGTT glucose; no diagnosis
+      history, sustained untreated remission, or engine state inferred.
+    uncertainty:
+      kind: fixed
+      rationale: Literal published count or endpoint/schedule definition, not a population estimate or sampling
+        distribution. Missingness and source limitations remain explicit.
+    transformation: Literal source value retained; no annualization, imputation, active calibration or national
+      transport.
+    notes: Used-source benchmark only. Evidence grade describes scoped usefulness with causal uncertainty;
+      randomization alone does not resolve selection, missingness or dose mapping.
+  preview_year1_nominal_week:
+    key: preview_year1_nominal_week
+    value: 52.0
+    unit: weeks
+    status: observed
+    evidence_grade: C
+    source: Original2021 report section2.1 Participants; pinned PDF physicalpage3/printed326, explicit schedule
+      (baseline,8,26,52,78,104,156weeks); schedule labels only
+    source_url: https://cronfa.swansea.ac.uk/Record/cronfa55357/Download/55357__19030__2bbf34df7331454a91a2476c2bdb611a.pdf
+    citation: 'Raben A et al. The PREVIEW intervention study: Results from a 3-year randomized 2 x 2 factorial
+      multinational trial investigating the role of protein, glycaemic index and physical activity for prevention
+      of type 2 diabetes. Diabetes Obesity and Metabolism 2021;23:324-337.'
+    population: Selected PREVIEW maintenance-eligible adults with source-defined prediabetes and overweight/obesity
+      after common initial weight loss; diet arms pool both physical-activity assignments.
+    geography: Denmark, Finland, UK, Netherlands, Spain, Bulgaria, Australia, New Zealand
+    time_period: Trial June 2013-March 2018; nominal baseline assessments at week52 and week156 include
+      initial8weeks; secondary report published2025
+    outcome_definition: Source point-in-time normal fasting AND normal 2-hour OGTT glucose; no diagnosis
+      history, sustained untreated remission, or engine state inferred.
+    uncertainty:
+      kind: fixed
+      rationale: Literal published count or endpoint/schedule definition, not a population estimate or sampling
+        distribution. Missingness and source limitations remain explicit.
+    transformation: Literal source value retained; no annualization, imputation, active calibration or national
+      transport.
+    model_role: benchmark_only
+    notes: Used-source benchmark only. Evidence grade describes scoped usefulness with causal uncertainty;
+      randomization alone does not resolve selection, missingness or dose mapping.
+    unresolved: false
+    source_id: preview_original2021
+  preview_year3_nominal_week:
+    key: preview_year3_nominal_week
+    value: 156.0
+    unit: weeks
+    status: observed
+    evidence_grade: C
+    source: Original2021 report section2.1 Participants; pinned PDF physicalpage3/printed326, explicit schedule
+      (baseline,8,26,52,78,104,156weeks); schedule labels only
+    source_url: https://cronfa.swansea.ac.uk/Record/cronfa55357/Download/55357__19030__2bbf34df7331454a91a2476c2bdb611a.pdf
+    citation: 'Raben A et al. The PREVIEW intervention study: Results from a 3-year randomized 2 x 2 factorial
+      multinational trial investigating the role of protein, glycaemic index and physical activity for prevention
+      of type 2 diabetes. Diabetes Obesity and Metabolism 2021;23:324-337.'
+    population: Selected PREVIEW maintenance-eligible adults with source-defined prediabetes and overweight/obesity
+      after common initial weight loss; diet arms pool both physical-activity assignments.
+    geography: Denmark, Finland, UK, Netherlands, Spain, Bulgaria, Australia, New Zealand
+    time_period: Trial June 2013-March 2018; nominal baseline assessments at week52 and week156 include
+      initial8weeks; secondary report published2025
+    outcome_definition: Source point-in-time normal fasting AND normal 2-hour OGTT glucose; no diagnosis
+      history, sustained untreated remission, or engine state inferred.
+    uncertainty:
+      kind: fixed
+      rationale: Literal published count or endpoint/schedule definition, not a population estimate or sampling
+        distribution. Missingness and source limitations remain explicit.
+    transformation: Literal source value retained; no annualization, imputation, active calibration or national
+      transport.
+    model_role: benchmark_only
+    notes: Used-source benchmark only. Evidence grade describes scoped usefulness with causal uncertainty;
+      randomization alone does not resolve selection, missingness or dose mapping.
+    unresolved: false
+    source_id: preview_original2021
+  preview_reported_confidence_level:
+    key: preview_reported_confidence_level
+    value: 0.95
+    unit: proportion
+    status: observed
+    evidence_grade: C
+    source: Secondary main Methods/Statistical analysis, reported95% confidence intervals
+    source_id: preview_secondary2025
+    source_url: https://link.springer.com/article/10.1007/s00125-025-06560-x
+    citation: Zhu R et al. Long-term effects of dietary protein and carbohydrate quality on prediabetes
+      remission. Diabetologia 69:81-92 (2026); published October 15, 2025.
+    population: Selected PREVIEW maintenance-eligible adults with source-defined prediabetes and overweight/obesity
+      after common initial weight loss; diet arms pool both physical-activity assignments.
+    geography: Denmark, Finland, UK, Netherlands, Spain, Bulgaria, Australia, New Zealand
+    time_period: Trial June 2013-March 2018; nominal baseline assessments at week52 and week156 include
+      initial8weeks; secondary report published2025
+    model_role: benchmark_only
+    outcome_definition: Source point-in-time normal fasting AND normal 2-hour OGTT glucose; no diagnosis
+      history, sustained untreated remission, or engine state inferred.
+    uncertainty:
+      kind: fixed
+      rationale: Literal published count or endpoint/schedule definition, not a population estimate or sampling
+        distribution. Missingness and source limitations remain explicit.
+    transformation: Literal source value retained; no annualization, imputation, active calibration or national
+      transport.
+    notes: Used-source benchmark only. Evidence grade describes scoped usefulness with causal uncertainty;
+      randomization alone does not resolve selection, missingness or dose mapping.
+
 datasets:
   mortality_validation:
     status: derived
@@ -2984,6 +3589,89 @@ datasets:
     time_period: None
     unit: Observation records with separate source-year and relative-day units
 
+  preview_endpoint_benchmark:
+    context_path: docs/validation/preview-endpoint-context-amendment-3.json
+    context_sha256: d79bd32f99b6aa17b2258b613f90186ce5a796910dadadc3875afa860ab8bb98
+    status: derived
+    evidence_grade: C
+    model_role: benchmark_only
+    population: Selected PREVIEW maintenance-eligible adults with source-defined prediabetes and overweight/obesity
+      after common initial weight loss; diet arms pool both physical-activity assignments.
+    geography: Denmark, Finland, UK, Netherlands, Spain, Bulgaria, Australia, New Zealand
+    time_period: Trial June 2013-March 2018; nominal baseline assessments at week52 and week156 include
+      initial8weeks; secondary report published2025
+    unit: Source-specific binary normal-glucose endpoint proportions, absolute proportion-point contrasts
+      and deterministic missing-label envelopes
+    source_ids:
+      secondary: preview_secondary2025
+      protocol2017: preview_protocol2017
+      esm: preview_esm2025
+      original2021: preview_original2021
+    protocol_path: docs/validation/preview-endpoint-protocol-v1.json
+    protocol_sha256: b9cc9b76f545c7ddf753d90ecd52a8476265f86223c1c741e3cf8508c43d7e86
+    amendment_path: docs/validation/preview-endpoint-amendment-1.json
+    amendment_sha256: 86afebf2fca317251e57ead857199d47a86672657af827e3cd4080c8108de61f
+    receipts_path: docs/validation/preview-source-receipts.json
+    receipts_sha256: 6f7d8e51666a60709d4ccc48846c77f579ed1d312bfa8921ba2e465ce1de71e6
+    analysis:
+      locator: Secondary main Methods/Outcomes/Statisticalanalysis; Results/Participants and Prediabetesremission;
+        Figure1a caption. Already inspected used-source cells only.
+      selected_phase2_cohort_N:
+        MP_MGI: 923
+        HP_LGI: 933
+      endpoints:
+      - nominal_year: 1
+        MP_MGI:
+          normal_count_y: 159
+          source_endpoint_denominator_n: 604
+        HP_LGI:
+          normal_count_y: 134
+          source_endpoint_denominator_n: 646
+        published_adjusted_RR_MP_vs_HP: 1.26
+        published_RR_CI_lower: 1.04
+        published_RR_CI_upper: 1.53
+      - nominal_year: 3
+        MP_MGI:
+          normal_count_y: 97
+          source_endpoint_denominator_n: 472
+        HP_LGI:
+          normal_count_y: 73
+          source_endpoint_denominator_n: 471
+        published_adjusted_RR_MP_vs_HP: 1.26
+        published_RR_CI_lower: 1.06
+        published_RR_CI_upper: 1.5
+      confidence_interval_level: Source-reported95%; retain as published adjusted-model uncertainty, not
+        a count-derived confidence interval.
+      additional_result_cells: Not authorized for the first numerical reproduction; retain previously viewed
+        auxiliary results as used-source context only.
+    parameter_keys:
+    - preview_later_window_weeks
+    - preview_nominal_year1
+    - preview_nominal_year3
+    - preview_normal_fasting_threshold
+    - preview_normal_ogtt_threshold
+    - preview_reported_confidence_level
+    - preview_run_in_weeks
+    - preview_selected_HP_LGI_n
+    - preview_selected_MP_MGI_n
+    - preview_y1_HP_LGI_endpoint_n
+    - preview_y1_HP_LGI_normal_count
+    - preview_y1_MP_MGI_endpoint_n
+    - preview_y1_MP_MGI_normal_count
+    - preview_y1_adjusted_rr
+    - preview_y3_HP_LGI_endpoint_n
+    - preview_y3_HP_LGI_normal_count
+    - preview_y3_MP_MGI_endpoint_n
+    - preview_y3_MP_MGI_normal_count
+    - preview_y3_adjusted_rr
+    - preview_year1_nominal_week
+    - preview_year1_window_weeks
+    - preview_year3_nominal_week
+    uncertainty: Published adjusted RR confidence intervals retained separately from deterministic completion
+      bounds; no new sampling intervals, imputation, pooling or invented covariance.
+    clinical_fit_allowed: false
+    engine_activation_allowed: false
+
 scientific_blockers:
 - National age-specific metabolic transition hazards are unresolved.
 - Age-specific T2D/prediabetes initial prevalence is not calibrated; CDC total diabetes includes
@@ -3112,3 +3800,57 @@ sources:
     license: Public documentation access only; no unrestricted participant-record access
       or full-content redistribution license assumed.
     correction_note: Catalog snapshot retrieved September 30, 2026; data version 9
+
+  preview_secondary2025:
+    url: https://link.springer.com/article/10.1007/s00125-025-06560-x
+    citation: Zhu R et al. Long-term effects of dietary protein and carbohydrate quality on prediabetes
+      remission. Diabetologia 69:81-92 (2026); published October 15, 2025.
+    doi: 10.1007/s00125-025-06560-x
+    raw_filename: preview-secondary-main-pinned.html
+    sha256: 3b90fb9118f14ac46bb26fb8b23f54e51bd4a9e9b0e91bc1253c335303d73cea
+    retrieved_at: '2026-09-30T21:49:16.664840+00:00'
+    license: Public publication documents retained fetch-only. Secondary article/ESM CC BY 4.0 with third-party
+      exceptions; original-source license conditions remain independent. No participant data acquired; reasonable-request
+      access is not unrestricted.
+    correction_note: Used-source reproduction; source-specific versions and conflicts retained. Exact final
+      URL and HTTP metadata in frozen PREVIEW receipts.
+  preview_protocol2017:
+    url: https://cronfa.swan.ac.uk/Record/cronfa34410/Download/0034410-21062017091740.pdf
+    citation: 'Fogelholm M et al. PREVIEW: Prevention of Diabetes through Lifestyle Intervention and Population
+      Studies in Europe and around the World. Nutrients 2017;9(6):632.'
+    doi: 10.3390/nu9060632
+    raw_filename: preview-original-protocol-2017-pinned.pdf
+    sha256: 412e30ad3b3ce5f02a37fd647f6220e3c4148eb54e9c7c13332c3ea2a22614da
+    retrieved_at: '2026-09-30T21:50:17.842897+00:00'
+    license: Public publication documents retained fetch-only. Secondary article/ESM CC BY 4.0 with third-party
+      exceptions; original-source license conditions remain independent. No participant data acquired; reasonable-request
+      access is not unrestricted.
+    correction_note: Used-source reproduction; source-specific versions and conflicts retained. Exact final
+      URL and HTTP metadata in frozen PREVIEW receipts.
+  preview_esm2025:
+    url: https://media.springernature.com/original/springer-static/esm/art%3A10.1007%2Fs00125-025-06560-x/MediaObjects/125_2025_6560_MOESM1_ESM.pdf
+    citation: Zhu R et al. Electronic supplementary material to Diabetologia DOI 10.1007/s00125-025-06560-x,
+      2025.
+    doi: 10.1007/s00125-025-06560-x
+    raw_filename: preview-esm-reverified-20260930T221301384509Z.pdf
+    sha256: 1bd4ccdbe890126efa3e6cab4a826e26bdb5a17be8fea1d722ab0ab648433573
+    retrieved_at: '2026-09-30T22:13:02.263579+00:00'
+    license: Public publication documents retained fetch-only. Secondary article/ESM CC BY 4.0 with third-party
+      exceptions; original-source license conditions remain independent. No participant data acquired; reasonable-request
+      access is not unrestricted.
+    correction_note: Used-source reproduction; source-specific versions and conflicts retained. Exact final
+      URL and HTTP metadata in frozen PREVIEW receipts.
+  preview_original2021:
+    url: https://cronfa.swansea.ac.uk/Record/cronfa55357/Download/55357__19030__2bbf34df7331454a91a2476c2bdb611a.pdf
+    citation: 'Raben A et al. The PREVIEW intervention study: Results from a 3-year randomized 2 x 2 factorial
+      multinational trial investigating the role of protein, glycaemic index and physical activity for prevention
+      of type 2 diabetes. Diabetes Obesity and Metabolism 2021;23:324-337.'
+    doi: 10.1111/dom.14219
+    raw_filename: preview-original2021-reverified-20260930T221301530928Z.pdf
+    sha256: 0d1be2b49e4963a481c4810ebc830460c69bba253f719c2a38209fcd84ee08b5
+    retrieved_at: '2026-09-30T22:13:09.662844+00:00'
+    license: Public publication documents retained fetch-only. Secondary article/ESM CC BY 4.0 with third-party
+      exceptions; original-source license conditions remain independent. No participant data acquired; reasonable-request
+      access is not unrestricted.
+    correction_note: Used-source reproduction; source-specific versions and conflicts retained. Exact final
+      URL and HTTP metadata in frozen PREVIEW receipts.

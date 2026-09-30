@@ -2,6 +2,14 @@
 
 Demeter treats evidence as part of the model, not as prose surrounding the model.
 
+The [PREVIEW endpoint benchmark](../docs/PREVIEW_ENDPOINT_AUDIT.md) registers
+literal cohort/count/definition values and published adjusted risk ratios under
+`preview_endpoint_benchmark`. All are `benchmark_only`. Fixed uncertainty on
+literal counts records the published value; it supplies no population sampling
+distribution. Reported adjusted intervals and deterministic missing-label
+envelopes remain separate. No clinical hazard, dietary dose, lag or national
+parameter is activated.
+
 Every substantive numeric parameter must be represented in `parameters.yaml` (or a future normalized successor) with units, status, provenance, evidence strength, and uncertainty where applicable.
 
 ## Status

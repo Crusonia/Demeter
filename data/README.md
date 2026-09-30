@@ -8,6 +8,12 @@ inputs, model assumptions, and simulation results distinct.
 Start with [dataset reuse and citation notices](NOTICE.md), the per-source
 [rights inventory](rights.json), and [evidence-package manifests](evidence-packages.json).
 
+The [PREVIEW endpoint package](../docs/PREVIEW_ENDPOINT_AUDIT.md) contains factual
+counts/estimates, source receipts, a frozen used-source analysis specification and
+a descriptive missing-label audit. Four complete publication documents remain
+fetch-only. The guide provides public-fetch and offline reproduction commands;
+participant records have not been requested or acquired.
+
 The [DPP preservation package](../docs/DPP_OBSERVATION_ADAPTER.md) contains public
 documentation receipts, a frozen field contract and synthetic aggregate checks.
 Full documents are fetch-only and participant records are request-only. Its

@@ -88,8 +88,16 @@ Medication recall windows, excluded calendar dates and version discrepancies
 are explicit; no source-year conversion or clinical fit is introduced. DPP's
 lifestyle package is not an isolated dietary effect.
 
+The [PREVIEW endpoint audit](PREVIEW_ENDPOINT_AUDIT.md) follows that source route
+with published normal-glucose endpoint counts. Its frozen used-source protocol
+separates available-endpoint descriptions, published adjusted effects, and
+deterministic missing-label completions. Source conflicts and unknown death,
+treatment, diagnosis history and repeated-year dependence remain explicit. It
+does not identify individual reversal, annual transition hazards, a consumed UPF
+dose, or a lag, and does not activate any engine parameter.
+
 Next, prioritize a compatible unrestricted longitudinal package or sufficient
-published aggregate observations for a precisely supported estimand. Further
+published observations for an identified progression/reversal likelihood. Further
 blank-form inspection cannot replace participant histories. Resolve timing,
 source selection, observation/censoring assumptions and likelihood identification;
 freeze joint-uncertainty and evaluation plans before fitting. Keep national
