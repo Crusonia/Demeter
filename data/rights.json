@@ -181,6 +181,22 @@
       ],
       "title": "DPP public documentation; conservative facts-only distribution",
       "transform": "Factual definitions and source receipts with original MIT software; no clinical effects or underlying participant records distributed."
+    },
+    "preview_public_facts": {
+      "title": "PREVIEW public publications and factual endpoint reproduction",
+      "terms_urls": [
+        "https://link.springer.com/article/10.1007/s00125-025-06560-x",
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "checked_on": "2026-09-30",
+      "redistribution": "facts_only",
+      "download": "Public publisher/author-repository publication URLs only; participant records remain reasonable-request and unacquired.",
+      "transform": "Reproduce literal factual endpoint counts and descriptive arithmetic with source attribution. Keep full raw documents fetch-only.",
+      "conditions": [
+        "Secondary main article/ESM state CC BY4.0 subject to credited third-party exceptions; source-specific original publication terms remain separate.",
+        "No raw full-document or participant-record redistribution. Facts/receipts and Demeter transforms only.",
+        "Do not relabel binary snapshots as clinical remission, annual transition risks or national dietary effects."
+      ]
     }
   },
   "source_files": {
@@ -876,6 +892,58 @@
       "sha256": "b5611c850dcfd56b0cb859668e44e91be0f6912b6529c13d148551661805c16c",
       "url": "https://repository.niddk.nih.gov/media/studies/dpp/Documents/Documentation%20for%20full%20scale%20DPP%20data%20release.pdf",
       "vintage": "Historical four-arm release; cutoff July 31, 2001"
+    },
+    "preview_secondary2025": {
+      "policy": "preview_public_facts",
+      "privacy": "publication",
+      "publisher": "PREVIEW publication authors; Springer Nature / Nutrients / Wiley; source-specific institutional repositories",
+      "vintage": "Zhu R et al. Long-term effects of dietary protein and carbohydrate quality on prediabetes remission. Diabetologia 69:81-92 (2026); published October 15, 2025.",
+      "citation": "Zhu R et al. Long-term effects of dietary protein and carbohydrate quality on prediabetes remission. Diabetologia 69:81-92 (2026); published October 15, 2025.",
+      "notes": "Public publication documents retained fetch-only. Secondary article/ESM CC BY 4.0 with third-party exceptions; original-source license conditions remain independent. No participant data acquired; reasonable-request access is not unrestricted.",
+      "url": "https://link.springer.com/article/10.1007/s00125-025-06560-x",
+      "sha256": "3b90fb9118f14ac46bb26fb8b23f54e51bd4a9e9b0e91bc1253c335303d73cea",
+      "retrieved_at": "2026-09-30T21:49:16.664840+00:00",
+      "distribution": "fetch_only",
+      "alternative": "Fetch public publication bytes locally and retain exact source receipts. Full participant records require a separate authorized application; none requested or acquired."
+    },
+    "preview_protocol2017": {
+      "policy": "preview_public_facts",
+      "privacy": "publication",
+      "publisher": "PREVIEW publication authors; Springer Nature / Nutrients / Wiley; source-specific institutional repositories",
+      "vintage": "Fogelholm M et al. PREVIEW: Prevention of Diabetes through Lifestyle Intervention and Population Studies in Europe and around the World. Nutrients 2017;9(6):632.",
+      "citation": "Fogelholm M et al. PREVIEW: Prevention of Diabetes through Lifestyle Intervention and Population Studies in Europe and around the World. Nutrients 2017;9(6):632.",
+      "notes": "Public publication documents retained fetch-only. Secondary article/ESM CC BY 4.0 with third-party exceptions; original-source license conditions remain independent. No participant data acquired; reasonable-request access is not unrestricted.",
+      "url": "https://cronfa.swan.ac.uk/Record/cronfa34410/Download/0034410-21062017091740.pdf",
+      "sha256": "412e30ad3b3ce5f02a37fd647f6220e3c4148eb54e9c7c13332c3ea2a22614da",
+      "retrieved_at": "2026-09-30T21:50:17.842897+00:00",
+      "distribution": "fetch_only",
+      "alternative": "Fetch public publication bytes locally and retain exact source receipts. Full participant records require a separate authorized application; none requested or acquired."
+    },
+    "preview_esm2025": {
+      "policy": "preview_public_facts",
+      "privacy": "publication",
+      "publisher": "PREVIEW publication authors; Springer Nature / Nutrients / Wiley; source-specific institutional repositories",
+      "vintage": "Zhu R et al. Electronic supplementary material to Diabetologia DOI 10.1007/s00125-025-06560-x, 2025.",
+      "citation": "Zhu R et al. Electronic supplementary material to Diabetologia DOI 10.1007/s00125-025-06560-x, 2025.",
+      "notes": "Public publication documents retained fetch-only. Secondary article/ESM CC BY 4.0 with third-party exceptions; original-source license conditions remain independent. No participant data acquired; reasonable-request access is not unrestricted.",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1007%2Fs00125-025-06560-x/MediaObjects/125_2025_6560_MOESM1_ESM.pdf",
+      "sha256": "1bd4ccdbe890126efa3e6cab4a826e26bdb5a17be8fea1d722ab0ab648433573",
+      "retrieved_at": "2026-09-30T22:13:02.263579+00:00",
+      "distribution": "fetch_only",
+      "alternative": "Fetch public publication bytes locally and retain exact source receipts. Full participant records require a separate authorized application; none requested or acquired."
+    },
+    "preview_original2021": {
+      "policy": "preview_public_facts",
+      "privacy": "publication",
+      "publisher": "PREVIEW publication authors; Springer Nature / Nutrients / Wiley; source-specific institutional repositories",
+      "vintage": "Raben A et al. The PREVIEW intervention study: Results from a 3-year randomized 2 x 2 factorial multinational trial investigating the role of protein, glycaemic index and physical activity for prevention of type 2 diabetes. Diabetes Obesity and Metabolism 2021;23:324-337.",
+      "citation": "Raben A et al. The PREVIEW intervention study: Results from a 3-year randomized 2 x 2 factorial multinational trial investigating the role of protein, glycaemic index and physical activity for prevention of type 2 diabetes. Diabetes Obesity and Metabolism 2021;23:324-337.",
+      "notes": "Public publication documents retained fetch-only. Secondary article/ESM CC BY 4.0 with third-party exceptions; original-source license conditions remain independent. No participant data acquired; reasonable-request access is not unrestricted.",
+      "url": "https://cronfa.swansea.ac.uk/Record/cronfa55357/Download/55357__19030__2bbf34df7331454a91a2476c2bdb611a.pdf",
+      "sha256": "0d1be2b49e4963a481c4810ebc830460c69bba253f719c2a38209fcd84ee08b5",
+      "retrieved_at": "2026-09-30T22:13:09.662844+00:00",
+      "distribution": "fetch_only",
+      "alternative": "Fetch public publication bytes locally and retain exact source receipts. Full participant records require a separate authorized application; none requested or acquired."
     }
   },
   "documentation_receipts": "docs/validation/dpp-coverage-source-receipts.json",

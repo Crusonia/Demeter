@@ -322,6 +322,31 @@ def reus_diabetes_evidence(
         raise typer.Exit(1)
 
 
+@evidence_app.command("preview-endpoints")
+def preview_endpoint_evidence(
+    raw: Annotated[
+        Path, typer.Option(help="Directory containing all four pinned PREVIEW publications")
+    ],
+    evidence: Path = DEFAULT_EVIDENCE,
+    output: Path | None = None,
+) -> None:
+    """Reproduce source normal-glucose endpoints and missing-label envelopes offline."""
+    from demeter.analysis.preview_endpoints import audit_preview
+    from demeter.data.nhanes import encoded
+
+    try:
+        report = audit_preview(registry(evidence), raw)
+    except (ValueError, OSError) as exc:
+        typer.echo(str(exc), err=True)
+        raise typer.Exit(1) from exc
+    if output:
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_bytes(encoded(report))
+    emit(report)
+    if not report["results"]["source_reproduction_passed"]:
+        raise typer.Exit(1)
+
+
 @evidence_app.command("pathway-compatibility")
 def pathway_compatibility_evidence(
     evidence: Path = DEFAULT_EVIDENCE,

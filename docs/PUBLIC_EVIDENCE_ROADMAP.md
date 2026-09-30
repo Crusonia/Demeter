@@ -1,5 +1,12 @@
 # Building Demeter with public evidence
 
+The [PREVIEW endpoint reproduction](PREVIEW_ENDPOINT_AUDIT.md) adds published
+normal-glucose snapshots under a frozen used-source specification. It keeps
+available-endpoint contrasts, adjusted trial estimates, and deterministic
+missing-label envelopes separate, while retaining source disagreements. It
+advances source appraisal for #57/#58; linked clinical transitions, dose/lag
+identification, independent validation and national transport remain open.
+
 The maintainer selected the public-source route on September 29, 2026. We can
 build useful, reproducible pieces without waiting for institutional data access.
 Each source has a specific job; combining public studies does not automatically

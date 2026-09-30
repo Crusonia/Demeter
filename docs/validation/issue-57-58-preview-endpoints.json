@@ -1,0 +1,500 @@
+{
+  "activation": {
+    "clinical_hazard_fit": false,
+    "dietary_coefficient_fit": false,
+    "engine_state_mapping": false,
+    "independent_backtest_claim": false,
+    "lag_fit": false,
+    "national_parameter_activation": false
+  },
+  "analysis_id": "preview_endpoint_benchmark",
+  "assessment": "used-source reproduction; not preregistration or independent validation",
+  "clarifications": {
+    "causal_assignment": "Conditional randomization among responders can be preserved by concealed allocation, identical run-in, and assignment-independent selection. Adherence assumptions concern dose/as-treated effects; an assignment-strategy effect does not automatically require them. Missingness assumptions are still required for available-case inference.",
+    "envelope_unknowns": "Only endpoint-unclassified persons enter N-n. Unknown treatment/history among assessed persons blocks untreated-remission interpretation but does not enlarge endpoint missingness. Mathematical binary-label completions do not assert survival or clinical state.",
+    "run_in": "Common run-in changes cannot identify its causal weight-loss effect without a comparison for that phase.",
+    "screening": "ESM pages1-2: HbA1c was not an eligibility measure. Prior-diabetes exclusion at screening does not establish complete biochemical, medication, or diagnosis history.",
+    "visit_windows": "Original2017 protocol section2.6, pinned PDF page8, documents nominal visit windows. Actual participant dates and adherence to windows remain unavailable from aggregate cells. Registry records these contextual window quantities before any use; calculations use source-labeled nominal assessments only."
+  },
+  "completion_interpretation": {
+    "amendment": "Only endpoint-unclassified persons enter N-n. Unknown treatment/history among assessed persons blocks untreated-remission interpretation but does not enlarge endpoint missingness. Mathematical binary-label completions do not assert survival or clinical state.",
+    "clinical_alive_and_normal_composite_interpretation_available": false,
+    "death_counts": null,
+    "death_status_inferred": false,
+    "definition": {
+      "conditions": "Compute selected-cohort completion bounds only after N/y/n reconciliation. If a literal clinical alive-and-normal composite cannot be tied to source assessment/death rules, publish the mathematical envelope with clinical-composite interpretation unavailable.",
+      "death": "Only a verified death before source assessment may be fixed as0 for an explicitly named alive-and-normal composite. It is not a normoglycemia state. No source death count/status is supplied by these main cells; remain unknown, never assume no deaths.",
+      "formulas": {
+        "contrast_lower": "L[MP_MGI,t]-U[HP_LGI,t]",
+        "contrast_upper": "U[MP_MGI,t]-L[HP_LGI,t]",
+        "lower": "L[a,t]=y[a,t]/N[a]",
+        "upper": "U[a,t]=(y[a,t]+N[a]-n[a,t])/N[a]"
+      },
+      "meaning": "Deterministic extreme missing-outcome completions; not confidence or credible intervals. Do not use the upper completion to imply death absence.",
+      "observed_negative": "Retain the available source binary endpoint noncase classification; missing tests are never negatives.",
+      "observed_positive": "Retain the published source normalization classification when the endpoint is available; do not infer physiological state or erase diagnosis.",
+      "target": "Binary endpoint completion for the original main selected-phase2 cohort; explicitly distinct from normality among survivors or clinical physiological recovery.",
+      "unknown": "Unclassified endpoint, unknown survival, unknown treatment history and absent test status stay unresolved. The mathematical completion envelope allows unclassified binary values0or1; this is sensitivity analysis, not observed outcomes or survival/remission probability."
+    },
+    "imputation": false,
+    "missingness_model": null,
+    "target": "binary source-endpoint label completion for selected phase2 cohort",
+    "unclassified_means_dropout_or_death": false,
+    "unknown_treatment_among_assessed_expands_N_minus_n": false
+  },
+  "denominator_reconciliation": [
+    "Verify literal y,n,N against pinned main source and exact locator, including arm and assessment labels; require integer0<=y<=n<=N.",
+    "Keep selected-phase2 N distinct from all-baseline randomized N, visit attendance/completers, complete-case sensitivity population and available endpoint n.",
+    "m=N-n denotes endpoint-unclassified people for the specified arm/time; it is not the paper dropout count and must not be presented as death/loss count.",
+    "Do not force endpoint n to equal attendance/completer counts. Preserve unexplained missing-test/analysis-selection reasons as unresolved.",
+    "Already inspected ESMp8 Table1 arm header/body denominators are inconsistent with main selected-arm N. Preserve conflict; no guessed typo correction or overwrite of main cells.",
+    "Original2021 report and secondaryESM auxiliary diabetes-incidence results differ in reported totals/analyses. Keep separate source vintages and estimands; never pool."
+  ],
+  "failure_dispositions": {
+    "auxiliary_source_conflict": "Keep source-specific versions; no silent correction or pooling.",
+    "bounds_include_zero_or_allow_opposing_effects": "Report that completion bounds do not identify direction; never tune assumptions to exclude the null.",
+    "hash_or_literal_cell_failure": "Stop numerical reproduction; retain discrepancy with source receipt; no repair by rounded percentages.",
+    "unreconciled_endpoint_denominator": "Retain literal counts and conditionally descriptive source proportion only; block selected-cohort bounds or composite interpretation as needed.",
+    "unresolved_medication_death_or_confirmation": "Block clinical remission/state/competing-risk interpretation; retain source measurement endpoint."
+  },
+  "identification_limits": [
+    "Missing-outcome status is not identified from randomization. No defaultMAR, missing-at-random imputation, last-observation-carried-forward or missing=noncase.",
+    "Conditional selected/assessed-arm contrast is not full randomized intention-to-treat dietary causal effect. Any stronger causal statement requires explicit selection, adherence, missingness and treatment assumptions.",
+    "Marginal endpoint counts do not identify individual transitions, number/direction of intervening changes, onset/recovery dates, annual transition intensities or remission persistence.",
+    "No joint-year overlaps/covariance supplied. Analyze each time separately; no product of year likelihoods, independent repeated-event treatment or pooled inferential effect.",
+    "Pooled diet comparisons average over both physical-activity assignments; separate protein/GI/carbohydrate effects and dose/adherence causal effects are not isolated.",
+    "The source does not identify the active engine UPF dose coefficient or lag, physiological insulin resistance, distinct progression/recovery multipliers, mortality, costs or national transport."
+  ],
+  "model_role": "benchmark_only",
+  "population": "Main secondary-analysis selected phase2 cohort: baseline source-defined prediabetes, overweight/obesity, successful common initial weight-loss phase, then received assigned maintenance intervention.",
+  "provenance": {
+    "amendment_sha256": "86afebf2fca317251e57ead857199d47a86672657af827e3cd4080c8108de61f",
+    "clinical_fit_performed": false,
+    "dataset_definition_sha256": "442043524ff97ead60cef1bdb403f5c7753ee17194418b39b02de1f6c74e0397",
+    "implementation_sha256": "0b2703dad2e4ba15fd74646fd3f8621817605894dc02cc539326ac7c70f7d727",
+    "individual_records_used": false,
+    "parameter_definitions_sha256": {
+      "preview_later_window_weeks": "3515042790b914f70fc913012f8aaa4a985a427d7bb831a0fa8a256b1bf8161e",
+      "preview_nominal_year1": "9a1de77a880730b12330e9eeb0c1bae0ab8a77e2d038d4987b88bac2073681b0",
+      "preview_nominal_year3": "819e6dbe759abbbed3214c0559cc73377d2fe524dbcbbcb0f9110f526e9cb8d8",
+      "preview_normal_fasting_threshold": "e9edc3d1acf83671a28ee465343f28651d6801f2637ef7bdf6e72e90a8a06084",
+      "preview_normal_ogtt_threshold": "1cd672f9a862def2dc24c43503aa6a206ff16758a70d1adc9f8cdebecad22549",
+      "preview_reported_confidence_level": "6e063862bbf1e4a14d8be80fddbb2537a8ba4112f46306adf3810773d5c7205d",
+      "preview_run_in_weeks": "bbd6fd843d31ab1e5bd4e45db5b1a9dddf413bb8c4bbf8477803d6d372c4d96a",
+      "preview_selected_HP_LGI_n": "457343fc472848365ee43f470d972c10ac655e3516dfa9842366a55473d169cc",
+      "preview_selected_MP_MGI_n": "b11ac469e9d49ba6fd37facbba11a4d29d285cc4c5321959b3a6ca8e0877fbe8",
+      "preview_y1_HP_LGI_endpoint_n": "52011934d5394f682044063e2378806e76ea47c32d99faa11cc3661949e9af35",
+      "preview_y1_HP_LGI_normal_count": "87e9eab209fccc2c32b0e003ce61f2a90ddc7bc8b0c838a24726249823e1459b",
+      "preview_y1_MP_MGI_endpoint_n": "30b2b4b29a65fbb1fd027fc157b0f7001421d6fa245351ca2082490899e07436",
+      "preview_y1_MP_MGI_normal_count": "cfbed71d4d8ac2ab73a576f5d3b63fbe1b8e08fe933ccb11f2c009f2b4a0d339",
+      "preview_y1_adjusted_rr": "d1d8276c8bce8c99317823015e6e2c4865264df8a4f17a52e378dfec66529af0",
+      "preview_y3_HP_LGI_endpoint_n": "b1be07bacf8923b562c3b38f8970dadcdfab561d9e961098bffee43906d61073",
+      "preview_y3_HP_LGI_normal_count": "3d4698eae3a90053dddb4d0e1d3ae7b332085446cf50ec1cfb0899f47cdfb561",
+      "preview_y3_MP_MGI_endpoint_n": "9b19c60e68b264c8bd65379cb97c469d435cb9d77f582939cc5fdb161abea6df",
+      "preview_y3_MP_MGI_normal_count": "4173afbaf147b4ec08d4e6e8f89b6e9703fb83151f1bde824c66ec51e987af15",
+      "preview_y3_adjusted_rr": "69e8876203da3df733fa653d3b08eddc6522daf0de57f6f0d48795ef06ac8486",
+      "preview_year1_nominal_week": "b95b8e884fb3fdc8c58377320540edb8a2a155e2f7c91ef201ebb1ad8b0a6517",
+      "preview_year1_window_weeks": "ebf5cb6bbed982864705e2d9bdffdef9cd06ff1b1d9a5d036a9e0bf9bde109d5",
+      "preview_year3_nominal_week": "f09e926622bc0d176603aa9c01f33bdcac4001ad07ed323527482d61d5af9208"
+    },
+    "protocol_sha256": "b9cc9b76f545c7ddf753d90ecd52a8476265f86223c1c741e3cf8508c43d7e86",
+    "raw_redistributed": false,
+    "receipts_sha256": "6f7d8e51666a60709d4ccc48846c77f579ed1d312bfa8921ba2e465ce1de71e6",
+    "source_receipts": {
+      "esm": {
+        "cache_filename": "preview-esm-reverified-20260930T221301384509Z.pdf",
+        "completed_at_utc": "2026-09-30T22:13:02.263579+00:00",
+        "content_type": "application/pdf",
+        "doi": "10.1007/s00125-025-06560-x",
+        "expected_retained_sha256": "1bd4ccdbe890126efa3e6cab4a826e26bdb5a17be8fea1d722ab0ab648433573",
+        "failure": null,
+        "fresh_matches_retained_pin": true,
+        "http_status": 200,
+        "overwrite_policy": "Exclusive fresh filenames; no retained cache bytes replaced",
+        "passed": true,
+        "pdf_signature_present": true,
+        "purpose": "Finite public-source provenance verification only; no further result-cell reading or effect calculation",
+        "receipt_version": 1,
+        "requested_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1007%2Fs00125-025-06560-x/MediaObjects/125_2025_6560_MOESM1_ESM.pdf",
+        "resolved_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1007%2Fs00125-025-06560-x/MediaObjects/125_2025_6560_MOESM1_ESM.pdf",
+        "response_headers": {
+          "Content-Length": "1817647",
+          "Date": "Wed, 30 Sep 2026 22:13:01 GMT",
+          "ETag": "\"ce9052c0653e2f023269716bab5760e2\"",
+          "Last-Modified": "Wed, 15 Oct 2025 20:27:01 GMT"
+        },
+        "retained_bytes_unchanged": true,
+        "retained_cache_filename": "preview-esm.pdf",
+        "retained_current_sha256": "1bd4ccdbe890126efa3e6cab4a826e26bdb5a17be8fea1d722ab0ab648433573",
+        "sha256": "1bd4ccdbe890126efa3e6cab4a826e26bdb5a17be8fea1d722ab0ab648433573",
+        "size_bytes": 1817647,
+        "started_at_utc": "2026-09-30T22:13:01.384509+00:00"
+      },
+      "original2021": {
+        "cache_filename": "preview-original2021-reverified-20260930T221301530928Z.pdf",
+        "completed_at_utc": "2026-09-30T22:13:09.662844+00:00",
+        "content_type": "application/pdf",
+        "doi": "10.1111/dom.14219",
+        "expected_retained_sha256": "0d1be2b49e4963a481c4810ebc830460c69bba253f719c2a38209fcd84ee08b5",
+        "failure": null,
+        "fresh_matches_retained_pin": true,
+        "http_status": 200,
+        "overwrite_policy": "Exclusive fresh filenames; no retained cache bytes replaced",
+        "passed": true,
+        "pdf_signature_present": true,
+        "purpose": "Finite public-source provenance verification only; no further result-cell reading or effect calculation",
+        "receipt_version": 1,
+        "requested_url": "https://cronfa.swansea.ac.uk/Record/cronfa55357/Download/55357__19030__2bbf34df7331454a91a2476c2bdb611a.pdf",
+        "resolved_url": "https://cronfa.swansea.ac.uk/Record/cronfa55357/Download/55357__19030__2bbf34df7331454a91a2476c2bdb611a.pdf",
+        "response_headers": {
+          "Content-Length": "2783263",
+          "Date": "Wed, 30 Sep 2026 22:13:03 GMT",
+          "ETag": null,
+          "Last-Modified": null
+        },
+        "retained_bytes_unchanged": true,
+        "retained_cache_filename": "preview-main-2021.pdf",
+        "retained_current_sha256": "0d1be2b49e4963a481c4810ebc830460c69bba253f719c2a38209fcd84ee08b5",
+        "sha256": "0d1be2b49e4963a481c4810ebc830460c69bba253f719c2a38209fcd84ee08b5",
+        "size_bytes": 2783263,
+        "started_at_utc": "2026-09-30T22:13:01.530928+00:00"
+      },
+      "protocol2017": {
+        "bytes_preserved": true,
+        "cache_file": "outputs/public-source-search-20260930/preview-original-protocol-2017-pinned.pdf",
+        "completed_at_utc": "2026-09-30T21:50:17.842897+00:00",
+        "doi": "10.3390/nu9060632",
+        "failed_alternative": "Auckland author PDF returnedHTTP404 on2026-09-30; search-engine cached content existed.",
+        "http_status": 200,
+        "overwrite_policy": "exclusive creation; existing bytes retained",
+        "purpose": "public original2017 protocol source choice; no outcome computation",
+        "receipt_version": 1,
+        "requested_url": "https://cronfa.swan.ac.uk/Record/cronfa34410/Download/0034410-21062017091740.pdf",
+        "resolved_url": "https://cronfa.swan.ac.uk/Record/cronfa34410/Download/0034410-21062017091740.pdf",
+        "response_headers": {
+          "Content-Length": "976598",
+          "Content-Type": "application/pdf",
+          "Date": "Wed, 30 Sep 2026 21:50:16 GMT",
+          "ETag": null,
+          "Last-Modified": null
+        },
+        "sha256": "412e30ad3b3ce5f02a37fd647f6220e3c4148eb54e9c7c13332c3ea2a22614da",
+        "size_bytes": 976598,
+        "source_relationship": "author institutional version-of-record repository linked by DOI",
+        "started_at_utc": "2026-09-30T21:50:15.888797+00:00"
+      },
+      "secondary": {
+        "bytes_preserved": true,
+        "cache_file": "outputs/public-source-search-20260930/preview-secondary-main-pinned.html",
+        "completed_at_utc": "2026-09-30T21:49:16.664840+00:00",
+        "doi": "10.1007/s00125-025-06560-x",
+        "http_status": 200,
+        "overwrite_policy": "exclusive creation; existing bytes retained",
+        "purpose": "public source choice; no outcome computation",
+        "receipt_version": 1,
+        "requested_url": "https://link.springer.com/article/10.1007/s00125-025-06560-x",
+        "resolved_url": "https://link.springer.com/article/10.1007/s00125-025-06560-x?error=cookies_not_supported&code=b8437dd7-c223-4b26-a066-75ba6237340f",
+        "response_headers": {
+          "Content-Length": null,
+          "Content-Type": "text/html; charset=utf-8",
+          "Date": "Wed, 30 Sep 2026 21:49:16 GMT",
+          "ETag": "W/\"35dd5f6b304dc0ff004ea51a9cd5ae83\"",
+          "Last-Modified": null
+        },
+        "sha256": "3b90fb9118f14ac46bb26fb8b23f54e51bd4a9e9b0e91bc1253c335303d73cea",
+        "size_bytes": 481036,
+        "started_at_utc": "2026-09-30T21:49:14.808686+00:00"
+      }
+    },
+    "sources": {
+      "esm": {
+        "citation": "Zhu R et al. Electronic supplementary material to Diabetologia DOI 10.1007/s00125-025-06560-x, 2025.",
+        "correction_note": "Used-source reproduction; source-specific versions and conflicts retained. Exact final URL and HTTP metadata in frozen PREVIEW receipts.",
+        "correction_url": null,
+        "doi": "10.1007/s00125-025-06560-x",
+        "license": "Public publication documents retained fetch-only. Secondary article/ESM CC BY 4.0 with third-party exceptions; original-source license conditions remain independent. No participant data acquired; reasonable-request access is not unrestricted.",
+        "raw_filename": "preview-esm-reverified-20260930T221301384509Z.pdf",
+        "retrieved_at": "2026-09-30T22:13:02.263579Z",
+        "sha256": "1bd4ccdbe890126efa3e6cab4a826e26bdb5a17be8fea1d722ab0ab648433573",
+        "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1007%2Fs00125-025-06560-x/MediaObjects/125_2025_6560_MOESM1_ESM.pdf"
+      },
+      "original2021": {
+        "citation": "Raben A et al. The PREVIEW intervention study: Results from a 3-year randomized 2 x 2 factorial multinational trial investigating the role of protein, glycaemic index and physical activity for prevention of type 2 diabetes. Diabetes Obesity and Metabolism 2021;23:324-337.",
+        "correction_note": "Used-source reproduction; source-specific versions and conflicts retained. Exact final URL and HTTP metadata in frozen PREVIEW receipts.",
+        "correction_url": null,
+        "doi": "10.1111/dom.14219",
+        "license": "Public publication documents retained fetch-only. Secondary article/ESM CC BY 4.0 with third-party exceptions; original-source license conditions remain independent. No participant data acquired; reasonable-request access is not unrestricted.",
+        "raw_filename": "preview-original2021-reverified-20260930T221301530928Z.pdf",
+        "retrieved_at": "2026-09-30T22:13:09.662844Z",
+        "sha256": "0d1be2b49e4963a481c4810ebc830460c69bba253f719c2a38209fcd84ee08b5",
+        "url": "https://cronfa.swansea.ac.uk/Record/cronfa55357/Download/55357__19030__2bbf34df7331454a91a2476c2bdb611a.pdf"
+      },
+      "protocol2017": {
+        "citation": "Fogelholm M et al. PREVIEW: Prevention of Diabetes through Lifestyle Intervention and Population Studies in Europe and around the World. Nutrients 2017;9(6):632.",
+        "correction_note": "Used-source reproduction; source-specific versions and conflicts retained. Exact final URL and HTTP metadata in frozen PREVIEW receipts.",
+        "correction_url": null,
+        "doi": "10.3390/nu9060632",
+        "license": "Public publication documents retained fetch-only. Secondary article/ESM CC BY 4.0 with third-party exceptions; original-source license conditions remain independent. No participant data acquired; reasonable-request access is not unrestricted.",
+        "raw_filename": "preview-original-protocol-2017-pinned.pdf",
+        "retrieved_at": "2026-09-30T21:50:17.842897Z",
+        "sha256": "412e30ad3b3ce5f02a37fd647f6220e3c4148eb54e9c7c13332c3ea2a22614da",
+        "url": "https://cronfa.swan.ac.uk/Record/cronfa34410/Download/0034410-21062017091740.pdf"
+      },
+      "secondary": {
+        "citation": "Zhu R et al. Long-term effects of dietary protein and carbohydrate quality on prediabetes remission. Diabetologia 69:81-92 (2026); published October 15, 2025.",
+        "correction_note": "Used-source reproduction; source-specific versions and conflicts retained. Exact final URL and HTTP metadata in frozen PREVIEW receipts.",
+        "correction_url": null,
+        "doi": "10.1007/s00125-025-06560-x",
+        "license": "Public publication documents retained fetch-only. Secondary article/ESM CC BY 4.0 with third-party exceptions; original-source license conditions remain independent. No participant data acquired; reasonable-request access is not unrestricted.",
+        "raw_filename": "preview-secondary-main-pinned.html",
+        "retrieved_at": "2026-09-30T21:49:16.664840Z",
+        "sha256": "3b90fb9118f14ac46bb26fb8b23f54e51bd4a9e9b0e91bc1253c335303d73cea",
+        "url": "https://link.springer.com/article/10.1007/s00125-025-06560-x"
+      }
+    }
+  },
+  "published_primary_null_context": "Retain the original primary first-diabetes endpoint report of no statistically significant dietary difference; this does not establish a zero effect. The selected normal-glucose endpoint favors the moderate-protein/moderate-GI bundle. Neither is a generic Food is Health or UPF effect; no primary incidence coefficient extraction in this unit.",
+  "results": {
+    "assessments": [
+      {
+        "arms": {
+          "HP_LGI": {
+            "available_endpoint_n": 646,
+            "available_endpoint_proportion": 0.20743034055727555,
+            "binary_label_completion_envelope": {
+              "lower": 0.14362272240085744,
+              "upper": 0.4512325830653805
+            },
+            "endpoint_unclassified_N_minus_n": 287,
+            "normal_count_y": 134,
+            "sampling_uncertainty": null,
+            "selected_cohort_N": 933
+          },
+          "MP_MGI": {
+            "available_endpoint_n": 604,
+            "available_endpoint_proportion": 0.2632450331125828,
+            "binary_label_completion_envelope": {
+              "lower": 0.1722643553629469,
+              "upper": 0.5178764897074756
+            },
+            "endpoint_unclassified_N_minus_n": 319,
+            "normal_count_y": 159,
+            "sampling_uncertainty": null,
+            "selected_cohort_N": 923
+          }
+        },
+        "available_endpoint_absolute_contrast_MP_minus_HP": 0.055814692555307244,
+        "binary_label_completion_contrast_envelope": {
+          "allows_MP_higher_than_HP": true,
+          "allows_MP_lower_than_HP": true,
+          "includes_zero": true,
+          "kind": "deterministic extreme binary-label completions; not a confidence interval",
+          "lower": -0.27896822770243357,
+          "upper": 0.37425376730661813
+        },
+        "contrast_unit": "proportion_points",
+        "nominal_year": 1,
+        "published_adjusted_effect": {
+          "CI_level": "source-reported 95%",
+          "CI_lower": 1.04,
+          "CI_upper": 1.53,
+          "RR_MP_vs_HP": 1.26,
+          "model": "published adjusted multilevel modified Poisson",
+          "raw_proportion_ratio_equivalence_claimed": false,
+          "reestimated": false,
+          "unit": "risk_ratio"
+        }
+      },
+      {
+        "arms": {
+          "HP_LGI": {
+            "available_endpoint_n": 471,
+            "available_endpoint_proportion": 0.15498938428874734,
+            "binary_label_completion_envelope": {
+              "lower": 0.0782422293676313,
+              "upper": 0.5734190782422294
+            },
+            "endpoint_unclassified_N_minus_n": 462,
+            "normal_count_y": 73,
+            "sampling_uncertainty": null,
+            "selected_cohort_N": 933
+          },
+          "MP_MGI": {
+            "available_endpoint_n": 472,
+            "available_endpoint_proportion": 0.2055084745762712,
+            "binary_label_completion_envelope": {
+              "lower": 0.10509209100758396,
+              "upper": 0.5937161430119177
+            },
+            "endpoint_unclassified_N_minus_n": 451,
+            "normal_count_y": 97,
+            "sampling_uncertainty": null,
+            "selected_cohort_N": 923
+          }
+        },
+        "available_endpoint_absolute_contrast_MP_minus_HP": 0.050519090287523855,
+        "binary_label_completion_contrast_envelope": {
+          "allows_MP_higher_than_HP": true,
+          "allows_MP_lower_than_HP": true,
+          "includes_zero": true,
+          "kind": "deterministic extreme binary-label completions; not a confidence interval",
+          "lower": -0.4683269872346454,
+          "upper": 0.5154739136442864
+        },
+        "contrast_unit": "proportion_points",
+        "nominal_year": 3,
+        "published_adjusted_effect": {
+          "CI_level": "source-reported 95%",
+          "CI_lower": 1.06,
+          "CI_upper": 1.5,
+          "RR_MP_vs_HP": 1.26,
+          "model": "published adjusted multilevel modified Poisson",
+          "raw_proportion_ratio_equivalence_claimed": false,
+          "reestimated": false,
+          "unit": "risk_ratio"
+        }
+      }
+    ],
+    "joint_year_covariance": null,
+    "literal_main_cells": {
+      "endpoints": [
+        {
+          "HP_LGI": {
+            "normal_count_y": 134,
+            "source_endpoint_denominator_n": 646
+          },
+          "MP_MGI": {
+            "normal_count_y": 159,
+            "source_endpoint_denominator_n": 604
+          },
+          "nominal_year": 1,
+          "published_RR_CI_lower": 1.04,
+          "published_RR_CI_upper": 1.53,
+          "published_adjusted_RR_MP_vs_HP": 1.26
+        },
+        {
+          "HP_LGI": {
+            "normal_count_y": 73,
+            "source_endpoint_denominator_n": 471
+          },
+          "MP_MGI": {
+            "normal_count_y": 97,
+            "source_endpoint_denominator_n": 472
+          },
+          "nominal_year": 3,
+          "published_RR_CI_lower": 1.06,
+          "published_RR_CI_upper": 1.5,
+          "published_adjusted_RR_MP_vs_HP": 1.26
+        }
+      ],
+      "locators": {
+        "endpoints": "Sec3/Results/FPar8/Prediabetes remission",
+        "selected_N": "Sec3/Results/FPar6/Participants",
+        "thresholds": "Sec2/Methods/FPar4/Outcomes"
+      },
+      "selected_phase2_cohort_N": {
+        "HP_LGI": 933,
+        "MP_MGI": 923
+      },
+      "source_thresholds": {
+        "fasting_normal_lt_mmol_per_l": 5.6,
+        "ogtt_2hour_normal_lt_mmol_per_l": 7.8
+      }
+    },
+    "pooled_inferential_effect": null,
+    "registered_source_context": {
+      "preview_later_window_weeks": {
+        "independently_reextracted": false,
+        "source_id": "preview_protocol2017",
+        "unit": "weeks",
+        "used_in_calculation": false,
+        "value": 4.0
+      },
+      "preview_reported_confidence_level": {
+        "independently_reextracted": false,
+        "source_id": "preview_secondary2025",
+        "unit": "proportion",
+        "used_in_calculation": false,
+        "value": 0.95
+      },
+      "preview_run_in_weeks": {
+        "independently_reextracted": false,
+        "source_id": "preview_secondary2025",
+        "unit": "weeks",
+        "used_in_calculation": false,
+        "value": 8.0
+      },
+      "preview_year1_nominal_week": {
+        "independently_reextracted": false,
+        "source_id": "preview_protocol2017",
+        "unit": "weeks",
+        "used_in_calculation": false,
+        "value": 52.0
+      },
+      "preview_year1_window_weeks": {
+        "independently_reextracted": false,
+        "source_id": "preview_protocol2017",
+        "unit": "weeks",
+        "used_in_calculation": false,
+        "value": 2.0
+      },
+      "preview_year3_nominal_week": {
+        "independently_reextracted": false,
+        "source_id": "preview_protocol2017",
+        "unit": "weeks",
+        "used_in_calculation": false,
+        "value": 156.0
+      }
+    },
+    "source_checks": {
+      "esm": {
+        "passed": true,
+        "sha256": "1bd4ccdbe890126efa3e6cab4a826e26bdb5a17be8fea1d722ab0ab648433573",
+        "size_bytes": 1817647
+      },
+      "original2021": {
+        "passed": true,
+        "sha256": "0d1be2b49e4963a481c4810ebc830460c69bba253f719c2a38209fcd84ee08b5",
+        "size_bytes": 2783263
+      },
+      "protocol2017": {
+        "passed": true,
+        "sha256": "412e30ad3b3ce5f02a37fd647f6220e3c4148eb54e9c7c13332c3ea2a22614da",
+        "size_bytes": 976598
+      },
+      "secondary": {
+        "passed": true,
+        "sha256": "3b90fb9118f14ac46bb26fb8b23f54e51bd4a9e9b0e91bc1253c335303d73cea",
+        "size_bytes": 481036
+      }
+    },
+    "source_reproduction_passed": true
+  },
+  "schema_version": 1,
+  "scientific_release_ready": false,
+  "scope": {
+    "baseline_vs_phase2": "Normalization can occur during common run-in. These endpoints do not isolate new phase2 reversals or prove sustained normality.",
+    "diagnosis_history": "PriorT2D excluded at screening; persistent diagnosis/type and treatment-free remission history are not reconstructed from endpoint counts.",
+    "eligibility_wording_conflict": "Secondary main population criteria use elevated fasting and/or OGTT glucose; its Outcomes paragraph uses and. Retain source wording; no invented reconciliation or baseline engine allocation.",
+    "endpoint": "Source point-in-time normal fasting plasma glucose AND normal2-hour OGTT glucose at the specified assessment.",
+    "exposure": "Assigned bundled moderate-protein/moderate-GI versus high-protein/low-GI maintenance regimens; both activity assignments pooled within each diet.",
+    "medication_rule": "Baseline outcome-affecting medication exclusion and concomitant-medication collection are documented; no verified medication-free duration or confirmation rule for this secondary normalization endpoint.",
+    "population": "Main secondary-analysis selected phase2 cohort: baseline source-defined prediabetes, overweight/obesity, successful common initial weight-loss phase, then received assigned maintenance intervention.",
+    "randomization": "Baseline four-arm2x2 diet-by-activity assignment, stratified by center/sex/age; allocation concealed until week8 maintenance start.",
+    "run_in_wording_conflict": "Original2017 protocol describes >8% loss for maintenance entry; later reports describe >=8%. Preserve literal versions; no silent harmonization.",
+    "selection": "The responder cohort is selected after baseline assignment during a common run-in with concealed maintenance allocation. Conditional randomized inference could be justified if identical run-in, concealment, and assignment-independent selection hold. Observed-endpoint contrasts additionally require missingness assumptions for causal interpretation; no full-recruit or national effect is claimed.",
+    "source_thresholds": {
+      "fasting_normal_lt_mmol_per_l": 5.6,
+      "ogtt_2hour_normal_lt_mmol_per_l": 7.8,
+      "role": "source endpoint definition only; not engine state mapping"
+    },
+    "time_origin": "Nominal study baseline; week52/year1 and week156/year3 include the common initial8weeks. Baseline visit and randomization dates are distinct: original2021 section3 records withdrawals between them. Actual participant dates/windows are unavailable in the aggregate cells."
+  },
+  "source_consistency": {
+    "auxiliary_cells_reextracted_or_repaired": false,
+    "auxiliary_completer_denominator_consistency": "unresolved source conflict",
+    "main_frozen_count_constraints": "passed",
+    "original_and_secondary_source_version_consistency": "unresolved; separate estimands",
+    "overall_clinical_acceptance": false
+  }
+}

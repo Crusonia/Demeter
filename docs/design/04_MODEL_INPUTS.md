@@ -15,6 +15,13 @@ unresolved and must be traced to evidence and tests before clinical activation.
 
 ## Separate input roles
 
+The [PREVIEW endpoint audit](../PREVIEW_ENDPOINT_AUDIT.md) feeds the same health
+input and formulation IDs with source-defined normal-glucose snapshots and
+missing-label envelopes. It separates assigned bundled regimens from consumed
+doses, and observed measurements from clinical state/history. Repeated marginal
+counts do not supply linked transitions, an annual hazard, a UPF coefficient or a
+lag. National initialization and the clinical observation model remain unresolved.
+
 | Role | What belongs here | What must not happen |
 | --- | --- | --- |
 | Initial conditions | Population, inventories, installed capacity, land allocation, available cash, enrolled people, and relevant past commitments at the start date. | Initialize every stock at a convenient equilibrium or zero without evidence. |

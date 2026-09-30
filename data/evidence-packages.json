@@ -437,7 +437,7 @@
       "artifacts": [
         {
           "path": "docs/validation/issue-56-state-mapping.json",
-          "sha256": "5416d9453a84fd7bd0433d9a00a245c4a88fdb6a7d9a133dc71313428264c1b7"
+          "sha256": "04ca5e1fbeecf50a28d660f63cdcaf90b84f207abf0c660420e5f05c81874705"
         },
         {
           "path": "docs/validation/issue-56-state-mapping-before-after.json",
@@ -445,7 +445,7 @@
         },
         {
           "path": "docs/validation/issue-56-partial-observations.json",
-          "sha256": "cafb7de495acedc06c16fd7d6b698cbba758cb0c135a005bbe792fb834c603eb"
+          "sha256": "9af01b2b8d55007b82c121acc573a946b7bce6ac8317a6093fb938b7be22649d"
         },
         {
           "path": "docs/validation/issue-56-partial-before-after.json",
@@ -631,6 +631,79 @@
         "src/demeter/data/documentation.py",
         "src/demeter/data/packages.py"
       ]
+    },
+    "preview_endpoint_benchmark": {
+      "store": null,
+      "dependencies": [],
+      "registry_datasets": [
+        "preview_endpoint_benchmark"
+      ],
+      "registry_parameters": [
+        "preview_later_window_weeks",
+        "preview_nominal_year1",
+        "preview_nominal_year3",
+        "preview_normal_fasting_threshold",
+        "preview_normal_ogtt_threshold",
+        "preview_reported_confidence_level",
+        "preview_run_in_weeks",
+        "preview_selected_HP_LGI_n",
+        "preview_selected_MP_MGI_n",
+        "preview_y1_HP_LGI_endpoint_n",
+        "preview_y1_HP_LGI_normal_count",
+        "preview_y1_MP_MGI_endpoint_n",
+        "preview_y1_MP_MGI_normal_count",
+        "preview_y1_adjusted_rr",
+        "preview_y3_HP_LGI_endpoint_n",
+        "preview_y3_HP_LGI_normal_count",
+        "preview_y3_MP_MGI_endpoint_n",
+        "preview_y3_MP_MGI_normal_count",
+        "preview_y3_adjusted_rr",
+        "preview_year1_nominal_week",
+        "preview_year1_window_weeks",
+        "preview_year3_nominal_week"
+      ],
+      "artifacts": [
+        {
+          "path": "docs/validation/preview-endpoint-protocol-v1.json",
+          "sha256": "b9cc9b76f545c7ddf753d90ecd52a8476265f86223c1c741e3cf8508c43d7e86"
+        },
+        {
+          "path": "docs/validation/preview-endpoint-amendment-1.json",
+          "sha256": "86afebf2fca317251e57ead857199d47a86672657af827e3cd4080c8108de61f"
+        },
+        {
+          "path": "docs/validation/preview-inspection-chronology-v1.json",
+          "sha256": "86de80e3985f4ea8ff8e81192ad4179b098abf9e4d7d09983215896d2adbbc4f"
+        },
+        {
+          "path": "docs/validation/preview-source-receipts.json",
+          "sha256": "6f7d8e51666a60709d4ccc48846c77f579ed1d312bfa8921ba2e465ce1de71e6"
+        },
+        {
+          "path": "docs/validation/issue-57-58-preview-endpoints.json",
+          "sha256": "5dfbc58646b3003ca2a741b0873d01ae1d410a621ac102433ccb18d97cc16f77"
+        },
+        {
+          "path": "docs/validation/issue-57-58-preview-before-after.json",
+          "sha256": "4cca1ad9444a4b98cd980a378184060f56d10b134fc6c1045ec2a05bc28c6e11"
+        },
+        {
+          "path": "docs/PREVIEW_ENDPOINT_AUDIT.md",
+          "sha256": "29ff648a97658f3fb54677075e3c28a864f8c584ea30685fa64e3638e595b5e2"
+        },
+        {
+          "path": "docs/rfcs/RFC-57-58-preview-endpoints.md",
+          "sha256": "1b0cb2667771e66045f335226306d810052f86e5f757bd93837a24154dc894c8"
+        }
+      ],
+      "transform_files": [
+        "src/demeter/analysis/preview_endpoints.py"
+      ],
+      "rebuild": [
+        "uv run demeter evidence preview-endpoints --raw outputs/public-source-search-20260930 --output outputs/preview-endpoints.json"
+      ],
+      "model_role": "benchmark_only",
+      "redistribution": "Attributed factual counts/estimates, derived descriptive audit and Demeter transforms only; complete publications fetch-only; no participant records or active model inputs."
     }
   },
   "supporting_artifacts": [

@@ -276,6 +276,12 @@ checks explaining why an overall trial result cannot yet supply separate model
 transitions. Clinical dose, lag, causal mapping and transport remain unresolved;
 the active simulations still contain synthetic inputs and are validation-only.
 
+The [PREVIEW endpoint audit](docs/PREVIEW_ENDPOINT_AUDIT.md) reproduces published
+normal-glucose visit counts and explains how missing endpoint labels limit diet
+comparisons. Its offline CLI keeps descriptive contrasts, published adjusted
+effects and deterministic completion envelopes separate. All inputs are
+benchmark-only; it supplies no annual transition rates or active dietary effect.
+
 Optional [dietary timing experiments](docs/DIET_DYNAMICS.md) add scheduled changes,
 fading exposure memory, independent recovery lags and timing sensitivity. Run
 `uv run demeter observe scenarios/diet_dynamics.yaml --destination outputs/diet-dynamics-report`
