@@ -226,7 +226,9 @@ def evidence_audit(evidence: Path = DEFAULT_EVIDENCE) -> None:
 
 @evidence_app.command("food-intake")
 def food_intake_evidence(
-    archive: Annotated[Path, typer.Option(help="Local pinned author ZIP; never downloaded implicitly")],
+    archive: Annotated[
+        Path, typer.Option(help="Local pinned author ZIP; never downloaded implicitly")
+    ],
     evidence: Path = DEFAULT_EVIDENCE,
     output: Path | None = None,
 ) -> None:
@@ -290,6 +292,55 @@ def public_cohort_timing_evidence(
         output.write_bytes(encoded(report))
     emit(report)
     if not report["results"]["source_reproduction_passed"]:
+        raise typer.Exit(1)
+
+
+@evidence_app.command("reus-diabetes")
+def reus_diabetes_evidence(
+    correction: Annotated[Path, typer.Option(help="Local pinned Reus correction XML")],
+    original: Annotated[Path, typer.Option(help="Local pinned original Reus XML")],
+    evidence: Path = DEFAULT_EVIDENCE,
+    output: Path | None = None,
+) -> None:
+    """Reproduce corrected trial benchmarks and check synthetic model compatibility."""
+    from demeter.analysis.reus_diabetes import audit_reus
+    from demeter.data.nhanes import encoded
+
+    try:
+        report = audit_reus(registry(evidence), correction, original)
+    except (ValueError, OSError) as exc:
+        typer.echo(str(exc), err=True)
+        raise typer.Exit(1) from exc
+    if output:
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_bytes(encoded(report))
+    emit(report)
+    if (
+        not report["results"]["source_reproduction_passed"]
+        or not report["compatibility_diagnostic"]["results"]["software_witnesses_passed"]
+    ):
+        raise typer.Exit(1)
+
+
+@evidence_app.command("pathway-compatibility")
+def pathway_compatibility_evidence(
+    evidence: Path = DEFAULT_EVIDENCE,
+    output: Path | None = None,
+) -> None:
+    """Run offline synthetic witnesses; no clinical effect is fitted or activated."""
+    from demeter.analysis.pathway_compatibility import audit_compatibility
+    from demeter.data.nhanes import encoded
+
+    try:
+        report = audit_compatibility(registry(evidence))
+    except (ValueError, OSError) as exc:
+        typer.echo(str(exc), err=True)
+        raise typer.Exit(1) from exc
+    if output:
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_bytes(encoded(report))
+    emit(report)
+    if not report["results"]["software_witnesses_passed"]:
         raise typer.Exit(1)
 
 
@@ -390,7 +441,9 @@ def population_evidence(evidence: Path = DEFAULT_EVIDENCE, output: Path | None =
 def state_mapping_evidence(
     evidence: Path = DEFAULT_EVIDENCE,
     output: Path | None = None,
-    partial: Annotated[bool, typer.Option(help="Preserve known categories and bound incomplete observations")] = False,
+    partial: Annotated[
+        bool, typer.Option(help="Preserve known categories and bound incomplete observations")
+    ] = False,
 ) -> None:
     """Audit observed categories, unclassified coverage and unresolved engine mappings."""
     from demeter.data.state_mapping import mapping_report

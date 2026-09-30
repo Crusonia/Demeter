@@ -1,0 +1,95 @@
+{
+  "analysis_id": "reus-corrected-diabetes-v1",
+  "method_appraisal": {
+    "adjustment_discrepancy": "Original multivariate footnote includes age and sex. Correction footnote omits them; both include weight change during follow-up. Preserve the textual discrepancy; do not silently harmonize.",
+    "causal_limit": "Post-randomization weight-change adjustment prevents automatically interpreting the reported model as a total causal assignment effect.",
+    "censoring": "Cox follow-up ends at last visit, death or diabetes diagnosis; no recovered event/covariate histories for Cox refit or competing-risk observation model.",
+    "correction": "Separate Reus analysis excludes nonrandomized second household members. It does not supply the unavailable multicenter Annals correction.",
+    "correction_locators": "Body household-assignment correction; Table3 tblfn2/tblfn4",
+    "diagnosis": "Annual fasting glucose or OGTT with confirmation. Exact first-positive versus confirmation event dating is unresolved.",
+    "original_locators": "Methods sec5/sec6; results sec7 first two paragraphs; original Table2 footnote",
+    "overlap": "Combined, VOO and nuts contrasts share participants/control; original and corrected fits overlap. No independent pooling or inferred joint covariance.",
+    "population_and_offered_food_context": {
+      "evidence_grade": "C",
+      "excluded_nonrandomized_household_partners": 29,
+      "fasting_glucose_threshold_mmol_l": 7.0,
+      "female_age_years": [
+        60,
+        80
+      ],
+      "followup_iqr_years": [
+        3,
+        5
+      ],
+      "interpretation": "Offered food amounts are not consumed doses. Annual diagnosis with confirmation; exact event-dating and competing-risk mapping unresolved. Context only, not an engine input.",
+      "male_age_years": [
+        55,
+        80
+      ],
+      "median_followup_years": 4.0,
+      "offered_nuts_grams_per_day": 30,
+      "offered_olive_oil_litres_per_week": 1,
+      "ogtt_grams": 75,
+      "ogtt_scheduled_refusal_percent": 17,
+      "ogtt_threshold_mmol_l": 11.1,
+      "original_participants": 418,
+      "participants_never_ogtt": 41,
+      "source_locators": {
+        "correction": "Body household assignment correction; Table3 tblfn2/tblfn4",
+        "original": "Methods sec5/sec6; Results sec7 paragraphs 0-1"
+      },
+      "status": "observed"
+    }
+  },
+  "primary_sources": {
+    "correction": {
+      "content_type": "application/xml",
+      "final_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6150430/fullTextXML",
+      "retrieved_utc": "2026-09-30T18:22:57.057974+00:00",
+      "sha256": "f38177b1b74c1ae9e8cbc48777c55bbfedf95ed22a4a80659343c2d7c01e31ff",
+      "size_bytes": 15558,
+      "status": 200,
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6150430/fullTextXML"
+    },
+    "original": {
+      "content_type": "application/xml",
+      "final_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3005482/fullTextXML",
+      "retrieved_utc": "2026-09-30T18:22:56.260990+00:00",
+      "sha256": "3f55ee6e6f0ceefff31feada00de160c2439cee48060f99b9b4477c0dafa9158",
+      "size_bytes": 81042,
+      "status": 200,
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3005482/fullTextXML"
+    }
+  },
+  "review": "Codex-assisted source appraisal and separate Codex critique; external human expert review pending",
+  "rights": {
+    "correction": "Publisher educational, not-for-profit, unaltered-use permission per XML; no unrestricted raw redistribution asserted",
+    "distribution": "Full XML articles remain fetch-only in ignored local storage. Commit factual estimates, receipts and original Demeter transforms only.",
+    "individual_records_used": false,
+    "original": "CC BY-NC-ND 3.0, per XML permissions"
+  },
+  "schema_version": 1,
+  "table_selection": {
+    "arm_headers": {
+      "combined": "Both MedDiets vs. control diet",
+      "nuts": "MedDiet with nuts vs. control diet",
+      "voo": "MedDiet with VOO vs. control diet"
+    },
+    "confidence_level": 0.95,
+    "correction_rows": {
+      "corrected": "New multivariate-adjusted model\u2020\u00a7",
+      "original": "Original multivariate-adjusted model\u2020"
+    },
+    "correction_table_id": "T3",
+    "correction_table_label": "Table 3",
+    "expected_overall_estimates": 6,
+    "original_report_row": "Multivariate adjusted model*",
+    "original_table_id": "T2",
+    "original_table_label": "Table 2",
+    "ratio_null": 1.0,
+    "selection": "All two overall models and three contrasts, irrespective of direction or null inclusion. Subgroup rows not extracted or pooled in this protocol.",
+    "source_comparison": "Compare the three original-row point/CI tuples in correction Table3 against original Table2; retain disagreement and fail source reproduction if not exact.",
+    "uncertainty": "Retain reported intervals without turning them into a sampling distribution; shared participants/control and original/corrected analyses are dependent, with joint covariance unavailable.",
+    "unit": "dimensionless adjusted Cox hazard ratio for first incident diabetes"
+  }
+}

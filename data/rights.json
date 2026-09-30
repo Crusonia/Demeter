@@ -780,6 +780,32 @@
       "sha256": "ffd341a1a91ac65585b9fba70847a2681f5671a6035d9cfbf92e50795d74fbf6",
       "url": "https://zenodo.org/api/records/4997196/files/RC%20Health%20Care%20Data-20180820.xlsx/content",
       "vintage": "RC Health Care Data-20180820.xlsx; Dryad version 22783/file 78961"
+    },
+    "reus2011_original": {
+      "policy": "article_fetch_only",
+      "privacy": "publication",
+      "publisher": "American Diabetes Association; authors via Europe PMC",
+      "vintage": "Separate Reus 2011 report",
+      "citation": "Salas-Salvado J et al. Diabetes Care. 2011;34(1):14-19. PREDIMED-Reus report.",
+      "notes": "Original: CC BY-NC-ND 3.0. Correction: publisher educational, not-for-profit, unaltered-use permission. Both full XML articles are fetch-only; only factual estimates and receipts redistributed.",
+      "distribution": "fetch_only",
+      "alternative": "Inspect committed benchmark estimates and receipts offline; obtain unchanged XML separately and use evidence reus-diabetes. No participant records or full article redistribution.",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3005482/fullTextXML",
+      "sha256": "3f55ee6e6f0ceefff31feada00de160c2439cee48060f99b9b4477c0dafa9158",
+      "retrieved_at": "2026-09-30T18:22:56.260990Z"
+    },
+    "reus2018_correction": {
+      "policy": "article_fetch_only",
+      "privacy": "publication",
+      "publisher": "American Diabetes Association; authors via Europe PMC",
+      "vintage": "Separate Reus 2018 correction",
+      "citation": "Salas-Salvado J et al. Diabetes Care. 2018;41(10):2259-2260. Erratum to PREDIMED-Reus.",
+      "notes": "Original: CC BY-NC-ND 3.0. Correction: publisher educational, not-for-profit, unaltered-use permission. Both full XML articles are fetch-only; only factual estimates and receipts redistributed.",
+      "distribution": "fetch_only",
+      "alternative": "Inspect committed benchmark estimates and receipts offline; obtain unchanged XML separately and use evidence reus-diabetes. No participant records or full article redistribution.",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6150430/fullTextXML",
+      "sha256": "f38177b1b74c1ae9e8cbc48777c55bbfedf95ed22a4a80659343c2d7c01e31ff",
+      "retrieved_at": "2026-09-30T18:22:57.057974Z"
     }
   }
 }

@@ -1,0 +1,376 @@
+{
+  "after_evidence_sha256": "0b638d329240b92e5fee2fcce3ae86d2b527327550a13673d40fe57730a7e1c4",
+  "base_commit": "d4f63be05ec3d13aa37f5bfacac0ad9bc9a056e6",
+  "before_evidence_sha256": "3b3d896c4bd6e81946af4461ee713809a6ba1de129f18a54f555f54da117f29a",
+  "interpretation": "Source reproduction and synthetic software compatibility only; no clinical dose, lag, transition hazard, causal transport or scientific release accepted",
+  "refreshed_observation_reports": {
+    "issue-56-partial-observations.json": {
+      "all_other_outputs_identical": true,
+      "changed_paths": [
+        "/provenance/evidence_sha256"
+      ]
+    },
+    "issue-56-state-mapping.json": {
+      "all_other_outputs_identical": true,
+      "changed_paths": [
+        "/provenance/evidence_sha256"
+      ]
+    }
+  },
+  "registry_change": {
+    "active_parameters_changed": [],
+    "added": {
+      "datasets": {
+        "reus_corrected_diabetes_benchmark": {
+          "analysis": {
+            "arm_headers": {
+              "combined": "Both MedDiets vs. control diet",
+              "nuts": "MedDiet with nuts vs. control diet",
+              "voo": "MedDiet with VOO vs. control diet"
+            },
+            "confidence_level": 0.95,
+            "correction_rows": {
+              "corrected": "New multivariate-adjusted model\u2020\u00a7",
+              "original": "Original multivariate-adjusted model\u2020"
+            },
+            "correction_table_id": "T3",
+            "correction_table_label": "Table 3",
+            "expected_overall_estimates": 6,
+            "original_report_row": "Multivariate adjusted model*",
+            "original_table_id": "T2",
+            "original_table_label": "Table 2",
+            "ratio_null": 1.0,
+            "selection": "All two overall models and three contrasts, irrespective of direction or null inclusion. Subgroup rows not extracted or pooled in this protocol.",
+            "source_comparison": "Compare the three original-row point/CI tuples in correction Table3 against original Table2; retain disagreement and fail source reproduction if not exact.",
+            "uncertainty": "Retain reported intervals without turning them into a sampling distribution; shared participants/control and original/corrected analyses are dependent, with joint covariance unavailable.",
+            "unit": "dimensionless adjusted Cox hazard ratio for first incident diabetes"
+          },
+          "evidence_grade": "C",
+          "geography": "Reus, Spain",
+          "model_role": "benchmark_only",
+          "original_source_id": "reus2011_original",
+          "parameter_keys": [
+            "reus_corrected_combined_diabetes_hr",
+            "reus_corrected_nuts_diabetes_hr",
+            "reus_corrected_voo_diabetes_hr",
+            "reus_original_combined_diabetes_hr",
+            "reus_original_nuts_diabetes_hr",
+            "reus_original_voo_diabetes_hr"
+          ],
+          "population": "Older high-cardiovascular-risk Reus participants without baseline diabetes; not exclusively prediabetic",
+          "protocol_path": "docs/validation/reus-diabetes-protocol-v1.json",
+          "protocol_sha256": "df1e72ac4da424c90fc78a2743160bd3698d992c447618d4899224447dd69853",
+          "source_id": "reus2018_correction",
+          "status": "derived",
+          "study_context": {
+            "evidence_grade": "C",
+            "excluded_nonrandomized_household_partners": 29,
+            "fasting_glucose_threshold_mmol_l": 7.0,
+            "female_age_years": [
+              60,
+              80
+            ],
+            "followup_iqr_years": [
+              3,
+              5
+            ],
+            "interpretation": "Offered food amounts are not consumed doses. Annual diagnosis with confirmation; exact event-dating and competing-risk mapping unresolved. Context only, not an engine input.",
+            "male_age_years": [
+              55,
+              80
+            ],
+            "median_followup_years": 4.0,
+            "offered_nuts_grams_per_day": 30,
+            "offered_olive_oil_litres_per_week": 1,
+            "ogtt_grams": 75,
+            "ogtt_scheduled_refusal_percent": 17,
+            "ogtt_threshold_mmol_l": 11.1,
+            "original_participants": 418,
+            "participants_never_ogtt": 41,
+            "source_locators": {
+              "correction": "Body household assignment correction; Table3 tblfn2/tblfn4",
+              "original": "Methods sec5/sec6; Results sec7 paragraphs 0-1"
+            },
+            "status": "observed"
+          },
+          "time_period": "Recruitment October 2003-June 2008; original 2011 publication and 2018 correction",
+          "uncertainty": "Retain reported intervals without turning them into a sampling distribution; shared participants/control and original/corrected analyses are dependent, with joint covariance unavailable.",
+          "unit": "dimensionless adjusted Cox hazard ratio for first incident diabetes"
+        },
+        "reus_pathway_compatibility": {
+          "amendment_path": "docs/validation/reus-diabetes-amendment-1.json",
+          "amendment_sha256": "4aac541bce132a6aeb59962f49779df8c3d1eecf25f67d5c8db99183dda8084e",
+          "analysis": {
+            "absolute_tolerance": 1e-12,
+            "counterexample_scale": 2.0,
+            "diagnostic_years": [
+              1,
+              2
+            ],
+            "dose_lag_witness": "L(t)=beta*delta*[1-exp(-t/tau)] through relax. Dose/coefficient rescaling (delta/scale,beta*scale,tau) preserves the trajectory. Lag/coefficient rescaling (delta,beta*[1-exp(-1/tau)]/[1-exp(-1/(scale*tau))],scale*tau) preserves year1 but changes year2.",
+            "endpoint_witness": "Normalize existing synthetic H/IR shares, D0=0. A=(a,r,d/scale), pA=dA/(rA+dA)*[-expm1(-(rA+dA))]. B has gB=scale*(rA+dA), dB=pA*gB/[-expm1(-gB)], rB=gB-dB, unchanged a. C changes only a to scale*a. Test same year1 D entry, different endpoint stocks/year2 entries, conservation and analytic arithmetic.",
+            "evidence_grade": "E",
+            "functions": [
+              "demeter.health.transitions.transition_survivors",
+              "demeter.nutrition.response.relax"
+            ],
+            "limitation": "Counterexamples concern the isolated implemented annual survivor operator and synthetic dietary response. They are not formal identifiability results for the trial multi-year adjusted Cox likelihood; the source HR is never used as a one-year risk ratio or input to these witnesses.",
+            "model_role": "benchmark_only",
+            "null": "Identical hazards reproduce reference output; zero response gives multiplier one. Mathematical hypotheses, not observed zero clinical effects.",
+            "population_scale": 1.0,
+            "registry_references": [
+              "h_to_ir_rate",
+              "ir_to_h_rate",
+              "ir_to_t2d_rate",
+              "initial_healthy_share",
+              "initial_ir_share",
+              "beta_upf_progression",
+              "diet_lag_years"
+            ],
+            "relative_tolerance": 0.0,
+            "relative_upf_fixture": 0.7,
+            "status": "synthetic",
+            "uncertainty": "Fixed mathematical/software witnesses; not clinical estimates or clinical uncertainty distributions.",
+            "units": "hazards per year; lag/time in years; normalized expected person counts and dimensionless log-response"
+          },
+          "evidence_grade": "E",
+          "model_role": "benchmark_only",
+          "protocol_path": "docs/validation/reus-diabetes-protocol-v1.json",
+          "protocol_sha256": "df1e72ac4da424c90fc78a2743160bd3698d992c447618d4899224447dd69853",
+          "status": "synthetic"
+        }
+      },
+      "parameters": {
+        "reus_corrected_combined_diabetes_hr": {
+          "applicability": null,
+          "citation": "Salas-Salvado J et al. Diabetes Care. 2018;41(10):2259-2260. Erratum to PREDIMED-Reus.",
+          "evidence_grade": "C",
+          "exposure_definition": "Assigned Mediterranean diet counseling plus offered virgin olive oil or nuts versus control dietary advice; combined arm overlaps its constituents",
+          "geography": "Reus, Spain",
+          "key": "reus_corrected_combined_diabetes_hr",
+          "lower_bound": 0.0,
+          "model_role": "benchmark_only",
+          "notes": "Scoped grade C: assignment correction, post-randomization weight-change adjustment and unresolved population/mechanism mapping. Original/corrected age/sex footnotes differ. No independent validation; external expert review pending; never apply this ratio to multiple engine arrows.",
+          "outcome_definition": "Adjusted Cox hazard ratio for first incident diabetes; not an annual flow or risk ratio",
+          "population": "Older high-cardiovascular-risk Reus participants without baseline diabetes; not exclusively prediabetic",
+          "source": "PREDIMED-Reus 2018 correction Table3; New multivariate-adjusted model\u2020\u00a7; Both MedDiets vs. control diet",
+          "source_id": "reus2018_correction",
+          "source_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6150430/fullTextXML",
+          "status": "estimated",
+          "time_period": "Recruitment October 2003-June 2008; original 2011 publication and 2018 correction",
+          "transformation": "demeter.analysis.reus_diabetes.extract_reported; frozen exact row and arm labels",
+          "uncertainty": {
+            "high": 0.87,
+            "kind": "interval",
+            "low": 0.26,
+            "rationale": "Reported 95% confidence interval only. Shared control, overlapping arms and repeated analyses; joint covariance unavailable. Not a sampling distribution or transport uncertainty.",
+            "sd": null
+          },
+          "unit": "hazard_ratio",
+          "unresolved": false,
+          "upper_bound": null,
+          "value": 0.47
+        },
+        "reus_corrected_nuts_diabetes_hr": {
+          "applicability": null,
+          "citation": "Salas-Salvado J et al. Diabetes Care. 2018;41(10):2259-2260. Erratum to PREDIMED-Reus.",
+          "evidence_grade": "C",
+          "exposure_definition": "Assigned Mediterranean diet counseling plus offered virgin olive oil or nuts versus control dietary advice; combined arm overlaps its constituents",
+          "geography": "Reus, Spain",
+          "key": "reus_corrected_nuts_diabetes_hr",
+          "lower_bound": 0.0,
+          "model_role": "benchmark_only",
+          "notes": "Scoped grade C: assignment correction, post-randomization weight-change adjustment and unresolved population/mechanism mapping. Original/corrected age/sex footnotes differ. No independent validation; external expert review pending; never apply this ratio to multiple engine arrows.",
+          "outcome_definition": "Adjusted Cox hazard ratio for first incident diabetes; not an annual flow or risk ratio",
+          "population": "Older high-cardiovascular-risk Reus participants without baseline diabetes; not exclusively prediabetic",
+          "source": "PREDIMED-Reus 2018 correction Table3; New multivariate-adjusted model\u2020\u00a7; MedDiet with nuts vs. control diet",
+          "source_id": "reus2018_correction",
+          "source_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6150430/fullTextXML",
+          "status": "estimated",
+          "time_period": "Recruitment October 2003-June 2008; original 2011 publication and 2018 correction",
+          "transformation": "demeter.analysis.reus_diabetes.extract_reported; frozen exact row and arm labels",
+          "uncertainty": {
+            "high": 0.98,
+            "kind": "interval",
+            "low": 0.23,
+            "rationale": "Reported 95% confidence interval only. Shared control, overlapping arms and repeated analyses; joint covariance unavailable. Not a sampling distribution or transport uncertainty.",
+            "sd": null
+          },
+          "unit": "hazard_ratio",
+          "unresolved": false,
+          "upper_bound": null,
+          "value": 0.47
+        },
+        "reus_corrected_voo_diabetes_hr": {
+          "applicability": null,
+          "citation": "Salas-Salvado J et al. Diabetes Care. 2018;41(10):2259-2260. Erratum to PREDIMED-Reus.",
+          "evidence_grade": "C",
+          "exposure_definition": "Assigned Mediterranean diet counseling plus offered virgin olive oil or nuts versus control dietary advice; combined arm overlaps its constituents",
+          "geography": "Reus, Spain",
+          "key": "reus_corrected_voo_diabetes_hr",
+          "lower_bound": 0.0,
+          "model_role": "benchmark_only",
+          "notes": "Scoped grade C: assignment correction, post-randomization weight-change adjustment and unresolved population/mechanism mapping. Original/corrected age/sex footnotes differ. No independent validation; external expert review pending; never apply this ratio to multiple engine arrows.",
+          "outcome_definition": "Adjusted Cox hazard ratio for first incident diabetes; not an annual flow or risk ratio",
+          "population": "Older high-cardiovascular-risk Reus participants without baseline diabetes; not exclusively prediabetic",
+          "source": "PREDIMED-Reus 2018 correction Table3; New multivariate-adjusted model\u2020\u00a7; MedDiet with VOO vs. control diet",
+          "source_id": "reus2018_correction",
+          "source_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6150430/fullTextXML",
+          "status": "estimated",
+          "time_period": "Recruitment October 2003-June 2008; original 2011 publication and 2018 correction",
+          "transformation": "demeter.analysis.reus_diabetes.extract_reported; frozen exact row and arm labels",
+          "uncertainty": {
+            "high": 0.97,
+            "kind": "interval",
+            "low": 0.23,
+            "rationale": "Reported 95% confidence interval only. Shared control, overlapping arms and repeated analyses; joint covariance unavailable. Not a sampling distribution or transport uncertainty.",
+            "sd": null
+          },
+          "unit": "hazard_ratio",
+          "unresolved": false,
+          "upper_bound": null,
+          "value": 0.47
+        },
+        "reus_original_combined_diabetes_hr": {
+          "applicability": null,
+          "citation": "Salas-Salvado J et al. Diabetes Care. 2018;41(10):2259-2260. Erratum to PREDIMED-Reus.",
+          "evidence_grade": "C",
+          "exposure_definition": "Assigned Mediterranean diet counseling plus offered virgin olive oil or nuts versus control dietary advice; combined arm overlaps its constituents",
+          "geography": "Reus, Spain",
+          "key": "reus_original_combined_diabetes_hr",
+          "lower_bound": 0.0,
+          "model_role": "benchmark_only",
+          "notes": "Scoped grade C: assignment correction, post-randomization weight-change adjustment and unresolved population/mechanism mapping. Original/corrected age/sex footnotes differ. No independent validation; external expert review pending; never apply this ratio to multiple engine arrows.",
+          "outcome_definition": "Adjusted Cox hazard ratio for first incident diabetes; not an annual flow or risk ratio",
+          "population": "Older high-cardiovascular-risk Reus participants without baseline diabetes; not exclusively prediabetic",
+          "source": "PREDIMED-Reus 2018 correction Table3; Original multivariate-adjusted model\u2020; Both MedDiets vs. control diet",
+          "source_id": "reus2018_correction",
+          "source_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6150430/fullTextXML",
+          "status": "estimated",
+          "time_period": "Recruitment October 2003-June 2008; original 2011 publication and 2018 correction",
+          "transformation": "demeter.analysis.reus_diabetes.extract_reported; frozen exact row and arm labels",
+          "uncertainty": {
+            "high": 0.86,
+            "kind": "interval",
+            "low": 0.27,
+            "rationale": "Reported 95% confidence interval only. Shared control, overlapping arms and repeated analyses; joint covariance unavailable. Not a sampling distribution or transport uncertainty.",
+            "sd": null
+          },
+          "unit": "hazard_ratio",
+          "unresolved": false,
+          "upper_bound": null,
+          "value": 0.48
+        },
+        "reus_original_nuts_diabetes_hr": {
+          "applicability": null,
+          "citation": "Salas-Salvado J et al. Diabetes Care. 2018;41(10):2259-2260. Erratum to PREDIMED-Reus.",
+          "evidence_grade": "C",
+          "exposure_definition": "Assigned Mediterranean diet counseling plus offered virgin olive oil or nuts versus control dietary advice; combined arm overlaps its constituents",
+          "geography": "Reus, Spain",
+          "key": "reus_original_nuts_diabetes_hr",
+          "lower_bound": 0.0,
+          "model_role": "benchmark_only",
+          "notes": "Scoped grade C: assignment correction, post-randomization weight-change adjustment and unresolved population/mechanism mapping. Original/corrected age/sex footnotes differ. No independent validation; external expert review pending; never apply this ratio to multiple engine arrows.",
+          "outcome_definition": "Adjusted Cox hazard ratio for first incident diabetes; not an annual flow or risk ratio",
+          "population": "Older high-cardiovascular-risk Reus participants without baseline diabetes; not exclusively prediabetic",
+          "source": "PREDIMED-Reus 2018 correction Table3; Original multivariate-adjusted model\u2020; MedDiet with nuts vs. control diet",
+          "source_id": "reus2018_correction",
+          "source_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6150430/fullTextXML",
+          "status": "estimated",
+          "time_period": "Recruitment October 2003-June 2008; original 2011 publication and 2018 correction",
+          "transformation": "demeter.analysis.reus_diabetes.extract_reported; frozen exact row and arm labels",
+          "uncertainty": {
+            "high": 0.96,
+            "kind": "interval",
+            "low": 0.24,
+            "rationale": "Reported 95% confidence interval only. Shared control, overlapping arms and repeated analyses; joint covariance unavailable. Not a sampling distribution or transport uncertainty.",
+            "sd": null
+          },
+          "unit": "hazard_ratio",
+          "unresolved": false,
+          "upper_bound": null,
+          "value": 0.48
+        },
+        "reus_original_voo_diabetes_hr": {
+          "applicability": null,
+          "citation": "Salas-Salvado J et al. Diabetes Care. 2018;41(10):2259-2260. Erratum to PREDIMED-Reus.",
+          "evidence_grade": "C",
+          "exposure_definition": "Assigned Mediterranean diet counseling plus offered virgin olive oil or nuts versus control dietary advice; combined arm overlaps its constituents",
+          "geography": "Reus, Spain",
+          "key": "reus_original_voo_diabetes_hr",
+          "lower_bound": 0.0,
+          "model_role": "benchmark_only",
+          "notes": "Scoped grade C: assignment correction, post-randomization weight-change adjustment and unresolved population/mechanism mapping. Original/corrected age/sex footnotes differ. No independent validation; external expert review pending; never apply this ratio to multiple engine arrows.",
+          "outcome_definition": "Adjusted Cox hazard ratio for first incident diabetes; not an annual flow or risk ratio",
+          "population": "Older high-cardiovascular-risk Reus participants without baseline diabetes; not exclusively prediabetic",
+          "source": "PREDIMED-Reus 2018 correction Table3; Original multivariate-adjusted model\u2020; MedDiet with VOO vs. control diet",
+          "source_id": "reus2018_correction",
+          "source_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6150430/fullTextXML",
+          "status": "estimated",
+          "time_period": "Recruitment October 2003-June 2008; original 2011 publication and 2018 correction",
+          "transformation": "demeter.analysis.reus_diabetes.extract_reported; frozen exact row and arm labels",
+          "uncertainty": {
+            "high": 0.97,
+            "kind": "interval",
+            "low": 0.25,
+            "rationale": "Reported 95% confidence interval only. Shared control, overlapping arms and repeated analyses; joint covariance unavailable. Not a sampling distribution or transport uncertainty.",
+            "sd": null
+          },
+          "unit": "hazard_ratio",
+          "unresolved": false,
+          "upper_bound": null,
+          "value": 0.49
+        }
+      },
+      "sources": {
+        "reus2011_original": {
+          "citation": "Salas-Salvado J et al. Diabetes Care. 2011;34(1):14-19. PREDIMED-Reus report.",
+          "correction_note": "Separate Reus correction; not the multicenter Annals correction. Excludes nonrandomized household partners. Weight-change adjustment and original/corrected age/sex footnote discrepancy retained.",
+          "correction_url": "https://doi.org/10.2337/dc18-er10",
+          "doi": "10.2337/dc10-1288",
+          "license": "Original: CC BY-NC-ND 3.0. Correction: publisher educational, not-for-profit, unaltered-use permission. Both full XML articles are fetch-only; only factual estimates and receipts redistributed.",
+          "raw_filename": "reus-original.xml",
+          "retrieved_at": "2026-09-30T18:22:56.260990Z",
+          "sha256": "3f55ee6e6f0ceefff31feada00de160c2439cee48060f99b9b4477c0dafa9158",
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3005482/fullTextXML"
+        },
+        "reus2018_correction": {
+          "citation": "Salas-Salvado J et al. Diabetes Care. 2018;41(10):2259-2260. Erratum to PREDIMED-Reus.",
+          "correction_note": "Separate Reus correction; not the multicenter Annals correction. Excludes nonrandomized household partners. Weight-change adjustment and original/corrected age/sex footnote discrepancy retained.",
+          "correction_url": "https://doi.org/10.2337/dc18-er10",
+          "doi": "10.2337/dc18-er10",
+          "license": "Original: CC BY-NC-ND 3.0. Correction: publisher educational, not-for-profit, unaltered-use permission. Both full XML articles are fetch-only; only factual estimates and receipts redistributed.",
+          "raw_filename": "reus-correction.xml",
+          "retrieved_at": "2026-09-30T18:22:57.057974Z",
+          "sha256": "f38177b1b74c1ae9e8cbc48777c55bbfedf95ed22a4a80659343c2d7c01e31ff",
+          "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6150430/fullTextXML"
+        }
+      }
+    },
+    "all_other_registry_definitions_identical": true,
+    "scientific_blockers_removed": []
+  },
+  "scenarios": {
+    "baseline": {
+      "all_other_outputs_identical": true,
+      "changed_paths": [
+        "/healthspan/evidence_sha256",
+        "/metadata/evidence_sha256"
+      ]
+    },
+    "prechronic_baseline": {
+      "all_other_outputs_identical": true,
+      "changed_paths": [
+        "/healthspan/evidence_sha256",
+        "/metadata/evidence_sha256"
+      ]
+    },
+    "reduce_upf_30": {
+      "all_other_outputs_identical": true,
+      "changed_paths": [
+        "/healthspan/evidence_sha256",
+        "/metadata/evidence_sha256"
+      ]
+    }
+  }
+}

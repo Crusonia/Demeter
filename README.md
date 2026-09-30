@@ -258,6 +258,12 @@ The [Chen timing audit](docs/CHEN_TIMING_AUDIT.md) now preserves discrepancies
 in duration totals and published rates too, and explains why fitting remains
 disabled while compatible observations are sought.
 
+The [corrected Reus assessment](docs/REUS_DIABETES_PATHWAY.md) reproduces a
+published dietary-regimen/first-diabetes benchmark and provides offline synthetic
+checks explaining why an overall trial result cannot yet supply separate model
+transitions. Clinical dose, lag, causal mapping and transport remain unresolved;
+the active simulations still contain synthetic inputs and are validation-only.
+
 Optional [dietary timing experiments](docs/DIET_DYNAMICS.md) add scheduled changes,
 fading exposure memory, independent recovery lags and timing sensitivity. Run
 `uv run demeter observe scenarios/diet_dynamics.yaml --destination outputs/diet-dynamics-report`

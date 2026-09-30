@@ -58,3 +58,19 @@ state initialization, identified progression/reversal hazards or an active
 food-to-disease effect. Those requirements keep #1, #57, #58 and milestone #27
 open; the bounded #56 software work is complete, with scientific state
 initialization still unresolved. Synthetic dietary trajectories remain validation-only.
+
+The [Reus pathway assessment](REUS_DIABETES_PATHWAY.md) adds corrected
+first-diabetes trial benchmarks and executable synthetic tests of the current
+annual transition and dietary-response operators. All six reported overall
+contrasts are retained; original/corrected analyses and shared arms are dependent.
+This advances #58's source and equation assessment. It does not identify separate
+progression/recovery effects, a consumed UPF dose, response lag or national causal
+transport. Its [before/after receipt](validation/issue-58-reus-before-after.json)
+records unchanged canonical numerical outputs and active parameters.
+
+The [clinical observation contract](CLINICAL_OBSERVATION_CONTRACT.md) now specifies
+the required baseline categories, repeat testing and confirmation, event dating,
+exposure, visit timing, treatment, missingness, death and loss. Next, appraise an
+independent public primary source against that contract before fitting any
+transition. The Diabetes Prevention Program is a candidate for appraisal;
+its lifestyle package is not automatically an isolated dietary effect.

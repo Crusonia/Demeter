@@ -1,0 +1,361 @@
+{
+  "analysis_id": "reus-corrected-diabetes-v1",
+  "assessment": "Isolated annual-operator and dose/lag compatibility witnesses; no clinical effect fit",
+  "evidence_grade": "E",
+  "model_role": "benchmark_only",
+  "provenance": {
+    "amendment_sha256": "4aac541bce132a6aeb59962f49779df8c3d1eecf25f67d5c8db99183dda8084e",
+    "clinical_hr_used_in_witnesses": false,
+    "clinical_records_used": false,
+    "definition_sha256": "4e6e7a397009ff3c524e6dfcd4ea97859cfa973ff02fc76a2a3470359f1fedaa",
+    "helper_sha256": {
+      "src/demeter/health/transitions.py": "c551731374658b44a1cc7c1eecb40ff31be99f67f73dc28b057e9584a1f1349a",
+      "src/demeter/nutrition/response.py": "d5a0ea385b72b8d7089f9393b626923abcda0b90ad2b66ea2fe539c4e3030e8a"
+    },
+    "protocol_sha256": "df1e72ac4da424c90fc78a2743160bd3698d992c447618d4899224447dd69853",
+    "reference_definition_sha256": {
+      "beta_upf_progression": "87e60f5a8367e20708c55c95ad0b15ada8b2a5f91827f8eada31c3a62c9eb8b8",
+      "diet_lag_years": "993faa25c22c461df0b880678dc753f6e9216ee5c0b1cf7994a1fb41133a477f",
+      "h_to_ir_rate": "c4006c90728137319512c5f9511a76033dc8f012612736bfcaff0b4f3fd3862e",
+      "initial_healthy_share": "f1996bf527aba22aaa6140cc3a5173f0bdef257ccce78a33c749cbf4a4b3467a",
+      "initial_ir_share": "7b76809084be068fbd86dd7559d6e34e2b6e9a5057a2172f999948474ce9db5a",
+      "ir_to_h_rate": "c051be62c47098d025580c4ef75b57fe2f22044aa00605ce47a8e472a4b4b1a0",
+      "ir_to_t2d_rate": "41a5c48c08dde7d9ef0889a33bfbce8a3383a85a7e543b364e5f122ed2e83c62"
+    },
+    "transform_sha256": "91335e118b6a38440d01f369771228df9c4b69978cc326dd8930fd0f748232f4"
+  },
+  "results": {
+    "checks": {
+      "analytic_one_year_entries_match_operator": true,
+      "distinct_one_year_transient_stocks": true,
+      "distinct_second_year_entries": true,
+      "dose_coefficient_rescaling_matches_both_years": true,
+      "identical_hazard_null_reproduces_reference": true,
+      "lag_coefficient_rescaling_differs_second_year": true,
+      "lag_coefficient_rescaling_matches_first_year": true,
+      "matched_one_year_endpoint": true,
+      "relax_matches_closed_form": true,
+      "stocks_and_flows_conserved_and_nonnegative": true,
+      "zero_response_null_has_unit_multiplier": true
+    },
+    "classification": "validation_only_synthetic_witnesses",
+    "clinical_effect_used": false,
+    "clinical_fit_performed": false,
+    "dose_lag_witness": {
+      "cases": {
+        "reference": {
+          "beta": 0.45,
+          "dose_delta": -0.3,
+          "lag_years": 5.0,
+          "years": [
+            {
+              "log_response": -0.0244713483345,
+              "matches_closed_form": true,
+              "multiplier": 0.975825647548,
+              "year": 1
+            },
+            {
+              "log_response": -0.0445067937852,
+              "matches_closed_form": true,
+              "multiplier": 0.956469102026,
+              "year": 2
+            }
+          ]
+        },
+        "rescaled_dose_coefficient": {
+          "beta": 0.9,
+          "dose_delta": -0.15,
+          "lag_years": 5.0,
+          "years": [
+            {
+              "log_response": -0.0244713483345,
+              "matches_closed_form": true,
+              "multiplier": 0.975825647548,
+              "year": 1
+            },
+            {
+              "log_response": -0.0445067937852,
+              "matches_closed_form": true,
+              "multiplier": 0.956469102026,
+              "year": 2
+            }
+          ]
+        },
+        "rescaled_lag_coefficient": {
+          "beta": 0.857176838116,
+          "dose_delta": -0.3,
+          "lag_years": 10.0,
+          "years": [
+            {
+              "log_response": -0.0244713483345,
+              "matches_closed_form": true,
+              "multiplier": 0.975825647548,
+              "year": 1
+            },
+            {
+              "log_response": -0.0466139399773,
+              "matches_closed_form": true,
+              "multiplier": 0.954455803702,
+              "year": 2
+            }
+          ]
+        },
+        "zero_response_null": {
+          "beta": 0.45,
+          "dose_delta": 0.0,
+          "lag_years": 5.0,
+          "years": [
+            {
+              "log_response": 0.0,
+              "matches_closed_form": true,
+              "multiplier": 1.0,
+              "year": 1
+            },
+            {
+              "log_response": 0.0,
+              "matches_closed_form": true,
+              "multiplier": 1.0,
+              "year": 2
+            }
+          ]
+        }
+      },
+      "interpretation": "Synthetic legacy response only; an unmeasured regimen UPF dose and lag are not inferred from these witnesses."
+    },
+    "endpoint_witness": {
+      "analytic_one_year_t2d_entries": 0.00543240965023,
+      "cases": {
+        "A": {
+          "hazards_per_year": [
+            0.035,
+            0.02,
+            0.025
+          ],
+          "years": [
+            {
+              "conserved": true,
+              "new_t2d_entries": 0.00543240965023,
+              "nonnegative": true,
+              "stocks": {
+                "healthy": 0.755372362587,
+                "insulin_resistant": 0.239195227763,
+                "t2d": 0.00543240965023
+              },
+              "transition_flows": {
+                "healthy_to_ir": 0.0267513429108,
+                "ir_to_healthy": 0.00434592772019,
+                "ir_to_t2d": 0.00543240965023
+              },
+              "year": 1
+            },
+            {
+              "conserved": true,
+              "new_t2d_entries": 0.00584732908614,
+              "nonnegative": true,
+              "stocks": {
+                "healthy": 0.734069507874,
+                "insulin_resistant": 0.254650753389,
+                "t2d": 0.0112797387364
+              },
+              "transition_flows": {
+                "healthy_to_ir": 0.0259807179817,
+                "ir_to_healthy": 0.00467786326892,
+                "ir_to_t2d": 0.00584732908614
+              },
+              "year": 2
+            }
+          ]
+        },
+        "B": {
+          "hazards_per_year": [
+            0.035,
+            0.0644375949027,
+            0.0255624050973
+          ],
+          "years": [
+            {
+              "conserved": true,
+              "new_t2d_entries": 0.00543240965023,
+              "nonnegative": true,
+              "stocks": {
+                "healthy": 0.76472042849,
+                "insulin_resistant": 0.22984716186,
+                "t2d": 0.00543240965023
+              },
+              "transition_flows": {
+                "healthy_to_ir": 0.0267513429108,
+                "ir_to_healthy": 0.0136939936228,
+                "ir_to_t2d": 0.00543240965023
+              },
+              "year": 1
+            },
+            {
+              "conserved": true,
+              "new_t2d_entries": 0.00561880773075,
+              "nonnegative": true,
+              "stocks": {
+                "healthy": 0.752582052732,
+                "insulin_resistant": 0.236366729887,
+                "t2d": 0.011051217381
+              },
+              "transition_flows": {
+                "healthy_to_ir": 0.0263022408172,
+                "ir_to_healthy": 0.0141638650593,
+                "ir_to_t2d": 0.00561880773075
+              },
+              "year": 2
+            }
+          ]
+        },
+        "C": {
+          "hazards_per_year": [
+            0.07,
+            0.02,
+            0.025
+          ],
+          "years": [
+            {
+              "conserved": true,
+              "new_t2d_entries": 0.00543240965023,
+              "nonnegative": true,
+              "stocks": {
+                "healthy": 0.72954112098,
+                "insulin_resistant": 0.265026469369,
+                "t2d": 0.00543240965023
+              },
+              "transition_flows": {
+                "healthy_to_ir": 0.0525825845176,
+                "ir_to_healthy": 0.00434592772019,
+                "ir_to_t2d": 0.00543240965023
+              },
+              "year": 1
+            },
+            {
+              "conserved": true,
+              "new_t2d_entries": 0.00647879557396,
+              "nonnegative": true,
+              "stocks": {
+                "healthy": 0.685402669029,
+                "insulin_resistant": 0.302686125747,
+                "t2d": 0.0119112052242
+              },
+              "transition_flows": {
+                "healthy_to_ir": 0.049321488411,
+                "ir_to_healthy": 0.00518303645917,
+                "ir_to_t2d": 0.00647879557396
+              },
+              "year": 2
+            }
+          ]
+        }
+      },
+      "identical_hazard_null": {
+        "hazards_per_year": [
+          0.035,
+          0.02,
+          0.05
+        ],
+        "years": [
+          {
+            "conserved": true,
+            "new_t2d_entries": 0.0107311396975,
+            "nonnegative": true,
+            "stocks": {
+              "healthy": 0.755318890746,
+              "insulin_resistant": 0.233949969557,
+              "t2d": 0.0107311396975
+            },
+            "transition_flows": {
+              "healthy_to_ir": 0.0267513429108,
+              "ir_to_healthy": 0.00429245587899,
+              "ir_to_t2d": 0.0107311396975
+            },
+            "year": 1
+          },
+          {
+            "conserved": true,
+            "new_t2d_entries": 0.0112974741249,
+            "nonnegative": true,
+            "stocks": {
+              "healthy": 0.733859001556,
+              "insulin_resistant": 0.244112384622,
+              "t2d": 0.0220286138224
+            },
+            "transition_flows": {
+              "healthy_to_ir": 0.02597887884,
+              "ir_to_healthy": 0.00451898964995,
+              "ir_to_t2d": 0.0112974741249
+            },
+            "year": 2
+          }
+        ]
+      },
+      "interpretation": "A/B/C match an artificial one-year endpoint while allocating hazards differently. Differences at year2 show the witness does not match a multi-year trial Cox likelihood.",
+      "one_year_probability_per_initial_ir": 0.0244458434261,
+      "reference": {
+        "hazards_per_year": [
+          0.035,
+          0.02,
+          0.05
+        ],
+        "years": [
+          {
+            "conserved": true,
+            "new_t2d_entries": 0.0107311396975,
+            "nonnegative": true,
+            "stocks": {
+              "healthy": 0.755318890746,
+              "insulin_resistant": 0.233949969557,
+              "t2d": 0.0107311396975
+            },
+            "transition_flows": {
+              "healthy_to_ir": 0.0267513429108,
+              "ir_to_healthy": 0.00429245587899,
+              "ir_to_t2d": 0.0107311396975
+            },
+            "year": 1
+          },
+          {
+            "conserved": true,
+            "new_t2d_entries": 0.0112974741249,
+            "nonnegative": true,
+            "stocks": {
+              "healthy": 0.733859001556,
+              "insulin_resistant": 0.244112384622,
+              "t2d": 0.0220286138224
+            },
+            "transition_flows": {
+              "healthy_to_ir": 0.02597887884,
+              "ir_to_healthy": 0.00451898964995,
+              "ir_to_t2d": 0.0112974741249
+            },
+            "year": 2
+          }
+        ]
+      }
+    },
+    "formal_cox_identifiability_result": false,
+    "initial_stock_definition": "Normalize registered synthetic H/IR shares; D0=0 in a hypothetical event-free survivor batch. Mortality/aging stages omitted from this isolated operator diagnostic.",
+    "initial_survivor_stocks": {
+      "healthy": 0.777777777778,
+      "insulin_resistant": 0.222222222222,
+      "t2d": 0.0
+    },
+    "limitations": "Counterexamples concern the isolated implemented annual survivor operator and synthetic dietary response. They are not formal identifiability results for the trial multi-year adjusted Cox likelihood; the source HR is never used as a one-year risk ratio or input to these witnesses.",
+    "software_witnesses_passed": true,
+    "uncertainty": "Fixed mathematical/software witnesses; not clinical estimates or clinical uncertainty distributions."
+  },
+  "schema_version": 1,
+  "scientific_release_ready": false,
+  "status": "synthetic",
+  "support_decision": {
+    "clinical_transition_mapping": "unresolved",
+    "dose_conversion": "unresolved",
+    "engine_activation_permitted": false,
+    "independent_pathway_validation": "not_performed",
+    "model_role": "benchmark_only",
+    "national_transport": "unresolved",
+    "response_lag": "unresolved",
+    "source_fit_reproduced": false
+  }
+}

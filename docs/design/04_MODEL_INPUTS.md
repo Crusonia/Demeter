@@ -5,6 +5,14 @@ inputs remain unresolved until appraised and represented in the evidence registr
 Use it with the [boundary](01_PROBLEM_BOUNDARY.md), [loops](02_CAUSAL_LOOPS.md),
 and [externalities](03_EXTERNALITIES.md).
 
+The [Reus assessment](../REUS_DIABETES_PATHWAY.md) feeds I-01/I-05/I-07/I-11/I-12,
+P-02 and F-04/F-08 as a source-to-model compatibility record. Its corrected
+assigned-regimen Cox benchmarks do not identify a consumed dietary dose or
+separate progression/recovery hazards. Synthetic checks demonstrate ambiguities
+in the current annual operator and dietary-response equation; they introduce no
+clinical coefficient. The observation contract, lag and transport remain
+unresolved and must be traced to evidence and tests before clinical activation.
+
 ## Separate input roles
 
 | Role | What belongs here | What must not happen |

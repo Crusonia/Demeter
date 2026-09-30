@@ -1,0 +1,94 @@
+{
+  "analysis": {
+    "arm_headers": {
+      "combined": "Both MedDiets vs. control diet",
+      "nuts": "MedDiet with nuts vs. control diet",
+      "voo": "MedDiet with VOO vs. control diet"
+    },
+    "confidence_level": 0.95,
+    "correction_rows": {
+      "corrected": "New multivariate-adjusted model\u2020\u00a7",
+      "original": "Original multivariate-adjusted model\u2020"
+    },
+    "correction_table_id": "T3",
+    "correction_table_label": "Table 3",
+    "expected_overall_estimates": 6,
+    "original_report_row": "Multivariate adjusted model*",
+    "original_table_id": "T2",
+    "original_table_label": "Table 2",
+    "ratio_null": 1.0,
+    "selection": "All two overall models and three contrasts, irrespective of direction or null inclusion. Subgroup rows not extracted or pooled in this protocol.",
+    "source_comparison": "Compare the three original-row point/CI tuples in correction Table3 against original Table2; retain disagreement and fail source reproduction if not exact.",
+    "uncertainty": "Retain reported intervals without turning them into a sampling distribution; shared participants/control and original/corrected analyses are dependent, with joint covariance unavailable.",
+    "unit": "dimensionless adjusted Cox hazard ratio for first incident diabetes"
+  },
+  "analysis_id": "reus-corrected-diabetes-v1",
+  "chronology": "Frozen after primary article, correction, headers, row labels and prior published-result appraisal; before executable effect-cell extraction and new synthetic compatibility calculations. Used-source reproduction, not preregistration or independent validation.",
+  "compatibility_diagnostic": {
+    "absolute_tolerance": 1e-12,
+    "counterexample_scale": 2.0,
+    "diagnostic_years": [
+      1,
+      2
+    ],
+    "dose_lag_witness": "L(t)=beta*delta*[1-exp(-t/tau)] through relax. Dose/coefficient rescaling (delta/scale,beta*scale,tau) preserves the trajectory. Lag/coefficient rescaling (delta,beta*[1-exp(-1/tau)]/[1-exp(-1/(scale*tau))],scale*tau) preserves year1 but changes year2.",
+    "endpoint_witness": "Normalize existing synthetic H/IR shares, D0=0. A=(a,r,d/scale), pA=dA/(rA+dA)*[-expm1(-(rA+dA))]. B has gB=scale*(rA+dA), dB=pA*gB/[-expm1(-gB)], rB=gB-dB, unchanged a. C changes only a to scale*a. Test same year1 D entry, different endpoint stocks/year2 entries, conservation and analytic arithmetic.",
+    "evidence_grade": "E",
+    "functions": [
+      "demeter.health.transitions.transition_survivors",
+      "demeter.nutrition.response.relax"
+    ],
+    "limitation": "Counterexamples concern the isolated implemented annual survivor operator and synthetic dietary response. They are not formal identifiability results for the trial multi-year adjusted Cox likelihood; the source HR is never used as a one-year risk ratio or input to these witnesses.",
+    "model_role": "benchmark_only",
+    "null": "Identical hazards reproduce reference output; zero response gives multiplier one. Mathematical hypotheses, not observed zero clinical effects.",
+    "population_scale": 1.0,
+    "registry_references": [
+      "h_to_ir_rate",
+      "ir_to_h_rate",
+      "ir_to_t2d_rate",
+      "initial_healthy_share",
+      "initial_ir_share",
+      "beta_upf_progression",
+      "diet_lag_years"
+    ],
+    "relative_tolerance": 0.0,
+    "relative_upf_fixture": 0.7,
+    "status": "synthetic",
+    "uncertainty": "Fixed mathematical/software witnesses; not clinical estimates or clinical uncertainty distributions.",
+    "units": "hazards per year; lag/time in years; normalized expected person counts and dimensionless log-response"
+  },
+  "dataset": "reus_corrected_diabetes_benchmark",
+  "limits": [
+    "Separate Reus original/correction, not the unretrieved multicenter Annals correction; do not substitute cardiovascular corrections.",
+    "Regimen counseling plus provided foods is not an isolated UPF, fiber or ingredient contrast.",
+    "The reported adjusted Cox analysis includes weight change during the study; a total causal regimen effect cannot be asserted automatically.",
+    "Original and correction adjustment footnotes differ on age/sex; preserve the discrepancy instead of harmonizing it.",
+    "No full source redistribution or participant records; factual estimates, citations, receipts and original code only.",
+    "#58 and all original scientific acceptance requirements remain open; expert review pending."
+  ],
+  "schema_version": 1,
+  "source_pins": {
+    "correction": {
+      "retrieved_utc": "2026-09-30T18:22:57.057974+00:00",
+      "sha256": "f38177b1b74c1ae9e8cbc48777c55bbfedf95ed22a4a80659343c2d7c01e31ff",
+      "size_bytes": 15558,
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6150430/fullTextXML"
+    },
+    "original": {
+      "retrieved_utc": "2026-09-30T18:22:56.260990+00:00",
+      "sha256": "3f55ee6e6f0ceefff31feada00de160c2439cee48060f99b9b4477c0dafa9158",
+      "size_bytes": 81042,
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3005482/fullTextXML"
+    }
+  },
+  "support_decision": {
+    "clinical_transition_mapping": "unresolved",
+    "dose_conversion": "unresolved",
+    "engine_activation_permitted": false,
+    "independent_pathway_validation": "not_performed",
+    "model_role": "benchmark_only",
+    "national_transport": "unresolved",
+    "response_lag": "unresolved",
+    "source_fit_reproduced": false
+  }
+}

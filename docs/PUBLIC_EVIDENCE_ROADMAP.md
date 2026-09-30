@@ -14,11 +14,12 @@ identify a national causal model. This feeds [#56](https://github.com/Crusonia/D
 | 1 | [Chen public cohort](https://doi.org/10.5061/dryad.ft8750v), CC0 data | Source-specific baseline/final glucose and recorded incident diabetes | [Timing audit complete](CHEN_TIMING_AUDIT.md), source disagreements retained; keep descriptive benchmarks and seek compatible observations before a likelihood fit |
 | 2 | Archived NHANES and NCHS linked mortality | U.S. observed glycemic categories and baseline-category mortality prediction | Carry explicit unknown/type categories forward; assess supported initialization and conditional mortality, keeping the frozen prediction evaluation separate |
 | 3 | Public aggregate longitudinal studies, including corrected ARIC and CARRS tables | External comparisons of progression/recovery under each study's definitions | Record intervals, competing-event handling and covariance availability; test whether any package identifies a compatible joint model |
-| 4 | [Hall intake reproduction](FOOD_INTAKE_REPRODUCTION.md), public dietary-trial reports and supplements | Study-compatible food intervention endpoints | Select one defensible bridge from exposure to a health endpoint; retain null alternatives and avoid combining overlapping dietary effects |
+| 4 | [Hall intake reproduction](FOOD_INTAKE_REPRODUCTION.md), [corrected Reus assessment](REUS_DIABETES_PATHWAY.md) and public trial protocols | Study-compatible food intervention endpoints and explicit source-to-model limits | Define a compatible observation contract, appraise an independent source, and retain null alternatives and overlapping-effect uncertainty before fitting a disease bridge |
 
 U.S. mortality/population archives, observation mapping and the Hall analysis
-already exist. The executable Chen intake and timing audit now exist. Later rows
-remain research work, not completed calibration. Controlled ARIC/DPP access stays
+already exist. The executable Chen intake/timing audit and Reus reported-result
+reproduction now exist. Joint hazard identification and independent pathway
+evaluation remain research work, not completed calibration. Controlled ARIC/DPP access stays
 optional; no applicant, agreement or outreach is needed for this public work.
 
 ## First public cohort: executable intake
@@ -90,6 +91,17 @@ An openly licensed article also does not make its underlying clinical records an
 unrestricted public download. Neither study activates a Demeter parameter.
 
 ## What a public-data result must earn
+
+The [clinical observation contract](CLINICAL_OBSERVATION_CONTRACT.md) specifies
+the source review and likelihood requirements before a clinical fit.
+The [Reus assessment](REUS_DIABETES_PATHWAY.md) reproduces all six frozen overall
+HR/CI cells from the separate original/correction reports. Its synthetic checks
+show how identical one-year endpoints can coexist with different recovery and
+progression hazards, and how dose/coefficient or lag/coefficient pairs can be
+ambiguous in the implemented response. These checks never use the trial HRs as
+inputs and do not establish identification of the trial's adjusted Cox likelihood.
+The full XML articles remain fetch-only. #58 stays open: source reproduction
+does not establish the missing clinical transitions, dose, lag or U.S. transport.
 
 Before fitting: pin the source version and definitions; resolve material coding
 and timing conflicts; specify the estimand, observation process and likelihood;

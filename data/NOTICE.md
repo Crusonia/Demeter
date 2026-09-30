@@ -137,6 +137,15 @@ metadata receipts, with the same fetch-only workbook disposition. Article and
 review-response PDFs are not distributed; factual locators and byte receipts
 are retained. The later Sheng supplement contains the same workbook and adds
 no independent participant records. See the [timing audit](../docs/CHEN_TIMING_AUDIT.md).
+
+The separate PREDIMED-Reus original report (10.2337/dc10-1288) and correction
+(10.2337/dc18-er10) are obtained through Europe PMC. Original XML records CC
+BY-NC-ND 3.0; correction XML specifies educational, not-for-profit and unaltered
+use with attribution. Demeter does not redistribute either full article. The
+[Reus package](../docs/REUS_DIABETES_PATHWAY.md) contains factual estimates,
+locators, receipts and original code only; these do not relicense publisher work.
+The correction is separate from the unavailable multicenter Annals correction.
+No participant data or reestimated clinical fit is distributed.
 See the [public evidence route](../docs/PUBLIC_EVIDENCE_ROADMAP.md).
 
 Source distributions carry reviewed source bytes, manifests, transforms and
