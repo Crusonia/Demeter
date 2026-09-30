@@ -283,7 +283,7 @@ def evidence_sources(
     download: bool = False,
     output: Path | None = None,
 ) -> None:
-    """Re-extract pinned clinical tables; fail on drift without altering parameters."""
+    """Verify pinned sources, clinical tables and dataset reproduction checks."""
     report = verify_sources(registry(evidence), raw, download)
     emit(report, output)
     if not report["passed"]:
