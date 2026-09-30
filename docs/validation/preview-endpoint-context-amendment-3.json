@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "status": "post-reproduction used-source context-integrity amendment with verified source locators",
+  "created_at_utc": "2026-09-30T23:26:31.320302+00:00",
+  "parent_protocol_path": "docs/validation/preview-endpoint-protocol-v1.json",
+  "parent_protocol_sha256": "b9cc9b76f545c7ddf753d90ecd52a8476265f86223c1c741e3cf8508c43d7e86",
+  "parent_amendment_path": "docs/validation/preview-endpoint-amendment-1.json",
+  "parent_amendment_sha256": "86afebf2fca317251e57ead857199d47a86672657af827e3cd4080c8108de61f",
+  "prior_reproduction_commit": "4c9d1f6bf939a6e4b41abf97132ff2129e81a5d5",
+  "reason": "Review comment4150230486 identified that contextual numeric drift was not checked against source expectations. These already-inspected facts are pinned prospectively for corrected audits; original specification/clarification files are unchanged.",
+  "derived_effects_already_computed": true,
+  "analytical_selection_changed": false,
+  "clinical_fit_or_activation_allowed": false,
+  "context_parameters": {
+    "preview_year1_window_weeks": {
+      "value": 2,
+      "unit": "weeks",
+      "source_id": "preview_protocol2017",
+      "source_locator": "Original2017 protocol section2.6; pinned PDF page8, year1 visit +/-2weeks"
+    },
+    "preview_later_window_weeks": {
+      "value": 4,
+      "unit": "weeks",
+      "source_id": "preview_protocol2017",
+      "source_locator": "Original2017 protocol section2.6; pinned PDF page8, later visits +/-4weeks"
+    },
+    "preview_year1_nominal_week": {
+      "value": 52,
+      "unit": "weeks",
+      "source_id": "preview_original2021",
+      "source_locator": "Original2021 report section2.1 Participants; pinned PDF physicalpage3/printed326, explicit schedule (baseline,8,26,52,78,104,156weeks); schedule labels only"
+    },
+    "preview_year3_nominal_week": {
+      "value": 156,
+      "unit": "weeks",
+      "source_id": "preview_original2021",
+      "source_locator": "Original2021 report section2.1 Participants; pinned PDF physicalpage3/printed326, explicit schedule (baseline,8,26,52,78,104,156weeks); schedule labels only"
+    },
+    "preview_run_in_weeks": {
+      "value": 8,
+      "unit": "weeks",
+      "source_id": "preview_secondary2025",
+      "source_locator": "Secondary main Methods/Study design, common initial8weeks"
+    },
+    "preview_reported_confidence_level": {
+      "value": 0.95,
+      "unit": "proportion",
+      "source_id": "preview_secondary2025",
+      "source_locator": "Secondary main Methods/Statistical analysis, FPar5, reported95% confidence intervals",
+      "transformation": "Reported95% confidence level /100 =0.95; unit normalization only, not independent or simultaneous coverage"
+    }
+  },
+  "source_review": "Independent Codex primary-methods visual and exact-literal review; source values agree. No new outcome cells or numerical effects inspected. Not independent clinical validation.",
+  "independent_byte_extraction": false,
+  "used_in_endpoint_calculations": false,
+  "supersedes_path": "docs/validation/preview-endpoint-context-amendment-2.json",
+  "supersedes_sha256": "8c36bf91e13e67a2e60b321de6aca6b632cf96735f2a5e7dc3978e59482b1d12",
+  "source_locator_disposition": "Amendment2 is retained as a superseded locator-discrepancy record. Its nominal-week references to2017 section2.6 were not supported. No corrected audit or numerical reproduction ran using that disputed context amendment. Exact week52/week156 schedule literals were visually verified in original2021 section2.1 before this replacement freeze."
+}
