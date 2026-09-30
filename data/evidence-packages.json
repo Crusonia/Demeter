@@ -437,7 +437,7 @@
       "artifacts": [
         {
           "path": "docs/validation/issue-56-state-mapping.json",
-          "sha256": "64edfc92f5ba4874ad2ed355049f731215877fddf769eaefaa472a86fb22da32"
+          "sha256": "b5a0f7016374126d7a62b805b3c126c4ad95572b42c7008cca6b896638366760"
         },
         {
           "path": "docs/validation/issue-56-state-mapping-before-after.json",
@@ -445,7 +445,7 @@
         },
         {
           "path": "docs/validation/issue-56-partial-observations.json",
-          "sha256": "af66f154e6bb7595b72953be0d164c35a7369bba7d1ab721a3112d4d95fc4eb5"
+          "sha256": "23baf4c148ad18756e4b813881a983d971e5067795bd69713add8fc0f99fe6ce"
         },
         {
           "path": "docs/validation/issue-56-partial-before-after.json",
@@ -462,6 +462,36 @@
       ],
       "model_role": "benchmark_only",
       "redistribution": "Demeter aggregate observation audit from existing archived CDC/NCHS public-use files; retain upstream terms and citations. No joined person-level output."
+    },
+    "chen_public_intake": {
+      "store": null,
+      "dependencies": [],
+      "registry_datasets": [
+        "chen_public_intake"
+      ],
+      "registry_parameters": [],
+      "artifacts": [
+        {
+          "path": "docs/validation/chen-public-intake-protocol-v1.json",
+          "sha256": "c3016c7e5ce6819869a5cfca4b9b158fc5ea0a437268998a4eb85237b47e9d42"
+        },
+        {
+          "path": "docs/validation/issue-57-public-cohort.json",
+          "sha256": "c00e5931bc736dd784db309ffb4994e8d393f9f83d09ce995a0a49c789dc4cf9"
+        },
+        {
+          "path": "docs/validation/public-source-appraisal-receipts.json",
+          "sha256": "6834164d36d4cd165d05761315ae3ef1069ca0f52859527d2a8689b51fab6825"
+        }
+      ],
+      "transform_files": [
+        "src/demeter/analysis/public_cohort.py"
+      ],
+      "rebuild": [
+        "uv run demeter evidence public-cohort --workbook data/raw/clinical/chen2018.xlsx --output outputs/chen-intake.json"
+      ],
+      "model_role": "benchmark_only",
+      "redistribution": "Aggregate public-source audit, protocol, metadata receipts and MIT code. CC0 workbook is fetch-only by size choice; article rights are separate. No person-level exports."
     }
   },
   "supporting_artifacts": [

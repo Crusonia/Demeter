@@ -128,6 +128,12 @@ open license does not make its underlying clinical records open.
 
 ## Distribution and contribution controls
 
+The Chen et al. cohort is available under the dataset's CC0 dedication, verified
+in Dryad and Zenodo metadata. Its large workbook remains fetch-only by packaging
+choice; this is not a restricted-access requirement. Demeter distributes the
+aggregate intake, protocol, source receipt and code. Article rights are separate.
+See the [public evidence route](../docs/PUBLIC_EVIDENCE_ROADMAP.md).
+
 Source distributions carry reviewed source bytes, manifests, transforms and
 notices. Wheels carry small derived bundles and these notices/JSON inventories
 under `demeter/data/notices/`. Raw public-use files come from the matching

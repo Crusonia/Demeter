@@ -2263,6 +2263,53 @@ datasets:
       published_standard_error_kcal_per_day: 106
       published_rounding_unit_kcal_per_day: 1
     published_summary_source: https://pubmed.ncbi.nlm.nih.gov/31105044/
+  chen_public_intake:
+    status: observed
+    model_role: benchmark_only
+    source_id: chen2018_public_cohort
+    population: Selected adults aged at least 20 with repeated health checks and no
+      baseline diabetes
+    geography: 32 sites in 11 Chinese cities
+    time_period: 2010-2016
+    source_url: https://doi.org/10.5061/dryad.ft8750v
+    study_url: https://doi.org/10.1136/bmjopen-2018-021768
+    protocol_path: docs/validation/chen-public-intake-protocol-v1.json
+    protocol_sha256: c3016c7e5ce6819869a5cfca4b9b158fc5ea0a437268998a4eb85237b47e9d42
+    uncertainty: Exact release counts; population, selection, measurement and transport
+      uncertainty unresolved. No sampling inference.
+    analysis:
+      sheet: RC
+      columns:
+        id: id
+        age: Age (y)
+        sex: Gender(1, male; 2, female)
+        baseline_fpg: FPG (mmol/L)
+        final_fpg: FPG of final visit(mmol/L)
+        diagnosis: Diabetes diagnosed during followup（1,Yes）
+        endpoint: censor of diabetes at followup(1, Yes; 0, No)
+        followup: year of followup
+      published_records: 211833
+      published_male: 116123
+      published_female: 95710
+      published_diabetes_events: 4174
+      published_median_followup_years: 3.1
+      published_followup_decimal_places: 1
+      glucose_threshold_mmol_l: 7.0
+      minimum_baseline_age_years: 20
+      sex_codes:
+        male: 1
+        female: 2
+      binary_codes:
+      - 0
+      - 1
+      quantiles:
+      - 0
+      - 0.25
+      - 0.5
+      - 0.75
+      - 1
+      quantile_method: linear
+
 scientific_blockers:
 - National age-specific metabolic transition hazards are unresolved.
 - Age-specific T2D/prediabetes initial prevalence is not calibrated; CDC total diabetes includes
@@ -2271,6 +2318,7 @@ scientific_blockers:
 - State mortality hazard ratios remain synthetic.
 - No historical end-to-end dietary-effect validation; mortality persistence backtest is a limited
   benchmark.
+
 sources:
   aric_rooney_2021_corrected:
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC7871207/
@@ -2307,3 +2355,17 @@ sources:
       and 10.1016/j.cmet.2020.08.014. Accessible PMC notice says total daily intake is unaffected by
       the meal-label correction. Author archive uploaded after January 2021 correction discussion; body-composition
       and meal-level endpoints excluded.'
+
+  chen2018_public_cohort:
+    url: https://zenodo.org/api/records/4997196/files/RC%20Health%20Care%20Data-20180820.xlsx/content
+    citation: 'Chen Y et al. (2018). Data from: Association of body mass index and age
+      with incident diabetes in Chinese adults: a population-based cohort study. Dryad,
+      DOI 10.5061/dryad.ft8750v; identical Zenodo archive 4997196.'
+    doi: 10.5061/dryad.ft8750v
+    raw_filename: chen2018.xlsx
+    sha256: ffd341a1a91ac65585b9fba70847a2681f5671a6035d9cfbf92e50795d74fbf6
+    retrieved_at: '2026-09-29T04:54:40.667548+00:00'
+    license: CC0-1.0 per Dryad and cc-zero per Zenodo metadata, rechecked 2026-09-30.
+      Workbook kept fetch-only to avoid duplicating a large microdata release.
+    correction_note: Published study used-data reproduction; no independent holdout.
+      Metadata identities agree; this does not validate every column semantic.

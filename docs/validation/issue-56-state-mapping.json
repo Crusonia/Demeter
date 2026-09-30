@@ -4007,7 +4007,7 @@
         "waist_rule": "Strictly greater than NHLBI 40/35 inches converted at exactly 2.54 cm/inch; not ethnicity-specific"
       }
     },
-    "evidence_sha256": "8b2782a21113f21ec007dfdcc2d50db54b0eeacda30dc85818aed7638d8f024a",
+    "evidence_sha256": "270388376c952aaa74b1fef70a29a53a60ea6ac2f79e31ac8a4a3f28babf64e9",
     "implementation_sha256": {
       "src/demeter/data/nhanes.py": "cac20cd09b1dddceab5b08b3b39b4b5f0ae36d27c509a4703daf4feac8add481",
       "src/demeter/data/prechronic.py": "09286f59eb2f01b00845b2ef5be51f200bb21ac7c0f311a57248799ba88a3dcf",

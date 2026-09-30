@@ -45,9 +45,9 @@ the full study page returned HTTP 403 during this appraisal.
 The [BioLINCC FAQ](https://biolincc.nhlbi.nih.gov/faq/) describes registration,
 research and ethics documentation, and an institutional research-materials
 agreement. No application, agreement or message to a researcher has been submitted.
-An available approved dataset or research partner is being requested from the
-maintainer. This access constraint applies to that route, not to all possible
-longitudinal evidence.
+The maintainer has selected the [public-source route](../PUBLIC_EVIDENCE_ROADMAP.md).
+An institutional applicant is optional for a future controlled-access route and
+is not a prerequisite for the current public-cohort work.
 
 ## Minimum useful intake contract
 
@@ -97,6 +97,11 @@ silently initialize every U.S. age group. Population accounting, units, bounds,
 reproducibility and before/after canonical outputs remain required.
 
 ## Current disposition
+
+The [public-cohort extension](RFC-57-public-cohort-intake.md) now implements a
+descriptive Chen intake under a protocol committed before outcome aggregation.
+Its source discrepancy remains explicit. It adds no likelihood fit or engine rate;
+the earlier source/identification conclusions below remain applicable.
 
 No new clinical values, evidence grades, equations or uncertainty distributions
 are introduced. The [source appraisal](../LONGITUDINAL_SOURCE_APPRAISAL.md) now
