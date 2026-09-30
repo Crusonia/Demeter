@@ -81,7 +81,16 @@ selects the registered table/row/column, and checks the point estimate and both 
 limits after the declared scale transform. Errors fail closed. HTML files remain
 in ignored raw storage. `--download` only fetches missing files; changing a source
 pin requires a reviewed registry edit. The default command does not access the
-network. The committed verification receipt records a successful real-source run.
+network. The committed clinical-table receipt records the earlier ARIC/LEADR
+extraction run, not a pass for sources added later.
+
+Dataset sources dispatch to their registered reproduction: Hall's paired-intake
+analysis and Chen's public-cohort audit. Each source reports checksum verification
+separately from its extraction/reproduction results. A checksum match alone does
+not pass; unsupported dataset contracts fail explicitly. Chen currently fails
+its published-median follow-up comparison even when its workbook checksum agrees;
+the report retains the failing check and the command exits 1. See the
+[public-evidence roadmap](PUBLIC_EVIDENCE_ROADMAP.md) for that unresolved source issue.
 
 An extraction pass establishes what was read. It does not establish national
 transportability, causal identification, calibration, or independent validation.

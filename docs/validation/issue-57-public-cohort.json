@@ -1,0 +1,134 @@
+{
+  "analysis_id": "chen-public-intake-v1",
+  "assessment": "Public source reproduction; no transition hazard or health effect estimated",
+  "geography": "32 sites in 11 Chinese cities",
+  "limitations": [
+    "Selected repeat health-screening participants in China, 2010-2016; no U.S. transport established.",
+    "Published outcomes were known; source agreement is reproduction, not independent clinical validation.",
+    "Column T defines one but does not document blanks; preserve unknown versus assumed negative.",
+    "Endpoint follow-up varies and ends at diagnosis or last visit; no fixed-horizon annual risk or hazard is estimated.",
+    "The release lacks repeated visit histories, treatment timing, competing-death records and post-diabetes remission histories.",
+    "No dietary causal effect, diabetes-type validation, sustained remission or engine calibration is established."
+  ],
+  "model_role": "benchmark_only",
+  "population": "Selected adults aged at least 20 with repeated health checks and no baseline diabetes",
+  "provenance": {
+    "definition_sha256": "5dc510e3185e076aee1f4a2e4dcb1cd85ed1abc8557ab9be620b1d67853d22e3",
+    "individual_results_exported": false,
+    "protocol_sha256": "c3016c7e5ce6819869a5cfca4b9b158fc5ea0a437268998a4eb85237b47e9d42",
+    "raw_redistributed": false,
+    "source": {
+      "citation": "Chen Y et al. (2018). Data from: Association of body mass index and age with incident diabetes in Chinese adults: a population-based cohort study. Dryad, DOI 10.5061/dryad.ft8750v; identical Zenodo archive 4997196.",
+      "correction_note": "Published study used-data reproduction; no independent holdout. Metadata identities agree; this does not validate every column semantic.",
+      "correction_url": null,
+      "doi": "10.5061/dryad.ft8750v",
+      "license": "CC0-1.0 per Dryad and cc-zero per Zenodo metadata, rechecked 2026-09-30. Workbook kept fetch-only to avoid duplicating a large microdata release.",
+      "raw_filename": "chen2018.xlsx",
+      "retrieved_at": "2026-09-29T04:54:40.667548Z",
+      "sha256": "ffd341a1a91ac65585b9fba70847a2681f5671a6035d9cfbf92e50795d74fbf6",
+      "url": "https://zenodo.org/api/records/4997196/files/RC%20Health%20Care%20Data-20180820.xlsx/content"
+    },
+    "transform_sha256": "65a177c3dd40819a6931037d631009b83e3879a70f54ad03ef987510efbc1f6a"
+  },
+  "results": {
+    "checks": {
+      "baseline_diabetes_glucose_excluded": true,
+      "known_endpoint_rule_agrees": true,
+      "published_event_count": true,
+      "published_median_followup": false,
+      "published_sex_counts": true,
+      "required_fields_present": true,
+      "unique_present_identifiers": true,
+      "valid_codes_and_values": true
+    },
+    "diagnosis_field": {
+      "invalid": 0,
+      "missing": 210529,
+      "one": 1304,
+      "zero": 0
+    },
+    "endpoint_reconciliation": {
+      "if_blank_diagnosis_meant_negative": {
+        "compared": 211833,
+        "disagreements": 0,
+        "interpretation": "Conditional reconstruction only; blank coding unconfirmed",
+        "unknown": 0
+      },
+      "known_rule_compared": 4174,
+      "known_rule_disagreements": 0,
+      "observed_negative_rule": 0,
+      "observed_positive_rule": 4174,
+      "unknown_rule": 207659
+    },
+    "followup": {
+      "all": {
+        "missing_or_invalid": 0,
+        "observed": 211833,
+        "quantiles_years": [
+          2.0013689254,
+          2.1629021218,
+          2.9897330595,
+          3.9452429843,
+          7.5646817248
+        ]
+      },
+      "recorded_endpoint_0": {
+        "missing_or_invalid": 0,
+        "observed": 207659,
+        "quantiles_years": [
+          2.0013689254,
+          2.160164271,
+          2.9897330595,
+          3.9452429843,
+          7.5646817248
+        ]
+      },
+      "recorded_endpoint_1": {
+        "missing_or_invalid": 0,
+        "observed": 4174,
+        "quantiles_years": [
+          2.0013689254,
+          2.4928131417,
+          3.1074606434,
+          4.0301163587,
+          5.711156742
+        ]
+      }
+    },
+    "invalid": {
+      "age": 0,
+      "baseline_fpg": 0,
+      "diagnosis": 0,
+      "endpoint": 0,
+      "final_fpg": 0,
+      "followup": 0,
+      "sex": 0
+    },
+    "missing": {
+      "age": 0,
+      "baseline_fpg": 0,
+      "diagnosis": 210529,
+      "endpoint": 0,
+      "final_fpg": 19,
+      "followup": 0,
+      "id": 0,
+      "sex": 0
+    },
+    "missing_or_blank_identifiers": 0,
+    "recorded_endpoint": {
+      "0": 207659,
+      "1": 4174
+    },
+    "records": 211833,
+    "rows_with_duplicated_identifiers": 0,
+    "sampling_uncertainty": "Not estimated: exact fixed-release audit, not population inference",
+    "sex_counts": {
+      "female": 95710,
+      "male": 116123
+    },
+    "source_reproduction_passed": false
+  },
+  "schema_version": 1,
+  "scientific_release_ready": false,
+  "time_period": "2010-2016"
+}

@@ -250,6 +250,11 @@ The manifests record source URLs, retrieval times, vintages, hashes, and transfo
 
 ## Next scientific gate
 
+We are pursuing [public evidence first](docs/PUBLIC_EVIDENCE_ROADMAP.md), with
+reproducible source audits and progressively supported model components. The
+public-cohort intake provides a concrete next contribution without institutional
+data access; unresolved source discrepancies remain visible before any calibration.
+
 Optional [dietary timing experiments](docs/DIET_DYNAMICS.md) add scheduled changes,
 fading exposure memory, independent recovery lags and timing sensitivity. Run
 `uv run demeter observe scenarios/diet_dynamics.yaml --destination outputs/diet-dynamics-report`

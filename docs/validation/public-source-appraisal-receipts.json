@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "assessment_date": "2026-09-30",
+  "receipts": [
+    {
+      "url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.ft8750v",
+      "sha256": "7ff80a0389b3b02f50058881e7dbb20277fc828e7d874b2cb9eaffcbb75d001d",
+      "bytes": 6070,
+      "received_at_utc": "2026-09-30T00:34:06.532421+00:00",
+      "purpose": "CC0 dataset metadata",
+      "raw_redistributed": false
+    },
+    {
+      "url": "https://datadryad.org/api/v2/versions/22783/files",
+      "sha256": "23c5c6272381318209b17674eb7465cc5136a377a740e333457ebdf29173e33f",
+      "bytes": 1080,
+      "received_at_utc": "2026-09-30T00:34:06.811967+00:00",
+      "purpose": "Original file size and MD5",
+      "raw_redistributed": false
+    },
+    {
+      "url": "https://zenodo.org/api/records/4997196",
+      "sha256": "59543df219f6e32dd65a06640c8b04ca8304330dab8e8ea0f02e57ef4f527314",
+      "bytes": 7281,
+      "received_at_utc": "2026-09-30T00:34:07.444972+00:00",
+      "purpose": "Matching DOI, filename, checksum and CC0 record",
+      "raw_redistributed": false
+    },
+    {
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6169758/fullTextXML",
+      "sha256": "421d82fe536942dfbaba3d57569b3263208dd2ae393d61cbb641c2e343c1834f",
+      "bytes": 102824,
+      "received_at_utc": "2026-09-30T00:34:35.721534+00:00",
+      "purpose": "Primary article JATS: cohort selection, endpoint and published median",
+      "raw_redistributed": false
+    },
+    {
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11043225/fullTextXML",
+      "sha256": "645a030c14fa7e0933221b34fc6c97678858ecc8d49ee531f53a2cddebd8a31a",
+      "bytes": 75965,
+      "received_at_utc": "2026-09-30T00:32:40.607820+00:00",
+      "purpose": "Primary article JATS: methods, tables and article-specific reuse notice",
+      "raw_redistributed": false
+    }
+  ],
+  "note": "Public metadata/documentation retrieval receipts; no controlled-access records acquired. Dynamic upstream bytes may change."
+}

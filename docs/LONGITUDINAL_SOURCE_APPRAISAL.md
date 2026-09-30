@@ -5,6 +5,13 @@ external expert review pending. Supports [RFC-57](rfcs/RFC-57-longitudinal-ident
 
 ## Decision
 
+**Update, September 30, 2026 UTC:** the maintainer selected public sources. The
+[public-evidence roadmap](PUBLIC_EVIDENCE_ROADMAP.md) and
+[executable Chen intake](rfcs/RFC-57-public-cohort-intake.md) extend this earlier
+structural appraisal with aggregate endpoint checks. The original inspection
+chronology below remains historical; the new work reads participant outcomes
+without exporting person-level records. No transition rate is fitted or activated.
+
 Two publicly released workbooks were acquired and checked against the publishers'
 file identities. Neither release supplies the complete observation package needed
 to estimate Demeter's progression, reversal, treatment and competing-death dynamics.

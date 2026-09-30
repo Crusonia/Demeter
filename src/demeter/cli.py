@@ -247,6 +247,29 @@ def food_intake_evidence(
         raise typer.Exit(1)
 
 
+@evidence_app.command("public-cohort")
+def public_cohort_evidence(
+    workbook: Annotated[Path, typer.Option(help="Local pinned Chen workbook")],
+    evidence: Path = DEFAULT_EVIDENCE,
+    output: Path | None = None,
+) -> None:
+    """Audit public longitudinal observations without activating transition rates."""
+    from demeter.analysis.public_cohort import audit_public_cohort
+    from demeter.data.nhanes import encoded
+
+    try:
+        report = audit_public_cohort(registry(evidence), workbook)
+    except (ValueError, OSError) as exc:
+        typer.echo(str(exc), err=True)
+        raise typer.Exit(1) from exc
+    if output:
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_bytes(encoded(report))
+    emit(report)
+    if not report["results"]["source_reproduction_passed"]:
+        raise typer.Exit(1)
+
+
 @evidence_app.command("applicability")
 def evidence_applicability(evidence: Path = DEFAULT_EVIDENCE, output: Path | None = None) -> None:
     """Show candidate estimates and unresolved population/endpoint mappings."""
@@ -260,7 +283,7 @@ def evidence_sources(
     download: bool = False,
     output: Path | None = None,
 ) -> None:
-    """Re-extract pinned clinical tables; fail on drift without altering parameters."""
+    """Verify pinned sources, clinical tables and dataset reproduction checks."""
     report = verify_sources(registry(evidence), raw, download)
     emit(report, output)
     if not report["passed"]:

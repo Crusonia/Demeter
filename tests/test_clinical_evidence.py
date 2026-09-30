@@ -213,3 +213,89 @@ def test_source_network_failure_returns_failed_report(tmp_path, monkeypatch):
     result = verify_sources(fixture_registry(), tmp_path, download=True)
     assert not result["passed"]
     assert result["checks"][0]["reason"] == "download_failed"
+
+
+@pytest.mark.parametrize(
+    "dataset,verifier,pass_field",
+    [
+        (
+            "chen_public_intake",
+            "demeter.analysis.public_cohort.audit_public_cohort",
+            "source_reproduction_passed",
+        ),
+        (
+            "food_intake_reproduction",
+            "demeter.analysis.food_intake.reproduce_intake",
+            "published_reproduction_passed",
+        ),
+    ],
+)
+@pytest.mark.parametrize("reproduced", [False, True])
+def test_dataset_sources_dispatch_after_verified_download(
+    tmp_path, monkeypatch, dataset, verifier, pass_field, reproduced
+):
+    from io import BytesIO
+
+    registry = fixture_registry()
+    del registry.parameters["test_benchmark"]
+    registry.datasets = {dataset: {"source_id": "test_source"}}
+    results = {pass_field: reproduced, "checks": {"published_summary": reproduced}}
+
+    def audit(actual_registry, path):
+        assert actual_registry is registry
+        assert path.read_bytes() == HTML
+        return {"analysis_id": "synthetic-reproduction", "results": results}
+
+    monkeypatch.setattr(verifier, audit)
+    monkeypatch.setattr("urllib.request.urlopen", lambda *a, **kw: BytesIO(HTML))
+    report = verify_sources(registry, tmp_path, download=True)
+    assert report["passed"] is reproduced
+    check = report["checks"][0]
+    assert check["checksum_passed"]
+    assert check["parameters"] == []
+    assert check["datasets"] == [
+        {
+            "dataset": dataset,
+            "passed": reproduced,
+            "analysis_id": "synthetic-reproduction",
+            "results": results,
+        }
+    ]
+    # Already-present downloads must not bypass checksum verification or reach the analyzer.
+    (tmp_path / "fixture.html").write_bytes(b"changed source")
+    monkeypatch.setattr(verifier, lambda *a: pytest.fail("Unverified dataset analyzed"))
+    assert verify_sources(registry, tmp_path)["checks"][0]["reason"] == "checksum_mismatch"
+
+
+def test_dataset_protocol_errors_are_failed_checks_and_do_not_hide_other_sources(
+    tmp_path, monkeypatch
+):
+    registry = fixture_registry()
+    registry.datasets = {"chen_public_intake": {"source_id": "test_source"}}
+    registry.sources["another_source"] = registry.sources["test_source"].model_copy()
+    (tmp_path / "fixture.html").write_bytes(HTML)
+
+    def invalid(*a):
+        raise ValueError("Public cohort protocol/registry mismatch")
+
+    monkeypatch.setattr("demeter.analysis.public_cohort.audit_public_cohort", invalid)
+    report = verify_sources(registry, tmp_path)
+    assert not report["passed"]
+    assert len(report["checks"]) == 2
+    first = report["checks"][0]
+    assert first["parameters"][0]["passed"]
+    assert not first["passed"]
+    assert first["datasets"][0]["reason"] == "Public cohort protocol/registry mismatch"
+    assert report["checks"][1]["reason"] == "no_registered_verification"
+
+
+def test_unknown_dataset_contract_cannot_pass_on_checksum_only(tmp_path):
+    registry = fixture_registry()
+    registry.datasets = {"unimplemented": {"source_id": "test_source"}}
+    (tmp_path / "fixture.html").write_bytes(HTML)
+    result = verify_sources(registry, tmp_path)
+    assert not result["passed"]
+    check = result["checks"][0]
+    assert check["checksum_passed"]
+    assert check["parameters"][0]["passed"]
+    assert check["datasets"][0]["reason"] == "unsupported_dataset_verification"

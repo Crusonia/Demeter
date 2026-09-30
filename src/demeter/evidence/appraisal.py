@@ -67,8 +67,32 @@ def extract_interval(content: bytes, spec: TableExtraction) -> tuple[float, floa
     return value, low, high
 
 
+def _verify_dataset(registry: EvidenceRegistry, key: str, path: Path) -> dict:
+    """Dispatch explicit dataset contracts; an unrecognized contract cannot pass."""
+    from demeter.analysis.food_intake import reproduce_intake
+    from demeter.analysis.public_cohort import audit_public_cohort
+
+    verifiers = {
+        "food_intake_reproduction": (reproduce_intake, "published_reproduction_passed"),
+        "chen_public_intake": (audit_public_cohort, "source_reproduction_passed"),
+    }
+    if key not in verifiers:
+        return {"dataset": key, "passed": False, "reason": "unsupported_dataset_verification"}
+    verify, pass_field = verifiers[key]
+    try:
+        report = verify(registry, path)
+    except (ValueError, OSError) as exc:
+        return {"dataset": key, "passed": False, "reason": str(exc)}
+    return {
+        "dataset": key,
+        "passed": report["results"][pass_field],
+        "analysis_id": report["analysis_id"],
+        "results": report["results"],
+    }
+
+
 def verify_sources(registry: EvidenceRegistry, raw: Path, download: bool = False) -> dict:
-    """Verify raw receipts and re-extract candidates. Never rewrite evidence on drift."""
+    """Verify receipts, clinical tables and dataset audits without rewriting evidence."""
     checks = []
     for source_id, source in registry.sources.items():
         path = raw / source.raw_filename
@@ -122,19 +146,28 @@ def verify_sources(registry: EvidenceRegistry, raw: Path, download: bool = False
                 parameters.append({"parameter": key, "passed": passed, "extracted": triple})
             except ValueError as exc:
                 parameters.append({"parameter": key, "passed": False, "reason": str(exc)})
+        datasets = [
+            _verify_dataset(registry, key, path)
+            for key, dataset in registry.datasets.items()
+            if dataset.get("source_id") == source_id
+        ]
         checks.append(
             {
                 "source": source_id,
-                "passed": bool(parameters) and all(p["passed"] for p in parameters),
+                "passed": bool(parameters or datasets)
+                and all(p["passed"] for p in parameters + datasets),
+                "checksum_passed": True,
                 "sha256": source.sha256,
                 "parameters": parameters,
+                "datasets": datasets,
+                **({"reason": "no_registered_verification"} if not parameters + datasets else {}),
             }
         )
     return {
         "passed": bool(checks) and all(c["passed"] for c in checks),
         "evidence_sha256": registry.content_hash,
         "checks": checks,
-        "interpretation": "Verifies extraction only; not causal identification or national transportability.",
+        "interpretation": "Verifies source checksums, registered table extractions and dataset reproductions; not causal identification or national transportability.",
     }
 
 
