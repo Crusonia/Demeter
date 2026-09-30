@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "analysis_id": "chen-followup-timing-v1",
+  "created_on": "2026-09-30",
+  "chronology": "After inspecting the published paper, metadata, headers and the v1 intake results (including the failed median check); before calculating release-wide sums, means, day-grid diagnostics or calendar-envelope counts in this work. No independent holdout.",
+  "source_id": "chen2018_public_cohort",
+  "archive_sha256": "ffd341a1a91ac65585b9fba70847a2681f5671a6035d9cfbf92e50795d74fbf6",
+  "intake_dataset": "chen_public_intake",
+  "analysis": {
+    "published_person_years": 660191,
+    "published_person_years_decimal_places": 0,
+    "published_median_followup_years": 3.1,
+    "published_followup_decimal_places": 1,
+    "published_minimum_followup_years": 2,
+    "reported_calendar_start_inclusive": "2010-01-01",
+    "reported_calendar_end_exclusive": "2017-01-01",
+    "diagnostic_days_per_year": [365, 365.25, 366],
+    "integer_day_absolute_tolerance": 0.000001,
+    "numerical_tolerance_status": "synthetic",
+    "numerical_tolerance_rationale": "Floating-point diagnostic tolerance in days, not an empirical effect or a source-defined year conversion.",
+    "publication_rounding_assumption": "Compare within half the displayed rounding unit, without changing the released durations. The article does not document its rounding algorithm.",
+    "quantile_method": "linear"
+  },
+  "source_locators": {
+    "paper": "https://doi.org/10.1136/bmjopen-2018-021768",
+    "paper_person_years_and_median": "Results / Diabetes incidence",
+    "paper_stopping": "Methods / Study design and study participants; initial visit to diagnosis or final visit, whichever first",
+    "paper_minimum_interval": "Methods / Study design and study participants; exclude interval less than two years",
+    "dryad": "https://datadryad.org/dataset/doi%3A10.5061/dryad.ft8750v",
+    "dryad_window": "Usage notes: health checks from 2010 to 2016",
+    "dryad_versions": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.ft8750v/versions"
+  },
+  "locked_diagnostics": [
+    "Keep all records; invalid/missing durations or endpoint codes retain explicit counts and cannot support a complete-release comparison.",
+    "Report count, sum of released years, arithmetic mean, ordinary sample median, minimum and maximum for the whole release and each recorded endpoint code, plus an unclassified-endpoint group. No subgroup is selected to replace the whole-release median.",
+    "Compare the complete-release sum with the published person-years at integer precision; compare the ordinary sample median with the published 3.1 at one decimal. Report arithmetic mean agreement as a diagnostic hypothesis only.",
+    "For each prespecified candidate days-per-year conversion, report distance to the nearest integer day and counts exceeding the full 2010-2016 calendar envelope. These are conditional diagnostics, not inferred visit dates or accepted conversion rules.",
+    "Retain the original intake checks and failed published-median check. Do not rescale, trim, replace or impute durations, or claim a paper correction from a mean match."
+  ],
+  "observation_decision": {
+    "model_role": "benchmark_only",
+    "likelihood_mode": "unresolved",
+    "hazard_fit_permitted": false,
+    "engine_activation_permitted": false,
+    "supported_now": ["Exact released-file summaries", "Recorded incident-event fraction with the released-cohort denominator"],
+    "requires_separate_protocol": ["Baseline/final FPG observation accounting under sourced thresholds", "Conditional category movement retaining diagnosis history and missingness"],
+    "unresolved": ["Alignment of final FPG with the stopping time", "Intermediate and last-negative visit times", "Detection versus biological onset", "Meaning of diagnosis-field blanks", "Visit selection, treatment histories and censoring mechanisms"],
+    "unsupported_by_this_release": ["Post-diabetes sustained remission and relapse", "State-specific competing mortality", "Dietary causal effects", "U.S. or PreChronic transition rates"],
+    "next_action": "Preserve benchmark results and pursue a compatible repeated-observation or aggregate-transition package. Do not wait for a rounded-median clarification before pursuing other public evidence."
+  },
+  "limits": [
+    "Exact summaries of a fixed selected Chinese screening release; no sampling or population-transport uncertainty is estimated.",
+    "Mean/person-years agreement can motivate a label-confusion hypothesis but cannot confirm an author correction or validate individual durations.",
+    "The year conversion and calendar-envelope interpretation are hypotheses; the workbook contains no visit dates to resolve them.",
+    "Follow-up stopping at diagnosis is outcome-dependent. Scheduled-panel, exact detected-event and interval-detected-event likelihoods require different assumptions.",
+    "Two observations alone do not prove reversible hazards unidentifiable under every possible model. This release's unresolved observation contract prevents a supported fit here.",
+    "No record deletion, hidden endpoint recoding, dietary effect, national hazard or active model parameter is introduced."
+  ]
+}
