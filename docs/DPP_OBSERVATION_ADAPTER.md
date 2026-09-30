@@ -258,15 +258,13 @@ The protocol's planned death-composite and recurrent-event analyses are not
 proof that the original report fitted those clinical processes. See original
 report Interventions and Statistical Analysis, and protocol section 10.3.
 
-The smallest next deliverable is a coverage matrix for the public forms and
-codebooks: for each required baseline, trigger, confirmation, missed-test,
-treatment, exposure and death observation, record the exact source field and
-primary locator or explicitly mark it unavailable. Keep documented availability
-separate from actual coverage in an authorized package. The matrix should resolve
-whether a proposed observation likelihood has the information it needs before
-any clinical fit is attempted. For #58 it must also show whether measured dietary
-exposure can be separated from the lifestyle package; an assigned lifestyle arm
-alone cannot supply that distinction.
+The [source coverage matrix](DPP_SOURCE_COVERAGE.md) now records those public
+form/dictionary findings, including medication recall windows, excluded calendar
+dates and source spelling discrepancies. Actual record coverage is not acquired.
+The matrix supports a fit-readiness decision; it does not provide a likelihood
+or isolated dietary effect. Further blank forms cannot supply participant
+histories. The next scientific priority is a compatible unrestricted package or
+sufficient published observations for a precisely supported estimand.
 
 This is source-informed software work after public results and documentation
 were inspected, not preregistration or independent clinical validation. #57,

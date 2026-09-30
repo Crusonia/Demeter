@@ -83,6 +83,11 @@ I-01/I-05/I-07/I-11/I-12 and F-04/F-08. Public documentation does not establish
 participant-record coverage. No state allocation, source-year conversion, clinical
 likelihood or fitted transition enters the engine through this adapter.
 
+The [DPP coverage matrix](../DPP_SOURCE_COVERAGE.md) feeds those same health
+input/formulation records with verified field meanings and explicit gaps. Public
+blank forms cannot supply participant histories; source-year conversion, event
+dating, likelihood identification and isolated dietary effects remain unresolved.
+
 1. Finish I-01 and the applicable health evidence/definition work in I-07 for the
    existing v0.1 acceptance criteria. A separate PreChronic cohort remains later
    work; do not insert it merely to satisfy the broader scenario narrative.

@@ -105,3 +105,8 @@ verifies matching public documentation bytes. It does not re-extract clinical
 tables, import participant records or establish their permitted use. Source-year
 conversion, event/confirmation dating, clinical likelihood and engine activation
 remain unresolved. See the [DPP guide](../docs/DPP_OBSERVATION_ADAPTER.md).
+
+The [coverage appraisal](../docs/DPP_SOURCE_COVERAGE.md) and its separate receipts
+record additional public form/dictionary meanings, excluded dates and version
+discrepancies. They are design/provenance artifacts, not new parameter evidence
+or an extension of the frozen four-source synthetic contract.

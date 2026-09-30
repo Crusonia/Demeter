@@ -100,6 +100,14 @@ missing tests, treatment, death and distinct censoring observations. This suppor
 the next source-field coverage review; clinical likelihood, identification and
 permitted-record intake remain unresolved.
 
+The [DPP coverage matrix](DPP_SOURCE_COVERAGE.md) completes the bounded
+public-document appraisal: exact fields and recall windows, excluded dates,
+source-version discrepancies and absent actual coverage remain distinct. The
+current catalog makes participant records available for request; no request was
+made. Prioritize compatible unrestricted observations or sufficient published
+statistics for clinical estimation. More blank forms do not resolve missing
+histories, diagnosis timing or an isolated dietary pathway.
+
 The [clinical observation contract](CLINICAL_OBSERVATION_CONTRACT.md) specifies
 the source review and likelihood requirements before a clinical fit.
 The [Reus assessment](REUS_DIABETES_PATHWAY.md) reproduces all six frozen overall

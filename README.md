@@ -257,6 +257,11 @@ explicit unknowns. Its records are synthetic; public documentation is pinned,
 while participant data remain request-only. It does not fit clinical rates or
 change simulation results.
 
+The [DPP source coverage matrix](docs/DPP_SOURCE_COVERAGE.md) explains which
+public fields support history, medication, missingness and event timing, and
+which proposed clinical fits still need compatible observations. Public blank
+forms do not supply participant histories or an isolated dietary effect.
+
 We are pursuing [public evidence first](docs/PUBLIC_EVIDENCE_ROADMAP.md), with
 reproducible source audits and progressively supported model components. The
 public-cohort intake provides a concrete next contribution without institutional

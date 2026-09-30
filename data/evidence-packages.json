@@ -615,7 +615,8 @@
       "model_role": "benchmark_only",
       "rebuild": [
         "uv run demeter evidence dpp-observations --output outputs/dpp-observations.json",
-        "uv run demeter evidence dpp-observations --raw outputs/dpp-appraisal --output outputs/dpp-documentation.json"
+        "uv run demeter evidence dpp-observations --raw outputs/dpp-appraisal --output outputs/dpp-documentation.json",
+        "uv run demeter data verify-packages --check-tracked --documentation-raw outputs/dpp-appraisal --output outputs/dpp-coverage-audit.json"
       ],
       "redistribution": "Public-source factual definitions/receipts, synthetic aggregate audit and MIT code only. Full documents fetch-only; no participant records, clinical fit or source-year conversion.",
       "registry_datasets": [
@@ -626,7 +627,9 @@
       "store": null,
       "transform_files": [
         "src/demeter/data/clinical_observations.py",
-        "src/demeter/analysis/dpp_observations.py"
+        "src/demeter/analysis/dpp_observations.py",
+        "src/demeter/data/documentation.py",
+        "src/demeter/data/packages.py"
       ]
     }
   },
@@ -670,6 +673,14 @@
     {
       "path": "docs/validation/mortality-validation-protocol-v1.json",
       "sha256": "440c44a18a743e6c9d1cc345aabbaf7631033fdb640d9062bba6a748c0abb091"
+    },
+    {
+      "path": "docs/validation/dpp-coverage-source-receipts.json",
+      "sha256": "216c1ad5b44284a6e4337603e8af7cf8baf3014782536f7d508c23c68f9bef22"
+    },
+    {
+      "path": "docs/DPP_SOURCE_COVERAGE.md",
+      "sha256": "3dd7ed245142831b2fb00dd83c5052bd112a43f8fc116a21d6fed22f384e3581"
     }
   ]
 }

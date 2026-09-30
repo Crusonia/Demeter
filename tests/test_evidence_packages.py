@@ -1,4 +1,5 @@
 import json
+from pathlib import Path
 from types import SimpleNamespace
 
 import pytest
@@ -111,9 +112,13 @@ def test_real_packages_cover_every_source_and_bundle_without_network(monkeypatch
     report = verify_packages()
     assert report["passed"], [c for c in report["checks"] if not c["passed"]]
     assert len(report["sources"]) == 61
-    assert len(report["artifacts"]) == 58
+    assert len(report["artifacts"]) == 60
     assert len(report["packages"]) == 21
     assert not report["network_used"]
+    assert report["documentation"]["metadata_passed"]
+    assert len(report["documentation"]["source_checks"]) == 15
+    assert not report["documentation"]["raw_bytes_checked"]
+    assert report["documentation"]["raw_bytes_passed"] is None
     assert {s["distribution"] for s in report["sources"]} == {"archived", "fetch_only"}
 
 
@@ -289,3 +294,187 @@ def test_fetch_only_article_bytes_are_rejected_even_when_renamed(package_root, m
         lambda *a, **k: SimpleNamespace(stdout=name.encode() + b"\0"),
     )
     assert failed(verify_packages(package_root, check_tracked=True), "fetch_only_not_tracked")
+
+
+@pytest.fixture
+def documentation_root(package_root):
+    """Synthetic fetch-only document, independent rights and receipt inventory."""
+    content = b"Synthetic document bytes, not a clinical source.\n"
+    raw = package_root / "local-documents"
+    raw.mkdir()
+    (raw / "document.html").write_bytes(content)
+    receipt = dict(
+        cache_filename="document.html",
+        distribution="fetch_only",
+        registry_source_id=None,
+        url="https://example.org/document",
+        final_url="https://example.org/document",
+        retrieved_utc="2026-09-30T00:00:00+00:00",
+        size_bytes=len(content),
+        sha256=digest(content),
+        status=200,
+        content_type="text/html",
+    )
+    # Top-level scope declarations are copied, never source records or effects.
+    coverage = json.loads(Path("docs/validation/dpp-coverage-source-receipts.json").read_bytes())
+    coverage["sources"] = {"toy_document": receipt}
+    filename = "docs/validation/documentation-receipts.json"
+    save(package_root / filename, coverage)
+    rights = dict(
+        policy="toy",
+        privacy="publication",
+        publisher="Synthetic fixture",
+        vintage="Synthetic fixture",
+        citation="Synthetic fixture",
+        notes="No scientific or legal assertion",
+        alternative="Synthetic fixture only",
+        retrieved_at=receipt["retrieved_utc"],
+        **{k: v for k, v in receipt.items() if k != "retrieved_utc"},
+    )
+    edit(
+        package_root,
+        "data/rights.json",
+        lambda d: d.update(
+            documentation_receipts=filename, documentation_sources={"toy_document": rights}
+        ),
+    )
+    edit(
+        package_root,
+        "data/evidence-packages.json",
+        lambda d: d["supporting_artifacts"].append(
+            dict(path=filename, sha256=digest((package_root / filename).read_bytes()))
+        ),
+    )
+    return package_root, raw, filename
+
+
+@pytest.mark.parametrize(
+    "field,value",
+    [
+        ("url", "https://example.org/wrong"),
+        ("sha256", "0" * 64),
+        ("retrieved_utc", "2026-09-29T00:00:00+00:00"),
+        ("size_bytes", 999),
+    ],
+)
+def test_document_receipt_tampering_fails_even_after_outer_hash_refresh(
+    documentation_root, field, value
+):
+    root, _, filename = documentation_root
+    edit(root, filename, lambda d: d["sources"]["toy_document"].update({field: value}))
+    edit(
+        root,
+        "data/evidence-packages.json",
+        lambda d: d["supporting_artifacts"][0].update(
+            sha256=digest((root / filename).read_bytes())
+        ),
+    )
+    report = verify_packages(root)
+    assert not report["passed"]
+    assert not report["documentation"]["metadata_passed"]
+    assert not failed(report, "artifact_checksum")
+
+
+def test_documentation_cli_raw_failure_is_saved_before_exit(documentation_root, tmp_path):
+    root, raw, _ = documentation_root
+    output = tmp_path / "documentation-audit.json"
+    args = [
+        "data",
+        "verify-packages",
+        "--root",
+        str(root),
+        "--documentation-raw",
+        str(raw),
+        "--output",
+        str(output),
+    ]
+    assert CliRunner().invoke(app, args).exit_code == 0
+    assert json.loads(output.read_bytes())["documentation"]["raw_bytes_passed"] is True
+    (raw / "document.html").write_bytes(b"Changed synthetic bytes")
+    assert CliRunner().invoke(app, args).exit_code == 1
+    report = json.loads(output.read_bytes())
+    assert not report["passed"]
+    assert report["documentation"]["raw_bytes_passed"] is False
+
+
+@pytest.mark.parametrize("operation", ["resolve", "is_file"])
+def test_document_metadata_permission_failure_is_saved_by_cli(
+    documentation_root, tmp_path, monkeypatch, operation
+):
+    root, raw, _ = documentation_root
+    target = raw / "document.html"
+    original = getattr(Path, operation)
+
+    def denied_for_raw_document(path, *args, **kwargs):
+        if path == target:
+            raise PermissionError("Synthetic document metadata permission error")
+        return original(path, *args, **kwargs)
+
+    monkeypatch.setattr(Path, operation, denied_for_raw_document)
+    output = tmp_path / "permission-failure.json"
+    args = [
+        "data",
+        "verify-packages",
+        "--root",
+        str(root),
+        "--documentation-raw",
+        str(raw),
+        "--output",
+        str(output),
+    ]
+    result = CliRunner().invoke(app, args)
+    assert result.exit_code == 1
+    report = json.loads(output.read_bytes())
+    assert not report["passed"]
+    row = report["documentation"]["source_checks"][0]
+    assert row["local_byte_check"] == "failed"
+    assert row["raw_error"] == "unreadable"
+
+
+def test_documentation_fetch_only_guard_rejects_renamed_bytes(documentation_root, monkeypatch):
+    root, raw, _ = documentation_root
+    target = root / "notes.md"
+    target.write_bytes((raw / "document.html").read_bytes())
+    monkeypatch.setattr(
+        "demeter.data.packages.subprocess.run",
+        lambda *a, **k: SimpleNamespace(stdout=b"notes.md\0"),
+    )
+    assert failed(verify_packages(root, check_tracked=True), "fetch_only_not_tracked")
+
+
+@pytest.mark.parametrize("link", [None, "unknown_registry_source"])
+def test_known_document_cannot_drop_or_change_registry_link(documentation_root, link):
+    root, _, filename = documentation_root
+    receipt = json.loads((root / filename).read_bytes())["sources"]["toy_document"]
+    registry_path = root / "evidence/parameters.yaml"
+    registry = yaml.safe_load(registry_path.read_text())
+    registry["sources"] = {
+        "registered_document": dict(
+            url=receipt["url"],
+            citation="Synthetic source",
+            doi="test",
+            raw_filename=receipt["cache_filename"],
+            sha256=receipt["sha256"],
+            retrieved_at=receipt["retrieved_utc"],
+            license="Synthetic fetch-only fixture",
+        )
+    }
+    registry_path.write_text(yaml.safe_dump(registry))
+    edit(
+        root,
+        filename,
+        lambda d: d["sources"]["toy_document"].update(registry_source_id=link),
+    )
+    edit(
+        root,
+        "data/rights.json",
+        lambda d: d["documentation_sources"]["toy_document"].update(registry_source_id=link),
+    )
+    edit(
+        root,
+        "data/evidence-packages.json",
+        lambda d: d["supporting_artifacts"][0].update(
+            sha256=digest((root / filename).read_bytes())
+        ),
+    )
+    assert failed(verify_packages(root), "documentation_registry_link")

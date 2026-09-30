@@ -12,6 +12,11 @@ preserves measurements and unknowns; it supplies no clinical likelihood, inferre
 state or fitted parameter. Public documentation receipts and synthetic checks
 are separate from participant-record coverage and scientific validation.
 
+The [DPP source coverage matrix](DPP_SOURCE_COVERAGE.md) records exact public
+field/form locators, excluded dates and version discrepancies. It distinguishes
+documented meaning from actual record coverage and identifies which proposed
+clinical fits remain unsupported under the public-source route.
+
 The [project vision](PROJECT_VISION.md), [architecture](SYSTEM_ARCHITECTURE.md)
 and [scenario catalog](SCENARIO_CATALOG.md) preserve the broader program. The
 current work remains within the v0.1 health slice. Its design chain is the health

@@ -11,6 +11,11 @@ from typing import Literal
 from pydantic import Field, model_validator
 
 from demeter.data.ingest import digest
+from demeter.data.documentation import (
+    audit_documentation_sources,
+    validate_cache_filename,
+    validate_https_url,
+)
 from demeter.schema import EvidenceRegistry, StrictModel
 
 
@@ -47,20 +52,46 @@ class ExternalRights(SourceRights):
     alternative: str = Field(min_length=1)
 
 
+class DocumentationRights(ExternalRights):
+    """Fetch-only inspection documents, separate from empirical parameters."""
+
+    cache_filename: str = Field(min_length=1)
+    final_url: str = Field(pattern=r"^https://")
+    size_bytes: int = Field(strict=True, gt=0)
+    content_type: str = Field(min_length=1)
+    status: int = Field(strict=True, ge=200, le=200)
+    registry_source_id: str | None = None
+
+    @model_validator(mode="after")
+    def basename_required(self):
+        validate_cache_filename(self.cache_filename)
+        validate_https_url(self.url)
+        validate_https_url(self.final_url)
+        return self
+
+
 class RightsInventory(StrictModel):
     schema_version: Literal[1]
     policies: dict[str, RightsPolicy]
     source_files: dict[str, SourceRights]
     clinical_sources: dict[str, ExternalRights]
+    documentation_receipts: str | None = None
+    documentation_sources: dict[str, DocumentationRights] = Field(default_factory=dict)
 
     @model_validator(mode="after")
     def known_policies(self):
-        for source in [*self.source_files.values(), *self.clinical_sources.values()]:
+        for source in [
+            *self.source_files.values(),
+            *self.clinical_sources.values(),
+            *self.documentation_sources.values(),
+        ]:
             if source.policy not in self.policies:
                 raise ValueError(f"Unknown rights policy: {source.policy}")
         for policy in self.policies.values():
             if any(not url.startswith("https://") for url in policy.terms_urls):
                 raise ValueError("Rights policies need HTTPS source links")
+        if bool(self.documentation_receipts) != bool(self.documentation_sources):
+            raise ValueError("Documentation sources require their receipt file")
         return self
 
 
@@ -133,7 +164,12 @@ def _inside(root: Path, relative: str) -> Path:
     return path
 
 
-def verify_packages(root: Path = Path("."), *, check_tracked: bool = False) -> dict:
+def verify_packages(
+    root: Path = Path("."),
+    *,
+    check_tracked: bool = False,
+    documentation_raw: Path | None = None,
+) -> dict:
     """Check coverage, provenance, rights classification and bytes, entirely offline.
 
     This verifies recorded decisions, not the legal correctness of those decisions
@@ -153,6 +189,7 @@ def verify_packages(root: Path = Path("."), *, check_tracked: bool = False) -> d
         raise ValueError("Duplicate source-store ID")
     checks, sources, outputs = [], [], []
     transform_hashes = {}
+    documentation = None
     allowed = {
         "data/catalog.json",
         "data/rights.json",
@@ -171,6 +208,40 @@ def verify_packages(root: Path = Path("."), *, check_tracked: bool = False) -> d
         check("artifact_checksum", actual == item.sha256, path=item.path)
         allowed.add(item.path)
         outputs.append(item.model_dump())
+
+    if rights.documentation_receipts:
+        receipt_path = _inside(root, rights.documentation_receipts)
+        documentation = audit_documentation_sources(
+            receipt_path, rights.documentation_sources, documentation_raw
+        )
+        checks.extend(documentation["checks"])
+        artifact_names = {a.path for p in packages.packages.values() for a in p.artifacts} | {
+            a.path for a in packages.supporting_artifacts
+        }
+        check(
+            "documentation_receipts_declared",
+            rights.documentation_receipts in artifact_names,
+        )
+        for label, item in rights.documentation_sources.items():
+            known = {key for key, source in registry.sources.items() if source.url == item.url}
+            check(
+                "documentation_registry_link",
+                item.registry_source_id in known if known else item.registry_source_id is None,
+                source=label,
+            )
+            if item.registry_source_id is not None:
+                source = registry.sources.get(item.registry_source_id)
+                check(
+                    "documentation_registry_match",
+                    source is not None
+                    and item.url == source.url
+                    and item.sha256 == source.sha256
+                    and item.retrieved_at == source.retrieved_at
+                    and item.cache_filename == source.raw_filename,
+                    source=label,
+                )
+    elif documentation_raw is not None:
+        raise ValueError("No documentation receipt inventory is declared")
 
     expected_sources = set()
     for store_id, store in stores.items():
@@ -331,7 +402,9 @@ def verify_packages(root: Path = Path("."), *, check_tracked: bool = False) -> d
             if file.is_file():
                 check(
                     "fetch_only_not_tracked",
-                    digest(file.read_bytes()) not in {s.sha256 for s in registry.sources.values()},
+                    digest(file.read_bytes())
+                    not in {s.sha256 for s in registry.sources.values()}
+                    | {s.sha256 for s in rights.documentation_sources.values()},
                     path=name,
                 )
             forbidden_cache = name.startswith(("data/raw/", "data/processed/", "outputs/"))
@@ -357,6 +430,7 @@ def verify_packages(root: Path = Path("."), *, check_tracked: bool = False) -> d
         "transform_sha256": transform_hashes,
         "sources": sources,
         "artifacts": outputs,
+        "documentation": documentation,
         "policies": {key: p.model_dump(mode="json") for key, p in rights.policies.items()},
         "packages": {key: p.model_dump() for key, p in packages.packages.items()},
         "checks": checks,
