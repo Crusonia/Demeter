@@ -215,6 +215,123 @@ def test_source_network_failure_returns_failed_report(tmp_path, monkeypatch):
     assert result["checks"][0]["reason"] == "download_failed"
 
 
+def joint_registry(reverse=False):
+    registry = fixture_registry()
+    del registry.parameters["test_benchmark"]
+    source = registry.sources["test_source"].model_copy(deep=True)
+    source.raw_filename = "correction.xml"
+    source.url = "https://example.org/synthetic-correction"
+    registry.sources["correction_source"] = source
+    if reverse:
+        registry.sources = dict(reversed(list(registry.sources.items())))
+    registry.datasets = {
+        "reus_corrected_diabetes_benchmark": {
+            "source_id": "correction_source",
+            "original_source_id": "test_source",
+        }
+    }
+    return registry
+
+
+def test_joint_dataset_without_primary_id_returns_failed_check(tmp_path, monkeypatch):
+    registry = joint_registry()
+    del registry.datasets["reus_corrected_diabetes_benchmark"]["source_id"]
+    for source in registry.sources.values():
+        (tmp_path / source.raw_filename).write_bytes(HTML)
+    monkeypatch.setattr(
+        "demeter.analysis.reus_diabetes.audit_reus",
+        lambda *a: pytest.fail("Missing primary analyzed"),
+    )
+    report = verify_sources(registry, tmp_path)
+    assert not report["passed"]
+    assert report["checks"][0]["datasets"] == [
+        {
+            "dataset": "reus_corrected_diabetes_benchmark",
+            "passed": False,
+            "reason": "missing_primary_source_id",
+        }
+    ]
+
+
+@pytest.mark.parametrize("reverse", [False, True])
+@pytest.mark.parametrize("download", [False, True])
+def test_joint_sources_preflight_both_then_audit_once_with_primary_path(
+    tmp_path, monkeypatch, reverse, download
+):
+    from io import BytesIO
+
+    registry = joint_registry(reverse)
+    if not download:
+        for source in registry.sources.values():
+            (tmp_path / source.raw_filename).write_bytes(HTML)
+    monkeypatch.setattr(
+        "urllib.request.urlopen",
+        lambda *a, **kw: BytesIO(HTML) if download else pytest.fail("Implicit download"),
+    )
+    calls = []
+
+    def audit(actual, path):
+        assert actual is registry
+        assert path.name == "correction.xml"
+        assert all(
+            (tmp_path / source.raw_filename).read_bytes() == HTML
+            for source in registry.sources.values()
+        )
+        calls.append(path)
+        return {"analysis_id": "synthetic-joint", "results": {"source_reproduction_passed": True}}
+
+    monkeypatch.setattr("demeter.analysis.reus_diabetes.audit_reus", audit)
+    report = verify_sources(registry, tmp_path, download=download)
+    assert report["passed"]
+    assert len(calls) == 1
+    assert [check["source"] for check in report["checks"]] == list(registry.sources)
+    assert all(check["datasets"][0]["passed"] for check in report["checks"])
+    assert report["checks"][0]["datasets"] == report["checks"][1]["datasets"]
+
+
+@pytest.mark.parametrize("failed_id", ["test_source", "correction_source"])
+@pytest.mark.parametrize("failure", ["missing", "corrupt", "download_failed"])
+def test_joint_source_failures_preserve_original_reason_and_block_dependent_audit(
+    tmp_path, monkeypatch, failed_id, failure
+):
+    registry = joint_registry()
+    for source_id, source in registry.sources.items():
+        if source_id != failed_id:
+            (tmp_path / source.raw_filename).write_bytes(HTML)
+        elif failure == "corrupt":
+            (tmp_path / source.raw_filename).write_bytes(b"changed")
+
+    def unavailable(*a, **kw):
+        raise OSError("Fixture download unavailable")
+
+    monkeypatch.setattr("urllib.request.urlopen", unavailable)
+    monkeypatch.setattr(
+        "demeter.analysis.reus_diabetes.audit_reus",
+        lambda *a: pytest.fail("Unverified companion analyzed"),
+    )
+    report = verify_sources(registry, tmp_path, download=failure == "download_failed")
+    assert not report["passed"]
+    checks = {check["source"]: check for check in report["checks"]}
+    assert (
+        checks[failed_id]["reason"]
+        == {
+            "missing": "missing_raw_artifact",
+            "corrupt": "checksum_mismatch",
+            "download_failed": "download_failed",
+        }[failure]
+    )
+    verified_id = next(source for source in registry.sources if source != failed_id)
+    assert checks[verified_id]["checksum_passed"]
+    assert checks[verified_id]["datasets"] == [
+        {
+            "dataset": "reus_corrected_diabetes_benchmark",
+            "passed": False,
+            "reason": "unverified_dataset_sources",
+            "sources": [failed_id],
+        }
+    ]
+
+
 @pytest.mark.parametrize(
     "dataset,verifier,pass_field",
     [

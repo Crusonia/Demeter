@@ -97,7 +97,8 @@ def _verify_dataset(registry: EvidenceRegistry, key: str, path: Path) -> dict:
 
 def verify_sources(registry: EvidenceRegistry, raw: Path, download: bool = False) -> dict:
     """Verify receipts, clinical tables and dataset audits without rewriting evidence."""
-    checks = []
+    checks, verified, errors = [], {}, {}
+    # Joint datasets require all companion downloads before any dataset audit.
     for source_id, source in registry.sources.items():
         path = raw / source.raw_filename
         if download and not path.exists():
@@ -107,28 +108,43 @@ def verify_sources(registry: EvidenceRegistry, raw: Path, download: bool = False
                 with urllib.request.urlopen(request, timeout=30) as response:
                     content = response.read()
             except OSError as exc:
-                checks.append(
-                    {
-                        "source": source_id,
-                        "passed": False,
-                        "reason": "download_failed",
-                        "error": str(exc),
-                    }
-                )
+                errors[source_id] = {
+                    "source": source_id,
+                    "passed": False,
+                    "reason": "download_failed",
+                    "error": str(exc),
+                }
                 continue
             if hashlib.sha256(content).hexdigest() != source.sha256:
-                checks.append(
-                    {"source": source_id, "passed": False, "reason": "download_checksum_mismatch"}
-                )
+                errors[source_id] = {
+                    "source": source_id,
+                    "passed": False,
+                    "reason": "download_checksum_mismatch",
+                }
                 continue
             path.write_bytes(content)
         if not path.exists():
-            checks.append({"source": source_id, "passed": False, "reason": "missing_raw_artifact"})
+            errors[source_id] = {
+                "source": source_id,
+                "passed": False,
+                "reason": "missing_raw_artifact",
+            }
             continue
         content = path.read_bytes()
         if hashlib.sha256(content).hexdigest() != source.sha256:
-            checks.append({"source": source_id, "passed": False, "reason": "checksum_mismatch"})
+            errors[source_id] = {
+                "source": source_id,
+                "passed": False,
+                "reason": "checksum_mismatch",
+            }
             continue
+        verified[source_id] = content
+    dataset_reports = {}
+    for source_id, source in registry.sources.items():
+        if source_id in errors:
+            checks.append(errors[source_id])
+            continue
+        content = verified[source_id]
         parameters = []
         for key, p in registry.parameters.items():
             if p.source_id != source_id or p.applicability is None:
@@ -150,11 +166,31 @@ def verify_sources(registry: EvidenceRegistry, raw: Path, download: bool = False
                 parameters.append({"parameter": key, "passed": passed, "extracted": triple})
             except ValueError as exc:
                 parameters.append({"parameter": key, "passed": False, "reason": str(exc)})
-        datasets = [
-            _verify_dataset(registry, key, path)
-            for key, dataset in registry.datasets.items()
-            if dataset.get("source_id") == source_id
-        ]
+        datasets = []
+        for key, dataset in registry.datasets.items():
+            if source_id not in (dataset.get("source_id"), dataset.get("original_source_id")):
+                continue
+            if key not in dataset_reports:
+                primary_id = dataset.get("source_id")
+                companions = {primary_id, dataset.get("original_source_id")} - {None}
+                unavailable = sorted(companions - verified.keys())
+                if primary_id is None:
+                    dataset_reports[key] = {
+                        "dataset": key,
+                        "passed": False,
+                        "reason": "missing_primary_source_id",
+                    }
+                elif unavailable:
+                    dataset_reports[key] = {
+                        "dataset": key,
+                        "passed": False,
+                        "reason": "unverified_dataset_sources",
+                        "sources": unavailable,
+                    }
+                else:
+                    primary_path = raw / registry.sources[primary_id].raw_filename
+                    dataset_reports[key] = _verify_dataset(registry, key, primary_path)
+            datasets.append(dataset_reports[key])
         checks.append(
             {
                 "source": source_id,
