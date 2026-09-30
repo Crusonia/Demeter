@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "assessment_date": "2026-09-30",
+  "purpose": "Public-document field-coverage appraisal; not empirical parameter evidence or a clinical preregistration.",
+  "rights_approach": "dpp_documentation_fetch_only in data/rights.json; factual locators and receipts only.",
+  "full_documents_redistributed": false,
+  "participant_records_acquired": false,
+  "participant_records_requested": false,
+  "actual_record_coverage": "not_acquired",
+  "clinical_fit_allowed": false,
+  "frozen_observation_contract_changed": false,
+  "sources": {
+    "PRIMARY": {
+      "cache_filename": "primary-report.html",
+      "distribution": "fetch_only",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1370926/",
+      "final_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1370926/",
+      "retrieved_utc": "2026-09-30T19:16:23.469918+00:00",
+      "size_bytes": 193548,
+      "sha256": "345d769a09a5ac2308d3df9a75490580f899226684ff30032dc06e6c7929d1ee",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8"
+    },
+    "CAT9": {
+      "cache_filename": "niddk-study-38.html",
+      "distribution": "fetch_only",
+      "url": "https://repository.niddk.nih.gov/study/38",
+      "final_url": "https://repository.niddk.nih.gov/study/38",
+      "retrieved_utc": "2026-09-30T19:16:24.200766+00:00",
+      "size_bytes": 176023,
+      "sha256": "4b05f80032ae8f0fd41bc9b63576fdd312024cfbabf949a4c8e97ae97eb0e877",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8"
+    },
+    "P4.5": {
+      "cache_filename": "dpp-protocol-v4.5.pdf",
+      "distribution": "fetch_only",
+      "url": "https://dppos.bsc.gwu.edu/documents/1124073/1127212/DPPPROTOCOL.PDF/807eddd1-d9bf-497d-89f0-5de15fc43d79",
+      "final_url": "https://dppos.bsc.gwu.edu/documents/1124073/1127212/DPPPROTOCOL.PDF/807eddd1-d9bf-497d-89f0-5de15fc43d79",
+      "retrieved_utc": "2026-09-30T19:16:23.676167+00:00",
+      "size_bytes": 1456934,
+      "sha256": "b4aec46d754f499623a0ec5981b3521a7df24a7ddee1b9daf74fac0ccba79bc9",
+      "status": 200,
+      "content_type": "application/pdf"
+    },
+    "R2008": {
+      "cache_filename": "niddk-full-scale-release-documentation.pdf",
+      "distribution": "fetch_only",
+      "url": "https://repository.niddk.nih.gov/media/studies/dpp/Documents/Documentation%20for%20full%20scale%20DPP%20data%20release.pdf",
+      "final_url": "https://repository.niddk.nih.gov/media/studies/dpp/Documents/Documentation%20for%20full%20scale%20DPP%20data%20release.pdf",
+      "retrieved_utc": "2026-09-30T19:21:17.919332+00:00",
+      "size_bytes": 271820,
+      "sha256": "b5611c850dcfd56b0cb859668e44e91be0f6912b6529c13d148551661805c16c",
+      "status": 200,
+      "content_type": "application/pdf"
+    },
+    "RM9": {
+      "cache_filename": "niddk-data-roadmap-v9.pdf",
+      "distribution": "fetch_only",
+      "url": "https://repository.niddk.nih.gov/public/study_document/DPP_V9/DPP_Roadmap_V9.pdf",
+      "final_url": "https://repository.niddk.nih.gov/public/study_document/DPP_V9/DPP_Roadmap_V9.pdf",
+      "retrieved_utc": "2026-09-30T19:16:23.607402+00:00",
+      "size_bytes": 170874,
+      "sha256": "2808b048f754bfb62f23d32e9abd1b15005de14779ba25dee641a2b20dd4eb37",
+      "status": 200,
+      "content_type": "application/pdf"
+    },
+    "DD9": {
+      "cache_filename": "niddk-dpp-data-dictionary-v9.pdf",
+      "distribution": "fetch_only",
+      "url": "https://repository.niddk.nih.gov/public/study_document/DPP_V9/DPP_Data_Dictionary_V9.pdf",
+      "final_url": "https://repository.niddk.nih.gov/public/study_document/DPP_V9/DPP_Data_Dictionary_V9.pdf",
+      "retrieved_utc": "2026-09-30T21:12:29.276836+00:00",
+      "size_bytes": 718059,
+      "sha256": "724736e573dcdd83dd9df15667beb0408c44a06d177a09031d5083d41719516b",
+      "status": 200,
+      "content_type": "application/pdf"
+    },
+    "LAB9": {
+      "cache_filename": "niddk-lab-proc-contents-v9.pdf",
+      "distribution": "fetch_only",
+      "url": "https://repository.niddk.nih.gov/public/study_document/DPP_V9/Data/DPP_Data_2008/Non-Form_Data/Data%20Dictionary/LAB.pdf",
+      "final_url": "https://repository.niddk.nih.gov/public/study_document/DPP_V9/Data/DPP_Data_2008/Non-Form_Data/Data%20Dictionary/LAB.pdf",
+      "retrieved_utc": "2026-09-30T21:12:29.197181+00:00",
+      "size_bytes": 111481,
+      "sha256": "f31f04dd8fc48ac58e933999f58a6a514858dc87f06348b8400193f13ad5aa5f",
+      "status": 200,
+      "content_type": "application/pdf"
+    },
+    "S01": {
+      "cache_filename": "niddk-s01-form.pdf",
+      "distribution": "fetch_only",
+      "url": "https://repository.niddk.nih.gov/public/study_document/DPP_V9/Forms/S01.pdf",
+      "final_url": "https://repository.niddk.nih.gov/public/study_document/DPP_V9/Forms/S01.pdf",
+      "retrieved_utc": "2026-09-30T21:15:36.268148+00:00",
+      "size_bytes": 592651,
+      "sha256": "161ecd92fe9febbb2d159ad199a5d9bfd3172abbd4e9b6ae4ece2b53be14395a",
+      "status": 200,
+      "content_type": "application/pdf"
+    },
+    "S03": {
+      "cache_filename": "niddk-s03-form.pdf",
+      "distribution": "fetch_only",
+      "url": "https://repository.niddk.nih.gov/public/study_document/DPP_V9/Forms/S03.pdf",
+      "final_url": "https://repository.niddk.nih.gov/public/study_document/DPP_V9/Forms/S03.pdf",
+      "retrieved_utc": "2026-09-30T21:17:12.618236+00:00",
+      "size_bytes": 463392,
+      "sha256": "2d6dbea805cd98358fe23e59f7352473e2c04a8e74413fbd5525de9040fd4b5b",
+      "status": 200,
+      "content_type": "application/pdf"
+    },
+    "Q08": {
+      "cache_filename": "niddk-q08-form.pdf",
+      "distribution": "fetch_only",
+      "url": "https://repository.niddk.nih.gov/public/study_document/DPP_V9/Forms/Q08.pdf",
+      "final_url": "https://repository.niddk.nih.gov/public/study_document/DPP_V9/Forms/Q08.pdf",
+      "retrieved_utc": "2026-09-30T21:12:29.657162+00:00",
+      "size_bytes": 172983,
+      "sha256": "a653eae41fccc3983c6e67da0012f7ea77964d0d8474e7e3711f742c8884d212",
+      "status": 200,
+      "content_type": "application/pdf"
+    },
+    "F02": {
+      "cache_filename": "niddk-f02-form.pdf",
+      "distribution": "fetch_only",
+      "url": "https://repository.niddk.nih.gov/public/study_document/DPP_V9/Forms/F02.pdf",
+      "final_url": "https://repository.niddk.nih.gov/public/study_document/DPP_V9/Forms/F02.pdf",
+      "retrieved_utc": "2026-09-30T21:29:57.533111+00:00",
+      "size_bytes": 239097,
+      "sha256": "d7b783631a0b26cd00b90817266fdab220c10956c05b8de28fa4083841ee2035",
+      "status": 200,
+      "content_type": "application/pdf"
+    },
+    "F03": {
+      "cache_filename": "niddk-f03-form.pdf",
+      "distribution": "fetch_only",
+      "url": "https://repository.niddk.nih.gov/public/study_document/DPP_V9/Forms/F03.pdf",
+      "final_url": "https://repository.niddk.nih.gov/public/study_document/DPP_V9/Forms/F03.pdf",
+      "retrieved_utc": "2026-09-30T21:29:57.612652+00:00",
+      "size_bytes": 226379,
+      "sha256": "67857be96088dc660f3d3dafe2a5634bad40749d6c210322ddaabaad17684031",
+      "status": 200,
+      "content_type": "application/pdf"
+    },
+    "F04": {
+      "cache_filename": "niddk-f04-form.pdf",
+      "distribution": "fetch_only",
+      "url": "https://repository.niddk.nih.gov/public/study_document/DPP_V9/Forms/F04.pdf",
+      "final_url": "https://repository.niddk.nih.gov/public/study_document/DPP_V9/Forms/F04.pdf",
+      "retrieved_utc": "2026-09-30T21:12:29.130695+00:00",
+      "size_bytes": 57426,
+      "sha256": "29497517e3cbfb47ff7c0369ff6d45761ddf7a5c75bcdc172e720b114c82d159",
+      "status": 200,
+      "content_type": "application/pdf"
+    },
+    "F05": {
+      "cache_filename": "niddk-f05-form.pdf",
+      "distribution": "fetch_only",
+      "url": "https://repository.niddk.nih.gov/public/study_document/DPP_V9/Forms/F05.pdf",
+      "final_url": "https://repository.niddk.nih.gov/public/study_document/DPP_V9/Forms/F05.pdf",
+      "retrieved_utc": "2026-09-30T21:12:29.540293+00:00",
+      "size_bytes": 124650,
+      "sha256": "e4f9f81d055101529030e879a4e1ea04d50f733938e4cdefe9421549511c9bf0",
+      "status": 200,
+      "content_type": "application/pdf"
+    },
+    "F05C": {
+      "cache_filename": "niddk-f05-adherence-codes.pdf",
+      "distribution": "fetch_only",
+      "url": "https://repository.niddk.nih.gov/public/study_document/DPP_V9/Forms/F05_Med_Adhere_Codes.pdf",
+      "final_url": "https://repository.niddk.nih.gov/public/study_document/DPP_V9/Forms/F05_Med_Adhere_Codes.pdf",
+      "retrieved_utc": "2026-09-30T21:12:29.423587+00:00",
+      "size_bytes": 14233,
+      "sha256": "da895a4cf6fa3cc00bee2fb127a628dfd689b072777784dd0b1d69f58ae688d1",
+      "status": 200,
+      "content_type": "application/pdf"
+    }
+  }
+}

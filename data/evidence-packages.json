@@ -670,6 +670,14 @@
     {
       "path": "docs/validation/mortality-validation-protocol-v1.json",
       "sha256": "440c44a18a743e6c9d1cc345aabbaf7631033fdb640d9062bba6a748c0abb091"
+    },
+    {
+      "path": "docs/validation/dpp-coverage-source-receipts.json",
+      "sha256": "0961d752257f363df3764fcde7ec54cd291c166d6f28310231520ac58f22be25"
+    },
+    {
+      "path": "docs/DPP_SOURCE_COVERAGE.md",
+      "sha256": "42480cf40d9d5511575b095c0635f20f656cfb3e9c03ea3f3960ac28f588c131"
     }
   ]
 }

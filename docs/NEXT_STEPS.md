@@ -81,9 +81,17 @@ clinical likelihood or transition fit. Its
 [before/after receipt](validation/issue-57-dpp-before-after.json) records unchanged
 active parameters and canonical numerical outputs.
 
-Next, build a source-field coverage matrix for baseline/history, trigger,
-confirmation, missing tests, treatment, exposure and competing death. Keep
-documented fields separate from actual coverage in any future permitted package.
-Resolve time conversion, event dating, source window and likelihood identification
-before fitting. DPP's lifestyle package is not an isolated dietary effect; this
-software step leaves the full requirements of #57 and #58 open.
+The [DPP source-field coverage matrix](DPP_SOURCE_COVERAGE.md) now records
+baseline/history, trigger/confirmation, missing tests, treatment, exposure and
+competing-death documentation. Actual participant coverage remains not acquired.
+Medication recall windows, excluded calendar dates and version discrepancies
+are explicit; no source-year conversion or clinical fit is introduced. DPP's
+lifestyle package is not an isolated dietary effect.
+
+Next, prioritize a compatible unrestricted longitudinal package or sufficient
+published aggregate observations for a precisely supported estimand. Further
+blank-form inspection cannot replace participant histories. Resolve timing,
+source selection, observation/censoring assumptions and likelihood identification;
+freeze joint-uncertainty and evaluation plans before fitting. Keep national
+transport and unidentified causal parameters unresolved. The full requirements
+of #57, #58, #1 and milestone #27 remain open.

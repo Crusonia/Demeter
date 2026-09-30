@@ -12,6 +12,9 @@ The [DPP preservation package](../docs/DPP_OBSERVATION_ADAPTER.md) contains publ
 documentation receipts, a frozen field contract and synthetic aggregate checks.
 Full documents are fetch-only and participant records are request-only. Its
 offline command imports no participant data and does not fit a clinical model.
+The separate [source coverage appraisal](../docs/DPP_SOURCE_COVERAGE.md) adds
+factual form/dictionary locators and receipts; its additional documents are
+fetch-only and are outside the adapter's original four-document byte check.
 `uv run demeter data verify-packages --check-tracked` audits their coverage and
 receipt consistency, checks source/bundle bytes, and rejects undeclared tracked
 data and caches. The notices also explain fetch-only articles and wheel contents.
