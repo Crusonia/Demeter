@@ -437,7 +437,7 @@
       "artifacts": [
         {
           "path": "docs/validation/issue-56-state-mapping.json",
-          "sha256": "8d051a005284e14b94685904a366de5e3db39a1069dd824e7c2ac7f06bf054a1"
+          "sha256": "5416d9453a84fd7bd0433d9a00a245c4a88fdb6a7d9a133dc71313428264c1b7"
         },
         {
           "path": "docs/validation/issue-56-state-mapping-before-after.json",
@@ -445,7 +445,7 @@
         },
         {
           "path": "docs/validation/issue-56-partial-observations.json",
-          "sha256": "9df11f974c99b77bb2c98c33d6dfe3173225543cba9cc0525416b046263408f9"
+          "sha256": "cafb7de495acedc06c16fd7d6b698cbba758cb0c135a005bbe792fb834c603eb"
         },
         {
           "path": "docs/validation/issue-56-partial-before-after.json",
@@ -587,6 +587,47 @@
       ],
       "model_role": "benchmark_only",
       "redistribution": "Factual HR/CI estimates, protocol/amendment, source receipts, software witnesses and original MIT code only. Full XML articles stay fetch-only; no participant data or Cox fit exported."
+    },
+    "dpp_observation_preservation": {
+      "artifacts": [
+        {
+          "path": "docs/validation/dpp-observation-contract-v1.json",
+          "sha256": "9a427e7bd01c03beea139e12977b14607a06bc312efff73d146ad4e399a4f187"
+        },
+        {
+          "path": "docs/validation/dpp-documentation-source-receipts.json",
+          "sha256": "878955fb2fc7d8f0bf85e5768bbbacc3ea86f341b482965f2c83dd74981c47ac"
+        },
+        {
+          "path": "docs/validation/issue-57-dpp-observations.json",
+          "sha256": "b2ff12b5699d5f495347f9fe2f5790553e4042e52b161703d80eff4b727c2786"
+        },
+        {
+          "path": "docs/validation/issue-57-dpp-documentation.json",
+          "sha256": "d46c93ccfde80b0f736ada989af2cef4aa35db908789b39f488709b4827336f8"
+        },
+        {
+          "path": "docs/validation/issue-57-dpp-before-after.json",
+          "sha256": "bce90b881cbdab9de2077e42bf788a34d89d14d2cec0cef632672b5bc3e2d94b"
+        }
+      ],
+      "dependencies": [],
+      "model_role": "benchmark_only",
+      "rebuild": [
+        "uv run demeter evidence dpp-observations --output outputs/dpp-observations.json",
+        "uv run demeter evidence dpp-observations --raw outputs/dpp-appraisal --output outputs/dpp-documentation.json"
+      ],
+      "redistribution": "Public-source factual definitions/receipts, synthetic aggregate audit and MIT code only. Full documents fetch-only; no participant records, clinical fit or source-year conversion.",
+      "registry_datasets": [
+        "dpp_observation_contract",
+        "dpp_observation_software_witness"
+      ],
+      "registry_parameters": [],
+      "store": null,
+      "transform_files": [
+        "src/demeter/data/clinical_observations.py",
+        "src/demeter/analysis/dpp_observations.py"
+      ]
     }
   },
   "supporting_artifacts": [

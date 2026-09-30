@@ -92,6 +92,14 @@ unrestricted public download. Neither study activates a Demeter parameter.
 
 ## What a public-data result must earn
 
+The [DPP observation adapter](DPP_OBSERVATION_ADAPTER.md) adds a strict normalized
+record contract and synthetic aggregate demonstration. Its four source receipts
+cover public documentation, not public participant records. It keeps source years,
+relative days and grouped periods separate and preserves diagnosis/confirmation,
+missing tests, treatment, death and distinct censoring observations. This supports
+the next source-field coverage review; clinical likelihood, identification and
+permitted-record intake remain unresolved.
+
 The [clinical observation contract](CLINICAL_OBSERVATION_CONTRACT.md) specifies
 the source review and likelihood requirements before a clinical fit.
 The [Reus assessment](REUS_DIABETES_PATHWAY.md) reproduces all six frozen overall

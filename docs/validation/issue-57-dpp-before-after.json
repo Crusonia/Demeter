@@ -1,0 +1,491 @@
+{
+  "after_evidence_sha256": "1b81a0e17b6d1aed64a57c75b61c9be9ec0b631e39e678bae4a2f837db707420",
+  "base_commit": "33c5e63edbc5039df1c4d816457e6e4a8067b1c6",
+  "before_evidence_sha256": "0b638d329240b92e5fee2fcce3ae86d2b527327550a13673d40fe57730a7e1c4",
+  "interpretation": "Public documentation and synthetic observation preservation only; no clinical likelihood, parameter, state initialization, dietary effect or release accepted",
+  "refreshed_observation_reports": {
+    "issue-56-partial-observations.json": {
+      "all_other_outputs_identical": true,
+      "before_evidence_sha256": "0b638d329240b92e5fee2fcce3ae86d2b527327550a13673d40fe57730a7e1c4",
+      "changed_paths": [
+        "/provenance/evidence_sha256"
+      ]
+    },
+    "issue-56-state-mapping.json": {
+      "all_other_outputs_identical": true,
+      "before_evidence_sha256": "0b638d329240b92e5fee2fcce3ae86d2b527327550a13673d40fe57730a7e1c4",
+      "changed_paths": [
+        "/provenance/evidence_sha256"
+      ]
+    }
+  },
+  "registry_change": {
+    "active_parameters_changed": [],
+    "added": {
+      "datasets": {
+        "dpp_observation_contract": {
+          "clinical_fitting_allowed": false,
+          "direct_initialization_allowed": false,
+          "evidence_grade": "C",
+          "field_contract": {
+            "CON": {
+              "locator": "Release documentation physical pages 11,16-17",
+              "meaning": "Confirmation visit does not alone establish a positive result or confirmed diagnosis",
+              "unit": "visit_purpose_label"
+            },
+            "DAYSRAND": {
+              "locator": "Release documentation physical page 11, section 4.3",
+              "negative_screening_values_allowed": true,
+              "origin": "randomization",
+              "unit": "relative_day"
+            },
+            "DEATH": {
+              "codes": {
+                "no": 0,
+                "yes": 1
+              },
+              "locator": "Release documentation physical page 25",
+              "unit": "source_binary_code",
+              "unknown_is_alive": false
+            },
+            "DEATHDAYS": {
+              "locator": "Release documentation physical page 25",
+              "meaning": "Recorded death day; absent for alive-at-end participants, no default for unknown status",
+              "origin": "randomization",
+              "unit": "relative_day"
+            },
+            "DIABF": {
+              "codes": {
+                "no": 0,
+                "yes": 1
+              },
+              "locator": "Release documentation physical page 25, section 4.12.2",
+              "meaning": "Ever diagnosed during DPP, not current state or lifetime history",
+              "unit": "source_binary_code"
+            },
+            "DIABT": {
+              "locator": "Release documentation physical page 25",
+              "meaning": "Randomization to diagnosis visit if DIABF yes; otherwise last glucose visit",
+              "trigger_or_confirmation_date": null,
+              "unit": "source_reported_year",
+              "year_denominator": null
+            },
+            "DIABV": {
+              "allowed_codes": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ],
+              "interval_bounds": null,
+              "locator": "Release documentation physical page 25",
+              "meaning": "Diagnosis period if DIABF yes; otherwise final glucose period; first interval begins at randomization",
+              "unit": "grouped_period_code"
+            },
+            "TOTALTIM": {
+              "locator": "Release documentation physical page 26",
+              "meaning": "Randomization to final recorded visit of any type, not independently established last contact",
+              "unit": "source_reported_year",
+              "year_denominator": null
+            }
+          },
+          "geography": "United States",
+          "input_contract": "Explicit normalized clinical_observations_v1 records; no SAS importer or verified participant records",
+          "model_role": "benchmark_only",
+          "population": "Selected DPP participants with impaired glucose tolerance and elevated fasting glucose; no U.S. population transport",
+          "protocol_path": "docs/validation/dpp-observation-contract-v1.json",
+          "protocol_sha256": "9a427e7bd01c03beea139e12977b14607a06bc312efff73d146ad4e399a4f187",
+          "source_context": {
+            "catalog_participants": 3665,
+            "catalog_version": "9",
+            "evidence_grade": "C",
+            "interpretation": "Source context only; no bin reconstruction, day/year conversion, endpoint rates or clinical thresholds implemented",
+            "original_report_arms": 3,
+            "original_report_cutoff": "2001-03-31",
+            "original_report_participants": 3234,
+            "protocol_date": "2001-11-06",
+            "protocol_version": "4.5",
+            "release_arms": 4,
+            "release_cutoff": "2001-07-31",
+            "release_version": "February 2008",
+            "reported_grouping_months": 6,
+            "reported_target_window_half_width_months": 3,
+            "source_locators": {
+              "catalog": "Study 38 snapshot",
+              "primary": "Methods/Statistical Analysis and Results",
+              "release": "Physical pages 4-8,25-26"
+            },
+            "status": "observed"
+          },
+          "source_pins": {
+            "dpp2002_primary": {
+              "citation": "Diabetes Prevention Program Research Group. Reduction in the incidence of type 2 diabetes with lifestyle intervention or metformin. NEJM 2002;346:393-403.",
+              "correction_note": "Original three-arm report, cutoff March 31, 2001",
+              "doi": "10.1056/NEJMoa012512",
+              "license": "Public documentation access only; no unrestricted participant-record access or full-content redistribution license assumed.",
+              "raw_filename": "primary-report.html",
+              "retrieved_at": "2026-09-30T19:16:23.469918+00:00",
+              "sha256": "345d769a09a5ac2308d3df9a75490580f899226684ff30032dc06e6c7929d1ee",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1370926/"
+            },
+            "dpp_catalog_v9": {
+              "citation": "NIDDK Central Repository. Diabetes Prevention Program, study 38, data version 9.",
+              "correction_note": "Catalog snapshot retrieved September 30, 2026; data version 9",
+              "doi": "10.58020/3hw5-cf91",
+              "license": "Public documentation access only; no unrestricted participant-record access or full-content redistribution license assumed.",
+              "raw_filename": "niddk-study-38.html",
+              "retrieved_at": "2026-09-30T19:16:24.200766+00:00",
+              "sha256": "4b05f80032ae8f0fd41bc9b63576fdd312024cfbabf949a4c8e97ae97eb0e877",
+              "url": "https://repository.niddk.nih.gov/study/38"
+            },
+            "dpp_protocol_4_5": {
+              "citation": "Diabetes Prevention Program. Protocol version 4.5, November 6, 2001.",
+              "correction_note": "Version 4.5; postdates original report cutoff",
+              "doi": "",
+              "license": "Public documentation access only; no unrestricted participant-record access or full-content redistribution license assumed.",
+              "raw_filename": "dpp-protocol-v4.5.pdf",
+              "retrieved_at": "2026-09-30T19:16:23.676167+00:00",
+              "sha256": "b4aec46d754f499623a0ec5981b3521a7df24a7ddee1b9daf74fac0ccba79bc9",
+              "url": "https://dppos.bsc.gwu.edu/documents/1124073/1127212/DPPPROTOCOL.PDF/807eddd1-d9bf-497d-89f0-5de15fc43d79"
+            },
+            "dpp_release_2008": {
+              "citation": "Diabetes Prevention Program. Documentation for full-scale DPP data release, February 2008.",
+              "correction_note": "Historical four-arm release; cutoff July 31, 2001",
+              "doi": "",
+              "license": "Public documentation access only; no unrestricted participant-record access or full-content redistribution license assumed.",
+              "raw_filename": "niddk-full-scale-release-documentation.pdf",
+              "retrieved_at": "2026-09-30T19:21:17.919332+00:00",
+              "sha256": "b5611c850dcfd56b0cb859668e44e91be0f6912b6529c13d148551661805c16c",
+              "url": "https://repository.niddk.nih.gov/media/studies/dpp/Documents/Documentation%20for%20full%20scale%20DPP%20data%20release.pdf"
+            }
+          },
+          "status": "derived",
+          "time_period": "Original DPP 1996-2001; distinct report/release windows",
+          "uncertainty": "Definitions and documented units only; coding/coverage/measurement/selection uncertainty unresolved",
+          "unresolved": [
+            "Permitted participant-data use, output terms and actual record coverage",
+            "Historical release versus current version and original report window/arms",
+            "DIABT trigger versus confirmation dating and source-year denominator",
+            "DIABV actual boundaries, first bin and out-of-window event rules",
+            "Prior diagnosis/type, physiological-state mapping and remission definitions",
+            "Informative testing, missing visits, treatment changes, death and censoring coverage",
+            "Observation likelihood, estimand, identification, joint uncertainty and reserved evaluation",
+            "Isolated dietary exposure/dose/lag and applicability to U.S./PreChronic populations"
+          ]
+        },
+        "dpp_observation_software_witness": {
+          "evidence_grade": "E",
+          "expected": {
+            "confirmation_visit_not_diagnosis": true,
+            "death_and_diagnosis_history_preserved": true,
+            "glucose_and_contact_censoring_distinct": true,
+            "later_low_value_not_remission": true,
+            "participant_count": 3,
+            "source_units_preserved": true,
+            "unknowns_not_replaced": true
+          },
+          "geography": "None",
+          "input": {
+            "participants": [
+              {
+                "diagnosis_observations": [
+                  {
+                    "confirmation_time": {
+                      "day": 330,
+                      "kind": "exact"
+                    },
+                    "first_positive_time": {
+                      "day": 300,
+                      "kind": "exact"
+                    },
+                    "outcome": "confirmed",
+                    "source_definition": "Externally assigned synthetic outcome; no threshold evaluated",
+                    "test_reference_ids": [
+                      "trigger",
+                      "confirmation"
+                    ]
+                  }
+                ],
+                "events": {
+                  "death_status": false,
+                  "death_time": {
+                    "kind": "unknown"
+                  },
+                  "diabetes_type": null,
+                  "diagnosed_during_source_followup": true,
+                  "prior_diabetes_diagnosis": null,
+                  "source_glucose_endpoint_years": 1.0,
+                  "source_last_visit_years": 2.0,
+                  "source_visit_group": 2,
+                  "source_year_unit": "source_reported_year"
+                },
+                "follow_up": {
+                  "censoring_reason": "diagnosis",
+                  "last_contact_time": {
+                    "day": 720,
+                    "kind": "exact"
+                  },
+                  "last_glucose_time": {
+                    "day": 700,
+                    "kind": "exact"
+                  }
+                },
+                "glucose_observations": [
+                  {
+                    "observation_id": "trigger",
+                    "status": "observed",
+                    "test": "ogtt_2h",
+                    "time": {
+                      "day": 300,
+                      "kind": "exact"
+                    },
+                    "unit": "mg/dL",
+                    "unit_status": "documented",
+                    "value": 250.0,
+                    "visit_purpose": "scheduled"
+                  },
+                  {
+                    "observation_id": "confirmation",
+                    "status": "observed",
+                    "test": "fasting_glucose",
+                    "time": {
+                      "day": 330,
+                      "kind": "exact"
+                    },
+                    "unit": "mg/dL",
+                    "unit_status": "documented",
+                    "value": 137.0,
+                    "visit_purpose": "confirmation"
+                  },
+                  {
+                    "observation_id": "later",
+                    "status": "observed",
+                    "test": "fasting_glucose",
+                    "time": {
+                      "day": 700,
+                      "kind": "exact"
+                    },
+                    "unit": "mg/dL",
+                    "unit_status": "documented",
+                    "value": 100.0,
+                    "visit_purpose": "post_confirmed_outcome"
+                  }
+                ],
+                "record_id": "synthetic-confirmed",
+                "test_history_complete": false,
+                "treatment_changes": [
+                  {
+                    "action": "start",
+                    "time": {
+                      "day": 340,
+                      "kind": "exact"
+                    },
+                    "treatment": "synthetic medication"
+                  }
+                ],
+                "treatment_history_complete": false
+              },
+              {
+                "events": {
+                  "death_status": null,
+                  "death_time": {
+                    "kind": "unknown"
+                  },
+                  "diagnosed_during_source_followup": false,
+                  "prior_diabetes_diagnosis": null,
+                  "source_glucose_endpoint_years": 2.0,
+                  "source_last_visit_years": 3.0,
+                  "source_visit_group": 1
+                },
+                "follow_up": {
+                  "censoring_reason": "unknown",
+                  "last_contact_time": {
+                    "day": 365,
+                    "kind": "exact"
+                  },
+                  "last_glucose_time": {
+                    "day": 180,
+                    "kind": "exact"
+                  }
+                },
+                "glucose_observations": [
+                  {
+                    "observation_id": "screening",
+                    "status": "observed",
+                    "test": "fasting_glucose",
+                    "time": {
+                      "day": -10,
+                      "kind": "exact"
+                    },
+                    "unit": "mg/dL",
+                    "unit_status": "documented",
+                    "value": 110.0
+                  },
+                  {
+                    "observation_id": "missing-ogtt",
+                    "source_missing_code": "synthetic-refused",
+                    "status": "missing",
+                    "test": "ogtt_2h",
+                    "time": {
+                      "day": 180,
+                      "kind": "exact"
+                    },
+                    "unit": "mg/dL",
+                    "unit_status": "documented",
+                    "value": null
+                  },
+                  {
+                    "observation_id": "confirmation-visit-only",
+                    "status": "observed",
+                    "test": "fasting_glucose",
+                    "time": {
+                      "day": 180,
+                      "kind": "exact"
+                    },
+                    "unit": "mg/dL",
+                    "unit_status": "documented",
+                    "value": 100.0,
+                    "visit_purpose": "confirmation"
+                  }
+                ],
+                "record_id": "synthetic-not-diagnosed",
+                "test_history_complete": null,
+                "treatment_history_complete": null
+              },
+              {
+                "events": {
+                  "death_status": true,
+                  "death_time": {
+                    "day": 400,
+                    "kind": "exact"
+                  },
+                  "diagnosed_during_source_followup": null,
+                  "prior_diabetes_diagnosis": null
+                },
+                "follow_up": {
+                  "censoring_reason": "death",
+                  "last_contact_time": {
+                    "day": 390,
+                    "kind": "exact"
+                  },
+                  "last_glucose_time": {
+                    "day": 100,
+                    "kind": "exact"
+                  }
+                },
+                "glucose_observations": [
+                  {
+                    "observation_id": "unknown-test",
+                    "status": "unknown",
+                    "test": "fasting_glucose",
+                    "time": {
+                      "kind": "unknown"
+                    },
+                    "unit": null,
+                    "unit_status": "unresolved",
+                    "value": null
+                  }
+                ],
+                "record_id": "synthetic-death",
+                "test_history_complete": false,
+                "treatment_history_complete": null
+              }
+            ],
+            "relative_day_origin": "randomization",
+            "relative_day_unit": "relative_day",
+            "schema_version": "clinical_observations_v1",
+            "source_id": "synthetic_dpp_shape",
+            "source_version": "software-fixture-v1",
+            "synthetic": true
+          },
+          "model_role": "benchmark_only",
+          "population": "Synthetic software fixture only",
+          "protocol_path": "docs/validation/dpp-observation-contract-v1.json",
+          "protocol_sha256": "9a427e7bd01c03beea139e12977b14607a06bc312efff73d146ad4e399a4f187",
+          "status": "synthetic",
+          "time_period": "None",
+          "uncertainty": "Fixed arbitrary synthetic record values test preservation only; no empirical precision or clinical uncertainty implied",
+          "unit": "Observation records with separate source-year and relative-day units"
+        }
+      },
+      "parameters": {},
+      "sources": {
+        "dpp2002_primary": {
+          "citation": "Diabetes Prevention Program Research Group. Reduction in the incidence of type 2 diabetes with lifestyle intervention or metformin. NEJM 2002;346:393-403.",
+          "correction_note": "Original three-arm report, cutoff March 31, 2001",
+          "correction_url": null,
+          "doi": "10.1056/NEJMoa012512",
+          "license": "Public documentation access only; no unrestricted participant-record access or full-content redistribution license assumed.",
+          "raw_filename": "primary-report.html",
+          "retrieved_at": "2026-09-30T19:16:23.469918Z",
+          "sha256": "345d769a09a5ac2308d3df9a75490580f899226684ff30032dc06e6c7929d1ee",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1370926/"
+        },
+        "dpp_catalog_v9": {
+          "citation": "NIDDK Central Repository. Diabetes Prevention Program, study 38, data version 9.",
+          "correction_note": "Catalog snapshot retrieved September 30, 2026; data version 9",
+          "correction_url": null,
+          "doi": "10.58020/3hw5-cf91",
+          "license": "Public documentation access only; no unrestricted participant-record access or full-content redistribution license assumed.",
+          "raw_filename": "niddk-study-38.html",
+          "retrieved_at": "2026-09-30T19:16:24.200766Z",
+          "sha256": "4b05f80032ae8f0fd41bc9b63576fdd312024cfbabf949a4c8e97ae97eb0e877",
+          "url": "https://repository.niddk.nih.gov/study/38"
+        },
+        "dpp_protocol_4_5": {
+          "citation": "Diabetes Prevention Program. Protocol version 4.5, November 6, 2001.",
+          "correction_note": "Version 4.5; postdates original report cutoff",
+          "correction_url": null,
+          "doi": "",
+          "license": "Public documentation access only; no unrestricted participant-record access or full-content redistribution license assumed.",
+          "raw_filename": "dpp-protocol-v4.5.pdf",
+          "retrieved_at": "2026-09-30T19:16:23.676167Z",
+          "sha256": "b4aec46d754f499623a0ec5981b3521a7df24a7ddee1b9daf74fac0ccba79bc9",
+          "url": "https://dppos.bsc.gwu.edu/documents/1124073/1127212/DPPPROTOCOL.PDF/807eddd1-d9bf-497d-89f0-5de15fc43d79"
+        },
+        "dpp_release_2008": {
+          "citation": "Diabetes Prevention Program. Documentation for full-scale DPP data release, February 2008.",
+          "correction_note": "Historical four-arm release; cutoff July 31, 2001",
+          "correction_url": null,
+          "doi": "",
+          "license": "Public documentation access only; no unrestricted participant-record access or full-content redistribution license assumed.",
+          "raw_filename": "niddk-full-scale-release-documentation.pdf",
+          "retrieved_at": "2026-09-30T19:21:17.919332Z",
+          "sha256": "b5611c850dcfd56b0cb859668e44e91be0f6912b6529c13d148551661805c16c",
+          "url": "https://repository.niddk.nih.gov/media/studies/dpp/Documents/Documentation%20for%20full%20scale%20DPP%20data%20release.pdf"
+        }
+      }
+    },
+    "all_other_registry_definitions_identical": true,
+    "scientific_blockers_removed": []
+  },
+  "scenarios": {
+    "baseline": {
+      "all_other_outputs_identical": true,
+      "changed_paths": [
+        "/healthspan/evidence_sha256",
+        "/metadata/evidence_sha256"
+      ]
+    },
+    "prechronic_baseline": {
+      "all_other_outputs_identical": true,
+      "changed_paths": [
+        "/healthspan/evidence_sha256",
+        "/metadata/evidence_sha256"
+      ]
+    },
+    "reduce_upf_30": {
+      "all_other_outputs_identical": true,
+      "changed_paths": [
+        "/healthspan/evidence_sha256",
+        "/metadata/evidence_sha256"
+      ]
+    }
+  }
+}

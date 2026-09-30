@@ -77,6 +77,12 @@ The [food-intake reproduction](../FOOD_INTAKE_REPRODUCTION.md) implements the
 upstream menu/intake benchmark from RFC-58. It supplies a traceable paired estimate
 for I-07 while leaving the dose, timing, population and disease-transition bridge open.
 
+The [DPP preservation adapter](../DPP_OBSERVATION_ADAPTER.md) implements explicit
+observation objects and aggregate synthetic diagnostics for the health parts of
+I-01/I-05/I-07/I-11/I-12 and F-04/F-08. Public documentation does not establish
+participant-record coverage. No state allocation, source-year conversion, clinical
+likelihood or fitted transition enters the engine through this adapter.
+
 1. Finish I-01 and the applicable health evidence/definition work in I-07 for the
    existing v0.1 acceptance criteria. A separate PreChronic cohort remains later
    work; do not insert it merely to satisfy the broader scenario narrative.

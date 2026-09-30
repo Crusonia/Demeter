@@ -1,0 +1,299 @@
+{
+  "chronology": "Source methods and available published results were inspected before this freeze. Used-source documentation appraisal and synthetic software validation; not a clinical preregistration, fitted likelihood or independent evaluation.",
+  "clinical_fitting_allowed": false,
+  "direct_initialization_allowed": false,
+  "documentation": {
+    "field_contract": {
+      "CON": {
+        "locator": "Release documentation physical pages 11,16-17",
+        "meaning": "Confirmation visit does not alone establish a positive result or confirmed diagnosis",
+        "unit": "visit_purpose_label"
+      },
+      "DAYSRAND": {
+        "locator": "Release documentation physical page 11, section 4.3",
+        "negative_screening_values_allowed": true,
+        "origin": "randomization",
+        "unit": "relative_day"
+      },
+      "DEATH": {
+        "codes": {
+          "no": 0,
+          "yes": 1
+        },
+        "locator": "Release documentation physical page 25",
+        "unit": "source_binary_code",
+        "unknown_is_alive": false
+      },
+      "DEATHDAYS": {
+        "locator": "Release documentation physical page 25",
+        "meaning": "Recorded death day; absent for alive-at-end participants, no default for unknown status",
+        "origin": "randomization",
+        "unit": "relative_day"
+      },
+      "DIABF": {
+        "codes": {
+          "no": 0,
+          "yes": 1
+        },
+        "locator": "Release documentation physical page 25, section 4.12.2",
+        "meaning": "Ever diagnosed during DPP, not current state or lifetime history",
+        "unit": "source_binary_code"
+      },
+      "DIABT": {
+        "locator": "Release documentation physical page 25",
+        "meaning": "Randomization to diagnosis visit if DIABF yes; otherwise last glucose visit",
+        "trigger_or_confirmation_date": null,
+        "unit": "source_reported_year",
+        "year_denominator": null
+      },
+      "DIABV": {
+        "allowed_codes": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "interval_bounds": null,
+        "locator": "Release documentation physical page 25",
+        "meaning": "Diagnosis period if DIABF yes; otherwise final glucose period; first interval begins at randomization",
+        "unit": "grouped_period_code"
+      },
+      "TOTALTIM": {
+        "locator": "Release documentation physical page 26",
+        "meaning": "Randomization to final recorded visit of any type, not independently established last contact",
+        "unit": "source_reported_year",
+        "year_denominator": null
+      }
+    },
+    "source_checks": [
+      {
+        "actual_sha256": null,
+        "local_byte_check": "not_requested",
+        "retrieved_at": "2026-09-30T19:16:23.469918+00:00",
+        "sha256": "345d769a09a5ac2308d3df9a75490580f899226684ff30032dc06e6c7929d1ee",
+        "source_id": "dpp2002_primary",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1370926/"
+      },
+      {
+        "actual_sha256": null,
+        "local_byte_check": "not_requested",
+        "retrieved_at": "2026-09-30T19:16:24.200766+00:00",
+        "sha256": "4b05f80032ae8f0fd41bc9b63576fdd312024cfbabf949a4c8e97ae97eb0e877",
+        "source_id": "dpp_catalog_v9",
+        "url": "https://repository.niddk.nih.gov/study/38"
+      },
+      {
+        "actual_sha256": null,
+        "local_byte_check": "not_requested",
+        "retrieved_at": "2026-09-30T19:16:23.676167+00:00",
+        "sha256": "b4aec46d754f499623a0ec5981b3521a7df24a7ddee1b9daf74fac0ccba79bc9",
+        "source_id": "dpp_protocol_4_5",
+        "url": "https://dppos.bsc.gwu.edu/documents/1124073/1127212/DPPPROTOCOL.PDF/807eddd1-d9bf-497d-89f0-5de15fc43d79"
+      },
+      {
+        "actual_sha256": null,
+        "local_byte_check": "not_requested",
+        "retrieved_at": "2026-09-30T19:21:17.919332+00:00",
+        "sha256": "b5611c850dcfd56b0cb859668e44e91be0f6912b6529c13d148551661805c16c",
+        "source_id": "dpp_release_2008",
+        "url": "https://repository.niddk.nih.gov/media/studies/dpp/Documents/Documentation%20for%20full%20scale%20DPP%20data%20release.pdf"
+      }
+    ],
+    "source_context": {
+      "catalog_participants": 3665,
+      "catalog_version": "9",
+      "evidence_grade": "C",
+      "interpretation": "Source context only; no bin reconstruction, day/year conversion, endpoint rates or clinical thresholds implemented",
+      "original_report_arms": 3,
+      "original_report_cutoff": "2001-03-31",
+      "original_report_participants": 3234,
+      "protocol_date": "2001-11-06",
+      "protocol_version": "4.5",
+      "release_arms": 4,
+      "release_cutoff": "2001-07-31",
+      "release_version": "February 2008",
+      "reported_grouping_months": 6,
+      "reported_target_window_half_width_months": 3,
+      "source_locators": {
+        "catalog": "Study 38 snapshot",
+        "primary": "Methods/Statistical Analysis and Results",
+        "release": "Physical pages 4-8,25-26"
+      },
+      "status": "observed"
+    },
+    "unresolved": [
+      "Permitted participant-data use, output terms and actual record coverage",
+      "Historical release versus current version and original report window/arms",
+      "DIABT trigger versus confirmation dating and source-year denominator",
+      "DIABV actual boundaries, first bin and out-of-window event rules",
+      "Prior diagnosis/type, physiological-state mapping and remission definitions",
+      "Informative testing, missing visits, treatment changes, death and censoring coverage",
+      "Observation likelihood, estimand, identification, joint uncertainty and reserved evaluation",
+      "Isolated dietary exposure/dose/lag and applicability to U.S./PreChronic populations"
+    ]
+  },
+  "interpretation": "Public documentation appraisal and synthetic observation preservation only. Matching bytes do not prove source-record coverage, clinical identification, causal dietary effects or national applicability.",
+  "kind": "dpp_observation_contract",
+  "model_role": "benchmark_only",
+  "participant_records_acquired": false,
+  "provenance": {
+    "evidence_sha256": "1b81a0e17b6d1aed64a57c75b61c9be9ec0b631e39e678bae4a2f837db707420",
+    "implementation_sha256": {
+      "src/demeter/analysis/dpp_observations.py": "50e28d11f76a4b94befad3939accc6d4ac88548e29d207292410f7e21e6bcda2",
+      "src/demeter/data/clinical_observations.py": "1785b29bbb091745991a8095d6b6a8b6c85fadb5a63e227ed62e9a169cf61c3c"
+    },
+    "protocol_sha256": "9a427e7bd01c03beea139e12977b14607a06bc312efff73d146ad4e399a4f187"
+  },
+  "results": {
+    "documentation_bytes_checked": false,
+    "documentation_bytes_passed": null,
+    "software_witnesses_passed": true
+  },
+  "schema_version": "dpp_observation_audit_v1",
+  "scientific_release_ready": false,
+  "software_witness": {
+    "aggregate_observations": {
+      "clinical_fit_allowed": false,
+      "contradictions": {},
+      "counts": {
+        "diagnosis_observations": 1,
+        "glucose_observations": 7,
+        "participants": 3,
+        "treatment_changes": 1
+      },
+      "diagnosis": {
+        "confirmation_time_kind": {
+          "exact": 1
+        },
+        "first_positive_time_kind": {
+          "exact": 1
+        },
+        "outcome": {
+          "confirmed": 1
+        }
+      },
+      "fit_blockers": [
+        "No clinical observation likelihood or physiological-state mapping is implemented",
+        "Normalized input does not verify a source importer or identify clinical causal rates",
+        "Unknown observations and unresolved timing/unit/history issues block dependent fits"
+      ],
+      "follow_up": {
+        "censoring_reason": {
+          "death": 1,
+          "diagnosis": 1,
+          "unknown": 1
+        },
+        "last_contact_time_kind": {
+          "exact": 3
+        },
+        "last_glucose_time_kind": {
+          "exact": 3
+        }
+      },
+      "glucose": {
+        "fasting_glucose": {
+          "status": {
+            "observed": 4,
+            "unknown": 1
+          },
+          "time_kind": {
+            "exact": 4,
+            "unknown": 1
+          },
+          "unit_status": {
+            "documented": 4,
+            "unresolved": 1
+          }
+        },
+        "ogtt_2h": {
+          "status": {
+            "missing": 1,
+            "observed": 1
+          },
+          "time_kind": {
+            "exact": 2
+          },
+          "unit_status": {
+            "documented": 2
+          }
+        }
+      },
+      "interpretation": "Observation preservation only; no clinical thresholds, year/day conversion, inferred negative tests, biological onset, remission, engine states or causal effects",
+      "kind": "clinical_observation_preservation",
+      "model_role": "benchmark_only",
+      "schema_version": "clinical_observations_v1",
+      "scientific_release_ready": false,
+      "source": {
+        "relative_day_origin": "randomization",
+        "relative_day_unit": "relative_day",
+        "source_id": "synthetic_dpp_shape",
+        "source_version": "software-fixture-v1",
+        "source_year_unit": "source_reported_year",
+        "synthetic": true
+      },
+      "source_events": {
+        "death_status": {
+          "no": 1,
+          "unknown": 1,
+          "yes": 1
+        },
+        "death_time_kind": {
+          "exact": 1,
+          "unknown": 2
+        },
+        "diagnosed_during_source_followup": {
+          "no": 1,
+          "unknown": 1,
+          "yes": 1
+        },
+        "prior_diabetes_diagnosis": {
+          "unknown": 3
+        },
+        "source_glucose_endpoint_years_present": 2,
+        "source_last_visit_years_present": 2,
+        "source_visit_group_present": 2
+      },
+      "source_importer_certified": false,
+      "state_activation_allowed": false,
+      "unresolved_observations": {
+        "censoring_reason_unknown": 1,
+        "death_status_unknown": 1,
+        "diabetes_type_unknown": 3,
+        "diagnosis_during_followup_unknown": 1,
+        "glucose_collection_time_unknown": 1,
+        "glucose_unit_unresolved": 1,
+        "glucose_value_unobserved": 2,
+        "grouped_visit_interval_unresolved": 2,
+        "prior_diagnosis_unknown": 3,
+        "source_year_to_day_conversion_unresolved": 2,
+        "test_history_completeness_unresolved": 3,
+        "treatment_history_completeness_unresolved": 3
+      },
+      "validation_only": true,
+      "visit_purpose": {
+        "confirmation": 2,
+        "post_confirmed_outcome": 1,
+        "scheduled": 1,
+        "unknown": 3
+      }
+    },
+    "checks": {
+      "confirmation_visit_not_diagnosis": true,
+      "death_and_diagnosis_history_preserved": true,
+      "glucose_and_contact_censoring_distinct": true,
+      "later_low_value_not_remission": true,
+      "participant_count": true,
+      "source_units_preserved": true,
+      "unknowns_not_replaced": true
+    },
+    "evidence_grade": "E",
+    "status": "synthetic"
+  },
+  "validation_only": true
+}

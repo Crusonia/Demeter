@@ -70,7 +70,20 @@ records unchanged canonical numerical outputs and active parameters.
 
 The [clinical observation contract](CLINICAL_OBSERVATION_CONTRACT.md) now specifies
 the required baseline categories, repeat testing and confirmation, event dating,
-exposure, visit timing, treatment, missingness, death and loss. Next, appraise an
-independent public primary source against that contract before fitting any
-transition. The Diabetes Prevention Program is a candidate for appraisal;
-its lifestyle package is not automatically an isolated dietary effect.
+exposure, visit timing, treatment, missingness, death and loss. The executable
+[DPP observation adapter](DPP_OBSERVATION_ADAPTER.md) now preserves explicit
+normalized observations and exports a synthetic aggregate audit. It retains
+source-year summaries separately from relative-day visits, confirmation separately
+from trigger tests, and last glucose separately from last contact. Four public
+documentation receipts are pinned; participant records remain request-only and
+have not been acquired. This is observation preservation, not a SAS importer,
+clinical likelihood or transition fit. Its
+[before/after receipt](validation/issue-57-dpp-before-after.json) records unchanged
+active parameters and canonical numerical outputs.
+
+Next, build a source-field coverage matrix for baseline/history, trigger,
+confirmation, missing tests, treatment, exposure and competing death. Keep
+documented fields separate from actual coverage in any future permitted package.
+Resolve time conversion, event dating, source window and likelihood identification
+before fitting. DPP's lifestyle package is not an isolated dietary effect; this
+software step leaves the full requirements of #57 and #58 open.
