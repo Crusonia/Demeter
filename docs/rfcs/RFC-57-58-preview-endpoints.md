@@ -16,6 +16,15 @@ The original [protocol](https://doi.org/10.3390/nu9060632) and
 Participant records are available on reasonable request and have not been
 acquired. Public documents remain fetch-only; derived factual analysis is separate.
 
+The [verified context amendment](../validation/preview-endpoint-context-amendment-3.json)
+was created after initial reproduction in response to PR review. It pins the
+already-inspected schedule and confidence-level facts for corrected audits. The
+superseded amendment 2 retains a source-locator discrepancy: nominal weeks come
+from the original 2021 report's section 2.1; the 2017 window paragraph supplies
+visit-window widths. No corrected numerical audit used the disputed locator.
+The original frozen protocol, selection, equations and endpoint cells remain
+unchanged. This correction does not make the work preregistered or independent.
+
 Reproduce the main endpoint cells fixed in the protocol and audit their literal
 source locators and byte hashes. Report available-endpoint proportions and
 absolute dietary contrasts separately from published adjusted effects. Compute

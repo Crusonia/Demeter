@@ -70,8 +70,9 @@
   "provenance": {
     "amendment_sha256": "86afebf2fca317251e57ead857199d47a86672657af827e3cd4080c8108de61f",
     "clinical_fit_performed": false,
-    "dataset_definition_sha256": "442043524ff97ead60cef1bdb403f5c7753ee17194418b39b02de1f6c74e0397",
-    "implementation_sha256": "0b2703dad2e4ba15fd74646fd3f8621817605894dc02cc539326ac7c70f7d727",
+    "context_sha256": "d79bd32f99b6aa17b2258b613f90186ce5a796910dadadc3875afa860ab8bb98",
+    "dataset_definition_sha256": "ee517cadf6dfff40109a9bc868c613597362c551d5df746786a4879d95a50533",
+    "implementation_sha256": "8e0c4462e8f7c04b9a23f055337747961de0cde883435c992fdb316a74e559e3",
     "individual_records_used": false,
     "parameter_definitions_sha256": {
       "preview_later_window_weeks": "3515042790b914f70fc913012f8aaa4a985a427d7bb831a0fa8a256b1bf8161e",
@@ -93,9 +94,9 @@
       "preview_y3_MP_MGI_endpoint_n": "9b19c60e68b264c8bd65379cb97c469d435cb9d77f582939cc5fdb161abea6df",
       "preview_y3_MP_MGI_normal_count": "4173afbaf147b4ec08d4e6e8f89b6e9703fb83151f1bde824c66ec51e987af15",
       "preview_y3_adjusted_rr": "69e8876203da3df733fa653d3b08eddc6522daf0de57f6f0d48795ef06ac8486",
-      "preview_year1_nominal_week": "b95b8e884fb3fdc8c58377320540edb8a2a155e2f7c91ef201ebb1ad8b0a6517",
+      "preview_year1_nominal_week": "ee93825445b3b5e2d06579348f4db1d640b09bafe694fa57aac6ec42a42f5a2a",
       "preview_year1_window_weeks": "ebf5cb6bbed982864705e2d9bdffdef9cd06ff1b1d9a5d036a9e0bf9bde109d5",
-      "preview_year3_nominal_week": "f09e926622bc0d176603aa9c01f33bdcac4001ad07ed323527482d61d5af9208"
+      "preview_year3_nominal_week": "ad5aa34c373f31bb747e5fb47cf62cfe99164dbabf96afe996a0743da6b64720"
     },
     "protocol_sha256": "b9cc9b76f545c7ddf753d90ecd52a8476265f86223c1c741e3cf8508c43d7e86",
     "raw_redistributed": false,
@@ -355,6 +356,12 @@
         }
       }
     ],
+    "context_expectations_guard": {
+      "context_amendment_status": "post-reproduction used-source context-integrity amendment with verified source locators",
+      "independent_source_byte_extraction": false,
+      "kind": "exact agreement with separately frozen used-source context expectations",
+      "passed": true
+    },
     "joint_year_covariance": null,
     "literal_main_cells": {
       "endpoints": [
@@ -404,43 +411,61 @@
     "pooled_inferential_effect": null,
     "registered_source_context": {
       "preview_later_window_weeks": {
+        "frozen_expectation_verified": true,
         "independently_reextracted": false,
         "source_id": "preview_protocol2017",
+        "source_locator": "Original2017 protocol section2.6; pinned PDF page8, later visits +/-4weeks",
+        "transformation": null,
         "unit": "weeks",
         "used_in_calculation": false,
         "value": 4.0
       },
       "preview_reported_confidence_level": {
+        "frozen_expectation_verified": true,
         "independently_reextracted": false,
         "source_id": "preview_secondary2025",
+        "source_locator": "Secondary main Methods/Statistical analysis, FPar5, reported95% confidence intervals",
+        "transformation": "Reported95% confidence level /100 =0.95; unit normalization only, not independent or simultaneous coverage",
         "unit": "proportion",
         "used_in_calculation": false,
         "value": 0.95
       },
       "preview_run_in_weeks": {
+        "frozen_expectation_verified": true,
         "independently_reextracted": false,
         "source_id": "preview_secondary2025",
+        "source_locator": "Secondary main Methods/Study design, common initial8weeks",
+        "transformation": null,
         "unit": "weeks",
         "used_in_calculation": false,
         "value": 8.0
       },
       "preview_year1_nominal_week": {
+        "frozen_expectation_verified": true,
         "independently_reextracted": false,
-        "source_id": "preview_protocol2017",
+        "source_id": "preview_original2021",
+        "source_locator": "Original2021 report section2.1 Participants; pinned PDF physicalpage3/printed326, explicit schedule (baseline,8,26,52,78,104,156weeks); schedule labels only",
+        "transformation": null,
         "unit": "weeks",
         "used_in_calculation": false,
         "value": 52.0
       },
       "preview_year1_window_weeks": {
+        "frozen_expectation_verified": true,
         "independently_reextracted": false,
         "source_id": "preview_protocol2017",
+        "source_locator": "Original2017 protocol section2.6; pinned PDF page8, year1 visit +/-2weeks",
+        "transformation": null,
         "unit": "weeks",
         "used_in_calculation": false,
         "value": 2.0
       },
       "preview_year3_nominal_week": {
+        "frozen_expectation_verified": true,
         "independently_reextracted": false,
-        "source_id": "preview_protocol2017",
+        "source_id": "preview_original2021",
+        "source_locator": "Original2021 report section2.1 Participants; pinned PDF physicalpage3/printed326, explicit schedule (baseline,8,26,52,78,104,156weeks); schedule labels only",
+        "transformation": null,
         "unit": "weeks",
         "used_in_calculation": false,
         "value": 156.0

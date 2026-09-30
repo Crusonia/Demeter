@@ -437,7 +437,7 @@
       "artifacts": [
         {
           "path": "docs/validation/issue-56-state-mapping.json",
-          "sha256": "04ca5e1fbeecf50a28d660f63cdcaf90b84f207abf0c660420e5f05c81874705"
+          "sha256": "05a0b70aed839964af2eda26b91c6ad566b5af8f4af60c292688ca4de96331f4"
         },
         {
           "path": "docs/validation/issue-56-state-mapping-before-after.json",
@@ -445,7 +445,7 @@
         },
         {
           "path": "docs/validation/issue-56-partial-observations.json",
-          "sha256": "9af01b2b8d55007b82c121acc573a946b7bce6ac8317a6093fb938b7be22649d"
+          "sha256": "8fc5ac45fa3b95c697ed3b292d1a48abafde4695ab846f23fc5ca7f07aa734e5"
         },
         {
           "path": "docs/validation/issue-56-partial-before-after.json",
@@ -672,6 +672,14 @@
           "sha256": "86afebf2fca317251e57ead857199d47a86672657af827e3cd4080c8108de61f"
         },
         {
+          "path": "docs/validation/preview-endpoint-context-amendment-2.json",
+          "sha256": "8c36bf91e13e67a2e60b321de6aca6b632cf96735f2a5e7dc3978e59482b1d12"
+        },
+        {
+          "path": "docs/validation/preview-endpoint-context-amendment-3.json",
+          "sha256": "d79bd32f99b6aa17b2258b613f90186ce5a796910dadadc3875afa860ab8bb98"
+        },
+        {
           "path": "docs/validation/preview-inspection-chronology-v1.json",
           "sha256": "86de80e3985f4ea8ff8e81192ad4179b098abf9e4d7d09983215896d2adbbc4f"
         },
@@ -681,19 +689,19 @@
         },
         {
           "path": "docs/validation/issue-57-58-preview-endpoints.json",
-          "sha256": "5dfbc58646b3003ca2a741b0873d01ae1d410a621ac102433ccb18d97cc16f77"
+          "sha256": "4d23ee7ba28bd00707a893cc85c718c723e69810fb317431421c78bbbf6294c2"
         },
         {
           "path": "docs/validation/issue-57-58-preview-before-after.json",
-          "sha256": "4cca1ad9444a4b98cd980a378184060f56d10b134fc6c1045ec2a05bc28c6e11"
+          "sha256": "2ea773e0d1328e66045c06646dfe010a57883de74518fa8de09e2f8d16c05ca8"
         },
         {
           "path": "docs/PREVIEW_ENDPOINT_AUDIT.md",
-          "sha256": "29ff648a97658f3fb54677075e3c28a864f8c584ea30685fa64e3638e595b5e2"
+          "sha256": "b2d263a1f8a400154099852b5c6e95a7f7b204fae6031e2d6e9525b68bf24dde"
         },
         {
           "path": "docs/rfcs/RFC-57-58-preview-endpoints.md",
-          "sha256": "1b0cb2667771e66045f335226306d810052f86e5f757bd93837a24154dc894c8"
+          "sha256": "ee6bc94872b1e55ab3cabe8240a9fc9534e188172f3ae3fd98ad9786b6f1f8c3"
         }
       ],
       "transform_files": [

@@ -69,6 +69,7 @@ def fixture(registered, tmp_path):
     protocol = json.loads(Path(spec["protocol_path"]).read_bytes())
     amendment = json.loads(Path(spec["amendment_path"]).read_bytes())
     receipts = json.loads(Path(spec["receipts_path"]).read_bytes())
+    context = json.loads(Path(spec["context_path"]).read_bytes())
     raw = tmp_path / "raw"
     raw.mkdir()
     source = _main(spec["analysis"], protocol["scope"]["source_thresholds"])
@@ -86,6 +87,12 @@ def fixture(registered, tmp_path):
         path = tmp_path / f"{name}.json"
         path.write_bytes(encoded(content))
         spec[f"{name}_path"], spec[f"{name}_sha256"] = str(path), digest(path.read_bytes())
+    for name in ("protocol", "amendment"):
+        context[f"parent_{name}_path"] = spec[f"{name}_path"]
+        context[f"parent_{name}_sha256"] = spec[f"{name}_sha256"]
+    path = tmp_path / "context.json"
+    path.write_bytes(encoded(context))
+    spec["context_path"], spec["context_sha256"] = str(path), digest(path.read_bytes())
     return registry, raw, source, protocol
 
 
@@ -117,6 +124,16 @@ def test_offline_audit_separates_descriptive_effects_and_source_adjustment(fixtu
         not item["used_in_calculation"]
         for item in report["results"]["registered_source_context"].values()
     )
+    assert all(
+        item["frozen_expectation_verified"] and not item["independently_reextracted"]
+        for item in report["results"]["registered_source_context"].values()
+    )
+    assert report["results"]["context_expectations_guard"]["passed"] is True
+    assert (
+        report["results"]["context_expectations_guard"]["independent_source_byte_extraction"]
+        is False
+    )
+    assert report["provenance"]["context_sha256"] == registry.datasets[DATASET]["context_sha256"]
     completion = report["completion_interpretation"]
     assert completion["death_counts"] is None
     assert completion["death_status_inferred"] is False
@@ -225,7 +242,7 @@ def test_missing_companion_source_is_not_optional(fixture, label):
         audit_preview(registry, raw)
 
 
-@pytest.mark.parametrize("name", ("protocol", "amendment", "receipts"))
+@pytest.mark.parametrize("name", ("protocol", "amendment", "receipts", "context"))
 def test_all_contract_bytes_are_pinned(fixture, name):
     registry, raw, _, _ = fixture
     path = Path(registry.datasets[DATASET][f"{name}_path"])
@@ -320,6 +337,13 @@ def test_source_iteration_order_does_not_change_results(fixture):
     registry, raw, _, _ = fixture
     before = audit_preview(registry, raw)["results"]
     _repin_contract(registry, "protocol", lambda doc: doc["source_bytes"].reverse())
+    _repin_contract(
+        registry,
+        "context",
+        lambda doc: doc.update(
+            parent_protocol_sha256=registry.datasets[DATASET]["protocol_sha256"]
+        ),
+    )
     assert audit_preview(registry, raw)["results"] == before
 
 
@@ -442,3 +466,85 @@ def test_cli_persists_the_successful_offline_report(fixture, tmp_path, monkeypat
     assert report == json.loads(result.stdout)
     assert report["results"]["source_reproduction_passed"] is True
     assert report["source_consistency"]["overall_clinical_acceptance"] is False
+
+
+@pytest.mark.parametrize(
+    "key, changed_value",
+    [
+        ("preview_reported_confidence_level", 0.90),
+        ("preview_year1_nominal_week", 53),
+        ("preview_year3_nominal_week", 157),
+        ("preview_year1_window_weeks", 3),
+        ("preview_later_window_weeks", 5),
+        ("preview_run_in_weeks", 9),
+    ],
+)
+def test_all_context_numeric_drift_rejects_before_arithmetic(
+    fixture, monkeypatch, key, changed_value
+):
+    registry, raw, _, _ = fixture
+    registry.parameters[key].value = changed_value
+    monkeypatch.setattr(
+        "demeter.analysis.preview_endpoints._describe",
+        lambda _: pytest.fail("arithmetic after context drift"),
+    )
+    with pytest.raises(ValueError, match="frozen context expectation disagreement"):
+        audit_preview(registry, raw)
+
+
+@pytest.mark.parametrize(
+    "mutation",
+    [
+        lambda doc: doc.update(schema_version=True),
+        lambda doc: doc.update(parent_protocol_path="wrong"),
+        lambda doc: doc.update(parent_protocol_sha256="0" * 64),
+        lambda doc: doc.update(parent_amendment_path="wrong"),
+        lambda doc: doc.update(parent_amendment_sha256="0" * 64),
+        lambda doc: doc.update(analytical_selection_changed=True),
+        lambda doc: doc.update(clinical_fit_or_activation_allowed=True),
+        lambda doc: doc.update(independent_byte_extraction=True),
+        lambda doc: doc.update(used_in_endpoint_calculations=True),
+        lambda doc: doc["context_parameters"].pop("preview_run_in_weeks"),
+        lambda doc: doc["context_parameters"].update(
+            extra=doc["context_parameters"]["preview_run_in_weeks"]
+        ),
+        lambda doc: doc["context_parameters"]["preview_year1_window_weeks"].update(unit="days"),
+        lambda doc: doc["context_parameters"]["preview_run_in_weeks"].update(
+            source_id="preview_original2021"
+        ),
+        lambda doc: doc["context_parameters"]["preview_run_in_weeks"].update(source_locator=" "),
+        lambda doc: doc["context_parameters"]["preview_reported_confidence_level"].update(
+            value="0.95"
+        ),
+        lambda doc: doc["context_parameters"]["preview_year1_window_weeks"].update(value=True),
+        lambda doc: doc["context_parameters"]["preview_run_in_weeks"].update(value=9),
+        lambda doc: doc["context_parameters"]["preview_run_in_weeks"].update(extra=True),
+        lambda doc: doc["context_parameters"]["preview_reported_confidence_level"].update(
+            transformation=" "
+        ),
+    ],
+)
+def test_context_schema_and_parent_drift_rejects_even_if_repinned(fixture, monkeypatch, mutation):
+    registry, raw, _, _ = fixture
+    _repin_contract(registry, "context", mutation)
+    monkeypatch.setattr(
+        "demeter.analysis.preview_endpoints._describe",
+        lambda _: pytest.fail("arithmetic after invalid context amendment"),
+    )
+    with pytest.raises(ValueError):
+        audit_preview(registry, raw)
+
+
+def test_context_value_disagreement_fails_cli_without_saving_a_success_report(
+    fixture, tmp_path, monkeypatch
+):
+    registry, raw, _, _ = fixture
+    registry.parameters["preview_reported_confidence_level"].value = 0.90
+    output = tmp_path / "unverified.json"
+    monkeypatch.setattr("demeter.cli.registry", lambda _path: registry)
+    result = CliRunner().invoke(
+        app, ["evidence", "preview-endpoints", "--raw", str(raw), "--output", str(output)]
+    )
+    assert result.exit_code == 1
+    assert "frozen context expectation disagreement" in result.output
+    assert not output.exists()

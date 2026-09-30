@@ -1,5 +1,5 @@
 {
-  "after_evidence_sha256": "f66dca664ffbfafc95ba8e8e580cfab903e59340850db1e4c215f68f3f41951a",
+  "after_evidence_sha256": "8ed11a049f256ee2bc7e274c297d8a6b2395fe22768f220f5f6f79dd593ed1d4",
   "base_commit": "e7b9602fe416c34de2863e92f6fad285cef0236d",
   "before_evidence_sha256": "1b81a0e17b6d1aed64a57c75b61c9be9ec0b631e39e678bae4a2f837db707420",
   "canonical_scenarios": {
@@ -81,5 +81,13 @@
     },
     "all_prior_entries_identical": true,
     "scientific_blockers_identical": true
+  },
+  "review_correction": {
+    "all_main_cells_and_numerical_endpoint_results_identical": true,
+    "context_values_hash_pinned_and_checked_before_arithmetic": true,
+    "initial_reproduction_commit": "4c9d1f6bf939a6e4b41abf97132ff2129e81a5d5",
+    "review_comment": 4150230486,
+    "source_locator_correction": "Nominal52/156-week labels are observed in original2021 section2.1, not original2017 section2.6. Amendment2 retained as superseded error record; no corrected audit ran under it.",
+    "verified_context_path": "docs/validation/preview-endpoint-context-amendment-3.json"
   }
 }

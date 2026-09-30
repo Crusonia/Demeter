@@ -25,8 +25,8 @@ CONTEXT_PARAMETERS = {
     "preview_year1_window_weeks": ("weeks", "protocol2017"),
     "preview_later_window_weeks": ("weeks", "protocol2017"),
     "preview_run_in_weeks": ("weeks", "secondary"),
-    "preview_year1_nominal_week": ("weeks", "protocol2017"),
-    "preview_year3_nominal_week": ("weeks", "protocol2017"),
+    "preview_year1_nominal_week": ("weeks", "original2021"),
+    "preview_year3_nominal_week": ("weeks", "original2021"),
     "preview_reported_confidence_level": ("proportion", "secondary"),
 }
 
@@ -351,6 +351,7 @@ def audit_preview(registry: EvidenceRegistry, raw: Path) -> dict:
         protocol, protocol_hash = _contract(spec, "protocol")
         amendment, amendment_hash = _contract(spec, "amendment")
         receipt_document, receipts_hash = _contract(spec, "receipts")
+        context, context_hash = _contract(spec, "context")
         if (
             spec["status"] != "derived"
             or spec["evidence_grade"] != "C"
@@ -367,6 +368,22 @@ def audit_preview(registry: EvidenceRegistry, raw: Path) -> dict:
             or receipt_document["participant_records_acquired"] is not False
         ):
             raise ValueError("PREVIEW protocol/registry role, analysis or amendment mismatch")
+        if (
+            type(context["schema_version"]) is not int
+            or context["schema_version"] != 1
+            or context["parent_protocol_path"] != spec["protocol_path"]
+            or context["parent_protocol_sha256"] != protocol_hash
+            or context["parent_amendment_path"] != spec["amendment_path"]
+            or context["parent_amendment_sha256"] != amendment_hash
+            or context["analytical_selection_changed"] is not False
+            or context["clinical_fit_or_activation_allowed"] is not False
+            or not isinstance(context["status"], str)
+            or not context["status"].strip()
+            or context["independent_byte_extraction"] is not False
+            or context["used_in_endpoint_calculations"] is not False
+            or set(context["context_parameters"]) != set(CONTEXT_PARAMETERS)
+        ):
+            raise ValueError("PREVIEW context amendment parent, role or exact coverage mismatch")
         pins = {pin["label"]: pin for pin in protocol["source_bytes"]}
         receipts = receipt_document["receipts"]
         if (
@@ -395,6 +412,28 @@ def audit_preview(registry: EvidenceRegistry, raw: Path) -> dict:
                 or parameter.uncertainty.kind != ("interval" if status == "estimated" else "fixed")
             ):
                 raise ValueError(f"Unsupported PREVIEW benchmark parameter definition: {key}")
+        for key, (unit, label) in CONTEXT_PARAMETERS.items():
+            expectation = context["context_parameters"][key]
+            required_fields = {"value", "unit", "source_id", "source_locator"}
+            if (
+                not required_fields <= set(expectation) <= required_fields | {"transformation"}
+                or (
+                    "transformation" in expectation
+                    and (
+                        not isinstance(expectation["transformation"], str)
+                        or not expectation["transformation"].strip()
+                    )
+                )
+                or expectation["unit"] != unit
+                or expectation["source_id"] != SOURCE_IDS[label]
+                or not isinstance(expectation["source_locator"], str)
+                or not expectation["source_locator"].strip()
+                or type(expectation["value"]) not in (int, float)
+                or not math.isfinite(expectation["value"])
+                or expectation["value"] <= 0
+                or registry.parameters[key].value != expectation["value"]
+            ):
+                raise ValueError(f"PREVIEW frozen context expectation disagreement: {key}")
         contents = {}
         source_checks = {}
         for label, pin in pins.items():
@@ -466,10 +505,19 @@ def audit_preview(registry: EvidenceRegistry, raw: Path) -> dict:
                     "value": registry.parameters[key].value,
                     "unit": registry.parameters[key].unit,
                     "source_id": registry.parameters[key].source_id,
+                    "source_locator": context["context_parameters"][key]["source_locator"],
+                    "transformation": context["context_parameters"][key].get("transformation"),
+                    "frozen_expectation_verified": True,
                     "independently_reextracted": False,
                     "used_in_calculation": False,
                 }
                 for key in CONTEXT_PARAMETERS
+            },
+            "context_expectations_guard": {
+                "passed": True,
+                "kind": "exact agreement with separately frozen used-source context expectations",
+                "context_amendment_status": context["status"],
+                "independent_source_byte_extraction": False,
             },
         },
         "completion_interpretation": {
@@ -506,6 +554,7 @@ def audit_preview(registry: EvidenceRegistry, raw: Path) -> dict:
             "protocol_sha256": protocol_hash,
             "amendment_sha256": amendment_hash,
             "receipts_sha256": receipts_hash,
+            "context_sha256": context_hash,
             "dataset_definition_sha256": digest(encoded(spec)),
             "parameter_definitions_sha256": {
                 key: digest(encoded(registry.parameters[key].model_dump(mode="json")))

@@ -12,6 +12,16 @@ The [frozen specification](validation/preview-endpoint-protocol-v1.json),
 [source receipts](validation/preview-source-receipts.json) preserve what was
 selected, what had already been seen, and which exact source bytes were used.
 
+The [verified context amendment](validation/preview-endpoint-context-amendment-3.json)
+was frozen after the first reproduction to address a review finding. It pins six
+source facts: visit windows, nominal assessment weeks, run-in duration, and the
+reported confidence level. The corrected audit checks their registry values and
+provenance against these frozen expectations. It verifies source-file hashes;
+it does not independently re-extract the PDF context facts during runtime. Those
+facts were separately checked against the pinned primary documents. This review
+fix preserves the original freeze, analytical selection, and numerical endpoint
+outputs.
+
 ## Who and what were studied
 
 PREVIEW recruited adults with overweight or obesity and screening-defined
@@ -55,12 +65,16 @@ the removal of an earlier diabetes diagnosis. The audit therefore calls this a
 **normal-glucose endpoint**, while retaining the paper's “prediabetes remission”
 label in source locators.
 
-Nominal week 52 and week 156 include the initial eight weeks. They are measured
-from study baseline; exact randomization and baseline dates must not be equated.
-The original report describes withdrawals between them. The 2017 protocol,
-section 2.6 / PDF page 8, specifies visit windows, including ±2 weeks at year 1
-and ±4 weeks at later assessments. Actual participant dates and window adherence
-are unavailable in these aggregate cells.
+Nominal week 52 and week 156 are explicit visit-schedule labels in the
+[original 2021 report, section 2.1 Participants](https://doi.org/10.1111/dom.14219),
+physical PDF page 3 / printed page 326. They include the initial eight weeks and
+are measured from study baseline; exact randomization and baseline dates must not
+be equated. The original report describes withdrawals between them. The
+[2017 protocol, section 2.6](https://doi.org/10.3390/nu9060632), physical PDF page 8 /
+printed page 7, supplies the visit windows: ±2 weeks at year 1 and ±4 weeks at
+later assessments. That paragraph supplies the windows, not the nominal week
+labels. Actual participant dates and window adherence are unavailable in these
+aggregate cells.
 
 ## Keep three denominators separate
 
@@ -189,6 +203,13 @@ dietary difference; this does not prove a zero effect. A normal-glucose endpoint
 and first diabetes diagnosis are different outcomes. See
 [ESM Table 1, page 8](https://media.springernature.com/original/springer-static/esm/art%3A10.1007%2Fs00125-025-06560-x/MediaObjects/125_2025_6560_MOESM1_ESM.pdf)
 and the [original report](https://doi.org/10.1111/dom.14219).
+
+The earlier [context amendment](validation/preview-endpoint-context-amendment-2.json)
+is retained as a superseded review record: it attributed the nominal week labels
+to the wrong protocol paragraph. No corrected audit or numerical reproduction
+ran with that disputed amendment. The exact week labels were verified in the
+original 2021 report before the replacement context amendment was frozen; the
+earlier record and original analysis files remain intact.
 
 Changed source bytes or a failure to match a frozen literal cell stops source
 reproduction. Do not reconstruct counts from rounded percentages, replace a

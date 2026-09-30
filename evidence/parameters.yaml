@@ -2365,21 +2365,21 @@ parameters:
       randomization alone does not resolve selection, missingness or dose mapping.
   preview_year1_nominal_week:
     key: preview_year1_nominal_week
-    value: 52
+    value: 52.0
     unit: weeks
     status: observed
     evidence_grade: C
-    source: Original2017 section2.6, pinned PDFp8, nominal week52
-    source_id: preview_protocol2017
-    source_url: https://cronfa.swan.ac.uk/Record/cronfa34410/Download/0034410-21062017091740.pdf
-    citation: 'Fogelholm M et al. PREVIEW: Prevention of Diabetes through Lifestyle Intervention and Population
-      Studies in Europe and around the World. Nutrients 2017;9(6):632.'
+    source: Original2021 report section2.1 Participants; pinned PDF physicalpage3/printed326, explicit schedule
+      (baseline,8,26,52,78,104,156weeks); schedule labels only
+    source_url: https://cronfa.swansea.ac.uk/Record/cronfa55357/Download/55357__19030__2bbf34df7331454a91a2476c2bdb611a.pdf
+    citation: 'Raben A et al. The PREVIEW intervention study: Results from a 3-year randomized 2 x 2 factorial
+      multinational trial investigating the role of protein, glycaemic index and physical activity for prevention
+      of type 2 diabetes. Diabetes Obesity and Metabolism 2021;23:324-337.'
     population: Selected PREVIEW maintenance-eligible adults with source-defined prediabetes and overweight/obesity
       after common initial weight loss; diet arms pool both physical-activity assignments.
     geography: Denmark, Finland, UK, Netherlands, Spain, Bulgaria, Australia, New Zealand
     time_period: Trial June 2013-March 2018; nominal baseline assessments at week52 and week156 include
       initial8weeks; secondary report published2025
-    model_role: benchmark_only
     outcome_definition: Source point-in-time normal fasting AND normal 2-hour OGTT glucose; no diagnosis
       history, sustained untreated remission, or engine state inferred.
     uncertainty:
@@ -2388,25 +2388,28 @@ parameters:
         distribution. Missingness and source limitations remain explicit.
     transformation: Literal source value retained; no annualization, imputation, active calibration or national
       transport.
+    model_role: benchmark_only
     notes: Used-source benchmark only. Evidence grade describes scoped usefulness with causal uncertainty;
       randomization alone does not resolve selection, missingness or dose mapping.
+    unresolved: false
+    source_id: preview_original2021
   preview_year3_nominal_week:
     key: preview_year3_nominal_week
-    value: 156
+    value: 156.0
     unit: weeks
     status: observed
     evidence_grade: C
-    source: Original2017 section2.6, pinned PDFp8, nominal week156
-    source_id: preview_protocol2017
-    source_url: https://cronfa.swan.ac.uk/Record/cronfa34410/Download/0034410-21062017091740.pdf
-    citation: 'Fogelholm M et al. PREVIEW: Prevention of Diabetes through Lifestyle Intervention and Population
-      Studies in Europe and around the World. Nutrients 2017;9(6):632.'
+    source: Original2021 report section2.1 Participants; pinned PDF physicalpage3/printed326, explicit schedule
+      (baseline,8,26,52,78,104,156weeks); schedule labels only
+    source_url: https://cronfa.swansea.ac.uk/Record/cronfa55357/Download/55357__19030__2bbf34df7331454a91a2476c2bdb611a.pdf
+    citation: 'Raben A et al. The PREVIEW intervention study: Results from a 3-year randomized 2 x 2 factorial
+      multinational trial investigating the role of protein, glycaemic index and physical activity for prevention
+      of type 2 diabetes. Diabetes Obesity and Metabolism 2021;23:324-337.'
     population: Selected PREVIEW maintenance-eligible adults with source-defined prediabetes and overweight/obesity
       after common initial weight loss; diet arms pool both physical-activity assignments.
     geography: Denmark, Finland, UK, Netherlands, Spain, Bulgaria, Australia, New Zealand
     time_period: Trial June 2013-March 2018; nominal baseline assessments at week52 and week156 include
       initial8weeks; secondary report published2025
-    model_role: benchmark_only
     outcome_definition: Source point-in-time normal fasting AND normal 2-hour OGTT glucose; no diagnosis
       history, sustained untreated remission, or engine state inferred.
     uncertainty:
@@ -2415,8 +2418,11 @@ parameters:
         distribution. Missingness and source limitations remain explicit.
     transformation: Literal source value retained; no annualization, imputation, active calibration or national
       transport.
+    model_role: benchmark_only
     notes: Used-source benchmark only. Evidence grade describes scoped usefulness with causal uncertainty;
       randomization alone does not resolve selection, missingness or dose mapping.
+    unresolved: false
+    source_id: preview_original2021
   preview_reported_confidence_level:
     key: preview_reported_confidence_level
     value: 0.95
@@ -3584,6 +3590,8 @@ datasets:
     unit: Observation records with separate source-year and relative-day units
 
   preview_endpoint_benchmark:
+    context_path: docs/validation/preview-endpoint-context-amendment-3.json
+    context_sha256: d79bd32f99b6aa17b2258b613f90186ce5a796910dadadc3875afa860ab8bb98
     status: derived
     evidence_grade: C
     model_role: benchmark_only
