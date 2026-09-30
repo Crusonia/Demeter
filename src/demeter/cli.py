@@ -418,12 +418,13 @@ def rebuild_historical_data(
 def verify_evidence_packages(
     root: Path = Path("."),
     check_tracked: bool = False,
+    documentation_raw: Path | None = None,
     output: Path | None = None,
 ) -> None:
     """Audit rights, citations, source/package coverage and checksums without fetching."""
     from demeter.data.packages import verify_packages
 
-    report = verify_packages(root, check_tracked=check_tracked)
+    report = verify_packages(root, check_tracked=check_tracked, documentation_raw=documentation_raw)
     emit(report, output)
     if not report["passed"]:
         raise typer.Exit(1)

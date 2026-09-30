@@ -158,11 +158,32 @@ separate from the four-source frozen
 documents; it does not validate the additional coverage documents or their
 field interpretations.
 
+`uv run demeter data verify-packages --check-tracked` now validates the typed
+coverage receipts against all 15 independent documentation-rights entries and
+links the original four sources back to the unchanged evidence registry. URL,
+final URL, timestamp, size, hash, media type, status, filename and registry-link
+disagreements fail the audit, even if the outer artifact checksum is refreshed.
+The tracked-file guard also rejects these fetch-only document bytes under any
+filename. This is recorded-provenance validation, not proof of field meaning or
+permission to use participant data.
+
+Offline, document-byte checks are explicitly `not_requested`, with no byte-pass
+claim. If matching files are already cached, check all 15 documents without
+fetching or interpreting them:
+
+```bash
+uv run demeter data verify-packages --check-tracked --documentation-raw outputs/dpp-appraisal --output outputs/dpp-coverage-audit.json
+```
+
+Missing or changed documents produce failed rows in the saved report and exit
+status 1. Preserve existing snapshots; do not replace pins to make a new download
+pass. Malformed receipt schemas are rejected before the document audit.
+
 Full articles, forms, dictionaries and catalogs remain fetch-only local caches.
 Only factual locators, paraphrased findings and receipts are redistributed, under
 the conservative `dpp_documentation_fetch_only` approach in
 [the rights inventory](../data/rights.json). R2008 p10 also limits use of its forms
 for approved release analyses and distinguishes primary collection permission.
 No participant records, source forms or new empirical parameters enter the
-repository. Existing registry definitions, frozen protocols, numerical model
-engine and scenario files remain unchanged; scientific-release blockers stay open.
+repository. Existing registry definitions, frozen protocols, health equations and
+scenario files remain unchanged; scientific-release blockers stay open.
