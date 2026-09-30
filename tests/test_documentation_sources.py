@@ -277,6 +277,49 @@ def test_unreadable_raw_is_a_failure_without_disclosing_bytes(documentation, mon
     assert row["actual_size_bytes"] is None and row["actual_sha256"] is None
 
 
+@pytest.mark.parametrize("operation", ["resolve", "is_file", "is_symlink"])
+def test_permission_denied_during_path_inspection_returns_failure_rows(
+    documentation, monkeypatch, operation
+):
+    path, _, rights, raw = documentation
+    original = getattr(type(path), operation)
+
+    def denied(self, *args, **kwargs):
+        if self.name == "form.pdf":
+            raise PermissionError("Synthetic metadata inspection denied")
+        return original(self, *args, **kwargs)
+
+    monkeypatch.setattr(type(path), operation, denied)
+    report = audit_documentation_sources(path, rights, raw)
+    assert report["metadata_passed"] is True
+    assert report["raw_bytes_checked"] is True
+    assert report["raw_bytes_passed"] is False and report["passed"] is False
+    assert len(report["source_checks"]) == 2
+    form = next(row for row in report["source_checks"] if row["source"] == "FORM")
+    assert form["raw_error"] == "unreadable"
+    assert form["local_byte_check"] == "failed"
+    assert form["actual_size_bytes"] is None and form["actual_sha256"] is None
+    assert report["counts"]["raw_documents_read"] == 1
+    assert json.loads(json.dumps(report))["raw_bytes_passed"] is False
+
+
+def test_symlink_resolution_loop_is_reported_as_unsafe_path(documentation, monkeypatch):
+    path, _, rights, raw = documentation
+    original = type(path).resolve
+
+    def loop(self, *args, **kwargs):
+        if self.name == "form.pdf":
+            raise RuntimeError("Synthetic symlink-resolution loop")
+        return original(self, *args, **kwargs)
+
+    monkeypatch.setattr(type(path), "resolve", loop)
+    report = audit_documentation_sources(path, rights, raw)
+    assert not report["passed"]
+    form = next(row for row in report["source_checks"] if row["source"] == "FORM")
+    assert form["raw_error"] == "unsafe_path"
+    assert form["actual_size_bytes"] is None and form["actual_sha256"] is None
+
+
 def test_symlink_raw_is_not_followed(documentation, tmp_path):
     path, _, rights, raw = documentation
     source = raw / "form.pdf"

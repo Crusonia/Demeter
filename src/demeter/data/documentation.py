@@ -171,12 +171,19 @@ def _unique_json_keys(pairs):
 
 
 def _local_bytes(raw: Path, filename: str) -> tuple[int | None, str | None, str | None]:
-    path = raw / filename
-    if raw.is_symlink() or path.is_symlink() or not path.resolve().is_relative_to(raw.resolve()):
-        return None, None, "unsafe_path"
-    if not path.is_file():
-        return None, None, "missing_or_not_file"
     try:
+        path = raw / filename
+        if raw.is_symlink() or path.is_symlink():
+            return None, None, "unsafe_path"
+        try:
+            resolved_path, resolved_root = path.resolve(), raw.resolve()
+        except RuntimeError:
+            # Path.resolve can report a symlink loop before a file can be read.
+            return None, None, "unsafe_path"
+        if not resolved_path.is_relative_to(resolved_root):
+            return None, None, "unsafe_path"
+        if not path.is_file():
+            return None, None, "missing_or_not_file"
         content = path.read_bytes()
     except OSError:
         return None, None, "unreadable"

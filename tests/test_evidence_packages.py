@@ -397,6 +397,40 @@ def test_documentation_cli_raw_failure_is_saved_before_exit(documentation_root, 
     assert report["documentation"]["raw_bytes_passed"] is False
 
 
+@pytest.mark.parametrize("operation", ["resolve", "is_file"])
+def test_document_metadata_permission_failure_is_saved_by_cli(
+    documentation_root, tmp_path, monkeypatch, operation
+):
+    root, raw, _ = documentation_root
+    target = raw / "document.html"
+    original = getattr(Path, operation)
+
+    def denied_for_raw_document(path, *args, **kwargs):
+        if path == target:
+            raise PermissionError("Synthetic document metadata permission error")
+        return original(path, *args, **kwargs)
+
+    monkeypatch.setattr(Path, operation, denied_for_raw_document)
+    output = tmp_path / "permission-failure.json"
+    args = [
+        "data",
+        "verify-packages",
+        "--root",
+        str(root),
+        "--documentation-raw",
+        str(raw),
+        "--output",
+        str(output),
+    ]
+    result = CliRunner().invoke(app, args)
+    assert result.exit_code == 1
+    report = json.loads(output.read_bytes())
+    assert not report["passed"]
+    row = report["documentation"]["source_checks"][0]
+    assert row["local_byte_check"] == "failed"
+    assert row["raw_error"] == "unreadable"
+
+
 def test_documentation_fetch_only_guard_rejects_renamed_bytes(documentation_root, monkeypatch):
     root, raw, _ = documentation_root
     target = root / "notes.md"
