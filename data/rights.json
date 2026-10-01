@@ -6,7 +6,7 @@
       "terms_urls": [
         "https://www.cdc.gov/other/agencymaterials.html"
       ],
-      "checked_on": "2026-09-28",
+      "checked_on": "2026-10-01",
       "redistribution": "conditional",
       "download": "Public official source URLs; original materials are available free from CDC.",
       "transform": "Separate Demeter analyses from unmodified agency originals.",
@@ -814,6 +814,17 @@
       "privacy": "public_use_microdata",
       "citation": "CDC/NCHS. NHANES 2013-2014 public-use data and 2019 Linked Mortality File.",
       "notes": "Public-use deidentified records for statistical analysis only; join only by documented public SEQN. Vital status is unperturbed; some follow-up times may be synthetic for disclosure protection. No endorsement; original sources are free from CDC. Frozen protocol f1cab860b13cb7089b7adf3a73bdc98bcfbbf605 preceded this intake."
+    },
+    "data/sources/cdc-prediabetes/2026-10-01/National_Diabetes_Statsitics_Report.pdf": {
+      "policy": "cdc",
+      "privacy": "aggregate",
+      "publisher": "CDC",
+      "vintage": "PDF updated March 11, 2026; August 2021-August 2023 NHANES; snapshot retrieved October 1, 2026",
+      "citation": "CDC. National Diabetes Statistics Report. Updated March 11, 2026. Crude prediabetes/awareness table, page 23; detailed methods pages 56-57. August 2021-August 2023 NHANES.",
+      "notes": "Unmodified agency report, available free at the linked CDC source. No endorsement by CDC/HHS/U.S. Government; marks and third-party content retain separate rights. Only selected published aggregate row is extracted; no participant records. Historical snapshot, not a current data service.",
+      "url": "https://usdss.cdc.gov/diabetes/data/statsreport/National_Diabetes_Statsitics_Report.pdf",
+      "sha256": "cd537b088973e44690e7a494a22b974f7bbd8a755210b8cf53238f13f1395bf1",
+      "retrieved_at": "2026-10-01T06:48:42.466398+00:00"
     }
   },
   "clinical_sources": {

@@ -62,7 +62,14 @@ def test_evidence_hash_changes_when_a_parameter_changes():
     updated = REGISTRY.model_copy(deep=True)
     updated.parameters["h_to_ir_rate"].value = 0.04
     assert updated.content_hash != REGISTRY.content_hash
-    assert "observed_prediabetes_65_plus" in REGISTRY.audit()["missing_uncertainty"]
+
+
+def test_missing_uncertainty_is_still_reported_after_benchmark_correction():
+    key = "observed_prediabetes_65_plus"
+    assert key not in REGISTRY.audit()["missing_uncertainty"]
+    incomplete = REGISTRY.model_copy(deep=True)
+    incomplete.parameters[key].uncertainty = None
+    assert key in incomplete.audit()["missing_uncertainty"]
 
 
 def test_unresolved_value_never_runs():

@@ -5,6 +5,11 @@ terms permit. A fresh clone should let a reader inspect where an input came from
 and reproduce the transformation. Demeter keeps source observations, derived
 inputs, model assumptions, and simulation results distinct.
 
+The [CDC prediabetes benchmark correction](../docs/CDC_PREDIABETES_BENCHMARK.md)
+archives the unmodified aggregate report and reproduces its age-65-and-older
+crude prevalence interval offline. The published interval remains a benchmark;
+it does not initialize metabolic states or supply transition rates.
+
 Start with [dataset reuse and citation notices](NOTICE.md), the per-source
 [rights inventory](rights.json), and [evidence-package manifests](evidence-packages.json).
 
@@ -201,7 +206,7 @@ from the modeled quantities, and leave unsupported mappings explicitly unresolve
 
 ## NHANES and official JSON additions
 
-The [machine-readable catalog](catalog.json) covers all 51 archived source files, including
+The [machine-readable catalog](catalog.json) covers all 52 archived source files, including
 four deidentified NHANES 2017-March 2020 XPORT files and four official JSON
 snapshots and the NCHS healthspan method PDF. The original baseline and historical
 archives above remain canonical.

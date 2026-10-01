@@ -437,7 +437,7 @@
       "artifacts": [
         {
           "path": "docs/validation/issue-56-state-mapping.json",
-          "sha256": "898500b8b7380d253ee250e6c83d880bc4362ed190f97e6521597633a30ff0e5"
+          "sha256": "25a1389b4880003701769fedaae2d8a5c51a179037ed9a98346423a701e19aca"
         },
         {
           "path": "docs/validation/issue-56-state-mapping-before-after.json",
@@ -445,7 +445,7 @@
         },
         {
           "path": "docs/validation/issue-56-partial-observations.json",
-          "sha256": "67d6f34c3f50095f8113f5c183bc9413a0994b63e0eb20ad4cccb37fedf06ff4"
+          "sha256": "fe1043131d91d8fadab0e0451b3ab9b33c3dcc4864d08376b076ea051723f847"
         },
         {
           "path": "docs/validation/issue-56-partial-before-after.json",
@@ -925,6 +925,28 @@
         "src/demeter/analysis/longitudinal_likelihood.py",
         "src/demeter/analysis/longitudinal_likelihood_validation.py"
       ]
+    },
+    "cdc_prediabetes_benchmark": {
+      "store": "cdc_prediabetes_2026",
+      "dependencies": [],
+      "registry_datasets": [],
+      "registry_parameters": [
+        "observed_prediabetes_65_plus"
+      ],
+      "artifacts": [
+        {
+          "path": "docs/validation/cdc-prediabetes-benchmark-before-after.json",
+          "sha256": "ba585005c056598c7334e76af1d8e5c7f1230e9e2bfd1cf4ca3b2c0e141946c4"
+        }
+      ],
+      "transform_files": [
+        "scripts/verify_prediabetes_benchmark.py"
+      ],
+      "rebuild": [
+        "uv run python scripts/verify_prediabetes_benchmark.py"
+      ],
+      "model_role": "benchmark_only",
+      "redistribution": "Unmodified CDC agency report with attribution/free-source/non-endorsement notices; selected factual aggregate and published CI. No individual records; source data are not relicensed by Demeter."
     }
   },
   "supporting_artifacts": [

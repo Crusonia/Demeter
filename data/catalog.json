@@ -135,6 +135,17 @@
       "derived_bundle": "../docs/validation/issue-55-mortality-validation-amended.json",
       "model_role": "prediction_benchmark_only",
       "reload": "uv run python scripts/validate_mortality_holdout.py"
+    },
+    {
+      "id": "cdc_prediabetes_2026",
+      "manifest": "sources/cdc-prediabetes/2026-10-01/manifest.json",
+      "publisher": "CDC",
+      "description": "Published crude prediabetes prevalence and 95% CI for adults aged 65 and older; immutable aggregate report, benchmark only",
+      "format": [
+        "PDF"
+      ],
+      "model_role": "benchmark_only",
+      "reload": "uv run python scripts/verify_prediabetes_benchmark.py"
     }
   ],
   "official_json_services": [

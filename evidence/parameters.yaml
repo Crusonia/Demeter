@@ -2056,14 +2056,30 @@ parameters:
     unit: fraction
     status: observed
     evidence_grade: C
-    source: CDC National Diabetes Statistics Report
-    source_url: https://www.cdc.gov/diabetes/php/data-research/index.html
-    population: U.S. adults age 65 and older
+    source: CDC National Diabetes Statistics Report, crude prediabetes table, page 23
+    source_url: https://usdss.cdc.gov/diabetes/data/statsreport/National_Diabetes_Statsitics_Report.pdf
+    citation: CDC. National Diabetes Statistics Report. Updated March 11, 2026. Page 23;
+      detailed methods pages 56–57. Immutable retrieval snapshot October 1, 2026.
+    population: U.S. adults age 65 and older; NHANES civilian noninstitutionalized survey population
     geography: United States
-    time_period: 2021–2023; webpage updated September 16, 2026
-    outcome_definition: Prediabetes, not all insulin resistance
+    time_period: August 2021–August 2023 NHANES; PDF updated March 11, 2026
+    outcome_definition: Crude prediabetes prevalence; people without diabetes with fasting
+      plasma glucose 100 to <126 mg/dL or A1C 5.7–6.4%; not all insulin resistance
     model_role: benchmark_only
-    notes: No confidence interval transcribed from the summary; audit reports missing uncertainty.
+    transformation: Published percentage and 95% CI divided by 100. Offline extraction/check
+      in scripts/verify_prediabetes_benchmark.py; pinned source receipt in
+      data/sources/cdc-prediabetes/2026-10-01/manifest.json.
+    notes: Published survey estimate, not an age-adjusted value or prediabetes awareness.
+      CDC excludes missing FPG/A1C and pregnant women; see detailed methods. No person-level
+      data or survey variance re-estimation. This interval neither calibrates the synthetic
+      IR state nor identifies transition hazards or causal dietary effects.
+    lower_bound: 0
+    upper_bound: 1
+    uncertainty:
+      kind: interval
+      low: 0.468
+      high: 0.574
+      rationale: Published 95% confidence interval, not a sampling distribution.
   aric_hba1c_prediabetes_diabetes_incidence:
     key: aric_hba1c_prediabetes_diabetes_incidence
     value: 0.0228

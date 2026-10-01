@@ -2,6 +2,11 @@
 
 Demeter treats evidence as part of the model, not as prose surrounding the model.
 
+The [CDC prediabetes benchmark](../docs/CDC_PREDIABETES_BENCHMARK.md) retains its
+observed point value and now records the published 95% interval from an archived
+official PDF. Its offline check distinguishes crude prevalence from awareness
+and age-adjusted estimates. It is not a sampling distribution or clinical input.
+
 The [PREVIEW endpoint benchmark](../docs/PREVIEW_ENDPOINT_AUDIT.md) registers
 literal cohort/count/definition values and published adjusted risk ratios under
 `preview_endpoint_benchmark`. All are `benchmark_only`. Fixed uncertainty on

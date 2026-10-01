@@ -1,0 +1,99 @@
+{
+  "passed": true,
+  "network_used": false,
+  "scientific_release_ready": false,
+  "model_role": "benchmark_only",
+  "registry_key": "observed_prediabetes_65_plus",
+  "evidence_sha256": "cf6f3a68c9598daa41e68252bdf4a2c5824f6a57a07304d873c976b8776ec406",
+  "source": {
+    "url": "https://usdss.cdc.gov/diabetes/data/statsreport/National_Diabetes_Statsitics_Report.pdf",
+    "retrieved_at": "2026-10-01T06:48:42.466398+00:00",
+    "sha256": "cd537b088973e44690e7a494a22b974f7bbd8a755210b8cf53238f13f1395bf1",
+    "bytes": 3232798,
+    "publisher": "CDC",
+    "title": "National Diabetes Statistics Report",
+    "vintage": "PDF updated March 11, 2026; August 2021-August 2023 NHANES; snapshot retrieved October 1, 2026",
+    "format": "PDF",
+    "model_role": "benchmark_only",
+    "use_terms": "https://www.cdc.gov/other/agencymaterials.html",
+    "http_status": 200,
+    "media_type": "application/pdf",
+    "citation": "CDC. National Diabetes Statistics Report. Updated March 11, 2026. Crude prediabetes/awareness table, page 23; detailed methods pages 56-57. August 2021-August 2023 NHANES."
+  },
+  "source_locator": "Printed/physical page 23, Estimated Crude Percentage of Prediabetes and Awareness Among Adults Aged 18 Years or Older, United States, 2021-2023; Age Group >=65; first Prediabetes percentage (95% CI) column",
+  "transformation": "First estimate/95% CI of the \u226565 row, divided by 100; no re-estimation",
+  "value": 0.521,
+  "uncertainty": {
+    "kind": "interval",
+    "low": 0.468,
+    "high": 0.574
+  },
+  "interpretation": "Published crude prevalence interval only; not IR calibration, a sampling distribution, transition rates or causal dietary evidence.",
+  "before_after": {
+    "before_evidence_sha256": "bf5a46e3c96e1f63986594d2d4b5a56de4bcb373d18cb9ab8a734670e86d6a8a",
+    "after_evidence_sha256": "cf6f3a68c9598daa41e68252bdf4a2c5824f6a57a07304d873c976b8776ec406",
+    "excluded_paths": [
+      "/metadata/evidence_sha256",
+      "/healthspan/evidence_sha256"
+    ],
+    "canonical_scenarios": [
+      {
+        "scenario": "baseline",
+        "complete_outputs_equal_except_evidence_hash": true,
+        "absolute_numeric_change": 0,
+        "relative_numeric_change": 0
+      },
+      {
+        "scenario": "reduce_upf_30",
+        "complete_outputs_equal_except_evidence_hash": true,
+        "absolute_numeric_change": 0,
+        "relative_numeric_change": 0
+      },
+      {
+        "scenario": "prechronic_baseline",
+        "complete_outputs_equal_except_evidence_hash": true,
+        "absolute_numeric_change": 0,
+        "relative_numeric_change": 0
+      },
+      {
+        "scenario": "prechronic_reduce_upf_30",
+        "complete_outputs_equal_except_evidence_hash": true,
+        "absolute_numeric_change": 0,
+        "relative_numeric_change": 0
+      }
+    ],
+    "refreshed_observation_reports": {
+      "issue-56-state-mapping.json": {
+        "all_other_outputs_identical": true,
+        "excluded_paths": [
+          "/provenance/evidence_sha256"
+        ]
+      },
+      "issue-56-partial-observations.json": {
+        "all_other_outputs_identical": true,
+        "excluded_paths": [
+          "/provenance/evidence_sha256"
+        ]
+      }
+    },
+    "sampling_inputs_unchanged": true,
+    "benchmark_not_sampled": true,
+    "fixed_seed_uncertainty_unchanged": true,
+    "uncertainty_check": {
+      "seed": 42,
+      "draws": 2,
+      "years": 2,
+      "scope": "Software regression with synthetic active parameters"
+    },
+    "prevalence_checks_unchanged": true,
+    "mortality_backtest_unchanged": true,
+    "scientific_blockers_unchanged": true,
+    "before_missing_uncertainty": [
+      "observed_prediabetes_65_plus"
+    ],
+    "after_missing_uncertainty": [],
+    "scientific_release_ready": false,
+    "interpretation": "Benchmark metadata correction; no clinical validation or model calibration",
+    "passed": true
+  }
+}
