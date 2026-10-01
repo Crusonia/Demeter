@@ -1102,7 +1102,7 @@
     },
     {
       "path": "docs/PUBLIC_LONGITUDINAL_DATA_REQUIREMENTS.md",
-      "sha256": "e52c4fde2a02f9e7b7ed3ddd545c4e07caf3f0b164687ae77e1c04461900a4f1"
+      "sha256": "0318f69df202e1bf70c30e5726bbfeac0a2f0eeb3081a63240fa75658c98f1f2"
     },
     {
       "path": "docs/PUBLIC_LONGITUDINAL_ADMISSION.md",
@@ -1115,6 +1115,26 @@
     {
       "path": "docs/validation/public-longitudinal-status-correction-v1.json",
       "sha256": "572cc552ca6815b6df14b35bda133021bcbabe4bebc9959daa76a548986ce101"
+    },
+    {
+      "path": "docs/validation/ipop-schema-protocol-v1.json",
+      "sha256": "55f0c3858e789241a70e22d77435f8ebf0e3e70adcd2ac550ef9928602beed3c"
+    },
+    {
+      "path": "docs/validation/ipop-schema-locator-amendment-v1.json",
+      "sha256": "f4f93a6ae37e7dfc4d8247f596d03e372d295203db4287305234c4bb66905d93"
+    },
+    {
+      "path": "docs/validation/ipop-schema-worksheet-amendment-v1.json",
+      "sha256": "8d40650377228030cd2c3667f987eab8f371fe6ada1577b6b9e0192ce5ee4a92"
+    },
+    {
+      "path": "docs/IPOP_SOURCE_COVERAGE.md",
+      "sha256": "d33811e13202dc876c3960dd4cc9d938754b02071ec03255fb3b92f0aa52c35d"
+    },
+    {
+      "path": "docs/validation/ipop-schema-receipts-v1.json",
+      "sha256": "91088682c39ff7339d5daaa5b3a1d4fbe69f9f0aadccc6e542d9414654857364"
     }
   ]
 }

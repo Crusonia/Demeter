@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "amendment_id": "ipop_schema_publisher_locator_v1",
+  "base_protocol_commit": "d1fdc24",
+  "base_protocol_sha256": "55f0c3858e789241a70e22d77435f8ebf0e3e70adcd2ac550ef9928602beed3c",
+  "reason": "The advertised PMC supplemental workbook request returned HTTP200 HTML, not XLSX. No worksheet was inspected; the original failed response is retained.",
+  "failed_source_response_sha256": "f084bc5f2a3f51443c9ec6b26b7749f545d577faa4f68fad6d8fa66efd59696a",
+  "alternate_publication": "https://www.nature.com/articles/s41591-019-0414-6",
+  "advertised_label": "Supplementary Tables (download XLSX)",
+  "advertised_description": "Supplementary Tables 0–28",
+  "selected_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41591-019-0414-6/MediaObjects/41591_2019_414_MOESM2_ESM.xlsx",
+  "excluded_document": "MOESM3 Supplementary Data / Data Tables 1–24 and source-figure files",
+  "selection_unchanged": "Inspect only the same unambiguously identified S0 clinical-measure schema worksheet; preserve all exclusions, no clinical numeric intake or fit. Metadata-selected alternate URL precedes its workbook acquisition.",
+  "identity_limit": "A matching DOI and advertised table identity do not establish byte identity with the unacquired PMC workbook. Pin the publisher bytes separately and stop if the selected schema identity fails.",
+  "source_document_distribution": "fetch_only",
+  "S0_content_inspected_before_amendment": false,
+  "clinical_fit_allowed": false,
+  "engine_changed": false
+}

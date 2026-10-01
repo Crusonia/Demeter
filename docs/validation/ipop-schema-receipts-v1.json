@@ -1,0 +1,1108 @@
+{
+  "schema_version": 1,
+  "assessment_id": "ipop_public_schema_receipts_v1",
+  "recorded_utc": "2026-10-01T19:25:03.421083+00:00",
+  "scope": "Source-specific schema and producer-code appraisal; no clinical fitting or parameter activation.",
+  "used_source": true,
+  "freeze_history": [
+    {
+      "path": "docs/validation/ipop-schema-protocol-v1.json",
+      "commit": "d1fdc24",
+      "sha256": "55f0c3858e789241a70e22d77435f8ebf0e3e70adcd2ac550ef9928602beed3c",
+      "preceded": "selected header requests and supplemental workbook requests"
+    },
+    {
+      "path": "docs/validation/ipop-schema-locator-amendment-v1.json",
+      "commit": "435b365",
+      "sha256": "f4f93a6ae37e7dfc4d8247f596d03e372d295203db4287305234c4bb66905d93",
+      "preceded": "alternate publisher workbook request"
+    },
+    {
+      "path": "docs/validation/ipop-schema-worksheet-amendment-v1.json",
+      "commit": "32b1893",
+      "sha256": "8d40650377228030cd2c3667f987eab8f371fe6ada1577b6b9e0192ce5ee4a92",
+      "preceded": "exact S0 worksheet content inspection"
+    }
+  ],
+  "source_documentation_receipts": [
+    {
+      "original_receipt_path": "outputs/public-source-search-20261001/ipop-code-only-20261001T184728519576Z/receipts.json",
+      "original_receipt_sha256": "25be2ccc2d8706cd69579c03bb1619012c02ac1d59df1c8699748fb19400a7e9",
+      "payload": {
+        "selection": {
+          "scope": "producer code cells only, without execution",
+          "before_acquisition_utc": "2026-10-01T18:47:28.519576+00:00",
+          "commit": "ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c",
+          "allowed": "cell source where cell_type is code; schema/path/linkage/clock operations",
+          "excluded": "all output objects, participant files, attachments, embedded record values",
+          "original_notebook_bytes": "hashed in memory; never written or rendered",
+          "sources": [
+            [
+              "code/Single subject analysis.ipynb",
+              "2588dd2feb2fc86fa3d22837c3bbb53b05769c5a"
+            ],
+            [
+              "code/Multi-subject similarity analysis.ipynb",
+              "4fd94fb8fb161e9bb3c4004fc152d719c46dae83"
+            ]
+          ]
+        },
+        "receipts": [
+          {
+            "requested_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/code/Single%20subject%20analysis.ipynb",
+            "git_blob_sha": "2588dd2feb2fc86fa3d22837c3bbb53b05769c5a",
+            "start_utc": "2026-10-01T18:47:28.520576+00:00",
+            "status": 200,
+            "resolved_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/code/Single%20subject%20analysis.ipynb",
+            "content_type": "text/plain; charset=utf-8",
+            "size_bytes": 70355,
+            "sha256": "4ae3051e963dbb04a973ffb0b4f27bef8f3f575d1cb1462d6f651a28837c276b",
+            "filtered_cache_file": "Single-subject-analysis.code-only.json",
+            "filtered_sha256": "9da0651e14650de9fff223a27facffd1e12c35c0d5caf124174b0695194f1ac8",
+            "original_notebook_retained": false,
+            "notebook_outputs_inspected": false,
+            "execution_performed": false,
+            "complete_utc": "2026-10-01T18:47:28.878319+00:00"
+          },
+          {
+            "requested_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/code/Multi-subject%20similarity%20analysis.ipynb",
+            "git_blob_sha": "4fd94fb8fb161e9bb3c4004fc152d719c46dae83",
+            "start_utc": "2026-10-01T18:47:28.878319+00:00",
+            "status": 200,
+            "resolved_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/code/Multi-subject%20similarity%20analysis.ipynb",
+            "content_type": "text/plain; charset=utf-8",
+            "size_bytes": 2059389,
+            "sha256": "6bd6e6a731e5e5997c1664d5aff3d5002f3039c0363cda64a4c2ae5c6bb6277c",
+            "filtered_cache_file": "Multi-subject-similarity-analysis.code-only.json",
+            "filtered_sha256": "3a6f2e96195ef6fc1405b73afc47063beeea3bbeb9198f74913c30ace2d9ed33",
+            "original_notebook_retained": false,
+            "notebook_outputs_inspected": false,
+            "execution_performed": false,
+            "complete_utc": "2026-10-01T18:47:29.389559+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "original_receipt_path": "outputs/public-source-search-20261001/ipop-primary-docs-20261001T185048324848Z/receipts.json",
+      "original_receipt_sha256": "8325973df1e3bf15ffa07e330e2f9c6994015d996355bc80854867f9cc4c8cc6",
+      "payload": [
+        {
+          "requested_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6666404/fullTextXML",
+          "retrieved_utc": "2026-10-01T18:50:48.325939+00:00",
+          "scope": "Public primary publication only; methods/rights appraisal; no participant data release or selected outcome intake.",
+          "final_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6666404/fullTextXML",
+          "status": 200,
+          "content_type": "application/xml",
+          "cache_filename": "PMC6666404-publication.xml",
+          "size_bytes": 219638,
+          "sha256": "dff8a8f24e651a021030568f081db57305bb698cd7b49f3c7585a93716ce07b4"
+        },
+        {
+          "requested_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6713274/fullTextXML",
+          "retrieved_utc": "2026-10-01T18:50:49.850751+00:00",
+          "scope": "Public primary publication only; methods/rights appraisal; no participant data release or selected outcome intake.",
+          "status": 500,
+          "error_type": "HTTPError"
+        }
+      ]
+    },
+    {
+      "original_receipt_path": "outputs/public-source-search-20261001/ipop-rights-methods-20261001T184840441123Z/receipts.json",
+      "original_receipt_sha256": "36601fbc4fdfd8e29499b581b9b237486ad51e2a7262b72113eb1a5dfbacc01d",
+      "payload": [
+        {
+          "requested_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9284494/fullTextXML",
+          "retrieved_utc": "2026-10-01T18:48:40.442001+00:00",
+          "scope": "Public publication or documentation only; methods/rights appraisal. No participant release acquired, no selected outcomes.",
+          "final_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9284494/fullTextXML",
+          "status": 200,
+          "content_type": "application/xml",
+          "cache_filename": "zheng-2022-publication.xml",
+          "size_bytes": 144970,
+          "sha256": "1a492cb33b5ed7b5ed6f7df45243498418787c200f3f176e8edbe635b5684ddf"
+        },
+        {
+          "requested_url": "https://www.hmpdacc.org/ihmp/overview/datapolicy/",
+          "retrieved_utc": "2026-10-01T18:48:43.358678+00:00",
+          "scope": "Public publication or documentation only; methods/rights appraisal. No participant release acquired, no selected outcomes.",
+          "error_type": "HTTPError"
+        },
+        {
+          "requested_url": "https://www.hmpdacc.org/ihmp/overview/faq/",
+          "retrieved_utc": "2026-10-01T18:48:43.771979+00:00",
+          "scope": "Public publication or documentation only; methods/rights appraisal. No participant release acquired, no selected outcomes.",
+          "error_type": "HTTPError"
+        },
+        {
+          "requested_url": "https://www.hmpdacc.org/ihmp/overview/data-model/",
+          "retrieved_utc": "2026-10-01T18:48:44.056917+00:00",
+          "scope": "Public publication or documentation only; methods/rights appraisal. No participant release acquired, no selected outcomes.",
+          "error_type": "HTTPError"
+        }
+      ]
+    }
+  ],
+  "header_receipts": {
+    "default_network_failures": {
+      "original_receipt_path": "outputs/public-source-search-20261001/ipop-header-only-20261001T190802923853Z/receipts.json",
+      "original_receipt_sha256": "874bef44adad146247452e705030893e669a2468c73ed665859198792aa12962",
+      "payload": {
+        "protocol_sha256": "55f0c3858e789241a70e22d77435f8ebf0e3e70adcd2ac550ef9928602beed3c",
+        "source_scope": "metadata inspection, not clinical intake",
+        "receipts": [
+          {
+            "requested_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/clinical_tests.txt",
+            "path": "data/clinical_tests.txt",
+            "expected_git_blob": "cb01fe38378f8cef951837414e241c3e8d6a8bcc",
+            "start_utc": "2026-10-01T19:08:02.931989+00:00",
+            "full_file_hash_verified": false,
+            "clinical_admission": false,
+            "result": "failed_or_unresolved",
+            "failure_type": "URLError",
+            "failure_message": "source request or selected header binding failed; unverified text withheld",
+            "metadata": null,
+            "complete_utc": "2026-10-01T19:08:06.101506+00:00"
+          },
+          {
+            "requested_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/SampleInfo.csv",
+            "path": "data/SampleInfo.csv",
+            "expected_git_blob": "342d35d36eb422cf315a9757b7514c45312173e5",
+            "start_utc": "2026-10-01T19:08:06.101506+00:00",
+            "full_file_hash_verified": false,
+            "clinical_admission": false,
+            "result": "failed_or_unresolved",
+            "failure_type": "URLError",
+            "failure_message": "source request or selected header binding failed; unverified text withheld",
+            "metadata": null,
+            "complete_utc": "2026-10-01T19:08:08.188345+00:00"
+          },
+          {
+            "requested_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/VisitSchedules.csv",
+            "path": "data/VisitSchedules.csv",
+            "expected_git_blob": "feb7e7cc456897c09abf4d629b9bc46da181c35b",
+            "start_utc": "2026-10-01T19:08:08.188345+00:00",
+            "full_file_hash_verified": false,
+            "clinical_admission": false,
+            "result": "failed_or_unresolved",
+            "failure_type": "URLError",
+            "failure_message": "source request or selected header binding failed; unverified text withheld",
+            "metadata": null,
+            "complete_utc": "2026-10-01T19:08:10.235376+00:00"
+          },
+          {
+            "requested_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/VisitList.xlsx",
+            "path": "data/VisitList.xlsx",
+            "expected_git_blob": "357b1c774c66ebdc3c1a624206210a5d31782088",
+            "start_utc": "2026-10-01T19:08:10.235376+00:00",
+            "full_file_hash_verified": false,
+            "clinical_admission": false,
+            "result": "failed_or_unresolved",
+            "failure_type": "URLError",
+            "failure_message": "source request or selected header binding failed; unverified text withheld",
+            "metadata": null,
+            "complete_utc": "2026-10-01T19:08:12.265828+00:00"
+          },
+          {
+            "requested_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/subjectStatus.csv",
+            "path": "data/subjectStatus.csv",
+            "expected_git_blob": "b4316a55ca13eb444139cfacc14815b429b2464b",
+            "start_utc": "2026-10-01T19:08:12.266365+00:00",
+            "full_file_hash_verified": false,
+            "clinical_admission": false,
+            "result": "failed_or_unresolved",
+            "failure_type": "URLError",
+            "failure_message": "source request or selected header binding failed; unverified text withheld",
+            "metadata": null,
+            "complete_utc": "2026-10-01T19:08:14.334004+00:00"
+          },
+          {
+            "requested_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/SubjectInfo.csv",
+            "path": "data/SubjectInfo.csv",
+            "expected_git_blob": "fba56e3e9f2eca0d00b38ed8df11a41ebc4428b1",
+            "start_utc": "2026-10-01T19:08:14.334004+00:00",
+            "full_file_hash_verified": false,
+            "clinical_admission": false,
+            "result": "failed_or_unresolved",
+            "failure_type": "URLError",
+            "failure_message": "source request or selected header binding failed; unverified text withheld",
+            "metadata": null,
+            "complete_utc": "2026-10-01T19:08:16.377182+00:00"
+          },
+          {
+            "requested_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/SubjectClass.csv",
+            "path": "data/SubjectClass.csv",
+            "expected_git_blob": "f7bea7798645412740187dc9a4d8ee5168fd3e83",
+            "start_utc": "2026-10-01T19:08:16.377718+00:00",
+            "full_file_hash_verified": false,
+            "clinical_admission": false,
+            "result": "failed_or_unresolved",
+            "failure_type": "URLError",
+            "failure_message": "source request or selected header binding failed; unverified text withheld",
+            "metadata": null,
+            "complete_utc": "2026-10-01T19:08:18.418835+00:00"
+          },
+          {
+            "requested_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/addInfo.csv",
+            "path": "data/addInfo.csv",
+            "expected_git_blob": "c6f79dd1960581b37248b545f0cc50e282083a04",
+            "start_utc": "2026-10-01T19:08:18.418835+00:00",
+            "full_file_hash_verified": false,
+            "clinical_admission": false,
+            "result": "failed_or_unresolved",
+            "failure_type": "URLError",
+            "failure_message": "source request or selected header binding failed; unverified text withheld",
+            "metadata": null,
+            "complete_utc": "2026-10-01T19:08:20.467271+00:00"
+          }
+        ]
+      }
+    },
+    "original_attempts": {
+      "original_receipt_path": "outputs/public-source-search-20261001/ipop-header-only-20261001T190927275784Z/receipts.json",
+      "original_receipt_sha256": "0d886257383841bc37c43220a58a5d7ad05bc4143be15462f3ea06ced39722de",
+      "payload": {
+        "protocol_sha256": "55f0c3858e789241a70e22d77435f8ebf0e3e70adcd2ac550ef9928602beed3c",
+        "source_scope": "metadata inspection, not clinical intake",
+        "receipts": [
+          {
+            "requested_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/clinical_tests.txt",
+            "path": "data/clinical_tests.txt",
+            "expected_git_blob": "cb01fe38378f8cef951837414e241c3e8d6a8bcc",
+            "start_utc": "2026-10-01T19:09:27.334805+00:00",
+            "full_file_hash_verified": false,
+            "clinical_admission": false,
+            "status": 200,
+            "resolved_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/clinical_tests.txt",
+            "content_type": "text/plain; charset=utf-8",
+            "reported_content_length": "231694",
+            "result": "failed_or_unresolved",
+            "failure_type": "ValueError",
+            "failure_message": "source request or selected header binding failed; unverified text withheld",
+            "metadata": null,
+            "complete_utc": "2026-10-01T19:09:30.304727+00:00"
+          },
+          {
+            "requested_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/SampleInfo.csv",
+            "path": "data/SampleInfo.csv",
+            "expected_git_blob": "342d35d36eb422cf315a9757b7514c45312173e5",
+            "start_utc": "2026-10-01T19:09:30.304727+00:00",
+            "full_file_hash_verified": false,
+            "clinical_admission": false,
+            "status": 200,
+            "resolved_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/SampleInfo.csv",
+            "content_type": "text/plain; charset=utf-8",
+            "reported_content_length": "36407",
+            "acquisition_scope": "first header line only; response closed without record-row reads",
+            "partial_size_bytes": 41,
+            "partial_sha256": "cc881fb3d3ec5daba394523bd0c7baf9bfc7bc13e049716087dd9c56114d8bce",
+            "complete_source_sha256": null,
+            "pinned_git_blob_verification": "not possible for partial acquisition",
+            "cache_file": "SampleInfo.csv.header-only.bytes",
+            "metadata": {
+              "locator": "first physical line",
+              "header_labels": [
+                "SubjectID",
+                "SampleID",
+                "Days_Since_Start",
+                "CL4"
+              ],
+              "record_rows_inspected": false
+            },
+            "result": "selected_header_metadata_inspected",
+            "complete_utc": "2026-10-01T19:09:30.710844+00:00"
+          },
+          {
+            "requested_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/VisitSchedules.csv",
+            "path": "data/VisitSchedules.csv",
+            "expected_git_blob": "feb7e7cc456897c09abf4d629b9bc46da181c35b",
+            "start_utc": "2026-10-01T19:09:30.710844+00:00",
+            "full_file_hash_verified": false,
+            "clinical_admission": false,
+            "status": 200,
+            "resolved_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/VisitSchedules.csv",
+            "content_type": "text/plain; charset=utf-8",
+            "reported_content_length": "68688",
+            "acquisition_scope": "first header line only; response closed without record-row reads",
+            "partial_size_bytes": 85,
+            "partial_sha256": "86263e9a17154ac39267fde81da07d70d0aad3290df014454b88a45a26b74565",
+            "complete_source_sha256": null,
+            "pinned_git_blob_verification": "not possible for partial acquisition",
+            "cache_file": "VisitSchedules.csv.header-only.bytes",
+            "metadata": {
+              "locator": "first physical line",
+              "header_labels": [
+                "VisitID",
+                "SubjectID",
+                "CollectionDate",
+                "Event",
+                "Event_Note1",
+                "Event_Note2",
+                "Event_Note3",
+                "SubStudy"
+              ],
+              "record_rows_inspected": false
+            },
+            "result": "selected_header_metadata_inspected",
+            "complete_utc": "2026-10-01T19:09:31.425709+00:00"
+          },
+          {
+            "requested_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/VisitList.xlsx",
+            "path": "data/VisitList.xlsx",
+            "expected_git_blob": "357b1c774c66ebdc3c1a624206210a5d31782088",
+            "start_utc": "2026-10-01T19:09:31.426730+00:00",
+            "full_file_hash_verified": true,
+            "clinical_admission": false,
+            "status": 200,
+            "resolved_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/VisitList.xlsx",
+            "content_type": "application/octet-stream",
+            "reported_content_length": "74029",
+            "acquisition_scope": "full binary workbook; includes uninspected record content",
+            "size_bytes": 74029,
+            "sha256": "ab885e2b990894c4d9bbec6d99fa6a4160bf5e905265ee18e7e38f22e4b6aef0",
+            "actual_git_blob": "357b1c774c66ebdc3c1a624206210a5d31782088",
+            "cache_file": "VisitList.fetch-only.xlsx",
+            "metadata": {
+              "inspection": "structural metadata and row1 only",
+              "worksheet_headers": [
+                {
+                  "sheet": "Sheet1",
+                  "worksheet_part": "xl/worksheets/sheet1.xml",
+                  "row": 1,
+                  "header_cells": [
+                    {
+                      "cell": "A1",
+                      "label": "SubjectID"
+                    },
+                    {
+                      "cell": "B1",
+                      "label": "SampleID"
+                    },
+                    {
+                      "cell": "C1",
+                      "label": "Days_Since_Start"
+                    },
+                    {
+                      "cell": "D1",
+                      "label": "CL1"
+                    },
+                    {
+                      "cell": "E1",
+                      "label": "CL2"
+                    },
+                    {
+                      "cell": "F1",
+                      "label": "CL3"
+                    },
+                    {
+                      "cell": "G1",
+                      "label": "CL4"
+                    },
+                    {
+                      "cell": "H1",
+                      "label": "Cytokines"
+                    },
+                    {
+                      "cell": "I1",
+                      "label": "ClinicLabs"
+                    },
+                    {
+                      "cell": "J1",
+                      "label": "Metabolites"
+                    },
+                    {
+                      "cell": "K1",
+                      "label": "Proteins"
+                    },
+                    {
+                      "cell": "L1",
+                      "label": "Transcripts"
+                    },
+                    {
+                      "cell": "M1",
+                      "label": "Gut_16S"
+                    },
+                    {
+                      "cell": "N1",
+                      "label": "Nasal_16S"
+                    },
+                    {
+                      "cell": "O1",
+                      "label": "Num_Type"
+                    }
+                  ]
+                }
+              ],
+              "later_rows_inspected": false,
+              "shared_string_values_resolved": "only row1 referenced indices"
+            },
+            "result": "selected_header_metadata_inspected",
+            "complete_utc": "2026-10-01T19:09:33.002976+00:00"
+          },
+          {
+            "requested_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/subjectStatus.csv",
+            "path": "data/subjectStatus.csv",
+            "expected_git_blob": "b4316a55ca13eb444139cfacc14815b429b2464b",
+            "start_utc": "2026-10-01T19:09:33.002976+00:00",
+            "full_file_hash_verified": false,
+            "clinical_admission": false,
+            "status": 200,
+            "resolved_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/subjectStatus.csv",
+            "content_type": "text/plain; charset=utf-8",
+            "reported_content_length": "50461",
+            "acquisition_scope": "first header line only; response closed without record-row reads",
+            "partial_size_bytes": 39,
+            "partial_sha256": "29b69aa79607c7ed0204425f33ea7f3cc2af4d0b4a3d159adabb20ab3422ea78",
+            "complete_source_sha256": null,
+            "pinned_git_blob_verification": "not possible for partial acquisition",
+            "cache_file": "subjectStatus.csv.header-only.bytes",
+            "metadata": {
+              "locator": "first physical line",
+              "header_labels": [
+                "SubjectID",
+                "SampleID",
+                "CollectionDate",
+                "CL4"
+              ],
+              "record_rows_inspected": false
+            },
+            "result": "selected_header_metadata_inspected",
+            "complete_utc": "2026-10-01T19:09:33.401681+00:00"
+          },
+          {
+            "requested_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/SubjectInfo.csv",
+            "path": "data/SubjectInfo.csv",
+            "expected_git_blob": "fba56e3e9f2eca0d00b38ed8df11a41ebc4428b1",
+            "start_utc": "2026-10-01T19:09:33.401681+00:00",
+            "full_file_hash_verified": false,
+            "clinical_admission": false,
+            "status": 200,
+            "resolved_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/SubjectInfo.csv",
+            "content_type": "text/plain; charset=utf-8",
+            "reported_content_length": "4486",
+            "acquisition_scope": "first header line only; response closed without record-row reads",
+            "partial_size_bytes": 60,
+            "partial_sha256": "ae460f06aba31626233db2852eade41acd0bc62a10e6e7e11a0c5ed35c2455e1",
+            "complete_source_sha256": null,
+            "pinned_git_blob_verification": "not possible for partial acquisition",
+            "cache_file": "SubjectInfo.csv.header-only.bytes",
+            "metadata": {
+              "locator": "first physical line",
+              "header_labels": [
+                "SubjectID",
+                "Study",
+                "Race",
+                "Sex",
+                "Age",
+                "BMI",
+                "SSPG",
+                "IR_IS_classification"
+              ],
+              "record_rows_inspected": false
+            },
+            "result": "selected_header_metadata_inspected",
+            "complete_utc": "2026-10-01T19:09:33.917159+00:00"
+          },
+          {
+            "requested_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/SubjectClass.csv",
+            "path": "data/SubjectClass.csv",
+            "expected_git_blob": "f7bea7798645412740187dc9a4d8ee5168fd3e83",
+            "start_utc": "2026-10-01T19:09:33.917159+00:00",
+            "full_file_hash_verified": false,
+            "clinical_admission": false,
+            "status": 200,
+            "resolved_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/SubjectClass.csv",
+            "content_type": "text/plain; charset=utf-8",
+            "reported_content_length": "2129",
+            "acquisition_scope": "first header line only; response closed without record-row reads",
+            "partial_size_bytes": 17,
+            "partial_sha256": "2abc77d67ca7e6a3469125a728f798ca66439ca4febde54a699fa6cb42036c93",
+            "complete_source_sha256": null,
+            "pinned_git_blob_verification": "not possible for partial acquisition",
+            "cache_file": "SubjectClass.csv.header-only.bytes",
+            "metadata": {
+              "locator": "first physical line",
+              "header_labels": [
+                "SubjectID",
+                "Class"
+              ],
+              "record_rows_inspected": false
+            },
+            "result": "selected_header_metadata_inspected",
+            "complete_utc": "2026-10-01T19:09:34.395737+00:00"
+          },
+          {
+            "requested_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/addInfo.csv",
+            "path": "data/addInfo.csv",
+            "expected_git_blob": "c6f79dd1960581b37248b545f0cc50e282083a04",
+            "start_utc": "2026-10-01T19:09:34.395737+00:00",
+            "full_file_hash_verified": false,
+            "clinical_admission": false,
+            "status": 200,
+            "resolved_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/addInfo.csv",
+            "content_type": "text/plain; charset=utf-8",
+            "reported_content_length": "3374",
+            "acquisition_scope": "first header line only; response closed without record-row reads",
+            "partial_size_bytes": 79,
+            "partial_sha256": "fb43f348472362cb99f7516b9cce7287eba0d6ddc4c71b11e171f96ac00c6a37",
+            "complete_source_sha256": null,
+            "pinned_git_blob_verification": "not possible for partial acquisition",
+            "cache_file": "addInfo.csv.header-only.bytes",
+            "metadata": {
+              "locator": "first physical line",
+              "header_labels": [
+                "SubjectID",
+                "OGTT_Number",
+                "SSPG (mg/mL)",
+                "Matsuda",
+                "DI",
+                "isrMax (pmol/kg/min)",
+                "cluster"
+              ],
+              "record_rows_inspected": false
+            },
+            "result": "selected_header_metadata_inspected",
+            "complete_utc": "2026-10-01T19:09:35.014432+00:00"
+          }
+        ]
+      }
+    },
+    "corrected_clinical_attempt": {
+      "original_receipt_path": "outputs/public-source-search-20261001/ipop-header-only-20261001T191312613261Z/receipts.json",
+      "original_receipt_sha256": "7f882a31fbdebc5a7c3065626a14135721eb5f5353f6c144bbb2fa6eeef0375a",
+      "payload": {
+        "protocol_sha256": "55f0c3858e789241a70e22d77435f8ebf0e3e70adcd2ac550ef9928602beed3c",
+        "source_scope": "metadata inspection, not clinical intake",
+        "receipts": [
+          {
+            "requested_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/clinical_tests.txt",
+            "path": "data/clinical_tests.txt",
+            "expected_git_blob": "cb01fe38378f8cef951837414e241c3e8d6a8bcc",
+            "start_utc": "2026-10-01T19:13:12.626155+00:00",
+            "full_file_hash_verified": false,
+            "clinical_admission": false,
+            "status": 200,
+            "resolved_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/clinical_tests.txt",
+            "content_type": "text/plain; charset=utf-8",
+            "reported_content_length": "231694",
+            "acquisition_scope": "first header line only; response closed without record-row reads",
+            "partial_size_bytes": 286,
+            "partial_sha256": "966181a5b14d2aa89d6dea19697b8399f03746135d8efe52e7cece7b4d8b83ad",
+            "complete_source_sha256": null,
+            "pinned_git_blob_verification": "not possible for partial acquisition",
+            "terminator": "CR",
+            "cache_file": "clinical_tests.txt.header-only.bytes",
+            "metadata": {
+              "locator": "first physical line",
+              "header_labels": [
+                "VisitID",
+                "A1C",
+                "AG",
+                "ALB",
+                "ALCRU",
+                "ALKP",
+                "ALT",
+                "AST",
+                "BASO",
+                "BASOAB",
+                "BUN",
+                "CA",
+                "CHOL",
+                "CHOLHDL",
+                "CL",
+                "CO2",
+                "CR",
+                "EGFR",
+                "EOS",
+                "EOSAB",
+                "GLOB",
+                "GLU",
+                "HCT",
+                "HDL",
+                "HGB",
+                "HSCRP",
+                "IGM",
+                "INSF",
+                "INSU",
+                "K",
+                "LDL",
+                "LDLHDL",
+                "LYM",
+                "LYMAB",
+                "MCH",
+                "MCHC",
+                "MCV",
+                "MONO",
+                "MONOAB",
+                "NA.",
+                "NEUT",
+                "NEUTAB",
+                "NHDL",
+                "PLT",
+                "RBC",
+                "RDW",
+                "TBIL",
+                "TGL",
+                "TP",
+                "UALB",
+                "UALBCR",
+                "WBC",
+                "SubjectID",
+                "CollectionDate",
+                "CL1",
+                "CL2",
+                "CL3",
+                "CL4"
+              ],
+              "record_rows_inspected": false
+            },
+            "result": "selected_header_metadata_inspected",
+            "complete_utc": "2026-10-01T19:13:13.007530+00:00"
+          }
+        ]
+      }
+    },
+    "combined_metadata_assessment": {
+      "original_receipt_path": "outputs/public-source-search-20261001/ipop-header-only-20261001T191312613261Z/metadata-gate-summary.json",
+      "original_receipt_sha256": "35834ca0350266b682409ca08ec9c9fd256c01fa25fda0cacb0a99bb2a70a616",
+      "payload": {
+        "recorded_utc": "2026-10-01T19:14:15.299809+00:00",
+        "protocol_sha256": "55f0c3858e789241a70e22d77435f8ebf0e3e70adcd2ac550ef9928602beed3c",
+        "original_receipts": "outputs\\public-source-search-20261001\\ipop-header-only-20261001T190927275784Z\\receipts.json",
+        "original_receipts_sha256": "0d886257383841bc37c43220a58a5d7ad05bc4143be15462f3ea06ced39722de",
+        "corrected_receipts": "outputs\\public-source-search-20261001\\ipop-header-only-20261001T191312613261Z\\receipts.json",
+        "corrected_receipts_sha256": "7f882a31fbdebc5a7c3065626a14135721eb5f5353f6c144bbb2fa6eeef0375a",
+        "correction_verification": {
+          "earliest_CR_or_LF_is_final_byte": true,
+          "terminator": "CR",
+          "size_bytes": 286,
+          "partial_sha256": "966181a5b14d2aa89d6dea19697b8399f03746135d8efe52e7cece7b4d8b83ad",
+          "full_source_hash_verified": false
+        },
+        "original_clinical_attempt_scope_exception": {
+          "LF_only_guard": "did not stop at the CR-terminated header",
+          "possible_acquired_content": "Uninspected prefix may contain clinical record bytes; cap65536bytes. Exact original prefix size/hash were not retained and must not be reconstructed.",
+          "retained": false,
+          "decoded": false,
+          "displayed": false,
+          "analyzed": false
+        },
+        "selected_metadata": [
+          {
+            "path": "data/SampleInfo.csv",
+            "receipt_file": "outputs\\public-source-search-20261001\\ipop-header-only-20261001T190927275784Z\\receipts.json",
+            "metadata": {
+              "locator": "first physical line",
+              "header_labels": [
+                "SubjectID",
+                "SampleID",
+                "Days_Since_Start",
+                "CL4"
+              ],
+              "record_rows_inspected": false
+            }
+          },
+          {
+            "path": "data/VisitSchedules.csv",
+            "receipt_file": "outputs\\public-source-search-20261001\\ipop-header-only-20261001T190927275784Z\\receipts.json",
+            "metadata": {
+              "locator": "first physical line",
+              "header_labels": [
+                "VisitID",
+                "SubjectID",
+                "CollectionDate",
+                "Event",
+                "Event_Note1",
+                "Event_Note2",
+                "Event_Note3",
+                "SubStudy"
+              ],
+              "record_rows_inspected": false
+            }
+          },
+          {
+            "path": "data/VisitList.xlsx",
+            "receipt_file": "outputs\\public-source-search-20261001\\ipop-header-only-20261001T190927275784Z\\receipts.json",
+            "metadata": {
+              "inspection": "structural metadata and row1 only",
+              "worksheet_headers": [
+                {
+                  "sheet": "Sheet1",
+                  "worksheet_part": "xl/worksheets/sheet1.xml",
+                  "row": 1,
+                  "header_cells": [
+                    {
+                      "cell": "A1",
+                      "label": "SubjectID"
+                    },
+                    {
+                      "cell": "B1",
+                      "label": "SampleID"
+                    },
+                    {
+                      "cell": "C1",
+                      "label": "Days_Since_Start"
+                    },
+                    {
+                      "cell": "D1",
+                      "label": "CL1"
+                    },
+                    {
+                      "cell": "E1",
+                      "label": "CL2"
+                    },
+                    {
+                      "cell": "F1",
+                      "label": "CL3"
+                    },
+                    {
+                      "cell": "G1",
+                      "label": "CL4"
+                    },
+                    {
+                      "cell": "H1",
+                      "label": "Cytokines"
+                    },
+                    {
+                      "cell": "I1",
+                      "label": "ClinicLabs"
+                    },
+                    {
+                      "cell": "J1",
+                      "label": "Metabolites"
+                    },
+                    {
+                      "cell": "K1",
+                      "label": "Proteins"
+                    },
+                    {
+                      "cell": "L1",
+                      "label": "Transcripts"
+                    },
+                    {
+                      "cell": "M1",
+                      "label": "Gut_16S"
+                    },
+                    {
+                      "cell": "N1",
+                      "label": "Nasal_16S"
+                    },
+                    {
+                      "cell": "O1",
+                      "label": "Num_Type"
+                    }
+                  ]
+                }
+              ],
+              "later_rows_inspected": false,
+              "shared_string_values_resolved": "only row1 referenced indices"
+            }
+          },
+          {
+            "path": "data/subjectStatus.csv",
+            "receipt_file": "outputs\\public-source-search-20261001\\ipop-header-only-20261001T190927275784Z\\receipts.json",
+            "metadata": {
+              "locator": "first physical line",
+              "header_labels": [
+                "SubjectID",
+                "SampleID",
+                "CollectionDate",
+                "CL4"
+              ],
+              "record_rows_inspected": false
+            }
+          },
+          {
+            "path": "data/SubjectInfo.csv",
+            "receipt_file": "outputs\\public-source-search-20261001\\ipop-header-only-20261001T190927275784Z\\receipts.json",
+            "metadata": {
+              "locator": "first physical line",
+              "header_labels": [
+                "SubjectID",
+                "Study",
+                "Race",
+                "Sex",
+                "Age",
+                "BMI",
+                "SSPG",
+                "IR_IS_classification"
+              ],
+              "record_rows_inspected": false
+            }
+          },
+          {
+            "path": "data/SubjectClass.csv",
+            "receipt_file": "outputs\\public-source-search-20261001\\ipop-header-only-20261001T190927275784Z\\receipts.json",
+            "metadata": {
+              "locator": "first physical line",
+              "header_labels": [
+                "SubjectID",
+                "Class"
+              ],
+              "record_rows_inspected": false
+            }
+          },
+          {
+            "path": "data/addInfo.csv",
+            "receipt_file": "outputs\\public-source-search-20261001\\ipop-header-only-20261001T190927275784Z\\receipts.json",
+            "metadata": {
+              "locator": "first physical line",
+              "header_labels": [
+                "SubjectID",
+                "OGTT_Number",
+                "SSPG (mg/mL)",
+                "Matsuda",
+                "DI",
+                "isrMax (pmol/kg/min)",
+                "cluster"
+              ],
+              "record_rows_inspected": false
+            }
+          },
+          {
+            "path": "data/clinical_tests.txt",
+            "receipt_file": "outputs\\public-source-search-20261001\\ipop-header-only-20261001T191312613261Z\\receipts.json",
+            "metadata": {
+              "locator": "first physical line",
+              "header_labels": [
+                "VisitID",
+                "A1C",
+                "AG",
+                "ALB",
+                "ALCRU",
+                "ALKP",
+                "ALT",
+                "AST",
+                "BASO",
+                "BASOAB",
+                "BUN",
+                "CA",
+                "CHOL",
+                "CHOLHDL",
+                "CL",
+                "CO2",
+                "CR",
+                "EGFR",
+                "EOS",
+                "EOSAB",
+                "GLOB",
+                "GLU",
+                "HCT",
+                "HDL",
+                "HGB",
+                "HSCRP",
+                "IGM",
+                "INSF",
+                "INSU",
+                "K",
+                "LDL",
+                "LDLHDL",
+                "LYM",
+                "LYMAB",
+                "MCH",
+                "MCHC",
+                "MCV",
+                "MONO",
+                "MONOAB",
+                "NA.",
+                "NEUT",
+                "NEUTAB",
+                "NHDL",
+                "PLT",
+                "RBC",
+                "RDW",
+                "TBIL",
+                "TGL",
+                "TP",
+                "UALB",
+                "UALBCR",
+                "WBC",
+                "SubjectID",
+                "CollectionDate",
+                "CL1",
+                "CL2",
+                "CL3",
+                "CL4"
+              ],
+              "record_rows_inspected": false
+            }
+          }
+        ],
+        "clinical_admission": false,
+        "clinical_fit_performed": false,
+        "tracked_files_changed": false
+      }
+    }
+  },
+  "supplement_receipts": {
+    "PMC_failed_workbook_attempt": {
+      "original_receipt_path": "outputs/public-source-search-20261001/ipop-s0-schema-20261001T190439276050Z/assessment.json",
+      "original_receipt_sha256": "7576640a28d1540e151b45a1eefe4100f33aaa21dbbf562be69c77f51c4f6d2b",
+      "payload": {
+        "protocol_commit": "d1fdc24",
+        "protocol_sha256": "55f0c3858e789241a70e22d77435f8ebf0e3e70adcd2ac550ef9928602beed3c",
+        "started_utc": "2026-10-01T19:04:39.284833+00:00",
+        "kind": "selected_supplement_schema_only",
+        "clinical_record_intake": false,
+        "clinical_fit_allowed": false,
+        "other_worksheet_contents_inspected": false,
+        "receipts": [
+          {
+            "requested_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6713274/",
+            "retrieved_utc": "2026-10-01T19:04:39.284833+00:00",
+            "role": "publication link metadata; no worksheet content",
+            "status": 200,
+            "final_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6713274/",
+            "content_type": "text/html; charset=utf-8",
+            "size_bytes": 346308,
+            "sha256": "2d11d254ef4c28fe1549fe7e18cbc3f35ab7a912b6968ce4ac95cd7d0bbe5690",
+            "cache_filename": "companion-publication.html"
+          },
+          {
+            "requested_url": "https://pmc.ncbi.nlm.nih.gov/articles/instance/6713274/bin/NIHMS1523412-supplement-Supplemental_Tables_S1-S28.xlsx",
+            "retrieved_utc": "2026-10-01T19:04:44.142891+00:00",
+            "role": "mixed publication workbook fetched; only S0 selected for inspection",
+            "status": 200,
+            "final_url": "https://pmc.ncbi.nlm.nih.gov/articles/instance/6713274/bin/NIHMS1523412-supplement-Supplemental_Tables_S1-S28.xlsx",
+            "content_type": "text/html; charset=utf-8",
+            "size_bytes": 1817,
+            "sha256": "f084bc5f2a3f51443c9ec6b26b7749f545d577faa4f68fad6d8fa66efd59696a",
+            "cache_filename": "source-supplement.xlsx"
+          }
+        ],
+        "selected_document_links": [
+          "https://pmc.ncbi.nlm.nih.gov/articles/instance/6713274/bin/NIHMS1523412-supplement-Supplemental_Tables_S1-S28.xlsx"
+        ],
+        "mixed_supplement_fetched": true,
+        "binding": "failed_workbook_schema_read",
+        "workbook_error_type": "BadZipFile",
+        "finished_utc": "2026-10-01T19:04:44.962967+00:00"
+      }
+    },
+    "response_validation": {
+      "original_receipt_path": "outputs/public-source-search-20261001/ipop-s0-schema-20261001T190439276050Z/response-validation.json",
+      "original_receipt_sha256": "68c6653f8cf0098597b0c3921cf426d13b5d31d3a500e136a988c0a9060f7cad",
+      "payload": {
+        "assessment_path": "outputs\\public-source-search-20261001\\ipop-s0-schema-20261001T190439276050Z\\assessment.json",
+        "note": "The HTTP200 response is HTML, not an acquired workbook. Original response and failed reader assessment are preserved. No worksheet content was inspected.",
+        "valid_supplement_workbook_acquired": false,
+        "S0_inspected": false,
+        "response_sha256": "f084bc5f2a3f51443c9ec6b26b7749f545d577faa4f68fad6d8fa66efd59696a"
+      }
+    },
+    "publisher_workbook_and_initial_selector_failure": {
+      "original_receipt_path": "outputs/public-source-search-20261001/ipop-s0-publisher-20261001T191409690020Z/assessment.json",
+      "original_receipt_sha256": "4950a16809bafb4b7ac7024a26fe06ea14515ba82e4311589f2c364ee3c1cc6f",
+      "payload": {
+        "protocol_commit": "d1fdc24",
+        "protocol_sha256": "55f0c3858e789241a70e22d77435f8ebf0e3e70adcd2ac550ef9928602beed3c",
+        "amendment_commit": "435b365",
+        "amendment_sha256": "f4f93a6ae37e7dfc4d8247f596d03e372d295203db4287305234c4bb66905d93",
+        "requested_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41591-019-0414-6/MediaObjects/41591_2019_414_MOESM2_ESM.xlsx",
+        "retrieved_utc": "2026-10-01T19:14:09.691810+00:00",
+        "other_worksheet_contents_inspected": false,
+        "clinical_fit_allowed": false,
+        "source_document_distribution": "fetch_only",
+        "status": 200,
+        "final_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41591-019-0414-6/MediaObjects/41591_2019_414_MOESM2_ESM.xlsx",
+        "content_type": "application/octet-stream",
+        "size_bytes": 680266,
+        "sha256": "0fee15e1eb0d9be7f2be363be99781e566f8c03ef1cc10b1591c8743efc34278",
+        "cache_filename": "publisher-supplement.xlsx",
+        "valid_zip_signature": true,
+        "worksheet_names": [
+          "S0. Labs & Immune Proteins",
+          "S1. Demographics & Health",
+          "S2. Health Discoveries",
+          "S3. DM Mechansims",
+          "S4. Molecules & DI",
+          "S5. DI Network Key",
+          "S6. Shannon & Glucose Met",
+          "S7. Multivariate Shannon",
+          "S8. HbA1C Healthy-Basal model",
+          "S9. HbA1C Pathway Basal model",
+          "S10. FPG Healthy-Basal model",
+          "S11. FPG Pathway Basal model",
+          "S12. hsCRP Healthy-Basal model",
+          "S13. hsCRP Pathway Basal model",
+          "S14. HbA1C Dynamic model",
+          "S15. HbA1C Pathway Dynamic",
+          "S16. FPG Dynamic model",
+          "S17. FPG Pathway Dynamic",
+          "S18. hsCRP Dynamic model",
+          "S19. hsCRP Pathway Dynamic",
+          "S20. SSPG Prediction ",
+          "S21. OGTT Prediction",
+          "S22. Pharmacogenomic Variants",
+          "S23. Multiomics ASCVD",
+          "S24. ASCVD Network Key",
+          "S25. Lymphoma Outliers ",
+          "S26. Lymphoma Pathways",
+          "S27. Qual Survey",
+          "S28. Met discovery change"
+        ],
+        "selected_worksheet_names": [],
+        "binding": "unresolved_or_ambiguous_S0_name",
+        "finished_utc": "2026-10-01T19:14:12.015207+00:00"
+      }
+    }
+  },
+  "selected_schema": {
+    "inspection_recorded_utc": "2026-10-01T19:20:54.237254+00:00",
+    "source_publication": "https://www.nature.com/articles/s41591-019-0414-6",
+    "source_workbook_sha256": "0fee15e1eb0d9be7f2be363be99781e566f8c03ef1cc10b1591c8743efc34278",
+    "worksheet": "S0. Labs & Immune Proteins",
+    "identity_locator": "A1 title; A3 clinical-laboratory section; A4:B4 Symbol/Full name",
+    "assay_labels": [
+      {
+        "symbol_cell": "A5",
+        "symbol": "A1C",
+        "name_cell": "B5",
+        "name": "Hemoglobin A1C",
+        "unit": null,
+        "platform": null
+      },
+      {
+        "symbol_cell": "A24",
+        "symbol": "GLU",
+        "name_cell": "B24",
+        "name": "Glucose",
+        "unit": null,
+        "platform": null
+      }
+    ],
+    "binding_limit": "Publication measure identity and matching derivative header labels only; S0 supplies no units/platform columns. Derivative rawness, specimen validity and file-level release mapping remain unverified.",
+    "other_worksheet_contents_inspected": false,
+    "clinical_threshold_mapping_performed": false
+  },
+  "actual_acquisition_scope": {
+    "participant_data_file_urls_requested": true,
+    "successful_text_acquisitions": "Partial labeled headers, not full-file verification; corrected clinical header stops at earliest CR/LF.",
+    "VisitList_binary_fully_acquired": true,
+    "VisitList_record_rows_inspected": false,
+    "original_clinical_scope_exception": "LF-only guard failed at a CR-terminated header. Uninspected prefix may include record bytes up to helper cap65536; exact length/hash unknown. Prefix not retained, decoded, displayed or analyzed. Original failure preserved, not relabeled header-only.",
+    "publisher_mixed_supplement_fully_acquired": true,
+    "publisher_inspection": "Structural metadata followed by selected S0 schema only; S1-S28 content uninspected.",
+    "clinical_records_interpreted_or_fitted": false,
+    "source_files_distribution": "Fetch-only ignored storage; no participant records or complete source workbooks/notebooks redistributed.",
+    "initial_protocol_flags": "Describe only the pre-fetch freeze state, superseded for actual acquisition by these receipts."
+  },
+  "disposition": {
+    "verified": "Eight labeled metadata surfaces and S0 measure-name identity; producer join, clock replacement, filtering and visit-context operations.",
+    "unresolved": [
+      "file-level public-consent membership/release cutoff",
+      "assay units/rawness/fasting",
+      "clock origin and actual collection mapping",
+      "keys/cardinality/missing-code semantics",
+      "diagnosis/type and treatment chronology",
+      "death/contact/withdrawal/stopping coverage"
+    ],
+    "candidate_next_target": "Source-supported native-cohort usual-care laboratory panel, with a new frozen intake/estimation protocol after applicable bindings resolve.",
+    "clinical_source_admitted": false,
+    "clinical_fit_performed": false,
+    "engine_changed": false,
+    "new_numeric_model_parameters": false,
+    "scientific_acceptance_changed": false,
+    "national_or_dietary_causal_interpretation_allowed": false
+  }
+}

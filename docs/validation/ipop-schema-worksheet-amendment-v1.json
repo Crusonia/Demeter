@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "amendment_id": "ipop_schema_exact_S0_worksheet_v1",
+  "base_protocol_commit": "d1fdc24",
+  "base_protocol_sha256": "55f0c3858e789241a70e22d77435f8ebf0e3e70adcd2ac550ef9928602beed3c",
+  "locator_amendment_commit": "435b365",
+  "locator_amendment_sha256": "f4f93a6ae37e7dfc4d8247f596d03e372d295203db4287305234c4bb66905d93",
+  "reason": "The valid publisher workbook contains one S0 sheet named with a period separator. The frozen initial name pattern did not match that separator, so no worksheet content was inspected. Select the exact metadata-identified S0 worksheet before offline schema inspection.",
+  "source_workbook_sha256": "0fee15e1eb0d9be7f2be363be99781e566f8c03ef1cc10b1591c8743efc34278",
+  "source_workbook_size_bytes": 680266,
+  "selected_worksheet_name": "S0. Labs & Immune Proteins",
+  "selection_basis": "Publisher description Tables 0-28 plus the unique S0 worksheet identity in structural metadata, not worksheet values or outcome performance.",
+  "inspection_scope": "Read only this schema worksheet. Verify the clinical laboratory title; retain exact cell locators for glucose and HbA1c assay labels, units and platforms if present. Do not inspect any S1-S28 worksheet content or use assay reference ranges as diagnostic thresholds.",
+  "source_workbook_already_acquired": true,
+  "selected_worksheet_content_inspected_before_amendment": false,
+  "other_worksheet_contents_inspected": false,
+  "clinical_numeric_intake_allowed": false,
+  "clinical_fit_allowed": false,
+  "source_document_distribution": "fetch_only",
+  "engine_changed": false
+}

@@ -17,6 +17,13 @@ field/form locators, excluded dates and version discrepancies. It distinguishes
 documented meaning from actual record coverage and identifies which proposed
 clinical fits remain unsupported under the public-source route.
 
+The [Stanford iPOP source appraisal](IPOP_SOURCE_COVERAGE.md) verifies selected
+headers, producer operations and assay-name identity. It records full binary
+acquisition separately from limited inspection, including a failed text-request
+scope exception. A native-cohort laboratory panel remains a candidate; derivative
+units/rawness, collection clocks and public-release membership are unverified.
+No clinical source admission or fit follows from that schema review.
+
 The [Whitehall II endpoint implementation](WHITEHALL_ENDPOINT.md) reproduces
 published source labels and evaluates a conditional iid binomial working
 likelihood. Its fitted endpoint probability is separate from clinical transition
