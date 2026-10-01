@@ -147,3 +147,14 @@ inspected new candidates did not resolve clinical fitting; no observations,
 parameters or likelihood assumptions were activated. A primary-source proposal
 with compatible public observations is the next empirical contribution. This
 bounded search does not establish that no suitable public source exists.
+
+The [new-source admission decisions](PUBLIC_LONGITUDINAL_ADMISSION.md) identify
+two additional conditional leads: a CC0 Dryad occupational-examination release
+and SLIMM-T2D's post-diagnosis clinical/medication paths. Neither is fit-ready.
+The finite next gate is Dryad's separately identified usage document, followed
+by a source-specific record/likelihood plan if its schema actually supports
+linked paths. The attempted ordinary documentation downloads failed HTTP403/401;
+no records were fetched. CRELES remains outside unrestricted automatic intake,
+and the Comorbidities release retains contradictory reuse statements. Preserve
+these distinct dispositions rather than treating public catalog access as
+permission or clinical coverage. No new clinical parameter is admitted.

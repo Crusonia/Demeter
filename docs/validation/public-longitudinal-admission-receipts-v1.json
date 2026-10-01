@@ -1,0 +1,456 @@
+{
+  "schema": "demeter-public-longitudinal-admission-receipts-v1",
+  "assembled_utc": "2026-10-01T10:07:06.217875+00:00",
+  "purpose": "New source permission/methods/observable decisions only; no empirical intake or scientific fit",
+  "distribution": "fetch_only",
+  "cache_path_resolution": {
+    "default_base_from_repository": "outputs/public-source-search-20261001",
+    "prefix_aliases_from_repository": {
+      "creles-access-audit": "outputs/creles-documentation-gate-20261001/access-audit-20261001T095058566548Z"
+    },
+    "applies_to": "cache_filename and original receipt_filename; replace a matching alias prefix, otherwise resolve against default_base_from_repository. Ignored caches are optional and not distributed."
+  },
+  "full_documents_redistributed": false,
+  "participant_datasets_acquired": false,
+  "participant_dataset_requests": false,
+  "selected_numeric_outcome_intake": false,
+  "empirical_arithmetic_or_fit": false,
+  "engine_activation": false,
+  "chronology": [
+    "Earlier web inspection/search snippets and documentation abstracts incidentally exposed published results and cohort totals. These are used sources, not untouched holdouts or preregistered analyses.",
+    "The timestamps below are actual saved acquisitions after earlier inspection. Every included successful cache was size/SHA checked during this assembly. Full source documents remain ignored/fetch-only.",
+    "An initial file-stream command including Usage_notes was rejected before execution due ambiguous health-record scope. Subsequent official metadata identified the separate usage document. Review then accepted verified documentation-only requests; neither succeeded. No participant file or alternate record route was requested.",
+    "The first accepted website file-stream GET failedHTTP403. Its traceback was the observed result; no response bytes or receipt timestamp were captured. This failure is not represented as a successful acquisition. The later advertised API link failedHTTP401 and has its own timed failure receipt.",
+    "No registration, credentials, guestbook response, interactive agreement acceptance, access application, challenge interaction or outreach occurred."
+  ],
+  "rights_and_scope": {
+    "dryad": "Dataset metadata CC0-1.0; primary article CC BY-NC4.0; neither license verifies clinical record coverage. Version status differs from published landing. Separate usage notes not acquired.",
+    "slimm": "Article CC BY4.0; Zenodo other-open; MIT software/documentation license. Exact clinical-record license scope unverified; no clinical record file acquired.",
+    "creles": "CC BY-NC4.0; enabled identity/affiliation guestbook. Off unrestricted automatic intake; no archives or guestbook response acquired.",
+    "comorbidities": "Zenodo cc-zero metadata and research-only description both retained. No silent resolution or participant-file acquisition.",
+    "metadata": "Public file names, license declarations and methods are factual documentation only. Matching hashes do not grant clinical-data access or scientific validity."
+  },
+  "inspected_locators": {
+    "dryad": [
+      "dataset identifier/license/versionNumber/versionStatus; exact version/file-list metadata; landing publication date",
+      "Primary BMJ XML Methods s2-1 selection, s2-2 data collection, s2-4 repeated-test analysis, s2-5 operational definitions; no result-cell intake"
+    ],
+    "slimm": [
+      "Primary Methods Clinical study; Data availability; Rights and permissions",
+      "Versioned recursive tree; LICENSE; README; separate S2_readme descriptions; supplementary-description document"
+    ],
+    "creles": [
+      "data.latestVersion license/release/files[*].dataFile.tabularData",
+      "Guestbook definition requirements; Data Access guide metadata/DDI and guestbook sections"
+    ],
+    "comorbidities": [
+      "metadata.license/access_right/description; files metadata only; landing description"
+    ]
+  },
+  "original_receipt_pins": [
+    {
+      "receipt_filename": "root-admission-docs-20261001T095416914571Z/receipts.json",
+      "sha256": "ce1effaeac5ca8733fea1338b6a9d40dd38d4632257051eab124bd09d46218f4"
+    },
+    {
+      "receipt_filename": "root-admission-docs-20261001T095549927922Z/receipts.json",
+      "sha256": "43d74542fabc524c0a02ce99b2ec5e4b010aab991f6d295fd81f4450576b6ca9"
+    },
+    {
+      "receipt_filename": "root-admission-docs-20261001T095715668799Z/receipts.json",
+      "sha256": "a218af48369445c8db5a4434e6f2d3ea3774f8b2a2f023e99a6641a197a9c304"
+    },
+    {
+      "receipt_filename": "creles-access-audit/receipts.json",
+      "sha256": "3870acd6d0342abcc11d700d9825ec3f85042d9055e23601522d6359a7a430dd"
+    },
+    {
+      "receipt_filename": "slimm-metadata-fetch-20261001T095234159027Z-receipts.json",
+      "sha256": "4e2924fde22dd2bd9c205f82134ecb231941dad871c9143d132bd67695eea9fb"
+    },
+    {
+      "receipt_filename": "slimm-separated-documentation-20261001T095631865681Z-receipts.json",
+      "sha256": "6b5d62cccc61acc2569213a9483b05d8c8b25d737225cec725283f3578ccfbaa"
+    },
+    {
+      "receipt_filename": "dryad-verified-usage-notes-20261001T100115793902Z/receipt.json",
+      "sha256": "f471a1ef9441a75abe1bbf89fb34305ec1dbf6d383b156177d2b8bda9bd7e1dc"
+    }
+  ],
+  "successful_sources": [
+    {
+      "name": "dryad-metadata",
+      "requested_url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.tht76hdz4",
+      "scope": "metadata or separately named usage documentation only",
+      "retrieved_at_utc": "2026-10-01T09:54:16.914571+00:00",
+      "status": 200,
+      "resolved_url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.tht76hdz4",
+      "content_type": "application/json; charset=utf-8",
+      "bytes": 14811,
+      "sha256": "deec313cf63473dd7635ea047d624d6afceba07951427ba05e5b84c885bf6446",
+      "success": true,
+      "cache_filename": "root-admission-docs-20261001T095416914571Z/dryad-metadata.bin"
+    },
+    {
+      "name": "dryad-landing",
+      "requested_url": "https://datadryad.org/dataset/doi:10.5061/dryad.tht76hdz4",
+      "scope": "metadata or separately named usage documentation only",
+      "retrieved_at_utc": "2026-10-01T09:54:17.701681+00:00",
+      "status": 200,
+      "resolved_url": "https://datadryad.org/dataset/doi:10.5061/dryad.tht76hdz4",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 47742,
+      "sha256": "da289dea855380a1bff1332622ec3fb67b7d549aedfa3a2a633f9155bbaea11d",
+      "success": true,
+      "cache_filename": "root-admission-docs-20261001T095416914571Z/dryad-landing.bin"
+    },
+    {
+      "name": "dryad-terms",
+      "requested_url": "https://datadryad.org/terms",
+      "scope": "metadata or separately named usage documentation only",
+      "retrieved_at_utc": "2026-10-01T09:54:18.334033+00:00",
+      "status": 200,
+      "resolved_url": "https://datadryad.org/terms",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 32244,
+      "sha256": "db1a543121a13022e4f39cab406d7097e6f003f78979f0a3a6a349d7f499640e",
+      "success": true,
+      "cache_filename": "root-admission-docs-20261001T095416914571Z/dryad-terms.bin"
+    },
+    {
+      "name": "zenodo-metadata",
+      "requested_url": "https://zenodo.org/api/records/7543862",
+      "scope": "metadata or separately named usage documentation only",
+      "retrieved_at_utc": "2026-10-01T09:54:18.871496+00:00",
+      "status": 200,
+      "resolved_url": "https://zenodo.org/api/records/7543862",
+      "content_type": "application/json",
+      "bytes": 12722,
+      "sha256": "c0bc39ae5e24d17333bcd223383b9578bbbaeb8daf3262db202086e34a0a0b24",
+      "success": true,
+      "cache_filename": "root-admission-docs-20261001T095416914571Z/zenodo-metadata.bin"
+    },
+    {
+      "name": "zenodo-landing",
+      "requested_url": "https://zenodo.org/records/7543862",
+      "scope": "metadata or separately named usage documentation only",
+      "retrieved_at_utc": "2026-10-01T09:54:27.418489+00:00",
+      "status": 200,
+      "resolved_url": "https://zenodo.org/records/7543862",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 157959,
+      "sha256": "5eb6795af0c165ea6e5dfa29ac6122f95179301556b6ede4ae34aef440292571",
+      "success": true,
+      "cache_filename": "root-admission-docs-20261001T095416914571Z/zenodo-landing.bin"
+    },
+    {
+      "name": "dryad-versions",
+      "requested_url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.tht76hdz4/versions",
+      "scope": "metadata or separately named usage documentation only",
+      "retrieved_at_utc": "2026-10-01T09:55:49.928929+00:00",
+      "status": 200,
+      "resolved_url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.tht76hdz4/versions",
+      "content_type": "application/json; charset=utf-8",
+      "bytes": 14984,
+      "sha256": "c835517b8258b352d82dfd1e132dd3c4feec29ef1caf8d41d9cd239be69ecaf7",
+      "success": true,
+      "cache_filename": "root-admission-docs-20261001T095549927922Z/dryad-versions.bin"
+    },
+    {
+      "name": "dryad-version",
+      "requested_url": "https://datadryad.org/api/v2/versions/104844",
+      "scope": "metadata or separately named usage documentation only",
+      "retrieved_at_utc": "2026-10-01T09:55:51.385806+00:00",
+      "status": 200,
+      "resolved_url": "https://datadryad.org/api/v2/versions/104844",
+      "content_type": "application/json; charset=utf-8",
+      "bytes": 14854,
+      "sha256": "960d5e82dad6cce03b9bcc69fd00aa6a570689e7d3bd541bdedb590dc77efdca",
+      "success": true,
+      "cache_filename": "root-admission-docs-20261001T095549927922Z/dryad-version.bin"
+    },
+    {
+      "name": "dryad-file-list-metadata",
+      "requested_url": "https://datadryad.org/api/v2/versions/104844/files",
+      "scope": "metadata or separately named usage documentation only",
+      "retrieved_at_utc": "2026-10-01T09:55:51.994344+00:00",
+      "status": 200,
+      "resolved_url": "https://datadryad.org/api/v2/versions/104844/files",
+      "content_type": "application/json; charset=utf-8",
+      "bytes": 1570,
+      "sha256": "89e3becc785cf11804cf334a9152db0d9c8cbe8ad3a03ecbaa2437f3b979fe1a",
+      "success": true,
+      "cache_filename": "root-admission-docs-20261001T095549927922Z/dryad-file-list-metadata.bin"
+    },
+    {
+      "name": "bmj-primary-xml",
+      "requested_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7934714/fullTextXML",
+      "scope": "metadata or separately named usage documentation only",
+      "retrieved_at_utc": "2026-10-01T09:57:15.670142+00:00",
+      "status": 200,
+      "resolved_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7934714/fullTextXML",
+      "content_type": "application/xml",
+      "bytes": 104091,
+      "sha256": "56e56c50c0b18baaa26cc29052b25a729754be72d7fe1fd6bddddb0ddece624c",
+      "success": true,
+      "cache_filename": "root-admission-docs-20261001T095715668799Z/bmj-primary-xml.bin"
+    },
+    {
+      "cache_filename": "creles-access-audit/dataverse-release-metadata.json",
+      "url": "https://dataverse.harvard.edu/api/v1/datasets/:persistentId?persistentId=doi:10.7910/DVN/7AUOAO",
+      "started_utc": "2026-10-01T09:50:58.567547+00:00",
+      "distribution": "fetch_only",
+      "rights": "Public metadata or documentation only; source-specific rights retained; no participant acquisition or license acceptance",
+      "final_url": "https://dataverse.harvard.edu/api/v1/datasets/:persistentId?persistentId=doi:10.7910/DVN/7AUOAO",
+      "final_url_query_omitted": false,
+      "status": 200,
+      "content_type": "application/json;charset=UTF-8",
+      "retrieved_utc": "2026-10-01T09:50:59.022782+00:00",
+      "size_bytes": 10291,
+      "sha256": "eb778a2c57e75d933daeb19d7cab9e14c7ab7e9cd121d43b8acfa2ee4bf2b5ef",
+      "successful": true
+    },
+    {
+      "cache_filename": "creles-access-audit/dataverse-guestbook-metadata.json",
+      "url": "https://dataverse.harvard.edu/api/guestbooks/616",
+      "started_utc": "2026-10-01T09:50:59.024096+00:00",
+      "distribution": "fetch_only",
+      "rights": "Public metadata or documentation only; source-specific rights retained; no participant acquisition or license acceptance",
+      "final_url": "https://dataverse.harvard.edu/api/guestbooks/616",
+      "final_url_query_omitted": false,
+      "status": 200,
+      "content_type": "application/json;charset=UTF-8",
+      "retrieved_utc": "2026-10-01T09:50:59.202770+00:00",
+      "size_bytes": 244,
+      "sha256": "50685f78ec7e789e14555a9d6efea81c24a558438b3e003173a61733d936483d",
+      "successful": true
+    },
+    {
+      "cache_filename": "creles-access-audit/dataverse-dataaccess-guide.html",
+      "url": "https://guides.dataverse.org/en/latest/api/dataaccess.html",
+      "started_utc": "2026-10-01T09:50:59.212780+00:00",
+      "distribution": "fetch_only",
+      "rights": "Public metadata or documentation only; source-specific rights retained; no participant acquisition or license acceptance",
+      "final_url": "https://guides.dataverse.org/en/latest/api/dataaccess.html",
+      "final_url_query_omitted": false,
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "retrieved_utc": "2026-10-01T09:50:59.754979+00:00",
+      "size_bytes": 86861,
+      "sha256": "d784bca1a70f01e39d134bf4e051347354d766cacf0db40bb481ab55464da77a",
+      "successful": true
+    },
+    {
+      "cache_filename": "creles-access-audit/dataverse-dataset-terms-guide.html",
+      "url": "https://guides.dataverse.org/en/latest/user/dataset-management.html",
+      "started_utc": "2026-10-01T09:50:59.755979+00:00",
+      "distribution": "fetch_only",
+      "rights": "Public metadata or documentation only; source-specific rights retained; no participant acquisition or license acceptance",
+      "final_url": "https://guides.dataverse.org/en/latest/user/dataset-management.html",
+      "final_url_query_omitted": false,
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "retrieved_utc": "2026-10-01T09:51:00.049532+00:00",
+      "size_bytes": 157473,
+      "sha256": "24e01805fb8c4c266aac72e49818d27614fe25eee9ef478c006485dc54d73190",
+      "successful": true
+    },
+    {
+      "cache_filename": "creles-access-audit/cc-by-nc-4-legalcode.html",
+      "url": "https://creativecommons.org/licenses/by-nc/4.0/legalcode.en",
+      "started_utc": "2026-10-01T09:51:00.050531+00:00",
+      "distribution": "fetch_only",
+      "rights": "Public metadata or documentation only; source-specific rights retained; no participant acquisition or license acceptance",
+      "final_url": "https://creativecommons.org/licenses/by-nc/4.0/legalcode.en",
+      "final_url_query_omitted": false,
+      "status": 200,
+      "content_type": "text/html",
+      "retrieved_utc": "2026-10-01T09:51:00.222717+00:00",
+      "size_bytes": 50210,
+      "sha256": "0cfb90e3e7d7a7f0fdff6f0bcb88bc3f7de25c7bb99dd4f670a01367dc7a6b21",
+      "successful": true
+    },
+    {
+      "label": "zenodo_metadata",
+      "requested_url": "https://zenodo.org/api/records/5485746",
+      "started_utc": "2026-10-01T09:52:34.159027+00:00",
+      "rights": "Unverified pending repository/publication rights appraisal",
+      "success": true,
+      "status": 200,
+      "content_type": "application/json",
+      "resolved_safe_url": "https://zenodo.org/api/records/5662430",
+      "query_omitted": false,
+      "bytes": 3945,
+      "sha256": "ff85b9caff214e8191f2bc344f34f064c937b31a1c85baf8aec4afa3e53c3d67",
+      "cache_filename": "slimm-metadata-fetch-20261001T095234159027Z-zenodo_metadata.json",
+      "completed_utc": "2026-10-01T09:52:53.573414+00:00"
+    },
+    {
+      "label": "github_tree",
+      "requested_url": "https://api.github.com/repos/jdreyf/slimm-t2d-omics/git/trees/v1.0.4?recursive=1",
+      "started_utc": "2026-10-01T09:52:53.573414+00:00",
+      "rights": "Unverified pending repository/publication rights appraisal",
+      "success": true,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "resolved_safe_url": "https://api.github.com/repos/jdreyf/slimm-t2d-omics/git/trees/v1.0.4",
+      "query_omitted": true,
+      "bytes": 107519,
+      "sha256": "2a8bd4380dcc7939d69b70122a476d0002311adf0cd42424779aafb03347cd5b",
+      "cache_filename": "slimm-metadata-fetch-20261001T095234159027Z-github_tree.json",
+      "completed_utc": "2026-10-01T09:52:54.069005+00:00"
+    },
+    {
+      "label": "readme",
+      "requested_url": "https://raw.githubusercontent.com/jdreyf/slimm-t2d-omics/v1.0.4/README.md",
+      "started_utc": "2026-10-01T09:52:54.069005+00:00",
+      "rights": "Unverified pending repository/publication rights appraisal",
+      "success": true,
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "resolved_safe_url": "https://raw.githubusercontent.com/jdreyf/slimm-t2d-omics/v1.0.4/README.md",
+      "query_omitted": false,
+      "bytes": 2285,
+      "sha256": "eda66d4d9f30ee290f4d8ca98f95dca88c2aeb05ebdd7ccaf81a3128c13aa946",
+      "cache_filename": "slimm-metadata-fetch-20261001T095234159027Z-readme.md",
+      "completed_utc": "2026-10-01T09:52:54.347861+00:00"
+    },
+    {
+      "label": "license",
+      "requested_url": "https://raw.githubusercontent.com/jdreyf/slimm-t2d-omics/v1.0.4/LICENSE",
+      "started_utc": "2026-10-01T09:52:54.347861+00:00",
+      "rights": "Unverified pending repository/publication rights appraisal",
+      "success": true,
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "resolved_safe_url": "https://raw.githubusercontent.com/jdreyf/slimm-t2d-omics/v1.0.4/LICENSE",
+      "query_omitted": false,
+      "bytes": 1074,
+      "sha256": "9270400977d9a82f784bf99219119564bc7f5363284915d05b2532cf3c47effb",
+      "cache_filename": "slimm-metadata-fetch-20261001T095234159027Z-license.txt",
+      "completed_utc": "2026-10-01T09:52:54.571798+00:00"
+    },
+    {
+      "label": "publication",
+      "requested_url": "https://www.nature.com/articles/s41467-021-27289-2",
+      "started_utc": "2026-10-01T09:52:54.571798+00:00",
+      "rights": "Unverified pending repository/publication rights appraisal",
+      "success": true,
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "resolved_safe_url": "https://www.nature.com/articles/s41467-021-27289-2",
+      "query_omitted": true,
+      "bytes": 625465,
+      "sha256": "0e85858726243f95ce87f4ff88b3c3d7aa4dff6709e730151a5ee573eb0995ec",
+      "cache_filename": "slimm-metadata-fetch-20261001T095234159027Z-publication.html",
+      "completed_utc": "2026-10-01T09:52:57.078623+00:00"
+    },
+    {
+      "label": "supplement_readme",
+      "requested_url": "https://raw.githubusercontent.com/jdreyf/slimm-t2d-omics/v1.0.4/data/S2_readme.csv",
+      "started_utc": "2026-10-01T09:56:31.866686+00:00",
+      "rights": "MIT software/documentation license; determine whether this is supplementary-output documentation only",
+      "success": true,
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "resolved_safe_url": "https://raw.githubusercontent.com/jdreyf/slimm-t2d-omics/v1.0.4/data/S2_readme.csv",
+      "query_omitted": false,
+      "bytes": 4292,
+      "sha256": "7249f283183a6fbad0f556067a98e28c4e3a64de726797836788689f35d7ada6",
+      "cache_filename": "slimm-separated-documentation-20261001T095631865681Z-supplement_readme.csv",
+      "completed_utc": "2026-10-01T09:56:32.081339+00:00"
+    },
+    {
+      "label": "supplement_description",
+      "requested_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-021-27289-2/MediaObjects/41467_2021_27289_MOESM2_ESM.docx",
+      "started_utc": "2026-10-01T09:56:32.081339+00:00",
+      "rights": "CC BY 4.0 article-associated supplementary description, subject to any file-specific third-party notice",
+      "success": true,
+      "status": 200,
+      "content_type": "application/octet-stream",
+      "resolved_safe_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-021-27289-2/MediaObjects/41467_2021_27289_MOESM2_ESM.docx",
+      "query_omitted": false,
+      "bytes": 13210,
+      "sha256": "ea6b73d81ea2501102b7777321025e001384bc97c100786ec7b73d0a7d511ceb",
+      "cache_filename": "slimm-separated-documentation-20261001T095631865681Z-supplement_description.docx",
+      "completed_utc": "2026-10-01T09:56:32.629698+00:00"
+    }
+  ],
+  "failed_requests": [
+    {
+      "name": "bmj-methods",
+      "requested_url": "https://bmjopen.bmj.com/content/11/3/e039541",
+      "scope": "metadata or separately named usage documentation only",
+      "retrieved_at_utc": "2026-10-01T09:55:52.455565+00:00",
+      "success": false,
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "cache_filename": "creles-access-audit/harvard-general-terms.html",
+      "url": "https://support.dataverse.harvard.edu/harvard-dataverse-general-terms-use",
+      "started_utc": "2026-10-01T09:51:00.223716+00:00",
+      "distribution": "fetch_only",
+      "rights": "Public metadata or documentation only; source-specific rights retained; no participant acquisition or license acceptance",
+      "final_url": "https://support.dataverse.harvard.edu/harvard-dataverse-general-terms-use",
+      "final_url_query_omitted": false,
+      "status": 403,
+      "content_type": "text/html",
+      "retrieved_utc": "2026-10-01T09:51:00.603220+00:00",
+      "size_bytes": 438,
+      "sha256": "daa6807025b3b6e82a47dc0431588cefddb253a94f7ea39b489bae17440aeac6",
+      "successful": false
+    },
+    {
+      "cache_filename": "creles-access-audit/harvard-api-terms.html",
+      "url": "https://support.dataverse.harvard.edu/harvard-dataverse-api-terms-use",
+      "started_utc": "2026-10-01T09:51:00.604256+00:00",
+      "distribution": "fetch_only",
+      "rights": "Public metadata or documentation only; source-specific rights retained; no participant acquisition or license acceptance",
+      "final_url": "https://support.dataverse.harvard.edu/harvard-dataverse-api-terms-use",
+      "final_url_query_omitted": false,
+      "status": 403,
+      "content_type": "text/html",
+      "retrieved_utc": "2026-10-01T09:51:00.827450+00:00",
+      "size_bytes": 434,
+      "sha256": "9680d4074ce11faddc070f03f277e5b90cbe062852803973e618f3f6ed9b174a",
+      "successful": false
+    },
+    {
+      "cache_filename": "creles-access-audit/harvard-privacy-policy.html",
+      "url": "https://support.dataverse.harvard.edu/harvard-dataverse-privacy-policy",
+      "started_utc": "2026-10-01T09:51:00.828680+00:00",
+      "distribution": "fetch_only",
+      "rights": "Public metadata or documentation only; source-specific rights retained; no participant acquisition or license acceptance",
+      "final_url": "https://support.dataverse.harvard.edu/harvard-dataverse-privacy-policy",
+      "final_url_query_omitted": false,
+      "status": 403,
+      "content_type": "text/html",
+      "retrieved_utc": "2026-10-01T09:51:01.054262+00:00",
+      "size_bytes": 429,
+      "sha256": "5d33bacd8776fda2f415def3f6b522282911159eb35f640af6703d1aeeaa64d6",
+      "successful": false
+    },
+    {
+      "scope": "Separately labeled Usage_notes.xlsx only; dataset_final.xlsx not requested",
+      "prior_rejection": "Initial file-stream identity was ambiguous. Official file-list metadata subsequently bound the file to a separate usage document, size and SHA, and auto-review approved a verified documentation request. That approved file-stream GET failedHTTP403 without source bytes. This request uses the ordinary download link explicitly advertised in the successfully acquired file-list metadata; no login, challenge or credential is used.",
+      "metadata_sha256": "89e3becc785cf11804cf334a9152db0d9c8cbe8ad3a03ecbaa2437f3b979fe1a",
+      "requested_url": "https://datadryad.org/api/v2/files/579891/download",
+      "requested_at_utc": "2026-10-01T10:01:15.794415+00:00",
+      "success": false,
+      "error": "HTTP Error 401: Unauthorized",
+      "observed_at_utc": "2026-10-01T10:01:16.299955+00:00"
+    }
+  ],
+  "untimed_failure_from_tool_output": {
+    "url": "https://datadryad.org/downloads/file_stream/579891",
+    "result": "HTTP Error 403: Forbidden",
+    "source_bytes_acquired": false,
+    "retrieval_timestamp": null,
+    "scope_review": "Verified usage-document request accepted after new official file-identity metadata; no actual document acquired"
+  },
+  "counts": {
+    "successful_sources_checked": 21,
+    "timed_failed_requests": 5,
+    "untimed_file_stream_failures": 1
+  }
+}
