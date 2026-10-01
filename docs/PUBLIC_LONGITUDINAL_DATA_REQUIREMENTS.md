@@ -139,8 +139,11 @@ The [Stanford iPOP source appraisal](IPOP_SOURCE_COVERAGE.md) adds a concrete
 repeated-laboratory lead with commit-pinned code, selected header metadata and
 Table S0 measure-name bindings. Its [receipts](validation/ipop-schema-receipts-v1.json)
 record actual partial/full acquisition, failed attempts and limited inspection.
-Units/rawness, actual clock semantics and file-level public-release membership
-remain unresolved; no clinical panel or empirical hazard was admitted.
+Subsequent review of Zheng et al. (2022) establishes public provenance for the
+named derivative. The next step is a frozen linked-panel intake with explicit
+measurement and relative-day assumptions, preserving unknown upstream rawness,
+specimen association and record coverage. No clinical fit or empirical hazard was
+admitted; the access correction does not resolve diagnosed history or mortality.
 
 The subsequent [source-admission appraisal](PUBLIC_LONGITUDINAL_ADMISSION.md)
 adds Dryad occupational examinations and SLIMM-T2D as conditional leads, plus
