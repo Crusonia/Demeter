@@ -60,18 +60,17 @@ remission fraction with denominator 129, while both reports' intention-to-treat
 cohort definitions say 149 per group. The [original failed receipt](../validation/direct-paired-failed-intake-v1.json)
 is retained unchanged. No paired table is accepted from that failed version alone.
 
-The [version amendment](../validation/direct-paired-observations-amendment-v2.json)
-selects literal counts from the published abstract in the
-[NLM article record](https://pubmed.ncbi.nlm.nih.gov/30852132/), after verifying its
-DOI, exact field and source identity. The amendment precedes planned extraction
-of those new literal counts, after the original failed intake and earlier abstract
-exposure. It requires explicit published denominator agreement with both cohort
-definitions and numerator agreement with the accepted manuscript. Agreement with
-a rounded percentage cannot repair this conflict. The accepted fraction and its
-failed check remain visible beside any result from the amended published source.
-This is a version preference, not an author-issued erratum; no such correction
-was identified in the NLM relationship inventory. No version-of-record body is
-claimed to have been acquired.
+The [v2 amendment](../validation/direct-paired-observations-amendment-v2.json)
+attempted to select literal counts from the published abstract in the
+[NLM article record](https://pubmed.ncbi.nlm.nih.gov/30852132/). It preceded planned
+extraction of those new counts, after the original failed intake and earlier
+abstract exposure. Its requirement for an explicit endpoint denominator was not
+met, and its exact field selection failed. The frozen amendment remains as a
+record of that failed selection, superseded by v3 below. Agreement with a rounded
+percentage cannot repair the manuscript conflict. The accepted fraction and its
+failed check remain visible beside the conditional result. No author-issued
+erratum was identified in the NLM relationship inventory, and no version-of-record
+body is claimed to have been acquired.
 
 The v2 XML selection itself failed before count capture: the exact field label
 is `FINDINGS`, and the abstract states the ITT cohort count separately from the

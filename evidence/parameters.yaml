@@ -1,4 +1,188 @@
 parameters:
+  direct_intervention_itt_n:
+    key: direct_intervention_itt_n
+    value: 149
+    unit: people
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: NLM PMID30852132 Abstract/FINDINGS opening ITT participants-per-group
+      sentence
+    source_id: direct_two_year_pubmed
+    source_url: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=30852132&retmode=xml
+    citation: Lean MEJ et al. Durability of a primary care-led weight-management intervention
+      for remission of type2 diabetes:2-year results of the DiRECT open-label, cluster-randomised
+      trial. Lancet Diabetes Endocrinol2019. DOI10.1016/S2213-8587(19)30068-3. NLM
+      PMID30852132 bibliographic XML/published abstract.
+    population: Selected DiRECT intervention-assigned primary-care adults with recent
+      diagnosedT2D, not receiving insulin at recruitment; conditional common-ITT scope
+      across nominal visits. Not U.S. population or never-diabetic healthy.
+    geography: United Kingdom primary-care trial; no national/U.S. transport
+    time_period: Nominal12/24month trial assessments; GP-record substitutions/windows
+      and actual individual elapsed times unresolved. One/two-year reports2018/2019;
+      source snapshots2026.
+    outcome_definition: Published ITT cohort N, applied to remission marginals only
+      under documented same-common-ITT scope.
+    transformation: Literal selected integer capture; no rounded-percentage arithmetic.
+      Source/estimand selection committed58db5a8, v3 committed23b1c3c before new published-count
+      capture. Original failed receipt immutable.
+    uncertainty:
+      kind: fixed
+      rationale: Fixed literal published source fact, not a sampling distribution
+        or uncertainty-free clinical outcome. Feasible-table bounds separately retain
+        pairing/assessment unknowns; sampling/clustering/measurement/treatment/time/transport
+        unresolved.
+    notes: GradeC describes scoped source-label use, not a causal-effect grade for
+      the trial. No active parameter, clinical hazard, biological relapse, continuous
+      untreated remission, UPF dose/lag, or independent evaluation.
+    lower_bound: 0
+  direct_intervention_positive_first_n:
+    key: direct_intervention_positive_first_n
+    value: 68
+    unit: people
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: Accepted one-year physicalPDFp4 Findings, intervention diabetes-remission
+      count
+    source_id: direct_one_year_accepted
+    source_url: https://eprints.gla.ac.uk/153078/13/153078.pdf
+    citation: 'Lean MEJ et al. Primary care-led weight management for remission of
+      type2 diabetes (DiRECT): an open-label, cluster-randomised trial. Lancet2018.
+      DOI10.1016/S0140-6736(17)33102-1. Accepted author manuscript.'
+    population: Selected DiRECT intervention-assigned primary-care adults with recent
+      diagnosedT2D, not receiving insulin at recruitment; conditional common-ITT scope
+      across nominal visits. Not U.S. population or never-diabetic healthy.
+    geography: United Kingdom primary-care trial; no national/U.S. transport
+    time_period: Nominal12/24month trial assessments; GP-record substitutions/windows
+      and actual individual elapsed times unresolved. One/two-year reports2018/2019;
+      source snapshots2026.
+    outcome_definition: Source-positive first nominal-visit remission; diagnosedT2D
+      history persists.
+    transformation: Literal selected integer capture; no rounded-percentage arithmetic.
+      Source/estimand selection committed58db5a8, v3 committed23b1c3c before new published-count
+      capture. Original failed receipt immutable.
+    uncertainty:
+      kind: fixed
+      rationale: Fixed literal published source fact, not a sampling distribution
+        or uncertainty-free clinical outcome. Feasible-table bounds separately retain
+        pairing/assessment unknowns; sampling/clustering/measurement/treatment/time/transport
+        unresolved.
+    notes: GradeC describes scoped source-label use, not a causal-effect grade for
+      the trial. No active parameter, clinical hazard, biological relapse, continuous
+      untreated remission, UPF dose/lag, or independent evaluation.
+    lower_bound: 0
+  direct_intervention_positive_second_n:
+    key: direct_intervention_positive_second_n
+    value: 53
+    unit: people
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: NLM PMID30852132 Abstract/FINDINGS intervention remission-of-diabetes
+      clause
+    source_id: direct_two_year_pubmed
+    source_url: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=30852132&retmode=xml
+    citation: Lean MEJ et al. Durability of a primary care-led weight-management intervention
+      for remission of type2 diabetes:2-year results of the DiRECT open-label, cluster-randomised
+      trial. Lancet Diabetes Endocrinol2019. DOI10.1016/S2213-8587(19)30068-3. NLM
+      PMID30852132 bibliographic XML/published abstract.
+    population: Selected DiRECT intervention-assigned primary-care adults with recent
+      diagnosedT2D, not receiving insulin at recruitment; conditional common-ITT scope
+      across nominal visits. Not U.S. population or never-diabetic healthy.
+    geography: United Kingdom primary-care trial; no national/U.S. transport
+    time_period: Nominal12/24month trial assessments; GP-record substitutions/windows
+      and actual individual elapsed times unresolved. One/two-year reports2018/2019;
+      source snapshots2026.
+    outcome_definition: Published second-visit source-positive count; same-ITT applicability
+      conditional. Abstract does not print its endpoint-specific denominator.
+    transformation: Literal selected integer capture; no rounded-percentage arithmetic.
+      Source/estimand selection committed58db5a8, v3 committed23b1c3c before new published-count
+      capture. Original failed receipt immutable.
+    uncertainty:
+      kind: fixed
+      rationale: Fixed literal published source fact, not a sampling distribution
+        or uncertainty-free clinical outcome. Feasible-table bounds separately retain
+        pairing/assessment unknowns; sampling/clustering/measurement/treatment/time/transport
+        unresolved.
+    notes: GradeC describes scoped source-label use, not a causal-effect grade for
+      the trial. No active parameter, clinical hazard, biological relapse, continuous
+      untreated remission, UPF dose/lag, or independent evaluation.
+    lower_bound: 0
+  direct_intervention_positive_pair_subgroup_n:
+    key: direct_intervention_positive_pair_subgroup_n
+    value: 48
+    unit: people
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: Accepted two-year physicalPDFp13 post-hoc weight analysis, maintaining12/24month
+      remission subgroup n
+    source_id: direct_two_year_accepted
+    source_url: https://eprints.gla.ac.uk/180894/13/180894.pdf
+    citation: Lean MEJ et al. Durability of a primary care-led weight-management intervention
+      for remission of type2 diabetes:2-year results of the DiRECT open-label, cluster-randomised
+      trial. Lancet Diabetes Endocrinol2019. DOI10.1016/S2213-8587(19)30068-3. Accepted
+      author manuscript.
+    population: Selected DiRECT intervention-assigned primary-care adults with recent
+      diagnosedT2D, not receiving insulin at recruitment; conditional common-ITT scope
+      across nominal visits. Not U.S. population or never-diabetic healthy.
+    geography: United Kingdom primary-care trial; no national/U.S. transport
+    time_period: Nominal12/24month trial assessments; GP-record substitutions/windows
+      and actual individual elapsed times unresolved. One/two-year reports2018/2019;
+      source snapshots2026.
+    outcome_definition: Reported same-person positive subgroup. Conditional lower
+      bound only; exhaustive paired cell and full weight-subset scope not certified.
+    transformation: Literal selected integer capture; no rounded-percentage arithmetic.
+      Source/estimand selection committed58db5a8, v3 committed23b1c3c before new published-count
+      capture. Original failed receipt immutable.
+    uncertainty:
+      kind: fixed
+      rationale: Fixed literal published source fact, not a sampling distribution
+        or uncertainty-free clinical outcome. Feasible-table bounds separately retain
+        pairing/assessment unknowns; sampling/clustering/measurement/treatment/time/transport
+        unresolved.
+    notes: GradeC describes scoped source-label use, not a causal-effect grade for
+      the trial. No active parameter, clinical hazard, biological relapse, continuous
+      untreated remission, UPF dose/lag, or independent evaluation.
+    lower_bound: 0
+  direct_accepted_second_literal_denominator_n:
+    key: direct_accepted_second_literal_denominator_n
+    value: 129
+    unit: people
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: Accepted two-year physicalPDFp12 selected remission fraction denominator
+    source_id: direct_two_year_accepted
+    source_url: https://eprints.gla.ac.uk/180894/13/180894.pdf
+    citation: Lean MEJ et al. Durability of a primary care-led weight-management intervention
+      for remission of type2 diabetes:2-year results of the DiRECT open-label, cluster-randomised
+      trial. Lancet Diabetes Endocrinol2019. DOI10.1016/S2213-8587(19)30068-3. Accepted
+      author manuscript.
+    population: Selected DiRECT intervention-assigned primary-care adults with recent
+      diagnosedT2D, not receiving insulin at recruitment; conditional common-ITT scope
+      across nominal visits. Not U.S. population or never-diabetic healthy.
+    geography: United Kingdom primary-care trial; no national/U.S. transport
+    time_period: Nominal12/24month trial assessments; GP-record substitutions/windows
+      and actual individual elapsed times unresolved. One/two-year reports2018/2019;
+      source snapshots2026.
+    outcome_definition: Literal printed129 denominator conflicts with both149-person
+      ITT definitions; preserved source failure, never substituted or used as model
+      cohort N.
+    transformation: Literal selected integer capture; no rounded-percentage arithmetic.
+      Source/estimand selection committed58db5a8, v3 committed23b1c3c before new published-count
+      capture. Original failed receipt immutable.
+    uncertainty:
+      kind: fixed
+      rationale: Fixed literal published source fact, not a sampling distribution
+        or uncertainty-free clinical outcome. Feasible-table bounds separately retain
+        pairing/assessment unknowns; sampling/clustering/measurement/treatment/time/transport
+        unresolved.
+    notes: GradeC describes scoped source-label use, not a causal-effect grade for
+      the trial. No active parameter, clinical hazard, biological relapse, continuous
+      untreated remission, UPF dose/lag, or independent evaluation.
+    lower_bound: 0
   whitehall_fpg_normal_label_n:
     key: whitehall_fpg_normal_label_n
     value: 365
@@ -4042,6 +4226,62 @@ datasets:
     working_likelihood_assumptions_empirically_established: false
     clinical_fit_allowed: false
     engine_activation_allowed: false
+  direct_paired_observations:
+    status: derived
+    evidence_grade: C
+    model_role: benchmark_only
+    unit: integer paired source-label feasible sets; not annual clinical hazards
+    population: Selected DiRECT intervention-assigned primary-care adults with recent
+      diagnosedT2D, not receiving insulin at recruitment; conditional common-ITT scope
+      across nominal visits. Not U.S. population or never-diabetic healthy.
+    geography: United Kingdom
+    time_period: Nominal12/24month trial assessments; GP-record substitutions/windows
+      and actual individual elapsed times unresolved. One/two-year reports2018/2019;
+      source snapshots2026.
+    source_ids:
+      one_year: direct_one_year_accepted
+      two_year: direct_two_year_accepted
+      published_abstract: direct_two_year_pubmed
+    parameter_keys:
+    - direct_intervention_itt_n
+    - direct_intervention_positive_first_n
+    - direct_intervention_positive_second_n
+    - direct_intervention_positive_pair_subgroup_n
+    - direct_accepted_second_literal_denominator_n
+    protocol_path: docs/validation/direct-paired-observations-protocol-v1.json
+    protocol_sha256: 4fd142053514f20bf9649d3faf8fb8c9ebb23d9eac7c26f5c8055f064ca45ab6
+    receipts_path: docs/validation/direct-paired-source-receipts-v1.json
+    receipts_sha256: 8b248316a7c5b0736f87ab3a52f0ed7d6a31c6c40f91bcdb7fc463055c3709d1
+    amendment_path: docs/validation/direct-paired-observations-amendment-v3.json
+    amendment_sha256: 9a46a50b9d6fb08260fd7f0591a53096249bbfac2a3a92bef27ad7ad4732029b
+    failed_intake_path: docs/validation/direct-paired-failed-intake-v1.json
+    failed_intake_sha256: 90eebf7c8f0e3aecb3f952c4e085abe8b9f457ba60b9003a6c62b0fa62a7e2b7
+    analysis:
+      published_intake_receipt_sha256: e814916728fb5c0db22bb21ea6b9b57212ee637f70c5d8c72f6cbd3ea332b83c
+      same_itt_scope: Same-common-ITT meaning is an explicit applicability assumption,
+        supported by the published Findings cohort sentence and accepted main Statistics
+        defining intention-to-treat primary outcomes and missing-as-failure. Keep
+        all computed paired-label bounds conditional on that scope; it is not confirmed
+        by participant identifiers.
+      positive_subgroup_scope: Two-year physicalp13 post-hoc weight analysis; maintaining
+        subgroup grammar supports paired positives, but full paired-weight availability/scope
+        is not explicit. Retain marginal-only set as sensitivity.
+      synthetic_software_fixture:
+        status: synthetic
+        evidence_grade: E
+        role: software_validation_only
+        unit: arbitrary people counts
+        N: 10
+        a: 4
+        b: 5
+        m: 3
+        clinical_inputs: false
+    uncertainty: Deterministic finite-source feasible-set bounds only, not confidence/credible
+      intervals or joint random draws. Sampling, clustering, assay error, missingness,
+      treatment, exact timing and transport unresolved. No iid assumption, MAR imputation,
+      pooling, annualization, optimizer or hazard fit.
+    clinical_fit_allowed: false
+    engine_activation_allowed: false
 scientific_blockers:
 - National age-specific metabolic transition hazards are unresolved.
 - Age-specific T2D/prediabetes initial prevalence is not calibrated; CDC total diabetes includes
@@ -4327,3 +4567,54 @@ sources:
     correction_note: Used-source, after prior/incidental result exposure; before planned
       extraction design frozen at8fd0d73. Historical acquisition times are not later
       local-byte verification times. No independent validation or participant records.
+  direct_one_year_accepted:
+    url: https://eprints.gla.ac.uk/153078/13/153078.pdf
+    citation: 'Lean MEJ et al. Primary care-led weight management for remission of
+      type2 diabetes (DiRECT): an open-label, cluster-randomised trial. Lancet2018.
+      DOI10.1016/S0140-6736(17)33102-1. Accepted author manuscript.'
+    doi: 10.1016/S0140-6736(17)33102-1
+    raw_filename: direct2018-main-20260930T232130925423Z.pdf
+    sha256: 3636adf9611bd625326c92102e2a5ec11b25dad793599ea0288f977bf4b56751
+    retrieved_at: '2026-09-30T23:21:32.616002+00:00'
+    license: Full source kept fetch-only; no publication text/figures/participant
+      records redistributed. Limited attributed factual counts and Demeter transforms
+      only; publication access does not grant controlled-data rights.
+    correction_note: Overlapping same-trial reports, used-source. Accepted53/129 conflicts
+      with ITT149; original failure retained. Published abstract states separate ITT
+      N and remission numerator, not an endpoint fraction. V3 uses explicit conditional
+      common-ITT scope, not percentage repair or author-issued erratum.
+  direct_two_year_accepted:
+    url: https://eprints.gla.ac.uk/180894/13/180894.pdf
+    citation: Lean MEJ et al. Durability of a primary care-led weight-management intervention
+      for remission of type2 diabetes:2-year results of the DiRECT open-label, cluster-randomised
+      trial. Lancet Diabetes Endocrinol2019. DOI10.1016/S2213-8587(19)30068-3. Accepted
+      author manuscript.
+    doi: 10.1016/S2213-8587(19)30068-3
+    raw_filename: direct2yr-main-methods-20261001T021024740300Z.pdf
+    sha256: 907b78c4577e81dfd3dcd2c23c302f8a587d687f89781800e2a6d49b076c76b0
+    retrieved_at: '2026-10-01T02:10:26.018338+00:00'
+    license: Accepted two-year repository metadata identifies CC BY-NC-ND4.0. Full
+      source kept fetch-only; no publication text/figures/participant records redistributed.
+      Limited attributed factual counts and Demeter transforms only; publication access
+      does not grant controlled-data rights.
+    correction_note: Overlapping same-trial reports, used-source. Accepted53/129 conflicts
+      with ITT149; original failure retained. Published abstract states separate ITT
+      N and remission numerator, not an endpoint fraction. V3 uses explicit conditional
+      common-ITT scope, not percentage repair or author-issued erratum.
+  direct_two_year_pubmed:
+    url: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=30852132&retmode=xml
+    citation: Lean MEJ et al. Durability of a primary care-led weight-management intervention
+      for remission of type2 diabetes:2-year results of the DiRECT open-label, cluster-randomised
+      trial. Lancet Diabetes Endocrinol2019. DOI10.1016/S2213-8587(19)30068-3. NLM
+      PMID30852132 bibliographic XML/published abstract.
+    doi: 10.1016/S2213-8587(19)30068-3
+    raw_filename: direct2yr-pubmed-primary-20261001T025227281200Z.xml
+    sha256: ba06d37bbdad6394a5345afaf1f0ed3d37bc8f877ea2a718f2311fe4b1b65406
+    retrieved_at: '2026-10-01T02:52:27.637585+00:00'
+    license: Full source kept fetch-only; no publication text/figures/participant
+      records redistributed. Limited attributed factual counts and Demeter transforms
+      only; publication access does not grant controlled-data rights.
+    correction_note: Overlapping same-trial reports, used-source. Accepted53/129 conflicts
+      with ITT149; original failure retained. Published abstract states separate ITT
+      N and remission numerator, not an endpoint fraction. V3 uses explicit conditional
+      common-ITT scope, not percentage repair or author-issued erratum.

@@ -24,6 +24,13 @@ parameters. The source does not establish that sampling model or resolve latent
 states, histories, exact timing, selection, competing death or U.S. transport.
 It therefore does not satisfy the full clinical observation contract below.
 
+The [paired remission observation model](PAIRED_REMISSION_OBSERVATIONS.md)
+implements integer constraints on two visits' source labels, conditional on
+explicit common-cohort and positive-subgroup scope. It preserves diagnosed-T2D
+history, source failures and unknown assessment/death partitions. It supplies
+neither a latent clinical likelihood nor an annual hazard fit; exact observation,
+treatment, censoring and clinical identification requirements below remain open.
+
 The [project vision](PROJECT_VISION.md), [architecture](SYSTEM_ARCHITECTURE.md)
 and [scenario catalog](SCENARIO_CATALOG.md) preserve the broader program. The
 current work remains within the v0.1 health slice. Its design chain is the health

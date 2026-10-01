@@ -111,15 +111,31 @@ def test_real_packages_cover_every_source_and_bundle_without_network(monkeypatch
     monkeypatch.setattr("urllib.request.urlopen", no_network)
     report = verify_packages()
     assert report["passed"], [c for c in report["checks"] if not c["passed"]]
-    assert len(report["sources"]) == 72
-    assert len(report["artifacts"]) == 82
-    assert len(report["packages"]) == 24
+    assert len(report["sources"]) == 75
+    assert len(report["artifacts"]) == 92
+    assert len(report["packages"]) == 25
     assert not report["network_used"]
     assert report["documentation"]["metadata_passed"]
     assert len(report["documentation"]["source_checks"]) == 15
     assert not report["documentation"]["raw_bytes_checked"]
     assert report["documentation"]["raw_bytes_passed"] is None
     assert {s["distribution"] for s in report["sources"]} == {"archived", "fetch_only"}
+    direct_sources = [s for s in report["sources"] if s["policy"] == "direct_paired_public_facts"]
+    assert {s["source_id"] for s in direct_sources} == {
+        "direct_one_year_accepted",
+        "direct_two_year_accepted",
+        "direct_two_year_pubmed",
+    }
+    assert all(s["distribution"] == "fetch_only" for s in direct_sources)
+    direct_package = report["packages"]["direct_paired_observations"]
+    assert direct_package["store"] is None
+    assert direct_package["model_role"] == "benchmark_only"
+    assert len(direct_package["artifacts"]) == 10
+    assert {
+        "docs/validation/direct-paired-failed-intake-v1.json",
+        "docs/validation/direct-paired-amendment-v2-failure.json",
+        "docs/validation/direct-paired-observations-amendment-v3.json",
+    } <= {a["path"] for a in direct_package["artifacts"]}
 
 
 def test_cli_audit_is_reviewable_and_missing_rights_fail(package_root, tmp_path):
