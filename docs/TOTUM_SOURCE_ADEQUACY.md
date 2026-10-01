@@ -160,9 +160,14 @@ uv run demeter evidence totum-source-rows --raw outputs/public-source-search-202
 
 For fresh fetches, use the printed `--raw` path. Local byte verification does not
 claim the new acquisition happened at historical receipt times. `--raw` is required;
-the audit checks all five files before reading the selected cells. The fetch
-examples were syntax-checked, not tested with new live downloads. Passing software
-checks does not establish scientific release readiness.
+the audit checks all five files before reading the selected cells. On October 1,
+2026 UTC, a fresh execution matched the release metadata but stopped at changed
+article HTML bytes (389952 bytes versus the frozen 389951). The remaining three
+sources were not requested. A scoped comparison found identical approved methods
+and access text; differing anchor IDs and other uninterpreted page bytes still
+fail the original whole-document pin. Original matching snapshots are required
+for this version; no repinning or fresh-download replay is claimed. Passing
+software checks does not establish scientific release readiness.
 
 The next decision is whether the source preserves enough observations for a
 separately frozen analysis. Same-person pairing, unique record units, assay

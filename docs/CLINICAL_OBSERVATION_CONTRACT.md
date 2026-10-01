@@ -17,6 +17,13 @@ field/form locators, excluded dates and version discrepancies. It distinguishes
 documented meaning from actual record coverage and identifies which proposed
 clinical fits remain unsupported under the public-source route.
 
+The [Whitehall II endpoint implementation](WHITEHALL_ENDPOINT.md) reproduces
+published source labels and evaluates a conditional iid binomial working
+likelihood. Its fitted endpoint probability is separate from clinical transition
+parameters. The source does not establish that sampling model or resolve latent
+states, histories, exact timing, selection, competing death or U.S. transport.
+It therefore does not satisfy the full clinical observation contract below.
+
 The [project vision](PROJECT_VISION.md), [architecture](SYSTEM_ARCHITECTURE.md)
 and [scenario catalog](SCENARIO_CATALOG.md) preserve the broader program. The
 current work remains within the v0.1 health slice. Its design chain is the health

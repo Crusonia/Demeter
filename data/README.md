@@ -20,6 +20,12 @@ fetch-only here. Permitted aggregate coverage, frozen selection and historical
 receipts are distributed. Actual collection dates, unique participant pairing and
 complete clinical histories remain unverified; no individual values are exported.
 
+The [Whitehall II endpoint package](../docs/WHITEHALL_ENDPOINT.md) contains limited
+attributed published counts, frozen static-PDF source pins and a conditional
+binomial working-model analysis. Full publications are fetch-only; no participant
+records were requested. Fitted endpoint probability and clinical transition rates
+remain distinct, with a descriptive-only alternative available.
+
 The [DPP preservation package](../docs/DPP_OBSERVATION_ADAPTER.md) contains public
 documentation receipts, a frozen field contract and synthetic aggregate checks.
 Full documents are fetch-only and participant records are request-only. Its

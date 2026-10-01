@@ -1,4 +1,141 @@
 parameters:
+  whitehall_fpg_normal_label_n:
+    key: whitehall_fpg_normal_label_n
+    value: 365
+    unit: people
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: ESMTable1 physicalPDFp1 ByFPG, Normoglycaemia row, N column
+    source_id: whitehall_esm2019
+    source_url: https://media.springernature.com/original/springer-static/esm/art%3A10.1007%2Fs00125-019-4895-0/MediaObjects/125_2019_4895_MOESM1_ESM.pdf
+    citation: 'Vistisen D et al. Reversion from prediabetes to normoglycaemia and
+      risk of cardiovascular disease and mortality: the Whitehall II cohort study.
+      Diabetologia62:1385-1390(2019). DOI10.1007/s00125-019-4895-0.'
+    population: Source-selected British occupational Whitehall II participants initially
+      classified FPG-prediabetic with paired phase7/phase9 classifiable examinations;
+      not the entire original cohort or a national sample.
+    geography: United Kingdom, British occupational cohort; no U.S. transport
+    time_period: Phase7 2002-2004 to phase9 2007-2009, approximately five years; actual
+      individual intervals unknown. Publication2019; no annualization.
+    outcome_definition: Source FPG terminal category at re-examination. Normal is
+      not sustained untreated remission/general metabolic health; nonreversion collapses
+      prediabetes and diabetes. Histories/treatment/death/selection unresolved.
+    transformation: ESMTable1 physicalPDFp1 ByFPG, Normoglycaemia row, N column
+    uncertainty:
+      kind: fixed
+      rationale: Literal selected published release counts or their deterministic
+        sum, not a population estimate. Fixed representation does not resolve missing
+        people, source classification, history or selection.
+    notes: Used-source benchmark only. No clinical transition fit, annualization,
+      UPF/diet effect or engine activation. Empirical sampling-model adequacy and
+      independent human scientific review unresolved.
+    lower_bound: 0
+  whitehall_fpg_nonreversion_label_n:
+    key: whitehall_fpg_nonreversion_label_n
+    value: 455
+    unit: people
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: ESMTable1 physicalPDFp1 ByFPG, Prediabetes or diabetes row, N column
+    source_id: whitehall_esm2019
+    source_url: https://media.springernature.com/original/springer-static/esm/art%3A10.1007%2Fs00125-019-4895-0/MediaObjects/125_2019_4895_MOESM1_ESM.pdf
+    citation: 'Vistisen D et al. Reversion from prediabetes to normoglycaemia and
+      risk of cardiovascular disease and mortality: the Whitehall II cohort study.
+      Diabetologia62:1385-1390(2019). DOI10.1007/s00125-019-4895-0.'
+    population: Source-selected British occupational Whitehall II participants initially
+      classified FPG-prediabetic with paired phase7/phase9 classifiable examinations;
+      not the entire original cohort or a national sample.
+    geography: United Kingdom, British occupational cohort; no U.S. transport
+    time_period: Phase7 2002-2004 to phase9 2007-2009, approximately five years; actual
+      individual intervals unknown. Publication2019; no annualization.
+    outcome_definition: Source FPG terminal category at re-examination. Normal is
+      not sustained untreated remission/general metabolic health; nonreversion collapses
+      prediabetes and diabetes. Histories/treatment/death/selection unresolved.
+    transformation: ESMTable1 physicalPDFp1 ByFPG, Prediabetes or diabetes row, N
+      column
+    uncertainty:
+      kind: fixed
+      rationale: Literal selected published release counts or their deterministic
+        sum, not a population estimate. Fixed representation does not resolve missing
+        people, source classification, history or selection.
+    notes: Used-source benchmark only. No clinical transition fit, annualization,
+      UPF/diet effect or engine activation. Empirical sampling-model adequacy and
+      independent human scientific review unresolved.
+    lower_bound: 0
+  whitehall_fpg_paired_n:
+    key: whitehall_fpg_paired_n
+    value: 820
+    unit: people
+    status: derived
+    evidence_grade: C
+    model_role: benchmark_only
+    source: Sum of exactly the two selected ESM N cells; main physicalPDFp3 FPG initial
+      denominator crosscheck
+    source_id: whitehall_esm2019
+    source_url: https://media.springernature.com/original/springer-static/esm/art%3A10.1007%2Fs00125-019-4895-0/MediaObjects/125_2019_4895_MOESM1_ESM.pdf
+    citation: 'Vistisen D et al. Reversion from prediabetes to normoglycaemia and
+      risk of cardiovascular disease and mortality: the Whitehall II cohort study.
+      Diabetologia62:1385-1390(2019). DOI10.1007/s00125-019-4895-0.'
+    population: Source-selected British occupational Whitehall II participants initially
+      classified FPG-prediabetic with paired phase7/phase9 classifiable examinations;
+      not the entire original cohort or a national sample.
+    geography: United Kingdom, British occupational cohort; no U.S. transport
+    time_period: Phase7 2002-2004 to phase9 2007-2009, approximately five years; actual
+      individual intervals unknown. Publication2019; no annualization.
+    outcome_definition: Source FPG terminal category at re-examination. Normal is
+      not sustained untreated remission/general metabolic health; nonreversion collapses
+      prediabetes and diabetes. Histories/treatment/death/selection unresolved.
+    transformation: Sum of exactly the two selected ESM N cells; main physicalPDFp3
+      FPG initial denominator crosscheck
+    uncertainty:
+      kind: fixed
+      rationale: Literal selected published release counts or their deterministic
+        sum, not a population estimate. Fixed representation does not resolve missing
+        people, source classification, history or selection.
+    notes: Used-source benchmark only. No clinical transition fit, annualization,
+      UPF/diet effect or engine activation. Empirical sampling-model adequacy and
+      independent human scientific review unresolved.
+    lower_bound: 0
+  whitehall_fpg_normal_label_proportion:
+    key: whitehall_fpg_normal_label_proportion
+    value: 0.4451219512195122
+    unit: proportion
+    status: derived
+    evidence_grade: C
+    model_role: benchmark_only
+    source: Selected normal-label N / sum of selected normal and nonreversion N; not
+      annual or causal
+    source_id: whitehall_esm2019
+    source_url: https://media.springernature.com/original/springer-static/esm/art%3A10.1007%2Fs00125-019-4895-0/MediaObjects/125_2019_4895_MOESM1_ESM.pdf
+    citation: 'Vistisen D et al. Reversion from prediabetes to normoglycaemia and
+      risk of cardiovascular disease and mortality: the Whitehall II cohort study.
+      Diabetologia62:1385-1390(2019). DOI10.1007/s00125-019-4895-0.'
+    population: Source-selected British occupational Whitehall II participants initially
+      classified FPG-prediabetic with paired phase7/phase9 classifiable examinations;
+      not the entire original cohort or a national sample.
+    geography: United Kingdom, British occupational cohort; no U.S. transport
+    time_period: Phase7 2002-2004 to phase9 2007-2009, approximately five years; actual
+      individual intervals unknown. Publication2019; no annualization.
+    outcome_definition: Source FPG terminal category at re-examination. Normal is
+      not sustained untreated remission/general metabolic health; nonreversion collapses
+      prediabetes and diabetes. Histories/treatment/death/selection unresolved.
+    transformation: Selected normal-label N / sum of selected normal and nonreversion
+      N; not annual or causal
+    uncertainty:
+      kind: interval
+      low: 0.4107463872698784
+      high: 0.47989333991733635
+      rationale: Analyst-calculated two-sided equal-tail Clopper-Pearson interval
+        at declared0.95 setting, conditional on working iid constant-p binomial assumptions;
+        not a published interval. No selection/dependence/measurement/history/transport
+        uncertainty covered.
+    notes: Used-source benchmark only. No clinical transition fit, annualization,
+      UPF/diet effect or engine activation. Empirical sampling-model adequacy and
+      independent human scientific review unresolved.
+    lower_bound: 0
+    upper_bound: 1
   mortality_development_glycemic_piecewise_intercept:
     key: mortality_development_glycemic_piecewise_intercept
     value: -7.5371232188302
@@ -3798,6 +3935,113 @@ datasets:
       uncertainty fitted.
     clinical_fit_allowed: false
     engine_activation_allowed: false
+  whitehall_fpg_endpoint:
+    status: derived
+    evidence_grade: C
+    model_role: benchmark_only
+    population: Source-selected British occupational Whitehall II participants initially
+      classified FPG-prediabetic with paired phase7/phase9 classifiable examinations;
+      not the entire original cohort or a national sample.
+    geography: United Kingdom
+    time_period: Phase7 2002-2004 to phase9 2007-2009, approximately five years; actual
+      individual intervals unknown. Publication2019; no annualization.
+    unit: Conditional source endpoint label counts/proportion and binomial working
+      likelihood; no annual transition rates
+    source_ids:
+      main_static_pdf: whitehall_main2019
+      supplement_pdf: whitehall_esm2019
+    protocol_path: docs/validation/whitehall-fpg-endpoint-protocol-v1.json
+    protocol_sha256: 6452943e6fc9e233946dc4fc3ef155bc2e2ec9583936603ca5d544547ee4d690
+    receipts_path: docs/validation/whitehall-fpg-source-receipts-v1.json
+    receipts_sha256: fb3580aeceb37d58ca5212881682d0d5a42455628907e857e72079a595d10a42
+    analysis:
+      counts:
+        normal_label_n: 365
+        nonreversion_label_n: 455
+      confidence_level: 0.95
+      confidence_setting:
+        status: synthetic
+        evidence_grade: E
+        role: analysis_design_choice
+        not_source_estimate: true
+        rationale: Declared confidence level, not an empirical clinical quantity;
+          binomial interval has only its conditional working-model interpretation.
+      numerical_comparison:
+        absolute_tolerance: 1.0e-12
+        status: synthetic
+        evidence_grade: E
+        role: software_numerical_validation
+        source_precision_claim: false
+      source_structure:
+        main_page_count: 6
+        supplement_page_count: 5
+        supplement_table_page: 1
+        supplement_page_rotation_degrees: 90
+        table_heading: Table 1
+        block_start: By FPG
+        block_end: By 2hPG
+        source_row_order:
+        - Prediabetes or diabetes
+        - Normoglycaemia
+        selected_column: N
+        next_column: No. events
+        coordinates_role: Masked label/header context only; unrotated media-box coordinates,
+          not a substitute for row/column/header structural validation.
+        unrotated_label_boxes:
+          By FPG:
+          - 185.89
+          - 720.69
+          - 196.98
+          - 753.27
+          Prediabetes or diabetes:
+          - 185.89
+          - 531.62
+          - 196.98
+          - 623.95
+          Normoglycaemia:
+          - 203.11
+          - 554.56
+          - 214.2
+          - 623.97
+          N:
+          - 168.13
+          - 496.97
+          - 179.22
+          - 504.2
+          By 2hPG:
+          - 237.61
+          - 716.3
+          - 248.71
+          - 753.27
+      synthetic_ambiguity_fixture:
+        status: synthetic
+        evidence_grade: E
+        role: software_validation_only
+        target_endpoint_probability: 0.25
+        time: 2.0
+        time_unit: toy_time_unit
+        total_rates:
+        - 0.5
+        - 1.0
+        rate_unit: per_toy_time_unit
+        absolute_tolerance: 1.0e-12
+      intake_receipt_sha256: 891ba4050094e4572bb6fb7f56ab9765c5e90fef64c3e853da36c71aadc70b92
+      intake_chronology: Protocol freeze8fd0d73 preceded planned ESM selected-cell
+        extraction; prior/incidental result exposure acknowledged. A first postfreeze
+        main visual crop incidentally extended below the selected prefix; no extra
+        count was registered/used. Same-source crosschecks are not independent observations.
+    parameter_keys:
+    - whitehall_fpg_normal_label_n
+    - whitehall_fpg_nonreversion_label_n
+    - whitehall_fpg_paired_n
+    - whitehall_fpg_normal_label_proportion
+    uncertainty: Descriptive-only interval unavailable; binomial working-mode CP interval
+      conditional on iid constant-p labels and declared0.95 design setting. Selection,
+      heterogeneity/dependence, measurement/history/treatment, exact time, death/censoring
+      and transport remain unresolved.
+    working_likelihood_assumptions_empirically_established: false
+    clinical_fit_allowed: false
+    engine_activation_allowed: false
 scientific_blockers:
 - National age-specific metabolic transition hazards are unresolved.
 - Age-specific T2D/prediabetes initial prevalence is not calibrated; CDC total diabetes includes
@@ -4051,3 +4295,35 @@ sources:
       later localbyteverification. Publication/registry data-sharing conflict, unverified
       row-unit/pairing and incomplete clinical histories retained; no efficacy or
       clinical fit.
+  whitehall_main2019:
+    url: https://link.springer.com/content/pdf/10.1007/s00125-019-4895-0.pdf
+    citation: 'Vistisen D et al. Reversion from prediabetes to normoglycaemia and
+      risk of cardiovascular disease and mortality: the Whitehall II cohort study.
+      Diabetologia62:1385-1390(2019). DOI10.1007/s00125-019-4895-0. Main physicalPDFp3/printed1387
+      FPGcriterion prefix crosscheck.'
+    doi: 10.1007/s00125-019-4895-0
+    raw_filename: whitehall2019-official-main-static-20261001T012705176722Z.pdf
+    sha256: e89dfe23cdb184e9f1fbb04f58678d23e97f2ea8ab5d215df8aa85716799d712
+    retrieved_at: '2026-10-01T01:27:07.549200+00:00'
+    license: Article CC BY4.0 at physicalp5/printed1389; full article and attachment
+      kept fetch-only; limited attributed aggregate reproduction. Publication rights
+      do not grant participant-data access.
+    correction_note: Used-source, after prior/incidental result exposure; before planned
+      extraction design frozen at8fd0d73. Historical acquisition times are not later
+      local-byte verification times. No independent validation or participant records.
+  whitehall_esm2019:
+    url: https://media.springernature.com/original/springer-static/esm/art%3A10.1007%2Fs00125-019-4895-0/MediaObjects/125_2019_4895_MOESM1_ESM.pdf
+    citation: 'Vistisen D et al. Reversion from prediabetes to normoglycaemia and
+      risk of cardiovascular disease and mortality: the Whitehall II cohort study.
+      Diabetologia62:1385-1390(2019). DOI10.1007/s00125-019-4895-0. ESMTable1 physicalPDFp1
+      ByFPG N-column.'
+    doi: 10.1007/s00125-019-4895-0
+    raw_filename: whitehall2019-esm-20260930T233958561302Z.pdf
+    sha256: a78d0ead94ff6571518907beaa0805656902df4ec4ba30fc9c038889187bb894
+    retrieved_at: '2026-09-30T23:39:58.933115+00:00'
+    license: Article CC BY4.0 at physicalp5/printed1389; full article and attachment
+      kept fetch-only; limited attributed aggregate reproduction. Publication rights
+      do not grant participant-data access.
+    correction_note: Used-source, after prior/incidental result exposure; before planned
+      extraction design frozen at8fd0d73. Historical acquisition times are not later
+      local-byte verification times. No independent validation or participant records.

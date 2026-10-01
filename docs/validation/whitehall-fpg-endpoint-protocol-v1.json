@@ -1,0 +1,300 @@
+{
+  "protocol_version": 1,
+  "freeze_status": "Committed analysis design before planned ESM selected-count capture and calculation; after prior/incidental result exposure. Used-source reproduction, not preregistration or independent validation.",
+  "created_utc": "2026-10-01T01:36:56.010959+00:00",
+  "title": "WhitehallII2019 selected FPG paired-examination endpoint: source reproduction and conditional binomial working likelihood",
+  "intended_scope": "Reproduce exact published aggregate labels/counts, then evaluate a declared conditional endpoint working likelihood; no annual clinical-rate fit or engine activation",
+  "chronology": {
+    "earlier_scope_selection": "whitehall2019-proposed-observation-contract-v1.json already selected FPG-only normal/nonreversion endpoint scope; retained unchanged",
+    "existing_used_source_records": [
+      "whitehall2019-appraisal-selection-v1.json",
+      "whitehall2019-proposed-observation-contract-v1.json",
+      "whitehall2019-static-main-acquisition-selection-v1.json",
+      "whitehall2019-static-main-incidental-exposure-amendment-v1.json"
+    ],
+    "analysis_plan_is_after_prior_numeric_result_exposure": true,
+    "analysis_plan_is_before_planned_ESM_N_cell_extraction_and_likelihood_calculation": true,
+    "exposure_detail": "Prior automatic search snippets and a subsequent unintentional AbstractResults heading match exposed published descriptive counts. The static methods visual additionally showed editorial context and population-flow numbers. No selected ESMTable1 N values or optional main crosscheck numbers were captured into a table/registry, calculated or fitted. Sources are used-source.",
+    "not_preregistration_before_outcome_inspection": true,
+    "not_independent_validation_or_holdout": true,
+    "selected_count_cells_extracted": false,
+    "planned_numerical_reproduction_started": false
+  },
+  "source_documents": {
+    "required_offline_sources": [
+      "main_static_pdf",
+      "supplement_pdf"
+    ],
+    "required_source_receipts": {
+      "main_static_pdf": {
+        "role": "primary official static paper acquisition before count freeze",
+        "distribution": "fetch_only",
+        "url": "https://link.springer.com/content/pdf/10.1007/s00125-019-4895-0.pdf",
+        "final_url": "https://link.springer.com/content/pdf/10.1007/s00125-019-4895-0.pdf",
+        "retrieval_started_utc": "2026-10-01T01:27:05.176722+00:00",
+        "retrieved_utc": "2026-10-01T01:27:07.549200+00:00",
+        "status": 200,
+        "content_type": "application/pdf",
+        "size_bytes": 543921,
+        "sha256": "e89dfe23cdb184e9f1fbb04f58678d23e97f2ea8ab5d215df8aa85716799d712",
+        "cache_filename": "whitehall2019-official-main-static-20261001T012705176722Z.pdf",
+        "is_pdf": true,
+        "inspection_scope": "bibliography/license/methods only; no numeric outcome extraction",
+        "final_url_query_omitted": true
+      },
+      "supplement_pdf": {
+        "role": "public primary publication supplement; no participant dataset",
+        "distribution": "fetch_only",
+        "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1007%2Fs00125-019-4895-0/MediaObjects/125_2019_4895_MOESM1_ESM.pdf",
+        "final_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1007%2Fs00125-019-4895-0/MediaObjects/125_2019_4895_MOESM1_ESM.pdf",
+        "retrieval_started_utc": "2026-09-30T23:39:58.561302+00:00",
+        "retrieved_utc": "2026-09-30T23:39:58.933115+00:00",
+        "size_bytes": 294249,
+        "sha256": "a78d0ead94ff6571518907beaa0805656902df4ec4ba30fc9c038889187bb894",
+        "status": 200,
+        "content_type": "application/pdf",
+        "cache_filename": "whitehall2019-esm-20260930T233958561302Z.pdf"
+      }
+    },
+    "historical_context_receipts_reference": "docs/validation/whitehall-fpg-source-receipts-v1.json",
+    "live_HTML_and_access_pages_required_for_numerical_runtime": false,
+    "immutability": "Keep original raw PDFs and historical receipts byte-identical. Fresh fetches need their own current receipts; do not claim historical acquisition times for new files or repin changed source bytes.",
+    "no_network_at_analysis_runtime": true,
+    "raw_exports": "No full publications, source participants or unselected tables/effects exported; sources cached fetch_only under ignored output/data directories"
+  },
+  "bibliography": {
+    "title": "Reversion from prediabetes to normoglycaemia and risk of cardiovascular disease and mortality: the Whitehall II cohort study",
+    "first_author": "Dorte Vistisen",
+    "authors": [
+      "Dorte Vistisen",
+      "Mika Kivimäki",
+      "Leigh Perreault",
+      "Adam Hulman",
+      "Daniel R. Witte",
+      "Eric J. Brunner",
+      "Adam Tabák",
+      "Marit E. Jørgensen",
+      "Kristine Færch"
+    ],
+    "doi": "10.1007/s00125-019-4895-0",
+    "publication": "Diabetologia2019;62:1385–1390",
+    "published_online": "2019-05-23",
+    "static_PDF_bibliographic_locator": "physicalPDFp1 title/author/DOI block, excluding AbstractResults"
+  },
+  "rights": {
+    "main": "StaticPDF physicalp5/printed1389 OpenAccess paragraph: CC BY4.0 with attribution/link/change indication",
+    "supplement": "Public primary ESM attachment linked by the same article; retain full PDF fetch_only and attribute limited derived analytical reproduction. No participant-data permission follows from publication rights.",
+    "participant_records": "Official current UCL/DPUK application route remains historical access context; no participant records, application, agreement acceptance or outreach",
+    "publication_source_approval": "Technical reproduction is not external human clinical/scientific assessment"
+  },
+  "population_and_observation_definition": {
+    "population": "Source-selected British occupational WhitehallII paired phase7/phase9 examinations, initially FPG-defined prediabetes, not the full original baseline cohort or a national sample",
+    "baseline_selection": "Static mainPDF physicalp2/printed1386 StudyPopulation; physicalp3/printed1387 StatisticalAnalysis first paragraph. Excludes baseline known diabetes and, for FPG analyses, baseline FPG screen-detected diabetes; requires classifiable paired examinations and source fasting requirements.",
+    "source_measurement": "FPG measured in the source clinical OGTT by glucose oxidase; source criterion rules are cited, not re-applied to participants in this aggregate analysis",
+    "source_measurement_locator": "Static mainPDF physicalp2 MeasurementsAndDefinitions, continuing onto physicalp3",
+    "initial_category": "Source FPG-defined prediabetes at baseline",
+    "endpoint_labels": [
+      "Normoglycaemia",
+      "Prediabetes or diabetes"
+    ],
+    "endpoint": "Terminal source FPG-category label at the phase9 re-examination; not sustained untreated remission or an adjudicated repeated event history",
+    "time": "Phase7(2002–2004) to phase9(2007–2009); source calls re-examination approximately5years later. Actual per-person intervals are not in the selected aggregate. Do not assign an exact common clinical horizon or convert to an annual probability.",
+    "timing_locator": "Static mainPDF physicalpp2–3 StudyPopulation/StatisticalAnalysis; historicalHTML #FPar1/#FPar3",
+    "clinical_history": "Doctor diagnosis outside the study is possible. Baseline known diabetes is excluded, but categorical phase9 priority of doctor diagnosis versus a normal measured FPG and detailed drug histories are not fully specified. The known-phase9-diabetes exclusion belongs to the continuous-change/CVD association analysis and must not be silently transferred to categorical endpoint N.",
+    "history_locator": "Static mainPDF physicalpp2–3 MeasurementsAndDefinitions; physicalp3 StatisticalAnalysis fourth paragraph",
+    "death_and_missingness": "Phase9 nonattendance/unclassifiable paired examinations are excluded. Published later CVD/death follow-up begins phase9; it is not the competing death/censor partition during the phase7-to9 glycemic interval. Missing outcomes or mortality rows cannot be classified normal/alive.",
+    "death_locator": "Static mainPDF physicalp2 last MeasurementsAndDefinitions paragraph continuing physicalp3 top-left; historicalHTML #FPar2 lastparagraph and #FPar3",
+    "cross_criterion_overlap": "FPG/2hPG/HbA1c groups overlap. Use FPG only; no pooling or multiplied independent marginal likelihoods."
+  },
+  "planned_primary_count_cells": [
+    {
+      "key": "fpg_phase9_normoglycaemia_n",
+      "status": "observed",
+      "source": "supplement_pdf",
+      "locator": "ESMTable1 physicalPDFp1, ByFPG block, Normoglycaemia row, N column",
+      "exact_row_label": "Normoglycaemia",
+      "exact_column_label": "N",
+      "value": null,
+      "intake_state": "pending authorized planned numerical intake; value deliberately null"
+    },
+    {
+      "key": "fpg_phase9_nonreversion_n",
+      "status": "observed",
+      "source": "supplement_pdf",
+      "locator": "ESMTable1 physicalPDFp1, ByFPG block, Prediabetes or diabetes row, N column",
+      "exact_row_label": "Prediabetes or diabetes",
+      "exact_column_label": "N",
+      "value": null,
+      "intake_state": "pending authorized planned numerical intake; value deliberately null"
+    }
+  ],
+  "selected_cells_only": "No progression-only counts, initial-normal counts, overlapping glycemic groups, future CVD/death event/rate/RR columns, subgroup pooling or parameter tuning",
+  "estimand_and_descriptive_functional": {
+    "symbol": "p",
+    "definition": "Probability of the source terminal Normoglycaemia label conditional on membership in the retained initial-FPG-prediabetic paired-examination source sample; an observation-level endpoint parameter only",
+    "N": "N = n_normoglycaemia + n_nonreversion",
+    "y": "y = n_normoglycaemia",
+    "point_estimate": "p_hat = y/N",
+    "point_scope": "Finite selected-sample observed label proportion; no individual trajectory, causal effect or annual rate"
+  },
+  "working_likelihood": {
+    "family": "Binomial",
+    "assumptions": [
+      "Condition on the selected paired-examination analysis sample and its count N",
+      "Treat each endpoint label as an independent Bernoulli realization",
+      "Use one constant p for that selected sample; individual risk/selection/visit-time heterogeneity and dependence are not modeled"
+    ],
+    "empirical_support": "The publication does not establish an iid constant-p sampling design or provide dependence/selection/measurement evidence sufficient to validate these working assumptions. British occupational selection and complete-case retention do not become population representative through this calculation.",
+    "normalized_likelihood": "L(p) = choose(N,y) p^y (1-p)^(N-y)",
+    "log_likelihood": "log L(p) = log choose(N,y) + y log(p) + (N-y) log(1-p)",
+    "parameter_domain": "0 <= p <= 1, strict finite numeric input; invalid and nonfinite inputs rejected",
+    "count_domain": "strict nonnegative integer literal counts, N>0; no boolean/coerced/rounded counts",
+    "boundary_semantics": "0*log(0)=0 by continuity; impossible boundary events have log likelihood negative infinity, represented by explicit status and JSON-null numerical value, never invalid JSON NaN/Infinity",
+    "comparison": "Direct normalized endpoint likelihood evaluation under frozen working assumptions; not reconstruction of the article Poisson/CVD regression, not a Bayesian prior or posterior"
+  },
+  "interval_design": {
+    "method": "Clopper–Pearson",
+    "sidedness": "two_sided_equal_tail",
+    "confidence_level": 0.95,
+    "confidence_level_role": "Explicit analysis design choice fixed before planned selected-cell extraction/calculation, after prior/incidental result exposure. Not a reported source confidence interval; root must register/freeze as a design setting.",
+    "alpha_definition": "alpha = 1 - confidence_level",
+    "lower": "0 if y=0, otherwise BetaPPF(alpha/2; y, N-y+1)",
+    "upper": "1 if y=N, otherwise BetaPPF(1-alpha/2; y+1, N-y)",
+    "coverage_claim": "At least the chosen confidence level within the assumed binomial experiment; no empirical coverage claim for selection/dependence/misclassification/treatment ambiguity in this cohort",
+    "model_free_alternative": "Descriptive-only y/N remains available, but uncertainty interval is unavailable outside the declared working model; do not substitute a manufactured sampling distribution.",
+    "official_method_references": [
+      "https://stat.ethz.ch/R-manual/R-devel/library/stats/html/binom.test.html#Details",
+      "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.binom.html",
+      "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.beta.html"
+    ],
+    "implementation_note": "SciPy beta.ppf/binom.logpmf; use locked project version. Current reference documentation version is not a claim about installed runtime version."
+  },
+  "annual_rate_nonidentifiability": {
+    "role": "Analytic synthetic-only educational ambiguity demonstration, independent of source counts",
+    "toy_states": "H and P represent toy normal-label and nonnormal-label states, not a full health/disease model",
+    "rates": "a is H→P; b is P→H; a,b nonnegative rates, toy time t>0",
+    "equation_starting_P": "Pr(H at t | P at0) = b/(a+b) * (1-exp(-(a+b)*t)); zero-total-rate limit is0",
+    "ambiguity": "One terminal probability does not determine both a and b. For suitable different positive rate sums, different rate pairs can yield the same endpoint probability.",
+    "forbidden": "Never plug observed Whitehall p_hat into an inverse-rate family or optimize clinical rate witnesses; no annual hazards, no two-state clinical equivalence, no omitted-death claim",
+    "tests": "Registered synthetic fixtures only: conservation/domain/boundary checks and multiple toy rate pairs producing same endpoint; no source-tuned rates"
+  },
+  "failure_and_reporting": {
+    "source_failures": [
+      "Missing/changed required PDF",
+      "Wrong document/title/DOI or malformed parse",
+      "Missing/duplicate/wrong FPG row or N header",
+      "Noninteger/negative counts or N=0",
+      "Main crosscheck missing/malformed/mismatched",
+      "Frozen protocol/receipt/registry metadata mismatch"
+    ],
+    "disposition": "Write aggregate saved failure report and nonzero CLI disposition; never a false source pass, source repair, silent repin or placeholder clinical estimate",
+    "source_check_success": "Documented source reproduction and working mathematical evaluation only; not empirical-model adequacy",
+    "unresolved_consequences": [
+      "Sampling/exchangeability and constant-p assumptions",
+      "Time/assay/diagnosis/drug and missing-outcome histories",
+      "Clinical source-label-to-latent-state mapping",
+      "Competing death/censoring during glycemic interval",
+      "Individual/full-cohort transition-rate identification",
+      "Causal diet/UPF dose/substitution/lag",
+      "US population transport",
+      "Independent clinical validation and external human scientific review"
+    ],
+    "scope_flags": {
+      "used_source_reproduction": true,
+      "working_assumptions_empirically_established": false,
+      "annual_hazards_identified": false,
+      "clinical_fit": false,
+      "engine_activation": false,
+      "causal_diet_identification": false,
+      "national_transport": false,
+      "full_issue57_complete": false,
+      "full_issue58_complete": false,
+      "participant_records_acquired": false,
+      "outreach_or_agreement": false
+    }
+  },
+  "governance": "The committed design precedes planned selected ESM count capture and calculation. Subsequent count intake must match this source/estimand contract; changes require a versioned amendment, never silent repinning.",
+  "candidate_revision": 2,
+  "candidate_revision_utc": "2026-10-01T01:39:07.833644+00:00",
+  "previous_candidate_sha256": "c0224701c8afe440097a646b2c1e7366dc13e5a4db3db37339d3d281456e6f33",
+  "revision_scope": "Use scientific-registry status vocabulary for future observed counts and explicitly bound orthographic prefix normalization; no scope/cell/value/method changes.",
+  "frozen_utc": "2026-10-01T01:44:22.361551+00:00",
+  "source_structure": {
+    "main_page_count": 6,
+    "supplement_page_count": 5,
+    "supplement_table_page": 1,
+    "supplement_page_rotation_degrees": 90,
+    "table_heading": "Table 1",
+    "block_start": "By FPG",
+    "block_end": "By 2hPG",
+    "source_row_order": [
+      "Prediabetes or diabetes",
+      "Normoglycaemia"
+    ],
+    "selected_column": "N",
+    "next_column": "No. events",
+    "coordinates_role": "Masked label/header context only; unrotated media-box coordinates, not a substitute for row/column/header structural validation.",
+    "unrotated_label_boxes": {
+      "By FPG": [
+        185.89,
+        720.69,
+        196.98,
+        753.27
+      ],
+      "Prediabetes or diabetes": [
+        185.89,
+        531.62,
+        196.98,
+        623.95
+      ],
+      "Normoglycaemia": [
+        203.11,
+        554.56,
+        214.2,
+        623.97
+      ],
+      "N": [
+        168.13,
+        496.97,
+        179.22,
+        504.2
+      ],
+      "By 2hPG": [
+        237.61,
+        716.3,
+        248.71,
+        753.27
+      ]
+    }
+  },
+  "required_main_crosscheck": {
+    "source": "main_static_pdf",
+    "locator": "PhysicalPDFp3/printed1387 upper-right, unique block beginning FPG criterion Among; historicalHTML #FPar4 firstparagraph",
+    "coordinate_context_only": [
+      306.13,
+      58.62,
+      544.34,
+      180.77
+    ],
+    "structural_binding_before_captures": "Require page3 only and exactly one block/paragraph beginning FPG criterion Among, matching participants with FPG-defined pre-diabetes at baseline followed by reverted to normoglycaemia. Fail on missing/duplicate/malformed binding.",
+    "prefix_regex_after_explicit_whitespace_and_linehyphen_normalization": "^FPG criterion Among (?P<denominator>[0-9]+) participants with FPG-defined prediabetes at baseline, (?P<normal>[0-9]+) \\([0-9]+(?:\\.[0-9]+)?%\\) reverted to normoglycaemia",
+    "planned_cells": [
+      {
+        "key": "main_reported_fpg_baseline_denominator_n",
+        "value": null
+      },
+      {
+        "key": "main_reported_fpg_reverted_normal_n",
+        "value": null
+      }
+    ],
+    "permitted_comparisons": [
+      "Reported main denominator equals sum of the two ESM N cells",
+      "Reported main normal-label N equals ESM Normoglycaemia N"
+    ],
+    "ignored_in_same_paragraph": "Do not capture/register/use progression counts, displayed rounded percentage, subsequent follow-up times, CVD/death counts, rates or p-values. Main crosschecks are duplicated same-source support, not independent observations.",
+    "mismatch_disposition": "Saved failed source-reproduction report; preserve ambiguity; never repair a source cell or proceed to claimed agreement",
+    "explicit_normalization": "For the selected page3 prefix only: collapse source line breaks/whitespace, then join exact orthographic split pre- diabetes to prediabetes. Preserve FPG-defined hyphen. Do not change source labels, digits, signs, percentages or categories. Locate exactly one source prefix; no fallback to Abstract or another page.",
+    "required": true
+  }
+}

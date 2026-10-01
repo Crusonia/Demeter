@@ -437,7 +437,7 @@
       "artifacts": [
         {
           "path": "docs/validation/issue-56-state-mapping.json",
-          "sha256": "5b6f2bfff2ce2e514e433bfe9ae2a24e57d7d1a53178d2df4fe8ca06e50b4281"
+          "sha256": "cfe02910223f186a72e4c698b92c1096ad1f952df022cf8fc76bf9007c33436c"
         },
         {
           "path": "docs/validation/issue-56-state-mapping-before-after.json",
@@ -445,7 +445,7 @@
         },
         {
           "path": "docs/validation/issue-56-partial-observations.json",
-          "sha256": "5e2a5b56938952eb68a105bc7399cb035419c08bd94d90fd7375b5898fb16bf2"
+          "sha256": "b2266364e06883f9e64956d4c597eb962e7cd56638db92e717490db3c2b28844"
         },
         {
           "path": "docs/validation/issue-56-partial-before-after.json",
@@ -739,7 +739,7 @@
         },
         {
           "path": "docs/TOTUM_SOURCE_ADEQUACY.md",
-          "sha256": "71209f096cda1452682e37d1ccc6c9a375e93eef7bb241a23b9ab12ef10f4ef9"
+          "sha256": "5ee74fab7f4f6a120cd9b1550c6412310f017878294f29943c7ee8d979782623"
         },
         {
           "path": "docs/rfcs/RFC-57-58-totum-source-adequacy.md",
@@ -754,6 +754,53 @@
       ],
       "model_role": "benchmark_only",
       "redistribution": "Attributed aggregate source-row/raw-cell adequacy, frozen metadata/receipts and Demeter transforms only; workbook and four documents/metadata sources fetch-only. No individual values, clinical fit or active parameters."
+    },
+    "whitehall_fpg_endpoint": {
+      "store": null,
+      "dependencies": [],
+      "registry_datasets": [
+        "whitehall_fpg_endpoint"
+      ],
+      "registry_parameters": [
+        "whitehall_fpg_nonreversion_label_n",
+        "whitehall_fpg_normal_label_n",
+        "whitehall_fpg_normal_label_proportion",
+        "whitehall_fpg_paired_n"
+      ],
+      "artifacts": [
+        {
+          "path": "docs/validation/whitehall-fpg-endpoint-protocol-v1.json",
+          "sha256": "6452943e6fc9e233946dc4fc3ef155bc2e2ec9583936603ca5d544547ee4d690"
+        },
+        {
+          "path": "docs/validation/whitehall-fpg-source-receipts-v1.json",
+          "sha256": "fb3580aeceb37d58ca5212881682d0d5a42455628907e857e72079a595d10a42"
+        },
+        {
+          "path": "docs/validation/issue-57-58-whitehall-endpoint.json",
+          "sha256": "5c5094f5ab8f6b749abffe4f9ba8f20bb2cab5e2d49883ec13e02f8a243479bb"
+        },
+        {
+          "path": "docs/validation/issue-57-58-whitehall-before-after.json",
+          "sha256": "bee13178af087f42606536bf091f3c05d7bde167139ec91d764eae3879bc7724"
+        },
+        {
+          "path": "docs/WHITEHALL_ENDPOINT.md",
+          "sha256": "dbde9cc068a59dfebdf8885d08ff13c26fd587ae26086756ff63b7e8765ae765"
+        },
+        {
+          "path": "docs/rfcs/RFC-57-58-whitehall-fpg-endpoint.md",
+          "sha256": "fc26cb1f799d338fe59136f66c6c7025728360be313d421f62387897e9eb74fe"
+        }
+      ],
+      "transform_files": [
+        "src/demeter/analysis/whitehall_endpoints.py"
+      ],
+      "rebuild": [
+        "uv run demeter evidence whitehall-endpoint --raw outputs/public-source-search-20260930 --output outputs/whitehall-endpoint.json"
+      ],
+      "model_role": "benchmark_only",
+      "redistribution": "Limited attributed published aggregate labels/counts, declared binomial working-model analysis, frozen design/receipts and Demeter transforms; both full PDFs fetch-only. No participant records, annual clinical rates or active inputs."
     }
   },
   "supporting_artifacts": [
