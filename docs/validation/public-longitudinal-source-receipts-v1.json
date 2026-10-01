@@ -1,0 +1,637 @@
+{
+  "schema": "demeter-public-longitudinal-documentation-receipts-v1",
+  "assessment_date": "2026-10-01",
+  "assembled_utc": "2026-10-01T06:00:49.990705+00:00",
+  "purpose": "Versioned factual methods/access/dictionary appraisal metadata for PR74; not empirical parameter evidence.",
+  "documentation_only": true,
+  "distribution": "fetch_only",
+  "full_documents_redistributed": false,
+  "participant_records_acquired": false,
+  "participant_records_requested": false,
+  "selected_count_or_effect_intake": false,
+  "scientific_likelihood_admitted": false,
+  "independent_validation": false,
+  "rights_note": "Full publication, access-policy, metadata and dictionary bytes are fetch-only by project policy, regardless of broader permission under an article's license. Article access never grants participant-record rights. Only factual locators, source metadata and byte pins are distributed.",
+  "chronology": {
+    "first_group": {
+      "appraisal_filename": "new-longitudinal-source-appraisal-20261001-v1.md",
+      "gate_filename": "odcdc2025-figure-structural-sufficiency-v1.md",
+      "mask_failure_amendment_filename": "odcdc2025-figure-mask-visual-failure-amendment-v2.json",
+      "mask_failure_preserved": true,
+      "numerical_values_transcribed_or_calculated": false
+    },
+    "second_group": {
+      "before_these_retrievals": "Primary methods/access and repository metadata were already inspected through web rendering. Search/main rendering incidentally exposed outcomes, particularly Geelong. CRONICAS dictionary was previously acquired only in memory on2026-10-01 with digits masked during structural display and frequency/statistics excluded from field extraction.",
+      "new_receipts": "These receipts record current saved acquisition times. They do not assign current timestamps to earlier inspection or claim original acquisition provenance.",
+      "supplements": "No supplementary file content supported our qualitative findings; Geelong supporting-file descriptions were read on the main publication. No supplemental bytes fetched.",
+      "alternate_qualitative_inspection": "The Jinchang Discussion filter incidentally displayed one result-interpretation paragraph with all numeric digits masked, alongside the authorized limitation/access paragraphs. No numeric outcome values/counts were captured or calculated. This article was already used-source. The earlier annotation is retained immutable; this bundle contains compact checks instead of full paragraph excerpts."
+    },
+    "note": "Original seven acquired snapshots retain original receipt timestamps. Other successful receipts are fresh acquisitions after earlier web/in-memory inspection, not reconstructed original downloads. All sources are used-source due prior or incidental published-result exposure. No selected numerical outcome intake or empirical fit occurred."
+  },
+  "historical_receipts": [
+    {
+      "receipt_filename": "pr74-documentation-source-receipts-candidate-v1.json",
+      "sha256": "c5a27f6bcec1b26997d4b7e9006ffae7533b8c21272cb124f4e2438518c5f2b1",
+      "size_bytes": 21191
+    },
+    {
+      "receipt_filename": "public-appraisal-geelong-pbhs-jinchang-cronicas-receipts-final-20261001T055906444462Z.json",
+      "sha256": "12c95167cf3820ad96e57e0ef075621049e72ad8c35cb4d32befe4c5cb171c36",
+      "size_bytes": 20156
+    }
+  ],
+  "sources": {
+    "ausdiab-2005-report": {
+      "source_id": "ausdiab-2005-report",
+      "registry_source_id": null,
+      "url": "https://www.baker.edu.au/-/media/documents/impact/ausdiab/reports/ausdiab-report-2005.pdf?la=en",
+      "final_url": "https://www.baker.edu.au/-/media/documents/impact/ausdiab/reports/ausdiab-report-2005.pdf",
+      "final_query_omitted": true,
+      "retrieved_utc": "2026-10-01T05:27:45.410463+00:00",
+      "status": 200,
+      "content_type": "application/pdf",
+      "size_bytes": 1198724,
+      "sha256": "ce2f6318d8e48d5c1b82287a09e214f694741eef1fecc39b2a80cf2895be8633",
+      "cache_filename": "ausdiab-2005-report-20261001T052742024292Z.pdf",
+      "distribution": "fetch_only",
+      "original_receipt_filename": "new-cohort-method-access-receipts-20261001T052742024292Z.json",
+      "original_receipt_sha256": "79b4f80a94946b3a687c9b1c1e00ac72bc79ca95989e8bd4c23c79a928d8b76a",
+      "metadata_only": true,
+      "participant_records_acquired": false,
+      "selected_numerical_intake": false,
+      "title": "AusDiab Report 2005: The Australian Diabetes, Obesity and Lifestyle Study",
+      "doi": null,
+      "publication_or_owner": "International Diabetes Institute; ELM Barr et al.",
+      "source_kind": "primary_official_report",
+      "rights": {
+        "license": "Copyright International Diabetes Institute; no explicit unrestricted reuse license verified",
+        "license_url": null,
+        "rights_locator": "physical PDF p4, Authors and sponsors / copyright / second-version notice",
+        "participant_data_access": "Not an unrestricted participant release; see separately pinned AusDiab access protocol",
+        "redistribution_allowed": false,
+        "distribution": "fetch_only"
+      },
+      "inspected_locators": [
+        "Table2.1 / Definitions, physicalp21, visually verified FPG/OGTT/medication definitions; Table10.1 and known/newly diagnosed distinctions, p68",
+        "Survey Methods / Mortality and Statistical analysis, physicalpp62-63: death linkage/clock and incidence transformation; attendance/nonresponse, pp64-67",
+        "Table/figure lists, pp9-12; glycemia chapter, pp21-27; AppendixC, pp75-78: bounded inventory, no outcome-cell extraction"
+      ]
+    },
+    "ausdiab-access-protocol": {
+      "source_id": "ausdiab-access-protocol",
+      "registry_source_id": null,
+      "url": "https://baker.edu.au/-/media/documents/impact/ausdiab/ausdiab-data-access-form.pdf?la=en",
+      "final_url": "https://baker.edu.au/-/media/documents/impact/ausdiab/ausdiab-data-access-form.pdf",
+      "final_query_omitted": true,
+      "retrieved_utc": "2026-10-01T05:27:48.308758+00:00",
+      "status": 200,
+      "content_type": "application/pdf",
+      "size_bytes": 153191,
+      "sha256": "c21dc5701304f69fd0510da5971bd13de9cad5bcf8df75b17e807c7eb9c1bc69",
+      "cache_filename": "ausdiab-access-protocol-20261001T052742024292Z.pdf",
+      "distribution": "fetch_only",
+      "original_receipt_filename": "new-cohort-method-access-receipts-20261001T052742024292Z.json",
+      "original_receipt_sha256": "79b4f80a94946b3a687c9b1c1e00ac72bc79ca95989e8bd4c23c79a928d8b76a",
+      "metadata_only": true,
+      "participant_records_acquired": false,
+      "selected_numerical_intake": false,
+      "title": "Access to AusDiab data, biological materials and subjects",
+      "doi": null,
+      "publication_or_owner": "Baker Heart and Diabetes Institute / AusDiab",
+      "source_kind": "official_access_protocol",
+      "rights": {
+        "license": "No explicit document-level unrestricted reuse license verified",
+        "license_url": null,
+        "rights_locator": "Inspected PDF pp1-5 contains access/undertaking/publication terms, not a public participant-data license",
+        "participant_data_access": "Written application; committee review; institutional ethics; signed undertakings; possible fees; no request made",
+        "redistribution_allowed": false,
+        "distribution": "fetch_only"
+      },
+      "inspected_locators": [
+        "How to apply / access conditions, physicalp1, visually checked",
+        "Types of access / Access fees, p2; Ethical considerations and Undertakings, pp3-4",
+        "AppendixA publication policy, p5"
+      ]
+    },
+    "paprott2018-rki-paper": {
+      "source_id": "paprott2018-rki-paper",
+      "registry_source_id": null,
+      "url": "https://edoc.rki.de/bitstream/handle/176904/6063/Determinants%20of%20Change%20in%20Glycemic%20Status%20in%20Individuals%20with%20Prediabetes%20Results%20from%20a%20Nationwide%20Cohort%20Study%20in%20Germany.pdf",
+      "final_url": "https://edoc.rki.de/bitstream/handle/176904/6063/Determinants%20of%20Change%20in%20Glycemic%20Status%20in%20Individuals%20with%20Prediabetes%20Results%20from%20a%20Nationwide%20Cohort%20Study%20in%20Germany.pdf",
+      "final_query_omitted": false,
+      "retrieved_utc": "2026-10-01T05:27:50.744088+00:00",
+      "status": 200,
+      "content_type": "application/pdf",
+      "size_bytes": 1678512,
+      "sha256": "3c34e751caf044d1f3adb9b5d6d83fdb472cf5a4d6c91dd699f882005ddf9c76",
+      "cache_filename": "paprott2018-rki-paper-20261001T052742024292Z.pdf",
+      "distribution": "fetch_only",
+      "original_receipt_filename": "new-cohort-method-access-receipts-20261001T052742024292Z.json",
+      "original_receipt_sha256": "79b4f80a94946b3a687c9b1c1e00ac72bc79ca95989e8bd4c23c79a928d8b76a",
+      "metadata_only": true,
+      "participant_records_acquired": false,
+      "selected_numerical_intake": false,
+      "title": "Determinants of Change in Glycemic Status in Individuals with Prediabetes: Results from a Nationwide Cohort Study in Germany",
+      "doi": "10.1155/2018/5703652",
+      "publication_or_owner": "Rebecca Paprott, Christa Scheidt-Nave and Christin Heidemann; Journal of Diabetes Research2018",
+      "source_kind": "primary_author_institution_publication",
+      "rights": {
+        "license": "Creative Commons Attribution; version not established from the inspected PDF footer",
+        "license_url": null,
+        "rights_locator": "physicalp1 copyright/license paragraph",
+        "participant_data_access": "Data Availability, p10: participant consent does not cover public records; secure onsite access requires request; no request made",
+        "redistribution_allowed": false,
+        "distribution": "fetch_only"
+      },
+      "inspected_locators": [
+        "Materials and Methods2.1-2.3, physicalp2: linked surveys, selected baseline cohort, diagnosis/history/medication/HbA1c definitions",
+        "Figure1, p3, numerically masked text only: selected flow; Statistical Analysis2.5, p3: weighting/incomplete-follow-up adjustment",
+        "Data Availability, p10: explicitly nonpublic participant records; p1 publication license"
+      ]
+    },
+    "cardia2025-primary": {
+      "source_id": "cardia2025-primary",
+      "registry_source_id": null,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12518763/",
+      "final_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12518763/",
+      "final_query_omitted": false,
+      "retrieved_utc": "2026-10-01T05:27:51.518942+00:00",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "size_bytes": 146846,
+      "sha256": "6bae8d777b18b5b25e73c79bc7ba91d4a71fa2c7ee689b2e00dee967cb6ca09b",
+      "cache_filename": "cardia2025-primary-20261001T052742024292Z.html",
+      "distribution": "fetch_only",
+      "original_receipt_filename": "new-cohort-method-access-receipts-20261001T052742024292Z.json",
+      "original_receipt_sha256": "79b4f80a94946b3a687c9b1c1e00ac72bc79ca95989e8bd4c23c79a928d8b76a",
+      "metadata_only": true,
+      "participant_records_acquired": false,
+      "selected_numerical_intake": false,
+      "title": "Life’s essential 8 and risk of progression to diabetes among young adults with prediabetes",
+      "doi": "10.1038/s41598-025-19472-y",
+      "publication_or_owner": "Scientific Reports2025; PMC12518763",
+      "source_kind": "primary_publication_html",
+      "rights": {
+        "license": "Creative Commons Attribution4.0, as linked by the publication",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "rights_locator": "Article copyright/license link",
+        "participant_data_access": "Data availability notes3 and _adda93_: approved BioLINCC access, not unrestricted participant records",
+        "redistribution_allowed": false,
+        "distribution": "fetch_only"
+      },
+      "inspected_locators": [
+        "Research design and methods, HTML Sec5: repeated test availability, historical diagnosis exclusion, glycemic-change grouping and statistical analysis",
+        "Figure1-3 captions: score trajectories and association estimates, not a verified timed joint-path table",
+        "Data availability notes3 and _adda93_; publication license link; supplement URL identified but supplement not downloaded"
+      ]
+    },
+    "cardia-biolincc-access": {
+      "source_id": "cardia-biolincc-access",
+      "registry_source_id": null,
+      "url": "https://biolincc.nhlbi.nih.gov/studies/cardia/",
+      "final_url": "https://biolincc.nhlbi.nih.gov/studies/cardia/",
+      "final_query_omitted": false,
+      "retrieved_utc": "2026-10-01T05:27:52.000377+00:00",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "size_bytes": 30452,
+      "sha256": "7d46379aef094bb8dc894203e4dac3b1936fcfe8dc82de631795e1ee933945cd",
+      "cache_filename": "cardia-biolincc-access-20261001T052742024292Z.html",
+      "distribution": "fetch_only",
+      "original_receipt_filename": "new-cohort-method-access-receipts-20261001T052742024292Z.json",
+      "original_receipt_sha256": "79b4f80a94946b3a687c9b1c1e00ac72bc79ca95989e8bd4c23c79a928d8b76a",
+      "metadata_only": true,
+      "participant_records_acquired": false,
+      "selected_numerical_intake": false,
+      "title": "BioLINCC: Coronary Artery Risk Development in Young Adults (CARDIA)",
+      "doi": null,
+      "publication_or_owner": "NHLBI BioLINCC; accession HLB00030026a",
+      "source_kind": "official_access_catalog",
+      "rights": {
+        "license": "No explicit document-level reuse license verified; public access catalog is not a participant-data release license",
+        "license_url": null,
+        "rights_locator": "Consent / Specific Consent Restrictions; Request Data instructions",
+        "participant_data_access": "Registration/login and data request; commercial investigator consent tiered; no request made",
+        "redistribution_allowed": false,
+        "distribution": "fetch_only"
+      },
+      "inspected_locators": [
+        "Request Data instructions: registration/login required",
+        "Consent / Commercial Use Data Restrictions / Specific Consent Restrictions: tiered commercial consent",
+        "Design and Data Update: available examination/death data described for request; no participant coverage acquired"
+      ]
+    },
+    "odcdc2025-primary-html": {
+      "source_id": "odcdc2025-primary-html",
+      "registry_source_id": null,
+      "url": "https://link.springer.com/article/10.1007/s00125-025-06555-8",
+      "final_url": "https://link.springer.com/article/10.1007/s00125-025-06555-8",
+      "final_query_omitted": true,
+      "retrieved_utc": "2026-10-01T05:32:40.485195+00:00",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "size_bytes": 492512,
+      "sha256": "8e680af083b9f4d9b64d94869d72bc6e300774b5ffbaa2e2af6c7207b5944660",
+      "cache_filename": "odcdc2025-method-source-20261001T053240484193Z.html",
+      "distribution": "fetch_only",
+      "original_receipt_filename": "odcdc2025-method-source-receipt-20261001T053240484193Z.json",
+      "original_receipt_sha256": "a915efd78732ccbbdfed04a96d7dbcde09b849ea20cf5bfe3cef98d07324cfc4",
+      "metadata_only": true,
+      "participant_records_acquired": false,
+      "selected_numerical_intake": false,
+      "title": "Regression from prediabetes to normoglycaemia and the role of cardiometabolic risk factors on the subsequent risk of developing type 2 diabetes",
+      "doi": "10.1007/s00125-025-06555-8",
+      "publication_or_owner": "Najmeh Davoodian et al.; Diabetologia, online2025, volume69(2026):69-80",
+      "source_kind": "primary_publication_html",
+      "rights": {
+        "license": "Creative Commons Attribution4.0, with stated third-party-material exclusions",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "rights_locator": "Rights and permissions, HTML rightslink",
+        "participant_data_access": "Data availability FPar12 explicitly nonpublic governed participant data; proposal/consortium/cohort approval required; no request made",
+        "redistribution_allowed": false,
+        "distribution": "fetch_only"
+      },
+      "inspected_locators": [
+        "Methods FPar1: study selection and first-follow-up classification; FPar2: ascertainment and previous-diagnosis rule",
+        "Statistical analysis FPar4; Sensitivity analyses FPar6: variable timing, cohort effects, repeat-confirmation and competing-death analysis",
+        "Data availability FPar12; rightslink; only primary method/table/caption scope, no selected effect/count intake"
+      ]
+    },
+    "odcdc2025-esm-method": {
+      "source_id": "odcdc2025-esm-method",
+      "registry_source_id": null,
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1007%2Fs00125-025-06555-8/MediaObjects/125_2025_6555_MOESM1_ESM.pdf",
+      "final_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1007%2Fs00125-025-06555-8/MediaObjects/125_2025_6555_MOESM1_ESM.pdf",
+      "final_query_omitted": false,
+      "retrieved_utc": "2026-10-01T05:34:36.643662+00:00",
+      "status": 200,
+      "content_type": "application/pdf",
+      "size_bytes": 1266989,
+      "sha256": "a41793307283d4278ffb0b0719d504d987456e0f58b3a4c6c200842274949797",
+      "cache_filename": "odcdc2025-esm-method-20261001T053436642573Z.pdf",
+      "distribution": "fetch_only",
+      "original_receipt_filename": "odcdc2025-esm-method-receipt-20261001T053436642573Z.json",
+      "original_receipt_sha256": "6614cb7bffd520c3ca6c9c0ce6b865ddb3413d03c0fe08471daa303cf65202a2",
+      "metadata_only": true,
+      "participant_records_acquired": false,
+      "selected_numerical_intake": false,
+      "title": "Electronic supplementary material to Regression from prediabetes to normoglycaemia and the role of cardiometabolic risk factors on the subsequent risk of developing type 2 diabetes",
+      "doi": "10.1007/s00125-025-06555-8",
+      "publication_or_owner": "Springer Nature / Diabetologia; exact linked MOESM1_ESM release",
+      "source_kind": "primary_linked_supplement_pdf",
+      "rights": {
+        "license": "Linked supplement to CC BY4.0 article; standalone supplement-specific license not independently established; retain conservative fetch-only distribution",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "rights_locator": "Primary HTML rightslink / linked ESM; do not infer participant-data license from article rights",
+        "participant_data_access": "Supplement is publication documentation; does not release underlying governed cohort records",
+        "redistribution_allowed": false,
+        "distribution": "fetch_only"
+      },
+      "inspected_locators": [
+        "ESM Table3, physicalp5: cohort timing/visits metadata, numerical tokens masked; main/supplement caption inventory only",
+        "ESM Figure1 p13: classification/follow-up schematic; Figure2 p14: pooling/sample-selection flow, corrected masked structural review",
+        "ESM Figure3 p15 missing-covariate caption; Table9 p11 competing-death sensitivity caption/footnote; no selected numerical cells extracted"
+      ]
+    },
+    "pbhs2022_primary": {
+      "source_id": "pbhs2022_primary",
+      "registry_source_id": null,
+      "url": "https://link.springer.com/article/10.1186/s12933-022-01565-x",
+      "final_url": "https://link.springer.com/article/10.1186/s12933-022-01565-x?error=cookies_not_supported&code=b877f02d-01c1-463c-9632-c3549e0dde31",
+      "final_query_omitted": false,
+      "retrieved_utc": "2026-10-01T05:52:24.680013+00:00",
+      "retrieval_started_utc": "2026-10-01T05:52:22.322469+00:00",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "size_bytes": 420704,
+      "sha256": "36ed611bf2523054f2df8f13dfa41510f84f52becced8d5b1d21afb99b46253e",
+      "cache_filename": "source-appraisal-pbhs2022_primary-20261001T055222321047Z.html",
+      "distribution": "fetch_only",
+      "acquisition": "new_saved_retrieval_not_original_acquisition",
+      "rights": {
+        "article_reuse": "CC BY 4.0",
+        "participant_release": "Qualified researcher application reviewed by committees",
+        "publication_distribution": "fetch_only",
+        "publication_license_notice_present_in_bytes": true,
+        "license_url": "http://creativecommons.org/licenses/by/4.0/"
+      },
+      "inspected_locators": [
+        "Methods: PBHS overview and diabetes categorization",
+        "Discussion limitations: random glucose/HbA1c, no fasting/OGTT",
+        "Availability of data and materials",
+        "Rights and permissions: article license notice, no clinical results inspected"
+      ],
+      "metadata_only": true,
+      "participant_records_acquired": false,
+      "selected_numerical_intake": false
+    },
+    "cronicas2021_v1_metadata": {
+      "source_id": "cronicas2021_v1_metadata",
+      "registry_source_id": null,
+      "url": "https://api.figshare.com/v2/articles/17129321/versions/1",
+      "final_url": "https://api.figshare.com/v2/articles/17129321/versions/1",
+      "final_query_omitted": false,
+      "retrieved_utc": "2026-10-01T05:52:23.079469+00:00",
+      "retrieval_started_utc": "2026-10-01T05:52:22.322469+00:00",
+      "status": 200,
+      "content_type": "application/json",
+      "size_bytes": 2986,
+      "sha256": "d171662b632b139293630cfc4bd55afc4527669552f28bd82017c4b537b9cf49",
+      "cache_filename": "source-appraisal-cronicas2021_v1_metadata-20261001T055222321047Z.json",
+      "distribution": "fetch_only",
+      "acquisition": "new_saved_retrieval_not_original_acquisition",
+      "rights": {
+        "release_license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "participant_file_not_fetched": true,
+        "distribution": "fetch_only"
+      },
+      "inspected_locators": [
+        "id/title/doi/version",
+        "license",
+        "files: separate Dictionary.txt and CRP and mortality.csv; CSV not fetched"
+      ],
+      "metadata_only": true,
+      "participant_records_acquired": false,
+      "selected_numerical_intake": false
+    },
+    "cronicas2021_v1_dictionary": {
+      "source_id": "cronicas2021_v1_dictionary",
+      "registry_source_id": null,
+      "url": "https://ndownloader.figshare.com/files/31671035",
+      "final_url": "https://s3-eu-west-1.amazonaws.com/pfigshare-u-files/31671035/Dictionary.txt",
+      "final_query_omitted": true,
+      "retrieved_utc": "2026-10-01T05:52:23.455856+00:00",
+      "retrieval_started_utc": "2026-10-01T05:52:22.323479+00:00",
+      "status": 200,
+      "content_type": "text/plain",
+      "size_bytes": 18312,
+      "sha256": "bc66c9cc983f09430f17167fe273e18737371b0d82bd4f5a5ad28a48d7440f93",
+      "cache_filename": "source-appraisal-cronicas2021_v1_dictionary-20261001T055222321047Z.txt",
+      "distribution": "fetch_only",
+      "acquisition": "new_saved_retrieval_not_original_acquisition",
+      "rights": {
+        "release_license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "participant_file_not_fetched": true,
+        "distribution": "fetch_only"
+      },
+      "inspected_locators": [
+        "line6 code",
+        "line179 db5",
+        "line225 death",
+        "line240 tseg_years",
+        "lines255–335 CRP categories",
+        "field labels and missing-code definitions only; all summary statistics excluded"
+      ],
+      "metadata_only": true,
+      "participant_records_acquired": false,
+      "selected_numerical_intake": false
+    },
+    "jinchang2023_doi_metadata": {
+      "source_id": "jinchang2023_doi_metadata",
+      "registry_source_id": null,
+      "url": "https://api.crossref.org/works/10.1093/eurjpc/zwad196",
+      "final_url": "https://api.crossref.org/works/10.1093/eurjpc/zwad196",
+      "final_query_omitted": false,
+      "retrieved_utc": "2026-10-01T05:54:07.298612+00:00",
+      "retrieval_started_utc": "2026-10-01T05:54:06.944820+00:00",
+      "status": 200,
+      "content_type": "application/json",
+      "size_bytes": 22667,
+      "sha256": "31b538d5ea673e216eace8f5ca70576483467095f6c60b18f9345ac8a09058e0",
+      "cache_filename": "source-appraisal-jinchang2023_doi_metadata-20261001T055406943597Z.json",
+      "distribution": "fetch_only",
+      "acquisition": "new_saved_retrieval_not_original_acquisition",
+      "rights": {
+        "metadata_authority": "Crossref DOI registration agency",
+        "publication_distribution": "fetch_only",
+        "not_a_full_publication_or_participant_access_certificate": true,
+        "registered_license_metadata": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2023,
+                  6,
+                  14
+                ]
+              ],
+              "date-time": "2023-06-14T00:00:00Z",
+              "timestamp": 1686700800000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://academic.oup.com/pages/standard-publication-reuse-rights"
+          }
+        ]
+      },
+      "inspected_locators": [
+        "message.DOI",
+        "message.title",
+        "message.publisher",
+        "message.URL",
+        "message.license"
+      ],
+      "metadata_only": true,
+      "participant_records_acquired": false,
+      "selected_numerical_intake": false
+    },
+    "geelong2025_europepmc_fulltext": {
+      "source_id": "geelong2025_europepmc_fulltext",
+      "registry_source_id": null,
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12534155/fullTextXML",
+      "final_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12534155/fullTextXML",
+      "final_query_omitted": false,
+      "retrieved_utc": "2026-10-01T05:57:07.682850+00:00",
+      "retrieval_started_utc": "2026-10-01T05:57:04.848467+00:00",
+      "status": 200,
+      "content_type": "application/xml",
+      "size_bytes": 130619,
+      "sha256": "57bc7d59361358c1c05ba28032d1feff56c8e467d55cbb354dc6d5b62dbddb22",
+      "cache_filename": "source-appraisal-geelong2025_europepmc_fulltext-20261001T055704847475Z.xml",
+      "distribution": "fetch_only",
+      "acquisition": "new_official_alternate_saved_retrieval_not_original_acquisition",
+      "rights": {
+        "distribution": "fetch_only",
+        "article_specific_license": "Creative Commons Attribution; version not specified in the visible article-specific notice",
+        "visible_license_text": "This is an open access article under the terms of the Creative Commons Attribution License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited.",
+        "visible_license_attributes": {}
+      },
+      "inspected_locators": [
+        "2.1. Population Background",
+        "2.2. Study Population",
+        "2.3. Blood Sampling",
+        "Data Availability Statement"
+      ],
+      "metadata_only": true,
+      "participant_records_acquired": false,
+      "selected_numerical_intake": false
+    },
+    "jinchang2023_official_cdn": {
+      "source_id": "jinchang2023_official_cdn",
+      "registry_source_id": null,
+      "url": "https://oup.silverchair-cdn.com/article-minimal/7197864",
+      "final_url": "https://oup.silverchair-cdn.com/article-minimal/7197864",
+      "final_query_omitted": false,
+      "retrieved_utc": "2026-10-01T05:57:05.619967+00:00",
+      "retrieval_started_utc": "2026-10-01T05:57:04.849467+00:00",
+      "status": 200,
+      "content_type": "text/html",
+      "size_bytes": 280096,
+      "sha256": "978c905c85ac74393d2bd399f114852ddf0637be6bf464b0b8a6e5f8459ec8fb",
+      "cache_filename": "source-appraisal-jinchang2023_official_cdn-20261001T055704847475Z.html",
+      "distribution": "fetch_only",
+      "acquisition": "new_official_alternate_saved_retrieval_not_original_acquisition",
+      "rights": {
+        "distribution": "fetch_only",
+        "article_specific_license": "unknown; full publication retained fetch-only",
+        "visible_license_links": []
+      },
+      "inspected_locators": [
+        "Discussion",
+        "Data availability"
+      ],
+      "metadata_only": true,
+      "participant_records_acquired": false,
+      "selected_numerical_intake": false
+    }
+  },
+  "failed_acquisitions": [
+    {
+      "label": "aihw-ausdiab-access",
+      "url": "https://www.aihw.gov.au/about-our-data/our-data-collections/australian-diabetes-obesity-and-lifestyle-study",
+      "retrieved_utc": "2026-10-01T05:53:15.208787+00:00",
+      "distribution": "fetch_only",
+      "participant_records_acquired": false,
+      "source_outcomes_intentionally_extracted": false,
+      "status": 403,
+      "error_type": "HTTPError",
+      "cache_acquired": false,
+      "previous_snapshots_overwritten": false,
+      "source_id": "aihw-ausdiab-access",
+      "final_url": null,
+      "content_type": null,
+      "size_bytes": null,
+      "sha256": null,
+      "cache_filename": null,
+      "failure_receipt_filename": "aihw-ausdiab-access-failure-20261001T055315208787Z.json",
+      "failure_receipt_sha256": "f4c9228bfc4ae2e76850c5a40c33c8b4c61d5dd5ee29e9c93d5d8e0aa8499006",
+      "rights": null,
+      "inspected_locators": [],
+      "supports_verified_byte_pinned_claim": false,
+      "disposition": "Direct official HTML retrieval failed403. No bypass/retry or invented content pin; guide can rely on successfully pinned Baker access protocol instead."
+    },
+    {
+      "source_id": "geelong2025_primary",
+      "registry_source_id": null,
+      "url": "https://onlinelibrary.wiley.com/doi/10.1155/jdr/9926306",
+      "final_url": "https://onlinelibrary.wiley.com/doi/10.1155/jdr/9926306",
+      "final_query_omitted": false,
+      "retrieved_utc": "2026-10-01T05:52:22.598543+00:00",
+      "retrieval_started_utc": "2026-10-01T05:52:22.321047+00:00",
+      "status": 403,
+      "content_type": "text/html; charset=UTF-8",
+      "size_bytes": 5525,
+      "sha256": "604d8a6e263d5d2c59bd303a58ef426c6e52379fe74a6221bb3fed3b86f43d62",
+      "cache_filename": "source-appraisal-geelong2025_primary-20261001T055222321047Z.html",
+      "distribution": "fetch_only",
+      "acquisition": "new_saved_retrieval_not_original_acquisition",
+      "rights": {
+        "article_reuse": "Creative Commons Attribution in prior official appraisal; exact version to verify from acquired bytes",
+        "participant_release": "Prior official appraisal: some or all datasets nonpublic, available by author request; no unrestricted linked release verified",
+        "publication_distribution": "fetch_only",
+        "new_full_publication_bytes_verified": false,
+        "prior_rendering_not_replaced_by_challenge_bytes": true
+      },
+      "inspected_locators": [
+        "Materials and Methods §§2.1–2.3",
+        "Figure 3 caption/structure previously appraised; no new numerical inspection",
+        "Discussion limitations",
+        "Data Availability Statement",
+        "Supporting Information file descriptions only"
+      ],
+      "metadata_only": true,
+      "participant_records_acquired": false,
+      "selected_numerical_intake": false,
+      "failure_reason": "HTTPError",
+      "usable_publication": false
+    },
+    {
+      "source_id": "jinchang2023_primary",
+      "registry_source_id": null,
+      "url": "https://doi.org/10.1093/eurjpc/zwad196",
+      "final_url": "https://academic.oup.com/eurjpc/article/30/14/1482/7197864",
+      "final_query_omitted": false,
+      "retrieved_utc": "2026-10-01T05:52:22.792390+00:00",
+      "retrieval_started_utc": "2026-10-01T05:52:22.322469+00:00",
+      "status": 403,
+      "content_type": "text/html; charset=UTF-8",
+      "size_bytes": 5527,
+      "sha256": "f2b932a5d1dfda11c3c4a4ae3edf90d890378eaaa54fb2280ee3712042d155a6",
+      "cache_filename": "source-appraisal-jinchang2023_primary-20261001T055222321047Z.html",
+      "distribution": "fetch_only",
+      "acquisition": "new_saved_retrieval_not_original_acquisition",
+      "rights": {
+        "article_reuse": "Unverified; no publication redistribution authorized",
+        "participant_release": "Author request only in prior root appraisal",
+        "publication_distribution": "fetch_only",
+        "new_full_publication_bytes_verified": false,
+        "prior_rendering_not_replaced_by_challenge_bytes": true
+      },
+      "inspected_locators": [
+        "Methods",
+        "Discussion limitations: model mortality/reverse-transition and drug-information restrictions",
+        "Data availability"
+      ],
+      "metadata_only": true,
+      "participant_records_acquired": false,
+      "selected_numerical_intake": false,
+      "failure_reason": "HTTPError",
+      "usable_publication": false
+    },
+    {
+      "source_id": "geelong2025_doi_metadata",
+      "registry_source_id": null,
+      "url": "https://api.crossref.org/works/10.1155/jdr/9926306",
+      "final_url": "https://api.crossref.org/works/10.1155/jdr/9926306",
+      "final_query_omitted": false,
+      "retrieved_utc": "2026-10-01T05:54:07.254513+00:00",
+      "retrieval_started_utc": "2026-10-01T05:54:06.944820+00:00",
+      "status": 429,
+      "content_type": null,
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "cache_filename": "source-appraisal-geelong2025_doi_metadata-20261001T055406943597Z.json",
+      "distribution": "fetch_only",
+      "acquisition": "new_saved_retrieval_not_original_acquisition",
+      "rights": {
+        "metadata_authority": "Crossref DOI registration agency",
+        "publication_distribution": "fetch_only",
+        "not_a_full_publication_or_participant_access_certificate": true,
+        "registered_license_metadata": []
+      },
+      "inspected_locators": [
+        "message.DOI",
+        "message.title",
+        "message.publisher",
+        "message.URL",
+        "message.license"
+      ],
+      "metadata_only": true,
+      "participant_records_acquired": false,
+      "selected_numerical_intake": false,
+      "failure_reason": "HTTPError",
+      "usable_publication": false
+    }
+  ],
+  "verification": {
+    "verified_utc": "2026-10-01T06:00:49.990705+00:00",
+    "successful_source_count": 13,
+    "documentation_receipt_fields_typed": true,
+    "all_successful_cached_sizes_and_sha256_match": true,
+    "failed_response_bodies_checked_when_acquired": true,
+    "clinical_coverage_verified": false,
+    "scientific_acceptance": false
+  }
+}

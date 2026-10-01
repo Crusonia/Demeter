@@ -87,12 +87,14 @@ This was a bounded methods/access appraisal, not numerical intake. Search result
 and article rendering incidentally exposed published outcomes. These are used
 sources; a later selected-cell reproduction cannot be called an untouched
 holdout. No participant data were acquired, count cells selected or effects
-calculated. The links are primary-source locators, not immutable byte receipts
-or evidence-registry entries. Full publications are not redistributed here.
+calculated. The links identify primary sources; the
+[versioned receipts](validation/public-longitudinal-source-receipts-v1.json)
+pin the inspected documentation described below. These are documentation
+metadata, not empirical parameter entries. Full publications are not redistributed.
 
 | Candidate and exact locator | Observed public surface | Current disposition |
 | --- | --- | --- |
-| [AusDiab official report](https://www.baker.edu.au/-/media/documents/impact/ausdiab/reports/ausdiab-report-2005.pdf?la=en), glycemia chapter, mortality methods and attendance appendices; [access protocol](https://baker.edu.au/-/media/documents/impact/ausdiab/ausdiab-data-access-form.pdf?la=en) | FPG/OGTT and medication definitions, death-register linkage and separate examination/telephone follow-up. Records require application, ethics and undertakings; [AIHW](https://www.aihw.gov.au/about-our-data/our-data-collections/australian-diabetes-obesity-and-lifestyle-study) classifies unit records as restricted. | No full glycemic joint matrix located in the inspected report inventory. Separate incidence/mortality summaries and a common-duration incidence calculation do not supply jointly timed paths. |
+| [AusDiab official report](https://www.baker.edu.au/-/media/documents/impact/ausdiab/reports/ausdiab-report-2005.pdf?la=en), glycemia chapter, mortality methods and attendance appendices; [access protocol](https://baker.edu.au/-/media/documents/impact/ausdiab/ausdiab-data-access-form.pdf?la=en) | FPG/OGTT and medication definitions, death-register linkage and separate examination/telephone follow-up. The pinned protocol requires application, ethics and undertakings for records. | No full glycemic joint matrix located in the inspected report inventory. Separate incidence/mortality summaries and a common-duration incidence calculation do not supply jointly timed paths. |
 | [CARDIA analysis (2025)](https://doi.org/10.1038/s41598-025-19472-y), Research design and methods, Figures 1–3; [BioLINCC catalog](https://biolincc.nhlbi.nih.gov/studies/cardia/) | Repeated examinations and diagnosis history. Inspected figures summarize cardiovascular-health trajectories/associations. BioLINCC requires registration/request and has tiered commercial consent. | No sufficient timed glycemic-path/death table located in the inspected main article. Supplemental measurement tables were not inspected; actual record coverage remains unverified. |
 | [Paprott et al. (2018), Germany](https://onlinelibrary.wiley.com/doi/10.1155/2018/5703652), Methods §§2.1–2.5, Figure 1, Data Availability | Selected baseline-prediabetes participants followed to glycemic categories; diagnosed history and survey weighting are distinct. Records are nonpublic, with secure on-site access by request. | One selected starting row does not automatically identify both progression and reversal plus death. Variable intervals, survey weighting and incomplete follow-up cannot become an iid clinical likelihood without further evidence. |
 | [ODCDC (online 2025)](https://link.springer.com/article/10.1007/s00125-025-06555-8), Methods, ascertainment, sensitivity analyses, Data availability; supplementary Table 3 and Figures 1–2 | Repeated assessments, retained prior-diabetes criterion and confirmation/competing-death sensitivity analyses. Individual records are nonpublic under cohort governance. Public timing summaries are cohort medians; diagrams describe classification and pooling/selection. | Strong methods lead, with no sufficient jointly timed glycemic/death/missingness observations verified. Median visit intervals, classification flows and fitted subhazard ratios do not replace linked paths. |
@@ -100,6 +102,36 @@ or evidence-registry entries. Full publications are not redistributed here.
 | [Project Baseline Health Study (2022)](https://link.springer.com/article/10.1186/s12933-022-01565-x), Methods, discussion limitations, Availability of data and materials | Annual HbA1c/random-glucose, history and medication categories; no fasting glucose or OGTT. The publication describes committee-reviewed external applications. | No unrestricted linked release or sufficient joint observations verified. Useful observation-design reference; does not unblock fitting. |
 | [Jinchang worker cohort (2023)](https://doi.org/10.1093/eurjpc/zwad196), Methods, discussion limitations, Data availability | Repeated examinations and a published multistate model. Underlying data are author-request only. The model excludes all-cause mortality and some reverse transitions; additional drug information would be needed. | Published transition summaries are a possible model comparator, not sufficient observations to refit Demeter's requested clinical dynamics. No estimates extracted or converted into active rates. |
 | [CRONICAS CRP/mortality subset, version 1](https://api.figshare.com/v2/articles/17129321/versions/1); separate [Dictionary.txt](https://ndownloader.figshare.com/files/31671035), fields `code`, `db5`, `death`, `tseg_years` and CRP categories | CC BY 4.0 release; only metadata and the separately designated dictionary were inspected. The dictionary documents a composite diabetes label, death and follow-up years; repeated categories concern CRP. | No documented glycemic measurement series, collection clocks, separate diagnosis/treatment history or contact/loss reasons. Participant CSV was not fetched. This subset cannot supply the requested glycemic progression/recovery likelihood; no conclusion is drawn about the fuller cohort. |
+
+## Pinned documentation versions
+
+The [receipt artifact](validation/public-longitudinal-source-receipts-v1.json)
+records requested/resolved URLs, actual retrieval times, media/status, cache
+filenames, sizes, SHA-256, rights and inspected locators. All successful cached
+documents were checked against those sizes/hashes before this artifact was saved.
+Original AusDiab, German, CARDIA and ODCDC downloads retain their original
+timestamps. Other receipts are fresh saved acquisitions after earlier web or
+in-memory inspection; they are not reconstructed original downloads.
+
+The Geelong XML and Jinchang HTML came from separate successful official public
+routes after publisher requests failed. Their qualitative methods/access
+statements were checked against those acquired documents. CRONICAS's new saved
+metadata/dictionary hashes match the earlier in-memory observations. Failed
+publisher/metadata requests and the unacquired AIHW page remain failed receipts;
+they do not establish publication content or clinical-data availability.
+
+Full documents stay in ignored download storage. Fetch each recorded URL
+separately if needed and compare the exact bytes with its receipt; keep changed
+upstream versions separate and leave a mismatch unresolved. A dynamic HTML page
+can change without a scientific revision. Matching bytes check provenance,
+not clinical validity, record coverage or permission to obtain participant data.
+The original ODCDC masking failure and incidental numerical exposure remain
+recorded; no blinded inspection claim is made.
+
+`uv run demeter data verify-packages --check-tracked` verifies the committed
+receipt artifact's checksum offline. It does not fetch or verify these optional
+full-document downloads. The appraised documentation has no evidence-registry
+parameter or clinical source-package activation.
 
 ## Scope and next decision
 
