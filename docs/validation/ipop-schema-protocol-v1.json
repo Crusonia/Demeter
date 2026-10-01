@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "protocol_id": "ipop_public_schema_v1",
+  "purpose": "Source-specific documentation/schema appraisal before any selected clinical-record intake or fit for issue 57.",
+  "status": "frozen_schema_selection_only",
+  "used_source": true,
+  "prior_inspection": "Primary publication methods/access statements, derivative README/tree metadata and code-cell sources were inspected. Publication results were incidentally exposed. No independent holdout or blinded clinical assessment is claimed.",
+  "design_chain": "Health parts of Q-03/RM-04 -> P-02 -> I-01/I-07/I-11/I-12 -> F-04/F-08 -> T-01/T-05/T-06/T-08; L-00 bookkeeping only.",
+  "publications": [
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC6666404/",
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC6713274/",
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC9284494/"
+  ],
+  "derivative_repository": {
+    "url": "https://github.com/gmiaslab/TemporalMultiomicsDiabetes",
+    "commit": "ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c",
+    "tree": "021c4dfe091d3e554b3173711ab01fc06da15141",
+    "single_notebook_blob": "2588dd2feb2fc86fa3d22837c3bbb53b05769c5a",
+    "multi_notebook_blob": "4fd94fb8fb161e9bb3c4004fc152d719c46dae83",
+    "clinical_file_identity": "data/clinical_tests.txt; Git blob cb01fe38378f8cef951837414e241c3e8d6a8bcc",
+    "permission_scope": "Available public primary-study data are described as CC0; derivative code is MIT. Neither establishes membership/rights for an unverified copy or controlled-consent subset. No clinical source file is admitted by this protocol."
+  },
+  "selected_schema_document": {
+    "article": "PMC6713274",
+    "link_label": "NIHMS1523412-supplement-Supplemental_Tables_S1-S28.xlsx",
+    "worksheet_identity": "Table S0: Listing of Clinical Laboratory Measures, Immune Proteins and Cardiovascular Biomarkers",
+    "worksheet_name_selection": "Case-insensitive complete worksheet name matching (Table with optional space/underscore/hyphen prefix)? S0, with an optional descriptive suffix separated by space/underscore/hyphen. Require one unambiguous match and the documented table identity; otherwise stop with a failed/unresolved binding.",
+    "permitted_inspection": "Workbook structural metadata and the selected S0 worksheet only. Record assay/measure names, stated platform/method and explicit units, plus exact cell locators. No guessed units, numerical thresholds, clinical categories or outcome arithmetic.",
+    "excluded": "All other supplement worksheet contents, health discoveries, cohort/outcome tables, notebook outputs, and participant record rows/values.",
+    "storage": "Full publication supplement is fetch-only in ignored storage; do not redistribute it. Selected factual schema metadata and source receipts may be reported separately. Retain exact original bytes/hash and the distinction between a fetched mixed document and inspected S0 content."
+  },
+  "selected_header_metadata": {
+    "repository_commit": "ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c",
+    "files": [
+      {"path": "data/clinical_tests.txt", "blob": "cb01fe38378f8cef951837414e241c3e8d6a8bcc", "format": "tsv_first_header_line"},
+      {"path": "data/SampleInfo.csv", "blob": "342d35d36eb422cf315a9757b7514c45312173e5", "format": "csv_first_header_line"},
+      {"path": "data/VisitSchedules.csv", "blob": "feb7e7cc456897c09abf4d629b9bc46da181c35b", "format": "csv_first_header_line"},
+      {"path": "data/VisitList.xlsx", "blob": "357b1c774c66ebdc3c1a624206210a5d31782088", "format": "xlsx_structural_metadata_and_first_header_row_only"},
+      {"path": "data/subjectStatus.csv", "blob": "b4316a55ca13eb444139cfacc14815b429b2464b", "format": "csv_first_header_line"},
+      {"path": "data/SubjectInfo.csv", "blob": "fba56e3e9f2eca0d00b38ed8df11a41ebc4428b1", "format": "csv_first_header_line"},
+      {"path": "data/SubjectClass.csv", "blob": "f7bea7798645412740187dc9a4d8ee5168fd3e83", "format": "csv_first_header_line"},
+      {"path": "data/addInfo.csv", "blob": "c6f79dd1960581b37248b545f0cc50e282083a04", "format": "csv_first_header_line"}
+    ],
+    "text_transport": "Read only through the first header newline, then close the response without consuming remaining rows. Save partial-header bytes/receipt, explicitly not a full-file hash match. Abort and redact a first line inconsistent with a labeled header; no search through record rows.",
+    "xlsx_transport": "The binary workbook must be fetched to inspect its structure. Record that actual file acquisition honestly, verify its pinned Git blob, retain only in ignored fetch-only storage, and inspect row 1 only. If row 1 is not clearly labeled header metadata, stop/redact; do not search later rows.",
+    "permitted_fields": "Schema labels only: assay/measure columns, subject/sample/visit key labels, clock labels, context/history/treatment/stop field labels. Do not output participant identifiers or any record values.",
+    "rights_and_use": "Public producer repository metadata inspection only. This does not verify consent membership, public-release date coverage or clinical reuse permission for a full derivative panel; no participant rows, threshold mapping, numerical outcome intake, fit or distribution is admitted."
+  },
+  "coverage_questions": [
+    "Assay names/units and raw versus normalized values remain distinct.",
+    "clinical_tests VisitID -> producer-renamed SampleID is only a code-level join; test actual key cardinality later.",
+    "Original clinical CollectionDate is dropped by the producer analysis. Days_Since_Start origin, time units and calendar/release mapping are not assumed.",
+    "CL1..CL4 exist in clinical_tests but their roles remain unresolved. subjectStatus.CL4 visit-context use does not establish those roles.",
+    "Whole-follow-up SubjectClass cannot become a visit state, baseline state or onset date.",
+    "Public consent/release membership, cutoff and overlap of the different study/analysis cohorts require file-level provenance.",
+    "Fasting, scheduled/event visits, missing tests, diagnosis/type history, treatment, death, last contact and stopping reasons need separate bindings. Absence is unknown, not zero."
+  ],
+  "clinical_estimation": {
+    "allowed": false,
+    "candidate_later_target": "Native-cohort usual-care laboratory observations if their definitions, clocks, selection and rights support them. This is not a registered clinical likelihood or national hazard estimate.",
+    "required_next_protocol": "Freeze exact eligible release, specimen/participant keys, observed-variable meaning, measurement/observation process, exclusions, estimand/operator, joint uncertainty and evaluation plan before selected clinical numerical intake or fitting.",
+    "prohibited_inferences": [
+      "Treating missing visits or missing death fields as independent censoring or zero mortality",
+      "Converting normalized omics signals into diagnostic laboratory values",
+      "Equating a laboratory category with comprehensive metabolic health, retained T2D or sustained remission",
+      "National initialization/transport, isolated dietary effects, engine activation or clinical acceptance"
+    ]
+  },
+  "engine_changed": false,
+  "new_numeric_model_parameters": false,
+  "scientific_acceptance_changed": false,
+  "participant_data_files_requested": false,
+  "participant_data_files_acquired": false,
+  "acquisition_flags_meaning": "These are the state when the schema protocol is frozen, not promised post-fetch outcomes. Later receipts must distinguish text header requests/partial bytes, full binary workbook acquisition and selected-content inspection.",
+  "external_expert_review": "not_performed"
+}

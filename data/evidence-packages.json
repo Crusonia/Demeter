@@ -1115,6 +1115,10 @@
     {
       "path": "docs/validation/public-longitudinal-status-correction-v1.json",
       "sha256": "572cc552ca6815b6df14b35bda133021bcbabe4bebc9959daa76a548986ce101"
+    },
+    {
+      "path": "docs/validation/ipop-schema-protocol-v1.json",
+      "sha256": "55f0c3858e789241a70e22d77435f8ebf0e3e70adcd2ac550ef9928602beed3c"
     }
   ]
 }
