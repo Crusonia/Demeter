@@ -135,6 +135,12 @@ parameter or clinical source-package activation.
 
 ## Scope and next decision
 
+The subsequent [source-admission appraisal](PUBLIC_LONGITUDINAL_ADMISSION.md)
+adds Dryad occupational examinations and SLIMM-T2D as conditional leads, plus
+live CRELES and Comorbidities rights/access decisions. It records a finite
+usage-document/schema gate and successful source-byte receipts separately from
+failed downloads; it admits no clinical fit or participant acquisition.
+
 The bounded search above does not establish that no suitable public source
 exists. Access restrictions concern the inspected releases; an author's fuller
 dataset may contain observations absent from a publication. No access application,

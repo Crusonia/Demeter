@@ -1040,7 +1040,15 @@
     },
     {
       "path": "docs/PUBLIC_LONGITUDINAL_DATA_REQUIREMENTS.md",
-      "sha256": "e6717e0358937f31bbc8f22526d29a2dacf2e224ceeb1920a9b63d544f94ae6e"
+      "sha256": "e52c4fde2a02f9e7b7ed3ddd545c4e07caf3f0b164687ae77e1c04461900a4f1"
+    },
+    {
+      "path": "docs/PUBLIC_LONGITUDINAL_ADMISSION.md",
+      "sha256": "bfc9d9235a979777b023ba51c3e39538f0d0c2fa0533c03dd1dd38ddee143aee"
+    },
+    {
+      "path": "docs/validation/public-longitudinal-admission-receipts-v1.json",
+      "sha256": "89773844263f23d16c4ddb4ebbe99919717af84a3f97cbe29d4d717aa6ba3fc2"
     }
   ]
 }
