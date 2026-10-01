@@ -1,0 +1,87 @@
+{
+  "schema": "demeter-geelong-label-protocol-v1",
+  "status": "frozen_used_source_selection_before_numeric_intake",
+  "chronology": "Publication methods and results were previously inspected in source discovery. The present source-surface inspection incidentally displayed the full Sample Population Statistics section, and two reviewers read it before this freeze. All selected count cells and adjacent WHO/incidence statistics were exposed. This is used-source selection, not preregistration or an untouched holdout. No selected-cell capture, empirical arithmetic or fit preceded this protocol commit.",
+  "objective": "Add empirical joint observed-label information for both directions of glycemic-label change, preserving category dependence, as one step toward the full progression/reversal objective. Do not redefine scientific completion around this conditional table.",
+  "design_trace": {
+    "question_reference_mode": ["Q-03", "RM-04"],
+    "pathway": ["P-02"],
+    "inputs": ["I-01", "I-07", "I-11", "I-12"],
+    "formulation": ["F-08"],
+    "tests": ["T-01", "T-02", "T-05", "T-06", "T-08"],
+    "scope": "Health observation foundation only; no food, payer, economic or later-phase mechanism activated"
+  },
+  "bibliography": {
+    "title": "Risk Factors for the Progression or Regression to Diabetes or Normoglycaemia for Men with Impaired Fasting Glucose",
+    "citation": "Harland JW et al. Journal of Diabetes Research. 2025;2025:9926306. doi:10.1155/jdr/9926306.",
+    "doi": "10.1155/jdr/9926306",
+    "pmcid": "PMC12534155"
+  },
+  "source": {
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12534155/fullTextXML",
+    "sha256": "57bc7d59361358c1c05ba28032d1feff56c8e467d55cbb354dc6d5b62dbddb22",
+    "size_bytes": 130619,
+    "source_id": "geelong2025_label_publication",
+    "intended_archive_path": "data/sources/geelong/2026-10-01/publication.xml",
+    "retrieved_utc": "2026-10-01T12:01:41.285467+00:00",
+    "content_type": "application/xml",
+    "rights": "Literal article notice permits use, distribution and reproduction under the Creative Commons Attribution License with citation; version unspecified. Preserve the unmodified XML and its copyright/license notice. Publication permission does not grant participant-record access.",
+    "original_documentation_receipt": "docs/validation/public-longitudinal-source-receipts-v1.json#sources/geelong2025_europepmc_fulltext",
+    "new_acquisition_receipt": "outputs/public-source-search-20261001/geelong-joint-surface-20261001T120141282596Z/receipt.json",
+    "prior_receipts_unchanged": true
+  },
+  "selection": {
+    "start_labels": ["normoglycaemia", "ifg_ada"],
+    "destination_labels": ["normoglycaemia", "ifg_ada", "source_diabetes"],
+    "count_section_id": "sec3.4",
+    "count_section_title": "3.4. Sample Population Statistics",
+    "selected_paragraph_prefix": "Most men with normoglycaemia at baseline remained in that category",
+    "selected_paragraph_stop": "Of those with IFG-WHO",
+    "row_order": ["normal_start", "ifg_ada_start"],
+    "row_definition_locator": "sec2.2 / 2.2. Study Population",
+    "required_denominator_crosscheck": "The first paragraph of sec3.4 reports assessed-pair total, normoglycaemia-start total, IFG-ADA-start total and baseline-diabetes total. sec2.2 independently reports the assessed-pair total and the baseline-diabetes exclusion from the progression analysis. Compare literal integers; never infer missing categories or round percentage cells.",
+    "capture": "Extract the six literal n cells and two starting-row n totals by category-specific unique semantic bindings; also capture only the required assessed, baseline-diabetes and progression-analysis totals for reconciliation.",
+    "excluded": ["WHO categories", "baseline-diabetes destinations", "published percentages", "incidence and person-time", "regression coefficients", "participant records", "figure widths"],
+    "zero_completion": "No absent category, missing assessment, death or treatment cell is assigned zero. Only the complete explicitly enumerated non-diabetic-start rows enter the observed table."
+  },
+  "estimand": {
+    "population": "Published paired, sufficiently assessed male Geelong Osteoporosis Study subset with source baseline normoglycaemia or IFG-ADA",
+    "geography": "Barwon Statistical Division, south-eastern Australia",
+    "time_period": "Study baseline at original 2001-2006 or later 2007-2010 assessment; source 15-year follow-up phase finalised in 2022",
+    "target": "Unweighted conditional follow-up label distributions given the source baseline ADA label and paired-assessed selection, averaging over the source's actual entry/follow-up timing mixture",
+    "unit": "probability_per_source_followup_assessment_not_per_year",
+    "classification": "Source diabetes is FPG or self-reported diabetes or antihyperglycemic medication; it is not independently confirmed incident T2D. Baseline diabetes includes type 1. Source labels do not enforce persistent diagnosis history. One follow-up blood test without repeat confirmation is a measurement limitation.",
+    "conditioning": "Condition on the two published baseline-row totals and the source's assessable, retained subset; do not generalize to the recruited cohort or count deaths/unassessed men as unchanged.",
+    "treatment": "The regression-analysis medication statement does not establish medication-free status throughout follow-up; lower glucose labels are not untreated clinical recovery/remission.",
+    "timing": "No individual clocks, exact event dates or common exposure duration are supplied to this likelihood. Never substitute nominal 15 years or median follow-up."
+  },
+  "working_likelihood": {
+    "family": "conditional_row_multinomial",
+    "equation": "L(P|C,n)=product_i[n_i!/product_j c_ij! * product_j p_ij^c_ij], with sum_j p_ij=1 for each row",
+    "assumptions": ["Independent observations within each selected baseline row", "A common marginal row probability for the published timing/age/selection mixture", "Conditional independence of the two disjoint baseline groups given their row totals"],
+    "assumptions_empirically_established": false,
+    "mle": "p_ij=c_ij/n_i; two free probabilities per row, with the third determined by the row sum",
+    "joint_covariance": "Plug-in covariance for estimated row probabilities: (diag(p_i)-p_i p_i^T)/n_i; conditional cross-row blocks are zero under the declared working model",
+    "intervals": "Marginal exact binomial Clopper-Pearson intervals using each multinomial cell versus all other cells, with Bonferroni alpha across all six selected cells. Report as working-model simultaneous coverage, not selection/measurement/transport uncertainty.",
+    "confidence_level": 0.95,
+    "probability_sum_absolute_tolerance": 1e-12,
+    "alternative": "Descriptive-only mode reports exact published counts and derived fractions with no likelihood, covariance or intervals; make unavailable inferential outputs explicit.",
+    "evaluation": "Source reproduction, independent mathematical normalization/likelihood/covariance tests and no engine-change checks. No compatible independent clinical evaluation has been selected; keep it unresolved."
+  },
+  "failure_conditions": ["Source hash, size, identity or license mismatch", "Missing/duplicated section or semantic count binding", "Negative/noninteger counts or incomplete explicit row", "Row totals or independent same-source denominator checks disagree", "Registry/count/protocol disagreement", "Invalid simplex or nonfinite numerical result"],
+  "scientific_disposition": {
+    "observed_label_working_fit_allowed_after_source_reproduction": true,
+    "clinical_transition_fit_allowed": false,
+    "engine_activation_allowed": false,
+    "annual_generator_identified": false,
+    "dietary_effect_identified": false,
+    "diagnosed_remission_identified": false,
+    "joint_death_missingness_coverage": false,
+    "independent_validation": false,
+    "us_transport_established": false,
+    "full_issue57_complete": false,
+    "full_issue58_complete": false,
+    "scientific_release_ready": false
+  },
+  "retained_full_requirements": ["Observation-to-clinical-state mapping", "Compatible linked clocks and ascertainment/history/treatment/stopping", "Identifiable progression/reversal and state-sensitive mortality", "Joint clinical uncertainty and independent trajectory evaluation", "Dietary exposure/dose/lag/causal identification", "National initialization and transport"]
+}
