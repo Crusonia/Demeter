@@ -5312,6 +5312,31 @@ datasets:
       evaluation: Source reproduction, independent mathematical normalization/likelihood/covariance
         tests and no engine-change checks. No compatible independent clinical evaluation has been
         selected; keep it unresolved.
+  ipop_numerical_preflight:
+    model_role: source_intake_only
+    source_ids:
+      clinical: ipop2022_clinical_tests
+      sample_info: ipop2022_sample_info
+    protocol_path: docs/validation/ipop-numerical-preflight-protocol-v1.json
+    protocol_sha256: 2d8b53ae10a018fde16bc91108db57d49a788f473fc8fc0dfe65a44e28ac2b89
+    namespace_protocol_path: docs/validation/ipop-namespace-crosswalk-protocol-v2.json
+    namespace_protocol_sha256: 531a521156f40dae687c903b7c902b59cb34ad24014e2957c55141fa923b1ba0
+    acquisition_receipts_path: docs/validation/ipop-preflight-acquisition-receipts-v1.json
+    acquisition_receipts_sha256: 835007331faa00c28ea13d05fdfe8408fb7e939242d022d3dd0e719454f90559
+    exact_subject_result_path: docs/validation/ipop-preflight-exact-subject-v1.json
+    namespace_result_path: docs/validation/ipop-preflight-namespace-result-v2.json
+    namespace_result_sha256: 035cb972134b547acf9da959d11606187c9d7d0064d3269fe43c699c116dd0ab
+    units: Pinned source rows, opaque subject labels, numeric-token counts and distinct
+      finite day-coordinate counts; no unit-dependent conversion.
+    uncertainty: Deterministic diagnostics for this fixed source release, not population
+      estimates or clinical uncertainty distributions. Measurement, observation-process,
+      identity and transport assumptions remain unresolved.
+    geography: Original Stanford/iPOP derivative; no national representation or U.S.
+      population transport.
+    time_period: Producer repository pinned commit ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c;
+      relative-day interpretation assumed, absolute specimen coverage unverified.
+    clinical_fit_performed: false
+    engine_activation_allowed: false
 scientific_blockers:
 - National age-specific metabolic transition hazards are unresolved.
 - Age-specific T2D/prediabetes initial prevalence is not calibrated; CDC total diabetes includes
@@ -5659,3 +5684,35 @@ sources:
       Commons Attribution License with citation; version unspecified. Preserve the unmodified XML
       and its copyright/license notice. Publication permission does not grant participant-record
       access.
+  ipop2022_clinical_tests:
+    url: https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/clinical_tests.txt
+    citation: Zheng et al. (2022), Scientific Reports, doi:10.1038/s41598-022-16326-9;
+      accompanying TemporalMultiomicsDiabetes producer repository at commit ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c;
+      clinical_tests.txt.
+    doi: ''
+    raw_filename: clinical_tests.txt
+    sha256: 94bca4d56dcb96e83a780479c5e23610e366060bcc8607f67377378d3fc39f52
+    retrieved_at: '2026-10-01T21:37:21.386428+00:00'
+    license: Credible author-declared public release of original publicly supplied data;
+      original CC0 provenance and repository MIT code license remain distinct. Complete
+      participant files are fetch-only; only aggregate diagnostics are distributed.
+    correction_note: Complete pinned Git blob and size verified before parsing. Assay
+      units/rawness, specimen clock, fasting interpretation and conditional subject
+      namespace association are not clinical identity certification. No clinical fit
+      or engine activation.
+  ipop2022_sample_info:
+    url: https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/SampleInfo.csv
+    citation: Zheng et al. (2022), Scientific Reports, doi:10.1038/s41598-022-16326-9;
+      accompanying TemporalMultiomicsDiabetes producer repository at commit ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c;
+      SampleInfo.csv.
+    doi: ''
+    raw_filename: SampleInfo.csv
+    sha256: 7e9026e13f0cf105ade8429e40c5f5ca4adaa248f4552f32a71fa4327c3e4a3e
+    retrieved_at: '2026-10-01T21:37:21.808642+00:00'
+    license: Credible author-declared public release of original publicly supplied data;
+      original CC0 provenance and repository MIT code license remain distinct. Complete
+      participant files are fetch-only; only aggregate diagnostics are distributed.
+    correction_note: Complete pinned Git blob and size verified before parsing. Assay
+      units/rawness, specimen clock, fasting interpretation and conditional subject
+      namespace association are not clinical identity certification. No clinical fit
+      or engine activation.

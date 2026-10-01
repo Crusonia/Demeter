@@ -220,6 +220,10 @@ coordinate coverage, retaining every source row, ambiguous key, undocumented
 number token and no-finite-assay subject-label complement in explicit denominators.
 It introduces no clinical threshold, likelihood, fitted transition, or active
 parameter. Assay units, rawness, fasting/specimen identity and relative-day
-interpretation remain declared assumptions. Numerical results will be recorded
-separately after verified acquisition; this freeze follows prior source appraisal
-and is not independent clinical validation.
+interpretation remain declared assumptions. The [completed numerical intake](IPOP_PREFLIGHT.md)
+preserves the zero-link literal v1 result and the separately frozen v2 namespace
+hypothesis. Under the producer sample-association assumption, 951 rows are
+uniquely associated and 94 metadata subject labels have repeated assay/day
+coordinates. This supports developing a conditional native-cohort likelihood;
+it supplies no clinical fit or active parameter. Both freezes follow prior source
+appraisal and are not independent clinical validation.

@@ -1,3 +1,4 @@
+import copy
 from itertools import product
 import json
 from pathlib import Path
@@ -241,11 +242,19 @@ def test_offline_report_and_cli_reproduce_aggregates_without_person_rows(
                 assert sum(b["upper"] for b in bounds) >= 1 - 1e-10
                 assert all(0 <= b["lower"] <= b["upper"] <= 1 for b in bounds)
     saved = Path("docs/validation/issue-56-partial-observations.json").read_bytes()
-    assert saved == encoded(report)
+    assert report["provenance"]["evidence_sha256"] == registry.content_hash
+    replay_payload, saved_payload = copy.deepcopy(report), json.loads(saved)
+    replay_payload["provenance"].pop("evidence_sha256")
+    saved_payload["provenance"].pop("evidence_sha256")
+    assert encoded(replay_payload) == encoded(saved_payload)
     destination = tmp_path / "partial.json"
     run = CliRunner().invoke(
         app, ["evidence", "state-mapping", "--partial", "--output", str(destination)]
     )
     assert run.exit_code == 0, run.output
-    assert destination.read_bytes() == saved
+    assert destination.read_bytes() == encoded(report)
+    assert (
+        json.loads(destination.read_bytes())["provenance"]["evidence_sha256"]
+        == registry.content_hash
+    )
     assert "SEQN" not in json.dumps(report)

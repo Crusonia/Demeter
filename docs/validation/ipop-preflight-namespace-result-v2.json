@@ -1,0 +1,722 @@
+{
+  "acquisition_audit": {
+    "passed": true,
+    "provenance": {
+      "acquisition_passed": true,
+      "bytes_retained_definition": "complete verified bytes saved; raw-write failure may separately leave an unknown partial file",
+      "distribution": "fetch_only",
+      "failure_stage": null,
+      "frozen_protocol_sha256_reference": "2d8b53ae10a018fde16bc91108db57d49a788f473fc8fc0dfe65a44e28ac2b89",
+      "implementation_sha256": "e24f0a4b312fe31f7eb014347c7c1bc9e735179df9a9472268fd0b4e01690533",
+      "interpretation": "source bytes only; no clinical interpretation",
+      "schema_version": 1,
+      "sources": {
+        "clinical": {
+          "bytes_retained": true,
+          "cache_filename": "clinical_tests.txt",
+          "content_type": "text/plain",
+          "failure_stage": null,
+          "final_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/clinical_tests.txt",
+          "full_bytes": true,
+          "git_blob": "cb01fe38378f8cef951837414e241c3e8d6a8bcc",
+          "raw_write_failure_may_leave_partial_bytes": false,
+          "requested_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/clinical_tests.txt",
+          "result": "verified",
+          "retrieved_utc": "2026-10-01T21:37:21.386428+00:00",
+          "sha256": "94bca4d56dcb96e83a780479c5e23610e366060bcc8607f67377378d3fc39f52",
+          "size_bytes": 231694,
+          "source_identity_passed": true,
+          "status": 200
+        },
+        "sample_info": {
+          "bytes_retained": true,
+          "cache_filename": "SampleInfo.csv",
+          "content_type": "text/plain",
+          "failure_stage": null,
+          "final_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/SampleInfo.csv",
+          "full_bytes": true,
+          "git_blob": "342d35d36eb422cf315a9757b7514c45312173e5",
+          "raw_write_failure_may_leave_partial_bytes": false,
+          "requested_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/SampleInfo.csv",
+          "result": "verified",
+          "retrieved_utc": "2026-10-01T21:37:21.808642+00:00",
+          "sha256": "7e9026e13f0cf105ade8429e40c5f5ca4adaa248f4552f32a71fa4327c3e4a3e",
+          "size_bytes": 36407,
+          "source_identity_passed": true,
+          "status": 200
+        }
+      },
+      "validation_only": false,
+      "verification_mode": "local_byte_replay",
+      "whole_protocol_validation": "caller responsibility; exact source declarations checked here"
+    },
+    "receipt_saved": true
+  },
+  "analysis_id": "ipop_public_namespace_crosswalk_preflight_v2",
+  "clinical_fit_performed": false,
+  "clinical_threshold_mapping_performed": false,
+  "context_coverage": {
+    "clinical_CL4": {
+      "denominator_rows": 969,
+      "token_classes": {
+        "empty": 0,
+        "nonempty": 969,
+        "whitespace_only": 0
+      }
+    },
+    "linked_context_comparison": {
+      "denominator_linked_rows": 951,
+      "partition": {
+        "at_least_one_structurally_absent": 0,
+        "both_present_exact_equal": 951,
+        "both_present_unequal": 0
+      }
+    },
+    "sample_info_CL4": {
+      "denominator_rows": 1092,
+      "token_classes": {
+        "empty": 3,
+        "nonempty": 1089,
+        "whitespace_only": 0
+      }
+    }
+  },
+  "death_or_censoring_inference_performed": false,
+  "diagnosis_or_remission_inference_performed": false,
+  "engine_activation_allowed": false,
+  "execution_scope": "actual_source_intake_only",
+  "intake_implementation_sha256": "165fa195b88c139f88b667693628325e124bf1bef240cbc207e38a773ed033d0",
+  "linkage": {
+    "denominator_clinical_rows": 969,
+    "denominator_unique_sample_candidate_rows_with_both_subjects_nonempty": 951,
+    "iterative_edge_removal_performed": false,
+    "lexical_subject_equality_bypass_performed": false,
+    "many_to_many_materialization_performed": false,
+    "ordered_partition": {
+      "clinical_namespace_multiple_partners": 0,
+      "metadata_namespace_multiple_partners": 0,
+      "missing_clinical_visit_or_subject_key": 0,
+      "missing_subject_in_unique_sample_match": 0,
+      "multiple_sample_rows_for_matching_key": 2,
+      "mutually_degree_one_unique_sample_association": 951,
+      "no_exact_sample_key_match": 16
+    },
+    "right_duplicate_key_support": {
+      "extra_rows_beyond_one_per_group": 3,
+      "groups_with_multiple_rows": 3,
+      "rows_in_repeated_groups": 6
+    },
+    "unique_sample_candidate_degree_combinations": {
+      "multiple_multiple": 0,
+      "multiple_one": 0,
+      "one_multiple": 0,
+      "one_one": 951
+    }
+  },
+  "model_role": "source_intake_only",
+  "namespace_consistency": {
+    "clinical_namespace": {
+      "denominator_distinct_nonempty_source_subject_labels": 104,
+      "observed_partner_degree": {
+        "multiple": 0,
+        "one": 104,
+        "zero": 0
+      }
+    },
+    "clinical_rows_contributing_possible_edges": 953,
+    "clinical_rows_with_ambiguous_sample_keys_contributing_possible_edges": 2,
+    "denominator_source_clinical_rows": 969,
+    "distinct_possible_subject_pair_edges": 104,
+    "metadata_namespace": {
+      "denominator_distinct_nonempty_source_subject_labels": 106,
+      "observed_partner_degree": {
+        "multiple": 0,
+        "one": 104,
+        "zero": 2
+      }
+    }
+  },
+  "numeric_token_coverage": {
+    "A1C": {
+      "denominator_rows": 969,
+      "numeric_surrounding_whitespace_rows": 0,
+      "token_classes": {
+        "empty": 0,
+        "explicit_nonfinite": 0,
+        "finite_decimal": 956,
+        "nonnumeric_or_undocumented_code": 13,
+        "whitespace_only": 0
+      }
+    },
+    "Days_Since_Start": {
+      "denominator_rows": 1092,
+      "numeric_surrounding_whitespace_rows": 0,
+      "token_classes": {
+        "empty": 8,
+        "explicit_nonfinite": 0,
+        "finite_decimal": 1084,
+        "nonnumeric_or_undocumented_code": 0,
+        "whitespace_only": 0
+      }
+    },
+    "GLU": {
+      "denominator_rows": 969,
+      "numeric_surrounding_whitespace_rows": 0,
+      "token_classes": {
+        "empty": 0,
+        "explicit_nonfinite": 0,
+        "finite_decimal": 963,
+        "nonnumeric_or_undocumented_code": 6,
+        "whitespace_only": 0
+      }
+    }
+  },
+  "provenance": {
+    "acquisition_performed": false,
+    "acquisition_receipts_verified": true,
+    "binding_v1_protocol_sha256": "2d8b53ae10a018fde16bc91108db57d49a788f473fc8fc0dfe65a44e28ac2b89",
+    "coverage_group_assignment": "Ephemeral metadata-subject assignment solely for reuse of v1 coverage arithmetic; original clinical tokens, immutable rows and full v1 result unchanged",
+    "coverage_grouping_namespace": "SampleInfo.SubjectID under the declared producer sample-association assumption",
+    "frozen_protocol_sha256": "531a521156f40dae687c903b7c902b59cb34ad24014e2957c55141fa923b1ba0",
+    "graph_scope": "all possible nonempty subject partners from every exact sample match, including ambiguous right keys, before eligibility and quarantine",
+    "implementation_sha256": "99e23418e81d7fa25847d6bc0f7d7439f3cdd235939dd26af63693ab49777ced",
+    "namespace_consistency_scope": "observed available associations within pinned records; consistently wrong bijection remains possible",
+    "participant_identity_verified": false,
+    "producer_commit": "ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c",
+    "sampling_model_selected": false,
+    "source_bytes": {
+      "clinical": {
+        "basename": "clinical_tests.txt",
+        "git_blob": "cb01fe38378f8cef951837414e241c3e8d6a8bcc",
+        "sha256": "94bca4d56dcb96e83a780479c5e23610e366060bcc8607f67377378d3fc39f52",
+        "size_bytes": 231694
+      },
+      "sample_info": {
+        "basename": "SampleInfo.csv",
+        "git_blob": "342d35d36eb422cf315a9757b7514c45312173e5",
+        "sha256": "7e9026e13f0cf105ade8429e40c5f5ca4adaa248f4552f32a71fa4327c3e4a3e",
+        "size_bytes": 36407
+      }
+    },
+    "supplied_protocol_canonical_sha256": "38f7c06ad4f235c24399a221edf45a4d8d36a4aa51943199eab685328c38611b",
+    "units_rawness_and_specimen_clock_verified": false,
+    "v1_implementation_sha256": "bf8d7a24bab8679521938ef0e3e7ec4a1f7f094faf1a59bb4b579b5f987491e6",
+    "validation_semantics_sha256": "a413c7dcfd9c4dfe438997a96f96a6d95c5bdb2ca1797003146a8cc416f8a085",
+    "verification_scope": "historical acquisition receipt metadata and current complete frozen-source byte identity, selected structure and conditional namespace-association aggregates only; participant identity and clinical acceptance unverified"
+  },
+  "schema_version": 1,
+  "scientific_acceptance_changed": false,
+  "source_audit": {
+    "failure_stage": null,
+    "frozen_protocol_sha256": "531a521156f40dae687c903b7c902b59cb34ad24014e2957c55141fa923b1ba0",
+    "meaning": "source integrity and conditional namespace-association preservation only; no clinical acceptance",
+    "passed": true
+  },
+  "source_structure": {
+    "clinical": {
+      "keys": {
+        "SubjectID": {
+          "denominator_rows": 969,
+          "distinct_nonempty_labels": 104,
+          "leading_or_trailing_whitespace_rows": 0,
+          "repeated_key_support": {
+            "extra_rows_beyond_one_per_group": 865,
+            "groups_with_multiple_rows": 94,
+            "rows_in_repeated_groups": 959
+          },
+          "token_classes": {
+            "empty": 0,
+            "nonempty": 969,
+            "whitespace_only": 0
+          }
+        },
+        "VisitID": {
+          "denominator_rows": 969,
+          "distinct_nonempty_labels": 965,
+          "leading_or_trailing_whitespace_rows": 0,
+          "repeated_key_support": {
+            "extra_rows_beyond_one_per_group": 4,
+            "groups_with_multiple_rows": 4,
+            "rows_in_repeated_groups": 8
+          },
+          "token_classes": {
+            "empty": 0,
+            "nonempty": 969,
+            "whitespace_only": 0
+          }
+        }
+      },
+      "repeated_selected_token_patterns": {
+        "extra_rows_beyond_one_per_group": 0,
+        "groups_with_multiple_rows": 0,
+        "rows_in_repeated_groups": 0
+      },
+      "source_record_count": 969
+    },
+    "sample_info": {
+      "keys": {
+        "SampleID": {
+          "denominator_rows": 1092,
+          "distinct_nonempty_labels": 1089,
+          "leading_or_trailing_whitespace_rows": 0,
+          "repeated_key_support": {
+            "extra_rows_beyond_one_per_group": 3,
+            "groups_with_multiple_rows": 3,
+            "rows_in_repeated_groups": 6
+          },
+          "token_classes": {
+            "empty": 0,
+            "nonempty": 1092,
+            "whitespace_only": 0
+          }
+        },
+        "SubjectID": {
+          "denominator_rows": 1092,
+          "distinct_nonempty_labels": 106,
+          "leading_or_trailing_whitespace_rows": 0,
+          "repeated_key_support": {
+            "extra_rows_beyond_one_per_group": 986,
+            "groups_with_multiple_rows": 95,
+            "rows_in_repeated_groups": 1081
+          },
+          "token_classes": {
+            "empty": 0,
+            "nonempty": 1092,
+            "whitespace_only": 0
+          }
+        }
+      },
+      "repeated_selected_token_patterns": {
+        "extra_rows_beyond_one_per_group": 2,
+        "groups_with_multiple_rows": 2,
+        "rows_in_repeated_groups": 4
+      },
+      "source_record_count": 1092
+    }
+  },
+  "unambiguous_linked_coverage": {
+    "denominator_linked_clinical_rows": 951,
+    "denominator_linked_rows_with_finite_day": 951,
+    "distinct_subject_label_coordinate_coverage": {
+      "A1C": {
+        "coordinate_coverage": {
+          "multiple_distinct_finite_days": 94,
+          "no_finite_day": 0,
+          "one_distinct_finite_day": 10
+        },
+        "denominator_distinct_linked_subject_labels_with_finite_assay": 104,
+        "denominator_total_distinct_unambiguous_linked_subject_labels": 104,
+        "distinct_linked_subject_labels_with_no_finite_assay": 0
+      },
+      "GLU": {
+        "coordinate_coverage": {
+          "multiple_distinct_finite_days": 94,
+          "no_finite_day": 0,
+          "one_distinct_finite_day": 10
+        },
+        "denominator_distinct_linked_subject_labels_with_finite_assay": 104,
+        "denominator_total_distinct_unambiguous_linked_subject_labels": 104,
+        "distinct_linked_subject_labels_with_no_finite_assay": 0
+      },
+      "either_finite_assay": {
+        "coordinate_coverage": {
+          "multiple_distinct_finite_days": 94,
+          "no_finite_day": 0,
+          "one_distinct_finite_day": 10
+        },
+        "denominator_distinct_linked_subject_labels_with_finite_assay": 104,
+        "denominator_total_distinct_unambiguous_linked_subject_labels": 104,
+        "distinct_linked_subject_labels_with_no_finite_assay": 0
+      }
+    },
+    "finite_assay_by_day_disposition": {
+      "A1C_finite": {
+        "absent": 0,
+        "finite": 938,
+        "malformed": 0,
+        "nonfinite": 0
+      },
+      "GLU_finite": {
+        "absent": 0,
+        "finite": 945,
+        "malformed": 0,
+        "nonfinite": 0
+      },
+      "both_assays_finite": {
+        "absent": 0,
+        "finite": 934,
+        "malformed": 0,
+        "nonfinite": 0
+      }
+    },
+    "repeated_unique_sample_association_support": {
+      "extra_rows_beyond_one_per_group": 0,
+      "groups_with_multiple_rows": 0,
+      "rows_in_repeated_groups": 0
+    },
+    "same_subject_equal_finite_day_support": {
+      "extra_rows_beyond_one_per_group": 0,
+      "groups_with_multiple_rows": 0,
+      "rows_in_repeated_groups": 0
+    },
+    "sample_day_disposition_all_linked_rows": {
+      "absent": 0,
+      "finite": 951,
+      "malformed": 0,
+      "nonfinite": 0
+    },
+    "subjects_with_multiple_sample_labels_at_an_equal_finite_day": 0,
+    "total_distinct_unambiguous_linked_subject_labels": 104,
+    "unambiguous_repeated_coordinate_coverage_present": true
+  },
+  "v1_result": {
+    "clinical_fit_performed": false,
+    "clinical_threshold_mapping_performed": false,
+    "context_coverage": {
+      "clinical_CL4": {
+        "denominator_rows": 969,
+        "token_classes": {
+          "empty": 0,
+          "nonempty": 969,
+          "whitespace_only": 0
+        }
+      },
+      "linked_context_comparison": {
+        "denominator_linked_rows": 0,
+        "partition": {
+          "at_least_one_structurally_absent": 0,
+          "both_present_exact_equal": 0,
+          "both_present_unequal": 0
+        }
+      },
+      "sample_info_CL4": {
+        "denominator_rows": 1092,
+        "token_classes": {
+          "empty": 3,
+          "nonempty": 1089,
+          "whitespace_only": 0
+        }
+      }
+    },
+    "death_or_censoring_inference_performed": false,
+    "diagnosis_or_remission_inference_performed": false,
+    "engine_activation_allowed": false,
+    "execution_scope": "actual_source_intake_only",
+    "linkage": {
+      "denominator_clinical_rows": 969,
+      "many_to_many_materialization_performed": false,
+      "ordered_partition": {
+        "missing_clinical_visit_or_subject_key": 0,
+        "missing_subject_in_unique_sample_match": 0,
+        "multiple_sample_rows_for_matching_key": 2,
+        "no_exact_sample_key_match": 16,
+        "subject_disagreement_in_unique_sample_match": 951,
+        "unique_sample_match_with_subject_agreement": 0
+      },
+      "right_duplicate_key_support": {
+        "extra_rows_beyond_one_per_group": 3,
+        "groups_with_multiple_rows": 3,
+        "rows_in_repeated_groups": 6
+      },
+      "sample_rows_without_any_exact_nonempty_clinical_visit_key_match": 137
+    },
+    "numeric_token_coverage": {
+      "A1C": {
+        "denominator_rows": 969,
+        "numeric_surrounding_whitespace_rows": 0,
+        "token_classes": {
+          "empty": 0,
+          "explicit_nonfinite": 0,
+          "finite_decimal": 956,
+          "nonnumeric_or_undocumented_code": 13,
+          "whitespace_only": 0
+        }
+      },
+      "Days_Since_Start": {
+        "denominator_rows": 1092,
+        "numeric_surrounding_whitespace_rows": 0,
+        "token_classes": {
+          "empty": 8,
+          "explicit_nonfinite": 0,
+          "finite_decimal": 1084,
+          "nonnumeric_or_undocumented_code": 0,
+          "whitespace_only": 0
+        }
+      },
+      "GLU": {
+        "denominator_rows": 969,
+        "numeric_surrounding_whitespace_rows": 0,
+        "token_classes": {
+          "empty": 0,
+          "explicit_nonfinite": 0,
+          "finite_decimal": 963,
+          "nonnumeric_or_undocumented_code": 6,
+          "whitespace_only": 0
+        }
+      }
+    },
+    "provenance": {
+      "acquisition_performed": false,
+      "acquisition_receipts_verified": false,
+      "decimal_equality": "exact Decimal equality; no float tolerance or chronology inferred from row order",
+      "expected_headers": {
+        "clinical": [
+          "VisitID",
+          "A1C",
+          "AG",
+          "ALB",
+          "ALCRU",
+          "ALKP",
+          "ALT",
+          "AST",
+          "BASO",
+          "BASOAB",
+          "BUN",
+          "CA",
+          "CHOL",
+          "CHOLHDL",
+          "CL",
+          "CO2",
+          "CR",
+          "EGFR",
+          "EOS",
+          "EOSAB",
+          "GLOB",
+          "GLU",
+          "HCT",
+          "HDL",
+          "HGB",
+          "HSCRP",
+          "IGM",
+          "INSF",
+          "INSU",
+          "K",
+          "LDL",
+          "LDLHDL",
+          "LYM",
+          "LYMAB",
+          "MCH",
+          "MCHC",
+          "MCV",
+          "MONO",
+          "MONOAB",
+          "NA.",
+          "NEUT",
+          "NEUTAB",
+          "NHDL",
+          "PLT",
+          "RBC",
+          "RDW",
+          "TBIL",
+          "TGL",
+          "TP",
+          "UALB",
+          "UALBCR",
+          "WBC",
+          "SubjectID",
+          "CollectionDate",
+          "CL1",
+          "CL2",
+          "CL3",
+          "CL4"
+        ],
+        "sample_info": [
+          "SubjectID",
+          "SampleID",
+          "Days_Since_Start",
+          "CL4"
+        ]
+      },
+      "frozen_protocol_sha256": "2d8b53ae10a018fde16bc91108db57d49a788f473fc8fc0dfe65a44e28ac2b89",
+      "implementation_sha256": "bf8d7a24bab8679521938ef0e3e7ec4a1f7f094faf1a59bb4b579b5f987491e6",
+      "numeric_surrounding_whitespace_rule": "strip surrounding Unicode whitespace for ASCII numeric syntax classification only; retain original lexical token",
+      "producer_commit": "ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c",
+      "sampling_model_selected": false,
+      "source_bytes": {
+        "clinical": {
+          "basename": "clinical_tests.txt",
+          "git_blob": "cb01fe38378f8cef951837414e241c3e8d6a8bcc",
+          "sha256": "94bca4d56dcb96e83a780479c5e23610e366060bcc8607f67377378d3fc39f52",
+          "size_bytes": 231694
+        },
+        "sample_info": {
+          "basename": "SampleInfo.csv",
+          "git_blob": "342d35d36eb422cf315a9757b7514c45312173e5",
+          "sha256": "7e9026e13f0cf105ade8429e40c5f5ca4adaa248f4552f32a71fa4327c3e4a3e",
+          "size_bytes": 36407
+        }
+      },
+      "supplied_protocol_canonical_sha256": "4a3c5621f680d09cf5c8562b4403d934f44d5db6df2624f17c6dddf183e6e2a7",
+      "units_rawness_and_specimen_clock_verified": false,
+      "validation_semantics_sha256": "d402ec8a026fd70d9030a221a449f874f397db2bb683faa007d1c5f81930cfab",
+      "verification_scope": "complete frozen-source byte identity and selected structural preservation only"
+    },
+    "schema_version": 1,
+    "scientific_acceptance_changed": false,
+    "source_audit": {
+      "failure_stage": null,
+      "frozen_protocol_sha256": "2d8b53ae10a018fde16bc91108db57d49a788f473fc8fc0dfe65a44e28ac2b89",
+      "meaning": "frozen source integrity, structure and aggregate preservation checks only",
+      "passed": true
+    },
+    "source_structure": {
+      "clinical": {
+        "keys": {
+          "SubjectID": {
+            "denominator_rows": 969,
+            "distinct_nonempty_labels": 104,
+            "leading_or_trailing_whitespace_rows": 0,
+            "repeated_key_support": {
+              "extra_rows_beyond_one_per_group": 865,
+              "groups_with_multiple_rows": 94,
+              "rows_in_repeated_groups": 959
+            },
+            "token_classes": {
+              "empty": 0,
+              "nonempty": 969,
+              "whitespace_only": 0
+            }
+          },
+          "VisitID": {
+            "denominator_rows": 969,
+            "distinct_nonempty_labels": 965,
+            "leading_or_trailing_whitespace_rows": 0,
+            "repeated_key_support": {
+              "extra_rows_beyond_one_per_group": 4,
+              "groups_with_multiple_rows": 4,
+              "rows_in_repeated_groups": 8
+            },
+            "token_classes": {
+              "empty": 0,
+              "nonempty": 969,
+              "whitespace_only": 0
+            }
+          }
+        },
+        "repeated_selected_token_patterns": {
+          "extra_rows_beyond_one_per_group": 0,
+          "groups_with_multiple_rows": 0,
+          "rows_in_repeated_groups": 0
+        },
+        "source_record_count": 969
+      },
+      "sample_info": {
+        "keys": {
+          "SampleID": {
+            "denominator_rows": 1092,
+            "distinct_nonempty_labels": 1089,
+            "leading_or_trailing_whitespace_rows": 0,
+            "repeated_key_support": {
+              "extra_rows_beyond_one_per_group": 3,
+              "groups_with_multiple_rows": 3,
+              "rows_in_repeated_groups": 6
+            },
+            "token_classes": {
+              "empty": 0,
+              "nonempty": 1092,
+              "whitespace_only": 0
+            }
+          },
+          "SubjectID": {
+            "denominator_rows": 1092,
+            "distinct_nonempty_labels": 106,
+            "leading_or_trailing_whitespace_rows": 0,
+            "repeated_key_support": {
+              "extra_rows_beyond_one_per_group": 986,
+              "groups_with_multiple_rows": 95,
+              "rows_in_repeated_groups": 1081
+            },
+            "token_classes": {
+              "empty": 0,
+              "nonempty": 1092,
+              "whitespace_only": 0
+            }
+          }
+        },
+        "repeated_selected_token_patterns": {
+          "extra_rows_beyond_one_per_group": 2,
+          "groups_with_multiple_rows": 2,
+          "rows_in_repeated_groups": 4
+        },
+        "source_record_count": 1092
+      }
+    },
+    "unambiguous_linked_coverage": {
+      "denominator_linked_clinical_rows": 0,
+      "denominator_linked_rows_with_finite_day": 0,
+      "distinct_subject_label_coordinate_coverage": {
+        "A1C": {
+          "coordinate_coverage": {
+            "multiple_distinct_finite_days": 0,
+            "no_finite_day": 0,
+            "one_distinct_finite_day": 0
+          },
+          "denominator_distinct_linked_subject_labels_with_finite_assay": 0,
+          "denominator_total_distinct_unambiguous_linked_subject_labels": 0,
+          "distinct_linked_subject_labels_with_no_finite_assay": 0
+        },
+        "GLU": {
+          "coordinate_coverage": {
+            "multiple_distinct_finite_days": 0,
+            "no_finite_day": 0,
+            "one_distinct_finite_day": 0
+          },
+          "denominator_distinct_linked_subject_labels_with_finite_assay": 0,
+          "denominator_total_distinct_unambiguous_linked_subject_labels": 0,
+          "distinct_linked_subject_labels_with_no_finite_assay": 0
+        },
+        "either_finite_assay": {
+          "coordinate_coverage": {
+            "multiple_distinct_finite_days": 0,
+            "no_finite_day": 0,
+            "one_distinct_finite_day": 0
+          },
+          "denominator_distinct_linked_subject_labels_with_finite_assay": 0,
+          "denominator_total_distinct_unambiguous_linked_subject_labels": 0,
+          "distinct_linked_subject_labels_with_no_finite_assay": 0
+        }
+      },
+      "finite_assay_by_day_disposition": {
+        "A1C_finite": {
+          "absent": 0,
+          "finite": 0,
+          "malformed": 0,
+          "nonfinite": 0
+        },
+        "GLU_finite": {
+          "absent": 0,
+          "finite": 0,
+          "malformed": 0,
+          "nonfinite": 0
+        },
+        "both_assays_finite": {
+          "absent": 0,
+          "finite": 0,
+          "malformed": 0,
+          "nonfinite": 0
+        }
+      },
+      "repeated_unique_sample_association_support": {
+        "extra_rows_beyond_one_per_group": 0,
+        "groups_with_multiple_rows": 0,
+        "rows_in_repeated_groups": 0
+      },
+      "same_subject_equal_finite_day_support": {
+        "extra_rows_beyond_one_per_group": 0,
+        "groups_with_multiple_rows": 0,
+        "rows_in_repeated_groups": 0
+      },
+      "sample_day_disposition_all_linked_rows": {
+        "absent": 0,
+        "finite": 0,
+        "malformed": 0,
+        "nonfinite": 0
+      },
+      "subjects_with_multiple_sample_labels_at_an_equal_finite_day": 0,
+      "total_distinct_unambiguous_linked_subject_labels": 0,
+      "unambiguous_repeated_coordinate_coverage_present": false
+    },
+    "validation_only": false
+  },
+  "validation_only": false
+}

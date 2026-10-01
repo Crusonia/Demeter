@@ -1045,6 +1045,65 @@
       ],
       "model_role": "benchmark_only",
       "redistribution": "Unmodified publication XML with its literal Creative Commons Attribution notice (version unspecified), citation and source receipt; selected attributed aggregate counts and derived working uncertainty. No participant records, annual clinical rates or active engine inputs; Demeter does not relicense source content."
+    },
+    "ipop_numerical_preflight": {
+      "store": null,
+      "dependencies": [],
+      "registry_datasets": [
+        "ipop_numerical_preflight"
+      ],
+      "registry_parameters": [],
+      "artifacts": [
+        {
+          "path": "docs/validation/ipop-numerical-preflight-protocol-v1.json",
+          "sha256": "2d8b53ae10a018fde16bc91108db57d49a788f473fc8fc0dfe65a44e28ac2b89"
+        },
+        {
+          "path": "docs/validation/ipop-preflight-exact-subject-v1.json",
+          "sha256": "c8cbc1d411e9a6fd864a909460f9b52254589e5e7175bbb09f6da46cf6a4fcd2"
+        },
+        {
+          "path": "docs/validation/ipop-preflight-acquisition-receipts-v1.json",
+          "sha256": "835007331faa00c28ea13d05fdfe8408fb7e939242d022d3dd0e719454f90559"
+        },
+        {
+          "path": "docs/validation/ipop-namespace-crosswalk-protocol-v2.json",
+          "sha256": "531a521156f40dae687c903b7c902b59cb34ad24014e2957c55141fa923b1ba0"
+        },
+        {
+          "path": "docs/validation/ipop-preflight-acquisition-history-v1.json",
+          "sha256": "ebf981ea1b7f59ee6922ffb311c45de2356f529728b7b5e0fb72f6aa72619c64"
+        },
+        {
+          "path": "docs/validation/ipop-preflight-namespace-result-v2.json",
+          "sha256": "035cb972134b547acf9da959d11606187c9d7d0064d3269fe43c699c116dd0ab"
+        },
+        {
+          "path": "docs/IPOP_PREFLIGHT.md",
+          "sha256": "1f1bda7aefef1a0a7a26c6efd94dae0b399fa254f99aa3be536797f6ce7bf08f"
+        },
+        {
+          "path": "docs/validation/ipop-intake-simulation-preservation-v1.json",
+          "sha256": "4c95255f7b84f522456ae7d03304efb3501353314cfbe79d3429495aa1079885"
+        },
+        {
+          "path": "docs/validation/ipop-historical-report-replay-v1.json",
+          "sha256": "c07dbd5cdc9edd2bc45a0253c34a0bf92ca3054dd2ebbdb823f7a942aa5c76d0"
+        }
+      ],
+      "transform_files": [
+        "src/demeter/data/ipop.py",
+        "src/demeter/analysis/ipop_preflight.py",
+        "src/demeter/analysis/ipop_crosswalk.py",
+        "src/demeter/analysis/ipop_preflight_io.py"
+      ],
+      "rebuild": [
+        "uv run demeter data fetch-ipop --destination data/raw/ipop-v1",
+        "uv run demeter evidence ipop-preflight --raw data/raw/ipop-v1 --output outputs/ipop-exact-v1.json",
+        "uv run demeter evidence ipop-crosswalk-preflight --raw data/raw/ipop-v1 --output outputs/ipop-crosswalk-v2.json"
+      ],
+      "model_role": "source_intake_only",
+      "redistribution": "Attributed aggregate diagnostics, protocols and acquisition receipts only. Complete clinical/metadata bytes are fetch-only; original public CC0 lineage and derivative MIT code license remain distinct. No participant identifiers, measurements or crosswalk is bundled."
     }
   },
   "supporting_artifacts": [
@@ -1130,7 +1189,7 @@
     },
     {
       "path": "docs/IPOP_SOURCE_COVERAGE.md",
-      "sha256": "e919569da6401eec5c6cdee2b13480fb1a7ac2276dc56b886d896b352bdd1d1d"
+      "sha256": "2fb432252d60c877758654b03a2b417c8c72d547662f55c197fb9a528211e8d6"
     },
     {
       "path": "docs/validation/ipop-schema-receipts-v1.json",
@@ -1139,26 +1198,6 @@
     {
       "path": "docs/validation/ipop-public-provenance-correction-v1.json",
       "sha256": "6278390527f9cbbbc1bf444890a5d44dc089610d78afd5c94b1ac25a64ea9ec2"
-    },
-    {
-      "path": "docs/validation/ipop-numerical-preflight-protocol-v1.json",
-      "sha256": "2d8b53ae10a018fde16bc91108db57d49a788f473fc8fc0dfe65a44e28ac2b89"
-    },
-    {
-      "path": "docs/validation/ipop-preflight-exact-subject-v1.json",
-      "sha256": "c8cbc1d411e9a6fd864a909460f9b52254589e5e7175bbb09f6da46cf6a4fcd2"
-    },
-    {
-      "path": "docs/validation/ipop-preflight-acquisition-receipts-v1.json",
-      "sha256": "835007331faa00c28ea13d05fdfe8408fb7e939242d022d3dd0e719454f90559"
-    },
-    {
-      "path": "docs/validation/ipop-namespace-crosswalk-protocol-v2.json",
-      "sha256": "531a521156f40dae687c903b7c902b59cb34ad24014e2957c55141fa923b1ba0"
-    },
-    {
-      "path": "docs/validation/ipop-preflight-acquisition-history-v1.json",
-      "sha256": "ebf981ea1b7f59ee6922ffb311c45de2356f529728b7b5e0fb72f6aa72619c64"
     }
   ]
 }

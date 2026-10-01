@@ -267,6 +267,24 @@
         "Literal notice permits use/distribution/reproduction with attribution; do not invent a CC-BY version.",
         "Publication rights do not authorize participant-record acquisition, redistribution or clinical conclusions."
       ]
+    },
+    "ipop_public_intake": {
+      "title": "Author-declared public iPOP derivative intake; complete source files fetch-only",
+      "terms_urls": [
+        "https://github.com/gmiaslab/TemporalMultiomicsDiabetes",
+        "https://doi.org/10.1038/s41598-022-16326-9",
+        "https://creativecommons.org/publicdomain/zero/1.0/"
+      ],
+      "checked_on": "2026-10-01",
+      "redistribution": "facts_only",
+      "download": "Credible primary-author public lineage supports intake of exactly the two frozen GitHub files without an account, access agreement or controlled dbGaP record request.",
+      "transform": "Attributed aggregate integrity, selected-token coverage and conditional sample-association diagnostics only; no identifiers, assay values or participant crosswalk export.",
+      "conditions": [
+        "Complete source bytes stay immutable in ignored fetch-only caches; they are not relicensed or committed.",
+        "Preserve source pins, actual acquisition receipts, failed acquisition history and both the frozen-v1 and adaptive frozen-v2 results.",
+        "Original CC0 lineage and derivative repository MIT code license remain distinct; neither certifies source units, clinical meanings, identity or specimen timing.",
+        "No clinical fit, national transport, dietary effect, death/censoring estimate or active model parameter follows from this intake."
+      ]
     }
   },
   "source_files": {
@@ -1180,6 +1198,32 @@
       "distribution": "archived",
       "archive_path": "data/sources/geelong/2026-10-01/publication.xml",
       "alternative": "Use the verified permitted archive; do not obtain participant records or silently replace the pinned publication."
+    },
+    "ipop2022_clinical_tests": {
+      "policy": "ipop_public_intake",
+      "privacy": "public_use_microdata",
+      "publisher": "Stanford/iPOP original public data; Zheng et al. / gmiaslab public derivative",
+      "vintage": "Producer Git commit ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c; complete acquisition October 1, 2026",
+      "citation": "Zheng et al. (2022), Scientific Reports, doi:10.1038/s41598-022-16326-9; accompanying TemporalMultiomicsDiabetes producer repository at commit ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c; clinical_tests.txt.",
+      "notes": "Credible author-declared public release of original publicly supplied data; original CC0 provenance and repository MIT code license remain distinct. Complete participant files are fetch-only; only aggregate diagnostics are distributed. Complete pinned Git blob and size verified before parsing. Assay units/rawness, specimen clock, fasting interpretation and conditional subject namespace association are not clinical identity certification. No clinical fit or engine activation.",
+      "url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/clinical_tests.txt",
+      "sha256": "94bca4d56dcb96e83a780479c5e23610e366060bcc8607f67377378d3fc39f52",
+      "retrieved_at": "2026-10-01T21:37:21.386428+00:00",
+      "distribution": "fetch_only",
+      "alternative": "Use data fetch-ipop for exact ignored raw acquisition and evidence ipop-preflight / ipop-crosswalk-preflight for offline aggregate-only receipt-verified replay; no participant bytes are bundled."
+    },
+    "ipop2022_sample_info": {
+      "policy": "ipop_public_intake",
+      "privacy": "public_use_microdata",
+      "publisher": "Stanford/iPOP original public data; Zheng et al. / gmiaslab public derivative",
+      "vintage": "Producer Git commit ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c; complete acquisition October 1, 2026",
+      "citation": "Zheng et al. (2022), Scientific Reports, doi:10.1038/s41598-022-16326-9; accompanying TemporalMultiomicsDiabetes producer repository at commit ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c; SampleInfo.csv.",
+      "notes": "Credible author-declared public release of original publicly supplied data; original CC0 provenance and repository MIT code license remain distinct. Complete participant files are fetch-only; only aggregate diagnostics are distributed. Complete pinned Git blob and size verified before parsing. Assay units/rawness, specimen clock, fasting interpretation and conditional subject namespace association are not clinical identity certification. No clinical fit or engine activation.",
+      "url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/SampleInfo.csv",
+      "sha256": "7e9026e13f0cf105ade8429e40c5f5ca4adaa248f4552f32a71fa4327c3e4a3e",
+      "retrieved_at": "2026-10-01T21:37:21.808642+00:00",
+      "distribution": "fetch_only",
+      "alternative": "Use data fetch-ipop for exact ignored raw acquisition and evidence ipop-preflight / ipop-crosswalk-preflight for offline aggregate-only receipt-verified replay; no participant bytes are bundled."
     }
   },
   "documentation_receipts": "docs/validation/dpp-coverage-source-receipts.json",
