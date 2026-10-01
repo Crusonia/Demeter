@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "acquisition_protocol_sha256": "2d8b53ae10a018fde16bc91108db57d49a788f473fc8fc0dfe65a44e28ac2b89",
+  "prior_attempt": {
+    "attempted_utc": "2026-10-01T21:35:14Z",
+    "result": "directory_unavailable",
+    "source_requests_performed": false,
+    "source_bytes_acquired": false,
+    "receipt_saved": false,
+    "sanitized_cli_report_sha256": "af0144b8c78e75f3863cd1910b6841aaee2223db59866cd3f6ae466fa589b974",
+    "implementation_sha256": "29a4f373a50436bea0a3a1b72a16bb45e2b3ee99d8a59bea14914979dcc71720",
+    "correction": "Create only checked ignored parent directories automatically, keeping the destination leaf exclusive. Synthetic source tests pass after correction."
+  },
+  "successful_receipts": {
+    "path": "docs/validation/ipop-preflight-acquisition-receipts-v1.json",
+    "sha256": "835007331faa00c28ea13d05fdfe8408fb7e939242d022d3dd0e719454f90559"
+  },
+  "numerical_intake": {
+    "original_v1_result_path": "docs/validation/ipop-preflight-exact-subject-v1.json",
+    "clinical_fit_performed": false,
+    "raw_distribution": "fetch_only",
+    "participant_rows_or_identifiers_redistributed": false
+  }
+}

@@ -1143,6 +1143,22 @@
     {
       "path": "docs/validation/ipop-numerical-preflight-protocol-v1.json",
       "sha256": "2d8b53ae10a018fde16bc91108db57d49a788f473fc8fc0dfe65a44e28ac2b89"
+    },
+    {
+      "path": "docs/validation/ipop-preflight-exact-subject-v1.json",
+      "sha256": "c8cbc1d411e9a6fd864a909460f9b52254589e5e7175bbb09f6da46cf6a4fcd2"
+    },
+    {
+      "path": "docs/validation/ipop-preflight-acquisition-receipts-v1.json",
+      "sha256": "835007331faa00c28ea13d05fdfe8408fb7e939242d022d3dd0e719454f90559"
+    },
+    {
+      "path": "docs/validation/ipop-namespace-crosswalk-protocol-v2.json",
+      "sha256": "531a521156f40dae687c903b7c902b59cb34ad24014e2957c55141fa923b1ba0"
+    },
+    {
+      "path": "docs/validation/ipop-preflight-acquisition-history-v1.json",
+      "sha256": "ebf981ea1b7f59ee6922ffb311c45de2356f529728b7b5e0fb72f6aa72619c64"
     }
   ]
 }

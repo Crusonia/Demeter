@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "protocol_id": "ipop_namespace_crosswalk_preflight_v2",
+  "status": "frozen_after_v1_literal_result_before_namespace_graph_aggregation",
+  "purpose": "Test whether the credible public derivative preserves usable linked laboratory observations before choosing any clinical likelihood for issue57.",
+  "used_source": true,
+  "chronology": "Selected after source methods/code/header appraisal and complete frozen-v1 structural intake revealed 951 unique-sample associations with unequal subject tokens and no admitted literal-equality panel. No namespace degree graph or conditional v2 panel coverage has been computed before this freeze. This is used-source adaptive research, not preregistration or independent clinical validation. Preserve the complete v1 result unchanged.",
+  "prior_artifacts": {
+    "schema_protocol": {
+      "path": "docs/validation/ipop-schema-protocol-v1.json",
+      "commit": "d1fdc24",
+      "sha256": "55f0c3858e789241a70e22d77435f8ebf0e3e70adcd2ac550ef9928602beed3c"
+    },
+    "schema_receipts": "docs/validation/ipop-schema-receipts-v1.json",
+    "clinical_contract": "docs/CLINICAL_OBSERVATION_CONTRACT.md",
+    "public_provenance_correction": {
+      "path": "docs/validation/ipop-public-provenance-correction-v1.json",
+      "commit": "b762d01",
+      "sha256": "6278390527f9cbbbc1bf444890a5d44dc089610d78afd5c94b1ac25a64ea9ec2"
+    }
+  },
+  "source_selection": {
+    "repository": "https://github.com/gmiaslab/TemporalMultiomicsDiabetes",
+    "commit": "ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c",
+    "tree": "021c4dfe091d3e554b3173711ab01fc06da15141",
+    "clinical": {
+      "path": "data/clinical_tests.txt",
+      "url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/clinical_tests.txt",
+      "git_blob": "cb01fe38378f8cef951837414e241c3e8d6a8bcc",
+      "tree_size_bytes": 231694,
+      "format": "UTF-8 TSV, source quoting and CR/LF record boundaries preserved",
+      "selected_columns": [
+        "VisitID",
+        "SubjectID",
+        "A1C",
+        "GLU",
+        "CL4"
+      ],
+      "collection_date": "CollectionDate remains opaque in immutable raw bytes. Do not parse, convert, align, validate calendar ranges or expose its record values during this preflight."
+    },
+    "sample_info": {
+      "path": "data/SampleInfo.csv",
+      "url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/SampleInfo.csv",
+      "git_blob": "342d35d36eb422cf315a9757b7514c45312173e5",
+      "tree_size_bytes": 36407,
+      "format": "UTF-8 CSV, source quoting and record boundaries preserved",
+      "selected_columns": [
+        "SubjectID",
+        "SampleID",
+        "Days_Since_Start",
+        "CL4"
+      ]
+    },
+    "excluded": "No other participant file, supplement worksheet, assay column, notebook output, SubjectClass, SubjectInfo, VisitSchedules or subjectStatus record content. Table shape can be checked without interpreting excluded cell values.",
+    "permission": "Zheng2022 declares original data publicly supplied by the Stanford authors and all used data files released in the named repository. This credible public lineage does not require independent per-person consent certification. Original CC0 data and MIT code declarations are distinct; no controlled dbGaP material is selected. Pinned GitHub bytes are not silently equated with Zenodo bytes or with the later2018 analytical cohort."
+  },
+  "acquisition_and_integrity": {
+    "this_draft_performs_acquisition": false,
+    "full_files_later_required": "A later authorized implementation acquires only these two exact pinned source files into a fresh ignored directory. Full participant-containing bytes stay fetch-only; no raw rows or derived individual panels are committed.",
+    "verification": "Before selected record interpretation, require each complete byte count and Git object SHA1 to match the frozen tree metadata. Compute the ordinary Git blob identity from the exact unmodified bytes; record a fresh SHA256 and actual UTC, requested/final safe URL, HTTP status and content type. Header-only SHA256 receipts are partial receipts, never full-file pins.",
+    "immutability": "Never replace prior raw bytes, scopes, receipts, protocols or failed attempts. Changed bytes, redirects to unrelated material, challenge HTML or source errors are failed acquisitions, not automatic repins or alternative-release substitution.",
+    "offline_replay": "After an initial successful byte verification, replay from immutable local bytes with the full-file receipt and protocol pins. Distinguish historical acquisition from current local-byte verification; no network call is necessary for replay."
+  },
+  "declared_assumptions": {
+    "measure_names": "Selected S0 names support A1C as hemoglobin A1c and GLU as glucose; these are laboratory proxies, not engine states.",
+    "published_unit_context": "The companion publication reports HbA1c in percent and glucose in mg/dL. Treat those as explicitly declared, unverified derivative-unit assumptions, not a certified file dictionary. No unit-dependent operation occurs in this preflight and magnitudes cannot confirm units.",
+    "raw_input": "The selected files are the producer analysis inputs before its generic coercion, averaging or signal normalization. Assume no additional hidden normalization only for a later stated measurement interpretation; preflight cannot establish rawness from numeric distributions.",
+    "relative_day": "Days_Since_Start is provisionally a finite numeric relative-day coordinate with a common additive origin within each SubjectID, supported by its label and producer use. Unknown additive origin cancels in within-subject differences under this assumption; it does not establish calendar dates, clinical specimen times, common origins across subjects or release cutoff coverage. The preflight counts distinct/equal coordinates without converting days to years or reporting numerical intervals.",
+    "context": "CL4 in each selected file remains opaque metadata. Code-supported context use in subjectStatus does not bind these two columns. No context string becomes glycemic health, treatment, diagnosis or a clinical-state label.",
+    "statistical_model": "None. No sampling model, confidence interval, clinical acceptance tolerance, minimum cohort size or fitted distribution is selected."
+  },
+  "parsing_contract": {
+    "structure": "Strict declared UTF-8 and CSV/TSV parsing. Require one header, each selected label present exactly once and each record having the declared header width. Preserve original raw bytes and selected lexical tokens locally. Do not use implicit pandas missing-value conversion, strip key characters, repair headers, discard malformed rows or coerce identifier types.",
+    "identifier_tokens": "Nonempty SubjectID/VisitID/SampleID are exact opaque strings, never decoded as clinical classes. Empty and whitespace-only identifiers are separately counted; whitespace-only tokens cannot participate in linkage. Nonempty tokens with leading/trailing whitespace remain exact and receive an aggregate formatting flag, not silent trimming.",
+    "number_tokens": "For A1C, GLU and Days_Since_Start classify tokens into empty, whitespace-only, finite ASCII decimal syntax, explicit nonfinite numeric token, or nonnumeric/undocumented-code token. Decimal syntax may have a sign, decimal point and exponent. Parsing whitespace around a numeric token must be declared and its presence counted; preserve the lexical original. Do not accept numeric prefixes, underscores, locale commas or Unicode digits. Finite zero/negative numbers remain finite source numbers, not validated assays or guessed missing codes. Exact explicit nonfinite syntax is an optional plus/minus sign followed by nan, inf or infinity (ASCII case-insensitive); other spellings remain undocumented codes. Finite ASCII decimal syntax is [+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?.",
+    "missingness": "Only syntactically empty/whitespace-only cells are structurally absent. Literal NA, null, punctuation or other codes are not converted into missing observations without producer definitions; their numerical-token disposition is reported separately. No absence implies a missed visit, refusal, zero value or unknown physiological state.",
+    "duplicates": "Preserve all source rows. Do not average, impute, normalize, deduplicate, select a preferred same-day record or aggregate repeated measurements into one clinical observation. Identical selected-token patterns are not necessarily duplicate full records because excluded fields remain opaque.",
+    "numeric_whitespace_rule": "Strip surrounding Unicode whitespace only for ASCII numeric syntax classification, count its presence for finite and explicit nonfinite numeric tokens, and retain the original lexical token. No key normalization."
+  },
+  "association_contract": {
+    "candidate": "Exact clinical.VisitID -> SampleInfo.SampleID under a declared producer sample-association hypothesis. Clinical and metadata SubjectID tokens are separate namespaces, even when lexically equal.",
+    "graph": "Before any assay/day eligibility or row quarantine, use ALL clinical rows with nonempty VisitID and clinical SubjectID and every exact matching SampleInfo row with nonempty metadata SubjectID. Build distinct clinical-to-metadata and metadata-to-clinical partner sets. Include every possible nonempty subject partner from ambiguous right-side keys, even though those clinical rows cannot enter a panel. Do not materialize a many-to-many observation table. Repeated rows remain separate source rows but contribute one distinct edge per subject-token pair.",
+    "missing_graph_tokens": "Absent subject tokens supply no invented edge. Degree consistency describes available token associations only and does not certify unknown partners or complete participant identity.",
+    "admission": "A row is admitted only if its VisitID has exactly one matching SampleInfo row, both subject tokens are nonempty, and both subject nodes have exactly one distinct partner in the full pre-filter graph. Do not remove edges iteratively to create eligible degree-one relationships; lexical equality never bypasses graph consistency or duplicate right keys.",
+    "clinical_row_partition_order": [
+      "missing_clinical_visit_or_subject_key",
+      "no_exact_sample_key_match",
+      "multiple_sample_rows_for_matching_key",
+      "missing_subject_in_unique_sample_match",
+      "clinical_namespace_multiple_partners",
+      "metadata_namespace_multiple_partners",
+      "mutually_degree_one_unique_sample_association"
+    ],
+    "grouping": "Use the metadata SubjectID and its sample day for admitted assay/day coverage under the stated source-association assumption. Preserve original clinical subject tokens internally and the unchanged v1 literal comparison; do not rewrite raw files or normalize identifiers.",
+    "preservation": "No source-row deletion, assay/day pre-filter, preferred replicate, imputation, averaging, string normalization, subject-only fallback or composite-key rescue. Clinical duplicates remain separate. Ambiguous right keys cannot be collapsed even if selected tokens match."
+  },
+  "frozen_aggregate_output_selection": {
+    "source_audit": "Protocol/source receipt pins, declared Git blobs, complete sizes/SHA256, selected header verification, safe source-file basenames, source-integrity disposition and acquisition/replay distinction.",
+    "source_structure": "For each file: source record count; counts with empty/whitespace/nonempty selected key tokens; distinct nonempty key-label counts; counts of repeated keys and selected-token patterns; counts of key-formatting flags. Distinct identifier labels are not automatically verified people or specimens.",
+    "numeric_token_coverage": "For each selected numerical field and its explicit full-source denominator: counts in every frozen mutually exclusive token class, plus numeric surrounding-whitespace flags. No field-value list, min/max, mean, quantile, histogram, clinical category or calendar-time summary.",
+    "linkage": "Exhaustive ordered v2 clinical-row partition with full 969-row source denominator derived at replay, alongside the complete unchanged frozen v1 report. Counts of unique-sample candidate rows by clinical/metadata degree combination: one/one, one/multiple, multiple/one, multiple/multiple, reconciling with all unique-sample candidates with both subject tokens present. Retain right-key ambiguity and candidate absence counts.",
+    "unambiguous_linked_coverage": "Counts of linked rows with each assay finite and with both assays finite, crossed with finite versus unavailable/malformed sample day. Counts of distinct linked subject labels with no finite day, only one distinct finite day, or multiple distinct finite days, separately for A1C, GLU and either finite assay. Counts of same-subject equal-day row groups, repeated sample associations and subjects with multiple sample labels at an equal day. Do not report IDs or day values. The full subject denominator is every distinct exact SubjectID label in unambiguous linked clinical rows, including rows without a finite laboratory token. For each A1C, GLU and either finite assay partition that full denominator into labels with at least one finite selected assay and labels with none. The 0/1/multiple finite-day categories are conditional on at least one finite selected assay, with their own explicit denominator; reconcile that denominator and its no-finite-assay complement with the full linked subject denominator.",
+    "context_coverage": "For each selected CL4: structurally empty/whitespace/nonempty counts only. For unambiguous associations: both structurally present and exact-equal, both structurally present and unequal, or at least one structurally absent. No arbitrary context strings or vocabularies are output; equality does not certify the columns have the same semantic role.",
+    "checks": "Integer nonnegative counts, exhaustive row/token partition reconciliation, subset counts bounded by their explicit denominators, duplicate observations preserved, no many-to-many expansion and complete provenance before publication. A structural check is not a clinical acceptance threshold.",
+    "privacy": "Publish aggregate counts and constant dispositions only. No raw identifiers, identifier hashes, row excerpts, laboratory values, dates, context strings, subject-level vectors, exception payloads or excluded fields. No patient-level export is provided.",
+    "success_claim": "Preflight completed means only that source integrity and aggregate preservation checks passed. State separately whether any unambiguous repeated-coordinate observations are present, whether other rows are ambiguous and which assumptions remain unverified. It does not mean clinical eligibility or scientific acceptance.",
+    "namespace_consistency": "For each namespace, every distinct nonempty source SubjectID label partitioned into zero, one or multiple observed nonempty partners; explicit full-source label denominators. Distinct possible subject-pair edge count, source clinical rows contributing at least one possible edge, and source clinical rows with ambiguous matching sample keys contributing possible edges. No identifier labels, partner lists, crosswalk rows, per-subject distributions or clinical interpretations."
+  },
+  "failure_dispositions": {
+    "source_or_structure_failure": "Save a sanitized failed audit with safe receipt/protocol provenance and constant failure-stage labels. All selected coverage/linkage results remain null if source identity, encoding, header or row-shape validation fails. Do not publish partial successful aggregates or repair the source to obtain agreement.",
+    "record_quality_limitations": "Malformed numerical tokens, absent keys/days, duplicate right-side keys, unmatched rows or subject mismatches are reported as frozen aggregate limitations rather than silently coerced/deleted. Dependent association or repeated-panel claims remain unavailable for affected rows. No additional files or alternative keys are opened automatically.",
+    "no_repeated_observations": "Report that the selected source supplies no eligible repeated-coordinate coverage under this contract; do not manufacture a panel or broaden fields after seeing the result.",
+    "clinical_definition_gap": "Unverified units/rawness/specimen association or unknown visit process remain explicit. Even successful preflight does not authorize clinical thresholds, latent-state allocation, likelihood fitting or engine activation. A later separate protocol must resolve or declare applicable alternatives before those operations.",
+    "output_preservation": "Protect selected raw files, receipt/protocol artifacts and registered evidence paths against report overwrite and aliases. Use a fresh report identity; failed output writes must not replace source evidence."
+  },
+  "fixed_scope_flags": {
+    "participant_records_acquired_in_this_draft": false,
+    "preflight_executed_in_this_draft": false,
+    "clinical_threshold_mapping_allowed": false,
+    "clinical_likelihood_or_fit_allowed": false,
+    "biological_transition_rates_allowed": false,
+    "diagnosis_or_remission_inference_allowed": false,
+    "death_or_censoring_inference_allowed": false,
+    "dietary_causal_inference_allowed": false,
+    "national_transport_or_initialization_allowed": false,
+    "engine_activation_allowed": false,
+    "new_numeric_model_parameters": false,
+    "independent_validation": false,
+    "scientific_acceptance_changed": false
+  },
+  "required_later_decision": "Test the separately frozen namespace hypothesis, preserving v1. Mutually consistent links are associations within these pinned records under the producer sample-key assumption. Even repeated finite-assay coordinates do not verify units, fasting, specimen dates, rawness, diagnosis, remission, observation/selection process, deaths or clinical likelihood. A separate estimation protocol is still required; no engine activation.",
+  "root_review": {
+    "status": "accepted_for_conditional_source_association_audit_only",
+    "automated_peer_review": "Two read-only automated reviews support this explicit hypothesis and require full pre-filter degree sets, inclusion of possible partners from ambiguous keys, no iterative rescue and separate raw namespaces. Not human clinical acceptance."
+  },
+  "frozen_at_utc": "2026-10-01T21:46:32.005444+00:00",
+  "draft_lineage": {
+    "reviewed_draft_sha256": "bc938c362f17033d11a97ada27ae269088e36f58d0d1d8aa2e3c692dbbde3763",
+    "status": "Uncommitted reviewed draft; this frozen selection supersedes it before complete file acquisition."
+  },
+  "binding_acquisition_protocol": {
+    "path": "docs/validation/ipop-numerical-preflight-protocol-v1.json",
+    "sha256": "2d8b53ae10a018fde16bc91108db57d49a788f473fc8fc0dfe65a44e28ac2b89",
+    "freeze_commit": "ab69c5f9bd3761b5115e3d2b3639e4233986387f",
+    "note": "Original exact source selection and acquisition remain unchanged; v2 reuses the immutable complete verified local bytes and receipts."
+  },
+  "v1_result": {
+    "path": "docs/validation/ipop-preflight-exact-subject-v1.json",
+    "sha256": "c8cbc1d411e9a6fd864a909460f9b52254589e5e7175bbb09f6da46cf6a4fcd2"
+  },
+  "source_support": {
+    "producer_code_locators": [
+      "Single-subject notebook cell3 source lines2-5, cell6 lines7-10",
+      "Multi-subject notebook cell4 source lines2-5, cell7"
+    ],
+    "meaning": "Producer discards clinical SubjectID, renames VisitID to SampleID and merges by SampleID with SampleInfo-derived SubjectID/day metadata. This supports a candidate sample association, not equivalence of the two raw subject namespaces or verified people. A consistently wrong bijection remains possible."
+  }
+}
