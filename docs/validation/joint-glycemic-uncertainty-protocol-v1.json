@@ -1,0 +1,78 @@
+{
+  "alternatives": [
+    "Original separate marginal intervals remain available and unchanged",
+    "Descriptive point/bound summaries without covariance"
+  ],
+  "base_commit": "87e8fe119852ad100bf657eb8688aaac8dfe7913",
+  "chronology": "Prior source/point results already inspected; frozen before new covariance execution; not an untouched holdout",
+  "clinical_activation_allowed": false,
+  "complete_labels": [
+    "normoglycemia",
+    "prediabetes",
+    "diabetes_any_type",
+    "unclassified"
+  ],
+  "direct_initialization_allowed": false,
+  "existing_artifact_sha256": {
+    "data/sources/nhanes/2017-2020/manifest.json": "7abddaffcad210931d7e2af5581e25b599c1c48b69d31e6aa2db0cebb2a0d822",
+    "src/demeter/data/nhanes.py": "cac20cd09b1dddceab5b08b3b39b4b5f0ae36d27c509a4703daf4feac8add481",
+    "src/demeter/data/partial_observations.py": "7b296151807a6da51612e559d70316b95e6b5a151c472db48272e50e97ac15e4",
+    "src/demeter/data/state_mapping.py": "22bf586acdb4a02bd24bb106c9f6e01c37c4cd096615fc3b0527bde69668ce2d"
+  },
+  "existing_definition_sha256": {
+    "nhanes_glycemic_prevalence": "5555efe1532ca8cda5113d0e2a38ee13c075ed720ec30ae5a405d2f23fae006f",
+    "observation_partial_mapping": "91fae4f3c74c8c62d55f39e2ab9ddbf6754165a36e6dd4213d19bc3e0aaca005",
+    "observation_state_mapping": "1bb7b635df72a405404f1682b36da782e591cf081033c1eb3c7e3314a949894b"
+  },
+  "kind": "joint_glycemic_uncertainty_protocol",
+  "limitations": [
+    "Sampling covariance does not identify latent states or clinical hazards",
+    "Missingness, measurement, structural and transport uncertainty remain unresolved",
+    "No new draws or simultaneous confidence statement",
+    "Singular covariance retained without repair"
+  ],
+  "method": "multivariate_taylor_ratio_v1",
+  "method_document_receipts": [
+    {
+      "bytes": 411202,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://wwwn.cdc.gov/nchs/nhanes/tutorials/varianceestimation.aspx",
+      "id": "cdc",
+      "retrieval_started_at": "2026-10-01T08:23:33.604952+00:00",
+      "retrieved_at": "2026-10-01T08:23:34.231028+00:00",
+      "sha256": "4096ca4b26a323eba1096dc3185782da752c8e625493a93adfdc35e630757433",
+      "status": 200,
+      "url": "https://wwwn.cdc.gov/nchs/nhanes/tutorials/varianceestimation.aspx"
+    },
+    {
+      "bytes": 421740,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://stat.ethz.ch/CRAN/web/packages/survey/refman/survey.html",
+      "id": "survey",
+      "retrieval_started_at": "2026-10-01T08:23:34.232024+00:00",
+      "retrieved_at": "2026-10-01T08:23:35.369864+00:00",
+      "sha256": "76fe9a7ad98554e01e88fb8bcfe98e18d534c547824e359e8fe3901a11866dbf",
+      "status": 200,
+      "url": "https://stat.ethz.ch/CRAN/web/packages/survey/refman/survey.html"
+    }
+  ],
+  "model_role": "benchmark_only",
+  "numeric_settings": "No new empirical threshold, clinical tolerance or confidence level; existing marginal interval settings retained",
+  "partial_patterns": "All seven nonempty subsets in registry glycemic state order; fixed before source analysis",
+  "sampling_distribution_assumed": false,
+  "schema_version": 1,
+  "scope": "Existing glycemic complete-case and disjoint partial-pattern proportions across existing age/sex domains; no PreChronic partition or latent-state fit",
+  "source_store": "data/sources/nhanes/2017-2020",
+  "tests": [
+    "Hand-calculated complement off-diagonal",
+    "Scalar variance and point equality",
+    "Weight scale invariance",
+    "Full-design zero-domain PSU preservation",
+    "Closure null directions, symmetry, PSD without repair",
+    "Cross-domain and complete/partial covariance",
+    "Fixed projection versus direct binary estimates",
+    "Empty domain unavailable; singleton full design error",
+    "Offline source integrity and historical/engine invariance"
+  ],
+  "used_source": true
+}

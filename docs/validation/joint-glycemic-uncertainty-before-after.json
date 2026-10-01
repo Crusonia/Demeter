@@ -1,0 +1,76 @@
+{
+  "kind": "joint_glycemic_uncertainty_verification",
+  "passed": true,
+  "source_report_exactly_reproduced": true,
+  "protocol_sha256": "dd0e88aadac16cc1d180f5be8adff270cbdbaf46d61a53b80ec20be15723454c",
+  "model_role": "benchmark_only",
+  "direct_initialization_allowed": false,
+  "before_after": {
+    "before_evidence_sha256": "cf6f3a68c9598daa41e68252bdf4a2c5824f6a57a07304d873c976b8776ec406",
+    "after_evidence_sha256": "f058e9815225d76d4845b99aa0ac689c28cd30a2e4b1e0d5fd6b8c0158401f30",
+    "excluded_paths": [
+      "/metadata/evidence_sha256",
+      "/healthspan/evidence_sha256"
+    ],
+    "canonical_scenarios": [
+      {
+        "scenario": "baseline",
+        "complete_outputs_equal_except_evidence_hash": true,
+        "absolute_numeric_change": 0,
+        "relative_numeric_change": 0
+      },
+      {
+        "scenario": "reduce_upf_30",
+        "complete_outputs_equal_except_evidence_hash": true,
+        "absolute_numeric_change": 0,
+        "relative_numeric_change": 0
+      },
+      {
+        "scenario": "prechronic_baseline",
+        "complete_outputs_equal_except_evidence_hash": true,
+        "absolute_numeric_change": 0,
+        "relative_numeric_change": 0
+      },
+      {
+        "scenario": "prechronic_reduce_upf_30",
+        "complete_outputs_equal_except_evidence_hash": true,
+        "absolute_numeric_change": 0,
+        "relative_numeric_change": 0
+      }
+    ],
+    "refreshed_observation_reports": {
+      "issue-56-state-mapping.json": {
+        "all_other_outputs_identical": true,
+        "excluded_paths": [
+          "/provenance/evidence_sha256"
+        ]
+      },
+      "issue-56-partial-observations.json": {
+        "all_other_outputs_identical": true,
+        "excluded_paths": [
+          "/provenance/evidence_sha256"
+        ]
+      }
+    },
+    "sampling_inputs_unchanged": true,
+    "benchmark_not_sampled": true,
+    "fixed_seed_uncertainty_unchanged": true,
+    "uncertainty_check": {
+      "seed": 42,
+      "draws": 2,
+      "years": 2,
+      "scope": "Software regression with synthetic active parameters"
+    },
+    "prevalence_checks_unchanged": true,
+    "mortality_backtest_unchanged": true,
+    "scientific_blockers_unchanged": true,
+    "before_missing_uncertainty": [],
+    "after_missing_uncertainty": [],
+    "scientific_release_ready": false,
+    "interpretation": "Empirical sampling covariance added only; no engine or clinical initialization change",
+    "passed": true
+  },
+  "prior_parameters_and_sources_identical": true,
+  "prior_datasets_identical": true,
+  "added_dataset": "glycemic_joint_uncertainty"
+}
