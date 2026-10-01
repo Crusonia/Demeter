@@ -445,6 +445,81 @@ def whitehall_endpoint_evidence(
         raise typer.Exit(1)
 
 
+@evidence_app.command("longitudinal-likelihood")
+def longitudinal_likelihood_evidence(
+    evidence: Path = DEFAULT_EVIDENCE,
+    output: Path | None = None,
+) -> None:
+    """Run the frozen synthetic linked-path exercise; no participant import or fit."""
+    from yaml import YAMLError, safe_load
+
+    from demeter.analysis.longitudinal_likelihood_validation import (
+        DATASET,
+        PROTOCOL_PATH,
+        RFC_PATH,
+        likelihood_failure_report,
+        likelihood_software_report,
+        load_likelihood_registry,
+    )
+
+    protected = [DEFAULT_EVIDENCE, evidence, Path(PROTOCOL_PATH), Path(RFC_PATH)]
+    selected = None
+    # Preserve explicitly declared input paths even when a malformed numeric
+    # input prevents loading the registry. This inspection cannot authorize a fit.
+    try:
+        document = safe_load(evidence.read_text(encoding="utf-8"))
+        datasets = document.get("datasets", {}) if type(document) is dict else {}
+        spec = datasets.get(DATASET, {}) if type(datasets) is dict else {}
+        if type(spec) is dict:
+            protected.extend(
+                Path(spec[field])
+                for field in ("protocol_path", "rfc_path")
+                if type(spec.get(field)) is str
+            )
+    except (OSError, ValueError, YAMLError):
+        pass
+    try:
+        selected = load_likelihood_registry(evidence)
+        spec = selected.datasets.get(DATASET, {})
+        protected.extend(
+            Path(spec[field])
+            for field in ("protocol_path", "rfc_path")
+            if type(spec.get(field)) is str
+        )
+    except (OSError, ValueError, YAMLError):
+        pass
+    if output:
+        try:
+            protected_output = any(output.resolve() == path.resolve() for path in protected)
+            existing_output = output.exists() or output.is_symlink()
+        except (OSError, RuntimeError, ValueError):
+            typer.echo("Output path could not be verified; existing files are preserved.")
+            raise typer.Exit(1) from None
+        if protected_output:
+            typer.echo("Output must not replace an evidence registry or frozen contract.")
+            raise typer.Exit(1)
+        if existing_output:
+            typer.echo("Output must be a new file; existing evidence and reports are preserved.")
+            raise typer.Exit(1)
+    report = (
+        likelihood_software_report(selected)
+        if selected is not None
+        else likelihood_failure_report("registered_registry")
+    )
+    text = json.dumps(report, indent=2, sort_keys=True, allow_nan=False)
+    if output:
+        try:
+            output.parent.mkdir(parents=True, exist_ok=True)
+            with output.open("xb") as stream:
+                stream.write((text + "\n").encode("utf-8"))
+        except OSError:
+            typer.echo("Could not create a new output file; existing files are preserved.")
+            raise typer.Exit(1) from None
+    typer.echo(text)
+    if not report["software_checks_passed"]:
+        raise typer.Exit(1)
+
+
 @evidence_app.command("paired-remission")
 def paired_remission_evidence(
     raw: Annotated[

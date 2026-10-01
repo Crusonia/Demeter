@@ -301,6 +301,13 @@ for the extended offline report. A source-linked historical challenge retains
 failed assumptions rather than fitting them away. All timing effects remain
 synthetic pending the separate calibration pass.
 
+The [linked-observation likelihood exercise](docs/LONGITUDINAL_LIKELIHOOD.md)
+evaluates repeated toy visits, piecewise regimes, first-entry event timing and
+competing death. Run `uv run demeter evidence longitudinal-likelihood` for the
+fixed offline synthetic report. It preserves diagnosis history and shows why a
+single endpoint cannot identify separate rates. Clinical fitting and engine
+activation remain evidence-blocked; its mathematical checks are validation-only.
+
 Resolve state definitions and age-specific baseline prevalence, fit defensible transition hazards and mortality ratios, encode study-compatible dietary doses and uncertainty, and evaluate an independent historical health holdout. Until then, the software reports validation-only results and remains a prerelease. Agriculture, agent behavior, policy, economics, and a public simulator follow the phases in the program vision.
 
 The [issue #1 audit](docs/ISSUE_1_AUDIT.md) records the remaining acceptance criteria.

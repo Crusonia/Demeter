@@ -31,6 +31,12 @@ history, source failures and unknown assessment/death partitions. It supplies
 neither a latent clinical likelihood nor an annual hazard fit; exact observation,
 treatment, censoring and clinical identification requirements below remain open.
 
+The [linked-path software evaluator](LONGITUDINAL_LIKELIHOOD.md) implements declared
+panel, first-entry timing, competing-death and censoring kernels with frozen
+synthetic checks. It confers no source eligibility and performs no clinical fit.
+Its continuous-time kernels remain separate from the annual simulation engine;
+actual observation coverage and scientific acceptance requirements below remain open.
+
 The [project vision](PROJECT_VISION.md), [architecture](SYSTEM_ARCHITECTURE.md)
 and [scenario catalog](SCENARIO_CATALOG.md) preserve the broader program. The
 current work remains within the v0.1 health slice. Its design chain is the health
