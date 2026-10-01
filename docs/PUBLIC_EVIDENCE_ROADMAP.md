@@ -1,5 +1,12 @@
 # Building Demeter with public evidence
 
+The [Stanford iPOP schema appraisal](IPOP_SOURCE_COVERAGE.md) now verifies eight
+metadata surfaces, producer linkage/clock operations and the publication's A1c
+and glucose measure names. It pins the source bytes and preserved acquisition
+failures separately from inspected content. Public-release membership/cutoff,
+derivative units/rawness and actual visit clocks remain unresolved; this source
+has not been admitted for clinical fitting or national calibration.
+
 The [Whitehall II endpoint package](WHITEHALL_ENDPOINT.md) now reproduces two
 published FPG follow-up labels and evaluates an explicit conditional binomial
 working likelihood, with a descriptive-only alternative. This advances the
@@ -32,6 +39,7 @@ identify a national causal model. This feeds [#56](https://github.com/Crusonia/D
 | Priority | Public evidence | What it can establish | Next deliverable |
 | --- | --- | --- | --- |
 | 1 | [Chen public cohort](https://doi.org/10.5061/dryad.ft8750v), CC0 data | Source-specific baseline/final glucose and recorded incident diabetes | [Timing audit complete](CHEN_TIMING_AUDIT.md), source disagreements retained; keep descriptive benchmarks and seek compatible observations before a likelihood fit |
+| 1a | [Stanford iPOP public-data candidate](IPOP_SOURCE_COVERAGE.md) | Documented measurement/linkage surface for repeated native-cohort laboratory observations | Resolve release membership, units/rawness and clock semantics before frozen numerical intake; do not substitute class/context labels for glycemic history |
 | 2 | Archived NHANES and NCHS linked mortality | U.S. observed glycemic categories and baseline-category mortality prediction | Carry explicit unknown/type categories forward; assess supported initialization and conditional mortality, keeping the frozen prediction evaluation separate |
 | 3 | Public aggregate longitudinal studies, including corrected ARIC and CARRS tables | External comparisons of progression/recovery under each study's definitions | Record intervals, competing-event handling and covariance availability; test whether any package identifies a compatible joint model |
 | 4 | [Hall intake reproduction](FOOD_INTAKE_REPRODUCTION.md), [corrected Reus assessment](REUS_DIABETES_PATHWAY.md) and public trial protocols | Study-compatible food intervention endpoints and explicit source-to-model limits | Define a compatible observation contract, appraise an independent source, and retain null alternatives and overlapping-effect uncertainty before fitting a disease bridge |

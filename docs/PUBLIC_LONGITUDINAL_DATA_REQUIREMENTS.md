@@ -135,6 +135,13 @@ parameter or clinical source-package activation.
 
 ## Scope and next decision
 
+The [Stanford iPOP source appraisal](IPOP_SOURCE_COVERAGE.md) adds a concrete
+repeated-laboratory lead with commit-pinned code, selected header metadata and
+Table S0 measure-name bindings. Its [receipts](validation/ipop-schema-receipts-v1.json)
+record actual partial/full acquisition, failed attempts and limited inspection.
+Units/rawness, actual clock semantics and file-level public-release membership
+remain unresolved; no clinical panel or empirical hazard was admitted.
+
 The subsequent [source-admission appraisal](PUBLIC_LONGITUDINAL_ADMISSION.md)
 adds Dryad occupational examinations and SLIMM-T2D as conditional leads, plus
 live CRELES and Comorbidities rights/access decisions. It records a finite
