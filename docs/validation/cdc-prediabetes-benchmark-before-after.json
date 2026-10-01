@@ -62,6 +62,20 @@
         "relative_numeric_change": 0
       }
     ],
+    "refreshed_observation_reports": {
+      "issue-56-state-mapping.json": {
+        "all_other_outputs_identical": true,
+        "excluded_paths": [
+          "/provenance/evidence_sha256"
+        ]
+      },
+      "issue-56-partial-observations.json": {
+        "all_other_outputs_identical": true,
+        "excluded_paths": [
+          "/provenance/evidence_sha256"
+        ]
+      }
+    },
     "sampling_inputs_unchanged": true,
     "benchmark_not_sampled": true,
     "fixed_seed_uncertainty_unchanged": true,

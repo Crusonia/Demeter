@@ -437,7 +437,7 @@
       "artifacts": [
         {
           "path": "docs/validation/issue-56-state-mapping.json",
-          "sha256": "898500b8b7380d253ee250e6c83d880bc4362ed190f97e6521597633a30ff0e5"
+          "sha256": "25a1389b4880003701769fedaae2d8a5c51a179037ed9a98346423a701e19aca"
         },
         {
           "path": "docs/validation/issue-56-state-mapping-before-after.json",
@@ -445,7 +445,7 @@
         },
         {
           "path": "docs/validation/issue-56-partial-observations.json",
-          "sha256": "67d6f34c3f50095f8113f5c183bc9413a0994b63e0eb20ad4cccb37fedf06ff4"
+          "sha256": "fe1043131d91d8fadab0e0451b3ab9b33c3dcc4864d08376b076ea051723f847"
         },
         {
           "path": "docs/validation/issue-56-partial-before-after.json",
@@ -936,7 +936,7 @@
       "artifacts": [
         {
           "path": "docs/validation/cdc-prediabetes-benchmark-before-after.json",
-          "sha256": "d9120262b737cd6f5b8074e601e4e15ed0649ccf8639bc8e61dcab1b41896a2d"
+          "sha256": "ba585005c056598c7334e76af1d8e5c7f1230e9e2bfd1cf4ca3b2c0e141946c4"
         }
       ],
       "transform_files": [

@@ -97,6 +97,8 @@ def compare_registries(previous: Path, root: Path = ROOT) -> dict:
     """Compare full outputs with only the two declared evidence-hash paths omitted."""
     from demeter.analysis.experiments import sampled_parameters, uncertainty
     from demeter.analysis.validation import mortality_backtest, prevalence_checks, validate
+    from demeter.data.partial_observations import partial_report
+    from demeter.data.state_mapping import mapping_report
     from demeter.model import simulate
     from demeter.schema import Scenario
 
@@ -128,11 +130,24 @@ def compare_registries(previous: Path, root: Path = ROOT) -> dict:
     before_u = normalized(uncertainty(old, scenario, draws=2, seed=42, diagnostics=True))
     after_u = normalized(uncertainty(new, scenario, draws=2, seed=42, diagnostics=True))
     readiness = validate(new)
+    observation_checks = {}
+    for name, builder in (
+        ("issue-56-state-mapping.json", mapping_report),
+        ("issue-56-partial-observations.json", partial_report),
+    ):
+        before_observations, after_observations = builder(old), builder(new)
+        before_observations["provenance"].pop("evidence_sha256")
+        after_observations["provenance"].pop("evidence_sha256")
+        observation_checks[name] = {
+            "all_other_outputs_identical": before_observations == after_observations,
+            "excluded_paths": ["/provenance/evidence_sha256"],
+        }
     report = {
         "before_evidence_sha256": old.content_hash,
         "after_evidence_sha256": new.content_hash,
         "excluded_paths": ["/metadata/evidence_sha256", "/healthspan/evidence_sha256"],
         "canonical_scenarios": checks,
+        "refreshed_observation_reports": observation_checks,
         "sampling_inputs_unchanged": sampled_parameters(old, scenario)
         == sampled_parameters(new, scenario),
         "benchmark_not_sampled": KEY not in sampled_parameters(new, scenario),
@@ -153,6 +168,7 @@ def compare_registries(previous: Path, root: Path = ROOT) -> dict:
     }
     report["passed"] = (
         all(check["complete_outputs_equal_except_evidence_hash"] for check in checks)
+        and all(check["all_other_outputs_identical"] for check in observation_checks.values())
         and all(
             report[key]
             for key in (

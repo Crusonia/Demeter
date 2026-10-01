@@ -83,6 +83,11 @@ sampling inputs, draws and uncertainty outputs. Prevalence discrepancies and
 historical mortality residuals stay unchanged; the clinical gates remain closed.
 The registry hash and global missing-uncertainty audit change as expected.
 Original historical protocols and receipts are preserved.
+The two current state-mapping and partial-observation reports are refreshed for
+the new registry hash. Their complete outputs match the prior reports after
+excluding only `/provenance/evidence_sha256`; source hashes, observations,
+definitions, uncertainty, implementation hashes and unresolved mappings stay
+unchanged. The saved comparison includes this separate provenance check.
 
 ## Scoped assessment
 
