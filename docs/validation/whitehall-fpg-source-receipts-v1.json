@@ -1,0 +1,88 @@
+{
+  "recorded_utc": "2026-10-01T01:36:56.010209+00:00",
+  "role": "Historical acquisition receipts frozen with the analysis design before planned selected ESM count capture; after prior/incidental source result exposure.",
+  "distribution": "fetch_only",
+  "required_numerical_source_keys": [
+    "main_static_pdf",
+    "supplement_pdf"
+  ],
+  "required_sources": {
+    "main_static_pdf": {
+      "role": "primary official static paper acquisition before count freeze",
+      "distribution": "fetch_only",
+      "url": "https://link.springer.com/content/pdf/10.1007/s00125-019-4895-0.pdf",
+      "final_url": "https://link.springer.com/content/pdf/10.1007/s00125-019-4895-0.pdf",
+      "retrieval_started_utc": "2026-10-01T01:27:05.176722+00:00",
+      "retrieved_utc": "2026-10-01T01:27:07.549200+00:00",
+      "status": 200,
+      "content_type": "application/pdf",
+      "size_bytes": 543921,
+      "sha256": "e89dfe23cdb184e9f1fbb04f58678d23e97f2ea8ab5d215df8aa85716799d712",
+      "cache_filename": "whitehall2019-official-main-static-20261001T012705176722Z.pdf",
+      "is_pdf": true,
+      "inspection_scope": "bibliography/license/methods only; no numeric outcome extraction",
+      "final_url_query_omitted": true
+    },
+    "supplement_pdf": {
+      "role": "public primary publication supplement; no participant dataset",
+      "distribution": "fetch_only",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1007%2Fs00125-019-4895-0/MediaObjects/125_2019_4895_MOESM1_ESM.pdf",
+      "final_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1007%2Fs00125-019-4895-0/MediaObjects/125_2019_4895_MOESM1_ESM.pdf",
+      "retrieval_started_utc": "2026-09-30T23:39:58.561302+00:00",
+      "retrieved_utc": "2026-09-30T23:39:58.933115+00:00",
+      "size_bytes": 294249,
+      "sha256": "a78d0ead94ff6571518907beaa0805656902df4ec4ba30fc9c038889187bb894",
+      "status": 200,
+      "content_type": "application/pdf",
+      "cache_filename": "whitehall2019-esm-20260930T233958561302Z.pdf"
+    }
+  },
+  "contextual_historical_sources_not_mandatory_for_offline_computation": {
+    "old_main_html": {
+      "role": "public metadata/publication methods source only; no participant dataset acquired",
+      "distribution": "fetch_only",
+      "url": "https://link.springer.com/article/10.1007/s00125-019-4895-0",
+      "final_url": "https://link.springer.com/article/10.1007/s00125-019-4895-0",
+      "retrieved_utc": "2026-09-30T23:21:33.296275+00:00",
+      "retrieval_started_utc": "2026-09-30T23:21:31.569086+00:00",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "size_bytes": 339991,
+      "sha256": "3c9f81a67d4ff97c162dd029adba0b96852de4a89091e10e448c223f98c58fac",
+      "cache_filename": "whitehall2019-main-20260930T232131569086Z.html",
+      "final_url_query_omitted": true
+    },
+    "official_access": {
+      "role": "official public access policy; no participant data acquired or application submitted",
+      "distribution": "fetch_only",
+      "url": "https://www.ucl.ac.uk/brain-sciences/psychiatry/research/mental-health-older-people/projects/whitehall-ii/data-sharing",
+      "final_url": "https://www.ucl.ac.uk/brain-sciences/psychiatry/research/mental-health-older-people/projects/whitehall-ii/data-sharing",
+      "retrieval_started_utc": "2026-09-30T23:42:53.231466+00:00",
+      "retrieved_utc": "2026-09-30T23:42:53.886340+00:00",
+      "size_bytes": 73376,
+      "sha256": "15d7edde276fd33a4ae42021535aac26eb1c4c8ea49e09b99c546bc86682e5a4",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "cache_filename": "whitehall-current-access-20260930T234253231466Z.html"
+    },
+    "official_access_faq": {
+      "role": "official public access policy; no participant data acquired or application submitted",
+      "distribution": "fetch_only",
+      "url": "https://www.ucl.ac.uk/brain-sciences/psychiatry/research/mental-health-older-people/projects/whitehall-ii/data-sharing/data-sharing-faq",
+      "final_url": "https://www.ucl.ac.uk/brain-sciences/psychiatry/research/mental-health-older-people/projects/whitehall-ii/data-sharing/data-sharing-faq",
+      "retrieval_started_utc": "2026-09-30T23:42:53.887961+00:00",
+      "retrieved_utc": "2026-09-30T23:42:54.362874+00:00",
+      "size_bytes": 86202,
+      "sha256": "530a96507b7ace5dcccd51e8897b5f4ff3478f2f942397941f8b7704635aa8ef",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "cache_filename": "whitehall-current-faq-20260930T234253887961Z.html"
+    }
+  },
+  "source_inspection": "Main and ESM are already used-source; count cells remain null; no independent validation",
+  "local_publication_size_hash_checks_passed": true,
+  "participant_files_acquired": false,
+  "access_agreement_accepted": false,
+  "redistribute_fullcontent": false,
+  "frozen_utc": "2026-10-01T01:44:22.361551+00:00"
+}
