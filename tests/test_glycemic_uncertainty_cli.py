@@ -1,9 +1,11 @@
 import json
 from pathlib import Path
 
+import pytest
 from typer.testing import CliRunner
 
 from demeter.cli import app
+from demeter.data.ingest import digest
 from demeter.data.nhanes import encoded
 
 
@@ -36,9 +38,12 @@ def test_offline_cli_reproduces_committed_report(tmp_path):
     output = tmp_path / "joint.json"
     result = CliRunner().invoke(app, ["evidence", "glycemic-uncertainty", "--output", str(output)])
     assert result.exit_code == 0, result.output
-    assert (
-        output.read_bytes() == Path("docs/validation/joint-glycemic-uncertainty.json").read_bytes()
-    )
+    actual = output.read_bytes()
+    expected = Path("docs/validation/joint-glycemic-uncertainty.json").read_bytes()
+    if actual != expected:
+        pytest.fail(
+            f"Report bytes differ: actual SHA {digest(actual)}, expected SHA {digest(expected)}"
+        )
     report = json.loads(output.read_bytes())
     assert not report["scientific_release_ready"]
     assert not report["direct_initialization_allowed"]

@@ -2,6 +2,7 @@
 
 from copy import deepcopy
 from fractions import Fraction
+from itertools import combinations
 
 import numpy as np
 import pandas as pd
@@ -19,6 +20,51 @@ def fixture():
     domains = pd.DataFrame({"all": [True] * 4}, index=frame.index)
     memberships = pd.DataFrame({"yes": [0, 1, 0, 1], "no": [1, 0, 1, 0]}, index=frame.index)
     return frame, domains, memberships
+
+
+def exact_pairwise_design(frame, domains, memberships):
+    """Independent rational oracle using PSU pair differences, without centering.
+
+    The stratum contribution equals the sum of all unordered PSU-pair outer
+    products divided by m-1. Original weights need no common rescaling.
+    """
+    weights = [Fraction(value) for value in frame.WTSAFPRP]
+    design = list(zip(frame.SDMVSTRA, frame.SDMVPSU, strict=True))
+    support = sorted(set(design))
+    estimates, scores = [], []
+    for domain in domains:
+        mask = list(domains[domain])
+        denominator = sum(w for w, selected in zip(weights, mask, strict=True) if selected)
+        for membership in memberships:
+            values = list(memberships[membership])
+            p = (
+                sum(w * y for w, y, selected in zip(weights, values, mask, strict=True) if selected)
+                / denominator
+            )
+            estimates.append(p)
+            scores.append(
+                {
+                    psu: sum(
+                        w * (y - p) / denominator
+                        for w, y, selected, row_psu in zip(
+                            weights, values, mask, design, strict=True
+                        )
+                        if selected and row_psu == psu
+                    )
+                    for psu in support
+                }
+            )
+    covariance = [[Fraction(0) for _ in scores] for _ in scores]
+    for stratum in sorted({key[0] for key in support}):
+        psus = [key for key in support if key[0] == stratum]
+        for left, right in combinations(psus, 2):
+            differences = [score[left] - score[right] for score in scores]
+            for i, first in enumerate(differences):
+                for j, second in enumerate(differences):
+                    covariance[i][j] += first * second / (len(psus) - 1)
+    return [float(value) for value in estimates], [
+        [float(value) for value in row] for row in covariance
+    ]
 
 
 def test_complement_covariance_matches_independent_hand_arithmetic():
@@ -97,9 +143,68 @@ def test_scalar_points_and_variances_match_for_overlapping_memberships():
         old = survey_proportion(
             frame, domains[coordinate["domain"]], memberships[coordinate["membership"]], 0.95
         )
-        assert result["estimates"][i] == old["estimate"]
+        assert result["estimates"][i] == pytest.approx(old["estimate"], rel=0, abs=1e-14)
         assert result["covariance"][i][i] == pytest.approx(
             old["standard_error"] ** 2, rel=1e-14, abs=1e-18
+        )
+
+
+def test_joint_cancellation_preserves_small_nonzero_psu_contributions():
+    """Tiny scores between opposite large terms must not become exact zero."""
+    frame = pd.DataFrame(
+        {
+            "WTSAFPRP": [1.0, 2**-54, 1.0] * 4,
+            "SDMVSTRA": [1] * 6 + [2] * 6,
+            "SDMVPSU": [1] * 3 + [2] * 3 + [1] * 3 + [2] * 3,
+        }
+    )
+    domains = pd.DataFrame({"all": [True] * len(frame)}, index=frame.index)
+    yes = [1, 1, 0, 0, 0, 1] * 2
+    memberships = pd.DataFrame({"yes": yes, "no": [1 - y for y in yes]}, index=frame.index)
+    expected_p, expected_v = exact_pairwise_design(frame, domains, memberships)
+    actual = joint_proportions(frame, domains, memberships)
+    assert actual["estimates"] == expected_p == [0.5, 0.5]
+    assert expected_v[0][0] > 0
+    np.testing.assert_allclose(actual["covariance"], expected_v, rtol=1e-15, atol=0)
+    assert actual["covariance"][0][0] > 0
+    permutation = [0, 2, 1, 3, 5, 4, 6, 8, 7, 9, 11, 10]
+    assert (
+        joint_proportions(
+            frame.iloc[permutation], domains.iloc[permutation], memberships.iloc[permutation]
+        )
+        == actual
+    )
+
+
+def test_joint_all_reductions_match_exact_design_oracle_and_row_permutation():
+    frame = pd.DataFrame(
+        {
+            "WTSAFPRP": [0.3, 7.1, 2.0, 9.2, 5.3, 1.1, 8.0, 3.4, 0.2, 6.7, 4.6, 2.8],
+            "SDMVSTRA": [1] * 6 + [2] * 6,
+            "SDMVPSU": [1, 1, 2, 2, 3, 3] * 2,
+        }
+    )
+    domains = pd.DataFrame(
+        {"all": [True] * 12, "subset": [True, False, True, True, False, True] * 2},
+        index=frame.index,
+    )
+    memberships = pd.DataFrame(
+        {
+            "yes": [1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1],
+            "overlap": [1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 0],
+        },
+        index=frame.index,
+    )
+    expected_p, expected_v = exact_pairwise_design(frame, domains, memberships)
+    actual = joint_proportions(frame, domains, memberships)
+    np.testing.assert_allclose(actual["estimates"], expected_p, rtol=0, atol=1e-14)
+    np.testing.assert_allclose(actual["covariance"], expected_v, rtol=1e-14, atol=1e-18)
+    for permutation in (list(range(11, -1, -1)), [7, 0, 10, 2, 5, 8, 1, 4, 11, 6, 9, 3]):
+        assert (
+            joint_proportions(
+                frame.iloc[permutation], domains.iloc[permutation], memberships.iloc[permutation]
+            )
+            == actual
         )
 
 

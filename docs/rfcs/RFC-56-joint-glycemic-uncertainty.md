@@ -60,8 +60,16 @@ software review replaced BLAS matrix reductions in the projection with
 fixed-order compensated sums for portable reproduction. This changes no
 formula, source, selection, definition or clinical acceptance rule. The frozen
 protocol remains intact; the regenerated report pins the final implementation.
-Regeneration preserved every other serialized value, including all estimates,
+That projection-only regeneration preserved every other serialized value, including all estimates,
 covariance entries and diagnostics; only the implementation checksum changed.
+The subsequent macOS test at `29baf1c` and automated Linux review found
+last-digit covariance differences in the remaining kernel reductions. Ratio,
+PSU, stratum and covariance sums now also use fixed-order compensated scalar
+reductions. Exact-byte verification remains required. Independent rational
+arithmetic tests check the estimator; agreement with the legacy scalar
+implementation uses a software roundoff tolerance rather than bit equality.
+The earlier failure remains in the PR review and CI history. No source,
+clinical threshold, formula or active engine parameter changed.
 This covers sampling uncertainty only, excluding measurement error, missingness
 bias, latent-state definition, temporal/geographic transport and structural
 uncertainty. Normal laboratory values are not general metabolic health, and

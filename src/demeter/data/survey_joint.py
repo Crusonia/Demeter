@@ -66,6 +66,17 @@ def _valid_index(index: pd.Index) -> bool:
     return bool(index.is_unique and not missing)
 
 
+def _joint_sum(values) -> float:
+    """Use a compensated scalar reduction and reject unrepresentable sums."""
+    try:
+        value = fsum(values)
+    except (OverflowError, ValueError) as exc:
+        raise ValueError("Nonfinite joint survey calculation") from exc
+    if not np.isfinite(value):
+        raise ValueError("Nonfinite joint survey calculation")
+    return value
+
+
 def joint_proportions(
     frame: pd.DataFrame, domains: pd.DataFrame, memberships: pd.DataFrame
 ) -> dict:
@@ -129,7 +140,7 @@ def joint_proportions(
                 "status": "estimated" if n else "empty_domain",
             }
         )
-        denominator = float(weight[mask].sum())
+        denominator = _joint_sum(weight[mask])
         if n and (denominator <= 0 or not np.isfinite(denominator)):
             raise ValueError("Domain denominator is numerically unavailable")
         for membership_name in membership_names:
@@ -144,24 +155,45 @@ def joint_proportions(
             p = (
                 float(values[0])
                 if np.all(values == values[0])
-                else float(np.dot(weight[mask], values) / denominator)
+                else _joint_sum(weight[mask] * values) / denominator
             )
             estimates.append(p)
             influence[mask, coordinate] = weight[mask] * (values - p) / denominator
-    totals = (
-        pd.DataFrame(influence)
-        .groupby([design[STRATUM].to_numpy(), design[PSU].to_numpy()], observed=True)
-        .sum()
-    )
-    covariance = np.zeros((len(coordinates), len(coordinates)))
-    for _, group in totals.groupby(level=0, observed=True):
-        m = len(group)
-        centered = (group - group.mean()).to_numpy()
-        # Componentwise products retain the scalar estimator's sum-of-squares
-        # calculation on the diagonal; this is not a matrix repair.
-        covariance += m / (m - 1) * np.sum(centered[:, :, None] * centered[:, None, :], axis=0)
-    if not np.isfinite(influence).all() or not np.isfinite(covariance).all():
+    if not np.isfinite(influence).all():
         raise ValueError("Nonfinite joint survey calculation")
+    # Grouping determines design membership only. All floating reductions use
+    # compensated scalar sums, avoiding BLAS/pandas/NumPy reduction order.
+    # Numeric stratum/PSU ordering and coordinate ordering are fixed, including
+    # full-design PSUs with zero contributions to every requested domain.
+    psu_rows = design.groupby([STRATUM, PSU], observed=True, sort=True).indices
+    strata = {}
+    for (stratum, _), positions in sorted(psu_rows.items()):
+        strata.setdefault(stratum, []).append(
+            [_joint_sum(influence[positions, k]) for k in range(len(coordinates))]
+        )
+    stratum_covariances = []
+    for totals in strata.values():
+        totals = np.asarray(totals, dtype=float)
+        m = len(totals)
+        mean = np.asarray([_joint_sum(totals[:, k]) / m for k in range(len(coordinates))])
+        centered = totals - mean
+        # Elementwise products retain the same sum-of-outer-products formula;
+        # no symmetry, positivity, closure or other matrix repair is applied.
+        products = centered[:, :, None] * centered[:, None, :]
+        if not np.isfinite(products).all():
+            raise ValueError("Nonfinite joint survey calculation")
+        stratum_covariance = [
+            [m / (m - 1) * _joint_sum(products[:, i, j]) for j in range(len(coordinates))]
+            for i in range(len(coordinates))
+        ]
+        if not np.isfinite(stratum_covariance).all():
+            raise ValueError("Nonfinite joint survey calculation")
+        stratum_covariances.append(stratum_covariance)
+    contributions = np.asarray(stratum_covariances)
+    covariance = [
+        [_joint_sum(contributions[:, i, j]) for j in range(len(coordinates))]
+        for i in range(len(coordinates))
+    ]
     return {
         "coordinates": coordinates,
         "estimates": estimates,
