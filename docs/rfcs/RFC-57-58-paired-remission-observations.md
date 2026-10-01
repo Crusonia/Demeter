@@ -73,6 +73,17 @@ This is a version preference, not an author-issued erratum; no such correction
 was identified in the NLM relationship inventory. No version-of-record body is
 claimed to have been acquired.
 
+The v2 XML selection itself failed before count capture: the exact field label
+is `FINDINGS`, and the abstract states the ITT cohort count separately from the
+remission numerator. It does not print an endpoint-specific remission denominator.
+The [retained locator failure](../validation/direct-paired-amendment-v2-failure.json)
+and [v3 selection](../validation/direct-paired-observations-amendment-v3.json) make
+that distinction explicit before the new integer capture. The resulting feasible
+sets are conditional on those published counts referring to the same stated ITT
+cohort, supported by the abstract context and the main primary-outcome methods.
+That assumption is visible; participant-level cohort membership is not verified.
+Neither source failure is silently repaired or removed.
+
 Implement integer feasible-table constraints and source-linked paired-history
 reporting, not an annual rate fit or an engine remission flow. This advances the
 temporal observation layer of the [clinical contract](../CLINICAL_OBSERVATION_CONTRACT.md).

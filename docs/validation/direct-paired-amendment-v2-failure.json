@@ -1,0 +1,10 @@
+{
+  "schema": "direct-paired-amendment-v2-locator-failure",
+  "recorded_utc": "2026-10-01T03:00:06.254352+00:00",
+  "parent_amendment_sha256": "b17d036e8391688023ebbc97445ea955b881537fbd0c90bed8e4b1d4510cbd5b",
+  "exact_field_lookup_passed": false,
+  "observed_label": "FINDINGS",
+  "selected_remission_fraction_present": false,
+  "published_counts_captured": false,
+  "disposition": "The selected Label=Findings lookup had no match; actual XML uses FINDINGS. Masked structural inspection also shows separate explicit ITT N and remission numerator, not a literal remission fraction/denominator. No new numeric capture or derivation from v2. Preserve failure and amend target before capture."
+}
