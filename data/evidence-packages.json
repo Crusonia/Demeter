@@ -1130,7 +1130,7 @@
     },
     {
       "path": "docs/IPOP_SOURCE_COVERAGE.md",
-      "sha256": "f8168efb9d929afed13bfe36a5b613bcf0f623f830ec041374b51b1a62ab0d4a"
+      "sha256": "e919569da6401eec5c6cdee2b13480fb1a7ac2276dc56b886d896b352bdd1d1d"
     },
     {
       "path": "docs/validation/ipop-schema-receipts-v1.json",
@@ -1139,6 +1139,10 @@
     {
       "path": "docs/validation/ipop-public-provenance-correction-v1.json",
       "sha256": "6278390527f9cbbbc1bf444890a5d44dc089610d78afd5c94b1ac25a64ea9ec2"
+    },
+    {
+      "path": "docs/validation/ipop-numerical-preflight-protocol-v1.json",
+      "sha256": "2d8b53ae10a018fde16bc91108db57d49a788f473fc8fc0dfe65a44e28ac2b89"
     }
   ]
 }
