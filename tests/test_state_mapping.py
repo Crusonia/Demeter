@@ -1,3 +1,4 @@
+import copy
 import json
 from pathlib import Path
 
@@ -7,7 +8,7 @@ import pytest
 from typer.testing import CliRunner
 
 from demeter.cli import app
-from demeter.data.nhanes import load_nhanes
+from demeter.data.nhanes import encoded, load_nhanes
 from demeter.data.prechronic import DIAGNOSES, load_prechronic
 from demeter.data.state_mapping import DATASET, assess, mapping_report
 from demeter.schema import EvidenceRegistry
@@ -150,8 +151,12 @@ def test_cli_outputs_aggregate_report_with_crosswalk(tmp_path):
     assert not report["direct_initialization_allowed"]
     assert all(row["mapping_status"] != "accepted" for row in report["crosswalk"])
     assert "SEQN" not in Path(destination).read_text(encoding="utf-8")
-    # CI runs on Linux, macOS and Windows: both storage precision and LF bytes
-    # must reproduce the exact checksummed artifact, not just approximate values.
-    assert (
-        destination.read_bytes() == Path("docs/validation/issue-56-state-mapping.json").read_bytes()
-    )
+    assert report["provenance"]["evidence_sha256"] == registry().content_hash
+    # Historical report bytes stay immutable. Every other encoded field must
+    # reproduce exactly across hosts, including storage precision and LF bytes.
+    replay_payload = copy.deepcopy(report)
+    committed_payload = json.loads(Path("docs/validation/issue-56-state-mapping.json").read_bytes())
+    replay_payload["provenance"].pop("evidence_sha256")
+    committed_payload["provenance"].pop("evidence_sha256")
+    assert encoded(replay_payload) == encoded(committed_payload)
+    assert destination.read_bytes() == encoded(report)

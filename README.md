@@ -266,6 +266,13 @@ public fields support history, medication, missingness and event timing, and
 which proposed clinical fits still need compatible observations. Public blank
 forms do not supply participant histories or an isolated dietary effect.
 
+The [public iPOP intake](docs/IPOP_PREFLIGHT.md) provides two pinned source files
+and offline aggregate-only replay commands. A separately frozen namespace audit
+finds 951 consistent unique sample associations and repeated assay/day coverage
+for 94 subject labels under an explicit producer-association assumption. Clinical
+likelihood, diagnosis/history, missingness and transport remain unresolved;
+this intake changes no active model parameter.
+
 We are pursuing [public evidence first](docs/PUBLIC_EVIDENCE_ROADMAP.md), with
 reproducible source audits and progressively supported model components. The
 public-cohort intake provides a concrete next contribution without institutional

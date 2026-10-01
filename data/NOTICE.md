@@ -3,7 +3,7 @@
 Demeter's MIT license covers its code and original documentation. It does not
 relicense source data, articles, logos, or restricted records. The machine-readable
 [rights inventory](rights.json) identifies all 53 archived artifacts and the
-fetch-only clinical articles by URL, publisher, vintage, retrieval time, checksum,
+fetch-only sources by URL, publisher, vintage, retrieval time, checksum,
 privacy class and citation. Its policies distinguish download, transformation
 and redistribution conditions. These are packaging decisions; the linked source
 terms control reuse.
@@ -14,6 +14,15 @@ commands. These records describe reproducibility, not scientific acceptance.
 Model outputs retain the existing validation-only boundary.
 
 ## Source-specific conditions
+
+The [iPOP numerical preflight](../docs/IPOP_PREFLIGHT.md) uses the author-declared
+public derivative accompanying [Zheng et al. (2022)](https://doi.org/10.1038/s41598-022-16326-9),
+from the [producer repository](https://github.com/gmiaslab/TemporalMultiomicsDiabetes)
+at commit `ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c`. Original CC0 lineage and
+the derivative repository's MIT code license remain distinct. Complete clinical
+and metadata files are fetch-only; this repository distributes attributed
+aggregate diagnostics, immutable selection protocols and receipts. Those
+permissions certify neither participant identity nor clinical interpretation.
 
 The [public linked-mortality package](../docs/LINKED_MORTALITY.md) includes
 deidentified NHANES XPORT and fixed-width public-use records under the same NCHS

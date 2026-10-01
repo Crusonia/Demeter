@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "frozen_protocol_sha256_reference": "2d8b53ae10a018fde16bc91108db57d49a788f473fc8fc0dfe65a44e28ac2b89",
+  "validation_only": false,
+  "distribution": "fetch_only",
+  "acquisition_passed": true,
+  "failure_stage": null,
+  "sources": {
+    "clinical": {
+      "requested_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/clinical_tests.txt",
+      "final_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/clinical_tests.txt",
+      "retrieved_utc": "2026-10-01T21:37:21.386428+00:00",
+      "status": 200,
+      "content_type": "text/plain",
+      "cache_filename": "clinical_tests.txt",
+      "size_bytes": 231694,
+      "sha256": "94bca4d56dcb96e83a780479c5e23610e366060bcc8607f67377378d3fc39f52",
+      "git_blob": "cb01fe38378f8cef951837414e241c3e8d6a8bcc",
+      "full_bytes": true,
+      "bytes_retained": true,
+      "raw_write_failure_may_leave_partial_bytes": false,
+      "source_identity_passed": true,
+      "result": "verified",
+      "failure_stage": null
+    },
+    "sample_info": {
+      "requested_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/SampleInfo.csv",
+      "final_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/SampleInfo.csv",
+      "retrieved_utc": "2026-10-01T21:37:21.808642+00:00",
+      "status": 200,
+      "content_type": "text/plain",
+      "cache_filename": "SampleInfo.csv",
+      "size_bytes": 36407,
+      "sha256": "7e9026e13f0cf105ade8429e40c5f5ca4adaa248f4552f32a71fa4327c3e4a3e",
+      "git_blob": "342d35d36eb422cf315a9757b7514c45312173e5",
+      "full_bytes": true,
+      "bytes_retained": true,
+      "raw_write_failure_may_leave_partial_bytes": false,
+      "source_identity_passed": true,
+      "result": "verified",
+      "failure_stage": null
+    }
+  }
+}

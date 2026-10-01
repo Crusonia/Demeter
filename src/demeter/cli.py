@@ -719,6 +719,63 @@ def evidence_applicability(evidence: Path = DEFAULT_EVIDENCE, output: Path | Non
     emit(applicability_report(registry(evidence)), output)
 
 
+@data_app.command("fetch-ipop")
+def fetch_ipop_sources(
+    destination: Annotated[Path, typer.Option(help="Fresh ignored source cache directory")],
+) -> None:
+    """Fetch only the two frozen public iPOP files into a fresh ignored cache."""
+    from demeter.analysis.ipop_preflight import load_frozen_protocol
+    from demeter.data.ipop import fetch_sources
+
+    try:
+        result = fetch_sources(load_frozen_protocol(), destination)
+    except (ValueError, OSError):
+        typer.echo("iPOP acquisition failed before intake; no clinical analysis performed.", err=True)
+        raise typer.Exit(1) from None
+    # The in-memory wrapper may contain source bytes; never serialize its full return value.
+    emit({key: result[key] for key in ("passed", "receipt_saved", "provenance")})
+    if not result["passed"]:
+        raise typer.Exit(1)
+
+
+@evidence_app.command("ipop-preflight")
+def ipop_preflight(
+    raw: Annotated[Path, typer.Option(help="Existing cache with immutable acquisition receipts")],
+    output: Annotated[Path, typer.Option(help="Fresh aggregate report path; never overwritten")],
+) -> None:
+    """Audit pinned linked laboratory coverage offline; no clinical fit or activation."""
+    from demeter.analysis.ipop_preflight_io import audit_preflight, write_fresh_report
+
+    try:
+        report = audit_preflight(raw)
+        write_fresh_report(report, output, raw)
+    except (ValueError, OSError):
+        typer.echo("iPOP intake or fresh report publication failed; source evidence preserved.", err=True)
+        raise typer.Exit(1) from None
+    emit(report)
+    if not report["source_audit"]["passed"]:
+        raise typer.Exit(1)
+
+
+@evidence_app.command("ipop-crosswalk-preflight")
+def ipop_crosswalk_preflight(
+    raw: Annotated[Path, typer.Option(help="Existing cache with immutable acquisition receipts")],
+    output: Annotated[Path, typer.Option(help="Fresh aggregate report path; never overwritten")],
+) -> None:
+    """Audit conditional subject namespace consistency; no identity certification or fit."""
+    from demeter.analysis.ipop_preflight_io import audit_crosswalk, write_fresh_report
+
+    try:
+        report = audit_crosswalk(raw)
+        write_fresh_report(report, output, raw)
+    except (ValueError, OSError, RuntimeError):
+        typer.echo("iPOP intake or fresh report publication failed; source evidence preserved.", err=True)
+        raise typer.Exit(1) from None
+    emit(report)
+    if not report["source_audit"]["passed"]:
+        raise typer.Exit(1)
+
+
 @evidence_app.command("verify-sources")
 def evidence_sources(
     evidence: Path = DEFAULT_EVIDENCE,

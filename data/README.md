@@ -1,5 +1,11 @@
 # Data in Demeter
 
+The [public iPOP intake](../docs/IPOP_PREFLIGHT.md) adds exact two-file acquisition
+and offline aggregate-only linkage/coverage audits. Complete public derivative
+files remain immutable in ignored fetch-only caches; attributed protocols,
+receipts and aggregate results travel with the repository. No clinical fit or
+active model parameter is added.
+
 Key datasets should travel with the code whenever their size and redistribution
 terms permit. A fresh clone should let a reader inspect where an input came from
 and reproduce the transformation. Demeter keeps source observations, derived

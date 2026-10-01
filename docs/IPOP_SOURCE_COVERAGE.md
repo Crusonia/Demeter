@@ -185,7 +185,7 @@ resolution, upstream transformations and key cardinality remain to be assessed.
 Predeclare these assumptions and check the selected linked panel's missing/invalid
 codes, repeated samples and duplicate days before any fit. Preserve originals;
 do not silently infer units from value ranges, average repeated tests, invent
-dates or use scheduled visits as observed dates. Compare A1c-only and FPG-only
+dates or use scheduled visits as observed dates. Compare A1c-only and GLU-only under a separately declared fasting interpretation
 measurement alternatives, and scheduled versus illness/event visit context where
 supported. If a required assumption cannot support the chosen estimand, report
 the failed gate rather than change it to obtain a desired result.
@@ -208,3 +208,22 @@ rates, isolated dietary causal effect, mortality estimate or engine activation.
 The continuous-time observation evaluator is distinct from the annual simulation
 operator. Public availability and software checks do not confer clinical
 identification or scientific release readiness; #57/#58 remain open.
+
+## Frozen linked-file preflight
+
+The [numerical intake selection](validation/ipop-numerical-preflight-protocol-v1.json)
+is frozen before complete source acquisition and selected record aggregation.
+It selects only clinical VisitID/SubjectID/A1C/GLU/CL4 and
+SampleInfo SubjectID/SampleID/Days_Since_Start/CL4 at the pinned commit.
+The preflight tests exact association cardinality and assay-specific repeated
+coordinate coverage, retaining every source row, ambiguous key, undocumented
+number token and no-finite-assay subject-label complement in explicit denominators.
+It introduces no clinical threshold, likelihood, fitted transition, or active
+parameter. Assay units, rawness, fasting/specimen identity and relative-day
+interpretation remain declared assumptions. The [completed numerical intake](IPOP_PREFLIGHT.md)
+preserves the zero-link literal v1 result and the separately frozen v2 namespace
+hypothesis. Under the producer sample-association assumption, 951 rows are
+uniquely associated and 94 metadata subject labels have repeated assay/day
+coordinates. This supports developing a conditional native-cohort likelihood;
+it supplies no clinical fit or active parameter. Both freezes follow prior source
+appraisal and are not independent clinical validation.

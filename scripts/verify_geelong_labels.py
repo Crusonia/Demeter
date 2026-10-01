@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 import argparse
+import copy
 from datetime import datetime, timezone
+import json
 from pathlib import Path
 
 from demeter.analysis.geelong_labels import DATASET, audit_geelong_labels
@@ -21,13 +23,33 @@ def assess(previous: Path | None = None) -> dict:
     result = audit_geelong_labels(registry)
     if not result["source_audit_passed"]:
         raise ValueError("Geelong source reproduction failed")
-    expected = ROOT / "docs/validation/issue-57-geelong-labels.json"
-    if encoded(result) != expected.read_bytes():
-        raise ValueError("Geelong report differs from the committed reproduction")
+    expected = (ROOT / "docs/validation/issue-57-geelong-labels.json").read_bytes()
+    committed = json.loads(expected)
+    current_hash = result["provenance"]["registry_sha256"]
+    if current_hash != registry.content_hash:
+        raise ValueError("Geelong replay does not identify the current evidence registry")
+    committed_hash = committed["provenance"]["registry_sha256"]
+    actual_payload = copy.deepcopy(result)
+    committed_payload = copy.deepcopy(committed)
+    # Keep historical bytes immutable. Only the unrelated registry fingerprint
+    # may vary; every other encoded field, including scientific gates, is exact.
+    actual_payload["provenance"].pop("registry_sha256")
+    committed_payload["provenance"].pop("registry_sha256")
+    if encoded(actual_payload) != encoded(committed_payload):
+        raise ValueError("Geelong report changed outside the registry fingerprint")
     proof = {
         "kind": "geelong_label_observation_verification",
         "passed": True,
-        "source_report_exactly_reproduced": True,
+        "source_report_exactly_reproduced": encoded(result) == expected,
+        "source_report_exactly_reproduced_excluding_registry_fingerprint": True,
+        "excluded_paths": ["/provenance/registry_sha256"],
+        "current_registry_sha256": current_hash,
+        "committed_registry_sha256": committed_hash,
+        "registry_fingerprint_changed": current_hash != committed_hash,
+        "reproduction_scope": (
+            "Full byte reproduction separately reported; every encoded payload field except "
+            "/provenance/registry_sha256 is reproduced exactly"
+        ),
         "model_role": "benchmark_only",
         "clinical_fit_allowed": False,
         "engine_activation_allowed": False,

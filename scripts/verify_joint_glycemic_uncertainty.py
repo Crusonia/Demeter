@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 import argparse
+import copy
 from datetime import datetime, timezone
+import json
 from pathlib import Path
 
 from demeter.data.glycemic_uncertainty import DATASET, joint_report
@@ -16,12 +18,33 @@ def assess(previous: Path | None = None) -> dict:
     registry = EvidenceRegistry.from_yaml("evidence/parameters.yaml")
     result = joint_report(registry)
     expected = Path("docs/validation/joint-glycemic-uncertainty.json").read_bytes()
-    if encoded(result) != expected:
-        raise ValueError("Joint survey report differs from the committed source reproduction")
+    committed = json.loads(expected)
+    current_hash = result["provenance"]["evidence_sha256"]
+    if current_hash != registry.content_hash:
+        raise ValueError("Joint survey replay does not identify the current evidence registry")
+    committed_hash = committed["provenance"]["evidence_sha256"]
+    actual_payload = copy.deepcopy(result)
+    committed_payload = copy.deepcopy(committed)
+    # Preserve the historical artifact. Only unrelated registry provenance may
+    # vary; every other encoded field, including scientific gates, stays exact.
+    actual_payload["provenance"].pop("evidence_sha256")
+    committed_payload["provenance"].pop("evidence_sha256")
+    if encoded(actual_payload) != encoded(committed_payload):
+        raise ValueError("Joint survey report changed outside the registry fingerprint")
+    full_bytes_equal = encoded(result) == expected
     proof = {
         "kind": "joint_glycemic_uncertainty_verification",
         "passed": True,
-        "source_report_exactly_reproduced": True,
+        "source_report_exactly_reproduced": full_bytes_equal,
+        "source_report_exactly_reproduced_excluding_registry_fingerprint": True,
+        "excluded_paths": ["/provenance/evidence_sha256"],
+        "current_registry_sha256": current_hash,
+        "committed_registry_sha256": committed_hash,
+        "registry_fingerprint_changed": current_hash != committed_hash,
+        "reproduction_scope": (
+            "Full byte reproduction separately reported; every encoded payload field except "
+            "/provenance/evidence_sha256 is reproduced exactly"
+        ),
         "protocol_sha256": result["provenance"]["protocol_sha256"],
         "model_role": "benchmark_only",
         "direct_initialization_allowed": False,

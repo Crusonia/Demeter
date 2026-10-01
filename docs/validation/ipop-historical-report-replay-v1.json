@@ -1,0 +1,23 @@
+{
+  "issue-56-state-mapping.json": {
+    "committed_report_sha256": "02e5048b6f590793e631d76e45f34a95052d5a575f0705c69494d52bfc0d26f8",
+    "committed_registry_sha256": "b75547060262dd2112ab29761dfe4211031ae7587d3b10872861e749827a9fc0",
+    "current_registry_sha256": "7331b35451eb4ab7de954682760da922043d7af008a96650c899c09c4c4a21e0",
+    "all_other_report_bytes_identical": true,
+    "excluded_path": "/provenance/evidence_sha256"
+  },
+  "issue-56-partial-observations.json": {
+    "committed_report_sha256": "d683808015a8f35885aebb34395bb06857411c50e6c955b02d6ec21e1d6593f3",
+    "committed_registry_sha256": "b75547060262dd2112ab29761dfe4211031ae7587d3b10872861e749827a9fc0",
+    "current_registry_sha256": "7331b35451eb4ab7de954682760da922043d7af008a96650c899c09c4c4a21e0",
+    "all_other_report_bytes_identical": true,
+    "excluded_path": "/provenance/evidence_sha256"
+  },
+  "joint-glycemic-uncertainty.json": {
+    "committed_report_sha256": "f6d76b4440d10ec74a755db576dc1f9c69da8b53f2ffde3fd067a6a097c4301e",
+    "committed_registry_sha256": "b75547060262dd2112ab29761dfe4211031ae7587d3b10872861e749827a9fc0",
+    "current_registry_sha256": "7331b35451eb4ab7de954682760da922043d7af008a96650c899c09c4c4a21e0",
+    "all_other_report_bytes_identical": true,
+    "excluded_path": "/provenance/evidence_sha256"
+  }
+}

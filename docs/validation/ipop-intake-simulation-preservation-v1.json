@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "model_role": "source_intake_only",
+  "checked_on": "2026-10-01",
+  "evidence_before_sha256": "ff9cd72ab3da66dbaa377ced090de16e5346feb477780e1f53df8fce71d0b73c",
+  "evidence_after_sha256": "39a9e01f96b3c92ee03496f32e70d27ec68c2796c6b067a959ad33e708631493",
+  "parameters_unchanged": true,
+  "parameter_count": 146,
+  "scientific_blockers_unchanged": true,
+  "new_source_ids": [
+    "ipop2022_clinical_tests",
+    "ipop2022_sample_info"
+  ],
+  "new_dataset_ids": [
+    "ipop_numerical_preflight"
+  ],
+  "simulation_comparisons": {
+    "baseline": {
+      "before_output_sha256": "b302e0a1745f604d3e89140b4a92a506564076a3f701c1eeed582f3428686a1c",
+      "after_output_sha256": "ff8692cf438cfc032a7ad893ea2c4bbc7336b0763b6a3e62ddc551382e4df73a",
+      "all_outputs_identical_except": [
+        "metadata.evidence_sha256",
+        "healthspan.evidence_sha256"
+      ]
+    },
+    "reduce_upf_30": {
+      "before_output_sha256": "6978d8ccd6c2328a1089c5dcdd7f7e27395e2d4d224b963fe3ec3faf976c0216",
+      "after_output_sha256": "9074ef7766a69d04744dcf709dfb2ff4633fcec8ace66ffd205f313a837ed7e8",
+      "all_outputs_identical_except": [
+        "metadata.evidence_sha256",
+        "healthspan.evidence_sha256"
+      ]
+    },
+    "prechronic_baseline": {
+      "before_output_sha256": "94668bb6d69fef6773a9b02cd9f30c2ab8f4211efa2b60efb56184999f668e61",
+      "after_output_sha256": "8eacd4415b115c741927230504cfbceb9db984e1965afa9c352eaa55af3e40fe",
+      "all_outputs_identical_except": [
+        "metadata.evidence_sha256",
+        "healthspan.evidence_sha256"
+      ]
+    }
+  },
+  "clinical_fit_performed": false,
+  "engine_activation_allowed": false,
+  "scientific_acceptance_changed": false
+}
