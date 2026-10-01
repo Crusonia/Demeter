@@ -163,6 +163,13 @@ under `demeter/data/notices/`. Raw public-use files come from the matching
 repository/source distribution; inventory paths refer to that source tree.
 Raw/processed/output caches are explicitly excluded from builds.
 
+Whitehall II's [endpoint package](../docs/WHITEHALL_ENDPOINT.md) distributes a
+limited attributed aggregate analysis from Vistisen et al. (2019), DOI
+10.1007/s00125-019-4895-0, under the article's CC BY 4.0 attribution conditions.
+Full article/ESM PDFs remain fetch-only. Published observations and Demeter's
+conditional binomial interval are identified separately; this does not grant
+access to controlled Whitehall participant records.
+
 Before adding data, review contents, privacy classification, exact terms,
 rights holder and attribution. Add reviewed rights, receipt, registry and package
 records together. If rights or privacy are unresolved, exclude raw data and record

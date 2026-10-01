@@ -215,6 +215,23 @@
         "License for the public workbook does not certify participant identity, completeness or treatment/death history.",
         "Publication and trial data-sharing discrepancy retained; no participant reidentification or author contact."
       ]
+    },
+    "whitehall_public_endpoint": {
+      "title": "Whitehall II published aggregate endpoint reproduction; full publications fetch-only",
+      "terms_urls": [
+        "https://creativecommons.org/licenses/by/4.0/",
+        "https://doi.org/10.1007/s00125-019-4895-0"
+      ],
+      "checked_on": "2026-10-01",
+      "redistribution": "conditional",
+      "download": "Public official static article/ESM PDFs; no participant records or access agreement.",
+      "transform": "Limited attributed aggregate counts/proportion and explicit conditional working-likelihood analysis; source PDFs kept local/fetch-only.",
+      "conditions": [
+        "Retain source attribution, immutable byte pins, actual historical acquisition receipts and changes.",
+        "Keep full publication files outside commits and distributions.",
+        "Publication license is not permission for controlled participant records; no reidentification/application/contact.",
+        "Source reproduction/working endpoint fit is not clinical transition adequacy, independent validation or engine activation."
+      ]
     }
   },
   "source_files": {
@@ -1027,6 +1044,32 @@
       "retrieved_at": "2026-09-30T23:15:53.403318+00:00",
       "distribution": "fetch_only",
       "alternative": "Fetch public bytes into ignored local storage using frozen receipts; publish aggregate adequacy only. Full clinical participant histories not verified; no outreach."
+    },
+    "whitehall_main2019": {
+      "policy": "whitehall_public_endpoint",
+      "privacy": "publication",
+      "publisher": "Vistisen et al. / Diabetologia / Springer Nature",
+      "vintage": "2019 publication; exact public static PDF snapshots acquired2026",
+      "citation": "Vistisen D et al. Reversion from prediabetes to normoglycaemia and risk of cardiovascular disease and mortality: the Whitehall II cohort study. Diabetologia62:1385-1390(2019). DOI10.1007/s00125-019-4895-0. Main physicalPDFp3/printed1387 FPGcriterion prefix crosscheck.",
+      "notes": "Article CC BY4.0 at physicalp5/printed1389; full article and attachment kept fetch-only; limited attributed aggregate reproduction. Publication rights do not grant participant-data access.",
+      "url": "https://link.springer.com/content/pdf/10.1007/s00125-019-4895-0.pdf",
+      "sha256": "e89dfe23cdb184e9f1fbb04f58678d23e97f2ea8ab5d215df8aa85716799d712",
+      "retrieved_at": "2026-10-01T01:27:07.549200+00:00",
+      "distribution": "fetch_only",
+      "alternative": "Fetch matching official static PDFs into ignored storage; publish limited attributed aggregate reproduction and transforms only. No participant-record access."
+    },
+    "whitehall_esm2019": {
+      "policy": "whitehall_public_endpoint",
+      "privacy": "publication",
+      "publisher": "Vistisen et al. / Diabetologia / Springer Nature",
+      "vintage": "2019 publication; exact public static PDF snapshots acquired2026",
+      "citation": "Vistisen D et al. Reversion from prediabetes to normoglycaemia and risk of cardiovascular disease and mortality: the Whitehall II cohort study. Diabetologia62:1385-1390(2019). DOI10.1007/s00125-019-4895-0. ESMTable1 physicalPDFp1 ByFPG N-column.",
+      "notes": "Article CC BY4.0 at physicalp5/printed1389; full article and attachment kept fetch-only; limited attributed aggregate reproduction. Publication rights do not grant participant-data access.",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1007%2Fs00125-019-4895-0/MediaObjects/125_2019_4895_MOESM1_ESM.pdf",
+      "sha256": "a78d0ead94ff6571518907beaa0805656902df4ec4ba30fc9c038889187bb894",
+      "retrieved_at": "2026-09-30T23:39:58.933115+00:00",
+      "distribution": "fetch_only",
+      "alternative": "Fetch matching official static PDFs into ignored storage; publish limited attributed aggregate reproduction and transforms only. No participant-record access."
     }
   },
   "documentation_receipts": "docs/validation/dpp-coverage-source-receipts.json",

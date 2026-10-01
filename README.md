@@ -288,6 +288,12 @@ coverage, distinguishes numerical availability from valid assays, and records
 unknown participant pairing, dates, treatment and stopping. Its public output
 contains aggregate diagnostics; it estimates no supplement or dietary effect.
 
+The [Whitehall II endpoint package](docs/WHITEHALL_ENDPOINT.md) reproduces selected
+published FPG labels and evaluates a conditional binomial working likelihood.
+It offers a descriptive-only mode and explains why a follow-up proportion cannot
+identify annual transition rates. All inputs remain benchmark-only; clinical
+sampling adequacy, diagnosis/history, timing and U.S. transport remain unresolved.
+
 Optional [dietary timing experiments](docs/DIET_DYNAMICS.md) add scheduled changes,
 fading exposure memory, independent recovery lags and timing sensitivity. Run
 `uv run demeter observe scenarios/diet_dynamics.yaml --destination outputs/diet-dynamics-report`

@@ -103,6 +103,12 @@ measurement, missingness and stopping requirements. Coverage counts cannot certi
 unique people, valid assays or a full randomized cohort. No clinical rate or
 food-to-health effect is fitted or activated.
 
+The [Whitehall II endpoint package](WHITEHALL_ENDPOINT.md) now makes one narrow
+conditional binomial observation likelihood executable. Its endpoint probability
+and interval depend on declared working assumptions; those assumptions are not
+established by the source. A descriptive-only mode makes that boundary visible.
+No annual clinical transitions, dietary response or national parameters are fitted.
+
 Next, prioritize a compatible unrestricted longitudinal package or sufficient
 published observations for an identified progression/reversal likelihood. Further
 blank-form inspection cannot replace participant histories. Resolve timing,

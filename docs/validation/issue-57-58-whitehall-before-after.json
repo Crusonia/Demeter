@@ -1,0 +1,100 @@
+{
+  "after_evidence_sha256": "03d609ed4258321273916cd500d7f6a96c855b34abe9f9eeb85a445cba899e13",
+  "base_commit": "6886fe08b45dd77845d92888f33932c614122548",
+  "before_evidence_sha256": "ff26f2c8c1bba030be230b4d05f3c2148bfd9c7c2cf8945dfb7eaa104bd3c02d",
+  "canonical_scenarios": {
+    "baseline": {
+      "all_other_outputs_identical": true,
+      "changed_paths": [
+        "/healthspan/evidence_sha256",
+        "/metadata/evidence_sha256"
+      ]
+    },
+    "prechronic_baseline": {
+      "all_other_outputs_identical": true,
+      "changed_paths": [
+        "/healthspan/evidence_sha256",
+        "/metadata/evidence_sha256"
+      ]
+    },
+    "reduce_upf_30": {
+      "all_other_outputs_identical": true,
+      "changed_paths": [
+        "/healthspan/evidence_sha256",
+        "/metadata/evidence_sha256"
+      ]
+    }
+  },
+  "fresh_guide_fetch": {
+    "both_source_pins_match": true,
+    "exact_block_executed": true,
+    "executed_utc_date": "2026-10-01",
+    "offline_audit_equal_to_original_cache": true,
+    "receipts": {
+      "acquisition-main_static_pdf.json": {
+        "cache_filename": "whitehall2019-official-main-static-20261001T012705176722Z.pdf",
+        "completed_at_utc": "2026-10-01T01:51:53.884547+00:00",
+        "content_type": "application/pdf",
+        "distribution": "fetch_only",
+        "final_url_query_omitted": true,
+        "frozen_pin_agreement": true,
+        "http_status": 200,
+        "requested_url": "https://link.springer.com/content/pdf/10.1007/s00125-019-4895-0.pdf",
+        "resolved_url": "https://link.springer.com/content/pdf/10.1007/s00125-019-4895-0.pdf",
+        "sha256": "e89dfe23cdb184e9f1fbb04f58678d23e97f2ea8ab5d215df8aa85716799d712",
+        "size_bytes": 543921,
+        "started_at_utc": "2026-10-01T01:51:52.353276+00:00"
+      },
+      "acquisition-supplement_pdf.json": {
+        "cache_filename": "whitehall2019-esm-20260930T233958561302Z.pdf",
+        "completed_at_utc": "2026-10-01T01:51:54.120272+00:00",
+        "content_type": "application/pdf",
+        "distribution": "fetch_only",
+        "final_url_query_omitted": false,
+        "frozen_pin_agreement": true,
+        "http_status": 200,
+        "requested_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1007%2Fs00125-019-4895-0/MediaObjects/125_2019_4895_MOESM1_ESM.pdf",
+        "resolved_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1007%2Fs00125-019-4895-0/MediaObjects/125_2019_4895_MOESM1_ESM.pdf",
+        "sha256": "a78d0ead94ff6571518907beaa0805656902df4ec4ba30fc9c038889187bb894",
+        "size_bytes": 294249,
+        "started_at_utc": "2026-10-01T01:51:53.886823+00:00"
+      }
+    }
+  },
+  "interpretation": "Used-source selected FPG endpoint labels and conditional binomial working fit only. No annual clinical rates, clinical-state allocation, dietary causal effect, UPF dose/lag, national activation, cost/investment conclusion or independent clinical validation.",
+  "protocol_freeze_commit": "8fd0d73",
+  "refreshed_observation_reports": {
+    "issue-56-partial-observations.json": {
+      "all_other_outputs_identical": true,
+      "changed_paths": [
+        "/provenance/evidence_sha256"
+      ]
+    },
+    "issue-56-state-mapping.json": {
+      "all_other_outputs_identical": true,
+      "changed_paths": [
+        "/provenance/evidence_sha256"
+      ]
+    }
+  },
+  "registry_change": {
+    "active_parameters_changed": [],
+    "added": {
+      "datasets": [
+        "whitehall_fpg_endpoint"
+      ],
+      "parameters": [
+        "whitehall_fpg_nonreversion_label_n",
+        "whitehall_fpg_normal_label_n",
+        "whitehall_fpg_normal_label_proportion",
+        "whitehall_fpg_paired_n"
+      ],
+      "sources": [
+        "whitehall_esm2019",
+        "whitehall_main2019"
+      ]
+    },
+    "all_prior_entries_identical": true,
+    "scientific_blockers_identical": true
+  }
+}

@@ -384,6 +384,67 @@ def totum_source_row_evidence(
         raise typer.Exit(1)
 
 
+@evidence_app.command("whitehall-endpoint")
+def whitehall_endpoint_evidence(
+    raw: Annotated[Path, typer.Option(help="Directory containing both pinned Whitehall II PDFs")],
+    evidence: Path = DEFAULT_EVIDENCE,
+    output: Path | None = None,
+    descriptive_only: bool = False,
+) -> None:
+    """Reproduce FPG labels; optionally evaluate a conditional binomial working model."""
+    from demeter.analysis.whitehall_endpoints import DATASET, audit_whitehall_endpoint
+    from demeter.data.nhanes import encoded
+
+    exclusive_output = False
+    try:
+        selected = registry(evidence)
+        spec = selected.datasets[DATASET]
+        protected = {
+            evidence,
+            Path(spec["protocol_path"]),
+            Path(spec["receipts_path"]),
+            Path("docs/validation/whitehall-fpg-endpoint-protocol-v1.json"),
+            Path("docs/validation/whitehall-fpg-source-receipts-v1.json"),
+            *(raw / selected.sources[key].raw_filename for key in spec["source_ids"].values()),
+        }
+        if output:
+            destination = output.resolve()
+            unsafe = destination in {path.absolute() for path in protected}
+            unsafe = unsafe or destination.is_relative_to(raw.absolute())
+            for path in protected:
+                try:
+                    unsafe = unsafe or destination == path.resolve()
+                    unsafe = unsafe or (output.exists() and path.exists() and output.samefile(path))
+                except OSError:
+                    exclusive_output = True
+            try:
+                unsafe = unsafe or destination.is_relative_to(raw.resolve())
+            except OSError:
+                # An unreadable source must still yield a failure receipt. Exclusive
+                # creation prevents overwriting an input whose alias is unresolved.
+                exclusive_output = True
+            if unsafe or exclusive_output and output.exists():
+                typer.echo(
+                    "Output must not overwrite a source, registry or frozen record", err=True
+                )
+                raise typer.Exit(1)
+        report = audit_whitehall_endpoint(selected, raw, working_likelihood=not descriptive_only)
+    except (ValueError, OSError, KeyError) as exc:
+        typer.echo("Whitehall evidence metadata or output path is invalid", err=True)
+        raise typer.Exit(1) from exc
+    if output:
+        try:
+            output.parent.mkdir(parents=True, exist_ok=True)
+            with output.open("xb" if exclusive_output else "wb") as target:
+                target.write(encoded(report))
+        except OSError as exc:
+            typer.echo("Unable to save the Whitehall aggregate report", err=True)
+            raise typer.Exit(1) from exc
+    emit(report)
+    if not report["source_audit_passed"]:
+        raise typer.Exit(1)
+
+
 @evidence_app.command("pathway-compatibility")
 def pathway_compatibility_evidence(
     evidence: Path = DEFAULT_EVIDENCE,

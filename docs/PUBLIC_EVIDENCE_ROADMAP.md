@@ -1,5 +1,12 @@
 # Building Demeter with public evidence
 
+The [Whitehall II endpoint package](WHITEHALL_ENDPOINT.md) now reproduces two
+published FPG follow-up labels and evaluates an explicit conditional binomial
+working likelihood, with a descriptive-only alternative. This advances the
+observation layer while leaving clinical transition identification, diet effects,
+U.S. transport and external scientific evaluation unresolved. Its design was
+frozen before planned selected-cell capture, after prior/incidental result exposure.
+
 The [PREVIEW endpoint reproduction](PREVIEW_ENDPOINT_AUDIT.md) adds published
 normal-glucose snapshots under a frozen used-source specification. It keeps
 available-endpoint contrasts, adjusted trial estimates, and deterministic

@@ -16,6 +16,14 @@ coverage counts are fixed-release diagnostics, not clinical outcomes or people.
 The frozen selection precedes numerical intake; the methods and headers were
 already inspected, and no independent clinical validation is claimed.
 
+[Whitehall II endpoint analysis](../docs/WHITEHALL_ENDPOINT.md) registers two
+observed FPG-label counts and their derived denominator/proportion as
+`benchmark_only`, plus two static source receipts. Its Clopper–Pearson interval is
+an analyst calculation under explicit iid binomial working assumptions, not a
+published interval. Confidence 0.95 is a declared analysis design setting in the
+dataset metadata. Descriptive-only mode supplies no sampling interval. No
+clinical transition, causal dietary effect or national parameter is activated.
+
 Every substantive numeric parameter must be represented in `parameters.yaml` (or a future normalized successor) with units, status, provenance, evidence strength, and uncertainty where applicable.
 
 ## Status

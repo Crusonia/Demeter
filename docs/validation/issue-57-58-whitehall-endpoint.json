@@ -1,0 +1,158 @@
+{
+  "analysis_id": "whitehall_fpg_endpoint",
+  "assessment": "used-source reproduction; not preregistration or independent validation",
+  "clinical_transition_fit_performed": false,
+  "endpoint": {
+    "conditioning": "Probability of the source terminal Normoglycaemia label conditional on membership in the retained initial-FPG-prediabetic paired-examination source sample; an observation-level endpoint parameter only",
+    "counts": {
+      "nonreversion_label_n": 455,
+      "normal_label_n": 365
+    },
+    "locators": {
+      "counts": "ESMTable1/physicalPDFp1/ByFPG/N",
+      "main_crosscheck": "main/physicalPDFp3/unique FPG criterion Among prefix"
+    },
+    "main_crosscheck": {
+      "normal_label_n": 365,
+      "paired_n": 820
+    },
+    "observed_normal_label_proportion": 0.4451219512195122,
+    "paired_n": 820
+  },
+  "engine_activation_allowed": false,
+  "failure": null,
+  "identification_limits": [
+    "Sampling/exchangeability and constant-p assumptions",
+    "Time/assay/diagnosis/drug and missing-outcome histories",
+    "Clinical source-label-to-latent-state mapping",
+    "Competing death/censoring during glycemic interval",
+    "Individual/full-cohort transition-rate identification",
+    "Causal diet/UPF dose/substitution/lag",
+    "US population transport",
+    "Independent clinical validation and external human scientific review"
+  ],
+  "interval": {
+    "confidence_level": 0.95,
+    "empirical_selection_or_clinical_coverage_established": false,
+    "lower": 0.4107463872698784,
+    "method": "Clopper\u2013Pearson",
+    "registry_agreement_numerical_tolerance": 1e-12,
+    "role": "conditional binomial working-model interval, not source-reported",
+    "sidedness": "two_sided_equal_tail",
+    "tolerance_is_source_precision": false,
+    "upper": 0.47989333991733635
+  },
+  "model_role": "benchmark_only",
+  "population_and_observation_definition": {
+    "baseline_selection": "Static mainPDF physicalp2/printed1386 StudyPopulation; physicalp3/printed1387 StatisticalAnalysis first paragraph. Excludes baseline known diabetes and, for FPG analyses, baseline FPG screen-detected diabetes; requires classifiable paired examinations and source fasting requirements.",
+    "clinical_history": "Doctor diagnosis outside the study is possible. Baseline known diabetes is excluded, but categorical phase9 priority of doctor diagnosis versus a normal measured FPG and detailed drug histories are not fully specified. The known-phase9-diabetes exclusion belongs to the continuous-change/CVD association analysis and must not be silently transferred to categorical endpoint N.",
+    "cross_criterion_overlap": "FPG/2hPG/HbA1c groups overlap. Use FPG only; no pooling or multiplied independent marginal likelihoods.",
+    "death_and_missingness": "Phase9 nonattendance/unclassifiable paired examinations are excluded. Published later CVD/death follow-up begins phase9; it is not the competing death/censor partition during the phase7-to9 glycemic interval. Missing outcomes or mortality rows cannot be classified normal/alive.",
+    "death_locator": "Static mainPDF physicalp2 last MeasurementsAndDefinitions paragraph continuing physicalp3 top-left; historicalHTML #FPar2 lastparagraph and #FPar3",
+    "endpoint": "Terminal source FPG-category label at the phase9 re-examination; not sustained untreated remission or an adjudicated repeated event history",
+    "endpoint_labels": [
+      "Normoglycaemia",
+      "Prediabetes or diabetes"
+    ],
+    "history_locator": "Static mainPDF physicalpp2\u20133 MeasurementsAndDefinitions; physicalp3 StatisticalAnalysis fourth paragraph",
+    "initial_category": "Source FPG-defined prediabetes at baseline",
+    "population": "Source-selected British occupational WhitehallII paired phase7/phase9 examinations, initially FPG-defined prediabetes, not the full original baseline cohort or a national sample",
+    "source_measurement": "FPG measured in the source clinical OGTT by glucose oxidase; source criterion rules are cited, not re-applied to participants in this aggregate analysis",
+    "source_measurement_locator": "Static mainPDF physicalp2 MeasurementsAndDefinitions, continuing onto physicalp3",
+    "time": "Phase7(2002\u20132004) to phase9(2007\u20132009); source calls re-examination approximately5years later. Actual per-person intervals are not in the selected aggregate. Do not assign an exact common clinical horizon or convert to an annual probability.",
+    "timing_locator": "Static mainPDF physicalpp2\u20133 StudyPopulation/StatisticalAnalysis; historicalHTML #FPar1/#FPar3"
+  },
+  "provenance": {
+    "dataset_definition_sha256": "4e86bb134fd92ceca5c023f5e1ee1634d263d33c7f34704673e5d18eb3b1718e",
+    "historical_source_receipts": {
+      "main_static_pdf": {
+        "cache_filename": "whitehall2019-official-main-static-20261001T012705176722Z.pdf",
+        "content_type": "application/pdf",
+        "distribution": "fetch_only",
+        "final_url": "https://link.springer.com/content/pdf/10.1007/s00125-019-4895-0.pdf",
+        "final_url_query_omitted": true,
+        "inspection_scope": "bibliography/license/methods only; no numeric outcome extraction",
+        "is_pdf": true,
+        "retrieval_started_utc": "2026-10-01T01:27:05.176722+00:00",
+        "retrieved_utc": "2026-10-01T01:27:07.549200+00:00",
+        "role": "primary official static paper acquisition before count freeze",
+        "sha256": "e89dfe23cdb184e9f1fbb04f58678d23e97f2ea8ab5d215df8aa85716799d712",
+        "size_bytes": 543921,
+        "status": 200,
+        "url": "https://link.springer.com/content/pdf/10.1007/s00125-019-4895-0.pdf"
+      },
+      "supplement_pdf": {
+        "cache_filename": "whitehall2019-esm-20260930T233958561302Z.pdf",
+        "content_type": "application/pdf",
+        "distribution": "fetch_only",
+        "final_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1007%2Fs00125-019-4895-0/MediaObjects/125_2019_4895_MOESM1_ESM.pdf",
+        "retrieval_started_utc": "2026-09-30T23:39:58.561302+00:00",
+        "retrieved_utc": "2026-09-30T23:39:58.933115+00:00",
+        "role": "public primary publication supplement; no participant dataset",
+        "sha256": "a78d0ead94ff6571518907beaa0805656902df4ec4ba30fc9c038889187bb894",
+        "size_bytes": 294249,
+        "status": 200,
+        "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1007%2Fs00125-019-4895-0/MediaObjects/125_2019_4895_MOESM1_ESM.pdf"
+      }
+    },
+    "implementation_sha256": "eacc7fa7a02b4fd6083a78fbfd21971036f45fa3dff22951aaf3a80061a2f5a1",
+    "local_byte_verification_is_new_acquisition": false,
+    "network_used": false,
+    "parameter_definitions_sha256": {
+      "whitehall_fpg_nonreversion_label_n": "46a22704836fd2c9223dafd2859d88f008dc72c9f275dbf13ea967cc954b7cfc",
+      "whitehall_fpg_normal_label_n": "b2d3cfed17a0d7a51e06672d12ef0052ecbd753787a163a60e46317ce03d4d6c",
+      "whitehall_fpg_normal_label_proportion": "203b5b61d7cda3cb26f66596cf484fa926888597d0a502d3e445fc79e0e92d22",
+      "whitehall_fpg_paired_n": "184f0620bb943a74f881cf6a3bd4cc1c8b74464ba3c1b3db56be2ce25ec8d753"
+    },
+    "participant_records_used": false,
+    "protocol_sha256": "6452943e6fc9e233946dc4fc3ef155bc2e2ec9583936603ca5d544547ee4d690",
+    "raw_redistributed": false,
+    "receipts_sha256": "fb3580aeceb37d58ca5212881682d0d5a42455628907e857e72079a595d10a42",
+    "registered_working_interval_reproduced": true,
+    "registry_sha256": "03d609ed4258321273916cd500d7f6a96c855b34abe9f9eeb85a445cba899e13"
+  },
+  "schema_version": 1,
+  "scientific_release_ready": false,
+  "scope_flags": {
+    "annual_hazards_identified": false,
+    "causal_diet_identification": false,
+    "clinical_fit": false,
+    "engine_activation": false,
+    "full_issue57_complete": false,
+    "full_issue58_complete": false,
+    "national_transport": false,
+    "outreach_or_agreement": false,
+    "participant_records_acquired": false,
+    "used_source_reproduction": true,
+    "working_assumptions_empirically_established": false
+  },
+  "source_audit_passed": true,
+  "source_checks": {
+    "main_static_pdf": {
+      "passed": true,
+      "sha256": "e89dfe23cdb184e9f1fbb04f58678d23e97f2ea8ab5d215df8aa85716799d712",
+      "size_bytes": 543921
+    },
+    "supplement_pdf": {
+      "passed": true,
+      "sha256": "a78d0ead94ff6571518907beaa0805656902df4ec4ba30fc9c038889187bb894",
+      "size_bytes": 294249
+    }
+  },
+  "working_fit": {
+    "assumptions": [
+      "Condition on the selected paired-examination analysis sample and its count N",
+      "Treat each endpoint label as an independent Bernoulli realization",
+      "Use one constant p for that selected sample; individual risk/selection/visit-time heterogeneity and dependence are not modeled"
+    ],
+    "assumptions_empirically_established": false,
+    "clinical_transition_model": false,
+    "family": "Binomial",
+    "log_likelihood_at_mle": {
+      "status": "finite",
+      "value": -3.574693583930525
+    },
+    "p_hat": 0.4451219512195122
+  },
+  "working_fit_performed": true
+}
