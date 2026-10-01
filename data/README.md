@@ -14,6 +14,12 @@ a descriptive missing-label audit. Four complete publication documents remain
 fetch-only. The guide provides public-fetch and offline reproduction commands;
 participant records have not been requested or acquired.
 
+The [TOTUM63 adequacy package](../docs/TOTUM_SOURCE_ADEQUACY.md) checks a public
+CC BY 4.0 workbook. The workbook and four source documents/metadata files remain
+fetch-only here. Permitted aggregate coverage, frozen selection and historical
+receipts are distributed. Actual collection dates, unique participant pairing and
+complete clinical histories remain unverified; no individual values are exported.
+
 The [DPP preservation package](../docs/DPP_OBSERVATION_ADAPTER.md) contains public
 documentation receipts, a frozen field contract and synthetic aggregate checks.
 Full documents are fetch-only and participant records are request-only. Its

@@ -7,6 +7,12 @@ missing-label envelopes separate, while retaining source disagreements. It
 advances source appraisal for #57/#58; linked clinical transitions, dose/lag
 identification, independent validation and national transport remain open.
 
+The [TOTUM63 source-row audit](TOTUM_SOURCE_ADEQUACY.md) now checks actual public
+glucose cells under a selection committed before numerical intake. It examines
+raw-cell and layout coverage without a clinical effect calculation. Public
+access, record-unit semantics and sufficient clinical histories are separate
+requirements; unresolved pairing, treatment, death and timing still block a fit.
+
 The maintainer selected the public-source route on September 29, 2026. We can
 build useful, reproducible pieces without waiting for institutional data access.
 Each source has a specific job; combining public studies does not automatically

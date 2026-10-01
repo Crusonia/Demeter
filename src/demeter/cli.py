@@ -347,6 +347,43 @@ def preview_endpoint_evidence(
         raise typer.Exit(1)
 
 
+@evidence_app.command("totum-source-rows")
+def totum_source_row_evidence(
+    raw: Annotated[Path, typer.Option(help="Directory containing all five pinned TOTUM63 sources")],
+    evidence: Path = DEFAULT_EVIDENCE,
+    output: Path | None = None,
+) -> None:
+    """Audit public glucose source-row coverage offline; no clinical fit or effect."""
+    from demeter.analysis.totum_source_rows import DATASET, audit_totum_source_rows
+    from demeter.data.nhanes import encoded
+
+    try:
+        selected = registry(evidence)
+        report = audit_totum_source_rows(selected, raw)
+        spec = selected.datasets[DATASET]
+        protected = {
+            evidence.resolve(),
+            Path(spec["protocol_path"]).resolve(),
+            Path(spec["receipts_path"]).resolve(),
+            *(raw / selected.sources[key].raw_filename for key in spec["source_ids"].values()),
+        }
+        if output and (
+            output.resolve() in {path.resolve() for path in protected}
+            or output.exists()
+            and any(output.samefile(path) for path in protected if path.exists())
+        ):
+            raise ValueError("Output must not overwrite a source, registry or frozen record")
+    except (ValueError, OSError) as exc:
+        typer.echo(str(exc), err=True)
+        raise typer.Exit(1) from exc
+    if output:
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_bytes(encoded(report))
+    emit(report)
+    if not report["source_audit_passed"]:
+        raise typer.Exit(1)
+
+
 @evidence_app.command("pathway-compatibility")
 def pathway_compatibility_evidence(
     evidence: Path = DEFAULT_EVIDENCE,

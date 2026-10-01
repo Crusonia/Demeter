@@ -1,0 +1,62 @@
+{
+  "after_evidence_sha256": "ff26f2c8c1bba030be230b4d05f3c2148bfd9c7c2cf8945dfb7eaa104bd3c02d",
+  "base_commit": "8d028585ffce2823fd71e44a3b85bc5be1e19fff",
+  "before_evidence_sha256": "8ed11a049f256ee2bc7e274c297d8a6b2395fe22768f220f5f6f79dd593ed1d4",
+  "canonical_scenarios": {
+    "baseline": {
+      "all_other_outputs_identical": true,
+      "changed_paths": [
+        "/healthspan/evidence_sha256",
+        "/metadata/evidence_sha256"
+      ]
+    },
+    "prechronic_baseline": {
+      "all_other_outputs_identical": true,
+      "changed_paths": [
+        "/healthspan/evidence_sha256",
+        "/metadata/evidence_sha256"
+      ]
+    },
+    "reduce_upf_30": {
+      "all_other_outputs_identical": true,
+      "changed_paths": [
+        "/healthspan/evidence_sha256",
+        "/metadata/evidence_sha256"
+      ]
+    }
+  },
+  "interpretation": "Exact source-layout/type coverage only. No accepted participant distribution, clinical fit, efficacy effect, UPF dose/lag, national activation or independent scientific validation.",
+  "protocol_freeze_commit": "d059176",
+  "refreshed_observation_reports": {
+    "issue-56-partial-observations.json": {
+      "all_other_outputs_identical": true,
+      "changed_paths": [
+        "/provenance/evidence_sha256"
+      ]
+    },
+    "issue-56-state-mapping.json": {
+      "all_other_outputs_identical": true,
+      "changed_paths": [
+        "/provenance/evidence_sha256"
+      ]
+    }
+  },
+  "registry_change": {
+    "active_parameters_changed": [],
+    "added": {
+      "datasets": [
+        "totum_source_row_adequacy"
+      ],
+      "parameters": [],
+      "sources": [
+        "totum_metadata2026",
+        "totum_methods2026",
+        "totum_registration2026",
+        "totum_reporting_summary2026",
+        "totum_workbook2026"
+      ]
+    },
+    "all_prior_entries_identical": true,
+    "scientific_blockers_identical": true
+  }
+}

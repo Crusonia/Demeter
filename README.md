@@ -282,6 +282,12 @@ comparisons. Its offline CLI keeps descriptive contrasts, published adjusted
 effects and deterministic completion envelopes separate. All inputs are
 benchmark-only; it supplies no annual transition rates or active dietary effect.
 
+The [TOTUM63 source adequacy audit](docs/TOTUM_SOURCE_ADEQUACY.md) checks a public
+glucose workbook before any clinical fit. It preserves source-row and raw-cell
+coverage, distinguishes numerical availability from valid assays, and records
+unknown participant pairing, dates, treatment and stopping. Its public output
+contains aggregate diagnostics; it estimates no supplement or dietary effect.
+
 Optional [dietary timing experiments](docs/DIET_DYNAMICS.md) add scheduled changes,
 fading exposure memory, independent recovery lags and timing sensitivity. Run
 `uv run demeter observe scenarios/diet_dynamics.yaml --destination outputs/diet-dynamics-report`
