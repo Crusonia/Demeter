@@ -975,6 +975,14 @@
     {
       "path": "docs/DPP_SOURCE_COVERAGE.md",
       "sha256": "3dd7ed245142831b2fb00dd83c5052bd112a43f8fc116a21d6fed22f384e3581"
+    },
+    {
+      "path": "docs/validation/public-longitudinal-source-receipts-v1.json",
+      "sha256": "413d2542e397d0aebd9e2a4f37eae412c30a9880a31ee270f02782b983fee239"
+    },
+    {
+      "path": "docs/PUBLIC_LONGITUDINAL_DATA_REQUIREMENTS.md",
+      "sha256": "e6717e0358937f31bbc8f22526d29a2dacf2e224ceeb1920a9b63d544f94ae6e"
     }
   ]
 }

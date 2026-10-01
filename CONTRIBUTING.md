@@ -17,6 +17,12 @@ questions, evidence, and scenario proposals. You do not need a finished solution
 For a new scientific mechanism, propose the decision/question, causal path,
 supporting and conflicting evidence, and validation plan before building it.
 
+For the current progression/reversal evidence gap, use the
+[public longitudinal source checklist](docs/PUBLIC_LONGITUDINAL_DATA_REQUIREMENTS.md).
+Propose a source link, exact fields/tables, definitions and reuse terms. Linked
+observations or sufficient aggregates can help; do not attach individual health
+records to a public issue or PR.
+
 For material model or evidence changes, use the **Scientific model or evidence
 change** issue form and the [scientific RFC process](docs/rfcs/README.md).
 The [scientific review rules](docs/SCIENTIFIC_REVIEW.md) explain which changes need

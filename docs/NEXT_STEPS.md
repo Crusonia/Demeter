@@ -133,3 +133,11 @@ source selection, observation/censoring assumptions and likelihood identificatio
 freeze joint-uncertainty and evaluation plans before fitting. Keep national
 transport and unidentified causal parameters unresolved. The full requirements
 of #57, #58, #1 and milestone #27 remain open.
+
+The [public longitudinal intake requirements](PUBLIC_LONGITUDINAL_DATA_REQUIREMENTS.md)
+now specify the actual linked fields or sufficient aggregate statistics needed
+for that next step and retain the October 1 source-search dispositions. The
+inspected new candidates did not resolve clinical fitting; no observations,
+parameters or likelihood assumptions were activated. A primary-source proposal
+with compatible public observations is the next empirical contribution. This
+bounded search does not establish that no suitable public source exists.

@@ -8,6 +8,12 @@ inputs, model assumptions, and simulation results distinct.
 Start with [dataset reuse and citation notices](NOTICE.md), the per-source
 [rights inventory](rights.json), and [evidence-package manifests](evidence-packages.json).
 
+The [public longitudinal requirements](../docs/PUBLIC_LONGITUDINAL_DATA_REQUIREMENTS.md)
+include a [versioned documentation receipt artifact](../docs/validation/public-longitudinal-source-receipts-v1.json)
+for source discovery. It pins publication/access/dictionary versions and retains
+failed acquisitions. Full documents are fetch-only; no participant release or
+clinical parameter is admitted by those metadata checks.
+
 The [PREVIEW endpoint package](../docs/PREVIEW_ENDPOINT_AUDIT.md) contains factual
 counts/estimates, source receipts, a frozen used-source analysis specification and
 a descriptive missing-label audit. Four complete publication documents remain
