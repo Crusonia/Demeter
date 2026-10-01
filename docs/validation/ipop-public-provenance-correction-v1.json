@@ -157,7 +157,8 @@
     "Original frozen schema protocols, source receipts and mixed-workbook exceptions remain unchanged.",
     "This is an after-inspection documentary correction, not preregistration, a holdout or independent validation.",
     "A broad HTML section match and a numerical-masking regex error incidentally printed already-used publication narrative/results. No selected numeric outcome intake, arithmetic or fitting followed; the later checks selected direct Data Availability sections.",
-    "Only public landing/deposition documentation bytes were newly acquired. No participant file or linked HMP data resource was fetched."
+    "Only public landing/deposition documentation bytes were newly acquired. No participant file or linked HMP data resource was fetched.",
+    "Review clarified the nested Zheng source locator to Sec3 within Methods; the original ignored appraisal and its hash remain unchanged."
   ],
   "assessment_id": "ipop_public_provenance_correction_v1",
   "supersedes": "Earlier unresolved-public-membership interpretation in IPOP_SOURCE_COVERAGE.md; original schema protocol and source receipts remain immutable.",
@@ -182,7 +183,7 @@
       {
         "path": "ipop-rights-methods-20261001T184840441123Z/zheng-2022-publication.xml",
         "sha256": "1a492cb33b5ed7b5ed6f7df45243498418787c200f3f176e8edbe635b5684ddf",
-        "locator": "Methods Sec2/Summary of cohort details and data; notes2 Data availability"
+        "locator": "JATS sec[@id=\"Sec3\"]: Summary of cohort details and data, within Methods; sec[@id=\"notes2\"]: Data availability"
       },
       {
         "path": "ipop-metadata/README.md",
