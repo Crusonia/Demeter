@@ -1,0 +1,24 @@
+{
+  "schema": "direct-paired-selected-count-intake-v1",
+  "captured_utc": "2026-10-01T02:48:05.135342+00:00",
+  "protocol_freeze_commit": "58db5a8",
+  "protocol_sha256": "4fd142053514f20bf9649d3faf8fb8c9ebb23d9eac7c26f5c8055f064ca45ab6",
+  "chronology": "Used-source design after earlier/incidental abstract outcomes and masked methods/label inspection; committed before planned selected integer-count capture and all new arithmetic. Not preregistration, a holdout, or independent clinical validation.",
+  "counts": {
+    "itt_n": 149,
+    "itt_n_one_year_crosscheck": 149,
+    "positive_first_n": 68,
+    "positive_second_n": 53,
+    "positive_second_itt_denominator": 129,
+    "positive_pair_lower_n": 48
+  },
+  "source_checks": {
+    "same_intervention_itt_denominator": false,
+    "count_domains": true
+  },
+  "source_sha256": {
+    "one_year": "3636adf9611bd625326c92102e2a5ec11b25dad793599ea0288f977bf4b56751",
+    "two_year": "907b78c4577e81dfd3dcd2c23c302f8a587d687f89781800e2a6d49b076c76b0"
+  },
+  "interpretation": "Limited selected aggregate facts only; subgroup is not certified exhaustive; no relapsed counts, rates, effect estimates, participant records or sampling intervals captured."
+}

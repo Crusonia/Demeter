@@ -1,0 +1,269 @@
+{
+  "clinical_fit_performed": false,
+  "engine_parameters_updated": false,
+  "model_role": "benchmark_only",
+  "provenance": {
+    "amendment_chronology": "After original accepted-manuscript intake failure and v2 masked structural lookup failure, before planned published abstract literal N/remission-count capture. Earlier incidental abstract results acknowledged; used-source work, not independent validation or preregistration.",
+    "amendment_sha256": "9a46a50b9d6fb08260fd7f0591a53096249bbfac2a3a92bef27ad7ad4732029b",
+    "chronology": "Used-source design after earlier/incidental abstract outcomes and masked methods/label inspection; committed before planned selected integer-count capture and all new arithmetic. Not preregistration, a holdout, or independent clinical validation.",
+    "constraints_sha256": "8a50feacb1a7190483043a43133f6f6dc9a62dc85e4a7978755cd618fd8d1f7c",
+    "extractor_sha256": "3d09e564b226fb02ce486f2b5cb626ffc386affc20a08090f9386ba38a20bb3c",
+    "network_used": false,
+    "original_failed_intake_sha256": "90eebf7c8f0e3aecb3f952c4e085abe8b9f457ba60b9003a6c62b0fa62a7e2b7",
+    "participant_records_used": false,
+    "protocol_sha256": "4fd142053514f20bf9649d3faf8fb8c9ebb23d9eac7c26f5c8055f064ca45ab6",
+    "reader": "pypdf.PdfReader read-only selected physical pages",
+    "receipts_sha256": "8b248316a7c5b0736f87ab3a52f0ed7d6a31c6c40f91bcdb7fc463055c3709d1",
+    "registry_sha256": "47ea34e4621054af61ff0f6b5c49369a57354ce56a65b786e20c9752c1cdf7b8",
+    "source_bytes": {
+      "one_year": {
+        "sha256": "3636adf9611bd625326c92102e2a5ec11b25dad793599ea0288f977bf4b56751",
+        "size_bytes": 810080
+      },
+      "published_abstract": {
+        "sha256": "ba06d37bbdad6394a5345afaf1f0ed3d37bc8f877ea2a718f2311fe4b1b65406",
+        "size_bytes": 16753
+      },
+      "two_year": {
+        "sha256": "907b78c4577e81dfd3dcd2c23c302f8a587d687f89781800e2a6d49b076c76b0",
+        "size_bytes": 457811
+      }
+    },
+    "superseded_v2_sha256": "b17d036e8391688023ebbc97445ea955b881537fbd0c90bed8e4b1d4510cbd5b",
+    "v2_locator_failure_sha256": "2978dc8ca391a720473781833f11296fe1a3a18ef76cc2b51085b293083d1d10"
+  },
+  "results": {
+    "clinical_retention_or_relapse_parameter_identified": false,
+    "diagnosed_t2d_history_retained": true,
+    "independent_evaluation": false,
+    "marginals_only": {
+      "extreme_tables": {
+        "at_lower_positive_pair": {
+          "failure_failure": 28,
+          "failure_positive": 53,
+          "positive_failure": 68,
+          "positive_positive": 0
+        },
+        "at_upper_positive_pair": {
+          "failure_failure": 81,
+          "failure_positive": 0,
+          "positive_failure": 15,
+          "positive_positive": 53
+        }
+      },
+      "failure_component_count_bounds": {
+        "assessed_nonremission": {
+          "lower": 0,
+          "upper": 68
+        },
+        "death": {
+          "lower": 0,
+          "upper": 68
+        },
+        "unassessed": {
+          "lower": 0,
+          "upper": 68
+        }
+      },
+      "failure_partition": {
+        "components_coupled": true,
+        "components_mutually_exclusive": true,
+        "constraint": "All components are nonnegative integers; second_positive is x.",
+        "equation": "second_positive + assessed_nonremission + unassessed + death = a",
+        "observed_component_counts": null,
+        "total_failure_count_bounds": {
+          "lower": 15,
+          "upper": 68
+        },
+        "unassessed_definition": "Unavailable assessment or unknown endpoint criterion, with death excluded within any chosen compatible completion. Actual allocation is unknown.",
+        "zero_lower_bound_is_observed_zero": false
+      },
+      "feasible_positive_pair": {
+        "lower": 0,
+        "upper": 53
+      },
+      "first_positive_conditional_shares": {
+        "denominator_n": 68,
+        "positive": {
+          "lower": 0.0,
+          "upper": 0.7794117647058824
+        },
+        "primary_failure": {
+          "lower": 0.22058823529411764,
+          "upper": 1.0
+        }
+      },
+      "inputs": {
+        "a": 68,
+        "b": 53,
+        "m": null,
+        "n": 149
+      },
+      "interpretation": {
+        "causal_effect_identified": false,
+        "clinical_hazards_identified": false,
+        "engine_activation_allowed": false,
+        "joint_cell_bounds_independently_allocatable": false,
+        "latent_clinical_states_identified": false,
+        "primary_failure_is_assessed_nonremission": false,
+        "prior_diagnosis_erased": false,
+        "prior_diagnosis_status": "Not inferred from counts; retain source history separately.",
+        "sampling_interval": null,
+        "scope": "Deterministic feasible sets for supplied source observation labels.",
+        "share_representation": "Floating ratios of exact integer count bounds.",
+        "subgroup_constraint_supplied": false,
+        "subgroup_scope_requires_source_verification": false,
+        "sustained_untreated_remission_identified": false
+      },
+      "joint_cell_bounds": {
+        "failure_failure": {
+          "lower": 28,
+          "upper": 81
+        },
+        "failure_positive": {
+          "lower": 0,
+          "upper": 53
+        },
+        "positive_failure": {
+          "lower": 15,
+          "upper": 68
+        },
+        "positive_positive": {
+          "lower": 0,
+          "upper": 53
+        }
+      }
+    },
+    "negative_assessment_partition_verified": false,
+    "observed_counts": {
+      "itt_n": 149,
+      "itt_n_one_year_crosscheck": 149,
+      "positive_first_n": 68,
+      "positive_pair_lower_n": 48,
+      "positive_second_itt_denominator": 129,
+      "positive_second_n": 53
+    },
+    "published_counts": {
+      "endpoint_specific_denominator_printed": false,
+      "itt_n": 149,
+      "positive_second_n": 53
+    },
+    "same_itt_scope": "Same-common-ITT meaning is an explicit applicability assumption, supported by the published Findings cohort sentence and accepted main Statistics defining intention-to-treat primary outcomes and missing-as-failure. Keep all computed paired-label bounds conditional on that scope; it is not confirmed by participant identifiers.",
+    "scope_conditional": true,
+    "source_conflict": {
+      "accepted_literal_fraction": {
+        "denominator": 129,
+        "numerator": 53
+      },
+      "author_issued_erratum_verified": false,
+      "disposition": "Accepted manuscript literal53/129 remains a failed source check. Published abstract cohort N is used by declared version preference, not substituted into/claimed to correct the PDF fraction; no percentage arithmetic or author-issued erratum.",
+      "original_intake_passed": false,
+      "published_endpoint_denominator_explicit": false
+    },
+    "subgroup_assumption": "x >= m, conditional on subgroup belonging to same ITT cohort and its stated paired-positive source meaning; never assert m=x or that all other pair cells were reported.",
+    "subgroup_scope_caveat": "Two-year physicalp13 post-hoc weight analysis; maintaining subgroup grammar supports paired positives, but full paired-weight availability/scope is not explicit. Retain marginal-only set as sensitivity.",
+    "uncertainty": "Deterministic finite-source feasible-set bounds only, not confidence/credible intervals or joint random draws. Sampling, clustering, assay error, missingness, treatment, exact timing and transport unresolved. No iid assumption, MAR imputation, pooling, annualization, optimizer or hazard fit.",
+    "with_reported_positive_subgroup": {
+      "extreme_tables": {
+        "at_lower_positive_pair": {
+          "failure_failure": 76,
+          "failure_positive": 5,
+          "positive_failure": 20,
+          "positive_positive": 48
+        },
+        "at_upper_positive_pair": {
+          "failure_failure": 81,
+          "failure_positive": 0,
+          "positive_failure": 15,
+          "positive_positive": 53
+        }
+      },
+      "failure_component_count_bounds": {
+        "assessed_nonremission": {
+          "lower": 0,
+          "upper": 20
+        },
+        "death": {
+          "lower": 0,
+          "upper": 20
+        },
+        "unassessed": {
+          "lower": 0,
+          "upper": 20
+        }
+      },
+      "failure_partition": {
+        "components_coupled": true,
+        "components_mutually_exclusive": true,
+        "constraint": "All components are nonnegative integers; second_positive is x.",
+        "equation": "second_positive + assessed_nonremission + unassessed + death = a",
+        "observed_component_counts": null,
+        "total_failure_count_bounds": {
+          "lower": 15,
+          "upper": 20
+        },
+        "unassessed_definition": "Unavailable assessment or unknown endpoint criterion, with death excluded within any chosen compatible completion. Actual allocation is unknown.",
+        "zero_lower_bound_is_observed_zero": false
+      },
+      "feasible_positive_pair": {
+        "lower": 48,
+        "upper": 53
+      },
+      "first_positive_conditional_shares": {
+        "denominator_n": 68,
+        "positive": {
+          "lower": 0.7058823529411765,
+          "upper": 0.7794117647058824
+        },
+        "primary_failure": {
+          "lower": 0.22058823529411764,
+          "upper": 0.29411764705882354
+        }
+      },
+      "inputs": {
+        "a": 68,
+        "b": 53,
+        "m": 48,
+        "n": 149
+      },
+      "interpretation": {
+        "causal_effect_identified": false,
+        "clinical_hazards_identified": false,
+        "engine_activation_allowed": false,
+        "joint_cell_bounds_independently_allocatable": false,
+        "latent_clinical_states_identified": false,
+        "primary_failure_is_assessed_nonremission": false,
+        "prior_diagnosis_erased": false,
+        "prior_diagnosis_status": "Not inferred from counts; retain source history separately.",
+        "sampling_interval": null,
+        "scope": "Deterministic feasible sets for supplied source observation labels.",
+        "share_representation": "Floating ratios of exact integer count bounds.",
+        "subgroup_constraint_supplied": true,
+        "subgroup_scope_requires_source_verification": true,
+        "sustained_untreated_remission_identified": false
+      },
+      "joint_cell_bounds": {
+        "failure_failure": {
+          "lower": 76,
+          "upper": 81
+        },
+        "failure_positive": {
+          "lower": 0,
+          "upper": 5
+        },
+        "positive_failure": {
+          "lower": 15,
+          "upper": 20
+        },
+        "positive_positive": {
+          "lower": 48,
+          "upper": 53
+        }
+      }
+    }
+  },
+  "schema": "direct-paired-observations-report-v1",
+  "scientific_release_ready": false,
+  "source_audit_passed": true,
+  "status": "Source-label observation constraints only; clinical hazards remain unresolved"
+}

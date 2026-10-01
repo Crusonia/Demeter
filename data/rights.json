@@ -232,6 +232,25 @@
         "Publication license is not permission for controlled participant records; no reidentification/application/contact.",
         "Source reproduction/working endpoint fit is not clinical transition adequacy, independent validation or engine activation."
       ]
+    },
+    "direct_paired_public_facts": {
+      "title": "DiRECT attributed aggregate facts; complete publications/XML fetch-only",
+      "terms_urls": [
+        "https://eprints.gla.ac.uk/153078/",
+        "https://eprints.gla.ac.uk/180894/",
+        "https://pubmed.ncbi.nlm.nih.gov/30852132/",
+        "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+      ],
+      "checked_on": "2026-10-01",
+      "redistribution": "conditional",
+      "download": "Public primary accepted manuscripts and NLM bibliographic XML; no participant data or registration.",
+      "transform": "Limited attributed factual count selection and Demeter integer feasible-table transforms.",
+      "conditions": [
+        "Keep full publication/XML bytes outside commits/distributions; do not sublicense source text/figures under MIT.",
+        "Retain exact version/source pins, actual historical receipts, original source conflict and failed intakes.",
+        "Conditional common-ITT and subgroup scope do not establish clinical identification, causal dietary effects, independent validation or national applicability.",
+        "Public article access is not controlled participant-data access; no application/agreement/outreach/reidentification."
+      ]
     }
   },
   "source_files": {
@@ -1070,6 +1089,45 @@
       "retrieved_at": "2026-09-30T23:39:58.933115+00:00",
       "distribution": "fetch_only",
       "alternative": "Fetch matching official static PDFs into ignored storage; publish limited attributed aggregate reproduction and transforms only. No participant-record access."
+    },
+    "direct_one_year_accepted": {
+      "policy": "direct_paired_public_facts",
+      "privacy": "publication",
+      "publisher": "Lean et al. / University of Glasgow accepted repository / NLM PubMed",
+      "vintage": "DiRECT2018/2019 reports; exact2026 source snapshots",
+      "citation": "Lean MEJ et al. Primary care-led weight management for remission of type2 diabetes (DiRECT): an open-label, cluster-randomised trial. Lancet2018. DOI10.1016/S0140-6736(17)33102-1. Accepted author manuscript.",
+      "notes": "Full source kept fetch-only; no publication text/figures/participant records redistributed. Limited attributed factual counts and Demeter transforms only; publication access does not grant controlled-data rights.",
+      "url": "https://eprints.gla.ac.uk/153078/13/153078.pdf",
+      "sha256": "3636adf9611bd625326c92102e2a5ec11b25dad793599ea0288f977bf4b56751",
+      "retrieved_at": "2026-09-30T23:21:32.616002+00:00",
+      "distribution": "fetch_only",
+      "alternative": "Fetch matching source bytes into ignored local storage; reproduce limited aggregate facts/constraints offline. Never redistribute full publications or participant records."
+    },
+    "direct_two_year_accepted": {
+      "policy": "direct_paired_public_facts",
+      "privacy": "publication",
+      "publisher": "Lean et al. / University of Glasgow accepted repository / NLM PubMed",
+      "vintage": "DiRECT2018/2019 reports; exact2026 source snapshots",
+      "citation": "Lean MEJ et al. Durability of a primary care-led weight-management intervention for remission of type2 diabetes:2-year results of the DiRECT open-label, cluster-randomised trial. Lancet Diabetes Endocrinol2019. DOI10.1016/S2213-8587(19)30068-3. Accepted author manuscript.",
+      "notes": "Accepted two-year repository metadata identifies CC BY-NC-ND4.0. Full source kept fetch-only; no publication text/figures/participant records redistributed. Limited attributed factual counts and Demeter transforms only; publication access does not grant controlled-data rights.",
+      "url": "https://eprints.gla.ac.uk/180894/13/180894.pdf",
+      "sha256": "907b78c4577e81dfd3dcd2c23c302f8a587d687f89781800e2a6d49b076c76b0",
+      "retrieved_at": "2026-10-01T02:10:26.018338+00:00",
+      "distribution": "fetch_only",
+      "alternative": "Fetch matching source bytes into ignored local storage; reproduce limited aggregate facts/constraints offline. Never redistribute full publications or participant records."
+    },
+    "direct_two_year_pubmed": {
+      "policy": "direct_paired_public_facts",
+      "privacy": "publication",
+      "publisher": "Lean et al. / University of Glasgow accepted repository / NLM PubMed",
+      "vintage": "DiRECT2018/2019 reports; exact2026 source snapshots",
+      "citation": "Lean MEJ et al. Durability of a primary care-led weight-management intervention for remission of type2 diabetes:2-year results of the DiRECT open-label, cluster-randomised trial. Lancet Diabetes Endocrinol2019. DOI10.1016/S2213-8587(19)30068-3. NLM PMID30852132 bibliographic XML/published abstract.",
+      "notes": "Full source kept fetch-only; no publication text/figures/participant records redistributed. Limited attributed factual counts and Demeter transforms only; publication access does not grant controlled-data rights.",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=30852132&retmode=xml",
+      "sha256": "ba06d37bbdad6394a5345afaf1f0ed3d37bc8f877ea2a718f2311fe4b1b65406",
+      "retrieved_at": "2026-10-01T02:52:27.637585+00:00",
+      "distribution": "fetch_only",
+      "alternative": "Fetch matching source bytes into ignored local storage; reproduce limited aggregate facts/constraints offline. Never redistribute full publications or participant records."
     }
   },
   "documentation_receipts": "docs/validation/dpp-coverage-source-receipts.json",

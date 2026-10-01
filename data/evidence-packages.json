@@ -437,7 +437,7 @@
       "artifacts": [
         {
           "path": "docs/validation/issue-56-state-mapping.json",
-          "sha256": "cfe02910223f186a72e4c698b92c1096ad1f952df022cf8fc76bf9007c33436c"
+          "sha256": "5bd4fc81b165a0a45ab78c829b53db72860fa6a546b49a79d778ecda3be33d8d"
         },
         {
           "path": "docs/validation/issue-56-state-mapping-before-after.json",
@@ -445,7 +445,7 @@
         },
         {
           "path": "docs/validation/issue-56-partial-observations.json",
-          "sha256": "b2266364e06883f9e64956d4c597eb962e7cd56638db92e717490db3c2b28844"
+          "sha256": "772e9c842f563789138fd6e1b7eddff0f3083b9229cff3d5af6afa876d933633"
         },
         {
           "path": "docs/validation/issue-56-partial-before-after.json",
@@ -801,6 +801,71 @@
       ],
       "model_role": "benchmark_only",
       "redistribution": "Limited attributed published aggregate labels/counts, declared binomial working-model analysis, frozen design/receipts and Demeter transforms; both full PDFs fetch-only. No participant records, annual clinical rates or active inputs."
+    },
+    "direct_paired_observations": {
+      "store": null,
+      "dependencies": [],
+      "registry_datasets": [
+        "direct_paired_observations"
+      ],
+      "registry_parameters": [
+        "direct_accepted_second_literal_denominator_n",
+        "direct_intervention_itt_n",
+        "direct_intervention_positive_first_n",
+        "direct_intervention_positive_pair_subgroup_n",
+        "direct_intervention_positive_second_n"
+      ],
+      "artifacts": [
+        {
+          "path": "docs/validation/direct-paired-observations-protocol-v1.json",
+          "sha256": "4fd142053514f20bf9649d3faf8fb8c9ebb23d9eac7c26f5c8055f064ca45ab6"
+        },
+        {
+          "path": "docs/validation/direct-paired-source-receipts-v1.json",
+          "sha256": "8b248316a7c5b0736f87ab3a52f0ed7d6a31c6c40f91bcdb7fc463055c3709d1"
+        },
+        {
+          "path": "docs/validation/direct-paired-failed-intake-v1.json",
+          "sha256": "90eebf7c8f0e3aecb3f952c4e085abe8b9f457ba60b9003a6c62b0fa62a7e2b7"
+        },
+        {
+          "path": "docs/validation/direct-paired-observations-amendment-v2.json",
+          "sha256": "b17d036e8391688023ebbc97445ea955b881537fbd0c90bed8e4b1d4510cbd5b"
+        },
+        {
+          "path": "docs/validation/direct-paired-amendment-v2-failure.json",
+          "sha256": "2978dc8ca391a720473781833f11296fe1a3a18ef76cc2b51085b293083d1d10"
+        },
+        {
+          "path": "docs/validation/direct-paired-observations-amendment-v3.json",
+          "sha256": "9a46a50b9d6fb08260fd7f0591a53096249bbfac2a3a92bef27ad7ad4732029b"
+        },
+        {
+          "path": "docs/validation/issue-57-58-paired-remission.json",
+          "sha256": "8d3bc05fd923c4fa9682d5d49432619ef7077c9b0d46a7ebb7c67d85e148488a"
+        },
+        {
+          "path": "docs/validation/issue-57-58-paired-remission-before-after.json",
+          "sha256": "d10b669cc619b3b9f4f6ec8aeb49f86152728ab286068a1eb1e88661d4110b38"
+        },
+        {
+          "path": "docs/PAIRED_REMISSION_OBSERVATIONS.md",
+          "sha256": "15a1a027f5ef098ef1f2092402289bcf28e29133fed5d1bdf7c92932a01cc0c9"
+        },
+        {
+          "path": "docs/rfcs/RFC-57-58-paired-remission-observations.md",
+          "sha256": "da627ef4905c584b9650ac820d8ed3d5ea5b65ab0f4529f618782604776512ca"
+        }
+      ],
+      "transform_files": [
+        "src/demeter/analysis/paired_remission.py",
+        "src/demeter/analysis/paired_remission_sources.py"
+      ],
+      "rebuild": [
+        "uv run demeter evidence paired-remission --raw outputs/direct-sources --output outputs/paired-remission.json"
+      ],
+      "model_role": "benchmark_only",
+      "redistribution": "Limited attributed factual counts, conditional integer feasible-set analysis and preserved source/protocol failure receipts; full PDFs/XML fetch-only. No participant records, clinical hazards or active inputs."
     }
   },
   "supporting_artifacts": [

@@ -109,6 +109,16 @@ and interval depend on declared working assumptions; those assumptions are not
 established by the source. A descriptive-only mode makes that boundary visible.
 No annual clinical transitions, dietary response or national parameters are fitted.
 
+The [paired remission observation model](PAIRED_REMISSION_OBSERVATIONS.md) now
+preserves same-person positive-label information across DiRECT visits. It reports
+integer feasible tables and unresolved assessment/death partitions, retaining
+marginal-only and conditional subgroup constraints. A literal denominator conflict
+and failed XML selection remain recorded; the current selection uses separately
+published cohort/remission counts under an explicit common-ITT assumption.
+This adds a temporal observation capability without identifying clinical hazards,
+latent remission/relapse or an isolated dietary effect. Canonical numerical health
+outputs and active parameters remain unchanged; #57/#58/#1/#27 stay open.
+
 Next, prioritize a compatible unrestricted longitudinal package or sufficient
 published observations for an identified progression/reversal likelihood. Further
 blank-form inspection cannot replace participant histories. Resolve timing,

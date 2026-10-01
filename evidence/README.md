@@ -24,6 +24,14 @@ published interval. Confidence 0.95 is a declared analysis design setting in the
 dataset metadata. Descriptive-only mode supplies no sampling interval. No
 clinical transition, causal dietary effect or national parameter is activated.
 
+[Paired remission observations](../docs/PAIRED_REMISSION_OBSERVATIONS.md) register
+five literal source facts and three fetch-only DiRECT/NLM snapshots. They derive
+coupled integer feasible tables, retaining a conditional common-ITT interpretation,
+subgroup scope and unknown nonremission/assessment/death allocations. The accepted
+fraction's conflicting denominator and failed intakes remain preserved. These
+bounds are source-information ranges, not sampling intervals or annual rates;
+no clinical input is activated.
+
 Every substantive numeric parameter must be represented in `parameters.yaml` (or a future normalized successor) with units, status, provenance, evidence strength, and uncertainty where applicable.
 
 ## Status

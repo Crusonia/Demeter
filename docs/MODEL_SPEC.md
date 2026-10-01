@@ -1,5 +1,11 @@
 # Model specification — 0.1.0a1
 
+The separate [paired remission observation analysis](PAIRED_REMISSION_OBSERVATIONS.md)
+constrains source labels across visits and retains unknown follow-up categories.
+It is outside the annual simulation operator described here. It does not add a
+clinical remission state, fit hazards, erase diagnosed history or alter health
+equations/active parameters. Clinical state and observation mapping remain unresolved.
+
 ## Stocks, units, and sequence
 
 `N[a,s]` is a count of people at age `a` in state `s`: healthy/normoglycemic, insulin-resistant/prediabetes proxy, or type 2 diabetes. Ages are 0–99 and the open group 100+. A scenario selects total, male, or female source data. Sex-specific simulations use the same synthetic metabolic assumptions; they do not estimate sex-specific metabolic effects.
