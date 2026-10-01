@@ -24,7 +24,7 @@
       "size_bytes": 346308,
       "sha256": "2d11d254ef4c28fe1549fe7e18cbc3f35ab7a912b6968ce4ac95cd7d0bbe5690",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6713274/",
-      "selected_locator": "HTML section#S21, direct h2 Data Availability and paragraph; Methods, Sample Population paragraphs distinguish publication analytical availability from public release."
+      "selected_locator": "HTML section#S21, direct h2 Data Availability and paragraph; Methods, Design, Setting and Participants paragraphs distinguish publication analytical availability from public release."
     },
     "pinned_derivative_readme": {
       "cache_path": "outputs/public-source-search-20261001/ipop-metadata/README.md",
@@ -92,7 +92,7 @@
     },
     {
       "source": "schussler2019_primary",
-      "locator": "Methods -> Sample Population",
+      "locator": "Methods -> Design, Setting and Participants",
       "paraphrase": "Publication clinical/survey availability through June2018 differs from multiomics availability through December2016 and from the main iHMP analysis cohort. Those later analytical measurements cannot automatically be assigned to the public2016 release."
     }
   ],
