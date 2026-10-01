@@ -1,0 +1,18 @@
+{
+  "kind": "geelong_label_observation_verification",
+  "passed": true,
+  "source_report_exactly_reproduced": false,
+  "source_report_exactly_reproduced_excluding_registry_fingerprint": true,
+  "excluded_paths": [
+    "/provenance/registry_sha256"
+  ],
+  "current_registry_sha256": "7331b35451eb4ab7de954682760da922043d7af008a96650c899c09c4c4a21e0",
+  "committed_registry_sha256": "b75547060262dd2112ab29761dfe4211031ae7587d3b10872861e749827a9fc0",
+  "registry_fingerprint_changed": true,
+  "reproduction_scope": "Full byte reproduction separately reported; every encoded payload field except /provenance/registry_sha256 is reproduced exactly",
+  "model_role": "benchmark_only",
+  "clinical_fit_allowed": false,
+  "engine_activation_allowed": false,
+  "scientific_release_ready": false,
+  "interpretation": "Used-source observation reproduction and software regression only"
+}

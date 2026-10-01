@@ -1080,7 +1080,7 @@
         },
         {
           "path": "docs/IPOP_PREFLIGHT.md",
-          "sha256": "1f1bda7aefef1a0a7a26c6efd94dae0b399fa254f99aa3be536797f6ce7bf08f"
+          "sha256": "35528a44f34fabf94e0aac1b159733ed98183bec31733f3a668c562df2acdb5c"
         },
         {
           "path": "docs/validation/ipop-intake-simulation-preservation-v1.json",
@@ -1089,6 +1089,10 @@
         {
           "path": "docs/validation/ipop-historical-report-replay-v1.json",
           "sha256": "c07dbd5cdc9edd2bc45a0253c34a0bf92ca3054dd2ebbdb823f7a942aa5c76d0"
+        },
+        {
+          "path": "docs/validation/ipop-geelong-replay-v1.json",
+          "sha256": "b6bdade316ff2e877d48b774cda05277327bcdb427fa8b7ae764478de8320acb"
         }
       ],
       "transform_files": [

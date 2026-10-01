@@ -141,3 +141,6 @@ sources changes the complete registry fingerprint. The
 [historical report replay receipt](validation/ipop-historical-report-replay-v1.json)
 confirms that three older observation reports reproduce every other field
 exactly. Their original bytes and historical fingerprints remain unchanged.
+The [Geelong replay proof](validation/ipop-geelong-replay-v1.json) applies the
+same strict comparison to its separately named registry fingerprint and reports
+full byte equality separately from exact remaining-payload equality.
