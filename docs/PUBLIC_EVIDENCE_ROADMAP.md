@@ -112,6 +112,11 @@ unrestricted public download. Neither study activates a Demeter parameter.
 
 ## What a public-data result must earn
 
+The [public longitudinal data requirements](PUBLIC_LONGITUDINAL_DATA_REQUIREMENTS.md)
+turn the clinical observation contract into a contributor checklist and record
+the October 1 bounded source search. Public access and sufficient observations
+remain separate checks; no new clinical data or estimates were admitted.
+
 The [DPP observation adapter](DPP_OBSERVATION_ADAPTER.md) adds a strict normalized
 record contract and synthetic aggregate demonstration. Its four source receipts
 cover public documentation, not public participant records. It keeps source years,
