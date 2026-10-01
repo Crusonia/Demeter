@@ -218,7 +218,7 @@
       "size_bytes": 130619,
       "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12534155/fullTextXML"
     },
-    "implementation_sha256": "14294a3e4edfce0903bbbc804fe10fe8576a76501223c044f8637dff4fe25e3c",
+    "implementation_sha256": "4f2f39d7a7e18f5cd3808d64aa6ca58148a49a3c1a1c1e0bc1ac8df0b294689e",
     "interval_registry_comparison": "Canonical repository storage_numbers precision; not source precision or a clinical tolerance",
     "local_byte_check_is_new_acquisition": false,
     "network_used": false,

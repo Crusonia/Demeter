@@ -437,7 +437,7 @@
       "artifacts": [
         {
           "path": "docs/validation/issue-56-state-mapping.json",
-          "sha256": "fa0825e5055aa85334c5c58bac7b41435e944187795fc5c1e2ea24b6654b8e12"
+          "sha256": "02e5048b6f590793e631d76e45f34a95052d5a575f0705c69494d52bfc0d26f8"
         },
         {
           "path": "docs/validation/issue-56-state-mapping-before-after.json",
@@ -445,7 +445,7 @@
         },
         {
           "path": "docs/validation/issue-56-partial-observations.json",
-          "sha256": "33224b5e641f5e92551c8e8438655182a35694a49362258d99718408b2df37bf"
+          "sha256": "d683808015a8f35885aebb34395bb06857411c50e6c955b02d6ec21e1d6593f3"
         },
         {
           "path": "docs/validation/issue-56-partial-before-after.json",
@@ -1028,7 +1028,7 @@
         },
         {
           "path": "docs/validation/issue-57-geelong-labels.json",
-          "sha256": "e532de1cc6d520741b05fb9c90a7907b18e66c8843a1f3f519e84c34401f29f9"
+          "sha256": "a8f4c53d8eebecc81b4a4a956ea85de3a618d986a23bff00ab9249b82e4aeb4f"
         },
         {
           "path": "docs/validation/geelong-labels-before-after.json",

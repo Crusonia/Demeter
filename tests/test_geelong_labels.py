@@ -451,6 +451,36 @@ def test_unreadable_source_returns_sanitized_failure(registered, tmp_path, monke
     _failed(module.audit_geelong_labels(registered, source_path=source))
 
 
+def test_late_implementation_provenance_failure_discards_all_partial_results(
+    registered, monkeypatch
+):
+    """Successful extraction/evaluation must not escape a failed final publish."""
+    implementation = Path(module.__file__)
+    spec = registered.datasets[module.DATASET]
+    required = {
+        Path(spec["source_path"]),
+        Path(spec["protocol_path"]),
+        Path(spec["bundle_path"]),
+    }
+    original = Path.read_bytes
+    successful_reads = set()
+    late_failure_seen = []
+
+    def read(path):
+        if path == implementation:
+            late_failure_seen.append(True)
+            raise PermissionError(PRIVATE)
+        content = original(path)
+        successful_reads.add(path)
+        return content
+
+    monkeypatch.setattr(Path, "read_bytes", read)
+    report = module.audit_geelong_labels(registered)
+    assert required <= successful_reads
+    assert late_failure_seen == [True]
+    _failed(report)
+
+
 def test_registry_count_drift_fails_without_mutating_inputs(registered):
     selected = registered.model_copy(deep=True)
     key = "geelong_normal_start_normoglycaemia_n"

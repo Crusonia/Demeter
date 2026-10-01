@@ -667,49 +667,53 @@ def audit_geelong_labels(
                     storage_numbers([uncertainty.low, uncertainty.high]), storage_numbers(bounds)
                 ):
                     raise ValueError("Geelong registered working interval disagreement")
-        report.update(results)
-        report.update(
-            {
-                "source_audit_passed": True,
-                "source_audit": {
-                    "passed": True,
-                    "selected_literals_reproduced": True,
-                    "same_source_denominators_reconciled": True,
-                    "registry_bundle_agreement": True,
+        success = {
+            **report,
+            **results,
+            "source_audit_passed": True,
+            "source_audit": {
+                "passed": True,
+                "selected_literals_reproduced": True,
+                "same_source_denominators_reconciled": True,
+                "registry_bundle_agreement": True,
+            },
+            "working_fit_performed": working_likelihood,
+            "scientific_disposition": protocol["scientific_disposition"],
+            "retained_full_requirements": protocol["retained_full_requirements"],
+            "chronology": protocol["chronology"],
+            "provenance": {
+                "protocol_sha256": protocol_hash,
+                "source_sha256": digest(content),
+                "source_size_bytes": len(content),
+                "source_id": SOURCE_ID,
+                "bundle_sha256": spec["bundle_sha256"],
+                "implementation_sha256": digest(Path(__file__).read_bytes()),
+                "dataset_definition_sha256": digest(encoded(spec)),
+                "registry_sha256": registry.content_hash,
+                "parameter_definitions_sha256": {
+                    key: digest(encoded(registry.parameters[key].model_dump(mode="json")))
+                    for key in sorted(PARAMETER_KEYS)
                 },
-                "working_fit_performed": working_likelihood,
-                "scientific_disposition": protocol["scientific_disposition"],
-                "retained_full_requirements": protocol["retained_full_requirements"],
-                "chronology": protocol["chronology"],
-                "provenance": {
-                    "protocol_sha256": protocol_hash,
-                    "source_sha256": digest(content),
-                    "source_size_bytes": len(content),
-                    "source_id": SOURCE_ID,
-                    "bundle_sha256": spec["bundle_sha256"],
-                    "implementation_sha256": digest(Path(__file__).read_bytes()),
-                    "dataset_definition_sha256": digest(encoded(spec)),
-                    "registry_sha256": registry.content_hash,
-                    "parameter_definitions_sha256": {
-                        key: digest(encoded(registry.parameters[key].model_dump(mode="json")))
-                        for key in sorted(PARAMETER_KEYS)
-                    },
-                    "historical_acquisition": {
-                        key: protocol["source"][key]
-                        for key in ("url", "retrieved_utc", "sha256", "size_bytes")
-                    },
-                    "local_byte_check_is_new_acquisition": False,
-                    "network_used": False,
-                    "participant_records_used": False,
-                    "participant_records_exported": False,
-                    "registered_working_intervals_reproduced": working_likelihood,
-                    "interval_registry_comparison": "Canonical repository storage_numbers precision; not source precision or a clinical tolerance",
-                    "derived_report_storage": "Twelve significant digits for portable derived JSON; calculations and source/registry checks precede storage normalization",
+                "historical_acquisition": {
+                    key: protocol["source"][key]
+                    for key in ("url", "retrieved_utc", "sha256", "size_bytes")
                 },
-            }
-        )
+                "local_byte_check_is_new_acquisition": False,
+                "network_used": False,
+                "participant_records_used": False,
+                "participant_records_exported": False,
+                "registered_working_intervals_reproduced": working_likelihood,
+                "interval_registry_comparison": "Canonical repository storage_numbers precision; not source precision or a clinical tolerance",
+                "derived_report_storage": "Twelve significant digits for portable derived JSON; calculations and source/registry checks precede storage normalization",
+            },
+        }
+        # Publish only after every provenance read, storage conversion and JSON
+        # validation has succeeded. A late failure retains the blocked report.
+        success = storage_numbers(success)
+        encoded(success)
+        report = success
     except Exception:
         # Never return exception messages, source snippets, participant identifiers
         # or partial count/fit results from a failed audit.
         report["failure"] = {"stage": stage, "code": "geelong_source_or_contract_failure"}
-    return storage_numbers(report)
+    return report
