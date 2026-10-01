@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "analysis_id": "ipop_a1c_conditional_working_fit_v1",
+  "chronology": {
+    "kind": "adaptive_used_source_internal_evaluation",
+    "already_inspected": "Publication methods/results, producer code, selected headers, full-source structural/numeric-token/namespace coverage; no A1C band paths or empirical fit inspected before this selection.",
+    "freeze_requirement": "Commit and push this protocol and its registry/RFC before band mapping, allocation diagnostics, fitting or reserved-outcome evaluation. No preregistration or independent-source validation claim."
+  },
+  "source": {
+    "producer_commit": "ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c",
+    "clinical_sha256": "94bca4d56dcb96e83a780479c5e23610e366060bcc8607f67377378d3fc39f52",
+    "sample_info_sha256": "7e9026e13f0cf105ade8429e40c5f5ca4adaa248f4552f32a71fa4327c3e4a3e",
+    "binding_v1_protocol_sha256": "2d8b53ae10a018fde16bc91108db57d49a788f473fc8fc0dfe65a44e28ac2b89",
+    "binding_v2_protocol_sha256": "531a521156f40dae687c903b7c902b59cb34ad24014e2957c55141fa923b1ba0",
+    "prior_v2_result_sha256": "035cb972134b547acf9da959d11606187c9d7d0064d3269fe43c699c116dd0ab",
+    "association": "Exact sample-key match, full possible partner graph including ambiguous keys before all quarantine/assay/day filters, mutually degree-one subjects and unique right row as frozen v2. Consistency is not independently certified identity."
+  },
+  "measurement": {
+    "assay": "A1C",
+    "unit": "percent",
+    "derivative_percent_rawness": "explicit_unverified_working_assumption",
+    "thresholds": [
+      5.7,
+      6.5
+    ],
+    "bands": [
+      "a1c_below_5_7",
+      "a1c_5_7_to_below_6_5",
+      "a1c_at_least_6_5"
+    ],
+    "threshold_source": "Zhou et al. 2019, Results Overview: cohort, sample collection and assays; DOI10.1038/s41586-019-1236-x. NIDDK A1C test supports percent cutoffs and separate diagnosis confirmation.",
+    "threshold_urls": [
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC6666404/#Sec2",
+      "https://www.niddk.nih.gov/health-information/diagnostic-tests/a1c-test"
+    ],
+    "threshold_precision": "Classify original finite Decimal without rounding; low<5.7, middle>=5.7 and<6.5, high>=6.5. Labels do not establish metabolic health, insulin resistance, diagnosis, disease type or remission.",
+    "percentage_bounds": [
+      0,
+      100
+    ],
+    "unavailable_or_invalid_assay": "Retain each token category and all original denominators; omit unavailable/outside-definitional-percent-range rows only from the conditional observed-path likelihood. No imputation or unit inference from values.",
+    "unused": "GLU, clinical CollectionDate, CL4 and all other fields supply no predictor, context filter, outcome or treatment history."
+  },
+  "time_and_paths": {
+    "unit": "source_day",
+    "specimen_clock": "SampleInfo.Days_Since_Start interpreted as specimen elapsed-day coordinate, an explicit unverified working assumption; no calendar or annual-rate conversion.",
+    "origin": "Subtract first eligible Decimal coordinate within each label before conversion to float. Preserve fractional gaps. Unknown additive origin cancels.",
+    "rows": "Partition admitted rows in order: unusable day, unavailable assay, outside percent range, eligible assay/day; preserve all source/linkage and subject denominators.",
+    "duplicate_time": "Any repeated eligible Decimal time quarantines the entire label from fitting/evaluation, including identical bands; preserve duplicate counts. Do not average, deduplicate or arbitrarily order ties.",
+    "single_observation": "Retain denominator; conditional first-band likelihood contributes no rate information or predictive target.",
+    "ordering": "Sort finite eligible Decimal times within exact metadata subject label; no subject normalization or clinical namespace override.",
+    "floating_representation": "Require finite strictly increasing centered float coordinates and every converted gap positive; otherwise quarantine whole label as coordinate_conversion_loss. Never collapse distinct Decimal times."
+  },
+  "conditioning": {
+    "estimand": "Effective homogeneous usual-care switching between recorded A1C bands in this selected available panel, conditional on first recorded band, recorded specimen times and assay availability; no biological, clinical, causal or national hazard claim.",
+    "likelihood": "Sum across labels and consecutive observations log([exp(Q*elapsed_source_days)]previous_band,next_band); exact recorded-band process, not latent disease-state fit.",
+    "assumptions": [
+      "Conditional timing and assay availability treated as ignorable for this working likelihood, not established by source.",
+      "Homogeneous Markov recorded-band dynamics despite A1C temporal averaging, visit triggers and individual heterogeneity.",
+      "Observed band taken as the process label; no freely fitted biological-state/measurement-error mixture.",
+      "Unmeasured changing treatment included in usual care; never held fixed or absent.",
+      "Selected complete available observation sequence only; no inferred death, withdrawal, missed-visit schedule, survival, independent censoring or administrative stop."
+    ],
+    "terminal": "No terminal contribution after last recorded measurement."
+  },
+  "allocation": {
+    "unit": "whole_metadata_subject_label_before_assay_eligibility",
+    "hash": "sha256(salt UTF8 + NUL + exact metadata subject UTF8); full digest interpreted big endian modulo5",
+    "salt": "Demeter-iPOP-A1C-v1-20261001",
+    "modulus": 5,
+    "evaluation_remainder": 0,
+    "empty_partition": "Report unresolved; never reassign labels or change salt after inspection.",
+    "privacy": "Never export labels, digests, fold assignment, row values, coordinates, per-label paths or per-label scores."
+  },
+  "models": {
+    "primary": "adjacent reversible CTMC, edges0->1,1->0,1->2,2->1; four free nonnegative rates per source day; diagonal minus row outflow",
+    "alternative": "unrestricted general CTMC with all six ordered off-diagonal rates; same time/conditioning/evaluation rules",
+    "null_iid": "Training follow-up pooled categorical probabilities; first band conditioned, no elapsed-time dependence; no pseudocounts",
+    "null_persistence": "Exact no switching; retain impossible changed-band likelihood/predictions without a positive floor",
+    "selection": "Report all models, no post-evaluation winner activation."
+  },
+  "numerics": {
+    "day_scale": 100,
+    "rate_cap_per_source_day": 1,
+    "cap_meaning": "Computational search limit, not empirical/biological bound. Any cap hit, open profile or fit failure retained; no complete identification or finite upper interval claimed there.",
+    "constant_starts_per_source_day": [
+      0.0001,
+      0.001,
+      0.01,
+      0.1
+    ],
+    "alternating_starts_per_source_day": [
+      [
+        0.001,
+        0.01
+      ],
+      [
+        0.01,
+        0.001
+      ]
+    ],
+    "probability_tolerance": 1e-10,
+    "optimizer_maxiter": 1000,
+    "optimizer_ftol": 1e-10,
+    "optimizer_gtol": 1e-07,
+    "design_jacobian_scaled_coordinate_step": 1e-05,
+    "design_svd_relative_tolerance": 1e-08,
+    "profile_grid": {
+      "include_zero": true,
+      "log10_min_per_source_day": -7,
+      "log10_max_per_source_day": 0,
+      "points": 29,
+      "include_fitted_coordinate": true
+    },
+    "nominal_profile_support_probability": 0.95,
+    "profile_support": "Finite-grid likelihood-support and bracketing diagnostics only; not exact confidence endpoints. Chi-square df1 interpretation additionally assumes correctly specified independent-label working likelihood and regular interior asymptotics. Boundary, cap, open side or failed nuisance optimization precludes finite confidence-limit interpretation.",
+    "infinite_score": "Serialize impossible log likelihood as null with explicit impossible flag/count, never floor or replace with zero. Reject substantive probability/conservation violations. Numerical correction only within declared roundoff tolerance.",
+    "design_jacobian_boundary_rule": "Central differences only when both scaled perturbations remain in [0,scaled_cap]; otherwise explicit forward difference near zero or backward difference near cap, with actual denominator recorded. No negative rate evaluation; numerical local rank only."
+  },
+  "evaluation": {
+    "kind": "internal_used_source_whole_label_evaluation",
+    "predictions": [
+      "one_step_from_previous_observed_band_at_actual_gap",
+      "first_only_from_initial_band_at_actual_elapsed_time"
+    ],
+    "metrics": [
+      "log_score",
+      "multicategory_brier_score"
+    ],
+    "weightings": [
+      "equal_followup_observation",
+      "equal_label_mean"
+    ],
+    "uncertainty": "Paired whole-label resampling; training paths resampled with replacement for primary CTMC and IID fits; separately paired evaluation paths resampled for score differences. No individual prediction export.",
+    "acceptance": "No sourced clinical predictive tolerance; diagnostics are descriptive, no scientific acceptance switch. No independent source or causal validation."
+  },
+  "joint_uncertainty": {
+    "bootstrap_replicates": 200,
+    "seed": 20261001,
+    "quantiles": [
+      0.025,
+      0.5,
+      0.975
+    ],
+    "primary_parameter_order": [
+      "band0_to_band1",
+      "band1_to_band0",
+      "band1_to_band2",
+      "band2_to_band1"
+    ],
+    "reported": "Joint covariance and percentile summaries for primary four-rate vector, plus paired primary-versus-IID predictive score differences. Include requested/completed/failed/boundary/cap counts and Monte Carlo resolution.",
+    "failures": "No retry/redraw to replace unsupported resamples; summarize successful subset explicitly. Nonconvergence, cap hits and singular designs remain separate, not silently excluded from uncertainty interpretation.",
+    "limits": "Conditional cluster-resampling sampling uncertainty only, not assay units, linkage identity, treatment, visit selection, model structure, transport or causal uncertainty. Four marginals are not four independent priors."
+  },
+  "identification": "For both fitted CTMC structures: actual-training design conditional-probability Jacobian SVD/rank in declared scaled coordinates, boundary/cap diagnostics, profiled each rate with nuisance rates reoptimized. Full numerical rank alone never establishes clinical or global identification.",
+  "activation": {
+    "clinical_fit": false,
+    "diagnosis_or_remission": false,
+    "death_or_censoring": false,
+    "dietary_effect": false,
+    "national_transport": false,
+    "engine_activation_allowed": false,
+    "scientific_acceptance_changed": false
+  },
+  "report": "Attributed aggregate facts, conditional working-fit parameters and diagnostics only. Preserve frozen v1/v2 reports and raw bytes. Register the selection and result in evidence/parameters.yaml separately from active engine parameters; canonical simulations and scientific blockers remain unchanged."
+}

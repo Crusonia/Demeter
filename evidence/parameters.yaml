@@ -5337,6 +5337,52 @@ datasets:
       relative-day interpretation assumed, absolute specimen coverage unverified.
     clinical_fit_performed: false
     engine_activation_allowed: false
+  ipop_a1c_working_fit:
+    model_role: conditional_empirical_working_analysis_only
+    source_ids: [ipop2022_clinical_tests, ipop2022_sample_info]
+    protocol_path: docs/validation/ipop-a1c-working-fit-protocol-v1.json
+    protocol_sha256: 9b7473bb2454934ba82ef9d80c41c4d94a06c8b5eeadbf029f99aacec60e8ea7
+    rfc_path: docs/rfcs/RFC-57-ipop-a1c-working-fit.md
+    population: Selected available iPOP laboratory panel under the frozen v2 sample-association hypothesis; no national representation.
+    geography: Stanford volunteer cohort derivative; no U.S. transport.
+    time_period: Pinned producer commit ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c; elapsed specimen-day interpretation assumed, calendar coverage unverified.
+    observation_parameters:
+      lower_band_cutoff:
+        value: 5.7
+        unit: percent HbA1c
+        status: observed
+        evidence_grade: D
+        source_url: https://pmc.ncbi.nlm.nih.gov/articles/PMC6666404/#Sec2
+        citation: Zhou et al. Nature2019; DOI10.1038/s41586-019-1236-x; Results Overview cohort, sample collection and assays.
+        uncertainty: Definitional cutoff; derivative percent/rawness and clinical mapping remain assumptions, not a measured causal effect.
+      upper_band_cutoff:
+        value: 6.5
+        unit: percent HbA1c
+        status: observed
+        evidence_grade: D
+        source_url: https://pmc.ncbi.nlm.nih.gov/articles/PMC6666404/#Sec2
+        citation: Zhou et al. Nature2019; DOI10.1038/s41586-019-1236-x; Results Overview cohort, sample collection and assays.
+        uncertainty: Definitional cutoff; no diagnosis or remission inference.
+      percent_bounds:
+        value: [0, 100]
+        unit: percent
+        status: derived
+        evidence_grade: D
+        transformation: Definition of percent; outside-range rows retained as invalid, never used to infer file units.
+    working_rate_parameters:
+      order: [band0_to_band1, band1_to_band0, band1_to_band2, band2_to_band1]
+      unit: reciprocal source day
+      status: estimated
+      estimation_status: unresolved_before_frozen_analysis
+      value: null
+      outcome_definition: Effective recorded-band switching, conditional on first band, recorded times and assay availability; not biological/clinical/causal hazards.
+      evidence_grade: D
+      transformation: Three-band adjacent CTMC conditional path likelihood; frozen protocol defines alternatives, numerical controls and evaluation.
+      uncertainty: Whole-path paired bootstrap joint covariance/percentiles, rate profiles and actual-design rank; units, selection, treatment, linkage and structural uncertainty unresolved.
+    numerical_controls: Frozen protocol contains search caps, starts, scale, roundoff/rank settings, profiles, resample count/seed and quantile levels; they are not clinical parameters.
+    engine_activation_allowed: false
+    scientific_acceptance_changed: false
+
 scientific_blockers:
 - National age-specific metabolic transition hazards are unresolved.
 - Age-specific T2D/prediabetes initial prevalence is not calibrated; CDC total diabetes includes
