@@ -9,6 +9,7 @@ This document defines the program vision and roadmap. Use these companion docume
 - [SCENARIO_CATALOG.md](SCENARIO_CATALOG.md) — scenario families and integrated north-star experiments
 - [Model-design inputs](design/README.md) — problem boundary, causal loops, externalities, input packages, and formulation/test requirements; proposed mechanisms remain explicit premises
 - [Stakeholder rigidities](design/06_STAKEHOLDER_RIGIDITIES.md) — beliefs that a better, cheaper system is impossible, who holds them, and how the model would test them
+- [Land use and nutrition trades](design/07_LAND_USE_AND_NUTRITION_TRADES.md) — development, co-use, productivity and changing demand; national nutrient capacity alongside regional farm/community consequences
 - [RELATED_WORK.md](RELATED_WORK.md) — survey of existing models and flight simulators, and Demeter's positioning
 - [CODEX_V0_1_OBJECTIVE.md](CODEX_V0_1_OBJECTIVE.md) — current Phase 1 implementation objective
 
@@ -1244,7 +1245,7 @@ economic inputs.
 | Metric | Companion measure | Why the pairing matters | Status |
 | --- | --- | --- | --- |
 | **Healthy life expectancy** | Period life expectancy | Added years in poor health are not the goal. The gap is time lived outside the metric's healthy state: currently the modeled insulin-resistance/prediabetes and type 2 diabetes states, not all chronic disease. | Validation-only healthspan exists ([HEALTHSPAN.md](HEALTHSPAN.md)); life expectancy is implemented. |
-| **Health-adjusted total factor productivity of the food–health system**: healthy life-years or nutrient-adequate diets produced per unit of land, labor, capital, and energy | Conventional agricultural TFP | Conventional TFP counts calories and commodity output, so a system can look highly productive while generating disease burden. The gap between the two measures is the opportunity. | Future. Requires agriculture, input, and health-cost modules and a published metric definition. |
+| **Health-adjusted total factor productivity of the food–health system**: healthy life-years or nutrient-adequate diets produced per unit of land, labor, capital, and energy | Conventional agricultural TFP | [Conventional TFP](https://www.ers.usda.gov/data-products/agricultural-productivity-in-the-united-states/methods) measures market-weighted agricultural output relative to aggregate inputs; it does not directly measure nutrient adequacy or health consequences. Compare the metrics without treating their different units as a subtractable gap. | Future. Requires agriculture, input, and health-cost modules and a published metric definition. |
 | **Productive capacity and health-inclusive GDP**: labor-force participation, productive time lost to illness, and output adjusted for the value of health | Raw GDP with healthcare spending shown separately | Raw GDP counts treatment of disease as output, so lower chronic disease can reduce measured GDP while raising welfare. The value of longevity gains is large and outside GDP ([Murphy and Topel, 2006](https://doi.org/10.1086/508033)). Raw GDP is reported, never optimized. | Future. Requires a validated health-to-earnings and labor-supply link, which is currently outside the boundary. |
 
 **Tier 1 guardrail — climate and land**

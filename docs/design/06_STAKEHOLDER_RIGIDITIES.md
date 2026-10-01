@@ -133,6 +133,19 @@ units, and uncertainty before it affects a model result.
 | B-48 | Microbiome researchers | It is too early for applications. | Medium | Medium | Bio | Separating agronomic applications from human-health claims, which carry different evidence. | L-15, P-05, X-P03 |
 | B-49 | Environmental organizations | Livestock is uniformly harmful. | High | Medium | Mind | Context-specific accounting for grazing on land unsuited to crops versus confinement systems. | X-P02, X-N02, X-N03 |
 
+## I. Land-use trade beliefs to investigate
+
+The following are opposing proposed beliefs, not measured stakeholder attitudes.
+Firmness and empirical assessment remain unassessed. Concern about identity,
+livelihood or succession is a legitimate objective to represent, not evidence of
+irrationality. Family ownership and commercial scale overlap; see the
+[land-use brief](07_LAND_USE_AND_NUTRITION_TRADES.md).
+
+| ID | Stakeholder | Belief | Held | Assessed | Type | What would move it | Tested through |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| B-50 | Landowners, food buyers and communities; actual holders to establish | Any energy/data-center/urban conversion materially threatens national food supply. | Unassessed | Unassessed | Econ, Bio, Inst | Comparable direct footprints, cumulative regional conversion, product capacity, water, trade and delivered nutrients. | Q-05, RM-06, L-16/L-17, P-06, I-13, F-09/T-09 |
+| B-51 | Producers, planners and investors; actual holders to establish | Small national acreage shares, productivity gains or GLP-1 demand changes guarantee that conversion has no material cost. | Unassessed | Unassessed | Econ, Inst, Mind | Regional bottlenecks, category demand/intake, irreversible loss, tenure, income and succession effects; adverse/null cases. | Q-05, RM-06, P-06/P-07, X-N07, I-13, F-09/T-09 |
+
 ## Patterns to test
 
 The matrix classifies each belief by what it claims (rows) and the assessed

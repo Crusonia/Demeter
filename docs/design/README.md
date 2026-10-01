@@ -15,6 +15,7 @@ implemented. They are not executable parameters or evidence that a premise is tr
 | [Model-input inventory](04_MODEL_INPUTS.md) | What must be observed, estimated, initialized, controlled, or calculated endogenously? |
 | [Formulation and validation contracts](05_FORMULATION_AND_TESTS.md) | What equations, units, interfaces, and experiments would make a selected mechanism testable? |
 | [Stakeholder rigidities](06_STAKEHOLDER_RIGIDITIES.md) | Which beliefs that a better, cheaper system is impossible does a question test; which are real constraints and which are misperceived? |
+| [Land use and nutrition trades](07_LAND_USE_AND_NUTRITION_TRADES.md) | How could development, productivity, co-use, demand and farm decisions change regional food/nutrient capacity and the allocation of value? |
 
 For the current health slice, the [clinical observation contract](../CLINICAL_OBSERVATION_CONTRACT.md)
 details the source, measurement, timing, likelihood and evaluation requirements
