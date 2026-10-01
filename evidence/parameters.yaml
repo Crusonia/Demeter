@@ -1,4 +1,384 @@
 parameters:
+  longitudinal_toy_n_to_p_rate:
+    key: longitudinal_toy_n_to_p_rate
+    value: 0.1
+    unit: hazard_per_year
+    status: synthetic
+    evidence_grade: E
+    model_role: benchmark_only
+    source: 'Frozen arbitrary software fixture: docs/validation/longitudinal-likelihood-protocol-v1.json'
+    population: Hypothetical linked observations only; no empirical or national population
+    geography: None; software validation
+    time_period: Relative software clock in years; no clinical calendar period
+    transformation: Literal frozen toy input or numerical control; no empirical extraction or clinical
+      annualization
+    uncertainty:
+      kind: fixed
+      rationale: Fixed known-truth software fixture or diagnostic setting only; no clinical estimate or
+        sampling uncertainty
+    notes: Synthetic grade E and benchmark_only; no clinical fit, engine activation, dietary effect or
+      scientific finding
+    lower_bound: 0
+  longitudinal_toy_p_to_n_rate:
+    key: longitudinal_toy_p_to_n_rate
+    value: 0.2
+    unit: hazard_per_year
+    status: synthetic
+    evidence_grade: E
+    model_role: benchmark_only
+    source: 'Frozen arbitrary software fixture: docs/validation/longitudinal-likelihood-protocol-v1.json'
+    population: Hypothetical linked observations only; no empirical or national population
+    geography: None; software validation
+    time_period: Relative software clock in years; no clinical calendar period
+    transformation: Literal frozen toy input or numerical control; no empirical extraction or clinical
+      annualization
+    uncertainty:
+      kind: fixed
+      rationale: Fixed known-truth software fixture or diagnostic setting only; no clinical estimate or
+        sampling uncertainty
+    notes: Synthetic grade E and benchmark_only; no clinical fit, engine activation, dietary effect or
+      scientific finding
+    lower_bound: 0
+  longitudinal_toy_p_to_d_rate:
+    key: longitudinal_toy_p_to_d_rate
+    value: 0.05
+    unit: hazard_per_year
+    status: synthetic
+    evidence_grade: E
+    model_role: benchmark_only
+    source: 'Frozen arbitrary software fixture: docs/validation/longitudinal-likelihood-protocol-v1.json'
+    population: Hypothetical linked observations only; no empirical or national population
+    geography: None; software validation
+    time_period: Relative software clock in years; no clinical calendar period
+    transformation: Literal frozen toy input or numerical control; no empirical extraction or clinical
+      annualization
+    uncertainty:
+      kind: fixed
+      rationale: Fixed known-truth software fixture or diagnostic setting only; no clinical estimate or
+        sampling uncertainty
+    notes: Synthetic grade E and benchmark_only; no clinical fit, engine activation, dietary effect or
+      scientific finding
+    lower_bound: 0
+  longitudinal_toy_d_to_r_rate:
+    key: longitudinal_toy_d_to_r_rate
+    value: 0.07
+    unit: hazard_per_year
+    status: synthetic
+    evidence_grade: E
+    model_role: benchmark_only
+    source: 'Frozen arbitrary software fixture: docs/validation/longitudinal-likelihood-protocol-v1.json'
+    population: Hypothetical linked observations only; no empirical or national population
+    geography: None; software validation
+    time_period: Relative software clock in years; no clinical calendar period
+    transformation: Literal frozen toy input or numerical control; no empirical extraction or clinical
+      annualization
+    uncertainty:
+      kind: fixed
+      rationale: Fixed known-truth software fixture or diagnostic setting only; no clinical estimate or
+        sampling uncertainty
+    notes: Synthetic grade E and benchmark_only; no clinical fit, engine activation, dietary effect or
+      scientific finding
+    lower_bound: 0
+  longitudinal_toy_r_to_d_rate:
+    key: longitudinal_toy_r_to_d_rate
+    value: 0.09
+    unit: hazard_per_year
+    status: synthetic
+    evidence_grade: E
+    model_role: benchmark_only
+    source: 'Frozen arbitrary software fixture: docs/validation/longitudinal-likelihood-protocol-v1.json'
+    population: Hypothetical linked observations only; no empirical or national population
+    geography: None; software validation
+    time_period: Relative software clock in years; no clinical calendar period
+    transformation: Literal frozen toy input or numerical control; no empirical extraction or clinical
+      annualization
+    uncertainty:
+      kind: fixed
+      rationale: Fixed known-truth software fixture or diagnostic setting only; no clinical estimate or
+        sampling uncertainty
+    notes: Synthetic grade E and benchmark_only; no clinical fit, engine activation, dietary effect or
+      scientific finding
+    lower_bound: 0
+  longitudinal_toy_n_to_death_rate:
+    key: longitudinal_toy_n_to_death_rate
+    value: 0.01
+    unit: hazard_per_year
+    status: synthetic
+    evidence_grade: E
+    model_role: benchmark_only
+    source: 'Frozen arbitrary software fixture: docs/validation/longitudinal-likelihood-protocol-v1.json'
+    population: Hypothetical linked observations only; no empirical or national population
+    geography: None; software validation
+    time_period: Relative software clock in years; no clinical calendar period
+    transformation: Literal frozen toy input or numerical control; no empirical extraction or clinical
+      annualization
+    uncertainty:
+      kind: fixed
+      rationale: Fixed known-truth software fixture or diagnostic setting only; no clinical estimate or
+        sampling uncertainty
+    notes: Synthetic grade E and benchmark_only; no clinical fit, engine activation, dietary effect or
+      scientific finding
+    lower_bound: 0
+  longitudinal_toy_p_to_death_rate:
+    key: longitudinal_toy_p_to_death_rate
+    value: 0.02
+    unit: hazard_per_year
+    status: synthetic
+    evidence_grade: E
+    model_role: benchmark_only
+    source: 'Frozen arbitrary software fixture: docs/validation/longitudinal-likelihood-protocol-v1.json'
+    population: Hypothetical linked observations only; no empirical or national population
+    geography: None; software validation
+    time_period: Relative software clock in years; no clinical calendar period
+    transformation: Literal frozen toy input or numerical control; no empirical extraction or clinical
+      annualization
+    uncertainty:
+      kind: fixed
+      rationale: Fixed known-truth software fixture or diagnostic setting only; no clinical estimate or
+        sampling uncertainty
+    notes: Synthetic grade E and benchmark_only; no clinical fit, engine activation, dietary effect or
+      scientific finding
+    lower_bound: 0
+  longitudinal_toy_d_to_death_rate:
+    key: longitudinal_toy_d_to_death_rate
+    value: 0.03
+    unit: hazard_per_year
+    status: synthetic
+    evidence_grade: E
+    model_role: benchmark_only
+    source: 'Frozen arbitrary software fixture: docs/validation/longitudinal-likelihood-protocol-v1.json'
+    population: Hypothetical linked observations only; no empirical or national population
+    geography: None; software validation
+    time_period: Relative software clock in years; no clinical calendar period
+    transformation: Literal frozen toy input or numerical control; no empirical extraction or clinical
+      annualization
+    uncertainty:
+      kind: fixed
+      rationale: Fixed known-truth software fixture or diagnostic setting only; no clinical estimate or
+        sampling uncertainty
+    notes: Synthetic grade E and benchmark_only; no clinical fit, engine activation, dietary effect or
+      scientific finding
+    lower_bound: 0
+  longitudinal_toy_r_to_death_rate:
+    key: longitudinal_toy_r_to_death_rate
+    value: 0.025
+    unit: hazard_per_year
+    status: synthetic
+    evidence_grade: E
+    model_role: benchmark_only
+    source: 'Frozen arbitrary software fixture: docs/validation/longitudinal-likelihood-protocol-v1.json'
+    population: Hypothetical linked observations only; no empirical or national population
+    geography: None; software validation
+    time_period: Relative software clock in years; no clinical calendar period
+    transformation: Literal frozen toy input or numerical control; no empirical extraction or clinical
+      annualization
+    uncertainty:
+      kind: fixed
+      rationale: Fixed known-truth software fixture or diagnostic setting only; no clinical estimate or
+        sampling uncertainty
+    notes: Synthetic grade E and benchmark_only; no clinical fit, engine activation, dietary effect or
+      scientific finding
+    lower_bound: 0
+  longitudinal_toy_segment_b_p_to_n_rate:
+    key: longitudinal_toy_segment_b_p_to_n_rate
+    value: 0.24
+    unit: hazard_per_year
+    status: synthetic
+    evidence_grade: E
+    model_role: benchmark_only
+    source: 'Frozen arbitrary software fixture: docs/validation/longitudinal-likelihood-protocol-v1.json'
+    population: Hypothetical linked observations only; no empirical or national population
+    geography: None; software validation
+    time_period: Relative software clock in years; no clinical calendar period
+    transformation: Literal frozen toy input or numerical control; no empirical extraction or clinical
+      annualization
+    uncertainty:
+      kind: fixed
+      rationale: Fixed known-truth software fixture or diagnostic setting only; no clinical estimate or
+        sampling uncertainty
+    notes: Synthetic grade E and benchmark_only; no clinical fit, engine activation, dietary effect or
+      scientific finding
+    lower_bound: 0
+  longitudinal_toy_time_origin_years:
+    key: longitudinal_toy_time_origin_years
+    value: 0.0
+    unit: years
+    status: synthetic
+    evidence_grade: E
+    model_role: benchmark_only
+    source: 'Frozen arbitrary software fixture: docs/validation/longitudinal-likelihood-protocol-v1.json'
+    population: Hypothetical linked observations only; no empirical or national population
+    geography: None; software validation
+    time_period: Relative software clock in years; no clinical calendar period
+    transformation: Literal frozen toy input or numerical control; no empirical extraction or clinical
+      annualization
+    uncertainty:
+      kind: fixed
+      rationale: Fixed known-truth software fixture or diagnostic setting only; no clinical estimate or
+        sampling uncertainty
+    notes: Synthetic grade E and benchmark_only; no clinical fit, engine activation, dietary effect or
+      scientific finding
+    lower_bound: 0
+  longitudinal_toy_segment_boundary_years:
+    key: longitudinal_toy_segment_boundary_years
+    value: 1.0
+    unit: years
+    status: synthetic
+    evidence_grade: E
+    model_role: benchmark_only
+    source: 'Frozen arbitrary software fixture: docs/validation/longitudinal-likelihood-protocol-v1.json'
+    population: Hypothetical linked observations only; no empirical or national population
+    geography: None; software validation
+    time_period: Relative software clock in years; no clinical calendar period
+    transformation: Literal frozen toy input or numerical control; no empirical extraction or clinical
+      annualization
+    uncertainty:
+      kind: fixed
+      rationale: Fixed known-truth software fixture or diagnostic setting only; no clinical estimate or
+        sampling uncertainty
+    notes: Synthetic grade E and benchmark_only; no clinical fit, engine activation, dietary effect or
+      scientific finding
+    lower_bound: 0
+  longitudinal_toy_horizon_years:
+    key: longitudinal_toy_horizon_years
+    value: 3.0
+    unit: years
+    status: synthetic
+    evidence_grade: E
+    model_role: benchmark_only
+    source: 'Frozen arbitrary software fixture: docs/validation/longitudinal-likelihood-protocol-v1.json'
+    population: Hypothetical linked observations only; no empirical or national population
+    geography: None; software validation
+    time_period: Relative software clock in years; no clinical calendar period
+    transformation: Literal frozen toy input or numerical control; no empirical extraction or clinical
+      annualization
+    uncertainty:
+      kind: fixed
+      rationale: Fixed known-truth software fixture or diagnostic setting only; no clinical estimate or
+        sampling uncertainty
+    notes: Synthetic grade E and benchmark_only; no clinical fit, engine activation, dietary effect or
+      scientific finding
+    lower_bound: 0
+  longitudinal_toy_visit_early_years:
+    key: longitudinal_toy_visit_early_years
+    value: 0.5
+    unit: years
+    status: synthetic
+    evidence_grade: E
+    model_role: benchmark_only
+    source: 'Frozen arbitrary software fixture: docs/validation/longitudinal-likelihood-protocol-v1.json'
+    population: Hypothetical linked observations only; no empirical or national population
+    geography: None; software validation
+    time_period: Relative software clock in years; no clinical calendar period
+    transformation: Literal frozen toy input or numerical control; no empirical extraction or clinical
+      annualization
+    uncertainty:
+      kind: fixed
+      rationale: Fixed known-truth software fixture or diagnostic setting only; no clinical estimate or
+        sampling uncertainty
+    notes: Synthetic grade E and benchmark_only; no clinical fit, engine activation, dietary effect or
+      scientific finding
+    lower_bound: 0
+  longitudinal_toy_visit_middle_years:
+    key: longitudinal_toy_visit_middle_years
+    value: 1.5
+    unit: years
+    status: synthetic
+    evidence_grade: E
+    model_role: benchmark_only
+    source: 'Frozen arbitrary software fixture: docs/validation/longitudinal-likelihood-protocol-v1.json'
+    population: Hypothetical linked observations only; no empirical or national population
+    geography: None; software validation
+    time_period: Relative software clock in years; no clinical calendar period
+    transformation: Literal frozen toy input or numerical control; no empirical extraction or clinical
+      annualization
+    uncertainty:
+      kind: fixed
+      rationale: Fixed known-truth software fixture or diagnostic setting only; no clinical estimate or
+        sampling uncertainty
+    notes: Synthetic grade E and benchmark_only; no clinical fit, engine activation, dietary effect or
+      scientific finding
+    lower_bound: 0
+  longitudinal_probability_absolute_tolerance:
+    key: longitudinal_probability_absolute_tolerance
+    value: 1.0e-10
+    unit: probability
+    status: synthetic
+    evidence_grade: E
+    model_role: benchmark_only
+    source: 'Frozen arbitrary software fixture: docs/validation/longitudinal-likelihood-protocol-v1.json'
+    population: Hypothetical linked observations only; no empirical or national population
+    geography: None; software validation
+    time_period: Relative software clock in years; no clinical calendar period
+    transformation: Literal frozen toy input or numerical control; no empirical extraction or clinical
+      annualization
+    uncertainty:
+      kind: fixed
+      rationale: Fixed known-truth software fixture or diagnostic setting only; no clinical estimate or
+        sampling uncertainty
+    notes: Synthetic grade E and benchmark_only; no clinical fit, engine activation, dietary effect or
+      scientific finding
+    lower_bound: 0
+  longitudinal_log_likelihood_absolute_tolerance:
+    key: longitudinal_log_likelihood_absolute_tolerance
+    value: 1.0e-10
+    unit: log_likelihood
+    status: synthetic
+    evidence_grade: E
+    model_role: benchmark_only
+    source: 'Frozen arbitrary software fixture: docs/validation/longitudinal-likelihood-protocol-v1.json'
+    population: Hypothetical linked observations only; no empirical or national population
+    geography: None; software validation
+    time_period: Relative software clock in years; no clinical calendar period
+    transformation: Literal frozen toy input or numerical control; no empirical extraction or clinical
+      annualization
+    uncertainty:
+      kind: fixed
+      rationale: Fixed known-truth software fixture or diagnostic setting only; no clinical estimate or
+        sampling uncertainty
+    notes: Synthetic grade E and benchmark_only; no clinical fit, engine activation, dietary effect or
+      scientific finding
+    lower_bound: 0
+  longitudinal_jacobian_absolute_step:
+    key: longitudinal_jacobian_absolute_step
+    value: 1.0e-06
+    unit: hazard_per_year
+    status: synthetic
+    evidence_grade: E
+    model_role: benchmark_only
+    source: 'Frozen arbitrary software fixture: docs/validation/longitudinal-likelihood-protocol-v1.json'
+    population: Hypothetical linked observations only; no empirical or national population
+    geography: None; software validation
+    time_period: Relative software clock in years; no clinical calendar period
+    transformation: Literal frozen toy input or numerical control; no empirical extraction or clinical
+      annualization
+    uncertainty:
+      kind: fixed
+      rationale: Fixed known-truth software fixture or diagnostic setting only; no clinical estimate or
+        sampling uncertainty
+    notes: Synthetic grade E and benchmark_only; no clinical fit, engine activation, dietary effect or
+      scientific finding
+    lower_bound: 0
+  longitudinal_jacobian_rank_relative_tolerance:
+    key: longitudinal_jacobian_rank_relative_tolerance
+    value: 1.0e-07
+    unit: dimensionless
+    status: synthetic
+    evidence_grade: E
+    model_role: benchmark_only
+    source: 'Frozen arbitrary software fixture: docs/validation/longitudinal-likelihood-protocol-v1.json'
+    population: Hypothetical linked observations only; no empirical or national population
+    geography: None; software validation
+    time_period: Relative software clock in years; no clinical calendar period
+    transformation: Literal frozen toy input or numerical control; no empirical extraction or clinical
+      annualization
+    uncertainty:
+      kind: fixed
+      rationale: Fixed known-truth software fixture or diagnostic setting only; no clinical estimate or
+        sampling uncertainty
+    notes: Synthetic grade E and benchmark_only; no clinical fit, engine activation, dietary effect or
+      scientific finding
+    lower_bound: 0
   direct_intervention_itt_n:
     key: direct_intervention_itt_n
     value: 149
@@ -2773,6 +3153,38 @@ parameters:
       randomization alone does not resolve selection, missingness or dose mapping.
 
 datasets:
+  longitudinal_likelihood_software:
+    status: synthetic
+    evidence_grade: E
+    model_role: benchmark_only
+    protocol_path: docs/validation/longitudinal-likelihood-protocol-v1.json
+    protocol_sha256: fb830574b696c623ca00282bda3c31093369c05ddb420458a53a83f27a22910e
+    rfc_path: docs/rfcs/RFC-57-longitudinal-likelihood.md
+    rfc_sha256: 680d1a1b854e07e73f633db8b57a602df15a1193c46f6426d95907c136e44385
+    parameter_keys:
+    - longitudinal_toy_n_to_p_rate
+    - longitudinal_toy_p_to_n_rate
+    - longitudinal_toy_p_to_d_rate
+    - longitudinal_toy_d_to_r_rate
+    - longitudinal_toy_r_to_d_rate
+    - longitudinal_toy_n_to_death_rate
+    - longitudinal_toy_p_to_death_rate
+    - longitudinal_toy_d_to_death_rate
+    - longitudinal_toy_r_to_death_rate
+    - longitudinal_toy_segment_b_p_to_n_rate
+    - longitudinal_toy_time_origin_years
+    - longitudinal_toy_segment_boundary_years
+    - longitudinal_toy_horizon_years
+    - longitudinal_toy_visit_early_years
+    - longitudinal_toy_visit_middle_years
+    - longitudinal_probability_absolute_tolerance
+    - longitudinal_log_likelihood_absolute_tolerance
+    - longitudinal_jacobian_absolute_step
+    - longitudinal_jacobian_rank_relative_tolerance
+    clinical_fit_allowed: false
+    engine_activation_allowed: false
+    description: Frozen timing-aware joint likelihood software validation. No participant import, empirical
+      calibration or active engine input.
   mortality_validation:
     status: derived
     evidence_grade: C
