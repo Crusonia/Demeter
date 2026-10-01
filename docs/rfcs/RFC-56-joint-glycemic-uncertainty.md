@@ -50,8 +50,10 @@ point inside a range, introduce independent draws or claim simultaneous bounds.
 
 Partition closure and limited PSU support make singularity expected. Preserve
 the matrix; no ridge, eigenvalue clipping, pseudo-inverse, rescaling or fitted
-distribution is introduced. Numerical diagnostics describe symmetry, closure
-and positive-semidefiniteness; they are not clinical acceptance thresholds.
+distribution is introduced. Tests check numerical symmetry, closure and PSD.
+Canonical diagnostics record the algebraic constraints and design support;
+platform-dependent near-zero residuals/eigenvalues are not serialized as stable
+evidence. Software roundoff checks are not clinical acceptance thresholds.
 This covers sampling uncertainty only, excluding measurement error, missingness
 bias, latent-state definition, temporal/geographic transport and structural
 uncertainty. Normal laboratory values are not general metabolic health, and

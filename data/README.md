@@ -5,6 +5,11 @@ terms permit. A fresh clone should let a reader inspect where an input came from
 and reproduce the transformation. Demeter keeps source observations, derived
 inputs, model assumptions, and simulation results distinct.
 
+The [joint glycemic uncertainty report](../docs/JOINT_GLYCEMIC_UNCERTAINTY.md)
+reuses four archived NHANES files offline. Derived aggregate covariance retains
+unknown observations and shared survey support; no new participant release,
+independent category draws or engine initialization is added.
+
 The [CDC prediabetes benchmark correction](../docs/CDC_PREDIABETES_BENCHMARK.md)
 archives the unmodified aggregate report and reproduces its age-65-and-older
 crude prevalence interval offline. The published interval remains a benchmark;

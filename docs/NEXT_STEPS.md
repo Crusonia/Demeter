@@ -32,6 +32,12 @@ from the [future public Simulator (#20)](https://github.com/Crusonia/Demeter/iss
 
 ## Integrated foundation and public evidence route
 
+The [joint glycemic uncertainty report](JOINT_GLYCEMIC_UNCERTAINTY.md) adds
+empirical sampling covariance to the existing observed-category partitions,
+including unknowns and cross-domain dependence. It advances the initializer's
+uncertainty requirement; latent-state mapping and national transport remain
+unresolved. No transition, dietary coefficient or active initializer is fitted.
+
 [PR #63](https://github.com/Crusonia/Demeter/pull/63) combines the mortality
 evaluation from #60, observation mapping from #61, Explorer explanations from
 #62, and the longitudinal/food-pathway work. It provides one integration target

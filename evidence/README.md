@@ -2,6 +2,12 @@
 
 Demeter treats evidence as part of the model, not as prose surrounding the model.
 
+The [joint glycemic uncertainty report](../docs/JOINT_GLYCEMIC_UNCERTAINTY.md)
+estimates full survey covariance of existing observed-category partitions and
+partial-membership endpoints. Shared respondents, unknowns and cross-domain
+dependence are retained. It supplies no sampling distribution, latent-state
+allocation or active initializer.
+
 The [CDC prediabetes benchmark](../docs/CDC_PREDIABETES_BENCHMARK.md) retains its
 observed point value and now records the published 95% interval from an archived
 official PDF. Its offline check distinguishes crude prevalence from awareness

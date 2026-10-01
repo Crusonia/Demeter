@@ -758,6 +758,33 @@ def state_mapping_evidence(
     emit(report)
 
 
+@evidence_app.command("glycemic-uncertainty")
+def glycemic_uncertainty_evidence(
+    evidence: Path = DEFAULT_EVIDENCE, output: Path | None = None
+) -> None:
+    """Joint sampling covariance of observed categories; no engine initialization."""
+    from demeter.data.glycemic_uncertainty import joint_report
+    from demeter.data.nhanes import encoded
+
+    report = joint_report(registry(evidence))
+    if output is None:
+        emit(report)
+        return
+    output.parent.mkdir(parents=True, exist_ok=True)
+    # Exclusive creation also protects existing source files through hard/symbolic aliases.
+    with output.open("xb") as handle:
+        handle.write(encoded(report))
+    emit(
+        {
+            "output": str(output),
+            "kind": report["kind"],
+            "model_role": report["model_role"],
+            "direct_initialization_allowed": report["direct_initialization_allowed"],
+            "provenance": report["provenance"],
+        }
+    )
+
+
 @data_app.command("rebuild-prechronic")
 def rebuild_risk_data(
     evidence: Path = DEFAULT_EVIDENCE,

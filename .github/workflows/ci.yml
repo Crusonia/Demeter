@@ -65,6 +65,7 @@ jobs:
           uv run demeter data rebuild-nhanes --destination outputs/nhanes-rebuilt
           uv run demeter evidence population --output outputs/population-evidence.json
           uv run demeter evidence state-mapping --output outputs/state-mapping.json
+          uv run python scripts/verify_joint_glycemic_uncertainty.py
           uv run demeter data rebuild-linked-mortality
           uv run demeter evidence linked-mortality --output outputs/linked-mortality-evidence.json
           uv run python scripts/fit_mortality_development.py

@@ -437,7 +437,7 @@
       "artifacts": [
         {
           "path": "docs/validation/issue-56-state-mapping.json",
-          "sha256": "25a1389b4880003701769fedaae2d8a5c51a179037ed9a98346423a701e19aca"
+          "sha256": "fa0825e5055aa85334c5c58bac7b41435e944187795fc5c1e2ea24b6654b8e12"
         },
         {
           "path": "docs/validation/issue-56-state-mapping-before-after.json",
@@ -445,7 +445,7 @@
         },
         {
           "path": "docs/validation/issue-56-partial-observations.json",
-          "sha256": "fe1043131d91d8fadab0e0451b3ab9b33c3dcc4864d08376b076ea051723f847"
+          "sha256": "33224b5e641f5e92551c8e8438655182a35694a49362258d99718408b2df37bf"
         },
         {
           "path": "docs/validation/issue-56-partial-before-after.json",
@@ -947,6 +947,42 @@
       ],
       "model_role": "benchmark_only",
       "redistribution": "Unmodified CDC agency report with attribution/free-source/non-endorsement notices; selected factual aggregate and published CI. No individual records; source data are not relicensed by Demeter."
+    },
+    "glycemic_joint_uncertainty": {
+      "store": null,
+      "dependencies": [
+        "nhanes_2017_2020",
+        "observation_state_mapping"
+      ],
+      "registry_datasets": [
+        "glycemic_joint_uncertainty"
+      ],
+      "registry_parameters": [],
+      "artifacts": [
+        {
+          "path": "docs/validation/joint-glycemic-uncertainty-protocol-v1.json",
+          "sha256": "dd0e88aadac16cc1d180f5be8adff270cbdbaf46d61a53b80ec20be15723454c"
+        },
+        {
+          "path": "docs/validation/joint-glycemic-uncertainty.json",
+          "sha256": "4d21281884578ecf8337e2e77b5369af46ae65c449852f6fbfc13aae6ea01623"
+        },
+        {
+          "path": "docs/validation/joint-glycemic-uncertainty-before-after.json",
+          "sha256": "e96d17ce8ca604c79b5d050a5e2b93d5245616bd04800ac665d34cc1193290e4"
+        }
+      ],
+      "transform_files": [
+        "src/demeter/data/survey_joint.py",
+        "src/demeter/data/glycemic_uncertainty.py",
+        "scripts/verify_joint_glycemic_uncertainty.py"
+      ],
+      "rebuild": [
+        "uv run demeter evidence glycemic-uncertainty --output outputs/glycemic-uncertainty.json",
+        "uv run python scripts/verify_joint_glycemic_uncertainty.py"
+      ],
+      "model_role": "benchmark_only",
+      "redistribution": "Derived aggregate covariance and metadata from the existing four CDC/NCHS NHANES public-use files; retain upstream terms, attribution and non-endorsement notices. Demeter transforms are MIT; no individual records or joined person-level output."
     }
   },
   "supporting_artifacts": [

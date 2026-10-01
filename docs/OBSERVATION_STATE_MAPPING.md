@@ -4,7 +4,12 @@ Demeter now reports how its existing NHANES categories relate to the engine's
 health stocks, with missing observations retained in the denominator. The
 crosswalk identifies unresolved substitutions; it does not initialize the engine
 or establish clinical states. Issue [#56](https://github.com/Crusonia/Demeter/issues/56)
-remains open for evidence-supported initialization.
+tracks the observation work; evidence-supported initialization remains unresolved.
+
+The separate [joint covariance report](JOINT_GLYCEMIC_UNCERTAINTY.md) retains
+sampling dependence between glycemic categories, partial membership endpoints
+and overlapping age/sex domains. Original marginal estimates and this report's
+mapping restrictions remain unchanged.
 
 The separate [partial-observation method](PARTIAL_OBSERVATIONS.md), selected with
 `--partial`, now preserves known higher-priority categories despite unrelated

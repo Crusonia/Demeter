@@ -3169,6 +3169,36 @@ parameters:
       randomization alone does not resolve selection, missingness or dose mapping.
 
 datasets:
+  glycemic_joint_uncertainty:
+    status: estimated
+    evidence_grade: C
+    model_role: benchmark_only
+    method: multivariate_taylor_ratio_v1
+    protocol_path: docs/validation/joint-glycemic-uncertainty-protocol-v1.json
+    protocol_sha256: dd0e88aadac16cc1d180f5be8adff270cbdbaf46d61a53b80ec20be15723454c
+    rfc_path: docs/rfcs/RFC-56-joint-glycemic-uncertainty.md
+    source_store: data/sources/nhanes/2017-2020
+    population: U.S. noninstitutionalized adult fasting subsample under the existing
+      eligible adult and known-pregnancy rules; unknown categories retained
+    geography: United States
+    time_period: NHANES 2017-March 2020
+    unit: Category proportions in fraction; sampling covariance in fraction squared
+    uncertainty: Joint multivariate Taylor sampling covariance of existing complete
+      categories and disjoint partial category sets across registered age/sex domains.
+      Bound endpoints use a fixed linear projection. No fitted distribution or
+      simultaneous interval; measurement, missingness bias and transport unresolved.
+    transformation: demeter.data.glycemic_uncertainty.joint_report
+    direct_initialization_allowed: false
+    clinical_fit_allowed: false
+    engine_activation_allowed: false
+    sampling_distribution_assumed: false
+    limitations:
+    - Observed glycemic categories do not identify latent metabolic states or T2D.
+    - Cross-sectional sampling covariance does not identify progression or reversal.
+    - Singular covariance is retained without numerical repair or independent draws.
+    - Unknown membership bounds are not sampling intervals or point allocations.
+    - Age top-coding, pediatric coverage, institutionalization and temporal transport remain unresolved.
+    - No national initialization, dietary effect, clinical hazard or release is accepted.
   longitudinal_likelihood_software:
     status: synthetic
     evidence_grade: E

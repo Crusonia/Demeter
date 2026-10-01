@@ -215,6 +215,10 @@ and the distinction between raw observations, derived inputs, and assumptions.
 The [observation-to-state audit](docs/OBSERVATION_STATE_MAPPING.md) explains how
 survey categories relate to model stocks, including unclassified people and
 unsupported substitutions. Reproduce it with `uv run demeter evidence state-mapping`.
+The optional [joint glycemic uncertainty report](docs/JOINT_GLYCEMIC_UNCERTAINTY.md)
+retains category and cross-domain sampling dependence, including unknowns and
+partial-membership endpoints. It advances observed initialization uncertainty
+without allocating clinical states.
 Verify the archive and reproduce the bundles without network access or changes
 to committed files:
 
