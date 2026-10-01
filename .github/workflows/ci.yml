@@ -59,6 +59,11 @@ jobs:
         run: uv run demeter validate
       - name: Check frozen synthetic longitudinal likelihood
         run: uv run demeter evidence longitudinal-likelihood --output outputs/longitudinal-likelihood.json
+      - name: Reproduce pinned Geelong label observations offline
+        run: |
+          uv run demeter evidence geelong-labels --output outputs/geelong-labels.json
+          uv run demeter evidence geelong-labels --descriptive-only --output outputs/geelong-descriptive.json
+          uv run python scripts/verify_geelong_labels.py
       - name: Verify repository datasets and reload NHANES offline
         run: |
           uv run demeter data verify-store

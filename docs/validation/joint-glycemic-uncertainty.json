@@ -34373,7 +34373,7 @@
         "unit": "Category proportions in fraction; sampling covariance in fraction squared"
       }
     },
-    "evidence_sha256": "f058e9815225d76d4845b99aa0ac689c28cd30a2e4b1e0d5fd6b8c0158401f30",
+    "evidence_sha256": "b75547060262dd2112ab29761dfe4211031ae7587d3b10872861e749827a9fc0",
     "existing_artifact_sha256": {
       "data/sources/nhanes/2017-2020/manifest.json": "7abddaffcad210931d7e2af5581e25b599c1c48b69d31e6aa2db0cebb2a0d822",
       "src/demeter/data/nhanes.py": "cac20cd09b1dddceab5b08b3b39b4b5f0ae36d27c509a4703daf4feac8add481",

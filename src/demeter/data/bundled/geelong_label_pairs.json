@@ -1,0 +1,34 @@
+{
+  "cohort_crosscheck": {
+    "baseline_diabetes_n": 30,
+    "paired_assessed_n": 446,
+    "progression_analysis_n": 416
+  },
+  "counts": {
+    "ifg_ada_start": {
+      "ifg_ada": 27,
+      "normoglycaemia": 44,
+      "source_diabetes": 21
+    },
+    "normal_start": {
+      "ifg_ada": 32,
+      "normoglycaemia": 281,
+      "source_diabetes": 11
+    }
+  },
+  "provenance": {
+    "independent_holdout": false,
+    "participant_records_used": false,
+    "protocol_commit_before_intake": "76e525d",
+    "protocol_sha256": "8f78812f4bfee128bdf1fc463095b940edd7c952d1f4b02c31a84f8002fae6da",
+    "selected_intake_utc": "2026-10-01T12:20:05.413215+00:00",
+    "source_id": "geelong2025_label_publication",
+    "source_sha256": "57bc7d59361358c1c05ba28032d1feff56c8e467d55cbb354dc6d5b62dbddb22",
+    "used_source": true
+  },
+  "row_totals": {
+    "ifg_ada_start": 92,
+    "normal_start": 324
+  },
+  "schema": "demeter-geelong-label-pairs-v1"
+}

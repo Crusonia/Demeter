@@ -445,6 +445,75 @@ def whitehall_endpoint_evidence(
         raise typer.Exit(1)
 
 
+@evidence_app.command("geelong-labels")
+def geelong_label_evidence(
+    evidence: Path = DEFAULT_EVIDENCE,
+    output: Path | None = None,
+    source: Path | None = None,
+    descriptive_only: bool = False,
+) -> None:
+    """Reproduce paired glycemic labels and their conditional multinomial working model."""
+    from demeter.analysis.geelong_labels import DATASET, audit_geelong_labels
+    from demeter.data.nhanes import encoded
+
+    exclusive_output = False
+    try:
+        selected = registry(evidence)
+        spec = selected.datasets[DATASET]
+        source_path = source if source is not None else Path(spec["source_path"])
+        protected = {
+            DEFAULT_EVIDENCE,
+            evidence,
+            source_path,
+            Path(spec["source_path"]),
+            Path(spec["protocol_path"]),
+            Path(spec["bundle_path"]),
+            Path("docs/validation/geelong-label-protocol-v1.json"),
+        }
+        protected_folders = {
+            Path("data"),
+            Path("src/demeter/data/bundled"),
+            Path("docs/validation"),
+        }
+        if output:
+            destination = output.resolve()
+            unsafe = destination in {path.absolute() for path in protected}
+            for folder in protected_folders:
+                unsafe = unsafe or destination.is_relative_to(folder.absolute())
+                try:
+                    unsafe = unsafe or destination.is_relative_to(folder.resolve())
+                except OSError:
+                    exclusive_output = True
+            for path in protected:
+                try:
+                    unsafe = unsafe or destination == path.resolve()
+                    unsafe = unsafe or (output.exists() and path.exists() and output.samefile(path))
+                except OSError:
+                    exclusive_output = True
+            if unsafe or exclusive_output and output.exists():
+                typer.echo(
+                    "Output must not overwrite a source, registry or frozen record", err=True
+                )
+                raise typer.Exit(1)
+        report = audit_geelong_labels(
+            selected, source_path, working_likelihood=not descriptive_only
+        )
+    except (ValueError, OSError, KeyError) as exc:
+        typer.echo("Geelong evidence metadata or output path is invalid", err=True)
+        raise typer.Exit(1) from exc
+    if output:
+        try:
+            output.parent.mkdir(parents=True, exist_ok=True)
+            with output.open("xb" if exclusive_output else "wb") as target:
+                target.write(encoded(report))
+        except OSError as exc:
+            typer.echo("Unable to save the Geelong aggregate report", err=True)
+            raise typer.Exit(1) from exc
+    emit(report)
+    if not report["source_audit_passed"]:
+        raise typer.Exit(1)
+
+
 @evidence_app.command("longitudinal-likelihood")
 def longitudinal_likelihood_evidence(
     evidence: Path = DEFAULT_EVIDENCE,

@@ -3168,6 +3168,504 @@ parameters:
     notes: Used-source benchmark only. Evidence grade describes scoped usefulness with causal uncertainty;
       randomization alone does not resolve selection, missingness or dose mapping.
 
+  geelong_normal_start_n:
+    key: geelong_normal_start_n
+    value: 324
+    unit: people
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: Harland et al. 2025, section 3.4; independently reconciled with section 2.2
+    source_id: geelong2025_label_publication
+    source_url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12534155/fullTextXML
+    citation: Harland JW et al. Journal of Diabetes Research. 2025;2025:9926306. doi:10.1155/jdr/9926306.
+    population: Published paired, sufficiently assessed male Geelong Osteoporosis Study subset with
+      source baseline normoglycaemia or IFG-ADA
+    geography: Barwon Statistical Division, south-eastern Australia
+    time_period: Study baseline at original 2001-2006 or later 2007-2010 assessment; source 15-year
+      follow-up phase finalised in 2022
+    outcome_definition: Source-defined, sufficiently assessed follow-up glycemic label, not confirmed
+      T2D/untreated remission or broad metabolic health.
+    notes: Used-source empirical observation benchmark. Selection, timing mixture, single-test classification,
+      diabetes type/history and treatment gaps remain. No active clinical rate, dietary effect, engine
+      initialization, independent validation or U.S. transport.
+    transformation: Literal section 3.4 starting-row total; reproduced by selected destination sum
+    uncertainty:
+      kind: fixed
+      rationale: Exact literal published count for this selected cohort; does not resolve selection
+        or population uncertainty.
+    lower_bound: 0
+  geelong_normal_start_normoglycaemia_n:
+    key: geelong_normal_start_normoglycaemia_n
+    value: 281
+    unit: people
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: Harland et al. 2025, section 3.4; independently reconciled with section 2.2
+    source_id: geelong2025_label_publication
+    source_url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12534155/fullTextXML
+    citation: Harland JW et al. Journal of Diabetes Research. 2025;2025:9926306. doi:10.1155/jdr/9926306.
+    population: Published paired, sufficiently assessed male Geelong Osteoporosis Study subset with
+      source baseline normoglycaemia or IFG-ADA
+    geography: Barwon Statistical Division, south-eastern Australia
+    time_period: Study baseline at original 2001-2006 or later 2007-2010 assessment; source 15-year
+      follow-up phase finalised in 2022
+    outcome_definition: Source-defined, sufficiently assessed follow-up glycemic label, not confirmed
+      T2D/untreated remission or broad metabolic health.
+    notes: Used-source empirical observation benchmark. Selection, timing mixture, single-test classification,
+      diabetes type/history and treatment gaps remain. No active clinical rate, dietary effect, engine
+      initialization, independent validation or U.S. transport.
+    transformation: Literal source section 3.4 n cell for this baseline/destination label pair; no
+      percentage rounding or figure digitization
+    uncertainty:
+      kind: fixed
+      rationale: Exact literal published count; statistical inference is declared separately.
+    lower_bound: 0
+  geelong_normal_start_normoglycaemia_probability:
+    key: geelong_normal_start_normoglycaemia_probability
+    value: 0.867283950617
+    unit: probability_per_source_followup_assessment_not_per_year
+    status: derived
+    evidence_grade: C
+    model_role: benchmark_only
+    source: Harland et al. 2025, section 3.4; independently reconciled with section 2.2
+    source_id: geelong2025_label_publication
+    source_url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12534155/fullTextXML
+    citation: Harland JW et al. Journal of Diabetes Research. 2025;2025:9926306. doi:10.1155/jdr/9926306.
+    population: Published paired, sufficiently assessed male Geelong Osteoporosis Study subset with
+      source baseline normoglycaemia or IFG-ADA
+    geography: Barwon Statistical Division, south-eastern Australia
+    time_period: Study baseline at original 2001-2006 or later 2007-2010 assessment; source 15-year
+      follow-up phase finalised in 2022
+    outcome_definition: Source-defined, sufficiently assessed follow-up glycemic label, not confirmed
+      T2D/untreated remission or broad metabolic health.
+    notes: Used-source empirical observation benchmark. Selection, timing mixture, single-test classification,
+      diabetes type/history and treatment gaps remain. No active clinical rate, dietary effect, engine
+      initialization, independent validation or U.S. transport.
+    transformation: Selected cell / normal_start total; CP cell-versus-rest interval with Bonferroni
+      alpha across six selected cells under explicit conditional row-multinomial working model
+    uncertainty:
+      kind: interval
+      low: 0.810336957518
+      high: 0.912576744738
+      rationale: Working-model simultaneous 95% coverage across six marginals; retain within-row
+        joint covariance in the analysis report. Not six independent distributions; not selection,
+        measurement, history, transport or structural uncertainty. Twelve significant digits is storage
+        convention, not source precision.
+    lower_bound: 0
+    upper_bound: 1
+  geelong_normal_start_ifg_ada_n:
+    key: geelong_normal_start_ifg_ada_n
+    value: 32
+    unit: people
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: Harland et al. 2025, section 3.4; independently reconciled with section 2.2
+    source_id: geelong2025_label_publication
+    source_url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12534155/fullTextXML
+    citation: Harland JW et al. Journal of Diabetes Research. 2025;2025:9926306. doi:10.1155/jdr/9926306.
+    population: Published paired, sufficiently assessed male Geelong Osteoporosis Study subset with
+      source baseline normoglycaemia or IFG-ADA
+    geography: Barwon Statistical Division, south-eastern Australia
+    time_period: Study baseline at original 2001-2006 or later 2007-2010 assessment; source 15-year
+      follow-up phase finalised in 2022
+    outcome_definition: Source-defined, sufficiently assessed follow-up glycemic label, not confirmed
+      T2D/untreated remission or broad metabolic health.
+    notes: Used-source empirical observation benchmark. Selection, timing mixture, single-test classification,
+      diabetes type/history and treatment gaps remain. No active clinical rate, dietary effect, engine
+      initialization, independent validation or U.S. transport.
+    transformation: Literal source section 3.4 n cell for this baseline/destination label pair; no
+      percentage rounding or figure digitization
+    uncertainty:
+      kind: fixed
+      rationale: Exact literal published count; statistical inference is declared separately.
+    lower_bound: 0
+  geelong_normal_start_ifg_ada_probability:
+    key: geelong_normal_start_ifg_ada_probability
+    value: 0.0987654320988
+    unit: probability_per_source_followup_assessment_not_per_year
+    status: derived
+    evidence_grade: C
+    model_role: benchmark_only
+    source: Harland et al. 2025, section 3.4; independently reconciled with section 2.2
+    source_id: geelong2025_label_publication
+    source_url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12534155/fullTextXML
+    citation: Harland JW et al. Journal of Diabetes Research. 2025;2025:9926306. doi:10.1155/jdr/9926306.
+    population: Published paired, sufficiently assessed male Geelong Osteoporosis Study subset with
+      source baseline normoglycaemia or IFG-ADA
+    geography: Barwon Statistical Division, south-eastern Australia
+    time_period: Study baseline at original 2001-2006 or later 2007-2010 assessment; source 15-year
+      follow-up phase finalised in 2022
+    outcome_definition: Source-defined, sufficiently assessed follow-up glycemic label, not confirmed
+      T2D/untreated remission or broad metabolic health.
+    notes: Used-source empirical observation benchmark. Selection, timing mixture, single-test classification,
+      diabetes type/history and treatment gaps remain. No active clinical rate, dietary effect, engine
+      initialization, independent validation or U.S. transport.
+    transformation: Selected cell / normal_start total; CP cell-versus-rest interval with Bonferroni
+      alpha across six selected cells under explicit conditional row-multinomial working model
+    uncertainty:
+      kind: interval
+      low: 0.0599402585223
+      high: 0.150384700467
+      rationale: Working-model simultaneous 95% coverage across six marginals; retain within-row
+        joint covariance in the analysis report. Not six independent distributions; not selection,
+        measurement, history, transport or structural uncertainty. Twelve significant digits is storage
+        convention, not source precision.
+    lower_bound: 0
+    upper_bound: 1
+  geelong_normal_start_source_diabetes_n:
+    key: geelong_normal_start_source_diabetes_n
+    value: 11
+    unit: people
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: Harland et al. 2025, section 3.4; independently reconciled with section 2.2
+    source_id: geelong2025_label_publication
+    source_url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12534155/fullTextXML
+    citation: Harland JW et al. Journal of Diabetes Research. 2025;2025:9926306. doi:10.1155/jdr/9926306.
+    population: Published paired, sufficiently assessed male Geelong Osteoporosis Study subset with
+      source baseline normoglycaemia or IFG-ADA
+    geography: Barwon Statistical Division, south-eastern Australia
+    time_period: Study baseline at original 2001-2006 or later 2007-2010 assessment; source 15-year
+      follow-up phase finalised in 2022
+    outcome_definition: Source-defined, sufficiently assessed follow-up glycemic label, not confirmed
+      T2D/untreated remission or broad metabolic health.
+    notes: Used-source empirical observation benchmark. Selection, timing mixture, single-test classification,
+      diabetes type/history and treatment gaps remain. No active clinical rate, dietary effect, engine
+      initialization, independent validation or U.S. transport.
+    transformation: Literal source section 3.4 n cell for this baseline/destination label pair; no
+      percentage rounding or figure digitization
+    uncertainty:
+      kind: fixed
+      rationale: Exact literal published count; statistical inference is declared separately.
+    lower_bound: 0
+  geelong_normal_start_source_diabetes_probability:
+    key: geelong_normal_start_source_diabetes_probability
+    value: 0.033950617284
+    unit: probability_per_source_followup_assessment_not_per_year
+    status: derived
+    evidence_grade: C
+    model_role: benchmark_only
+    source: Harland et al. 2025, section 3.4; independently reconciled with section 2.2
+    source_id: geelong2025_label_publication
+    source_url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12534155/fullTextXML
+    citation: Harland JW et al. Journal of Diabetes Research. 2025;2025:9926306. doi:10.1155/jdr/9926306.
+    population: Published paired, sufficiently assessed male Geelong Osteoporosis Study subset with
+      source baseline normoglycaemia or IFG-ADA
+    geography: Barwon Statistical Division, south-eastern Australia
+    time_period: Study baseline at original 2001-2006 or later 2007-2010 assessment; source 15-year
+      follow-up phase finalised in 2022
+    outcome_definition: Source-defined, sufficiently assessed follow-up glycemic label, not confirmed
+      T2D/untreated remission or broad metabolic health.
+    notes: Used-source empirical observation benchmark. Selection, timing mixture, single-test classification,
+      diabetes type/history and treatment gaps remain. No active clinical rate, dietary effect, engine
+      initialization, independent validation or U.S. transport.
+    transformation: Selected cell / normal_start total; CP cell-versus-rest interval with Bonferroni
+      alpha across six selected cells under explicit conditional row-multinomial working model
+    uncertainty:
+      kind: interval
+      low: 0.0131232058104
+      high: 0.0699981290608
+      rationale: Working-model simultaneous 95% coverage across six marginals; retain within-row
+        joint covariance in the analysis report. Not six independent distributions; not selection,
+        measurement, history, transport or structural uncertainty. Twelve significant digits is storage
+        convention, not source precision.
+    lower_bound: 0
+    upper_bound: 1
+  geelong_ifg_ada_start_n:
+    key: geelong_ifg_ada_start_n
+    value: 92
+    unit: people
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: Harland et al. 2025, section 3.4; independently reconciled with section 2.2
+    source_id: geelong2025_label_publication
+    source_url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12534155/fullTextXML
+    citation: Harland JW et al. Journal of Diabetes Research. 2025;2025:9926306. doi:10.1155/jdr/9926306.
+    population: Published paired, sufficiently assessed male Geelong Osteoporosis Study subset with
+      source baseline normoglycaemia or IFG-ADA
+    geography: Barwon Statistical Division, south-eastern Australia
+    time_period: Study baseline at original 2001-2006 or later 2007-2010 assessment; source 15-year
+      follow-up phase finalised in 2022
+    outcome_definition: Source-defined, sufficiently assessed follow-up glycemic label, not confirmed
+      T2D/untreated remission or broad metabolic health.
+    notes: Used-source empirical observation benchmark. Selection, timing mixture, single-test classification,
+      diabetes type/history and treatment gaps remain. No active clinical rate, dietary effect, engine
+      initialization, independent validation or U.S. transport.
+    transformation: Literal section 3.4 starting-row total; reproduced by selected destination sum
+    uncertainty:
+      kind: fixed
+      rationale: Exact literal published count for this selected cohort; does not resolve selection
+        or population uncertainty.
+    lower_bound: 0
+  geelong_ifg_ada_start_normoglycaemia_n:
+    key: geelong_ifg_ada_start_normoglycaemia_n
+    value: 44
+    unit: people
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: Harland et al. 2025, section 3.4; independently reconciled with section 2.2
+    source_id: geelong2025_label_publication
+    source_url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12534155/fullTextXML
+    citation: Harland JW et al. Journal of Diabetes Research. 2025;2025:9926306. doi:10.1155/jdr/9926306.
+    population: Published paired, sufficiently assessed male Geelong Osteoporosis Study subset with
+      source baseline normoglycaemia or IFG-ADA
+    geography: Barwon Statistical Division, south-eastern Australia
+    time_period: Study baseline at original 2001-2006 or later 2007-2010 assessment; source 15-year
+      follow-up phase finalised in 2022
+    outcome_definition: Source-defined, sufficiently assessed follow-up glycemic label, not confirmed
+      T2D/untreated remission or broad metabolic health.
+    notes: Used-source empirical observation benchmark. Selection, timing mixture, single-test classification,
+      diabetes type/history and treatment gaps remain. No active clinical rate, dietary effect, engine
+      initialization, independent validation or U.S. transport.
+    transformation: Literal source section 3.4 n cell for this baseline/destination label pair; no
+      percentage rounding or figure digitization
+    uncertainty:
+      kind: fixed
+      rationale: Exact literal published count; statistical inference is declared separately.
+    lower_bound: 0
+  geelong_ifg_ada_start_normoglycaemia_probability:
+    key: geelong_ifg_ada_start_normoglycaemia_probability
+    value: 0.478260869565
+    unit: probability_per_source_followup_assessment_not_per_year
+    status: derived
+    evidence_grade: C
+    model_role: benchmark_only
+    source: Harland et al. 2025, section 3.4; independently reconciled with section 2.2
+    source_id: geelong2025_label_publication
+    source_url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12534155/fullTextXML
+    citation: Harland JW et al. Journal of Diabetes Research. 2025;2025:9926306. doi:10.1155/jdr/9926306.
+    population: Published paired, sufficiently assessed male Geelong Osteoporosis Study subset with
+      source baseline normoglycaemia or IFG-ADA
+    geography: Barwon Statistical Division, south-eastern Australia
+    time_period: Study baseline at original 2001-2006 or later 2007-2010 assessment; source 15-year
+      follow-up phase finalised in 2022
+    outcome_definition: Source-defined, sufficiently assessed follow-up glycemic label, not confirmed
+      T2D/untreated remission or broad metabolic health.
+    notes: Used-source empirical observation benchmark. Selection, timing mixture, single-test classification,
+      diabetes type/history and treatment gaps remain. No active clinical rate, dietary effect, engine
+      initialization, independent validation or U.S. transport.
+    transformation: Selected cell / ifg_ada_start total; CP cell-versus-rest interval with Bonferroni
+      alpha across six selected cells under explicit conditional row-multinomial working model
+    uncertainty:
+      kind: interval
+      low: 0.339835987412
+      high: 0.619095827873
+      rationale: Working-model simultaneous 95% coverage across six marginals; retain within-row
+        joint covariance in the analysis report. Not six independent distributions; not selection,
+        measurement, history, transport or structural uncertainty. Twelve significant digits is storage
+        convention, not source precision.
+    lower_bound: 0
+    upper_bound: 1
+  geelong_ifg_ada_start_ifg_ada_n:
+    key: geelong_ifg_ada_start_ifg_ada_n
+    value: 27
+    unit: people
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: Harland et al. 2025, section 3.4; independently reconciled with section 2.2
+    source_id: geelong2025_label_publication
+    source_url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12534155/fullTextXML
+    citation: Harland JW et al. Journal of Diabetes Research. 2025;2025:9926306. doi:10.1155/jdr/9926306.
+    population: Published paired, sufficiently assessed male Geelong Osteoporosis Study subset with
+      source baseline normoglycaemia or IFG-ADA
+    geography: Barwon Statistical Division, south-eastern Australia
+    time_period: Study baseline at original 2001-2006 or later 2007-2010 assessment; source 15-year
+      follow-up phase finalised in 2022
+    outcome_definition: Source-defined, sufficiently assessed follow-up glycemic label, not confirmed
+      T2D/untreated remission or broad metabolic health.
+    notes: Used-source empirical observation benchmark. Selection, timing mixture, single-test classification,
+      diabetes type/history and treatment gaps remain. No active clinical rate, dietary effect, engine
+      initialization, independent validation or U.S. transport.
+    transformation: Literal source section 3.4 n cell for this baseline/destination label pair; no
+      percentage rounding or figure digitization
+    uncertainty:
+      kind: fixed
+      rationale: Exact literal published count; statistical inference is declared separately.
+    lower_bound: 0
+  geelong_ifg_ada_start_ifg_ada_probability:
+    key: geelong_ifg_ada_start_ifg_ada_probability
+    value: 0.29347826087
+    unit: probability_per_source_followup_assessment_not_per_year
+    status: derived
+    evidence_grade: C
+    model_role: benchmark_only
+    source: Harland et al. 2025, section 3.4; independently reconciled with section 2.2
+    source_id: geelong2025_label_publication
+    source_url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12534155/fullTextXML
+    citation: Harland JW et al. Journal of Diabetes Research. 2025;2025:9926306. doi:10.1155/jdr/9926306.
+    population: Published paired, sufficiently assessed male Geelong Osteoporosis Study subset with
+      source baseline normoglycaemia or IFG-ADA
+    geography: Barwon Statistical Division, south-eastern Australia
+    time_period: Study baseline at original 2001-2006 or later 2007-2010 assessment; source 15-year
+      follow-up phase finalised in 2022
+    outcome_definition: Source-defined, sufficiently assessed follow-up glycemic label, not confirmed
+      T2D/untreated remission or broad metabolic health.
+    notes: Used-source empirical observation benchmark. Selection, timing mixture, single-test classification,
+      diabetes type/history and treatment gaps remain. No active clinical rate, dietary effect, engine
+      initialization, independent validation or U.S. transport.
+    transformation: Selected cell / ifg_ada_start total; CP cell-versus-rest interval with Bonferroni
+      alpha across six selected cells under explicit conditional row-multinomial working model
+    uncertainty:
+      kind: interval
+      low: 0.17696585802
+      high: 0.432981340104
+      rationale: Working-model simultaneous 95% coverage across six marginals; retain within-row
+        joint covariance in the analysis report. Not six independent distributions; not selection,
+        measurement, history, transport or structural uncertainty. Twelve significant digits is storage
+        convention, not source precision.
+    lower_bound: 0
+    upper_bound: 1
+  geelong_ifg_ada_start_source_diabetes_n:
+    key: geelong_ifg_ada_start_source_diabetes_n
+    value: 21
+    unit: people
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: Harland et al. 2025, section 3.4; independently reconciled with section 2.2
+    source_id: geelong2025_label_publication
+    source_url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12534155/fullTextXML
+    citation: Harland JW et al. Journal of Diabetes Research. 2025;2025:9926306. doi:10.1155/jdr/9926306.
+    population: Published paired, sufficiently assessed male Geelong Osteoporosis Study subset with
+      source baseline normoglycaemia or IFG-ADA
+    geography: Barwon Statistical Division, south-eastern Australia
+    time_period: Study baseline at original 2001-2006 or later 2007-2010 assessment; source 15-year
+      follow-up phase finalised in 2022
+    outcome_definition: Source-defined, sufficiently assessed follow-up glycemic label, not confirmed
+      T2D/untreated remission or broad metabolic health.
+    notes: Used-source empirical observation benchmark. Selection, timing mixture, single-test classification,
+      diabetes type/history and treatment gaps remain. No active clinical rate, dietary effect, engine
+      initialization, independent validation or U.S. transport.
+    transformation: Literal source section 3.4 n cell for this baseline/destination label pair; no
+      percentage rounding or figure digitization
+    uncertainty:
+      kind: fixed
+      rationale: Exact literal published count; statistical inference is declared separately.
+    lower_bound: 0
+  geelong_ifg_ada_start_source_diabetes_probability:
+    key: geelong_ifg_ada_start_source_diabetes_probability
+    value: 0.228260869565
+    unit: probability_per_source_followup_assessment_not_per_year
+    status: derived
+    evidence_grade: C
+    model_role: benchmark_only
+    source: Harland et al. 2025, section 3.4; independently reconciled with section 2.2
+    source_id: geelong2025_label_publication
+    source_url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12534155/fullTextXML
+    citation: Harland JW et al. Journal of Diabetes Research. 2025;2025:9926306. doi:10.1155/jdr/9926306.
+    population: Published paired, sufficiently assessed male Geelong Osteoporosis Study subset with
+      source baseline normoglycaemia or IFG-ADA
+    geography: Barwon Statistical Division, south-eastern Australia
+    time_period: Study baseline at original 2001-2006 or later 2007-2010 assessment; source 15-year
+      follow-up phase finalised in 2022
+    outcome_definition: Source-defined, sufficiently assessed follow-up glycemic label, not confirmed
+      T2D/untreated remission or broad metabolic health.
+    notes: Used-source empirical observation benchmark. Selection, timing mixture, single-test classification,
+      diabetes type/history and treatment gaps remain. No active clinical rate, dietary effect, engine
+      initialization, independent validation or U.S. transport.
+    transformation: Selected cell / ifg_ada_start total; CP cell-versus-rest interval with Bonferroni
+      alpha across six selected cells under explicit conditional row-multinomial working model
+    uncertainty:
+      kind: interval
+      low: 0.124793958124
+      high: 0.362095797916
+      rationale: Working-model simultaneous 95% coverage across six marginals; retain within-row
+        joint covariance in the analysis report. Not six independent distributions; not selection,
+        measurement, history, transport or structural uncertainty. Twelve significant digits is storage
+        convention, not source precision.
+    lower_bound: 0
+    upper_bound: 1
+  geelong_paired_assessed_n:
+    key: geelong_paired_assessed_n
+    value: 446
+    unit: people
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: Harland et al. 2025, section 3.4; independently reconciled with section 2.2
+    source_id: geelong2025_label_publication
+    source_url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12534155/fullTextXML
+    citation: Harland JW et al. Journal of Diabetes Research. 2025;2025:9926306. doi:10.1155/jdr/9926306.
+    population: Published paired, sufficiently assessed male Geelong Osteoporosis Study subset with
+      source baseline normoglycaemia or IFG-ADA
+    geography: Barwon Statistical Division, south-eastern Australia
+    time_period: Study baseline at original 2001-2006 or later 2007-2010 assessment; source 15-year
+      follow-up phase finalised in 2022
+    outcome_definition: Source-defined, sufficiently assessed follow-up glycemic label, not confirmed
+      T2D/untreated remission or broad metabolic health.
+    notes: Used-source empirical observation benchmark. Selection, timing mixture, single-test classification,
+      diabetes type/history and treatment gaps remain. No active clinical rate, dietary effect, engine
+      initialization, independent validation or U.S. transport.
+    transformation: Literal required denominator/exclusion/progression total from sections 3.4 and
+      2.2; independent same-source reconciliation only
+    uncertainty:
+      kind: fixed
+      rationale: Exact source cohort crosscheck count, not an independent validation target or population
+        estimate.
+    lower_bound: 0
+  geelong_baseline_diabetes_n:
+    key: geelong_baseline_diabetes_n
+    value: 30
+    unit: people
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: Harland et al. 2025, section 3.4; independently reconciled with section 2.2
+    source_id: geelong2025_label_publication
+    source_url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12534155/fullTextXML
+    citation: Harland JW et al. Journal of Diabetes Research. 2025;2025:9926306. doi:10.1155/jdr/9926306.
+    population: Published paired, sufficiently assessed male Geelong Osteoporosis Study subset with
+      source baseline normoglycaemia or IFG-ADA
+    geography: Barwon Statistical Division, south-eastern Australia
+    time_period: Study baseline at original 2001-2006 or later 2007-2010 assessment; source 15-year
+      follow-up phase finalised in 2022
+    outcome_definition: Source-defined, sufficiently assessed follow-up glycemic label, not confirmed
+      T2D/untreated remission or broad metabolic health.
+    notes: Used-source empirical observation benchmark. Selection, timing mixture, single-test classification,
+      diabetes type/history and treatment gaps remain. No active clinical rate, dietary effect, engine
+      initialization, independent validation or U.S. transport.
+    transformation: Literal required denominator/exclusion/progression total from sections 3.4 and
+      2.2; independent same-source reconciliation only
+    uncertainty:
+      kind: fixed
+      rationale: Exact source cohort crosscheck count, not an independent validation target or population
+        estimate.
+    lower_bound: 0
+  geelong_progression_analysis_n:
+    key: geelong_progression_analysis_n
+    value: 416
+    unit: people
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: Harland et al. 2025, section 3.4; independently reconciled with section 2.2
+    source_id: geelong2025_label_publication
+    source_url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12534155/fullTextXML
+    citation: Harland JW et al. Journal of Diabetes Research. 2025;2025:9926306. doi:10.1155/jdr/9926306.
+    population: Published paired, sufficiently assessed male Geelong Osteoporosis Study subset with
+      source baseline normoglycaemia or IFG-ADA
+    geography: Barwon Statistical Division, south-eastern Australia
+    time_period: Study baseline at original 2001-2006 or later 2007-2010 assessment; source 15-year
+      follow-up phase finalised in 2022
+    outcome_definition: Source-defined, sufficiently assessed follow-up glycemic label, not confirmed
+      T2D/untreated remission or broad metabolic health.
+    notes: Used-source empirical observation benchmark. Selection, timing mixture, single-test classification,
+      diabetes type/history and treatment gaps remain. No active clinical rate, dietary effect, engine
+      initialization, independent validation or U.S. transport.
+    transformation: Literal required denominator/exclusion/progression total from sections 3.4 and
+      2.2; independent same-source reconciliation only
+    uncertainty:
+      kind: fixed
+      rationale: Exact source cohort crosscheck count, not an independent validation target or population
+        estimate.
+    lower_bound: 0
 datasets:
   glycemic_joint_uncertainty:
     status: estimated
@@ -4740,6 +5238,80 @@ datasets:
       pooling, annualization, optimizer or hazard fit.
     clinical_fit_allowed: false
     engine_activation_allowed: false
+  geelong_label_pairs:
+    status: derived
+    evidence_grade: C
+    clinical_fit_allowed: false
+    engine_activation_allowed: false
+    description: Unweighted conditional follow-up label distributions given the source baseline ADA
+      label and paired-assessed selection, averaging over the source's actual entry/follow-up timing
+      mixture
+    model_role: benchmark_only
+    protocol_path: docs/validation/geelong-label-protocol-v1.json
+    protocol_sha256: 8f78812f4bfee128bdf1fc463095b940edd7c952d1f4b02c31a84f8002fae6da
+    source_path: data/sources/geelong/2026-10-01/publication.xml
+    source_sha256: 57bc7d59361358c1c05ba28032d1feff56c8e467d55cbb354dc6d5b62dbddb22
+    source_size_bytes: 130619
+    source_id: geelong2025_label_publication
+    bundle_path: src/demeter/data/bundled/geelong_label_pairs.json
+    bundle_sha256: 2f72b23364cdd64f39a1b95aec68ce4434a096d5085a999a556bc55b84c0fbf3
+    analysis:
+      counts:
+        normal_start:
+          normoglycaemia: 281
+          ifg_ada: 32
+          source_diabetes: 11
+        ifg_ada_start:
+          normoglycaemia: 44
+          ifg_ada: 27
+          source_diabetes: 21
+      row_totals:
+        normal_start: 324
+        ifg_ada_start: 92
+      cohort_crosscheck:
+        paired_assessed_n: 446
+        baseline_diabetes_n: 30
+        progression_analysis_n: 416
+    parameter_keys:
+    - geelong_baseline_diabetes_n
+    - geelong_ifg_ada_start_ifg_ada_n
+    - geelong_ifg_ada_start_ifg_ada_probability
+    - geelong_ifg_ada_start_n
+    - geelong_ifg_ada_start_normoglycaemia_n
+    - geelong_ifg_ada_start_normoglycaemia_probability
+    - geelong_ifg_ada_start_source_diabetes_n
+    - geelong_ifg_ada_start_source_diabetes_probability
+    - geelong_normal_start_ifg_ada_n
+    - geelong_normal_start_ifg_ada_probability
+    - geelong_normal_start_n
+    - geelong_normal_start_normoglycaemia_n
+    - geelong_normal_start_normoglycaemia_probability
+    - geelong_normal_start_source_diabetes_n
+    - geelong_normal_start_source_diabetes_probability
+    - geelong_paired_assessed_n
+    - geelong_progression_analysis_n
+    working_likelihood:
+      family: conditional_row_multinomial
+      equation: L(P|C,n)=product_i[n_i!/product_j c_ij! * product_j p_ij^c_ij], with sum_j p_ij=1
+        for each row
+      assumptions:
+      - Independent observations within each selected baseline row
+      - A common marginal row probability for the published timing/age/selection mixture
+      - Conditional independence of the two disjoint baseline groups given their row totals
+      assumptions_empirically_established: false
+      mle: p_ij=c_ij/n_i; two free probabilities per row, with the third determined by the row sum
+      joint_covariance: 'Plug-in covariance for estimated row probabilities: (diag(p_i)-p_i p_i^T)/n_i;
+        conditional cross-row blocks are zero under the declared working model'
+      intervals: Marginal exact binomial Clopper-Pearson intervals using each multinomial cell versus
+        all other cells, with Bonferroni alpha across all six selected cells. Report as working-model
+        simultaneous coverage, not selection/measurement/transport uncertainty.
+      confidence_level: 0.95
+      probability_sum_absolute_tolerance: 1.0e-12
+      alternative: Descriptive-only mode reports exact published counts and derived fractions with
+        no likelihood, covariance or intervals; make unavailable inferential outputs explicit.
+      evaluation: Source reproduction, independent mathematical normalization/likelihood/covariance
+        tests and no engine-change checks. No compatible independent clinical evaluation has been
+        selected; keep it unresolved.
 scientific_blockers:
 - National age-specific metabolic transition hazards are unresolved.
 - Age-specific T2D/prediabetes initial prevalence is not calibrated; CDC total diabetes includes
@@ -5076,3 +5648,14 @@ sources:
       with ITT149; original failure retained. Published abstract states separate ITT
       N and remission numerator, not an endpoint fraction. V3 uses explicit conditional
       common-ITT scope, not percentage repair or author-issued erratum.
+  geelong2025_label_publication:
+    url: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12534155/fullTextXML
+    citation: Harland JW et al. Journal of Diabetes Research. 2025;2025:9926306. doi:10.1155/jdr/9926306.
+    doi: 10.1155/jdr/9926306
+    raw_filename: publication.xml
+    sha256: 57bc7d59361358c1c05ba28032d1feff56c8e467d55cbb354dc6d5b62dbddb22
+    retrieved_at: '2026-10-01T12:01:41.285467+00:00'
+    license: Literal article notice permits use, distribution and reproduction under the Creative
+      Commons Attribution License with citation; version unspecified. Preserve the unmodified XML
+      and its copyright/license notice. Publication permission does not grant participant-record
+      access.

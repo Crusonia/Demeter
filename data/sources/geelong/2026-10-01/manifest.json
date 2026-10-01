@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "store": "geelong_label_pairs",
+  "sources": {
+    "publication.xml": {
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12534155/fullTextXML",
+      "sha256": "57bc7d59361358c1c05ba28032d1feff56c8e467d55cbb354dc6d5b62dbddb22",
+      "retrieved_at": "2026-10-01T12:01:41.285467+00:00",
+      "publisher": "Harland et al.; Journal of Diabetes Research / John Wiley & Sons; Europe PMC archive",
+      "vintage": "2025 publication; exact 2026-10-01 source snapshot",
+      "citation": "Harland JW et al. Journal of Diabetes Research. 2025;2025:9926306. doi:10.1155/jdr/9926306.",
+      "size_bytes": 130619,
+      "license": "Creative Commons Attribution, version unspecified in literal article notice"
+    }
+  },
+  "transform": "demeter.analysis.geelong_labels.extract_reported",
+  "transform_version": 1,
+  "source_notice": "Original copyright/attribution/license notice preserved in unmodified XML. No participant data. Demeter does not relicense source content."
+}

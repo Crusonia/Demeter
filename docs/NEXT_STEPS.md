@@ -115,6 +115,16 @@ and interval depend on declared working assumptions; those assumptions are not
 established by the source. A descriptive-only mode makes that boundary visible.
 No annual clinical transitions, dietary response or national parameters are fitted.
 
+The [Geelong paired-label package](GEELONG_LABEL_OBSERVATIONS.md) adds empirical
+joint observations for both directions of glycemic-label change: two complete
+baseline rows and three mutually exclusive destinations. It reproduces literal
+published counts and retains within-row dependence in a conditional multinomial
+working likelihood. Descriptive-only mode keeps inference optional. Working
+sampling assumptions are not established by the source; linked clinical timing,
+history, treatment, death/missingness, independent evaluation and U.S. transport
+remain unresolved. This advances #57 without closing its full requirements or
+activating clinical or dietary parameters.
+
 The [paired remission observation model](PAIRED_REMISSION_OBSERVATIONS.md) now
 preserves same-person positive-label information across DiRECT visits. It reports
 integer feasible tables and unresolved assessment/death partitions, retaining
@@ -143,8 +153,9 @@ of #57, #58, #1 and milestone #27 remain open.
 The [public longitudinal intake requirements](PUBLIC_LONGITUDINAL_DATA_REQUIREMENTS.md)
 now specify the actual linked fields or sufficient aggregate statistics needed
 for that next step and retain the October 1 source-search dispositions. The
-inspected new candidates did not resolve clinical fitting; no observations,
-parameters or likelihood assumptions were activated. A primary-source proposal
+inspected new candidates did not resolve clinical fitting. The separate Geelong
+intake above adds benchmark-only observed labels and explicit working assumptions;
+no clinical parameter is activated. A primary-source proposal
 with compatible public observations is the next empirical contribution. This
 bounded search does not establish that no suitable public source exists.
 

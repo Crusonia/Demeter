@@ -1,0 +1,323 @@
+{
+  "analysis_id": "geelong_label_pairs",
+  "annual_generator_identified": false,
+  "assessment": "Used-source paired observed-label analysis; not independent clinical validation",
+  "chronology": "Publication methods and results were previously inspected in source discovery. The present source-surface inspection incidentally displayed the full Sample Population Statistics section, and two reviewers read it before this freeze. All selected count cells and adjacent WHO/incidence statistics were exposed. This is used-source selection, not preregistration or an untouched holdout. No selected-cell capture, empirical arithmetic or fit preceded this protocol commit.",
+  "clinical_fit_allowed": false,
+  "clinical_transition_fit_performed": false,
+  "diagnosed_remission_identified": false,
+  "dietary_effect_identified": false,
+  "engine_activation_allowed": false,
+  "failure": null,
+  "independent_validation": false,
+  "intervals": {
+    "bounds": [
+      [
+        0.810336957518,
+        0.912576744738
+      ],
+      [
+        0.0599402585223,
+        0.150384700467
+      ],
+      [
+        0.0131232058104,
+        0.0699981290608
+      ],
+      [
+        0.339835987412,
+        0.619095827873
+      ],
+      [
+        0.17696585802,
+        0.432981340104
+      ],
+      [
+        0.124793958124,
+        0.362095797916
+      ]
+    ],
+    "coordinates": [
+      {
+        "destination": "normoglycaemia",
+        "row": "normal_start"
+      },
+      {
+        "destination": "ifg_ada",
+        "row": "normal_start"
+      },
+      {
+        "destination": "source_diabetes",
+        "row": "normal_start"
+      },
+      {
+        "destination": "normoglycaemia",
+        "row": "ifg_ada_start"
+      },
+      {
+        "destination": "ifg_ada",
+        "row": "ifg_ada_start"
+      },
+      {
+        "destination": "source_diabetes",
+        "row": "ifg_ada_start"
+      }
+    ],
+    "coverage_scope": "Simultaneous coverage under the declared conditional working model only",
+    "effective_cell_confidence_level": 0.991666666667,
+    "method": "Bonferroni Clopper-Pearson",
+    "multiplicity": 6,
+    "selection_measurement_transport_uncertainty_included": false,
+    "sidedness": "two_sided_equal_tail",
+    "simultaneous_confidence_level": 0.95
+  },
+  "joint_covariance": {
+    "coordinates": [
+      {
+        "destination": "normoglycaemia",
+        "row": "normal_start"
+      },
+      {
+        "destination": "ifg_ada",
+        "row": "normal_start"
+      },
+      {
+        "destination": "source_diabetes",
+        "row": "normal_start"
+      },
+      {
+        "destination": "normoglycaemia",
+        "row": "ifg_ada_start"
+      },
+      {
+        "destination": "ifg_ada",
+        "row": "ifg_ada_start"
+      },
+      {
+        "destination": "source_diabetes",
+        "row": "ifg_ada_start"
+      }
+    ],
+    "covariance": [
+      [
+        0.000355254628454,
+        -0.000264375537454,
+        -9.08790909998e-05,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        -0.000264375537454,
+        0.000274724757781,
+        -1.03492203274e-05,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        -9.08790909998e-05,
+        -1.03492203274e-05,
+        0.000101228311327,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.00271225445878,
+        -0.00152564313306,
+        -0.00118661132572
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        -0.00152564313306,
+        0.00225379099203,
+        -0.000728147858963
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        -0.00118661132572,
+        -0.000728147858963,
+        0.00191475918468
+      ]
+    ],
+    "cross_row_independence_assumed": true,
+    "matrix_repair_performed": false,
+    "method": "Plug-in conditional row-multinomial covariance",
+    "selection_measurement_transport_uncertainty_included": false,
+    "singularity_preserved": true,
+    "unit": "probability_squared"
+  },
+  "model_role": "benchmark_only",
+  "observed_labels": {
+    "cohort_crosscheck": {
+      "baseline_diabetes_n": 30,
+      "paired_assessed_n": 446,
+      "progression_analysis_n": 416
+    },
+    "counts": {
+      "ifg_ada_start": {
+        "ifg_ada": 27,
+        "normoglycaemia": 44,
+        "source_diabetes": 21
+      },
+      "normal_start": {
+        "ifg_ada": 32,
+        "normoglycaemia": 281,
+        "source_diabetes": 11
+      }
+    },
+    "estimand": {
+      "classification": "Source diabetes is FPG or self-reported diabetes or antihyperglycemic medication; it is not independently confirmed incident T2D. Baseline diabetes includes type 1. Source labels do not enforce persistent diagnosis history. One follow-up blood test without repeat confirmation is a measurement limitation.",
+      "conditioning": "Condition on the two published baseline-row totals and the source's assessable, retained subset; do not generalize to the recruited cohort or count deaths/unassessed men as unchanged.",
+      "geography": "Barwon Statistical Division, south-eastern Australia",
+      "population": "Published paired, sufficiently assessed male Geelong Osteoporosis Study subset with source baseline normoglycaemia or IFG-ADA",
+      "target": "Unweighted conditional follow-up label distributions given the source baseline ADA label and paired-assessed selection, averaging over the source's actual entry/follow-up timing mixture",
+      "time_period": "Study baseline at original 2001-2006 or later 2007-2010 assessment; source 15-year follow-up phase finalised in 2022",
+      "timing": "No individual clocks, exact event dates or common exposure duration are supplied to this likelihood. Never substitute nominal 15 years or median follow-up.",
+      "treatment": "The regression-analysis medication statement does not establish medication-free status throughout follow-up; lower glucose labels are not untreated clinical recovery/remission.",
+      "unit": "probability_per_source_followup_assessment_not_per_year"
+    },
+    "locators": {
+      "cohort_crosscheck": "sec2.2/unique Of these assessed-pair and progression-analysis paragraph",
+      "counts": "sec3.4/unique Most men with normoglycaemia paragraph before Of those with IFG-WHO",
+      "row_totals": "sec3.4/first paragraph and IFG-ADA row prefix"
+    },
+    "probabilities": {
+      "ifg_ada_start": {
+        "ifg_ada": 0.29347826087,
+        "normoglycaemia": 0.478260869565,
+        "source_diabetes": 0.228260869565
+      },
+      "normal_start": {
+        "ifg_ada": 0.0987654320988,
+        "normoglycaemia": 0.867283950617,
+        "source_diabetes": 0.033950617284
+      }
+    },
+    "rate_or_causal_interpretation": false,
+    "row_totals": {
+      "ifg_ada_start": 92,
+      "normal_start": 324
+    }
+  },
+  "provenance": {
+    "bundle_sha256": "2f72b23364cdd64f39a1b95aec68ce4434a096d5085a999a556bc55b84c0fbf3",
+    "dataset_definition_sha256": "78ae2543f037ec1db58ed04061e8be2758925a2d03fc8082a6514231b545bf56",
+    "derived_report_storage": "Twelve significant digits for portable derived JSON; calculations and source/registry checks precede storage normalization",
+    "historical_acquisition": {
+      "retrieved_utc": "2026-10-01T12:01:41.285467+00:00",
+      "sha256": "57bc7d59361358c1c05ba28032d1feff56c8e467d55cbb354dc6d5b62dbddb22",
+      "size_bytes": 130619,
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12534155/fullTextXML"
+    },
+    "implementation_sha256": "14294a3e4edfce0903bbbc804fe10fe8576a76501223c044f8637dff4fe25e3c",
+    "interval_registry_comparison": "Canonical repository storage_numbers precision; not source precision or a clinical tolerance",
+    "local_byte_check_is_new_acquisition": false,
+    "network_used": false,
+    "parameter_definitions_sha256": {
+      "geelong_baseline_diabetes_n": "a52b8084c591447711d9ca8dd19e434d0c722e338bfd4bb85c542de0d49225b9",
+      "geelong_ifg_ada_start_ifg_ada_n": "c1e3966f85808df0cc67ea64043fd5d55ba3a2e93ed1d29144a1d77819cdcdca",
+      "geelong_ifg_ada_start_ifg_ada_probability": "1eec0d5b3a4032d3a48dd85250eb97fd934887fab7ce2125a09e73296a5b7ded",
+      "geelong_ifg_ada_start_n": "9747706e7046883efff3c6ae240120ab8aa98162694b0ac7515adecd5016ef86",
+      "geelong_ifg_ada_start_normoglycaemia_n": "225950a7dc6da3f134b047b5010b51e73720a9e5f7484bb358fcc9eeec4e7b93",
+      "geelong_ifg_ada_start_normoglycaemia_probability": "82f0f28b9a4b2bd7b89769e5dc75238dee802040f23f67dd5394b58fb06e7653",
+      "geelong_ifg_ada_start_source_diabetes_n": "56472a38fd96ff1f78c3d64d9b0041e0f724ef4aebcfbfe34c6e9ab2850e84bc",
+      "geelong_ifg_ada_start_source_diabetes_probability": "8aeb5f9df699165a04cba1237786d978e30c87a0169938caaf580a8163204190",
+      "geelong_normal_start_ifg_ada_n": "6e40f804c9f6baa2762ee5a9c7490de83e4a6060469b3b72fc58206774aab3be",
+      "geelong_normal_start_ifg_ada_probability": "b9630fdf52307a7ac85c867cd115a8f1f3a829c249e50ca7f3cacb3b74b3f6aa",
+      "geelong_normal_start_n": "5ba65b5c3b2f02a2abba774e76f72c3d14cae5d2ba93b3500b6b3fad6f10e149",
+      "geelong_normal_start_normoglycaemia_n": "0c4d5ca3658ef88282cccfc6df87671428f88991a15ebf6c4e92647de21b49e6",
+      "geelong_normal_start_normoglycaemia_probability": "60c71bbd4f026a5822fd827ba2c934c18a90d55453ac38ca3fb432ddef4cada4",
+      "geelong_normal_start_source_diabetes_n": "128b93ab9926451723a5c3d45564646316e33ea6cc28993ba9074bcb0277bdec",
+      "geelong_normal_start_source_diabetes_probability": "0e3b271ee156e83df20ce65570d5367f43f9a5103c8f3d912e45cc7b74fb7190",
+      "geelong_paired_assessed_n": "ee8953d2dd4d2003366de5661986f87a026b516dc37c0dc629a43015388bc4b1",
+      "geelong_progression_analysis_n": "c122a7b33c32f9c6834affb16d175f8a43df7078339bae17e401b8b31fc11a76"
+    },
+    "participant_records_exported": false,
+    "participant_records_used": false,
+    "protocol_sha256": "8f78812f4bfee128bdf1fc463095b940edd7c952d1f4b02c31a84f8002fae6da",
+    "registered_working_intervals_reproduced": true,
+    "registry_sha256": "b75547060262dd2112ab29761dfe4211031ae7587d3b10872861e749827a9fc0",
+    "source_id": "geelong2025_label_publication",
+    "source_sha256": "57bc7d59361358c1c05ba28032d1feff56c8e467d55cbb354dc6d5b62dbddb22",
+    "source_size_bytes": 130619
+  },
+  "retained_full_requirements": [
+    "Observation-to-clinical-state mapping",
+    "Compatible linked clocks and ascertainment/history/treatment/stopping",
+    "Identifiable progression/reversal and state-sensitive mortality",
+    "Joint clinical uncertainty and independent trajectory evaluation",
+    "Dietary exposure/dose/lag/causal identification",
+    "National initialization and transport"
+  ],
+  "schema_version": 1,
+  "scientific_disposition": {
+    "annual_generator_identified": false,
+    "clinical_transition_fit_allowed": false,
+    "diagnosed_remission_identified": false,
+    "dietary_effect_identified": false,
+    "engine_activation_allowed": false,
+    "full_issue57_complete": false,
+    "full_issue58_complete": false,
+    "independent_validation": false,
+    "joint_death_missingness_coverage": false,
+    "observed_label_working_fit_allowed_after_source_reproduction": true,
+    "scientific_release_ready": false,
+    "us_transport_established": false
+  },
+  "scientific_release_ready": false,
+  "source_audit": {
+    "passed": true,
+    "registry_bundle_agreement": true,
+    "same_source_denominators_reconciled": true,
+    "selected_literals_reproduced": true
+  },
+  "source_audit_passed": true,
+  "working_fit": {
+    "assumptions": [
+      "Independent observations within each selected baseline row",
+      "A common marginal row probability for the published timing/age/selection mixture",
+      "Conditional independence of the two disjoint baseline groups given their row totals"
+    ],
+    "assumptions_empirically_established": false,
+    "clinical_transition_model": false,
+    "conditional_row_totals": true,
+    "family": "conditional_row_multinomial",
+    "joint_log_likelihood_at_mle": {
+      "status": "finite",
+      "value": -9.35601493947
+    },
+    "normalization": "Both row multinomial coefficients are retained",
+    "probabilities_at_mle": {
+      "ifg_ada_start": {
+        "ifg_ada": 0.29347826087,
+        "normoglycaemia": 0.478260869565,
+        "source_diabetes": 0.228260869565
+      },
+      "normal_start": {
+        "ifg_ada": 0.0987654320988,
+        "normoglycaemia": 0.867283950617,
+        "source_diabetes": 0.033950617284
+      }
+    },
+    "row_log_likelihood_at_mle": {
+      "ifg_ada_start": {
+        "status": "finite",
+        "value": -4.64729959286
+      },
+      "normal_start": {
+        "status": "finite",
+        "value": -4.7087153466
+      }
+    }
+  },
+  "working_fit_performed": true
+}

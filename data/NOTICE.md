@@ -2,7 +2,7 @@
 
 Demeter's MIT license covers its code and original documentation. It does not
 relicense source data, articles, logos, or restricted records. The machine-readable
-[rights inventory](rights.json) identifies all 52 archived artifacts and the
+[rights inventory](rights.json) identifies all 53 archived artifacts and the
 fetch-only clinical articles by URL, publisher, vintage, retrieval time, checksum,
 privacy class and citation. Its policies distinguish download, transformation
 and redistribution conditions. These are packaging decisions; the linked source
@@ -177,6 +177,18 @@ limited attributed aggregate analysis from Vistisen et al. (2019), DOI
 Full article/ESM PDFs remain fetch-only. Published observations and Demeter's
 conditional binomial interval are identified separately; this does not grant
 access to controlled Whitehall participant records.
+
+The [Geelong paired-label package](../docs/GEELONG_LABEL_OBSERVATIONS.md) includes
+the unmodified Harland JW et al. (2025) publication XML,
+[doi:10.1155/jdr/9926306](https://doi.org/10.1155/jdr/9926306), retrieved through
+Europe PMC. Copyright © 2025 Jacob W. Harland et al. The literal article notice
+permits use, distribution and reproduction under Creative Commons Attribution
+with citation; it specifies no version, and Demeter does not invent one. Keep
+the original copyright/license notice and attribution. Selected derived aggregate
+facts retain their source citation and benchmark-only scope. Publication reuse
+does not grant access to participant records. The recorded clinical-source
+identity points to this reviewed archive, rather than authorizing any other
+registry article to be redistributed.
 
 Before adding data, review contents, privacy classification, exact terms,
 rights holder and attribution. Add reviewed rights, receipt, registry and package

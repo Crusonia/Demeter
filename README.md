@@ -206,7 +206,7 @@ Core equations use transparent NumPy arrays. BPTK-Py remains available for later
 
 ## Source data travel with the model
 
-The repository contains 52 public source files: baseline and historical inputs,
+The repository contains 53 public source files: baseline and historical inputs,
 NHANES survey files, official JSON snapshots, and the NCHS healthspan method
 reference, plus the derived bundles. The [frozen mortality evaluation](docs/MORTALITY_VALIDATION.md)
 adds a reproducible reserved-cycle prediction check without changing active health parameters. See the
@@ -297,6 +297,14 @@ published FPG labels and evaluates a conditional binomial working likelihood.
 It offers a descriptive-only mode and explains why a follow-up proportion cannot
 identify annual transition rates. All inputs remain benchmark-only; clinical
 sampling adequacy, diagnosis/history, timing and U.S. transport remain unresolved.
+
+The [Geelong paired-label package](docs/GEELONG_LABEL_OBSERVATIONS.md) adds two
+published starting rows with three mutually exclusive follow-up labels each.
+Run `uv run demeter evidence geelong-labels --output outputs/geelong-labels.json`
+offline to reproduce the counts, conditional multinomial working fit and dependent
+category uncertainty; `--descriptive-only` omits inference. The source publication
+is archived with attribution. These labels identify no annual clinical rates,
+untreated remission or dietary effect; active simulations remain validation-only.
 
 Optional [dietary timing experiments](docs/DIET_DYNAMICS.md) add scheduled changes,
 fading exposure memory, independent recovery lags and timing sensitivity. Run

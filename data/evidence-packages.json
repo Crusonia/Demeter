@@ -965,7 +965,7 @@
         },
         {
           "path": "docs/validation/joint-glycemic-uncertainty.json",
-          "sha256": "5e9485a52a2d1b520b38f90bee8e99bd84c6a7c8aac4ea2d2f77541f67981097"
+          "sha256": "f6d76b4440d10ec74a755db576dc1f9c69da8b53f2ffde3fd067a6a097c4301e"
         },
         {
           "path": "docs/validation/joint-glycemic-uncertainty-before-after.json",
@@ -983,6 +983,68 @@
       ],
       "model_role": "benchmark_only",
       "redistribution": "Derived aggregate covariance and metadata from the existing four CDC/NCHS NHANES public-use files; retain upstream terms, attribution and non-endorsement notices. Demeter transforms are MIT; no individual records or joined person-level output."
+    },
+    "geelong_label_pairs": {
+      "store": "geelong_label_pairs",
+      "dependencies": [],
+      "registry_datasets": [
+        "geelong_label_pairs"
+      ],
+      "registry_parameters": [
+        "geelong_baseline_diabetes_n",
+        "geelong_ifg_ada_start_ifg_ada_n",
+        "geelong_ifg_ada_start_ifg_ada_probability",
+        "geelong_ifg_ada_start_n",
+        "geelong_ifg_ada_start_normoglycaemia_n",
+        "geelong_ifg_ada_start_normoglycaemia_probability",
+        "geelong_ifg_ada_start_source_diabetes_n",
+        "geelong_ifg_ada_start_source_diabetes_probability",
+        "geelong_normal_start_ifg_ada_n",
+        "geelong_normal_start_ifg_ada_probability",
+        "geelong_normal_start_n",
+        "geelong_normal_start_normoglycaemia_n",
+        "geelong_normal_start_normoglycaemia_probability",
+        "geelong_normal_start_source_diabetes_n",
+        "geelong_normal_start_source_diabetes_probability",
+        "geelong_paired_assessed_n",
+        "geelong_progression_analysis_n"
+      ],
+      "artifacts": [
+        {
+          "path": "docs/validation/geelong-label-protocol-v1.json",
+          "sha256": "8f78812f4bfee128bdf1fc463095b940edd7c952d1f4b02c31a84f8002fae6da"
+        },
+        {
+          "path": "docs/validation/geelong-label-intake-receipt-v1.json",
+          "sha256": "6d8c37d28bdb4cd08b3abeb3a22fa961c095e443ba8834c8d4aae76c202744b6"
+        },
+        {
+          "path": "src/demeter/data/bundled/geelong_label_pairs.json",
+          "sha256": "2f72b23364cdd64f39a1b95aec68ce4434a096d5085a999a556bc55b84c0fbf3"
+        },
+        {
+          "path": "docs/GEELONG_LABEL_OBSERVATIONS.md",
+          "sha256": "454b793461ca20dbfd0400c31175d4f958305100ed611e659201199ebf8671bf"
+        },
+        {
+          "path": "docs/validation/issue-57-geelong-labels.json",
+          "sha256": "e532de1cc6d520741b05fb9c90a7907b18e66c8843a1f3f519e84c34401f29f9"
+        },
+        {
+          "path": "docs/validation/geelong-labels-before-after.json",
+          "sha256": "70047627828b2819fb0f5f93d0ff099f4687b263c8aff2c989288ab940dd4cde"
+        }
+      ],
+      "transform_files": [
+        "src/demeter/analysis/geelong_labels.py",
+        "scripts/verify_geelong_labels.py"
+      ],
+      "rebuild": [
+        "uv run demeter evidence geelong-labels --output outputs/geelong-labels.json",
+        "uv run python scripts/verify_geelong_labels.py"
+      ],
+      "model_role": "benchmark_only",
+      "redistribution": "Unmodified publication XML with its literal Creative Commons Attribution notice (version unspecified), citation and source receipt; selected attributed aggregate counts and derived working uncertainty. No participant records, annual clinical rates or active engine inputs; Demeter does not relicense source content."
     }
   },
   "supporting_artifacts": [

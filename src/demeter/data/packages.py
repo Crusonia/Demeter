@@ -48,13 +48,21 @@ class SourceRights(StrictModel):
 
 
 class ExternalRights(SourceRights):
-    distribution: Literal["fetch_only"]
+    distribution: Literal["fetch_only", "archived"]
     alternative: str = Field(min_length=1)
+    archive_path: str | None = None
+
+    @model_validator(mode="after")
+    def explicit_archive(self):
+        if (self.distribution == "archived") != bool(self.archive_path):
+            raise ValueError("Archived registry sources require exactly one archive path")
+        return self
 
 
 class DocumentationRights(ExternalRights):
     """Fetch-only inspection documents, separate from empirical parameters."""
 
+    distribution: Literal["fetch_only"]
     cache_filename: str = Field(min_length=1)
     final_url: str = Field(pattern=r"^https://")
     size_bytes: int = Field(strict=True, gt=0)
@@ -318,6 +326,22 @@ def verify_packages(
             and item.retrieved_at == source.retrieved_at,
             source=source_id,
         )
+        if item.distribution == "archived":
+            archived = rights.source_files.get(item.archive_path)
+            matches = (
+                item.archive_path in expected_sources
+                and archived is not None
+                and archived.policy == item.policy
+                and archived.url == source.url
+                and archived.sha256 == source.sha256
+                and archived.retrieved_at == source.retrieved_at
+                and PurePosixPath(item.archive_path).name == source.raw_filename
+            )
+            check("clinical_archive_reference", matches, source=source_id)
+            if matches:
+                record = next(row for row in sources if row.get("path") == item.archive_path)
+                record.setdefault("registry_source_ids", []).append(source_id)
+            continue
         sources.append(
             {
                 "source_id": source_id,
@@ -394,6 +418,7 @@ def verify_packages(
             ".pdf",
             ".html",
             ".htm",
+            ".xml",
             ".json",
             ".zip",
         }
@@ -403,7 +428,11 @@ def verify_packages(
                 check(
                     "fetch_only_not_tracked",
                     digest(file.read_bytes())
-                    not in {s.sha256 for s in registry.sources.values()}
+                    not in {
+                        registry.sources[key].sha256
+                        for key, item in rights.clinical_sources.items()
+                        if item.distribution == "fetch_only" and key in registry.sources
+                    }
                     | {s.sha256 for s in rights.documentation_sources.values()},
                     path=name,
                 )
@@ -435,6 +464,6 @@ def verify_packages(
         "packages": {key: p.model_dump() for key, p in packages.packages.items()},
         "checks": checks,
         "interpretation": "Checks recorded provenance, terms and inventory; not legal certification, "
-        "a PII detector, or scientific validation. Raw clinical articles are "
-        "fetch-only and are not required for this offline package audit.",
+        "a PII detector, or scientific validation. Fetch-only articles need no raw bytes; "
+        "explicitly permitted publication archives are checked against their manifests.",
     }

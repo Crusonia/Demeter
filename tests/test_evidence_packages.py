@@ -111,9 +111,9 @@ def test_real_packages_cover_every_source_and_bundle_without_network(monkeypatch
     monkeypatch.setattr("urllib.request.urlopen", no_network)
     report = verify_packages()
     assert report["passed"], [c for c in report["checks"] if not c["passed"]]
-    assert len(report["sources"]) == 76
-    assert len(report["artifacts"]) == 106
-    assert len(report["packages"]) == 28
+    assert len(report["sources"]) == 77
+    assert len(report["artifacts"]) == 112
+    assert len(report["packages"]) == 29
     assert not report["network_used"]
     assert report["documentation"]["metadata_passed"]
     assert len(report["documentation"]["source_checks"]) == 15
@@ -246,6 +246,7 @@ def test_cyclic_package_dependencies_are_rejected(package_root):
     "name",
     [
         "patients.csv",
+        "publication.xml",
         ".github/patients.json",
         "web/measurements.json",
         "data/raw/private.txt",
@@ -310,6 +311,92 @@ def test_fetch_only_article_bytes_are_rejected_even_when_renamed(package_root, m
         lambda *a, **k: SimpleNamespace(stdout=name.encode() + b"\0"),
     )
     assert failed(verify_packages(package_root, check_tracked=True), "fetch_only_not_tracked")
+
+
+@pytest.fixture
+def archived_registry_source(package_root):
+    """Link a reviewed archive to its registry identity without duplicating bytes."""
+    source_path = "data/sources/toy/source.csv"
+    source_rights = json.loads((package_root / "data/rights.json").read_bytes())["source_files"][
+        source_path
+    ]
+    registry_path = package_root / "evidence/parameters.yaml"
+    registry = yaml.safe_load(registry_path.read_text())
+    registry["sources"] = {
+        "toy_publication": dict(
+            **{key: source_rights[key] for key in ("url", "sha256", "retrieved_at")},
+            citation="Synthetic publication",
+            doi="test",
+            raw_filename="source.csv",
+            license="Synthetic permitted archive",
+        )
+    }
+    registry_path.write_text(yaml.safe_dump(registry))
+    edit(
+        package_root,
+        "data/rights.json",
+        lambda d: d["clinical_sources"].update(
+            toy_publication=dict(
+                **source_rights,
+                distribution="archived",
+                archive_path=source_path,
+                alternative="Use reviewed aggregate archive",
+            )
+        ),
+    )
+    return package_root
+
+
+def test_permitted_registry_archive_is_verified_once(archived_registry_source, monkeypatch):
+    monkeypatch.setattr(
+        "demeter.data.packages.subprocess.run",
+        lambda *a, **k: SimpleNamespace(stdout=b"data/sources/toy/source.csv\0"),
+    )
+    result = verify_packages(archived_registry_source, check_tracked=True)
+    assert result["passed"]
+    assert len(result["sources"]) == 1
+    assert result["sources"][0]["registry_source_ids"] == ["toy_publication"]
+
+
+@pytest.mark.parametrize(
+    "changes",
+    [{"archive_path": None}, {"distribution": "fetch_only"}],
+)
+def test_archive_declaration_must_be_explicit(archived_registry_source, changes):
+    edit(
+        archived_registry_source,
+        "data/rights.json",
+        lambda d: d["clinical_sources"]["toy_publication"].update(changes),
+    )
+    with pytest.raises(ValueError, match="archive path"):
+        verify_packages(archived_registry_source)
+
+
+@pytest.mark.parametrize(
+    "field,value",
+    [
+        ("archive_path", "data/sources/toy/other.csv"),
+        ("sha256", "0" * 64),
+        ("url", "https://example.org/other"),
+    ],
+)
+def test_registry_archive_identity_cannot_drift(archived_registry_source, field, value):
+    edit(
+        archived_registry_source,
+        "data/rights.json",
+        lambda d: d["clinical_sources"]["toy_publication"].update({field: value}),
+    )
+    assert not verify_packages(archived_registry_source)["passed"]
+
+
+def test_archive_bytes_are_not_permission_for_another_path(archived_registry_source, monkeypatch):
+    root = archived_registry_source
+    (root / "unreviewed.xml").write_bytes((root / "data/sources/toy/source.csv").read_bytes())
+    monkeypatch.setattr(
+        "demeter.data.packages.subprocess.run",
+        lambda *a, **k: SimpleNamespace(stdout=b"unreviewed.xml\0"),
+    )
+    assert failed(verify_packages(root, check_tracked=True), "tracked_data_allowlist")
 
 
 @pytest.fixture
