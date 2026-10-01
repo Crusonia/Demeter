@@ -141,6 +141,22 @@ Under what evidence-backed assumptions can production practices alter food compo
 ### Food is Health policy bundle
 What happens when reimbursement, food pricing, agricultural incentives, food formulation, and adoption behavior change together?
 
+### Land competition, productivity and changing food demand
+
+Compare solar/wind, data-center and urban-development siting/footprints with
+retained agriculture and co-use. Test product-specific productivity and loss
+changes, GLP-1 uptake/persistence and category substitution, and contracts versus
+ownership integration under equivalent nutrient specifications, then separately
+test nutrient-focused product/recipe mixes with adequacy and budget constraints.
+Show regional
+food/nutrient capacity and farm/tenant/community outcomes alongside national
+totals. Family ownership and commercial scale are separate dimensions.
+
+These are future learning exercises, not runnable scenarios or an optimizer.
+The [land-use design brief](design/07_LAND_USE_AND_NUTRITION_TRADES.md) records
+Q-05/RM-06, L-16/L-17/P-06/P-07, I-13 and F-09/T-09, sources and unresolved inputs.
+The v0.1 health gate still precedes agricultural and market implementation.
+
 ## Implementation maturity path
 
 1. **Single-module scenarios** — health exposure variables only.

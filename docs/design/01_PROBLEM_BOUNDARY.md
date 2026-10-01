@@ -11,6 +11,7 @@ Status: design premises for the future integrated model. Start with the
 | Q-02 | A processor, distributor, retailer, or household supports a specified real-food basket. | How price, availability, substitution, persistence, and capacity affect adoption and margins across the chain. |
 | Q-03 | A provider, payer, employer, or public program targets a defined PreChronic population. | Whether sustained intervention changes progression, net healthcare costs, and the incentive to keep funding prevention. |
 | Q-04 | An actor finances a pilot, measurement system, contract, or capacity change. | Which uncertainty or bottleneck matters, who can act on the information, and whether a viable payment mechanism exists. |
+| Q-05 | A landowner, producer, food buyer or regional planner compares development, retained production, co-use and supply/demand changes. | Whether delivered food/nutrient capacity changes nationally or locally; who captures income and who bears risk or uncompensated loss. See [land-use brief](07_LAND_USE_AND_NUTRITION_TRADES.md). |
 
 The goal is to explain conditional behavior and locate consequential levers.
 Do not begin by selecting a desired return, cost reduction, or optimal policy.
@@ -28,6 +29,7 @@ definitions, draw the patterns, and record competing explanations first.
 | RM-03 | Do shortages, waste, or prices fluctuate as demand and capacity adjust? | Inventories, orders, spoilage, lead times, investment commitments, installed capacity, and utilization. |
 | RM-04 | When do health and payer-cost effects appear after earlier-risk intervention? | Defined eligibility, enrollment/attrition, exposures, progression, utilization, net program cost, and payer membership over time. |
 | RM-05 | Do environmental or knowledge spillovers change with adoption? | Baseline and counterfactual physical loads, exposed recipients, or knowledge reuse, including displacement elsewhere. |
+| RM-06 | Do cumulative land conversion, product-specific productivity and changing food demand create shortages or local losses despite a national buffer? | Consistent regional land-use flows, land/water quality, retained production/co-use, edible delivery, demand mix, prices, tenure and succession; distinguish physical conversion from reporting changes. |
 
 No trajectory above has been established as Demeter's empirical reference mode.
 The current mortality/population and historical bundles do not establish the
