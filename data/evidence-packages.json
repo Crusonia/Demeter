@@ -1102,7 +1102,7 @@
     },
     {
       "path": "docs/PUBLIC_LONGITUDINAL_DATA_REQUIREMENTS.md",
-      "sha256": "0318f69df202e1bf70c30e5726bbfeac0a2f0eeb3081a63240fa75658c98f1f2"
+      "sha256": "9bf6ae18966ff1aa059e53de1620ef1c3da6dffed41ea5fc9dae302755369c72"
     },
     {
       "path": "docs/PUBLIC_LONGITUDINAL_ADMISSION.md",
@@ -1130,11 +1130,15 @@
     },
     {
       "path": "docs/IPOP_SOURCE_COVERAGE.md",
-      "sha256": "d33811e13202dc876c3960dd4cc9d938754b02071ec03255fb3b92f0aa52c35d"
+      "sha256": "f8168efb9d929afed13bfe36a5b613bcf0f623f830ec041374b51b1a62ab0d4a"
     },
     {
       "path": "docs/validation/ipop-schema-receipts-v1.json",
       "sha256": "91088682c39ff7339d5daaa5b3a1d4fbe69f9f0aadccc6e542d9414654857364"
+    },
+    {
+      "path": "docs/validation/ipop-public-provenance-correction-v1.json",
+      "sha256": "6278390527f9cbbbc1bf444890a5d44dc089610d78afd5c94b1ac25a64ea9ec2"
     }
   ]
 }

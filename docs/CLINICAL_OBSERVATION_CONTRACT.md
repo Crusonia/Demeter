@@ -20,9 +20,13 @@ clinical fits remain unsupported under the public-source route.
 The [Stanford iPOP source appraisal](IPOP_SOURCE_COVERAGE.md) verifies selected
 headers, producer operations and assay-name identity. It records full binary
 acquisition separately from limited inspection, including a failed text-request
-scope exception. A native-cohort laboratory panel remains a candidate; derivative
-units/rawness, collection clocks and public-release membership are unverified.
-No clinical source admission or fit follows from that schema review.
+scope exception. Subsequent review of Zheng et al. (2022) establishes public
+provenance for the named derivative. A native-cohort laboratory-panel intake is
+possible under predeclared measurement and relative-day assumptions; rawness,
+specimen association and actual record coverage still need assessment. Unknown
+additive clock origin alone does not block within-person elapsed differences.
+No clinical fit, diagnosed-state mapping or national activation follows from this
+appraisal.
 
 The [Whitehall II endpoint implementation](WHITEHALL_ENDPOINT.md) reproduces
 published source labels and evaluates a conditional iid binomial working

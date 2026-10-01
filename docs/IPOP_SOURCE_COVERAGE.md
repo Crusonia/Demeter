@@ -29,12 +29,23 @@ measurements must not automatically be assigned to that public release.
 
 The first study's public-data statement describes CC0 data and MIT software.
 The derivative [TemporalMultiomicsDiabetes repository](https://github.com/gmiaslab/TemporalMultiomicsDiabetes/tree/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c)
-has a MIT code license. These statements support a candidate public-data route;
-they do not establish that every derivative record belongs to the public-consent
-subset, verify its cutoff, or grant rights for an unverified copy. The inspected
+has a MIT code license. More directly, [Zheng et al. (2022)](https://pmc.ncbi.nlm.nih.gov/articles/PMC9284494/),
+Methods “Summary of cohort details and data” and Data availability, identifies
+the original authors' publicly available Stanford data and explicitly names this
+repository and Zenodo DOI `10.5281/zenodo.6751960` as its released analysis files.
+Together with the pinned README's source mapping, this establishes credible
+author-declared public provenance for the named derivative release. Independently
+certifying every person's consent is not an additional gate to its research use.
+
+The [provenance correction](validation/ipop-public-provenance-correction-v1.json)
+supersedes the earlier unresolved-public-membership interpretation while preserving
+the original frozen protocol and acquisition receipts. It does not certify an
+unverified copy, expand the public HMP release through 2018 or establish raw assay
+values. Exact calendar coverage remains a descriptive question; it need not block
+an analysis confined to the author-declared public derivative. The inspected
 commit is `ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c`, with root tree
-`021c4dfe091d3e554b3173711ab01fc06da15141`. It is not silently equated with a
-separate Zenodo release/tag.
+`021c4dfe091d3e554b3173711ab01fc06da15141`. Its bytes are not silently equated
+with the separately identified Zenodo release/tag.
 
 The [schema protocol](validation/ipop-schema-protocol-v1.json) was committed
 before the selected header requests. It is used-source documentation work:
@@ -64,7 +75,8 @@ committed. In `S0. Labs & Immune Proteins`, A4/B4 label the symbol/name columns;
 A5/B5 bind `A1C` to hemoglobin A1c and A24/B24 bind `GLU` to glucose. The selected
 schema has no assay-unit or platform columns. This verifies measure-name identity
 alongside the matching derivative headers; it does not establish derivative
-units, rawness, specimen validity or public-release membership.
+units, rawness or specimen validity. Public-source provenance rests on the
+author declarations above, rather than this assay-name table.
 
 The companion paper's Figure 2 caption reports HbA1c in percent and fasting/OGTT
 glucose in mg/dL. Those publication units are relevant context, not a verified
@@ -160,16 +172,30 @@ progression/reversal information beyond marginal endpoints. Exact biological
 onset dates, a national population and a diabetes-remission extension are not
 universal prerequisites for that restricted target.
 
-The immediate unresolved bindings are the eligible public release and
-consent/cutoff, derivative assay units/rawness and actual specimen clock. A
-source-specific numerical protocol must freeze selected fields and eligibility
-before testing subject/sample cardinality, missing/invalid codes and repeated
-observations. It must retain visit context, diagnosis/type history and treatment
-as separate documented or explicitly unknown quantities, with dependent claims
-excluded. It must specify the estimand, observed-to-state
-mapping, visit/selection alternatives, joint likelihood and uncertainty,
-identification diagnostics and evaluation plan. Scheduled visits must not be
-treated as the observed dates, and event visits must not be assumed ignorable.
+The author-declared public derivative is an eligible candidate for a narrowly
+defined intake; source-specific numerical selection still must be frozen before
+record inspection. Study HbA1c percent/FPG mg/dL context, matching assay names and
+producer loading before normalization support explicit measurement assumptions,
+not certification that upstream derivative values are raw assays. Likewise,
+`Days_Since_Start` and the producer's sample join supply a declared relative-day
+clock. An unknown additive origin cancels in within-person elapsed differences;
+it is not by itself a reason to reject that target. Actual collection association,
+resolution, upstream transformations and key cardinality remain to be assessed.
+
+Predeclare these assumptions and check the selected linked panel's missing/invalid
+codes, repeated samples and duplicate days before any fit. Preserve originals;
+do not silently infer units from value ranges, average repeated tests, invent
+dates or use scheduled visits as observed dates. Compare A1c-only and FPG-only
+measurement alternatives, and scheduled versus illness/event visit context where
+supported. If a required assumption cannot support the chosen estimand, report
+the failed gate rather than change it to obtain a desired result.
+
+Keep diagnosis/type history and treatment documented or explicitly unknown,
+excluding dependent claims. A later estimation protocol must specify the estimand,
+observation mapping, visit/selection alternatives, joint likelihood and uncertainty,
+identification diagnostics and evaluation plan. Event visits must not be assumed
+ignorable. These permissions do not extend to a diagnosed-state, mortality or
+national model merely because a conditional laboratory-panel intake is feasible.
 
 Death, withdrawal, last contact and administrative stopping remain unknown here.
 Those gaps block dependent competing-mortality or censoring calculations, without

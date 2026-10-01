@@ -1,0 +1,291 @@
+{
+  "schema_version": 1,
+  "status": "documentary_provenance_and_measurement_scope_correction",
+  "created_utc": "2026-10-01T20:27:57.270684+00:00",
+  "used_source": true,
+  "scope": "Author/public-producer declarations and public documentation only; no new participant data, count intake, clinical fitting, or engine change.",
+  "sources": {
+    "zheng2022_primary": {
+      "cache_path": "outputs/public-source-search-20261001/ipop-rights-methods-20261001T184840441123Z/zheng-2022-publication.xml",
+      "size_bytes": 144970,
+      "sha256": "1a492cb33b5ed7b5ed6f7df45243498418787c200f3f176e8edbe635b5684ddf",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9284494/fullTextXML",
+      "selected_locator": "JATS sec[@id=\"Sec3\"], direct first paragraph under Summary of cohort details and data; sec[@id=\"notes2\"] Data availability."
+    },
+    "zhou2019_primary": {
+      "cache_path": "outputs/public-source-search-20261001/ipop-primary-docs-20261001T185048324848Z/PMC6666404-publication.xml",
+      "size_bytes": 219638,
+      "sha256": "dff8a8f24e651a021030568f081db57305bb698cd7b49f3c7585a93716ce07b4",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6666404/fullTextXML",
+      "selected_locator": "JATS sec[@id=\"notes2\"] Data availability; sec[@id=\"notes3\"] Code availability."
+    },
+    "schussler2019_primary": {
+      "cache_path": "outputs/public-source-search-20261001/ipop-s0-schema-20261001T190439276050Z/companion-publication.html",
+      "size_bytes": 346308,
+      "sha256": "2d11d254ef4c28fe1549fe7e18cbc3f35ab7a912b6968ce4ac95cd7d0bbe5690",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6713274/",
+      "selected_locator": "HTML section#S21, direct h2 Data Availability and paragraph; Methods, Design, Setting and Participants paragraphs distinguish publication analytical availability from public release."
+    },
+    "pinned_derivative_readme": {
+      "cache_path": "outputs/public-source-search-20261001/ipop-metadata/README.md",
+      "size_bytes": 2723,
+      "sha256": "79c9bc9c57266e32736d3ad35e6eda3491ff0d84b16504f903b2c52c6a3a8f21",
+      "url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/README.md",
+      "selected_locator": "Directories and Files -> data; current repository declaration and References."
+    }
+  },
+  "original_receipt_references": [
+    {
+      "cache_path": "outputs/public-source-search-20261001/ipop-rights-methods-20261001T184840441123Z/receipts.json",
+      "size_bytes": 1564,
+      "sha256": "36601fbc4fdfd8e29499b581b9b237486ad51e2a7262b72113eb1a5dfbacc01d",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9284494/fullTextXML",
+      "selected_locator": "successful Zheng XML receipt; unsuccessful historical HMP documentation requests retained"
+    },
+    {
+      "cache_path": "outputs/public-source-search-20261001/ipop-primary-docs-20261001T185048324848Z/receipts.json",
+      "size_bytes": 967,
+      "sha256": "8325973df1e3bf15ffa07e330e2f9c6994015d996355bc80854867f9cc4c8cc6",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6666404/fullTextXML",
+      "selected_locator": "successful Zhou XML receipt; failed companion XML request retained"
+    },
+    {
+      "cache_path": "outputs/public-source-search-20261001/ipop-s0-schema-20261001T190439276050Z/assessment.json",
+      "size_bytes": 1913,
+      "sha256": "7576640a28d1540e151b45a1eefe4100f33aaa21dbbf562be69c77f51c4f6d2b",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6713274/",
+      "selected_locator": "receipts[0] binds unchanged companion HTML; failed supplemental workbook acquisition remains separate"
+    },
+    {
+      "cache_path": "outputs/public-source-search-20261001/ipop-metadata/receipts.json",
+      "size_bytes": 3657,
+      "sha256": "eb39f9d52f7cf3e9781a155d5a7c5b855e6b17abb1e7390753c9633b34a87911",
+      "url": "https://github.com/gmiaslab/TemporalMultiomicsDiabetes",
+      "selected_locator": "original pinned commit/tree/README/license acquisitions"
+    }
+  ],
+  "facts": [
+    {
+      "source": "zheng2022_primary",
+      "locator": "sec Sec3, first paragraph",
+      "paraphrase": "The derivative authors identify Zhou as their original data source, identify additional physiological measures from the companion study, and declare that all obtained data had been made publicly available by the original authors under Stanford IRB23602."
+    },
+    {
+      "source": "zheng2022_primary",
+      "locator": "sec notes2",
+      "paraphrase": "The derivative authors associate the original publicly available data with the Stanford iPOP site and declare that all data files used, code and results were released in the explicitly named gmiaslab/TemporalMultiomicsDiabetes repository and deposited at Zenodo DOI10.5281/zenodo.6751960 as Online Data Files."
+    },
+    {
+      "source": "pinned_derivative_readme",
+      "locator": "Directories and Files -> data",
+      "paraphrase": "The commit-pinned README associates the data directory with original/mapped Zhou data and metadata, with additional diabetes measures from the companion study."
+    },
+    {
+      "source": "zhou2019_primary",
+      "locator": "notes2 + notes3",
+      "paraphrase": "The original authors identify unrestricted public HMP2 and Stanford release routes, specify CC0 data and MIT software, and identify a dbGaP exome route. The MIT code license is distinct from the data declaration."
+    },
+    {
+      "source": "schussler2019_primary",
+      "locator": "S21 Data Availability",
+      "paraphrase": "Public HMP T2D materials include clinical laboratory data through2016; data from participants not consenting to public release are directed to dbGaP phs001719.v1.p1."
+    },
+    {
+      "source": "schussler2019_primary",
+      "locator": "Methods -> Design, Setting and Participants",
+      "paraphrase": "Publication clinical/survey availability through June2018 differs from multiomics availability through December2016 and from the main iHMP analysis cohort. Those later analytical measurements cannot automatically be assigned to the public2016 release."
+    }
+  ],
+  "assessment": {
+    "credible_author_declared_public_repository_lineage_supported": true,
+    "independent_per_participant_consent_recertification_required": false,
+    "reason": "An authoritative producer/author declaration associating a named released repository with eligible publicly released source data may establish source-level permission/provenance. The cited primary derivative declaration plus pinned README supports that association; missing consent fields must not become a universal additional gate.",
+    "literal_original_ClinicalLabResults_filename_binding_located": false,
+    "pinned_github_commit": "ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c",
+    "zenodo_identifier": "10.5281/zenodo.6751960",
+    "github_zenodo_byte_equivalence_verified": false,
+    "public_cutoff_statement": "through2016",
+    "exact_day_boundary_or_derivative_record_coverage_verified": false,
+    "rights_interpretation": "Source-level public lineage is supported by author declarations; no new per-record consent assertion or automatic extension to controlled dbGaP material is made. CC0 source-data and MIT code statements are kept separate.",
+    "source_scope_correction_only": true,
+    "participant_intake_performed": false,
+    "clinical_fit_performed": false,
+    "engine_activation_allowed": false,
+    "independent_validation": false
+  },
+  "live_documentation_check": {
+    "landing_receipts": {
+      "cache_path": "outputs/public-source-search-20261001/ipop-public-release-gate-20261001T202347337728Z/receipts.json",
+      "size_bytes": 1309,
+      "sha256": "32de6562a7afd6c1e98faf317b1447705e9616bb017ac75da88b3d2e2df7dfab",
+      "url": "https://med.stanford.edu/ipop.html",
+      "selected_locator": "both HTTP200 public HTML receipts"
+    },
+    "producer_deposition_receipt": {
+      "cache_path": "outputs/public-source-search-20261001/ipop-public-release-gate-20261001T202347337728Z/producer-deposition-receipt.json",
+      "size_bytes": 629,
+      "sha256": "f61ac99408c8e8f8853d6b390eb75a7c3fdcdb2930aa672d83811563b8f2bef9",
+      "url": "https://med.stanford.edu/ipop/data-download.html",
+      "selected_locator": "one HTTP200 public producer deposition page"
+    },
+    "producer_deposition_cache": {
+      "cache_path": "outputs/public-source-search-20261001/ipop-public-release-gate-20261001T202347337728Z/stanford-data-download.html",
+      "size_bytes": 52279,
+      "sha256": "200cb260bed59a3321fb92ba87dc5a8e97831ff5f587468cd7f3767a7869ac04",
+      "url": "https://med.stanford.edu/ipop/data-download.html",
+      "selected_locator": "Data Download heading and Please click here to access the data anchors advertise http://hmp2-data.stanford.edu; no linked data fetched"
+    },
+    "portal_scope": "Saved portal landing HTML is a JavaScript application shell; no entity records, rendered dataset manifest, or consent/cutoff fields were inspected.",
+    "old_domain": "Current unrelated hmpdacc.org response observed through web tool is not producer evidence. No further content or links were acquired.",
+    "default_network_failure_receipts": {
+      "cache_path": "outputs/public-source-search-20261001/ipop-public-release-gate-20261001T202317649224Z/receipts.json",
+      "size_bytes": 848,
+      "sha256": "164a718b8e78844d4a120586facb523f5e841b0f204c131e33a6df3cac5f3c55",
+      "url": "https://med.stanford.edu/ipop.html",
+      "selected_locator": "two URLError transport failures before separately authorized ordinary public documentation reads"
+    }
+  },
+  "remaining_clinical_bindings": [
+    "Exact derivative assay units/rawness and specimen validity are not established by the public-source lineage declaration.",
+    "SampleInfo Days_Since_Start supplies a declared relative-day clock under an explicit sample-collection assumption. Within-person elapsed differences do not require a known additive origin; specimen association/resolution and actual key coverage remain to be assessed under frozen intake.",
+    "The public through2016 declaration is not a verified calendar filter or a claim that the derivative contains later2018 measurements.",
+    "Visit context and future-informed classification remain distinct from glycemic labels and retained diagnosis/history.",
+    "Death, withdrawal and contact documentation are unresolved for dependent claims; exact individual death dates and national transport are not universal admission prerequisites for a restricted panel target."
+  ],
+  "next_action": "Use the author-declared public repository lineage in the source-specific protocol instead of an independent per-person consent certification requirement. Before numerical clinical intake, freeze the eligible named files/commit, selected laboratory/clock fields, unit/clock alternatives and failure dispositions. Do not equate the pinned GitHub bytes with Zenodo or infer file coverage from the later publication cohort.",
+  "chronology": [
+    "Original frozen schema protocols, source receipts and mixed-workbook exceptions remain unchanged.",
+    "This is an after-inspection documentary correction, not preregistration, a holdout or independent validation.",
+    "A broad HTML section match and a numerical-masking regex error incidentally printed already-used publication narrative/results. No selected numeric outcome intake, arithmetic or fitting followed; the later checks selected direct Data Availability sections.",
+    "Only public landing/deposition documentation bytes were newly acquired. No participant file or linked HMP data resource was fetched.",
+    "Review clarified the nested Zheng source locator to Sec3 within Methods; the original ignored appraisal and its hash remain unchanged."
+  ],
+  "assessment_id": "ipop_public_provenance_correction_v1",
+  "supersedes": "Earlier unresolved-public-membership interpretation in IPOP_SOURCE_COVERAGE.md; original schema protocol and source receipts remain immutable.",
+  "measurement_clock_appraisal": {
+    "schema_version": 1,
+    "completed_utc": "2026-10-01T20:25:46.833260+00:00",
+    "selection_path": "outputs\\public-source-search-20261001\\ipop-unit-clock-docs-20261001T202245Z\\selection.json",
+    "selection_sha256": "613250fc98ecd20196112afa358dd83449aee48e2131f66203e209f07c829d9c",
+    "task": "Documentation-only unit/rawness and clock-binding appraisal; not numerical intake or clinical eligibility certification",
+    "acquisition_this_task": {
+      "participant_files": false,
+      "publication_or_code_bytes_newly_acquired": false,
+      "used_cached_publication_xml_and_filtered_code": true,
+      "web_representation_reads": "Official Stanford iPOP page and primary publication methods/find surfaces; failed hmp2-data ordinary open and PMC9284494 browser-check preserved in tool outputs; no bypass or retries"
+    },
+    "sources": [
+      {
+        "path": "ipop-primary-docs-20261001T185048324848Z/PMC6666404-publication.xml",
+        "sha256": "dff8a8f24e651a021030568f081db57305bb698cd7b49f3c7585a93716ce07b4",
+        "locator": "Methods Sec11: Multivariate data analysis, Healthy baseline variance decomposition, Associations with time; notes2 Data availability and notes3 Code availability"
+      },
+      {
+        "path": "ipop-rights-methods-20261001T184840441123Z/zheng-2022-publication.xml",
+        "sha256": "1a492cb33b5ed7b5ed6f7df45243498418787c200f3f176e8edbe635b5684ddf",
+        "locator": "JATS sec[@id=\"Sec3\"]: Summary of cohort details and data, within Methods; sec[@id=\"notes2\"]: Data availability"
+      },
+      {
+        "path": "ipop-metadata/README.md",
+        "sha256": "79c9bc9c57266e32736d3ad35e6eda3491ff0d84b16504f903b2c52c6a3a8f21",
+        "locator": "data section and primary study references"
+      },
+      {
+        "path": "ipop-code-only-20261001T184728519576Z/Single-subject-analysis.code-only.json",
+        "sha256": "9da0651e14650de9fff223a27facffd1e12c35c0d5caf124174b0695194f1ac8",
+        "locator": "Original JSON code cells2-4,6,9 selected expressions only"
+      },
+      {
+        "path": "ipop-code-only-20261001T184728519576Z/Multi-subject-similarity-analysis.code-only.json",
+        "sha256": "3a6f2e96195ef6fc1405b73afc47063beeea3bbeb9198f74913c30ace2d9ed33",
+        "locator": "Original JSON code cells3-5,7,10,23 selected expressions only"
+      }
+    ],
+    "lineage": {
+      "directly_supported": "Zheng Methods names original publicly released Zhou and Schussler-Fiorenza Rose data under Stanford IRB23602; Data availability explicitly binds all files used in that analysis to gmiaslab/TemporalMultiomicsDiabetes and Zenodo6751960. README binds the derivative data to those studies.",
+      "restriction": "Pinned commit identity is exact; Zenodo tag equivalence not assumed. No per-person consent certification required as an additional invented gate for this producer-advertised public derivative."
+    },
+    "clock": {
+      "code_confirmed": [
+        "Single cell3 lines3-5 and multi cell4 lines3-5 drop original clinical CollectionDate and rename VisitID to SampleID.",
+        "Single cell4 lines6-8 and multi cell5 lines6-8 rename SampleInfo Days_Since_Start to CollectionDate then cast int.",
+        "Single cell6/multi cell7 join on SampleID; single cell9/multi cell10 sort/index that clock. Original clinical CollectionDate is never parsed.",
+        "Zheng Methods describes irregular observed-visit time series and observation windows in days."
+      ],
+      "supported_conditional_interpretation": "Native within-person elapsed day clock attached to sample-linked visits, assuming SampleInfo day values represent actual collection visits consistently. Unknown per-person additive origin cancels in differences; calendar origin or precise biological onset is not universally required.",
+      "unresolved": [
+        "No inspected dictionary or mapping script explicitly states Days_Since_Start derivation/resolution or differentiates planned versus specimen collection time.",
+        "No code key-cardinality validation, clinical-to-sample time agreement, duplicate-day handling or year conversion verified."
+      ],
+      "safe_scope": "Do not replace reported day values with nominal quarterly schedules, use integer conversion to repair dates, or infer biological event dates."
+    },
+    "measurements": {
+      "directly_supported": [
+        "Existing selected S0 binds A1C to Hemoglobin A1C and GLU to Glucose; no S0/header reinspection this task.",
+        "Primary companion Figure2 gives HbA1c percent and fasting/OGTT glucose mg/dL; Methods declares overnight fasting tests.",
+        "Derivative code loads clinical_tests input and joins it before downstream generic numeric coercion and signal normalization.",
+        "Original study Methods processes common matrices and names multiple analysis-specific standardizations; it does not explicitly certify derivative clinical inputs untransformed."
+      ],
+      "supported_conditional_interpretation": "Published study units plus analyte identity and producer input lineage justify a predeclared raw-laboratory-scale assumption for a native-cohort lab-proxy analysis. This is a scientific measurement assumption, not exact unit/rawness verification from values.",
+      "unresolved": [
+        "Upstream derivative extraction/mapping of ClinicalLabResults to clinical_tests values not explicitly documented in inspected source.",
+        "No explicit per-field derivative assay/platform/unit declaration or statement that no upstream clinical scaling/log/normalization occurred."
+      ],
+      "safe_scope": "Do not apply raw clinical thresholds to PyIOmica normalized/frequency/result outputs; do not infer units from numeric ranges."
+    },
+    "next_numerical_selection_recommendation": {
+      "supported": true,
+      "target": "Native-cohort linked laboratory-proxy panel conditional on the documented/declared observation process; no national or causal transport.",
+      "before_execution": "Root must freeze source-specific numerical selection and measurement/clock assumptions before any further record inspection.",
+      "selected_surface": "A1C/GLU and declared missing markers from clinical_tests; SubjectID/VisitID linkage; SampleInfo SampleID/Days_Since_Start/visit-context; keep original CollectionDate opaque until separately bound. Source code-normalized outputs excluded.",
+      "first_evaluation": "Source-linked cardinality, repeated/duplicate day preservation, invalid/missing-code coverage and actual observed schedule/context before conditional longitudinal proxy likelihood.",
+      "alternatives": [
+        "A1C-only versus fasting-glucose-only emission definitions rather than silently merging unlike assays.",
+        "Scheduled/healthy-context versus additional illness/event observations, with explicit selection/visit-process assumptions.",
+        "Preserve same-day laboratory observations; distinct assay/platform uncertainty is not resolved by dropping duplicates."
+      ],
+      "dependent_claims_blocked": [
+        "Known diagnosed/type2-history absorbing state cannot be inferred from whole-follow-up Class or a single high laboratory result.",
+        "Treatment-free biological reversal, mortality/censoring, national rates, isolated diet effect and engine activation are not supported here."
+      ]
+    },
+    "used_source_chronology": "Coverage/README/headers/S0 and selected producer code were already inspected before this task. New selection was written before additional cached methods/code expression inspection. Whole Methods XML traversal and broad web find/search rendering exposed publication cohort/summary numbers and pseudonymous examples incidentally; no record rows or outcome counts were selected/transcribed/calculated. This is used-source research, not blinded validation or preregistration.",
+    "clinical_values_inspected": false,
+    "participant_rows_inspected": false,
+    "fitting_performed": false,
+    "engine_activation_allowed": false
+  },
+  "candidate_artifact_provenance": [
+    {
+      "path": "outputs/public-source-search-20261001/ipop-public-release-gate-20261001T202347337728Z/source-provenance-correction-candidate-v1.json",
+      "sha256": "404b6d3c4bfc5ff59b9a0253e7a009619e5f88820cea349c4a21d1d968577f47"
+    },
+    {
+      "path": "outputs/public-source-search-20261001/ipop-unit-clock-docs-20261001T202245Z/findings.json",
+      "sha256": "a365c0909b6441cb3be03592068975c19d0fe23a78063649c9f2397882472947"
+    }
+  ],
+  "offline_cache_checks": {
+    "successful": true,
+    "artifacts_checked": 17,
+    "paths": [
+      "outputs\\public-source-search-20261001\\ipop-rights-methods-20261001T184840441123Z\\zheng-2022-publication.xml",
+      "outputs\\public-source-search-20261001\\ipop-primary-docs-20261001T185048324848Z\\PMC6666404-publication.xml",
+      "outputs\\public-source-search-20261001\\ipop-s0-schema-20261001T190439276050Z\\companion-publication.html",
+      "outputs\\public-source-search-20261001\\ipop-metadata\\README.md",
+      "outputs\\public-source-search-20261001\\ipop-rights-methods-20261001T184840441123Z\\receipts.json",
+      "outputs\\public-source-search-20261001\\ipop-primary-docs-20261001T185048324848Z\\receipts.json",
+      "outputs\\public-source-search-20261001\\ipop-s0-schema-20261001T190439276050Z\\assessment.json",
+      "outputs\\public-source-search-20261001\\ipop-metadata\\receipts.json",
+      "outputs\\public-source-search-20261001\\ipop-public-release-gate-20261001T202347337728Z\\receipts.json",
+      "outputs\\public-source-search-20261001\\ipop-public-release-gate-20261001T202347337728Z\\producer-deposition-receipt.json",
+      "outputs\\public-source-search-20261001\\ipop-public-release-gate-20261001T202347337728Z\\stanford-data-download.html",
+      "outputs\\public-source-search-20261001\\ipop-public-release-gate-20261001T202317649224Z\\receipts.json",
+      "outputs\\public-source-search-20261001\\ipop-primary-docs-20261001T185048324848Z\\PMC6666404-publication.xml",
+      "outputs\\public-source-search-20261001\\ipop-rights-methods-20261001T184840441123Z\\zheng-2022-publication.xml",
+      "outputs\\public-source-search-20261001\\ipop-metadata\\README.md",
+      "outputs\\public-source-search-20261001\\ipop-code-only-20261001T184728519576Z\\Single-subject-analysis.code-only.json",
+      "outputs\\public-source-search-20261001\\ipop-code-only-20261001T184728519576Z\\Multi-subject-similarity-analysis.code-only.json"
+    ]
+  }
+}
