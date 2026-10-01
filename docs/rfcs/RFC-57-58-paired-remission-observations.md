@@ -53,6 +53,26 @@ Normal glycemia and remission never erase diagnosed-T2D history.
 
 ## Capability and boundary
 
+### Source version amendment
+
+The planned intake failed: the accepted two-year manuscript prints a second-visit
+remission fraction with denominator 129, while both reports' intention-to-treat
+cohort definitions say 149 per group. The [original failed receipt](../validation/direct-paired-failed-intake-v1.json)
+is retained unchanged. No paired table is accepted from that failed version alone.
+
+The [version amendment](../validation/direct-paired-observations-amendment-v2.json)
+selects literal counts from the published abstract in the
+[NLM article record](https://pubmed.ncbi.nlm.nih.gov/30852132/), after verifying its
+DOI, exact field and source identity. The amendment precedes planned extraction
+of those new literal counts, after the original failed intake and earlier abstract
+exposure. It requires explicit published denominator agreement with both cohort
+definitions and numerator agreement with the accepted manuscript. Agreement with
+a rounded percentage cannot repair this conflict. The accepted fraction and its
+failed check remain visible beside any result from the amended published source.
+This is a version preference, not an author-issued erratum; no such correction
+was identified in the NLM relationship inventory. No version-of-record body is
+claimed to have been acquired.
+
 Implement integer feasible-table constraints and source-linked paired-history
 reporting, not an annual rate fit or an engine remission flow. This advances the
 temporal observation layer of the [clinical contract](../CLINICAL_OBSERVATION_CONTRACT.md).

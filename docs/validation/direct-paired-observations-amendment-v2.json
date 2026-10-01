@@ -1,0 +1,52 @@
+{
+  "schema": "direct-paired-observations-amendment-v2",
+  "frozen_utc": "2026-10-01T02:55:02.381421+00:00",
+  "parent_protocol_path": "docs/validation/direct-paired-observations-protocol-v1.json",
+  "parent_protocol_sha256": "4fd142053514f20bf9649d3faf8fb8c9ebb23d9eac7c26f5c8055f064ca45ab6",
+  "failed_intake_path": "docs/validation/direct-paired-failed-intake-v1.json",
+  "failed_intake_sha256": "90eebf7c8f0e3aecb3f952c4e085abe8b9f457ba60b9003a6c62b0fa62a7e2b7",
+  "reason": "The accepted two-year PDF literal selected fraction53/129 disagrees with both149-person intervention ITT definitions. Original check remains failed. Do not change PDF bytes or infer a denominator from rounded percentages.",
+  "chronology": "Amendment after the original failed numeric intake and earlier incidental abstract exposure. NLM XML acquired and DOI/field/phrase structure inspected with counts masked, before the planned literal published-abstract count capture. Used-source version appraisal, not preregistration or independent validation.",
+  "published_source": {
+    "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=30852132&retmode=xml",
+    "final_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=30852132&retmode=xml",
+    "retrieval_started_utc": "2026-10-01T02:52:27.281200+00:00",
+    "retrieved_utc": "2026-10-01T02:52:27.637585+00:00",
+    "status": 200,
+    "content_type": "text/xml; charset=UTF-8",
+    "size_bytes": 16753,
+    "sha256": "ba06d37bbdad6394a5345afaf1f0ed3d37bc8f877ea2a718f2311fe4b1b65406",
+    "cache_filename": "direct2yr-pubmed-primary-20261001T025227281200Z.xml",
+    "scope": "Metadata and digit-masked selected abstract cohort/remission locators; no new counts captured",
+    "distribution": "fetch_only"
+  },
+  "selection": {
+    "article_identity": {
+      "pmid": "30852132",
+      "doi": "10.1016/S2213-8587(19)30068-3",
+      "required_article_count": 1
+    },
+    "field": "MedlineCitation/Article/Abstract/AbstractText[@Label=\"Findings\"]",
+    "itt_n": {
+      "anchor": "The intention-to-treat population consisted of",
+      "target": "literal integer participants per group",
+      "value": null
+    },
+    "positive_second_n_and_denominator": {
+      "anchor": "Diabetes remission",
+      "target": "literal intervention remission numerator and denominator in the same Findings field; compare numerator to original accepted source and denominator to both ITT definitions. No rounded-percentage arithmetic.",
+      "value": null
+    }
+  },
+  "decision": "For the common-ITT paired-label constraints select the published abstract literal second-positive count/denominator after identity, count and cohort agreement. Retain the accepted manuscript literal fraction and failed-v1 receipt alongside every report. This is a documented version preference, not proof of an author-issued correction.",
+  "required_checks": [
+    "One article, exactPMID/DOI; selected Findings field unique.",
+    "Explicit published remission intervention numerator matches original selected numerator.",
+    "Explicit published ITT N and remission denominator match both source ITT definitions.",
+    "Original accepted fraction and v1 failed-check values remain exactly preserved and visible.",
+    "All original uncertainty, subgroup-scope, failure-partition and no-fit/no-activation rules remain."
+  ],
+  "correction_disposition": "NLM relationship inventory inspected: CommentIn references only; no ErratumIn/ErratumFor identified in this record. No author-issued correction or independently verified version-of-record body claimed.",
+  "rights": "NLM bibliographic XML and abstract fetch-only; limited attributed factual count extraction only. Full abstract/XML/PDF text not redistributed; no participant records or controlled access.",
+  "scientific_release_ready": false
+}
