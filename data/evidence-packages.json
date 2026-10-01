@@ -1044,11 +1044,15 @@
     },
     {
       "path": "docs/PUBLIC_LONGITUDINAL_ADMISSION.md",
-      "sha256": "bfc9d9235a979777b023ba51c3e39538f0d0c2fa0533c03dd1dd38ddee143aee"
+      "sha256": "4f0204f369e4f96aa13b6e2ea5c989427f3b0ae7b2a72f208c6a80fbbca4fa48"
     },
     {
       "path": "docs/validation/public-longitudinal-admission-receipts-v1.json",
       "sha256": "89773844263f23d16c4ddb4ebbe99919717af84a3f97cbe29d4d717aa6ba3fc2"
+    },
+    {
+      "path": "docs/validation/public-longitudinal-status-correction-v1.json",
+      "sha256": "572cc552ca6815b6df14b35bda133021bcbabe4bebc9959daa76a548986ce101"
     }
   ]
 }

@@ -18,7 +18,7 @@ educational management flight simulator without presenting assumptions as findin
 
 | Candidate and exact release | Verified documentation | Admission decision and next evidence |
 | --- | --- | --- |
-| [Korean occupational examinations, Dryad](https://doi.org/10.5061/dryad.tht76hdz4), API version 7 / version object 104844 | Dataset metadata declares CC0-1.0. The file inventory separates `dataset_final.xlsx` from `Usage_notes.xlsx`. The primary Ji et al. [BMJ Open paper](https://doi.org/10.1136/bmjopen-2020-039541) describes repeated fasting glucose/HbA1c examinations in selected male workers. | **Conditional first candidate for a finite schema gate.** Neither workbook was acquired. Resolve the separately published usage notes and the public version/status discrepancy before proposing any record intake. Actual linked visits, clocks, retained diagnosis/treatment, death and stopping information are unverified. |
+| [Korean occupational examinations, Dryad](https://doi.org/10.5061/dryad.tht76hdz4), API version 7 / version object 104844 | Dataset metadata declares CC0-1.0. The file inventory separates `dataset_final.xlsx` from `Usage_notes.xlsx`. The primary Ji et al. [BMJ Open paper](https://doi.org/10.1136/bmjopen-2020-039541) describes repeated fasting glucose/HbA1c examinations in selected male workers. | **Conditional first candidate for a finite schema gate.** Neither workbook was acquired. Resolve the separately published usage notes before proposing any record intake. The publication fields are consistent, as clarified below. Actual linked visits, clocks, retained diagnosis/treatment, death and stopping information are unverified. |
 | [SLIMM-T2D](https://www.nature.com/articles/s41467-021-27289-2), [Zenodo v1.0.4](https://doi.org/10.5281/zenodo.5662430), Git tree `72519ba775c0ed6a8dff64b360bb10591b6c0167` | The paper describes fasting glucose/HbA1c and per-person, per-timepoint clinical characteristics and medication-class observations after established T2D. The versioned tree lists `data/clin_metadata.csv` and `data/medications.xlsx`. | **Conditional post-diagnosis observation lead.** Zenodo says `other-open`; the repository MIT license refers to software/documentation and the article is CC BY 4.0. Clinical-record license scope is not separately established here. Resolve that scope and a clinical dictionary before records. This entry population cannot alone supply undiagnosed progression/reversal. |
 | [CRELES](https://doi.org/10.7910/DVN/7AUOAO), Dataverse v10.0, released October 27, 2025 | Live metadata remains CC BY-NC 4.0. The enabled guestbook requires name, email, institution and position. All eight listed files are ZIPs with `tabularData=false`; no separate dictionary/code file is exposed in this release. | **Keep off the unrestricted automatic intake path.** A permitted noncommercial purpose and any guestbook interaction require separate decisions. Public metadata and `restricted=false` do not establish commercial permission or anonymous replay. No guestbook response or archive acquisition occurred. |
 | [Comorbidities and Outcomes](https://doi.org/10.5281/zenodo.7543862), Zenodo record 7543862 | API metadata identifies `cc-zero` and open access, while the description expressly limits access to research purposes. The inventory lists baseline/outcomes and medication/cohort CSV/XLSX files, without a separately designated clinical dictionary. | **Rights/observable scope unresolved.** Preserve both the license field and research-purpose statement; do not silently select one. File names do not establish repeated assay clocks or sufficient joint paths. No participant file or preview was acquired. |
@@ -37,10 +37,21 @@ binds the separate usage document to file 579891, `Usage_notes.xlsx`,
 The participant workbook is a different file, 579892. This metadata establishes
 file identity; it does not establish the notes' contents or record coverage.
 
-The landing page presents a published February 12, 2021 release, but the current
-API version object reports `versionNumber=7` and `versionStatus=submitted`.
-Keep that discrepancy explicit. A matching file digest alone cannot resolve
-which release should be used scientifically.
+The cached dataset and version metadata both report `versionNumber=7`,
+`versionStatus=submitted`, `curationStatus=Published`, `visibility=public` and
+`publicationDate=2021-02-12`. Dryad's [official documentation at a pinned commit](https://github.com/datadryad/dryad-app/blob/1039c857e10355ceafb21385864e13cc54b7c6db/documentation/apis/embedded_submission.md#L142-L154)
+defines `versionStatus` as the editing/processing lifecycle and `curationStatus`
+as a separate publication lifecycle. Completed resource submission is compatible
+with publication; these fields do not establish a publication discrepancy.
+The [submission-flow definitions](https://github.com/datadryad/dryad-app/blob/1039c857e10355ceafb21385864e13cc54b7c6db/documentation/submission_flow.md#L31-L56)
+independently distinguish both fields. Curation `submitted` is another field's
+state and must not be substituted for `versionStatus=submitted`.
+
+The earlier appraisal misinterpreted `versionStatus`. Its original receipt is
+preserved; the [correction receipt](validation/public-longitudinal-status-correction-v1.json)
+supersedes that interpretation using pinned documentation and the unchanged
+release metadata. Remove the publication-status condition from admission.
+The correction does not resolve downloads or actual clinical record coverage.
 
 The first documentation-download command was rejected by automatic approval
 review because its file-stream identity was ambiguous and could imply health
@@ -97,8 +108,9 @@ not an isolated food effect or a national transition rate.
 
 ## Reproducibility and scientific boundary
 
-The [receipt artifact](validation/public-longitudinal-admission-receipts-v1.json)
-pins the actual successful metadata, primary publication and separate
+The [original receipt artifact](validation/public-longitudinal-admission-receipts-v1.json)
+and [publication-field correction](validation/public-longitudinal-status-correction-v1.json)
+pin the actual successful metadata, primary publication and separate
 documentation acquisitions, with UTC times, URLs, media, byte sizes and SHA-256.
 Every included successful cache was checked against its receipt before assembly.
 Full source documents remain ignored and fetch-only. Metadata checksums are
