@@ -251,6 +251,22 @@
         "Conditional common-ITT and subgroup scope do not establish clinical identification, causal dietary effects, independent validation or national applicability.",
         "Public article access is not controlled participant-data access; no application/agreement/outreach/reidentification."
       ]
+    },
+    "geelong_publication_cc_attribution": {
+      "title": "Harland et al. article-specific Creative Commons Attribution notice",
+      "terms_urls": [
+        "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12534155/fullTextXML",
+        "https://doi.org/10.1155/jdr/9926306"
+      ],
+      "checked_on": "2026-10-01",
+      "redistribution": "conditional",
+      "download": "Official publicly accessible publication XML; no participant release",
+      "transform": "Preserve original XML and its copyright/license notice; label Demeter factual extraction and working-model inference separately",
+      "conditions": [
+        "Cite Harland et al., Journal of Diabetes Research 2025, DOI 10.1155/jdr/9926306 and link the exact source.",
+        "Literal notice permits use/distribution/reproduction with attribution; do not invent a CC-BY version.",
+        "Publication rights do not authorize participant-record acquisition, redistribution or clinical conclusions."
+      ]
     }
   },
   "source_files": {
@@ -478,7 +494,7 @@
       "policy": "census",
       "privacy": "aggregate",
       "publisher": "U.S. Census Bureau",
-      "vintage": "2025 (using 2022–2024 estimates)",
+      "vintage": "2025 (using 2022\u20132024 estimates)",
       "citation": "U.S. Census Bureau. Resident population by single year of age and sex, Vintage 2025",
       "notes": "Unmodified source snapshot; source terms apply separately from Demeter MIT code.",
       "url": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/national/asrh/nc-est2025-agesex-res.csv",
@@ -825,6 +841,17 @@
       "url": "https://usdss.cdc.gov/diabetes/data/statsreport/National_Diabetes_Statsitics_Report.pdf",
       "sha256": "cd537b088973e44690e7a494a22b974f7bbd8a755210b8cf53238f13f1395bf1",
       "retrieved_at": "2026-10-01T06:48:42.466398+00:00"
+    },
+    "data/sources/geelong/2026-10-01/publication.xml": {
+      "policy": "geelong_publication_cc_attribution",
+      "privacy": "publication",
+      "publisher": "Harland et al.; Journal of Diabetes Research / John Wiley & Sons; Europe PMC archive",
+      "vintage": "2025 publication; exact 2026-10-01 source snapshot",
+      "citation": "Harland JW et al. Journal of Diabetes Research. 2025;2025:9926306. doi:10.1155/jdr/9926306.",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12534155/fullTextXML",
+      "sha256": "57bc7d59361358c1c05ba28032d1feff56c8e467d55cbb354dc6d5b62dbddb22",
+      "retrieved_at": "2026-10-01T12:01:41.285467+00:00",
+      "notes": "Unmodified article with source copyright/Creative Commons Attribution notice retained; version unspecified. Data Availability keeps participant records request-only. Empirical aggregate source reproduction, not causal or independent clinical validation."
     }
   },
   "clinical_sources": {
@@ -1139,6 +1166,20 @@
       "retrieved_at": "2026-10-01T02:52:27.637585+00:00",
       "distribution": "fetch_only",
       "alternative": "Fetch matching source bytes into ignored local storage; reproduce limited aggregate facts/constraints offline. Never redistribute full publications or participant records."
+    },
+    "geelong2025_label_publication": {
+      "policy": "geelong_publication_cc_attribution",
+      "privacy": "publication",
+      "publisher": "Harland et al.; Journal of Diabetes Research / John Wiley & Sons; Europe PMC archive",
+      "vintage": "2025 publication; exact 2026-10-01 source snapshot",
+      "citation": "Harland JW et al. Journal of Diabetes Research. 2025;2025:9926306. doi:10.1155/jdr/9926306.",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12534155/fullTextXML",
+      "sha256": "57bc7d59361358c1c05ba28032d1feff56c8e467d55cbb354dc6d5b62dbddb22",
+      "retrieved_at": "2026-10-01T12:01:41.285467+00:00",
+      "notes": "Unmodified article with source copyright/Creative Commons Attribution notice retained; version unspecified. Data Availability keeps participant records request-only. Empirical aggregate source reproduction, not causal or independent clinical validation.",
+      "distribution": "archived",
+      "archive_path": "data/sources/geelong/2026-10-01/publication.xml",
+      "alternative": "Use the verified permitted archive; do not obtain participant records or silently replace the pinned publication."
     }
   },
   "documentation_receipts": "docs/validation/dpp-coverage-source-receipts.json",

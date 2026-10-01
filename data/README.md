@@ -42,6 +42,14 @@ binomial working-model analysis. Full publications are fetch-only; no participan
 records were requested. Fitted endpoint probability and clinical transition rates
 remain distinct, with a descriptive-only alternative available.
 
+The [Geelong paired-label package](../docs/GEELONG_LABEL_OBSERVATIONS.md) archives
+one unmodified publication XML under its literal Creative Commons Attribution
+notice (version unspecified). Its selected aggregate rows, frozen protocol and
+conditional working uncertainty reproduce offline without participant access.
+These benchmark-only labels do not identify annual clinical rates or activate
+the engine. The archive is explicitly linked to its registry source identity;
+the package audit counts the same source bytes once.
+
 The [DPP preservation package](../docs/DPP_OBSERVATION_ADAPTER.md) contains public
 documentation receipts, a frozen field contract and synthetic aggregate checks.
 Full documents are fetch-only and participant records are request-only. Its
@@ -211,7 +219,7 @@ from the modeled quantities, and leave unsupported mappings explicitly unresolve
 
 ## NHANES and official JSON additions
 
-The [machine-readable catalog](catalog.json) covers all 52 archived source files, including
+The [machine-readable catalog](catalog.json) covers all 53 archived source files, including
 four deidentified NHANES 2017-March 2020 XPORT files and four official JSON
 snapshots and the NCHS healthspan method PDF. The original baseline and historical
 archives above remain canonical.

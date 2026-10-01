@@ -1,0 +1,48 @@
+{
+  "schema": "demeter-geelong-label-intake-v1",
+  "selected_intake_utc": "2026-10-01T12:20:05.413215+00:00",
+  "protocol_commit_before_intake": "76e525d",
+  "protocol_sha256": "8f78812f4bfee128bdf1fc463095b940edd7c952d1f4b02c31a84f8002fae6da",
+  "source": {
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12534155/fullTextXML",
+    "sha256": "57bc7d59361358c1c05ba28032d1feff56c8e467d55cbb354dc6d5b62dbddb22",
+    "retrieved_at": "2026-10-01T12:01:41.285467+00:00",
+    "publisher": "Harland et al.; Journal of Diabetes Research / John Wiley & Sons; Europe PMC archive",
+    "vintage": "2025 publication; exact 2026-10-01 source snapshot",
+    "citation": "Harland JW et al. Journal of Diabetes Research. 2025;2025:9926306. doi:10.1155/jdr/9926306.",
+    "size_bytes": 130619,
+    "license": "Creative Commons Attribution, version unspecified in literal article notice"
+  },
+  "prior_documentation_receipts_unchanged": true,
+  "source_bytes_match_prior_pin": true,
+  "working_likelihood_assumptions_empirically_established": false,
+  "clinical_fit_or_engine_activation": false,
+  "independent_holdout": false,
+  "participant_records_used": false,
+  "analysis": {
+    "counts": {
+      "normal_start": {
+        "normoglycaemia": 281,
+        "ifg_ada": 32,
+        "source_diabetes": 11
+      },
+      "ifg_ada_start": {
+        "normoglycaemia": 44,
+        "ifg_ada": 27,
+        "source_diabetes": 21
+      }
+    },
+    "row_totals": {
+      "normal_start": 324,
+      "ifg_ada_start": 92
+    },
+    "cohort_crosscheck": {
+      "paired_assessed_n": 446,
+      "baseline_diabetes_n": 30,
+      "progression_analysis_n": 416
+    }
+  },
+  "bundle_path": "src/demeter/data/bundled/geelong_label_pairs.json",
+  "bundle_sha256": "2f72b23364cdd64f39a1b95aec68ce4434a096d5085a999a556bc55b84c0fbf3",
+  "existing_registry_entries_and_scientific_blockers_unchanged": true
+}

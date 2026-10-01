@@ -146,6 +146,18 @@
       ],
       "model_role": "benchmark_only",
       "reload": "uv run python scripts/verify_prediabetes_benchmark.py"
+    },
+    {
+      "id": "geelong_label_pairs",
+      "manifest": "sources/geelong/2026-10-01/manifest.json",
+      "publisher": "Harland et al.; Journal of Diabetes Research / John Wiley & Sons; Europe PMC archive",
+      "description": "Unmodified public article XML and selected empirical linked ADA-label counts; conditional assessed-cohort benchmark, no annual clinical rate",
+      "format": [
+        "publication XML"
+      ],
+      "derived_bundle": "../src/demeter/data/bundled/geelong_label_pairs.json",
+      "model_role": "benchmark_only",
+      "reload": "uv run demeter evidence geelong-labels"
     }
   ],
   "official_json_services": [
