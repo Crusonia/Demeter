@@ -1,0 +1,157 @@
+{
+  "schema": "demeter-public-longitudinal-status-correction-v1",
+  "assembled_utc": "2026-10-01T10:50:52.142316+00:00",
+  "purpose": "Correct the interpretation of Dryad publication fields; documentation only, no clinical admission or fit",
+  "distribution": "fetch_only",
+  "cache_path_resolution": {
+    "default_base_from_repository": "outputs/public-source-search-20261001",
+    "applies_to": "successful_sources and existing_release_checks cache_filename; pinned receipt and scope paths are already repository-relative. Ignored caches are optional and not distributed."
+  },
+  "supersedes": {
+    "artifact": {
+      "path_from_repository": "docs/validation/public-longitudinal-admission-receipts-v1.json",
+      "size_bytes": 24510,
+      "sha256": "89773844263f23d16c4ddb4ebbe99919717af84a3f97cbe29d4d717aa6ba3fc2"
+    },
+    "locator": "rights_and_scope.dryad, sentence stating that version status differs from the published landing",
+    "preserved_original_bytes": true,
+    "correction": "The literal versionStatus=submitted is a completed resource-submission state. It is compatible with curationStatus=Published and visibility=public; the publication-status discrepancy condition was mistaken."
+  },
+  "immutable_documentation_commit": "1039c857e10355ceafb21385864e13cc54b7c6db",
+  "source_locators": [
+    {
+      "url": "https://github.com/datadryad/dryad-app/blob/1039c857e10355ceafb21385864e13cc54b7c6db/documentation/apis/embedded_submission.md#L142-L154",
+      "section": "Obtain Dryad metadata",
+      "field_definitions": "Raw lines 149-150 define versionStatus processing/completed submission; line 151 separately defines curationStatus."
+    },
+    {
+      "url": "https://github.com/datadryad/dryad-app/blob/1039c857e10355ceafb21385864e13cc54b7c6db/documentation/submission_flow.md#L31-L56",
+      "sections": [
+        "Resource States (aka versionStatus)",
+        "Curation Status"
+      ],
+      "field_definitions": "Raw line 38 defines resource submitted as successful submission; line 56 defines curation published as public availability. Curation submitted at line 49 belongs to a different field."
+    }
+  ],
+  "original_receipt_pin": {
+    "path_from_repository": "outputs/public-source-search-20261001/dryad-status-docs-20261001T104431935371Z/receipts.json",
+    "size_bytes": 2723,
+    "sha256": "baa269a2eb5a0e6dbb5fd7adf70473a53f07fd4a22a8ec6c5b5e781c3d618757"
+  },
+  "pre_acquisition_scope_pin": {
+    "path_from_repository": "outputs/public-source-search-20261001/dryad-status-docs-20261001T104431935371Z/scope.json",
+    "size_bytes": 989,
+    "sha256": "184293f938ca417b99284619c35479f1c23ae68ab3d3a2867f86428ac8fa05b9"
+  },
+  "successful_sources": [
+    {
+      "cache_filename": "dryad-status-docs-20261001T104431935371Z/github-main-ref.json",
+      "requested_url": "https://api.github.com/repos/datadryad/dryad-app/git/ref/heads/main",
+      "started_utc": "2026-10-01T10:44:31.937902+00:00",
+      "distribution": "fetch_only",
+      "scope": "Official Dryad/GitHub metadata or software documentation only; no clinical records",
+      "final_url": "https://api.github.com/repos/datadryad/dryad-app/git/ref/heads/main",
+      "final_query_omitted": false,
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "retrieved_utc": "2026-10-01T10:44:32.241453+00:00",
+      "size_bytes": 345,
+      "sha256": "fe8e8fc4fbf3d7f0f22a31f499a48924943b6acc3e698a23ed6cd9c7ab53dd8a",
+      "successful": true
+    },
+    {
+      "cache_filename": "dryad-status-docs-20261001T104431935371Z/embedded_submission.md",
+      "requested_url": "https://raw.githubusercontent.com/datadryad/dryad-app/1039c857e10355ceafb21385864e13cc54b7c6db/documentation/apis/embedded_submission.md",
+      "started_utc": "2026-10-01T10:44:32.242465+00:00",
+      "distribution": "fetch_only",
+      "scope": "Official Dryad/GitHub metadata or software documentation only; no clinical records",
+      "final_url": "https://raw.githubusercontent.com/datadryad/dryad-app/1039c857e10355ceafb21385864e13cc54b7c6db/documentation/apis/embedded_submission.md",
+      "final_query_omitted": false,
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "retrieved_utc": "2026-10-01T10:44:32.492172+00:00",
+      "size_bytes": 10537,
+      "sha256": "f764c12857a6ff7ff2522ea50fe510e66b40fc99b1af8512d8206db4d894f5b9",
+      "successful": true
+    },
+    {
+      "cache_filename": "dryad-status-docs-20261001T104431935371Z/submission_flow.md",
+      "requested_url": "https://raw.githubusercontent.com/datadryad/dryad-app/1039c857e10355ceafb21385864e13cc54b7c6db/documentation/submission_flow.md",
+      "started_utc": "2026-10-01T10:44:32.502188+00:00",
+      "distribution": "fetch_only",
+      "scope": "Official Dryad/GitHub metadata or software documentation only; no clinical records",
+      "final_url": "https://raw.githubusercontent.com/datadryad/dryad-app/1039c857e10355ceafb21385864e13cc54b7c6db/documentation/submission_flow.md",
+      "final_query_omitted": false,
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "retrieved_utc": "2026-10-01T10:44:32.742533+00:00",
+      "size_bytes": 2792,
+      "sha256": "41b4a691c5b8a4803fee383d200539bd50f0e0962181fdaa982629b94abb37ac",
+      "successful": true
+    }
+  ],
+  "existing_release_checks": [
+    {
+      "source": "dataset",
+      "url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.tht76hdz4",
+      "cache_filename": "root-admission-docs-20261001T095416914571Z/dryad-metadata.bin",
+      "size_bytes": 14811,
+      "sha256": "deec313cf63473dd7635ea047d624d6afceba07951427ba05e5b84c885bf6446",
+      "observed_fields": {
+        "versionNumber": 7,
+        "versionStatus": "submitted",
+        "curationStatus": "Published",
+        "visibility": "public",
+        "publicationDate": "2021-02-12",
+        "lastModificationDate": "2021-02-12"
+      },
+      "new_acquisition": false,
+      "original_acquisition_receipt": {
+        "path_from_repository": "outputs/public-source-search-20261001/root-admission-docs-20261001T095416914571Z/receipts.json",
+        "size_bytes": 3750,
+        "sha256": "ce1effaeac5ca8733fea1338b6a9d40dd38d4632257051eab124bd09d46218f4"
+      }
+    },
+    {
+      "source": "version",
+      "url": "https://datadryad.org/api/v2/versions/104844",
+      "cache_filename": "root-admission-docs-20261001T095549927922Z/dryad-version.bin",
+      "size_bytes": 14854,
+      "sha256": "960d5e82dad6cce03b9bcc69fd00aa6a570689e7d3bd541bdedb590dc77efdca",
+      "observed_fields": {
+        "versionNumber": 7,
+        "versionStatus": "submitted",
+        "curationStatus": "Published",
+        "visibility": "public",
+        "publicationDate": "2021-02-12",
+        "lastModificationDate": "2021-02-12"
+      },
+      "new_acquisition": false,
+      "original_acquisition_receipt": {
+        "path_from_repository": "outputs/public-source-search-20261001/root-admission-docs-20261001T095549927922Z/receipts.json",
+        "size_bytes": 2730,
+        "sha256": "43d74542fabc524c0a02ce99b2ec5e4b010aab991f6d295fd81f4450576b6ca9"
+      }
+    }
+  ],
+  "chronology": [
+    "This interpretation correction follows the October 1 source appraisal and prior incidental exposure to published results; it is used-source documentation, not an untouched validation set or preregistered clinical analysis.",
+    "The official public GitHub reference resolved before documentation GETs. All three acquired bodies and both existing release caches matched saved byte sizes and SHA-256 before this assembly.",
+    "The original admission receipt remains unchanged, including its mistaken interpretation. This artifact supersedes that interpretation only; no metadata field, source release or data license was changed.",
+    "A bounded search of existing producer links and exact DOI/file-name references found no ordinary alternate notes link. This is not an exhaustive claim that no mirror exists. Prior failed notes routes were not retried."
+  ],
+  "remaining_gates": [
+    "Separate Usage_notes.xlsx bytes remain unacquired after earlier HTTP403, HTTP401 and anonymous browser validation barrier.",
+    "Actual row units, linked visits, clocks, assay units, diagnosis/treatment history, selection, death, loss and stopping coverage remain unverified.",
+    "Dataset CC0-1.0 and primary-article CC BY-NC4.0 remain distinct; publication-field consistency does not grant clinical-record acquisition or establish fit eligibility."
+  ],
+  "participant_files_requested_or_acquired": false,
+  "usage_notes_requested_or_acquired_in_this_correction": false,
+  "blocked_routes_retried": false,
+  "selected_numeric_outcome_intake": false,
+  "empirical_arithmetic_or_fit": false,
+  "engine_activation": false,
+  "full_documents_redistributed": false,
+  "credentials_challenges_registration_agreements_outreach": false,
+  "scientific_release_ready": false
+}
