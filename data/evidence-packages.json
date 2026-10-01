@@ -762,6 +762,14 @@
     {
       "path": "docs/DPP_SOURCE_COVERAGE.md",
       "sha256": "3dd7ed245142831b2fb00dd83c5052bd112a43f8fc116a21d6fed22f384e3581"
+    },
+    {
+      "path": "docs/validation/totum-source-row-protocol-v1.json",
+      "sha256": "fe9b70d246b1584aeec732ec8b2a97d4faf1a8d0121df916a01739e1c774d52f"
+    },
+    {
+      "path": "docs/validation/totum-source-row-receipts-v1.json",
+      "sha256": "dfcbe2b29c1c6bdeb811d024a932f638d49a2fbe7581369cf24b12aa004d8457"
     }
   ]
 }
