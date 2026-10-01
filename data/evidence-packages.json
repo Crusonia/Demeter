@@ -1119,6 +1119,10 @@
     {
       "path": "docs/validation/ipop-schema-protocol-v1.json",
       "sha256": "55f0c3858e789241a70e22d77435f8ebf0e3e70adcd2ac550ef9928602beed3c"
+    },
+    {
+      "path": "docs/validation/ipop-schema-locator-amendment-v1.json",
+      "sha256": "f4f93a6ae37e7dfc4d8247f596d03e372d295203db4287305234c4bb66905d93"
     }
   ]
 }
