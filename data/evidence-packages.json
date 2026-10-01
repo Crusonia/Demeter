@@ -925,6 +925,28 @@
         "src/demeter/analysis/longitudinal_likelihood.py",
         "src/demeter/analysis/longitudinal_likelihood_validation.py"
       ]
+    },
+    "cdc_prediabetes_benchmark": {
+      "store": "cdc_prediabetes_2026",
+      "dependencies": [],
+      "registry_datasets": [],
+      "registry_parameters": [
+        "observed_prediabetes_65_plus"
+      ],
+      "artifacts": [
+        {
+          "path": "docs/validation/cdc-prediabetes-benchmark-before-after.json",
+          "sha256": "9e02237e889a351e2efad0072a03d85e6dc9ecb4de68316e274e290d782a9dd8"
+        }
+      ],
+      "transform_files": [
+        "scripts/verify_prediabetes_benchmark.py"
+      ],
+      "rebuild": [
+        "uv run python scripts/verify_prediabetes_benchmark.py"
+      ],
+      "model_role": "benchmark_only",
+      "redistribution": "Unmodified CDC agency report with attribution/free-source/non-endorsement notices; selected factual aggregate and published CI. No individual records; source data are not relicensed by Demeter."
     }
   },
   "supporting_artifacts": [

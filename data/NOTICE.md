@@ -2,7 +2,7 @@
 
 Demeter's MIT license covers its code and original documentation. It does not
 relicense source data, articles, logos, or restricted records. The machine-readable
-[rights inventory](rights.json) identifies all 51 archived artifacts and both
+[rights inventory](rights.json) identifies all 52 archived artifacts and the
 fetch-only clinical articles by URL, publisher, vintage, retrieval time, checksum,
 privacy class and citation. Its policies distinguish download, transformation
 and redistribution conditions. These are packaging decisions; the linked source
@@ -38,6 +38,14 @@ Source use and links do not imply endorsement of Demeter or any product, service
 or interpretation by CDC, HHS, NIH, NIDDK, NLM, Census, USDA or the U.S. Government.
 Original source content stays unchanged; derived results are Demeter's analyses.
 Do not reuse agency marks to suggest endorsement.
+
+The [CDC prediabetes benchmark](../docs/CDC_PREDIABETES_BENCHMARK.md) adds the
+unmodified National Diabetes Statistics Report, archived October 1, 2026. The PDF
+states March 11, 2026 as its update date; its selected crude prevalence table uses
+August 2021–August 2023 NHANES. This dated snapshot is available free at the
+[official CDC URL](https://usdss.cdc.gov/diabetes/data/statsreport/National_Diabetes_Statsitics_Report.pdf).
+Its agency marks are retained as part of the original report, not used as
+Demeter branding or endorsement. No participant records are included.
 
 ClinicalTrials.gov snapshots were retrieved on September 28, 2026. Both processing
 versions are **2026-09-25**; last updates were posted **2021-11-19** for STEP 1 and

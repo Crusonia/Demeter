@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "sources": {
+    "National_Diabetes_Statsitics_Report.pdf": {
+      "url": "https://usdss.cdc.gov/diabetes/data/statsreport/National_Diabetes_Statsitics_Report.pdf",
+      "retrieved_at": "2026-10-01T06:48:42.466398+00:00",
+      "sha256": "cd537b088973e44690e7a494a22b974f7bbd8a755210b8cf53238f13f1395bf1",
+      "bytes": 3232798,
+      "publisher": "CDC",
+      "title": "National Diabetes Statistics Report",
+      "vintage": "PDF updated March 11, 2026; August 2021-August 2023 NHANES; snapshot retrieved October 1, 2026",
+      "format": "PDF",
+      "model_role": "benchmark_only",
+      "use_terms": "https://www.cdc.gov/other/agencymaterials.html",
+      "http_status": 200,
+      "media_type": "application/pdf",
+      "citation": "CDC. National Diabetes Statistics Report. Updated March 11, 2026. Crude prediabetes/awareness table, page 23; detailed methods pages 56-57. August 2021-August 2023 NHANES."
+    }
+  },
+  "extraction": {
+    "filename": "National_Diabetes_Statsitics_Report.pdf",
+    "registry_key": "observed_prediabetes_65_plus",
+    "pdf_page_index": 22,
+    "locator": "Printed/physical page 23, Estimated Crude Percentage of Prediabetes and Awareness Among Adults Aged 18 Years or Older, United States, 2021-2023; Age Group >=65; first Prediabetes percentage (95% CI) column",
+    "methods_locator": "Printed/physical pages 56-57; FPG/A1C definition, missingness exclusions and crude versus age-adjusted distinction",
+    "scale": "percentage divided by 100",
+    "source_version": "PDF page 1 states last updated March 11, 2026; landing summary says September 16, 2026",
+    "original_filename": "National_Diabetes_Statsitics_Report.pdf",
+    "local_filename": "National_Diabetes_Statsitics_Report.pdf"
+  }
+}

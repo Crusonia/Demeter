@@ -5,6 +5,11 @@ terms permit. A fresh clone should let a reader inspect where an input came from
 and reproduce the transformation. Demeter keeps source observations, derived
 inputs, model assumptions, and simulation results distinct.
 
+The [CDC prediabetes benchmark correction](../docs/CDC_PREDIABETES_BENCHMARK.md)
+archives the unmodified aggregate report and reproduces its age-65-and-older
+crude prevalence interval offline. The published interval remains a benchmark;
+it does not initialize metabolic states or supply transition rates.
+
 Start with [dataset reuse and citation notices](NOTICE.md), the per-source
 [rights inventory](rights.json), and [evidence-package manifests](evidence-packages.json).
 
