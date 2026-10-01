@@ -119,6 +119,13 @@ This adds a temporal observation capability without identifying clinical hazards
 latent remission/relapse or an isolated dietary effect. Canonical numerical health
 outputs and active parameters remain unchanged; #57/#58/#1/#27 stay open.
 
+The [linked-path likelihood evaluator](LONGITUDINAL_LIKELIHOOD.md) now supplies the
+missing mathematical software layer for declared panel, first-entry, competing-
+death and censoring observations. Frozen synthetic identities and local rank
+diagnostics verify the implementation; no participant importer, empirical fit,
+joint clinical uncertainty or engine activation is included. Source compatibility
+and scientific acceptance remain separate gates.
+
 Next, prioritize a compatible unrestricted longitudinal package or sufficient
 published observations for an identified progression/reversal likelihood. Further
 blank-form inspection cannot replace participant histories. Resolve timing,

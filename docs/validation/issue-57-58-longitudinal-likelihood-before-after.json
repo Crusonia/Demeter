@@ -1,0 +1,79 @@
+{
+  "after_evidence_sha256": "bf5a46e3c96e1f63986594d2d4b5a56de4bcb373d18cb9ab8a734670e86d6a8a",
+  "base_commit": "b6b990c3c5e207a841f1ae66b16a027d70c1e17f",
+  "before_evidence_sha256": "47ea34e4621054af61ff0f6b5c49369a57354ce56a65b786e20c9752c1cdf7b8",
+  "canonical_scenarios": {
+    "baseline": {
+      "all_other_outputs_identical": true,
+      "changed_paths": [
+        "/healthspan/evidence_sha256",
+        "/metadata/evidence_sha256"
+      ]
+    },
+    "prechronic_baseline": {
+      "all_other_outputs_identical": true,
+      "changed_paths": [
+        "/healthspan/evidence_sha256",
+        "/metadata/evidence_sha256"
+      ]
+    },
+    "reduce_upf_30": {
+      "all_other_outputs_identical": true,
+      "changed_paths": [
+        "/healthspan/evidence_sha256",
+        "/metadata/evidence_sha256"
+      ]
+    }
+  },
+  "clinical_fit_performed": false,
+  "engine_activation_allowed": false,
+  "interpretation": "Synthetic mathematical capability only. Compatible empirical histories, identifiable clinical hazards, joint uncertainty, dietary dose/lag, national transport and independent prediction remain unresolved.",
+  "protocol_freeze_commit": "9cee09e",
+  "refreshed_observation_reports": {
+    "issue-56-partial-observations.json": {
+      "all_other_outputs_identical": true,
+      "changed_paths": [
+        "/provenance/evidence_sha256"
+      ]
+    },
+    "issue-56-state-mapping.json": {
+      "all_other_outputs_identical": true,
+      "changed_paths": [
+        "/provenance/evidence_sha256"
+      ]
+    }
+  },
+  "registry_change": {
+    "active_parameters_changed": [],
+    "added": {
+      "datasets": [
+        "longitudinal_likelihood_software"
+      ],
+      "parameters": [
+        "longitudinal_jacobian_absolute_step",
+        "longitudinal_jacobian_rank_relative_tolerance",
+        "longitudinal_log_likelihood_absolute_tolerance",
+        "longitudinal_probability_absolute_tolerance",
+        "longitudinal_toy_d_to_death_rate",
+        "longitudinal_toy_d_to_r_rate",
+        "longitudinal_toy_horizon_years",
+        "longitudinal_toy_n_to_death_rate",
+        "longitudinal_toy_n_to_p_rate",
+        "longitudinal_toy_p_to_d_rate",
+        "longitudinal_toy_p_to_death_rate",
+        "longitudinal_toy_p_to_n_rate",
+        "longitudinal_toy_r_to_d_rate",
+        "longitudinal_toy_r_to_death_rate",
+        "longitudinal_toy_segment_b_p_to_n_rate",
+        "longitudinal_toy_segment_boundary_years",
+        "longitudinal_toy_time_origin_years",
+        "longitudinal_toy_visit_early_years",
+        "longitudinal_toy_visit_middle_years"
+      ],
+      "sources": []
+    },
+    "all_prior_entries_identical": true,
+    "scientific_blockers_identical": true
+  },
+  "scientific_release_ready": false
+}

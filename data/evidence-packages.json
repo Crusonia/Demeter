@@ -437,7 +437,7 @@
       "artifacts": [
         {
           "path": "docs/validation/issue-56-state-mapping.json",
-          "sha256": "5bd4fc81b165a0a45ab78c829b53db72860fa6a546b49a79d778ecda3be33d8d"
+          "sha256": "898500b8b7380d253ee250e6c83d880bc4362ed190f97e6521597633a30ff0e5"
         },
         {
           "path": "docs/validation/issue-56-state-mapping-before-after.json",
@@ -445,7 +445,7 @@
         },
         {
           "path": "docs/validation/issue-56-partial-observations.json",
-          "sha256": "772e9c842f563789138fd6e1b7eddff0f3083b9229cff3d5af6afa876d933633"
+          "sha256": "67d6f34c3f50095f8113f5c183bc9413a0994b63e0eb20ad4cccb37fedf06ff4"
         },
         {
           "path": "docs/validation/issue-56-partial-before-after.json",
@@ -866,6 +866,65 @@
       ],
       "model_role": "benchmark_only",
       "redistribution": "Limited attributed factual counts, conditional integer feasible-set analysis and preserved source/protocol failure receipts; full PDFs/XML fetch-only. No participant records, clinical hazards or active inputs."
+    },
+    "longitudinal_likelihood_software": {
+      "artifacts": [
+        {
+          "path": "docs/validation/longitudinal-likelihood-protocol-v1.json",
+          "sha256": "fb830574b696c623ca00282bda3c31093369c05ddb420458a53a83f27a22910e"
+        },
+        {
+          "path": "docs/rfcs/RFC-57-longitudinal-likelihood.md",
+          "sha256": "680d1a1b854e07e73f633db8b57a602df15a1193c46f6426d95907c136e44385"
+        },
+        {
+          "path": "docs/LONGITUDINAL_LIKELIHOOD.md",
+          "sha256": "bc9b0b81dadb23053be1b88db7a8151b6d966f24eadea52709931f3ff0f510d3"
+        },
+        {
+          "path": "docs/validation/issue-57-58-longitudinal-likelihood.json",
+          "sha256": "58d79954f7501a1322bb041323e42b7fdebc4860857465311b78c9bc6efbb46e"
+        },
+        {
+          "path": "docs/validation/issue-57-58-longitudinal-likelihood-before-after.json",
+          "sha256": "31c19b60ab1bbb74f3873e2b548f7f6efd5f6a0318e074b7583e460f99aebb65"
+        }
+      ],
+      "dependencies": [],
+      "model_role": "benchmark_only",
+      "rebuild": [
+        "uv run demeter evidence longitudinal-likelihood --output outputs/longitudinal-likelihood.json"
+      ],
+      "redistribution": "Demeter-authored synthetic protocol, mathematical software, aggregate validation diagnostics and before/after proof only; no source participant records, empirical clinical fit or active engine inputs.",
+      "registry_datasets": [
+        "longitudinal_likelihood_software"
+      ],
+      "registry_parameters": [
+        "longitudinal_toy_n_to_p_rate",
+        "longitudinal_toy_p_to_n_rate",
+        "longitudinal_toy_p_to_d_rate",
+        "longitudinal_toy_d_to_r_rate",
+        "longitudinal_toy_r_to_d_rate",
+        "longitudinal_toy_n_to_death_rate",
+        "longitudinal_toy_p_to_death_rate",
+        "longitudinal_toy_d_to_death_rate",
+        "longitudinal_toy_r_to_death_rate",
+        "longitudinal_toy_segment_b_p_to_n_rate",
+        "longitudinal_toy_time_origin_years",
+        "longitudinal_toy_segment_boundary_years",
+        "longitudinal_toy_horizon_years",
+        "longitudinal_toy_visit_early_years",
+        "longitudinal_toy_visit_middle_years",
+        "longitudinal_probability_absolute_tolerance",
+        "longitudinal_log_likelihood_absolute_tolerance",
+        "longitudinal_jacobian_absolute_step",
+        "longitudinal_jacobian_rank_relative_tolerance"
+      ],
+      "store": null,
+      "transform_files": [
+        "src/demeter/analysis/longitudinal_likelihood.py",
+        "src/demeter/analysis/longitudinal_likelihood_validation.py"
+      ]
     }
   },
   "supporting_artifacts": [

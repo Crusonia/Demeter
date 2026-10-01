@@ -57,6 +57,8 @@ jobs:
         run: uv run python scripts/verify_source_archive.py --rebuild
       - name: Validate evidence and authoritative baselines
         run: uv run demeter validate
+      - name: Check frozen synthetic longitudinal likelihood
+        run: uv run demeter evidence longitudinal-likelihood --output outputs/longitudinal-likelihood.json
       - name: Verify repository datasets and reload NHANES offline
         run: |
           uv run demeter data verify-store

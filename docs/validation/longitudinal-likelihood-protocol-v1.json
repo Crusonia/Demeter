@@ -1,0 +1,266 @@
+{
+  "schema_version": 1,
+  "analysis_id": "longitudinal-likelihood-software-v1",
+  "created_utc": "2026-10-01T04:24:39+00:00",
+  "title": "Joint longitudinal observation likelihood: frozen synthetic software contract",
+  "freeze_condition": "Commit and pin this protocol and register all numeric inputs before evaluating the new synthetic fixture or its diagnostics. No calculated fixture outputs are included.",
+  "chronology": {
+    "existing_source_benchmarks_are_used_source": true,
+    "new_fixture_numerical_evaluation_started": false,
+    "new_source_counts_selected_or_captured": false,
+    "clinical_preregistration": false,
+    "independent_validation": false
+  },
+  "design_trace": {
+    "question_and_reference": ["Q-03", "RM-04"],
+    "pathway": ["P-02"],
+    "inputs": ["I-01", "I-07", "I-11", "I-12"],
+    "formulation": ["F-08"],
+    "tests": ["T-01", "T-02", "T-05", "T-06", "T-08"],
+    "scope": "Health observation likelihood only; dietary F-04 and economic feedback remain separately evidence-blocked."
+  },
+  "disposition": {
+    "status": "synthetic",
+    "evidence_grade": "E",
+    "model_role": "benchmark_only",
+    "validation_only": true,
+    "empirical_fit_performed": false,
+    "clinical_fit_allowed": false,
+    "engine_activation_allowed": false,
+    "source_eligibility_promoted": false,
+    "national_transport_established": false,
+    "scientific_release_ready": false,
+    "external_human_scientific_review": "pending"
+  },
+  "numeric_inputs": {
+    "longitudinal_toy_n_to_p_rate": {"value": 0.10, "unit": "hazard_per_year", "status": "synthetic", "evidence_grade": "E", "model_role": "benchmark_only"},
+    "longitudinal_toy_p_to_n_rate": {"value": 0.20, "unit": "hazard_per_year", "status": "synthetic", "evidence_grade": "E", "model_role": "benchmark_only"},
+    "longitudinal_toy_p_to_d_rate": {"value": 0.05, "unit": "hazard_per_year", "status": "synthetic", "evidence_grade": "E", "model_role": "benchmark_only"},
+    "longitudinal_toy_d_to_r_rate": {"value": 0.07, "unit": "hazard_per_year", "status": "synthetic", "evidence_grade": "E", "model_role": "benchmark_only"},
+    "longitudinal_toy_r_to_d_rate": {"value": 0.09, "unit": "hazard_per_year", "status": "synthetic", "evidence_grade": "E", "model_role": "benchmark_only"},
+    "longitudinal_toy_n_to_death_rate": {"value": 0.01, "unit": "hazard_per_year", "status": "synthetic", "evidence_grade": "E", "model_role": "benchmark_only"},
+    "longitudinal_toy_p_to_death_rate": {"value": 0.02, "unit": "hazard_per_year", "status": "synthetic", "evidence_grade": "E", "model_role": "benchmark_only"},
+    "longitudinal_toy_d_to_death_rate": {"value": 0.03, "unit": "hazard_per_year", "status": "synthetic", "evidence_grade": "E", "model_role": "benchmark_only"},
+    "longitudinal_toy_r_to_death_rate": {"value": 0.025, "unit": "hazard_per_year", "status": "synthetic", "evidence_grade": "E", "model_role": "benchmark_only"},
+    "longitudinal_toy_segment_b_p_to_n_rate": {"value": 0.24, "unit": "hazard_per_year", "status": "synthetic", "evidence_grade": "E", "model_role": "benchmark_only"},
+    "longitudinal_toy_time_origin_years": {"value": 0.0, "unit": "years", "status": "synthetic", "evidence_grade": "E", "model_role": "benchmark_only"},
+    "longitudinal_toy_segment_boundary_years": {"value": 1.0, "unit": "years", "status": "synthetic", "evidence_grade": "E", "model_role": "benchmark_only"},
+    "longitudinal_toy_horizon_years": {"value": 3.0, "unit": "years", "status": "synthetic", "evidence_grade": "E", "model_role": "benchmark_only"},
+    "longitudinal_toy_visit_early_years": {"value": 0.5, "unit": "years", "status": "synthetic", "evidence_grade": "E", "model_role": "benchmark_only"},
+    "longitudinal_toy_visit_middle_years": {"value": 1.5, "unit": "years", "status": "synthetic", "evidence_grade": "E", "model_role": "benchmark_only"},
+    "longitudinal_probability_absolute_tolerance": {"value": 1e-10, "unit": "probability", "status": "synthetic", "evidence_grade": "E", "model_role": "benchmark_only"},
+    "longitudinal_log_likelihood_absolute_tolerance": {"value": 1e-10, "unit": "log_likelihood", "status": "synthetic", "evidence_grade": "E", "model_role": "benchmark_only"},
+    "longitudinal_jacobian_absolute_step": {"value": 1e-6, "unit": "hazard_per_year", "status": "synthetic", "evidence_grade": "E", "model_role": "benchmark_only"},
+    "longitudinal_jacobian_rank_relative_tolerance": {"value": 1e-7, "unit": "dimensionless", "status": "synthetic", "evidence_grade": "E", "model_role": "benchmark_only"}
+  },
+  "numeric_input_guard": "Exact frozen parameter key/value/unit/status/grade/role agreement before calculation; finite-difference and probability controls are numerical only, not sourced clinical tolerances or uncertainty distributions.",
+  "state_space": {
+    "state_order": ["N", "P", "D", "R", "death"],
+    "living_states": ["N", "P", "D", "R"],
+    "diagnosed_history_states": ["D", "R"],
+    "no_diagnosed_history_states": ["N", "P"],
+    "death_state": "death",
+    "states_are_clinical_engine_states": false,
+    "state_meanings": {
+      "N": "Arbitrary lower glycemic label without diagnosed-T2D history",
+      "P": "Arbitrary higher glycemic label without diagnosed-T2D history",
+      "D": "Arbitrary higher glycemic label with diagnosed-T2D history",
+      "R": "Arbitrary improved/lower glycemic label with diagnosed-T2D history retained; not validated untreated remission",
+      "death": "Separate absorbing death destination, not a missing assessment"
+    },
+    "diagonal_rule": "negative sum of every outgoing off-diagonal rate, including competing death",
+    "forbidden_transitions": "Any transition out of death, or from D/R back to N/P; no diagnosed-history erasure",
+    "rate_unit": "hazard_per_year",
+    "clock_unit": "years",
+    "assay_or_clinical_thresholds": null
+  },
+  "software_validation": {
+    "entry_state": "P",
+    "entry_distribution_rule": "Point mass on the explicitly supplied toy entry state; no inferred clinical allocation",
+    "base_off_diagonal_rates": [
+      {"from": "N", "to": "P", "parameter_key": "longitudinal_toy_n_to_p_rate"},
+      {"from": "P", "to": "N", "parameter_key": "longitudinal_toy_p_to_n_rate"},
+      {"from": "P", "to": "D", "parameter_key": "longitudinal_toy_p_to_d_rate"},
+      {"from": "D", "to": "R", "parameter_key": "longitudinal_toy_d_to_r_rate"},
+      {"from": "R", "to": "D", "parameter_key": "longitudinal_toy_r_to_d_rate"},
+      {"from": "N", "to": "death", "parameter_key": "longitudinal_toy_n_to_death_rate"},
+      {"from": "P", "to": "death", "parameter_key": "longitudinal_toy_p_to_death_rate"},
+      {"from": "D", "to": "death", "parameter_key": "longitudinal_toy_d_to_death_rate"},
+      {"from": "R", "to": "death", "parameter_key": "longitudinal_toy_r_to_death_rate"}
+    ],
+    "rate_segments": [
+      {"label": "A", "start_key": "longitudinal_toy_time_origin_years", "end_key": "longitudinal_toy_segment_boundary_years", "overrides": []},
+      {"label": "B", "start_key": "longitudinal_toy_segment_boundary_years", "end_key": "longitudinal_toy_horizon_years", "overrides": [{"from": "P", "to": "N", "parameter_key": "longitudinal_toy_segment_b_p_to_n_rate"}]}
+    ],
+    "emissions": {
+      "alphabet": ["lower", "higher", "death"],
+      "category_states": {"lower": ["N", "R"], "higher": ["P", "D"], "death": ["death"]},
+      "membership_rule": "Deterministic categorical emission: one for state membership, zero otherwise. These are structural toy definitions, not empirical test sensitivity or specificity.",
+      "set_valued_rule": "Sum the disjoint declared categorical operators; no unknown or missing test is automatically mapped to the whole alphabet",
+      "history_rule": "The fixture builder supplies emission vectors intersected with its assessed history masks; retain an earlier positive history when later history is not assessed. Core API has no raw history_report field. A contrary no-history mask after positive history has no compatible path and contributes zero, not a repaired recovery state."
+    },
+    "panel_path": [
+      {"time_key": "longitudinal_toy_visit_early_years", "categories": ["lower", "higher"], "history_report": "no_diagnosed_history", "assessment_status": "observed_set"},
+      {"time_key": "longitudinal_toy_visit_middle_years", "categories": ["higher"], "history_report": "diagnosed_history", "assessment_status": "observed_category"},
+      {"time_key": "longitudinal_toy_horizon_years", "categories": ["lower"], "history_report": "not_assessed", "assessment_status": "observed_category"}
+    ],
+    "panel_likelihood": {
+      "orientation": "row vectors",
+      "formula": "alpha * chronological_product[exp(Q_segment * duration) * E_observation * history_mask] * ones, splitting propagation at every regime boundary",
+      "scaling": "Scale each positive forward update and accumulate log scales; exact zero contribution is negative infinity with JSON null/status, never a finite substituted floor",
+      "categorical_partition": "All declared observation categories exhaust the supplied state space; observed sets sum their disjoint category contributions",
+      "observation_schedule": "Fixed/exogenous in this synthetic fixture",
+      "treatment_interpretation": "Condition on the supplied piecewise regime; no causal treatment-assignment model or dietary effect",
+      "event_timing_from_history_mask": "A history observation constrains compatibility at its visit, not an exact first-event time"
+    },
+    "first_entry": {
+      "event_state": "D",
+      "competing_state": "death",
+      "transient_state_order": ["N", "P"],
+      "event_equals_first_entry": true,
+      "event_equality_status": "synthetic assumption; not a statement about clinical diagnosis versus biological onset",
+      "killed_diagonals": "Retain negative total outgoing hazards of the full generator, including both removed terminal destinations",
+      "piecewise_segments": "Use the same A/B clock boundaries and rate override as the panel fixture, including inside a terminal event interval",
+      "exact_time_key": "longitudinal_toy_horizon_years",
+      "interval_lower_key": "longitudinal_toy_segment_boundary_years",
+      "interval_upper_key": "longitudinal_toy_horizon_years",
+      "censor_time_key": "longitudinal_toy_horizon_years",
+      "exact_formula": "alpha propagated by killed segment kernels to t, multiplied by the event hazard vector at t; output density per year",
+      "interval_formula": "Integrate the killed-process event density over [lower,upper], accounting for survival into each intersected segment; output probability",
+      "right_censor_formula": "alpha propagated by killed segment kernels through the supported event-ascertainment time, summed over transient states; no event and alive",
+      "competing_death_formula": "Separate killed-process density/integral using the competing-death hazard vector",
+      "mass_identity": "cumulative event probability + cumulative competing-death probability + transient survival = one",
+      "integral_method": "Augmented matrix exponential or independently verified stable equivalent, valid for singular/zero generators; no inverse-only formula",
+      "segment_boundary_convention": "Right-hand regime applies at an internal shared boundary; at the final schedule end use the last segment's left limit. A continuous-time boundary event has zero probability but exact-density convention is explicit.",
+      "prefix_observations": "Supported observed event-free prefix uses killed propagation and actual observation operators; no default last-negative proxy",
+      "in_interval_observations": "Initial implementation may reject additional observations inside the terminal event interval; silently discarding them is forbidden",
+      "exact_death_after_full_panel": "Use exact_first_entry with event/targets death only, retaining all four living transient states and any prior observed diagnosis history. Contribution is terminal death density, not terminal death occupancy probability.",
+      "non_event_endpoint": "Killed propagation jointly with supplied endpoint emission and history compatibility, summed over transient states; do not normalize by survival unless a separate explicit conditioning contract requires it"
+    },
+    "local_identification": {
+      "parameter_order": ["longitudinal_toy_n_to_p_rate", "longitudinal_toy_p_to_n_rate", "longitudinal_toy_p_to_d_rate", "longitudinal_toy_d_to_r_rate", "longitudinal_toy_r_to_d_rate", "longitudinal_toy_n_to_death_rate", "longitudinal_toy_p_to_death_rate", "longitudinal_toy_d_to_death_rate", "longitudinal_toy_r_to_death_rate"],
+      "model": "Homogeneous segment A; segment B override is not a free parameter of this diagnostic",
+      "horizon_key": "longitudinal_toy_horizon_years",
+      "finite_difference": "Central differences with registered absolute step in each named hazard; reject a perturbation outside the declared nonnegative domain",
+      "step_key": "longitudinal_jacobian_absolute_step",
+      "rank_threshold_key": "longitudinal_jacobian_rank_relative_tolerance",
+      "rank_rule": "Count singular values greater than registered relative tolerance times the largest singular value; zero Jacobian has rank zero. Relative threshold is dimensionless; Jacobian entries have years units.",
+      "full_observable_design": {"entry_states": ["N", "P", "D", "R"], "terminal_states": ["N", "P", "D", "R", "death"], "flattening_order": "entry-state order, then terminal-state order", "full_rank_hypothesis": "Nine at the frozen synthetic point; unexecuted hypothesis, not a source-identification claim"},
+      "collapsed_design": {"entry_state": "P", "terminal_set": ["N", "R"], "dimension_rule": "One scalar observable; rank at most one against nine free rates"},
+      "report": ["observable definition", "parameter order and units", "Jacobian", "singular values", "rank", "relative tolerance and effective absolute cutoff", "finite-difference step", "local/nonclinical limitation"],
+      "global_practical_or_causal_identification_proved": false
+    },
+    "indistinguishable_scalar_alternative": {
+      "comparison_model": "Separately restricted N <-> P with all other edges zero; not the full five-state fixture",
+      "entry_state": "P",
+      "endpoint_state": "N",
+      "base_a_key": "longitudinal_toy_n_to_p_rate",
+      "base_b_key": "longitudinal_toy_p_to_n_rate",
+      "alternative_total_recipe": "s2 = longitudinal_toy_n_to_p_rate + longitudinal_toy_segment_b_p_to_n_rate",
+      "horizon_key": "longitudinal_toy_horizon_years",
+      "target_recipe": "q = b / (a+b) * [-expm1(-(a+b)*t)]",
+      "alternative_recipe": "b2 = q*s2 / [-expm1(-s2*t)]; a2 = s2-b2",
+      "checks": ["finite nonnegative rates", "distinct parameter pair", "equal scalar endpoint", "full transition rows differ"],
+      "arbitrary_root_solving": false,
+      "published_cox_nonidentification_claim": false
+    },
+    "controls": {
+      "probability_absolute_tolerance_key": "longitudinal_probability_absolute_tolerance",
+      "log_likelihood_absolute_tolerance_key": "longitudinal_log_likelihood_absolute_tolerance",
+      "clinical_acceptance_tolerance": null,
+      "stochastic_sampling_or_seed": "No stochastic simulation needed for the frozen checks; probabilities and analytical identities only",
+      "clipping_to_force_pass": false,
+      "roundoff_correction": "Disclose any correction of small negative matrix-exponential entries within the explicitly supplied probability tolerance. Reject larger violations; no generator/rate repair, positive likelihood floor or outcome-driven tolerance change."
+    }
+  },
+  "input_contract": {
+    "public_api_scope": "Library-only StateSpace, RateSegment, PanelObservation, TerminalObservation and SoftwareObservationContract with explicit categorical operators; root owns audit registry/CLI integration",
+    "public_api_shapes": {
+      "StateSpace": ["labels", "diagnosis_history", "death_index"],
+      "RateSegment": ["start_year", "end_year", "generator"],
+      "PanelObservation": ["time_year", "emission", "kind"],
+      "panel_kind_required": ["category", "coarsened"],
+      "TerminalObservation": ["kind", "time_year", "event", "interval_start_year", "endpoint_emission"],
+      "terminal_modes": ["panel", "exact_first_entry", "interval_first_entry", "right_censor", "non_event_endpoint"],
+      "SoftwareObservationContract": ["time_unit", "observation_timing", "missingness", "selection", "treatment", "stopping"],
+      "required_numerical_tolerance": "Caller must supply a numerical tolerance; registered fixture uses longitudinal_probability_absolute_tolerance",
+      "path_likelihood": "Supported linked panel prefix plus declared terminal mode under explicit known contract and piecewise segments"
+    },
+    "software_contract_declarations": {
+      "time_unit": "years",
+      "observation_timing": "fixed_exogenous_synthetic_visits",
+      "missingness": "fully_observed_categories_or_explicit_declared_coarsened_sets; no default MAR",
+      "selection": "condition_on_supplied_synthetic_entry_state; no national allocation",
+      "treatment": "known_piecewise_synthetic_regime_conditioned_on; not a causal effect",
+      "stopping": "explicit_synthetic_terminal_mode_and_ascertainment_clock; no default independent loss"
+    },
+    "immutability": "Strict scalar types and immutable nested collections; detach from mutable caller inputs; reject duplicate observation times and inconsistent shapes. PanelObservation has no participant/observation identifier field.",
+    "clock": "One explicit origin and common declared time/rate units; finite supported times, ordered observations and contiguous nonoverlapping segments covering every used interval",
+    "conversion": "No automatic source-year/day conversion, unknown clock ordering or clinical annualization",
+    "generator": "Finite nonnegative allowed off-diagonal hazards, conservative negative diagonals and absorbing death; reject diagnosed-history erasure",
+    "emission": "Explicit finite nonnegative categorical probabilities with a normalized alphabet in each state; no guessed measurement-error parameters or clinical threshold mapping",
+    "entry": "Explicit probability weights and declared cohort conditioning; no universal prior-history or national state allocation",
+    "unknowns": "Unknown status is preserved; the evaluator rejects a dependent mode unless an explicit observation/coarsening contract justifies marginalization. An unassessed later history field cannot erase a previously assessed positive history.",
+    "history": "Diagnosis type, first positive, confirmation and recorded history remain distinct; no inferred untreated remission or biological onset. Core receives supplied emission vectors, not raw history fields. Contradictory masks have no compatible path and zero probability; they are never reassigned to an unrecorded recovery state.",
+    "treatment": "Known changes are declared regime boundaries; unknown treatment timing blocks treatment-dependent modes, and conditioning is not a causal adjustment claim",
+    "visits_and_missingness": "Exogenous/ignorable schedule must be explicitly justified for a future source; no default MAR, negative test, all-ones emission or independent censoring",
+    "followup": "Last glucose, last known alive contact, last event ascertainment and administrative end are distinct; event/death/censor contributions need explicit supported stopping semantics",
+    "unsupported_source_mode": "Reject without likelihood arithmetic, clinical fit or raw source disclosure; keep preservation/descriptive outputs under their existing contract"
+  },
+  "validation_plan": [
+    "Match forward path probability to explicit enumeration of all compatible intermediate observation-state sequences",
+    "Verify categorical partition and set-valued observation sum without treating missing as an observed set",
+    "Check row mass, nonnegative probabilities, absorbing death and diagnosed-history preservation",
+    "Compare chronological segmented propagation with explicitly composed segment kernels; include treatment changes in event intervals",
+    "Verify exact first-event density, interval probability and right-censoring distinction, with cumulative event/death/survival mass identity",
+    "Check singular/zero-generator limits, zero-event hazards and impossible paths; retain negative infinity/status for zero likelihood",
+    "Verify exact death after a panel differs in meaning/units from endpoint death occupancy",
+    "Report full-design local Jacobian rank and scalar-design deficiency under the frozen numerical settings",
+    "Verify the closed-form restricted alternative matches the scalar endpoint but differs on full transition rows",
+    "Reject incompatible units, malformed types, duplicate observation times, uncovered segments and unsupported missingness/stopping; contradictory history masks must produce impossible zero paths, not a repaired positive probability",
+    "Verify no participant identifiers or raw path values enter public aggregate reports",
+    "Preserve active engine parameters, canonical numerical outputs and scientific-required failure"
+  ],
+  "source_gate": {
+    "default_clinical_fit_eligibility": false,
+    "software_contract_confers_source_eligibility": false,
+    "required_before_any_empirical_fit": ["primary source/version/rights and immutable receipts", "explicit estimand and source population/selection", "linked compatible observations or sufficient joint aggregates", "measurement/assay/threshold and confirmation semantics", "visit/event clocks, ascertainment and stopping", "prior diagnosis/type and treatment histories", "competing death/contact/loss and justified missingness", "independently supported measurement-error terms or joint identification", "identifiable supported-population parameters with joint uncertainty", "frozen estimation/independent evaluation and transport plans"],
+    "current_packages": {
+      "Chen": "Timing/version, treatment, post-diagnosis and competing-death gaps remain; no source eligibility from this kernel",
+      "DPP": "Normalized preservation fixture and public documentation do not supply verified permitted participant histories for clinical fitting",
+      "Reus": "First-diabetes regimen HR does not reconstruct risk sets, separate state hazards, consumed dose or lag",
+      "PREVIEW": "Selected endpoint/missingness and treatment/history information do not establish full clinical transition likelihood",
+      "TOTUM": "Public workbook raw-cell coverage is not verified participant pairing, clinical measurement/timing or treatment/death history",
+      "Whitehall": "Conditional terminal labels do not supply full interval histories, competing-death/selection model or annual hazards",
+      "DiRECT": "Composite failures and partial paired-label constraints lack observed assessment/death/missingness partition and actual clinical histories; no invented stochastic coarsening likelihood"
+    },
+    "public_sources_exhaustively_unavailable": false
+  },
+  "failure_dispositions": {
+    "invalid_math_or_input": "No dependent contribution; sanitized failure, no fabricated likelihood or participant token leakage",
+    "numerical_identity_or_rank_failure": "Retain frozen failure and diagnostics; no clipping, outcome-driven tolerance change or implicit repin",
+    "source_inadequacy_or_unknowns": "Block dependent empirical fitting; preserve supported observations/descriptive outputs only",
+    "indistinguishable_parameters": "Retain alternatives and unresolved quantities; no active coefficient or invented joint uncertainty",
+    "missing_independent_evaluation_or_transport": "No scientific release or national engine activation",
+    "new_values_or_scope_required": "Reviewed versioned amendment and registry update before new computation; original protocol remains immutable"
+  },
+  "report_contract": {
+    "aggregate_only": true,
+    "provenance": ["frozen protocol path/hash", "evidence-registry content hash", "implementation hash", "registered numeric keys/units/status", "synthetic state/operator definitions"],
+    "separate_dispositions": ["computational evaluation", "software verification", "source eligibility", "clinical identification/fit", "independent prediction", "engine activation/scientific release"],
+    "clinical_fit_allowed": false,
+    "engine_activation_allowed": false,
+    "source_eligibility_promoted": false,
+    "scientific_release_ready": false,
+    "zero_likelihood_json": "null numeric field with explicit impossible/negative_infinity status; no nonstandard JSON infinity or finite probability floor",
+    "forbidden_outputs": ["raw participant paths/identifiers", "empirical fitted hazards", "clinical findings", "dietary dose/lag coefficients", "national state initialization", "clinical acceptance claims", "engine parameter replacement"]
+  },
+  "method_reference": {
+    "url": "https://cran.r-project.org/web/packages/msm/vignettes/msm-manual.pdf",
+    "title": "Multi-state modelling with R: the msm package",
+    "author": "Christopher Jackson",
+    "version_inspected": "1.8.2, 7 November 2024",
+    "locator": "Sections 1.3-1.4: observation timing, panel transition probabilities, exact death density and censored-state contributions",
+    "role": "Primary methodological reference only; no clinical values or source outcome observations selected"
+  }
+}
