@@ -1,0 +1,154 @@
+{
+  "schema": "direct-paired-observations-protocol-v1",
+  "frozen_utc": "2026-10-01T02:40:34.608632+00:00",
+  "chronology": "Used-source design after earlier/incidental abstract outcomes and masked methods/label inspection; committed before planned selected integer-count capture and all new arithmetic. Not preregistration, a holdout, or independent clinical validation.",
+  "objective": "Preserve source-positive remission snapshots and diagnosed-T2D history across nominal12/24month visits; derive feasible paired protocol-label tables from verified marginals and a lower-bound same-person positive subgroup. Do not assign missing primary failures to assessed clinical relapse.",
+  "bibliography": {
+    "one_year": {
+      "doi": "10.1016/S0140-6736(17)33102-1",
+      "title_prefix": "Primary care-led weight management for remission of type 2 diabetes",
+      "version": "accepted author manuscript",
+      "physical_pages": 30
+    },
+    "two_year": {
+      "doi": "10.1016/S2213-8587(19)30068-3",
+      "title_prefix": "Durability of a primary care-led weight-management intervention",
+      "version": "accepted author manuscript, including supplements",
+      "physical_pages": 36
+    }
+  },
+  "source_receipts": {
+    "one_year": {
+      "role": "public metadata/publication methods source only; no participant dataset acquired",
+      "distribution": "fetch_only",
+      "url": "https://eprints.gla.ac.uk/153078/13/153078.pdf",
+      "final_url": "https://eprints.gla.ac.uk/153078/13/153078.pdf",
+      "retrieved_utc": "2026-09-30T23:21:32.616002+00:00",
+      "retrieval_started_utc": "2026-09-30T23:21:30.925423+00:00",
+      "status": 200,
+      "content_type": "application/pdf",
+      "size_bytes": 810080,
+      "sha256": "3636adf9611bd625326c92102e2a5ec11b25dad793599ea0288f977bf4b56751",
+      "cache_filename": "direct2018-main-20260930T232130925423Z.pdf"
+    },
+    "two_year": {
+      "url": "https://eprints.gla.ac.uk/180894/13/180894.pdf",
+      "final_url": "https://eprints.gla.ac.uk/180894/13/180894.pdf",
+      "retrieval_started_utc": "2026-10-01T02:10:24.740300+00:00",
+      "retrieved_utc": "2026-10-01T02:10:26.018338+00:00",
+      "status": 200,
+      "content_type": "application/pdf",
+      "size_bytes": 457811,
+      "sha256": "907b78c4577e81dfd3dcd2c23c302f8a587d687f89781800e2a6d49b076c76b0",
+      "cache_filename": "direct2yr-main-methods-20261001T021024740300Z.pdf",
+      "distribution": "fetch_only",
+      "allowed_inspection": "Methods subsections and source/access metadata only; exact numerical outcome cells excluded",
+      "used_source_exposure": "Repository main HTML open automatically included abstract descriptive counts/effects before this fetch. Those are incidental used-source; no cells retained or calculated.",
+      "participant_records_acquired": false
+    }
+  },
+  "selected_counts": {
+    "itt_n": {
+      "source": "two_year",
+      "physical_page": 11,
+      "anchor": "intention-to-treat population comprised",
+      "target": "integer participants per group; intervention ITT denominator",
+      "value": null
+    },
+    "itt_n_one_year_crosscheck": {
+      "source": "one_year",
+      "physical_page": 4,
+      "section": "Findings",
+      "target": "integer participants per group in the published ITT analysis; must match two-year N",
+      "value": null
+    },
+    "positive_first_n": {
+      "source": "one_year",
+      "physical_page": 4,
+      "anchor": "Diabetes remission was achieved in",
+      "target": "integer intervention-group remission participants, not control count, percentage, odds ratio or rounded percentage-derived N",
+      "value": null
+    },
+    "positive_second_n": {
+      "source": "two_year",
+      "physical_page": 12,
+      "anchor": "without imputing missing data and assuming no remission for those without data",
+      "target": "literal intervention remission numerator and ITT denominator following diabetes was in remission in; commencing-intervention denominator excluded",
+      "value": null
+    },
+    "positive_pair_lower_n": {
+      "source": "two_year",
+      "physical_page": 13,
+      "anchor": "those maintaining remission between",
+      "target": "first n field belonging to intervention maintaining12/24month remission subgroup; only a lower bound on full positive-positive cell; post-hoc weight analysis not an exhaustive joint cohort table",
+      "value": null
+    }
+  },
+  "source_definition_locators": {
+    "cohort_and_continuation": "Two-year physicalp8 design/participants and p11 Results; one-year physicalp4 Findings. Same trial reports, not independent cohorts.",
+    "positive_remission": "Two-year physicalpp9-10 Outcomes and p27 Figure2 legend; source-defined HbA1c/drug-withdrawal endpoint, including GP substitution. No new raw-lab classification.",
+    "failure_and_unknown": "Two-year physicalp10 Statistics and p12 Results; unavailable primary assessments counted as not meeting outcome. Retain unresolved assessment/medication/death partitions.",
+    "pair_subgroup": "Two-year physicalp13 post-hoc weight analysis; maintaining subgroup grammar supports paired positives, but full paired-weight availability/scope is not explicit. Retain marginal-only set as sensitivity.",
+    "assessment_windows": "Two-year physicalpp9-10; nominal visits plus GP-record substitutions are not common exact elapsed times.",
+    "access": "Two-year physicalp22 Data sharing; participant package requires personal application/agreement and has not been acquired.",
+    "rights": "Primary Glasgow repository record180894 identifies accepted manuscript CC BY-NC-ND. Both full PDFs remain fetch-only; limited attributed aggregate facts and Demeter code only. No publisher text, figures, or participant records redistributed."
+  },
+  "feasible_set": {
+    "variables": "N=common intervention ITT count; a=first positive marginal; b=second positive marginal; x=unknown positive-positive count; m=reported maintaining-positive subgroup lower bound.",
+    "marginal_constraints": "integer max(0,a+b-N) <= x <= min(a,b)",
+    "conditional_subgroup_constraint": "x >= m, conditional on subgroup belonging to same ITT cohort and its stated paired-positive source meaning; never assert m=x or that all other pair cells were reported.",
+    "table_order": [
+      "positive_positive",
+      "positive_failure",
+      "failure_positive",
+      "failure_failure"
+    ],
+    "table_counts": [
+      "x",
+      "a-x",
+      "b-x",
+      "N-a-b+x"
+    ],
+    "failure_partition": "For first-visit source-positive participants, second primary failure is compatible with assessed nonremission, unassessed/unknown criterion, or death. No observed-negative, unavailable or death count is supplied by these selected cells.",
+    "conditional_negative_bounds": "Each unreported failure component has nonnegative lower bound and upper bound a-L, where L is lower feasible x. These are mathematical bounds, not observed zero counts, and cannot be chosen independently: source-positive_second + assessed_nonremission + unassessed + death = a.",
+    "clinical_membership": "Bounds describe recorded source labels and compatible assessment histories. They do not identify latent physiological states, sustained untreated remission, biological relapse, or transitions among never-diabetic healthy/IR/T2D.",
+    "uncertainty": "Deterministic finite-source feasible-set bounds only, not confidence/credible intervals or joint random draws. Sampling, clustering, assay error, missingness, treatment, exact timing and transport unresolved. No iid assumption, MAR imputation, pooling, annualization, optimizer or hazard fit.",
+    "zero_denominator": "Conditional shares unavailable when a=0; keep counts and joint table accounting."
+  },
+  "failure_policy": [
+    "Missing/drifted source bytes, wrong version, ambiguous count anchor, inconsistent same-cohort denominator or infeasible counts block derived output.",
+    "Do not infer a first-positive N by multiplying a rounded percentage.",
+    "Do not use relapsed n, attendance totals or medication/weight patterns to manufacture assessed-negative/death joint cells.",
+    "Keep the marginal-only set and explicit subgroup-scope assumption beside any conditional constrained set."
+  ],
+  "software_fixture": {
+    "status": "synthetic",
+    "evidence_grade": "E",
+    "role": "software_validation_only",
+    "unit": "arbitrary people counts",
+    "N": 10,
+    "a": 4,
+    "b": 5,
+    "m": 3,
+    "clinical_inputs": false
+  },
+  "validation_plan": [
+    "Independently enumerate tiny integer joint tables and compare all bounds/extreme tables.",
+    "Conservation, integer/bool/nonfinite/invalid domains, zero first denominator, impossible subgroup, overlapping marginal and subgroup constraints.",
+    "Additional information narrows feasible sets; bounds are coupled and not sampling intervals.",
+    "Source extraction crosscheck with exact selected PDF crops and independent reviewer; unchanged raw bytes.",
+    "Frozen contract/source/registry/provenance guard failures produce sanitized aggregate failure receipt and no derived output.",
+    "Full pytest/Ruff/package audit; canonical numerical scenario outputs unchanged; scientific-required remains false."
+  ],
+  "activation": {
+    "clinical_fit_allowed": false,
+    "engine_activation_allowed": false,
+    "scientific_release_ready": false,
+    "issues_remain_open": [
+      57,
+      58,
+      1,
+      27
+    ]
+  }
+}

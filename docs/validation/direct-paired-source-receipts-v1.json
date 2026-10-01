@@ -1,0 +1,52 @@
+{
+  "schema": "direct-paired-source-receipts-v1",
+  "frozen_utc": "2026-10-01T02:40:34.608632+00:00",
+  "sources": {
+    "one_year": {
+      "role": "public metadata/publication methods source only; no participant dataset acquired",
+      "distribution": "fetch_only",
+      "url": "https://eprints.gla.ac.uk/153078/13/153078.pdf",
+      "final_url": "https://eprints.gla.ac.uk/153078/13/153078.pdf",
+      "retrieved_utc": "2026-09-30T23:21:32.616002+00:00",
+      "retrieval_started_utc": "2026-09-30T23:21:30.925423+00:00",
+      "status": 200,
+      "content_type": "application/pdf",
+      "size_bytes": 810080,
+      "sha256": "3636adf9611bd625326c92102e2a5ec11b25dad793599ea0288f977bf4b56751",
+      "cache_filename": "direct2018-main-20260930T232130925423Z.pdf"
+    },
+    "two_year": {
+      "url": "https://eprints.gla.ac.uk/180894/13/180894.pdf",
+      "final_url": "https://eprints.gla.ac.uk/180894/13/180894.pdf",
+      "retrieval_started_utc": "2026-10-01T02:10:24.740300+00:00",
+      "retrieved_utc": "2026-10-01T02:10:26.018338+00:00",
+      "status": 200,
+      "content_type": "application/pdf",
+      "size_bytes": 457811,
+      "sha256": "907b78c4577e81dfd3dcd2c23c302f8a587d687f89781800e2a6d49b076c76b0",
+      "cache_filename": "direct2yr-main-methods-20261001T021024740300Z.pdf",
+      "distribution": "fetch_only",
+      "allowed_inspection": "Methods subsections and source/access metadata only; exact numerical outcome cells excluded",
+      "used_source_exposure": "Repository main HTML open automatically included abstract descriptive counts/effects before this fetch. Those are incidental used-source; no cells retained or calculated.",
+      "participant_records_acquired": false
+    }
+  },
+  "context": {
+    "repository_url": "https://eprints.gla.ac.uk/180894/",
+    "historical_metadata_receipt": {
+      "url": "https://eprints.gla.ac.uk/180894/",
+      "final_url": "https://eprints.gla.ac.uk/180894/",
+      "final_url_query_omitted": false,
+      "retrieval_started_utc": "2026-10-01T02:25:56.411428+00:00",
+      "retrieved_utc": "2026-10-01T02:25:57.299044+00:00",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "size_bytes": 45858,
+      "sha256": "ed2d54a549d5ece86d57735d0bb39fe20bf2516e9d80fb6d05faa59a88aa7966",
+      "cache_filename": "direct2yr-official-repository-metadata-20261001T022556411428Z.html",
+      "distribution": "fetch_only",
+      "inspection": "Primary version/rights/attachment metadata only; outcome text masked or not displayed. No participant request/acquisition."
+    },
+    "role": "Rights/version context only; matching historical HTML not required for offline count extraction."
+  }
+}
