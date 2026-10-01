@@ -1123,6 +1123,10 @@
     {
       "path": "docs/validation/ipop-schema-locator-amendment-v1.json",
       "sha256": "f4f93a6ae37e7dfc4d8247f596d03e372d295203db4287305234c4bb66905d93"
+    },
+    {
+      "path": "docs/validation/ipop-schema-worksheet-amendment-v1.json",
+      "sha256": "8d40650377228030cd2c3667f987eab8f371fe6ada1577b6b9e0192ce5ee4a92"
     }
   ]
 }
