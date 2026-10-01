@@ -8,6 +8,8 @@ assumption or a distribution for clinical initialization.
 
 from __future__ import annotations
 
+from math import fsum
+
 import numpy as np
 import pandas as pd
 from pandas.api.types import is_bool_dtype, is_complex_dtype, is_numeric_dtype
@@ -269,8 +271,28 @@ def linear_projection(result: dict, A, labels) -> dict:
         [[covariance[i][j] for j in np.flatnonzero(available)] for i in np.flatnonzero(available)],
         dtype=float,
     ).reshape((int(available.sum()), int(available.sum())))
-    with np.errstate(over="ignore", invalid="ignore"):
-        projected_estimates, projected_covariance = known @ p, known @ v @ known.T
+    # Fixed-order compensated sparse sums avoid BLAS-specific reduction order.
+    # Preserve the two-stage A V then A V A^T calculation and its nonfinite
+    # failure boundary; do not clip, repair or impute any matrix element.
+    active = np.flatnonzero(output_available)
+    nonzero = [np.flatnonzero(row) for row in known]
+    projected_estimates = np.zeros(len(projection_labels))
+    intermediate = np.zeros((len(projection_labels), len(p)))
+    projected_covariance = np.zeros((len(projection_labels), len(projection_labels)))
+    try:
+        for i in active:
+            projected_estimates[i] = fsum(float(known[i, k]) * float(p[k]) for k in nonzero[i])
+            for j in range(len(p)):
+                intermediate[i, j] = fsum(float(known[i, k]) * float(v[k, j]) for k in nonzero[i])
+        if not np.isfinite(intermediate[output_available]).all():
+            raise ValueError("Nonfinite intermediate projection")
+        for i in active:
+            for j in active:
+                projected_covariance[i, j] = fsum(
+                    float(intermediate[i, k]) * float(known[j, k]) for k in nonzero[j]
+                )
+    except (OverflowError, ValueError) as exc:
+        raise ValueError("Nonfinite linear projection") from exc
     if (
         not np.isfinite(projected_estimates[output_available]).all()
         or not np.isfinite(projected_covariance[np.ix_(output_available, output_available)]).all()

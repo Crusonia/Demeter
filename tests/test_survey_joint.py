@@ -1,6 +1,7 @@
 """Independent design arithmetic; all observations in this module are synthetic."""
 
 from copy import deepcopy
+from fractions import Fraction
 
 import numpy as np
 import pandas as pd
@@ -169,6 +170,73 @@ def test_linear_projection_preserves_partition_and_bound_dependence():
         projected["covariance"], np.asarray(A) @ source["covariance"] @ np.asarray(A).T
     )
     assert projected["estimates"][5] == 0.25
+
+
+def test_projection_cancellation_matches_independent_exact_rational_arithmetic():
+    """Arbitrary software fixture; no source effect or clinical estimate."""
+    source = {
+        "coordinates": [{"domain": "toy", "membership": str(i)} for i in range(3)],
+        "estimates": [0.5] * 3,
+        "covariance": [[0.25] * 3 for _ in range(3)],
+    }
+    A = [[1e17, 2.0, -1e17], [1.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+    expected_estimates = [
+        float(sum(Fraction(a) * Fraction(p) for a, p in zip(row, source["estimates"], strict=True)))
+        for row in A
+    ]
+    expected_covariance = [
+        [
+            float(
+                sum(
+                    Fraction(left[i]) * Fraction(source["covariance"][i][j]) * Fraction(right[j])
+                    for i in range(3)
+                    for j in range(3)
+                )
+            )
+            for right in A
+        ]
+        for left in A
+    ]
+    actual = linear_projection(source, A, ["cancellation", "known", "zero"])
+    assert expected_estimates == [1.0, 0.5, 0.0]
+    assert expected_covariance == [[1.0, 0.5, 0.0], [0.5, 0.25, 0.0], [0.0, 0.0, 0.0]]
+    assert actual["estimates"] == expected_estimates
+    assert actual["covariance"] == expected_covariance
+
+
+@pytest.mark.parametrize("failure", ["sum_overflow", "opposing_infinite_products", "stage_two"])
+def test_projection_nonfinite_sums_and_products_fail_explicitly(failure):
+    source = {
+        "coordinates": [{"domain": "toy", "membership": str(i)} for i in range(2)],
+        "estimates": [1.0, 1.0],
+        "covariance": [[0.0, 0.0], [0.0, 0.0]],
+    }
+    if failure == "sum_overflow":
+        A = [[1e308, 1e308]]
+    elif failure == "opposing_infinite_products":
+        source["estimates"] = [0.0, 0.0]
+        source["covariance"] = [[1e308, -1e308], [-1e308, 1e308]]
+        A = [[2.0, 2.0]]
+    else:
+        source["estimates"] = [0.0, 0.0]
+        source["covariance"] = [[1e308, 0.0], [0.0, 0.0]]
+        A = [[1.5, 0.0]]  # A V is finite, while A V A^T is not.
+    with pytest.raises(ValueError, match="Nonfinite linear projection"):
+        linear_projection(source, A, ["unrepresentable"])
+
+
+def test_unavailable_projection_does_not_raise_from_hidden_overflow():
+    source = {
+        "coordinates": [
+            {"domain": "toy", "membership": "known"},
+            {"domain": "toy", "membership": "unavailable"},
+        ],
+        "estimates": [1e308, None],
+        "covariance": [[1e308, None], [None, None]],
+    }
+    actual = linear_projection(source, [[2.0, 1.0], [0.0, 0.0]], ["unknown", "zero"])
+    assert actual["estimates"] == [None, 0.0]
+    assert actual["covariance"] == [[None, None], [None, 0.0]]
 
 
 def test_projection_does_not_impute_unavailable_inputs_with_zero():

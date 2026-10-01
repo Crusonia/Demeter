@@ -54,6 +54,14 @@ distribution is introduced. Tests check numerical symmetry, closure and PSD.
 Canonical diagnostics record the algebraic constraints and design support;
 platform-dependent near-zero residuals/eigenvalues are not serialized as stable
 evidence. Software roundoff checks are not clinical acceptance thresholds.
+After inspecting the first report (SHA-256
+`4d21281884578ecf8337e2e77b5369af46ae65c449852f6fbfc13aae6ea01623`),
+software review replaced BLAS matrix reductions in the projection with
+fixed-order compensated sums for portable reproduction. This changes no
+formula, source, selection, definition or clinical acceptance rule. The frozen
+protocol remains intact; the regenerated report pins the final implementation.
+Regeneration preserved every other serialized value, including all estimates,
+covariance entries and diagnostics; only the implementation checksum changed.
 This covers sampling uncertainty only, excluding measurement error, missingness
 bias, latent-state definition, temporal/geographic transport and structural
 uncertainty. Normal laboratory values are not general metabolic health, and

@@ -34387,7 +34387,7 @@
     },
     "implementation_sha256": {
       "src/demeter/data/glycemic_uncertainty.py": "5f2ba3a75587aa210dfc072ef3e8565b37144bc18c5ffa54bd08879daf0b65f2",
-      "src/demeter/data/survey_joint.py": "73c68784d0f02ada3ff858b5a0174be787014cb4a2bc4b6066aabff39260d92f"
+      "src/demeter/data/survey_joint.py": "d52822a1a353919d3b3467d437baa5f24bfc627e74573d978910a3e7aa4f6160"
     },
     "protocol_path": "docs/validation/joint-glycemic-uncertainty-protocol-v1.json",
     "protocol_sha256": "dd0e88aadac16cc1d180f5be8adff270cbdbaf46d61a53b80ec20be15723454c",
