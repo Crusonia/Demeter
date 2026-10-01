@@ -197,6 +197,24 @@
         "No raw full-document or participant-record redistribution. Facts/receipts and Demeter transforms only.",
         "Do not relabel binary snapshots as clinical remission, annual transition risks or national dietary effects."
       ]
+    },
+    "totum_public_adequacy": {
+      "title": "TOTUM63 permitted factual metadata and aggregate source-row adequacy; raw remains fetch-only",
+      "terms_urls": [
+        "https://creativecommons.org/licenses/by/4.0/",
+        "https://doi.org/10.6084/m9.figshare.32348169.v1",
+        "https://www.nature.com/articles/s41467-026-75626-0"
+      ],
+      "checked_on": "2026-09-30",
+      "redistribution": "conditional",
+      "download": "Public Figshare workbookv1 verifiedCC BY4.0 and enabled with no embargo/confidentiality; publication/reporting-summary/trial/release metadata independently pinned.",
+      "transform": "Attributed source-layout/type coverage counts and Demeter transforms only; no individual rows, raw values or clinical efficacy estimates distributed.",
+      "conditions": [
+        "Maintain attribution/source-version/hash/actual acquisition provenance.",
+        "Raw workbook and documents remain local/fetch-only; no credentials or signed URLs committed.",
+        "License for the public workbook does not certify participant identity, completeness or treatment/death history.",
+        "Publication and trial data-sharing discrepancy retained; no participant reidentification or author contact."
+      ]
     }
   },
   "source_files": {
@@ -944,6 +962,71 @@
       "retrieved_at": "2026-09-30T22:13:09.662844+00:00",
       "distribution": "fetch_only",
       "alternative": "Fetch public publication bytes locally and retain exact source receipts. Full participant records require a separate authorized application; none requested or acquired."
+    },
+    "totum_metadata2026": {
+      "policy": "totum_public_adequacy",
+      "privacy": "metadata",
+      "publisher": "TOTUM63 authors / Nature Communications / Figshare / ClinicalTrials.gov",
+      "vintage": "Figshare public v1 release metadata for Chavanelle V et al., TOTUM63 randomized trial; released August24,2026.",
+      "citation": "Figshare public v1 release metadata for Chavanelle V et al., TOTUM63 randomized trial; released August24,2026.",
+      "notes": "Public primary publication or release/trial metadata; source-specific terms retained. Complete raw document kept fetch-only in Demeter.",
+      "url": "https://api.figshare.com/v2/articles/32348169",
+      "sha256": "5088646d5cde5ea9948464f64bc306a3a3547e9aa6e7b5207a8b7e04ba2367d7",
+      "retrieved_at": "2026-09-30T23:13:55.188118+00:00",
+      "distribution": "fetch_only",
+      "alternative": "Fetch public bytes into ignored local storage using frozen receipts; publish aggregate adequacy only. Full clinical participant histories not verified; no outreach."
+    },
+    "totum_methods2026": {
+      "policy": "totum_public_adequacy",
+      "privacy": "publication",
+      "publisher": "TOTUM63 authors / Nature Communications / Figshare / ClinicalTrials.gov",
+      "vintage": "Chavanelle V et al. Totum-63, a plant-based polyphenol-rich extract, in prediabetes or early-stage type2diabetes: an international, multicenter, randomized controlled trial. Nature Communications (2026). DOI10.1038/s41467-026-75626-0.",
+      "citation": "Chavanelle V et al. Totum-63, a plant-based polyphenol-rich extract, in prediabetes or early-stage type2diabetes: an international, multicenter, randomized controlled trial. Nature Communications (2026). DOI10.1038/s41467-026-75626-0.",
+      "notes": "Public primary publication or release/trial metadata; source-specific terms retained. Complete raw document kept fetch-only in Demeter.",
+      "url": "https://www.nature.com/articles/s41467-026-75626-0",
+      "sha256": "3aa274b1bc02e211c934050be4b623d01325c3fd7d72eda2b21e9d3dcd67733b",
+      "retrieved_at": "2026-09-30T23:13:57.031705+00:00",
+      "distribution": "fetch_only",
+      "alternative": "Fetch public bytes into ignored local storage using frozen receipts; publish aggregate adequacy only. Full clinical participant histories not verified; no outreach."
+    },
+    "totum_reporting_summary2026": {
+      "policy": "totum_public_adequacy",
+      "privacy": "publication",
+      "publisher": "TOTUM63 authors / Nature Communications / Figshare / ClinicalTrials.gov",
+      "vintage": "Chavanelle V et al. Nature Communications TOTUM63 Reporting Summary, MOESM2; Data access, exclusions/blinding and Outcomes.",
+      "citation": "Chavanelle V et al. Nature Communications TOTUM63 Reporting Summary, MOESM2; Data access, exclusions/blinding and Outcomes.",
+      "notes": "Public primary publication or release/trial metadata; source-specific terms retained. Complete raw document kept fetch-only in Demeter.",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-026-75626-0/MediaObjects/41467_2026_75626_MOESM2_ESM.pdf",
+      "sha256": "551746cead8181c483bcdd4f08d96ffe609571a5cdce7a6249663f476ca54e34",
+      "retrieved_at": "2026-09-30T23:41:40.372274+00:00",
+      "distribution": "fetch_only",
+      "alternative": "Fetch public bytes into ignored local storage using frozen receipts; publish aggregate adequacy only. Full clinical participant histories not verified; no outreach."
+    },
+    "totum_registration2026": {
+      "policy": "totum_public_adequacy",
+      "privacy": "metadata",
+      "publisher": "TOTUM63 authors / Nature Communications / Figshare / ClinicalTrials.gov",
+      "vintage": "ClinicalTrials.gov NCT04423302 protocol metadata: TOTUM63 randomized trial; accessedSeptember30,2026. No DOI assigned to this registry record.",
+      "citation": "ClinicalTrials.gov NCT04423302 protocol metadata: TOTUM63 randomized trial; accessedSeptember30,2026. No DOI assigned to this registry record.",
+      "notes": "Public primary publication or release/trial metadata; source-specific terms retained. Complete raw document kept fetch-only in Demeter.",
+      "url": "https://clinicaltrials.gov/api/v2/studies/NCT04423302",
+      "sha256": "9db0a51e0d91eba2bb60dd58114a4401a5501e26454ebfdecbd57725e116b7e7",
+      "retrieved_at": "2026-09-30T23:19:26.284306+00:00",
+      "distribution": "fetch_only",
+      "alternative": "Fetch public bytes into ignored local storage using frozen receipts; publish aggregate adequacy only. Full clinical participant histories not verified; no outreach."
+    },
+    "totum_workbook2026": {
+      "policy": "totum_public_adequacy",
+      "privacy": "public_use_microdata",
+      "publisher": "TOTUM63 authors / Nature Communications / Figshare / ClinicalTrials.gov",
+      "vintage": "Chavanelle V et al. Source-data-file.xlsx, Figshare releasev1, DOI10.6084/m9.figshare.32348169.v1. Table4 A:D only under frozen adequacy selection.",
+      "citation": "Chavanelle V et al. Source-data-file.xlsx, Figshare releasev1, DOI10.6084/m9.figshare.32348169.v1. Table4 A:D only under frozen adequacy selection.",
+      "notes": "Figshare workbook releasev1 CC BY4.0; raw kept fetch-only in Demeter; public aggregate adequacy output only.",
+      "url": "https://ndownloader.figshare.com/files/65557542",
+      "sha256": "a86dbc63fcd4f4d9f8906d3a14bcd16b1b6bb38d19e1e30825faed0b1827ba2d",
+      "retrieved_at": "2026-09-30T23:15:53.403318+00:00",
+      "distribution": "fetch_only",
+      "alternative": "Fetch public bytes into ignored local storage using frozen receipts; publish aggregate adequacy only. Full clinical participant histories not verified; no outreach."
     }
   },
   "documentation_receipts": "docs/validation/dpp-coverage-source-receipts.json",

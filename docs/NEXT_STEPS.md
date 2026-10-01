@@ -96,6 +96,13 @@ treatment, diagnosis history and repeated-year dependence remain explicit. It
 does not identify individual reversal, annual transition hazards, a consumed UPF
 dose, or a lag, and does not activate any engine parameter.
 
+The [TOTUM63 source-row adequacy audit](TOTUM_SOURCE_ADEQUACY.md) checks the public
+baseline/follow-up glucose surface before accepting a likelihood. The
+[design extension](rfcs/RFC-57-58-totum-source-adequacy.md) preserves record identity,
+measurement, missingness and stopping requirements. Coverage counts cannot certify
+unique people, valid assays or a full randomized cohort. No clinical rate or
+food-to-health effect is fitted or activated.
+
 Next, prioritize a compatible unrestricted longitudinal package or sufficient
 published observations for an identified progression/reversal likelihood. Further
 blank-form inspection cannot replace participant histories. Resolve timing,

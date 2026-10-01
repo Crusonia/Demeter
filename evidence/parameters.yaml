@@ -3672,6 +3672,132 @@ datasets:
     clinical_fit_allowed: false
     engine_activation_allowed: false
 
+  totum_source_row_adequacy:
+    status: derived
+    evidence_grade: C
+    model_role: benchmark_only
+    population: Public TOTUM63 source-table rows, not a verified unique clinical cohort.
+      Trial recruited adults with source-defined prediabetes or early-stage T2D and
+      overweight/obesity; selected row eligibility and individual histories remain
+      unverified.
+    geography: Trial sites in France, Germany, Italy, Bulgaria, Hungary, Poland and Romania;
+      country/site fields are absent from the selected source-row surface. No national transport.
+    time_period: Source trial 2020-2023; publication July 20, 2026 and Figshare release August 24, 2026.
+      Source labels are baseline and 6 months; Methods specify a nominal 24-week visit.
+      Actual collection times remain unknown; no duration conversion.
+    unit: Exact pinned source-row/raw-cell coverage counts, not people, clinical transitions
+      or efficacy estimates
+    source_ids:
+      metadata: totum_metadata2026
+      methods: totum_methods2026
+      reporting_summary: totum_reporting_summary2026
+      registration: totum_registration2026
+      workbook: totum_workbook2026
+    protocol_path: docs/validation/totum-source-row-protocol-v1.json
+    protocol_sha256: fe9b70d246b1584aeec732ec8b2a97d4faf1a8d0121df916a01739e1c774d52f
+    receipts_path: docs/validation/totum-source-row-receipts-v1.json
+    receipts_sha256: dfcbe2b29c1c6bdeb811d024a932f638d49a2fbe7581369cf24b12aa004d8457
+    analysis:
+      selection:
+        worksheet: Table 4
+        columns:
+        - A
+        - B
+        - C
+        - D
+        header_rows:
+        - 1
+        - 2
+        - 3
+        - 4
+        first_source_row: 5
+        row_scan: All selected-column positions from first_source_row through the
+          maximum of declared worksheet dimension and selected-column cells. Retain
+          absent positions/all-empty layout rows separately; no clinical participant
+          denominator inferred.
+        no_other_numeric_outcomes: Never read other worksheet outcomes or numeric
+          values outside A:D. Other workbook-level structure may be checked only for
+          source integrity and selected-range resolution.
+        no_cross_sheet_join: true
+        no_cross_block_join: true
+        no_record_deduplication: true
+        no_forward_fill: true
+        no_merged_anchor_resolution: true
+      expected_headers:
+        A1: 'Table 4: Secondary analyses'
+        A2: Glycemic parameters
+        C3: Baseline
+        D3: 6 months
+        A4: Group
+        B4: Glycemic status
+        C4: FPG (mg/dL)
+        D4: FPG (mg/dL)
+      raw_cell_preservation:
+        kind_precedence:
+        - formula
+        - error
+        - date
+        - boolean
+        - blank_or_absent
+        - numeric
+        - text
+        - other_unresolved
+        formula: Retain formula/cached-type existence locally; never execute or treat
+          cached result as laboratory evidence.
+        blank: Distinguish absent cell, explicit blank, empty text and all-empty layout
+          row where OOXML supports that distinction. No missing→zero.
+        numeric: Distinguish positive finite, zero, negative and nonfinite numbers.
+          No zero/negative/nonfinite value treated as blank or as a clinical state.
+          Positive finite is not a laboratory-validity claim.
+        boolean: Retain as boolean, never0/1 glucose.
+        date: Detect explicit date cell or numeric cell with date-formatted style;
+          retain opaque date/serial, never glucose or inferred visit time.
+        text: Retain as opaque text/unknown marker. Do not coerce numeric-looking
+          strings, parse undocumented clinical codes or assign negative-test/absent-event
+          meanings.
+        error: Preserve source Excel error kind; no clinical missingness/withdrawal/death
+          reason assigned.
+        merged_A_B: Detect selected-body merges and unresolved anchors; do not propagate
+          arm/status labels to adjacent rows.
+      safe_aggregate_outputs:
+        allowed:
+        - source/protocol/receipt integrity checks and implementation provenance
+        - source range and header validation
+        - counts of raw selected-cell kinds per A/B/C/D
+        - counts of positive finite/zero/negative/nonfinite numeric FPG cells separately
+        - counts of absent/blank/text/error/formula/date/bool/unresolved FPG cells
+          separately
+        - counts of same-row raw C/D kind-combinations; explicitly not verified paired
+          participants
+        - count of all-empty A:D layout rows separately from nonempty source records
+        - counts of source-body merge structures and missing/unresolved group cells
+        - count of distinct nonempty textual A group tokens and frequency for source-reviewed
+          safe labels only
+        - explicit unknown requirements and clinical-fit/activation refusal
+        safe_group_labels:
+        - PBO
+        - T63 TID
+        - T63 BID
+        group_label_normalization: Unicode whitespace collapse only; raw original
+          retained locally. No case folding, alias guessing, forward fill or inferred
+          numeric-code mapping. Unrecognized labels summarized by counts only, never
+          raw strings.
+        B_status_output: Only raw-kind/empty/distinct-token coverage; no status labels,
+          diagnostic strata or clinical categories exported.
+        forbidden:
+        - participant or source-row dumps/IDs
+        - individual FPG values or numeric ranges
+        - FPG sums, means, distributions, changes, correlations or treatment contrasts
+        - thresholds, inferred diagnoses, negative tests, remission or latent clinical
+          states
+        - imputation, MAR/independent censoring assumptions, missing-as-noncase
+        - clinical likelihood, hazard/dose/lag fit, causal effect or national activation
+    parameter_keys: []
+    uncertainty: Fixed-release source-layout diagnostics only; no sampling intervals,
+      clinical measurement error model, missingness mechanism, imputation or efficacy
+      uncertainty fitted.
+    clinical_fit_allowed: false
+    engine_activation_allowed: false
 scientific_blockers:
 - National age-specific metabolic transition hazards are unresolved.
 - Age-specific T2D/prediabetes initial prevalence is not calibrated; CDC total diabetes includes
@@ -3854,3 +3980,74 @@ sources:
       access is not unrestricted.
     correction_note: Used-source reproduction; source-specific versions and conflicts retained. Exact final
       URL and HTTP metadata in frozen PREVIEW receipts.
+  totum_metadata2026:
+    url: https://api.figshare.com/v2/articles/32348169
+    citation: Figshare public v1 release metadata for Chavanelle V et al., TOTUM63
+      randomized trial; released August24,2026.
+    doi: 10.6084/m9.figshare.32348169.v1
+    raw_filename: totum-live-metadata-20260930T231354440655Z.json
+    sha256: 5088646d5cde5ea9948464f64bc306a3a3547e9aa6e7b5207a8b7e04ba2367d7
+    retrieved_at: '2026-09-30T23:13:55.188118+00:00'
+    license: Public primary publication or release/trial metadata; source-specific
+      terms retained. Complete raw document kept fetch-only in Demeter.
+    correction_note: Historical actual acquisition receipt pinned separately from
+      later localbyteverification. Publication/registry data-sharing conflict, unverified
+      row-unit/pairing and incomplete clinical histories retained; no efficacy or
+      clinical fit.
+  totum_methods2026:
+    url: https://www.nature.com/articles/s41467-026-75626-0
+    citation: 'Chavanelle V et al. Totum-63, a plant-based polyphenol-rich extract,
+      in prediabetes or early-stage type2diabetes: an international, multicenter,
+      randomized controlled trial. Nature Communications (2026). DOI10.1038/s41467-026-75626-0.'
+    doi: 10.1038/s41467-026-75626-0
+    raw_filename: totum-main-methods-source-20260930T231355191119Z.html
+    sha256: 3aa274b1bc02e211c934050be4b623d01325c3fd7d72eda2b21e9d3dcd67733b
+    retrieved_at: '2026-09-30T23:13:57.031705+00:00'
+    license: Public primary publication or release/trial metadata; source-specific
+      terms retained. Complete raw document kept fetch-only in Demeter.
+    correction_note: Historical actual acquisition receipt pinned separately from
+      later localbyteverification. Publication/registry data-sharing conflict, unverified
+      row-unit/pairing and incomplete clinical histories retained; no efficacy or
+      clinical fit.
+  totum_reporting_summary2026:
+    url: https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-026-75626-0/MediaObjects/41467_2026_75626_MOESM2_ESM.pdf
+    citation: Chavanelle V et al. Nature Communications TOTUM63 Reporting Summary,
+      MOESM2; Data access, exclusions/blinding and Outcomes.
+    doi: 10.1038/s41467-026-75626-0
+    raw_filename: totum-reporting-summary-20260930T234139287394Z.pdf
+    sha256: 551746cead8181c483bcdd4f08d96ffe609571a5cdce7a6249663f476ca54e34
+    retrieved_at: '2026-09-30T23:41:40.372274+00:00'
+    license: Public primary publication or release/trial metadata; source-specific
+      terms retained. Complete raw document kept fetch-only in Demeter.
+    correction_note: Historical actual acquisition receipt pinned separately from
+      later localbyteverification. Publication/registry data-sharing conflict, unverified
+      row-unit/pairing and incomplete clinical histories retained; no efficacy or
+      clinical fit.
+  totum_registration2026:
+    url: https://clinicaltrials.gov/api/v2/studies/NCT04423302
+    citation: 'ClinicalTrials.gov NCT04423302 protocol metadata: TOTUM63 randomized
+      trial; accessedSeptember30,2026. No DOI assigned to this registry record.'
+    doi: No DOI; ClinicalTrials.govNCT04423302
+    raw_filename: totum-trial-metadata-20260930T231925894324Z.json
+    sha256: 9db0a51e0d91eba2bb60dd58114a4401a5501e26454ebfdecbd57725e116b7e7
+    retrieved_at: '2026-09-30T23:19:26.284306+00:00'
+    license: Public primary publication or release/trial metadata; source-specific
+      terms retained. Complete raw document kept fetch-only in Demeter.
+    correction_note: Historical actual acquisition receipt pinned separately from
+      later localbyteverification. Publication/registry data-sharing conflict, unverified
+      row-unit/pairing and incomplete clinical histories retained; no efficacy or
+      clinical fit.
+  totum_workbook2026:
+    url: https://ndownloader.figshare.com/files/65557542
+    citation: Chavanelle V et al. Source-data-file.xlsx, Figshare releasev1, DOI10.6084/m9.figshare.32348169.v1.
+      Table4 A:D only under frozen adequacy selection.
+    doi: 10.6084/m9.figshare.32348169.v1
+    raw_filename: totum-source-data-20260930T231551863162Z.xlsx
+    sha256: a86dbc63fcd4f4d9f8906d3a14bcd16b1b6bb38d19e1e30825faed0b1827ba2d
+    retrieved_at: '2026-09-30T23:15:53.403318+00:00'
+    license: Figshare workbook releasev1 CC BY4.0; raw kept fetch-only in Demeter;
+      public aggregate adequacy output only.
+    correction_note: Historical actual acquisition receipt pinned separately from
+      later localbyteverification. Publication/registry data-sharing conflict, unverified
+      row-unit/pairing and incomplete clinical histories retained; no efficacy or
+      clinical fit.

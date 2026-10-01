@@ -1,0 +1,253 @@
+{
+  "analysis_id": "totum_source_row_adequacy",
+  "assessment": "frozen source-row/type adequacy; no clinical endpoint acceptance",
+  "clinically_adequate": false,
+  "decision": {
+    "clinical_adequacy": "unresolved",
+    "clinical_fit_allowed": false,
+    "endpoint_distribution_accepted": false,
+    "engine_activation_allowed": false,
+    "integrity_and_selected_headers_passed": true,
+    "source_layout_preserved": true,
+    "unknown_requirements": [
+      "same-person pairing and unique participant identity",
+      "eligibility/measurement validity for each record",
+      "prior/full diabetes diagnosis and confirmation",
+      "baseline or follow-up treatment exposure",
+      "treatment-triggered withdrawal and its date",
+      "death/survival/time",
+      "last contact/withdrawal/loss reason",
+      "actual time interval",
+      "meaning of blank/error/text missing markers"
+    ]
+  },
+  "failure_dispositions": {
+    "all_empty_row": "Count as layout/empty source position, never lost participant.",
+    "formula_date_boolean_zero_negative_nonfinite": "Keep separate raw kind; no silent coercion, filtering or clinical interpretation.",
+    "hash_header_scope_drift": "Stop intake; do not repair source cells, select a convenient alternate sheet or expand scope.",
+    "insufficient_source_layout": "Return an inadequate/unresolved source decision; do not create a convenience efficacy benchmark.",
+    "pairing_identity_treatment_death_unknown": "Retain source-layout observations; no clinical participant history, likelihood or fit-ready claim.",
+    "unknown_group_or_missing_marker": "Preserve unresolved raw status locally and aggregate count; block dependent interpretation."
+  },
+  "fit_ready": false,
+  "model_role": "benchmark_only",
+  "provenance": {
+    "clinical_fit_performed": false,
+    "historical_acquisition_receipts": {
+      "metadata": {
+        "completed_at_utc": "2026-09-30T23:13:55.188118+00:00",
+        "content_type": "application/json",
+        "final_url_signed_query_omitted": false,
+        "http_status": 200,
+        "ignored_raw_receipt_sha256": "41d4716548492c903da65a22c956c99eb03a6a7245d85f577ae8cef8eaebd08f",
+        "requested_url": "https://api.figshare.com/v2/articles/32348169",
+        "resolved_url": "https://api.figshare.com/v2/articles/32348169",
+        "started_at_utc": "2026-09-30T23:13:54.440655+00:00"
+      },
+      "methods": {
+        "completed_at_utc": "2026-09-30T23:13:57.031705+00:00",
+        "content_type": "text/html; charset=utf-8",
+        "final_url_signed_query_omitted": false,
+        "http_status": 200,
+        "ignored_raw_receipt_sha256": "f87f5759c65ced85e0a30f668fc6e61789bbc3d4dca4a4254906c904663fa8bb",
+        "requested_url": "https://www.nature.com/articles/s41467-026-75626-0",
+        "resolved_url": "https://www.nature.com/articles/s41467-026-75626-0?error=cookies_not_supported&code=31864c1b-4ee0-423d-ba0f-3639cba31fa8",
+        "started_at_utc": "2026-09-30T23:13:55.191119+00:00"
+      },
+      "registration": {
+        "completed_at_utc": "2026-09-30T23:19:26.284306+00:00",
+        "content_type": null,
+        "final_url_signed_query_omitted": false,
+        "http_status": 200,
+        "ignored_raw_receipt_sha256": "d11605198633b6ebd972aff00655d16ad25bb961ce70992ef5ea6baaa4fe51fa",
+        "requested_url": "https://clinicaltrials.gov/api/v2/studies/NCT04423302",
+        "resolved_url": "https://clinicaltrials.gov/api/v2/studies/NCT04423302",
+        "started_at_utc": "2026-09-30T23:19:25.894324+00:00"
+      },
+      "reporting_summary": {
+        "completed_at_utc": "2026-09-30T23:41:40.372274+00:00",
+        "content_type": "application/pdf",
+        "final_url_signed_query_omitted": false,
+        "http_status": 200,
+        "ignored_raw_receipt_sha256": "f3d0319b4b39fd1694e5ee3a118ebff94142460da3f99b24914a06ec0add0c36",
+        "requested_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-026-75626-0/MediaObjects/41467_2026_75626_MOESM2_ESM.pdf",
+        "resolved_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-026-75626-0/MediaObjects/41467_2026_75626_MOESM2_ESM.pdf",
+        "started_at_utc": "2026-09-30T23:41:39.287394+00:00"
+      },
+      "workbook": {
+        "completed_at_utc": "2026-09-30T23:15:53.403318+00:00",
+        "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "final_url_signed_query_omitted": true,
+        "http_status": 200,
+        "ignored_raw_receipt_sha256": "059bd06102d074e61d78bc68e9ab66f60c1bb3c29d012c491a2081f4a9290916",
+        "requested_url": "https://ndownloader.figshare.com/files/65557542",
+        "resolved_url": "https://s3-eu-west-1.amazonaws.com/pstorage-npg-968563215/65557542/Sourcedatafile.xlsx",
+        "started_at_utc": "2026-09-30T23:15:51.863162+00:00"
+      }
+    },
+    "historical_ignored_raw_receipt_files_required": false,
+    "implementation_sha256": "334775fa30a8edfe99f03600e630bee3b84b39b393e707344f7b87f5b1362553",
+    "independent_validation": false,
+    "local_bytes_acquisition_time_certified": false,
+    "numeric_type_coverage_counting_performed": true,
+    "outcome_arithmetic_performed": false,
+    "protocol_sha256": "fe9b70d246b1584aeec732ec8b2a97d4faf1a8d0121df916a01739e1c774d52f",
+    "raw_redistributed": false,
+    "receipts_sha256": "dfcbe2b29c1c6bdeb811d024a932f638d49a2fbe7581369cf24b12aa004d8457",
+    "rows_or_individual_values_exported": false,
+    "source_checks": {
+      "metadata": {
+        "passed": true,
+        "sha256": "5088646d5cde5ea9948464f64bc306a3a3547e9aa6e7b5207a8b7e04ba2367d7",
+        "size_bytes": 6487
+      },
+      "methods": {
+        "passed": true,
+        "sha256": "3aa274b1bc02e211c934050be4b623d01325c3fd7d72eda2b21e9d3dcd67733b",
+        "size_bytes": 389951
+      },
+      "registration": {
+        "passed": true,
+        "sha256": "9db0a51e0d91eba2bb60dd58114a4401a5501e26454ebfdecbd57725e116b7e7",
+        "size_bytes": 29502
+      },
+      "reporting_summary": {
+        "passed": true,
+        "sha256": "551746cead8181c483bcdd4f08d96ffe609571a5cdce7a6249663f476ca54e34",
+        "size_bytes": 8112598
+      },
+      "workbook": {
+        "passed": true,
+        "sha256": "a86dbc63fcd4f4d9f8906d3a14bcd16b1b6bb38d19e1e30825faed0b1827ba2d",
+        "size_bytes": 501221
+      }
+    },
+    "trial_preregistration": false
+  },
+  "results": {
+    "all_empty_layout_position_count": 0,
+    "body_merge_structure_count": 0,
+    "cell_kind_counts": {
+      "A": {
+        "absent": 0,
+        "blank": 0,
+        "boolean": 0,
+        "date": 0,
+        "empty_text": 0,
+        "error": 0,
+        "formula": 0,
+        "numeric": 0,
+        "other_unresolved": 0,
+        "text": 636
+      },
+      "B": {
+        "absent": 0,
+        "blank": 0,
+        "boolean": 0,
+        "date": 0,
+        "empty_text": 0,
+        "error": 0,
+        "formula": 0,
+        "numeric": 0,
+        "other_unresolved": 0,
+        "text": 636
+      },
+      "C": {
+        "absent": 0,
+        "blank": 1,
+        "boolean": 0,
+        "date": 0,
+        "empty_text": 0,
+        "error": 0,
+        "formula": 0,
+        "numeric": 635,
+        "other_unresolved": 0,
+        "text": 0
+      },
+      "D": {
+        "absent": 0,
+        "blank": 30,
+        "boolean": 0,
+        "date": 0,
+        "empty_text": 0,
+        "error": 0,
+        "formula": 0,
+        "numeric": 606,
+        "other_unresolved": 0,
+        "text": 0
+      }
+    },
+    "group_coverage": {
+      "distinct_nonempty_text_token_count": 3,
+      "forward_fill_performed": false,
+      "merged_anchor_resolution_performed": false,
+      "merged_group_cell_count": 0,
+      "missing_or_unresolved_group_cell_count": 0,
+      "reviewed_text_label_counts": {
+        "PBO": 210,
+        "T63 BID": 214,
+        "T63 TID": 212
+      },
+      "unrecognized_text_cell_count": 0
+    },
+    "merged_selected_body_cell_count": 0,
+    "nonempty_source_position_count": 636,
+    "opaque_status_coverage": {
+      "distinct_nonempty_text_token_count": 2
+    },
+    "positive_finite_means_valid_assay": false,
+    "raw_numeric_fpg_counts": {
+      "C": {
+        "negative_finite": 0,
+        "nonfinite": 0,
+        "positive_finite": 635,
+        "zero": 0
+      },
+      "D": {
+        "negative_finite": 0,
+        "nonfinite": 0,
+        "positive_finite": 606,
+        "zero": 0
+      }
+    },
+    "same_row_C_D_kind_counts": {
+      "blank|numeric": 1,
+      "numeric|blank": 30,
+      "numeric|numeric": 605
+    },
+    "source_position_count": 636,
+    "verified_clinical_pair_count": null,
+    "verified_participant_count": null
+  },
+  "schema_version": 1,
+  "scientific_release_ready": false,
+  "scope": {
+    "C_nominal_assessment": "Baseline",
+    "D_nominal_assessment": "6 months",
+    "actual_times": "unknown",
+    "columns": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "declared_last_row": 640,
+    "first_source_row": 5,
+    "nominal_planned_schedule_used_as_actual_interval": false,
+    "scan_last_row": 640,
+    "selected_last_row": 640,
+    "source_fpg_unit": "mg/dL",
+    "unit": "source worksheet position; not verified participant",
+    "worksheet": "Table 4"
+  },
+  "source_audit_passed": true,
+  "source_conflicts": [
+    "Main Dataavailability says source file contains all collected deidentified IPD; ReportingSummaryp1 describes source data for tables/figures and request access for generated/analyzed clinical data. Preserve conflict; actual selected field coverage governs.",
+    "Main Outcomes and ReportingSummaryp5 omit V4 and pharmacotherapy-requirement timing; source registration defines treatment need as investigator withdrawal. Unknown actual stopping process blocks default independent censoring/MAR.",
+    "ReportingSummaryp2 says no data excluded; this does not certify no missing visits or complete outcome ascertainment.",
+    "No public row-identity/missing-code dictionary, workbook comments/named tables/defined names or attached ClinicalTrials protocol/SAP document was found. Header adjacency is not unique-person certification.",
+    "Registration lists three glycemic categories; main exploratory analysis uses four. No category conversion in this audit.",
+    "Cached ClinicalTrials protocolSection.ipdSharingStatementModule.ipdSharing is NO, while publication Dataavailability advertises indefinite deidentified IPD release. The separately verified public Figsharev1 CC BY4.0 release license remains valid; registration does not certify row identity or complete clinical coverage.",
+    "Publication Statistics describes an LOCF sensitivity analysis; the adequacy intake performs no imputation and does not adopt that method as a missingness assumption."
+  ]
+}

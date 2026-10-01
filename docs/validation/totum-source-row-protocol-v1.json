@@ -1,0 +1,242 @@
+{
+  "schema_version": 1,
+  "dataset": "totum_source_row_adequacy",
+  "title": "TOTUM63 Table4 A:D source-row preservation and adequacy specification",
+  "status": "Source-row adequacy selection frozen before numeric-row inspection; methods/header-informed, not trial preregistration or independent validation.",
+  "created_at_utc": "2026-09-30T23:55:51.448238+00:00",
+  "source_identity": {
+    "publication_doi": "10.1038/s41467-026-75626-0",
+    "release_doi": "10.6084/m9.figshare.32348169.v1",
+    "release_version": 1,
+    "release_api": "https://api.figshare.com/v2/articles/32348169",
+    "trial_registration": "NCT04423302"
+  },
+  "source_pins": {
+    "metadata": {
+      "cache_filename": "totum-live-metadata-20260930T231354440655Z.json",
+      "size_bytes": 6487,
+      "sha256": "5088646d5cde5ea9948464f64bc306a3a3547e9aa6e7b5207a8b7e04ba2367d7",
+      "receipt_key": "metadata",
+      "requested_url": "https://api.figshare.com/v2/articles/32348169"
+    },
+    "methods": {
+      "cache_filename": "totum-main-methods-source-20260930T231355191119Z.html",
+      "size_bytes": 389951,
+      "sha256": "3aa274b1bc02e211c934050be4b623d01325c3fd7d72eda2b21e9d3dcd67733b",
+      "receipt_key": "methods",
+      "requested_url": "https://www.nature.com/articles/s41467-026-75626-0"
+    },
+    "reporting_summary": {
+      "cache_filename": "totum-reporting-summary-20260930T234139287394Z.pdf",
+      "size_bytes": 8112598,
+      "sha256": "551746cead8181c483bcdd4f08d96ffe609571a5cdce7a6249663f476ca54e34",
+      "receipt_key": "reporting_summary",
+      "requested_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-026-75626-0/MediaObjects/41467_2026_75626_MOESM2_ESM.pdf"
+    },
+    "registration": {
+      "cache_filename": "totum-trial-metadata-20260930T231925894324Z.json",
+      "size_bytes": 29502,
+      "sha256": "9db0a51e0d91eba2bb60dd58114a4401a5501e26454ebfdecbd57725e116b7e7",
+      "receipt_key": "registration",
+      "requested_url": "https://clinicaltrials.gov/api/v2/studies/NCT04423302"
+    },
+    "workbook": {
+      "cache_filename": "totum-source-data-20260930T231551863162Z.xlsx",
+      "size_bytes": 501221,
+      "sha256": "a86dbc63fcd4f4d9f8906d3a14bcd16b1b6bb38d19e1e30825faed0b1827ba2d",
+      "receipt_key": "workbook",
+      "requested_url": "https://ndownloader.figshare.com/files/65557542"
+    }
+  },
+  "receipts": {
+    "path": "docs/validation/totum-source-row-receipts-v1.json",
+    "sha256": "dfcbe2b29c1c6bdeb811d024a932f638d49a2fbe7581369cf24b12aa004d8457",
+    "sanitization": "Only workbook final-URL signed query omitted; stable requested URL, actual acquisition times, byte hashes and ignored exact raw-receipt SHA retained."
+  },
+  "access": {
+    "public_release": true,
+    "download_enabled": true,
+    "confidential": false,
+    "embargo": false,
+    "credentials_or_application_used": false,
+    "author_contact_allowed": false,
+    "acquisition_scope": "The unrestricted public source workbook was acquired and may contain released deidentified individual values. Full clinical histories, unique participant identity/coverage and within-person row pairing remain unverified. No clinical numerical records have been inspected and no participant/source-row dump was created.",
+    "workbook_release_license": "CC BY4.0"
+  },
+  "selection": {
+    "worksheet": "Table 4",
+    "columns": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "header_rows": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "first_source_row": 5,
+    "row_scan": "All selected-column positions from first_source_row through the maximum of declared worksheet dimension and selected-column cells. Retain absent positions/all-empty layout rows separately; no clinical participant denominator inferred.",
+    "no_other_numeric_outcomes": "Never read other worksheet outcomes or numeric values outside A:D. Other workbook-level structure may be checked only for source integrity and selected-range resolution.",
+    "no_cross_sheet_join": true,
+    "no_cross_block_join": true,
+    "no_record_deduplication": true,
+    "no_forward_fill": true,
+    "no_merged_anchor_resolution": true
+  },
+  "expected_headers": {
+    "A1": "Table 4: Secondary analyses",
+    "A2": "Glycemic parameters",
+    "C3": "Baseline",
+    "D3": "6 months",
+    "A4": "Group",
+    "B4": "Glycemic status",
+    "C4": "FPG (mg/dL)",
+    "D4": "FPG (mg/dL)"
+  },
+  "source_row_contract": {
+    "unit": "source worksheet row; not a verified participant or unique person",
+    "within_row_relation": "C and D are source-layout associated baseline/follow-up fields; same-person pairing remains unverified. Preserve association without inventing participant identity.",
+    "A": "Opaque raw group cell; source arm membership/individual randomization is not independently certified.",
+    "B": "Opaque source glycemic-status label; no diagnostic category, type/history, latent-state or baseline clinical classification inferred.",
+    "C": {
+      "measurement": "source fasting plasma glucose",
+      "unit": "mg/dL",
+      "nominal_assessment": "Baseline (source C3)",
+      "actual_collection_time": "unknown"
+    },
+    "D": {
+      "measurement": "source fasting plasma glucose",
+      "unit": "mg/dL",
+      "nominal_assessment": "6 months (source D3); Methods describe V3 at nominal24weeks with +/-5days. These planned/presentation labels do not establish actual collection time.",
+      "actual_collection_time": "unknown; planned schedule does not verify actual collection or impose a realized interval"
+    },
+    "local_provenance": "Library may retain workbook SHA, worksheet/row/column and raw cell observations in memory or ignored local intake storage; public CLI/report never exports rows, values, IDs or raw unexpected strings.",
+    "clinical_unknowns": [
+      "same-person pairing and unique participant identity",
+      "eligibility/measurement validity for each record",
+      "prior/full diabetes diagnosis and confirmation",
+      "baseline or follow-up treatment exposure",
+      "treatment-triggered withdrawal and its date",
+      "death/survival/time",
+      "last contact/withdrawal/loss reason",
+      "actual time interval",
+      "meaning of blank/error/text missing markers"
+    ]
+  },
+  "raw_cell_preservation": {
+    "kind_precedence": [
+      "formula",
+      "error",
+      "date",
+      "boolean",
+      "blank_or_absent",
+      "numeric",
+      "text",
+      "other_unresolved"
+    ],
+    "formula": "Retain formula/cached-type existence locally; never execute or treat cached result as laboratory evidence.",
+    "blank": "Distinguish absent cell, explicit blank, empty text and all-empty layout row where OOXML supports that distinction. No missing\u2192zero.",
+    "numeric": "Distinguish positive finite, zero, negative and nonfinite numbers. No zero/negative/nonfinite value treated as blank or as a clinical state. Positive finite is not a laboratory-validity claim.",
+    "boolean": "Retain as boolean, never0/1 glucose.",
+    "date": "Detect explicit date cell or numeric cell with date-formatted style; retain opaque date/serial, never glucose or inferred visit time.",
+    "text": "Retain as opaque text/unknown marker. Do not coerce numeric-looking strings, parse undocumented clinical codes or assign negative-test/absent-event meanings.",
+    "error": "Preserve source Excel error kind; no clinical missingness/withdrawal/death reason assigned.",
+    "merged_A_B": "Detect selected-body merges and unresolved anchors; do not propagate arm/status labels to adjacent rows."
+  },
+  "safe_aggregate_outputs": {
+    "allowed": [
+      "source/protocol/receipt integrity checks and implementation provenance",
+      "source range and header validation",
+      "counts of raw selected-cell kinds per A/B/C/D",
+      "counts of positive finite/zero/negative/nonfinite numeric FPG cells separately",
+      "counts of absent/blank/text/error/formula/date/bool/unresolved FPG cells separately",
+      "counts of same-row raw C/D kind-combinations; explicitly not verified paired participants",
+      "count of all-empty A:D layout rows separately from nonempty source records",
+      "counts of source-body merge structures and missing/unresolved group cells",
+      "count of distinct nonempty textual A group tokens and frequency for source-reviewed safe labels only",
+      "explicit unknown requirements and clinical-fit/activation refusal"
+    ],
+    "safe_group_labels": [
+      "PBO",
+      "T63 TID",
+      "T63 BID"
+    ],
+    "group_label_normalization": "Unicode whitespace collapse only; raw original retained locally. No case folding, alias guessing, forward fill or inferred numeric-code mapping. Unrecognized labels summarized by counts only, never raw strings.",
+    "B_status_output": "Only raw-kind/empty/distinct-token coverage; no status labels, diagnostic strata or clinical categories exported.",
+    "forbidden": [
+      "participant or source-row dumps/IDs",
+      "individual FPG values or numeric ranges",
+      "FPG sums, means, distributions, changes, correlations or treatment contrasts",
+      "thresholds, inferred diagnoses, negative tests, remission or latent clinical states",
+      "imputation, MAR/independent censoring assumptions, missing-as-noncase",
+      "clinical likelihood, hazard/dose/lag fit, causal effect or national activation"
+    ]
+  },
+  "derived_counts": "Counts are reproducible source-layout/type coverage diagnostics, not clinical outcomes, sample-size certification, efficacy estimates or evidence of missing-at-random. Unknowns are never zero/pass.",
+  "source_choice_and_possible_future_estimand": {
+    "choice_rationale": "Choose only same-sheet A:D because it is the public source field surface for the blinded trial primary FPG baseline/end-of-treatment endpoint, before any local numeric outcomes were inspected. No effect direction used to select columns or groups. All selected source-arm rows are retained, including the exploratory open-label BID arm; no efficacy comparison is made.",
+    "identified_now": "Source-row/type/layout adequacy only. No clinical or participant endpoint distribution is accepted at this stage.",
+    "future_restricted_target": "If a separate reviewed contract establishes same-person row pairing, unique/exchangeable record units, raw-value validity and missing semantics, the empirical distribution of source baseline/follow-up FPG among available pairs by assigned arm may be estimated. Its available-pair mean change/absolute contrast would be conditional on observation, not automatically the full randomized effect.",
+    "materiality": "This is useful as an intake/measurement-preservation gate only. It does not justify another effect benchmark or close the longitudinal clinical observation contract. Reuse existing observation-preservation concepts rather than invent an engine state mapping.",
+    "next_analysis_requires_separate_freeze": true
+  },
+  "source_conflicts": [
+    "Main Dataavailability says source file contains all collected deidentified IPD; ReportingSummaryp1 describes source data for tables/figures and request access for generated/analyzed clinical data. Preserve conflict; actual selected field coverage governs.",
+    "Main Outcomes and ReportingSummaryp5 omit V4 and pharmacotherapy-requirement timing; source registration defines treatment need as investigator withdrawal. Unknown actual stopping process blocks default independent censoring/MAR.",
+    "ReportingSummaryp2 says no data excluded; this does not certify no missing visits or complete outcome ascertainment.",
+    "No public row-identity/missing-code dictionary, workbook comments/named tables/defined names or attached ClinicalTrials protocol/SAP document was found. Header adjacency is not unique-person certification.",
+    "Registration lists three glycemic categories; main exploratory analysis uses four. No category conversion in this audit.",
+    "Cached ClinicalTrials protocolSection.ipdSharingStatementModule.ipdSharing is NO, while publication Dataavailability advertises indefinite deidentified IPD release. The separately verified public Figsharev1 CC BY4.0 release license remains valid; registration does not certify row identity or complete clinical coverage.",
+    "Publication Statistics describes an LOCF sensitivity analysis; the adequacy intake performs no imputation and does not adopt that method as a missingness assumption."
+  ],
+  "failure_dispositions": {
+    "hash_header_scope_drift": "Stop intake; do not repair source cells, select a convenient alternate sheet or expand scope.",
+    "unknown_group_or_missing_marker": "Preserve unresolved raw status locally and aggregate count; block dependent interpretation.",
+    "formula_date_boolean_zero_negative_nonfinite": "Keep separate raw kind; no silent coercion, filtering or clinical interpretation.",
+    "all_empty_row": "Count as layout/empty source position, never lost participant.",
+    "pairing_identity_treatment_death_unknown": "Retain source-layout observations; no clinical participant history, likelihood or fit-ready claim.",
+    "insufficient_source_layout": "Return an inadequate/unresolved source decision; do not create a convenience efficacy benchmark."
+  },
+  "used_source_chronology": [
+    "Prior cached Figshare metadata title/rights/file identity inspected; no workbook outcomes.",
+    "Live metadata, Methods/Outcomes/Statistics/sample-size assumptions, Dataavailability/Rights and registration protocolSection inspected; abstract/results/discussion and registration resultsSection not printed. Prior-pilot assumptions in methods are used-source context.",
+    "Header-only plan recorded before workbook download; source bytes pinned. Workbook structure and string-only header bands inspected under dated amendments; numeric/mixed data rows excluded.",
+    "Workbook package inventory inspected: no comments/named tables/custom XML/defined names or hidden dictionary sheets; no numeric values read.",
+    "Reporting Summary pinned, rendered all8pages as methods thumbnails; pages1/2/5 read in detail for repeated-measurement reporting, data access/exclusions and primary V3\u2212V1 endpoint. No workbook numeric rows or trial efficacy results inspected.",
+    "The root-reviewed final source selection is frozen before numeric A:D row inspection. Committed freeze must precede numerical intake. This is not trial preregistration, untouched-source independent validation or clinical acceptance."
+  ],
+  "execution_gate": {
+    "root_review_and_committed_freeze_required": true,
+    "numeric_outcome_rows_already_inspected": false,
+    "outcome_arithmetic_already_performed": false,
+    "fit_allowed": false,
+    "engine_activation_allowed": false,
+    "scientific_release_ready": false,
+    "independent_expert_review": false
+  },
+  "model_role": "benchmark_only",
+  "frozen_at_utc": "2026-10-01T00:03:44.550267+00:00",
+  "draft_review": {
+    "draft_v1_sha256": "c1f30a38f5f3fa4aabb17e719a739e15ccff97b0dfaf0d025dd9dcafa3803bc7",
+    "draft_v2_sha256": "a66f0654b35b0a474737f29eb3298bf6676c7bc89668f8a554a5600f013af18e",
+    "source_selection_unchanged": true,
+    "clarifications": [
+      "CC BY4.0 is the verified Figshare workbook release license; each publication/registry source retains its own terms. All raw sources remain fetch-only in this repository.",
+      "Table4 covers source rows from all arms, including exploratory open-label BID; the audit does not claim every selected record belongs to the blinded comparison.",
+      "Positive finite numbers are raw numeric availability, not verified valid fasting assays.",
+      "Methods nominal24weeks with +/-5days is preserved separately from the workbook's6months label; no realized duration is inferred or converted."
+    ],
+    "independent_human_scientific_review": false,
+    "separate_Codex_source_critique": "No blocking factual or unsafe-output finding after the listed clarifications; source hashes/headers/receipts verified without clinical outcome-row inspection."
+  },
+  "source_ids": {
+    "metadata": "totum_metadata2026",
+    "methods": "totum_methods2026",
+    "reporting_summary": "totum_reporting_summary2026",
+    "registration": "totum_registration2026",
+    "workbook": "totum_workbook2026"
+  }
+}

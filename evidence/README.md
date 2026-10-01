@@ -10,6 +10,12 @@ distribution. Reported adjusted intervals and deterministic missing-label
 envelopes remain separate. No clinical hazard, dietary dose, lag or national
 parameter is activated.
 
+[TOTUM63 source adequacy](../docs/TOTUM_SOURCE_ADEQUACY.md) adds five pinned sources
+and a `benchmark_only` intake definition, with no new model parameter. Source-cell
+coverage counts are fixed-release diagnostics, not clinical outcomes or people.
+The frozen selection precedes numerical intake; the methods and headers were
+already inspected, and no independent clinical validation is claimed.
+
 Every substantive numeric parameter must be represented in `parameters.yaml` (or a future normalized successor) with units, status, provenance, evidence strength, and uncertainty where applicable.
 
 ## Status
