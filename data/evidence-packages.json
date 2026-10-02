@@ -1299,6 +1299,14 @@
     {
       "path": "docs/validation/haalsi-codebook-coverage-v1.json",
       "sha256": "1258da6841c5f2d543826a545bdb0266a93b0bb1f188eb9c7644ab8fa89f6751"
+    },
+    {
+      "path": "docs/PUBLIC_CLINICAL_SOURCE_CHECKPOINT.md",
+      "sha256": "9c2ef4c47a5ed8bf4e508cadc4bdf106cff73f399d2bbc6aabef88230dffa990"
+    },
+    {
+      "path": "docs/validation/public-clinical-source-checkpoint-v1.json",
+      "sha256": "5bb70827eabfd507c410e3474d8b828286dd9e011b9918eb0f8c4f49da8a1a12"
     }
   ]
 }
