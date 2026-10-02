@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from collections.abc import Mapping, Sequence
 from dataclasses import asdict, dataclass
+from itertools import product
 from math import fsum, isfinite, log
 from numbers import Real
 
@@ -20,6 +21,14 @@ EDGES = {
     "adjacent": ((0, 1), (1, 0), (1, 2), (2, 1)),
     "unrestricted": ((0, 1), (1, 0), (1, 2), (2, 1), (0, 2), (2, 0)),
 }
+
+NUMERICAL_METHODS = ("v1", "exact_box_quadratic_v2")
+
+
+def _numerical_method(value):
+    if type(value) is not str or value not in NUMERICAL_METHODS:
+        raise ValueError("Unsupported laboratory numerical method")
+    return value
 
 
 def _number(value, *, nonnegative=False, positive=False) -> float:
@@ -551,13 +560,57 @@ def _projected_gradient(point, gradient, caps):
     return residual
 
 
-def _finite_box_minimize(objective, initial, caps, settings):
+def _exact_box_quadratic(gradient, hessian, lower, upper):
+    """Solve a small SPD quadratic on its box by deterministic face enumeration.
+
+    All-free coordinates are tried first. Each face fixes coordinates at exact
+    bounds and solves its free linear system. A candidate must be exactly feasible
+    and satisfy projected KKT to floating dot-product roundoff. This is a search
+    direction only; no quadratic flag establishes likelihood convergence.
+    """
+    size = len(gradient)
+    if (
+        not 1 <= size <= 6
+        or gradient.shape != (size,)
+        or hessian.shape != (size, size)
+        or lower.shape != (size,)
+        or upper.shape != (size,)
+        or not all(np.isfinite(x).all() for x in (gradient, hessian, lower, upper))
+        or np.any(lower > upper)
+        or not np.array_equal(hessian, hessian.T)
+    ):
+        raise ValueError("A finite symmetric quadratic of dimension one to six is required")
+    np.linalg.cholesky(hessian)
+    for face in product((0, -1, 1), repeat=size):
+        face = np.asarray(face)
+        free, fixed = np.flatnonzero(face == 0), np.flatnonzero(face != 0)
+        step = np.zeros(size)
+        step[fixed] = np.where(face[fixed] < 0, lower[fixed], upper[fixed])
+        if len(free):
+            step[free] = np.linalg.solve(
+                hessian[np.ix_(free, free)],
+                -gradient[free] - hessian[np.ix_(free, fixed)] @ step[fixed],
+            )
+        if not np.isfinite(step).all() or np.any(step < lower) or np.any(step > upper):
+            continue
+        derivative = gradient + hessian @ step
+        residual = derivative.copy()
+        residual[(step == lower) & (derivative > 0)] = 0
+        residual[(step == upper) & (derivative < 0)] = 0
+        roundoff = 32 * np.finfo(float).eps * (np.abs(gradient) + np.abs(hessian) @ np.abs(step))
+        if np.isfinite(derivative).all() and np.all(np.abs(residual) <= roundoff):
+            return step
+    raise np.linalg.LinAlgError("No feasible quadratic face satisfies projected KKT")
+
+
+def _finite_box_minimize(objective, initial, caps, settings, *, numerical_method="v1"):
     """Projected BFGS with finite-domain Armijo backtracking.
 
     A nonfinite trial is rejected; its placeholder gradient can never establish
     convergence. Only the independently calculated projected-gradient residual
     satisfies success. Small objective changes alone do not satisfy success.
     """
+    numerical_method = _numerical_method(numerical_method)
     point = initial.copy()
     value, gradient = objective(point)
     inverse = np.eye(len(point))
@@ -578,24 +631,28 @@ def _finite_box_minimize(objective, initial, caps, settings):
             hessian = (hessian + hessian.T) / 2
             if not np.isfinite(hessian).all() or np.linalg.eigvalsh(hessian).min() <= 0:
                 raise np.linalg.LinAlgError
-            quadratic = minimize(
-                lambda step, gradient=gradient, hessian=hessian: (
-                    gradient @ step + 0.5 * step @ hessian @ step,
-                    gradient + hessian @ step,
-                ),
-                np.zeros(len(point)),
-                method="L-BFGS-B",
-                jac=True,
-                bounds=list(zip(-point, caps - point, strict=True)),
-                options={
-                    "maxiter": 100,
-                    "ftol": settings.optimizer_ftol,
-                    "gtol": settings.optimizer_gtol,
-                },
-            )
-            # This convex finite quadratic proposes a direction only. Its own
-            # convergence flag is never evidence of likelihood convergence.
-            direction = np.clip(point + quadratic.x, 0, caps) - point
+            if numerical_method == "v1":
+                quadratic = minimize(
+                    lambda step, gradient=gradient, hessian=hessian: (
+                        gradient @ step + 0.5 * step @ hessian @ step,
+                        gradient + hessian @ step,
+                    ),
+                    np.zeros(len(point)),
+                    method="L-BFGS-B",
+                    jac=True,
+                    bounds=list(zip(-point, caps - point, strict=True)),
+                    options={
+                        "maxiter": 100,
+                        "ftol": settings.optimizer_ftol,
+                        "gtol": settings.optimizer_gtol,
+                    },
+                )
+                # This quadratic proposes a direction only. Its convergence flag
+                # is never evidence of likelihood convergence.
+                direction = np.clip(point + quadratic.x, 0, caps) - point
+            else:
+                direction = _exact_box_quadratic(gradient, hessian, -point, caps - point)
+                direction = np.clip(point + direction, 0, caps) - point
         except (ValueError, FloatingPointError, OverflowError, np.linalg.LinAlgError):
             inverse = np.eye(len(point))
             direction = np.clip(point - residual, 0, caps) - point
@@ -655,7 +712,8 @@ def _finite_box_minimize(objective, initial, caps, settings):
     }
 
 
-def _search(paths, settings, *, fixed=None):
+def _search(paths, settings, *, fixed=None, numerical_method="v1"):
+    numerical_method = _numerical_method(numerical_method)
     size = len(EDGES[settings.structure])
     free = tuple(i for i in range(size) if fixed is None or i != fixed[0])
     caps = np.asarray(settings.rate_upper_bounds) * settings.day_scale
@@ -691,6 +749,7 @@ def _search(paths, settings, *, fixed=None):
                 np.asarray(start)[list(free)] * settings.day_scale,
                 caps[list(free)],
                 settings,
+                numerical_method=numerical_method,
             )
             rates = expand(result["x"])
             value, gradient, corrections = _compiled_likelihood(
@@ -750,13 +809,17 @@ def _search(paths, settings, *, fixed=None):
     return best, records, errors
 
 
-def fit_ctmc(paths, settings: FitSettings, *, identification_diagnostics=True) -> dict:
+def fit_ctmc(
+    paths, settings: FitSettings, *, identification_diagnostics=True, numerical_method="v1"
+) -> dict:
     """Explicit bounded multistart MLE; failed or unidentified fits remain visible."""
+    numerical_method = _numerical_method(numerical_method)
     paths = _paths(paths)
     if type(settings) is not FitSettings or type(identification_diagnostics) is not bool:
         raise ValueError("Explicit fitting settings and diagnostic choice are required")
     summary = transition_summary(paths)
     report = {
+        **({"numerical_method": numerical_method} if numerical_method != "v1" else {}),
         "kind": "ctmc",
         "structure": settings.structure,
         "parameter_edges": [list(edge) for edge in EDGES[settings.structure]],
@@ -775,7 +838,7 @@ def fit_ctmc(paths, settings: FitSettings, *, identification_diagnostics=True) -
     }
     if not summary["adjacent_observation_pairs"]:
         return {**report, "failure": "no_rate_informative_observation_pairs", "multistarts": []}
-    best, starts, errors = _search(paths, settings)
+    best, starts, errors = _search(paths, settings, numerical_method=numerical_method)
     report.update(multistarts=starts, evaluation_failures=errors)
     if best is None:
         return {**report, "failure": "no_converged_finite_multistart"}
@@ -937,7 +1000,14 @@ def score_predictions(paths, model, *, probability_tolerance) -> dict:
 
 
 def profile_rate(
-    paths, fitted: Mapping, settings: FitSettings, rate_index: int, grid, *, support_cutoff
+    paths,
+    fitted: Mapping,
+    settings: FitSettings,
+    rate_index: int,
+    grid,
+    *,
+    support_cutoff,
+    numerical_method="v1",
 ) -> dict:
     """Reoptimize nuisance rates at each supplied grid point; expose open limits.
 
@@ -945,6 +1015,7 @@ def profile_rate(
     It is not valid automatically at zero boundaries, caps, weak identification
     or failed points. No interpolated finite confidence interval is manufactured.
     """
+    numerical_method = _numerical_method(numerical_method)
     paths = _paths(paths)
     if (
         type(settings) is not FitSettings
@@ -977,7 +1048,9 @@ def profile_rate(
     grid = tuple(sorted({*grid, rates[rate_index]}))
     points, accepted, better = [], [], False
     for value in grid:
-        best, starts, errors = _search(paths, settings, fixed=(rate_index, value))
+        best, starts, errors = _search(
+            paths, settings, fixed=(rate_index, value), numerical_method=numerical_method
+        )
         if best is None:
             maximal_rates = list(settings.rate_upper_bounds)
             maximal_rates[rate_index] = value
@@ -1037,6 +1110,7 @@ def profile_rate(
     lower_open = bool(accepted) and grid[0] in accepted
     upper_open = bool(accepted) and grid[-1] in accepted
     return {
+        **({"numerical_method": numerical_method} if numerical_method != "v1" else {}),
         "rate_index": rate_index,
         "rate_unit": "per_source_day",
         "points": points,
@@ -1100,6 +1174,7 @@ def paired_path_bootstrap(
     quantile_levels: Sequence[float],
     evaluation_paths=None,
     include_iid=True,
+    numerical_method="v1",
 ) -> dict:
     """Whole-path resampling with paired models and retained failed/cap/boundary draws.
 
@@ -1107,6 +1182,7 @@ def paired_path_bootstrap(
     once per replicate and shared by all models. Successful-draw summaries are
     explicitly conditional on convergence; no failed replicate is redrawn.
     """
+    numerical_method = _numerical_method(numerical_method)
     paths = _paths(paths)
     evaluation = _paths(evaluation_paths) if evaluation_paths is not None else None
     if (
@@ -1148,7 +1224,12 @@ def paired_path_bootstrap(
         fits, failures = {}, {}
         for name, settings in configurations.items():
             try:
-                fits[name] = fit_ctmc(sampled, settings, identification_diagnostics=True)
+                fits[name] = fit_ctmc(
+                    sampled,
+                    settings,
+                    identification_diagnostics=True,
+                    numerical_method=numerical_method,
+                )
                 if not fits[name]["fit_performed"]:
                     failures[name] = fits[name]["failure"]
             except (ValueError, FloatingPointError, OverflowError, np.linalg.LinAlgError):
@@ -1241,6 +1322,7 @@ def paired_path_bootstrap(
             joint_rows.append([x for name in names for x in fits[name]["rates"]])
         records.append(record)
     return {
+        **({"numerical_method": numerical_method} if numerical_method != "v1" else {}),
         "repetitions_requested": repetitions,
         "repetitions_attempted": len(records),
         "seed": seed,

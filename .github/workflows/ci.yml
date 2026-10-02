@@ -64,6 +64,8 @@ jobs:
           uv run demeter evidence geelong-labels --output outputs/geelong-labels.json
           uv run demeter evidence geelong-labels --descriptive-only --output outputs/geelong-descriptive.json
           uv run python scripts/verify_geelong_labels.py
+      - name: Audit committed conditional iPOP working analysis offline
+        run: uv run python scripts/verify_ipop_a1c_working_fit.py --output outputs/ipop-a1c-integrity.json
       - name: Verify repository datasets and reload NHANES offline
         run: |
           uv run demeter data verify-store

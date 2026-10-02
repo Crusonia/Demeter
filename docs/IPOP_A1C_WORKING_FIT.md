@@ -3,8 +3,24 @@
 This analysis advances [#57](https://github.com/Crusonia/Demeter/issues/57) using
 public repeated laboratory observations. It asks whether the timing of changes
 between recorded A1C bands adds predictive information beyond persistence or a
-pooled categorical predictor. It estimates a conditional working process in the
+pooled categorical predictor. It evaluates a conditional working process in the
 selected panel, not diabetes onset, remission or a national dietary effect.
+
+The [preserved v1 aggregate](validation/ipop-a1c-working-result-v1.json) records a
+completed analysis with **both full-data CTMC estimates unresolved**. All six
+prescribed starts for each structure reached the frozen 1000-iteration limit:
+12 failed starts in total. Primary and general rate vectors, their profiles,
+point identification and CTMC evaluation scores remain null. The pooled IID
+categorical predictor is available; it does not establish time-dependent dynamics.
+The exact no-switching null retains impossible changed-band predictions.
+
+Of 200 whole-path bootstrap attempts, 157 primary fits failed and 43 succeeded.
+Covariance and percentiles from those 43 draws are conditional on successful
+finite estimation. They cannot replace the missing full-data point estimate or
+establish an unconditional confidence interval. This failure is retained rather
+than selecting a bootstrap draw as the reported model. A numerical repair must
+be evaluated under a separate versioned protocol that discloses its post-outcome
+selection; no repaired success is claimed here.
 
 The [program vision](PROJECT_VISION.md) still requires the full health slice
 before agriculture, market and payer modules. This work informs health input
@@ -13,7 +29,17 @@ loops into empirical coefficients.
 
 ## Reproduce locally
 
-Install the [locked environment](GETTING_STARTED.md). Fetch the exact public
+Install the [locked environment](GETTING_STARTED.md). The quick offline audit
+checks the committed aggregate report, evidence bindings and mathematical
+consistency, including the explicit unavailable fits. Passing this audit does
+not mean that CTMC estimation succeeded. It does not replay participant records
+or independently validate clinical rates:
+
+```bash
+uv run python scripts/verify_ipop_a1c_working_fit.py
+```
+
+For full empirical reproduction, fetch the exact public
 files once into a fresh ignored directory, then run the offline analysis:
 
 ```bash
@@ -23,18 +49,44 @@ uv run demeter evidence ipop-a1c-working-fit --raw data/raw/ipop-a1c-v1 --output
 
 These commands work in macOS/Linux terminals and Windows PowerShell. The fit
 includes both structures, all frozen rate profiles and 200 whole-path bootstrap
-replicates, so allow more time than a baseline simulation. Progress messages do
+replicates. Full fitting can take more than an hour; use the quick aggregate audit
+for ordinary installation checks. Progress messages do
 not expose participant records. Output must be a fresh path; existing files and
 source/evidence paths are protected. Reuse the verified raw cache on later runs,
 and choose a new report filename.
 
 The [protocol](validation/ipop-a1c-working-fit-protocol-v1.json) and
 [RFC](rfcs/RFC-57-ipop-a1c-working-fit.md) were committed and pushed before band
-mapping and fitting. A separate [numerical amendment](validation/ipop-a1c-numerical-amendment-v1.json) was frozen after aggregate band counts, before empirical optimization, to correct failures found with synthetic fixtures. Prior publication, code and source-intake inspection is
+mapping and fitting. A separate
+[numerical amendment](validation/ipop-a1c-numerical-amendment-v1.json) was frozen
+after aggregate band counts, before empirical optimization, to correct failures
+found with synthetic fixtures. Prior publication, code and source-intake inspection is
 disclosed. This is adaptive used-source work with internal evaluation, not
 preregistration or independent-source validation. The generic
 [numerical library](../src/demeter/analysis/laboratory_panel.py) and
 [source adapter](../src/demeter/analysis/ipop_a1c.py) are separate from the engine.
+
+### Adaptive numerical repair
+
+The [v2 numerical amendment](validation/ipop-a1c-numerical-amendment-v2.json)
+was selected after the failed v1 outcomes were inspected. Synthetic weak-curvature
+quadratics and rare-band panels isolate the internal direction solver's early
+objective stop. V2 solves that small bounded quadratic by deterministic face
+enumeration. The original likelihood convergence tolerance, iteration limit,
+independent direct-gradient verification, data selection and 200-draw bootstrap
+remain unchanged. Synthetic success establishes a numerical repair, not an
+empirical or clinical result.
+
+The explicit version leaves the default v1 replay intact. Reuse the verified
+cache and select a fresh output path to run the repaired method:
+
+```bash
+uv run demeter evidence ipop-a1c-working-fit --numerical-method exact_box_quadratic_v2 --raw data/raw/ipop-a1c-v1 --output outputs/ipop-a1c-working-v2.json
+```
+
+V2 is a separate evidence-registry attempt. Its result remains unresolved until
+the frozen rerun finishes and its aggregate is registered. The failed v1 report
+and its conditional 43-draw summaries remain immutable.
 
 ## What the observations mean
 
@@ -60,6 +112,19 @@ improve the split. Repeated eligible times or loss of ordering on numerical
 conversion quarantine an entire label; this release has neither condition.
 
 ## How to read a result
+
+```mermaid
+flowchart LR
+    low["Band 0: A1C below 5.7%"] -->|"q01"| middle["Band 1: A1C 5.7% to below 6.5%"]
+    middle -->|"q10"| low
+    middle -->|"q12"| high["Band 2: A1C at least 6.5%"]
+    high -->|"q21"| middle
+```
+
+The arrows describe effective changes in recorded readings under usual care.
+Rates have reciprocal source-day units. An observation can cross two bands
+between visits because intermediate readings are unobserved. A later low reading
+does not reset diagnostic history or establish remission.
 
 The primary process allows switching between adjacent bands in both directions.
 The matrix exponential includes possible unobserved intermediate switches between
@@ -93,8 +158,10 @@ Whole-path bootstrap draws preserve dependence within each label. Joint
 covariance describes the four rates together; separate marginal summaries are
 not independent priors. Paired model comparisons use identical resampled training
 and evaluation labels. Failed draws are retained, not redrawn. Summaries over
-successful finite draws are conditional on success. Boundary/cap counts and the
-200-draw resolution must accompany percentile summaries. Sampling uncertainty
+successful finite draws are conditional on success. Boundary/cap counts and both
+attempted and successful draw counts must accompany percentile summaries. The
+v1 percentiles have only 43 contributing draws; 200 attempts do not give them
+200-draw resolution. Sampling uncertainty
 does not include linkage, units, treatment, visit selection, structure or transport.
 
 ## Remaining clinical work
@@ -106,3 +173,12 @@ the target depends on them, supported population estimates, independent predicti
 checks, and U.S. transport/annual-engine compatibility. A separate exposure
 pathway is needed for #58. All active dietary simulations remain validation-only;
 no scientific acceptance or engine activation follows from this analysis.
+
+Next source appraisal should examine [Song et al., Shanghai follow-up](https://pmc.ncbi.nlm.nih.gov/articles/PMC4873952/)
+for observed-label dispositions, deaths and missing glycemic assessments, and
+[Shang et al., SNAC-K](https://pmc.ncbi.nlm.nih.gov/articles/PMC6851857/)
+for repeated examinations, registry deaths and attrition. These are new candidates;
+no parameters from them are admitted here. Reconcile source denominators,
+measurement changes, event precedence, follow-up clocks and access conditions
+before defining a likelihood. Aggregate endpoint counts alone do not identify the
+clinical transition process or untreated remission.

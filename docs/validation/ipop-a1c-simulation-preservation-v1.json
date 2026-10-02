@@ -1,0 +1,65 @@
+{
+  "after_evidence_sha256": "31b9be2c72da6ac47b40ea94c96c36bf9e324b00fc19f212d7a04998ef14138c",
+  "after_missing_uncertainty": [],
+  "before_evidence_sha256": "7331b35451eb4ab7de954682760da922043d7af008a96650c899c09c4c4a21e0",
+  "before_missing_uncertainty": [],
+  "benchmark_not_sampled": true,
+  "canonical_scenarios": [
+    {
+      "absolute_numeric_change": 0,
+      "complete_outputs_equal_except_evidence_hash": true,
+      "relative_numeric_change": 0,
+      "scenario": "baseline"
+    },
+    {
+      "absolute_numeric_change": 0,
+      "complete_outputs_equal_except_evidence_hash": true,
+      "relative_numeric_change": 0,
+      "scenario": "reduce_upf_30"
+    },
+    {
+      "absolute_numeric_change": 0,
+      "complete_outputs_equal_except_evidence_hash": true,
+      "relative_numeric_change": 0,
+      "scenario": "prechronic_baseline"
+    },
+    {
+      "absolute_numeric_change": 0,
+      "complete_outputs_equal_except_evidence_hash": true,
+      "relative_numeric_change": 0,
+      "scenario": "prechronic_reduce_upf_30"
+    }
+  ],
+  "excluded_paths": [
+    "/metadata/evidence_sha256",
+    "/healthspan/evidence_sha256"
+  ],
+  "fixed_seed_uncertainty_unchanged": true,
+  "interpretation": "Conditional laboratory working-analysis metadata and adaptive numerical prefit registration only; no clinical validation or model calibration.",
+  "mortality_backtest_unchanged": true,
+  "passed": true,
+  "prevalence_checks_unchanged": true,
+  "refreshed_observation_reports": {
+    "issue-56-partial-observations.json": {
+      "all_other_outputs_identical": true,
+      "excluded_paths": [
+        "/provenance/evidence_sha256"
+      ]
+    },
+    "issue-56-state-mapping.json": {
+      "all_other_outputs_identical": true,
+      "excluded_paths": [
+        "/provenance/evidence_sha256"
+      ]
+    }
+  },
+  "sampling_inputs_unchanged": true,
+  "scientific_blockers_unchanged": true,
+  "scientific_release_ready": false,
+  "uncertainty_check": {
+    "draws": 2,
+    "scope": "Software regression with synthetic active parameters",
+    "seed": 42,
+    "years": 2
+  }
+}

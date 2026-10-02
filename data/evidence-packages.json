@@ -1108,6 +1108,64 @@
       ],
       "model_role": "source_intake_only",
       "redistribution": "Attributed aggregate diagnostics, protocols and acquisition receipts only. Complete clinical/metadata bytes are fetch-only; original public CC0 lineage and derivative MIT code license remain distinct. No participant identifiers, measurements or crosswalk is bundled."
+    },
+    "ipop_a1c_working_fit": {
+      "store": null,
+      "dependencies": [
+        "ipop_numerical_preflight"
+      ],
+      "registry_datasets": [
+        "ipop_a1c_working_fit",
+        "ipop_a1c_working_fit_v2"
+      ],
+      "registry_parameters": [],
+      "artifacts": [
+        {
+          "path": "docs/validation/ipop-a1c-working-fit-protocol-v1.json",
+          "sha256": "9b7473bb2454934ba82ef9d80c41c4d94a06c8b5eeadbf029f99aacec60e8ea7"
+        },
+        {
+          "path": "docs/validation/ipop-a1c-numerical-amendment-v1.json",
+          "sha256": "11f492eeea19cf8ab9bcc0f5ce58c012ff93e99c1b9057340f87bbf307bb4a42"
+        },
+        {
+          "path": "docs/validation/ipop-a1c-numerical-amendment-v2.json",
+          "sha256": "8f03d5a0f7377d843099b6dbacc2f5fa66c3311aa77cdcf705c74f6d5d0865d0"
+        },
+        {
+          "path": "docs/rfcs/RFC-57-ipop-a1c-working-fit.md",
+          "sha256": "8ffc3a17fb1564c901995cce6f4411a7bf77c49a12891f1242bc78d406dfb7ac"
+        },
+        {
+          "path": "docs/IPOP_A1C_WORKING_FIT.md",
+          "sha256": "2a65a0c513d03fb33b0a3cf20cb86d6638e2f7f61b9192074b32a0784181fa44"
+        },
+        {
+          "path": "docs/validation/ipop-a1c-working-result-v1.json",
+          "sha256": "e44528ab04a13db4f8c30cf2365e86959aa13962a205a65b982615cfe61b9ced"
+        },
+        {
+          "path": "docs/validation/ipop-a1c-working-integrity-v1.json",
+          "sha256": "659c671cdf1f0d92d326e57f49749be1a886fd9622d8a496589960101273d743"
+        },
+        {
+          "path": "docs/validation/ipop-a1c-simulation-preservation-v1.json",
+          "sha256": "c296599881eb4226a69a47696d21dbc19ad884f33ae72f36ba62622e0ef9f58a"
+        }
+      ],
+      "transform_files": [
+        "src/demeter/analysis/laboratory_panel.py",
+        "src/demeter/analysis/ipop_a1c.py",
+        "scripts/verify_ipop_a1c_working_fit.py"
+      ],
+      "rebuild": [
+        "uv run python scripts/verify_ipop_a1c_working_fit.py",
+        "uv run demeter data fetch-ipop --destination data/raw/ipop-a1c-v1",
+        "uv run demeter evidence ipop-a1c-working-fit --raw data/raw/ipop-a1c-v1 --output outputs/ipop-a1c-working-v1.json",
+        "uv run demeter evidence ipop-a1c-working-fit --numerical-method exact_box_quadratic_v2 --raw data/raw/ipop-a1c-v1 --output outputs/ipop-a1c-working-v2.json"
+      ],
+      "model_role": "conditional_empirical_working_analysis_only",
+      "redistribution": "Attributed conditional aggregate diagnostics and immutable protocols only. Failed v1 point estimates remain null; successful bootstrap subset is conditional. Adaptive v2 repair is frozen separately after v1 outcomes; no clinical or engine activation. Complete source clinical/metadata bytes remain fetch-only, with no participant identifiers, assays, coordinates, crosswalks or paths bundled."
     }
   },
   "supporting_artifacts": [

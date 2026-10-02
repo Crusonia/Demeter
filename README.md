@@ -273,6 +273,18 @@ for 94 subject labels under an explicit producer-association assumption. Clinica
 likelihood, diagnosis/history, missingness and transport remain unresolved;
 this intake changes no active model parameter.
 
+The [recorded-A1C working analysis](docs/IPOP_A1C_WORKING_FIT.md) implements a
+source-specific laboratory likelihood conditional on the first recorded band,
+available measurements and recorded times. Its frozen analysis includes rate
+profiles, internal prediction checks and paired whole-label sampling uncertainty.
+The preserved v1 analysis completed, but both full-data CTMC estimates are null:
+all 12 prescribed starts reached the 1000-iteration limit. The IID predictor is
+available; 43 successful bootstrap draws out of 200 cannot replace the missing
+point estimate. Laboratory bands do not establish diagnosis or
+remission, and internal prediction does not establish independent clinical
+validation. Clinical calibration, dietary effects and national transport remain
+unresolved; no engine parameter or scientific acceptance gate is activated.
+
 We are pursuing [public evidence first](docs/PUBLIC_EVIDENCE_ROADMAP.md), with
 reproducible source audits and progressively supported model components. The
 public-cohort intake provides a concrete next contribution without institutional

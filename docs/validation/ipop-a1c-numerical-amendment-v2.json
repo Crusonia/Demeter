@@ -1,0 +1,25 @@
+{
+  "chronology": "Frozen after the complete v1 empirical outcomes were inspected: both full-panel CTMC fits unavailable, all 12 starts at iteration limit, and 157 of 200 primary bootstrap fits failed. The preserved v1 report is not rewritten. The inner direction defect was isolated and the repair validated on independent synthetic quadratic and rare-band panels before any empirical optimization using v2. This is an explicitly adaptive numerical amendment, not a new prospective statistical selection.",
+  "clinical_fit_performed": false,
+  "diagnosis": "The inner L-BFGS-B quadratic direction can stop on its objective ftol while its gradient remains nonstationary. The outer likelihood then takes tiny directions until its original iteration limit. Matching search/direct residuals and synthetic replication distinguish this from a direct-gradient verification failure.",
+  "dietary_effect_estimated": false,
+  "direction_solver": {
+    "invalid_direction": "Failure to certify SPD/finite/feasible KKT direction uses the unchanged outer reset/projected-steepest-descent fallback; no likelihood convergence is inferred.",
+    "likelihood_success": "Unchanged original outer projected-gradient tolerance plus independent direct expm/expm_frechet final verification. A quadratic solution is only a proposal.",
+    "maximum_faces": "3**number_of_free_likelihood_rates; at most 729, fewer for fixed-rate profiles.",
+    "method": "Deterministically enumerate free/lower/upper faces of the at-most-six-dimensional convex box quadratic, all-free first. Solve the free SPD block, reject nonfinite or infeasible candidates, and accept only a face satisfying projected KKT to a dot-product roundoff budget. No objective-ftol termination.",
+    "objective": "g dot d + 0.5 * d transpose H d, where H is the SPD BFGS Hessian in scaled coordinates and bounds are exactly -point and cap-point.",
+    "versioning": "Explicit exact_box_quadratic_v2 only; default v1 remains numerically replayable, with original public report schema unchanged."
+  },
+  "engine_activation_allowed": false,
+  "national_transport_established": false,
+  "numerical_method": "exact_box_quadratic_v2",
+  "parent_protocol_sha256": "9b7473bb2454934ba82ef9d80c41c4d94a06c8b5eeadbf029f99aacec60e8ea7",
+  "prior_empirical_result_path": "docs/validation/ipop-a1c-working-result-v1.json",
+  "prior_empirical_result_sha256": "e44528ab04a13db4f8c30cf2365e86959aa13962a205a65b982615cfe61b9ced",
+  "prior_numerical_amendment_sha256": "11f492eeea19cf8ab9bcc0f5ce58c012ff93e99c1b9057340f87bbf307bb4a42",
+  "protocol_id": "ipop_a1c_numerical_amendment_v2",
+  "scientific_acceptance_changed": false,
+  "statistical_selection_changed": false,
+  "unchanged": "Original immutable source/linkage, exact band thresholds, eligibility, whole-label allocation, likelihoods, first-observation conditioning, six prescribed starts, rate caps, scaling, outer gtol/ftol/maxiter, kernels, independent final direct-gradient verification, design diagnostics, profile grid and nominal support, internal evaluation, paired whole-label 200-draw seed/quantiles, all failures retained, and all false scientific/engine gates."
+}

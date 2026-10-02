@@ -30,6 +30,11 @@ CANONICAL_SHA256 = "36212ff71b040d35a5e6bd2d36200de7175a050ad2a86200a59be4680dc9
 REGISTRY_SELECTION_SHA256 = "34d604ee36ca0b24845db5eb4c9c521a2503b9ed98728e73005cea7c8bf55be3"
 NUMERICAL_PROTOCOL_PATH = PROTOCOL_PATH.with_name("ipop-a1c-numerical-amendment-v1.json")
 NUMERICAL_PROTOCOL_SHA256 = "11f492eeea19cf8ab9bcc0f5ce58c012ff93e99c1b9057340f87bbf307bb4a42"
+NUMERICAL_V2_PATH = PROTOCOL_PATH.with_name("ipop-a1c-numerical-amendment-v2.json")
+NUMERICAL_V2_SHA256 = "8f03d5a0f7377d843099b6dbacc2f5fa66c3311aa77cdcf705c74f6d5d0865d0"
+V1_RESULT_SHA256 = "e44528ab04a13db4f8c30cf2365e86959aa13962a205a65b982615cfe61b9ced"
+NUMERICAL_METHODS = ("v1", "exact_box_quadratic_v2")
+REGISTRY_V2_SHA256 = "d97fbc6cb135075c4bab6c315d7c59ea7e5941d315ec33bc6a22b7ce83f0d09b"
 ROW_KINDS = ("unusable_day", "unavailable_assay", "outside_percent_range", "eligible_assay_day")
 LABEL_KINDS = (
     "no_eligible_observation",
@@ -52,10 +57,17 @@ def load_protocol(path: Path = PROTOCOL_PATH) -> dict:
         raise ValueError("frozen_contract") from None
 
 
-def load_numerical_protocol(path: Path = NUMERICAL_PROTOCOL_PATH) -> dict:
+def load_numerical_protocol(path: Path | None = None, *, numerical_method: str = "v1") -> dict:
     try:
+        if numerical_method not in NUMERICAL_METHODS:
+            raise ValueError
+        expected_hash = (
+            NUMERICAL_PROTOCOL_SHA256 if numerical_method == "v1" else NUMERICAL_V2_SHA256
+        )
+        if path is None:
+            path = NUMERICAL_PROTOCOL_PATH if numerical_method == "v1" else NUMERICAL_V2_PATH
         raw = path.read_bytes()
-        if hashlib.sha256(raw).hexdigest() != NUMERICAL_PROTOCOL_SHA256:
+        if hashlib.sha256(raw).hexdigest() != expected_hash:
             raise ValueError
         policy = json.loads(raw.decode("utf-8"), object_pairs_hook=v1._unique_json)
         if policy["parent_protocol_sha256"] != PROTOCOL_SHA256:
@@ -70,7 +82,9 @@ def _contract(protocol: dict) -> None:
         raise ValueError("frozen_contract")
 
 
-def _registry_contract(registry, protocol: dict, root: Path) -> None:
+def _registry_contract(
+    registry, protocol: dict, root: Path, *, numerical_method: str = "v1"
+) -> None:
     """Reject drift in the evidence description before reading participant bytes.
 
     A post-analysis result binding is allowed only as explicit historical
@@ -84,9 +98,18 @@ def _registry_contract(registry, protocol: dict, root: Path) -> None:
         estimation_status = dataset["working_rate_parameters"]["estimation_status"]
         if result is not None:
             if (
-                set(result) != {"path", "sha256", "estimated_parameters"}
+                set(result)
+                not in (
+                    {"path", "sha256", "estimated_parameters"},
+                    {"path", "sha256", "estimated_parameters", "estimated_parameter_metadata"},
+                )
                 or result["path"] != "docs/validation/ipop-a1c-working-result-v1.json"
-                or estimation_status != "conditional_working_fit_completed_clinical_use_unresolved"
+                or estimation_status
+                != (
+                    "conditional_analysis_completed_primary_estimate_unresolved"
+                    if rates is None
+                    else "conditional_working_fit_completed_clinical_use_unresolved"
+                )
             ):
                 raise ValueError
             raw = (root / result["path"]).read_bytes()
@@ -98,6 +121,7 @@ def _registry_contract(registry, protocol: dict, root: Path) -> None:
                 "general_rates_per_source_day": report["models"]["unrestricted"]["rates"],
                 "iid_followup_band_probabilities": report["models"]["iid"]["probabilities"],
             }
+            _estimate_metadata_contract(result)
             if (
                 report["analysis_completed"] is not True
                 or report["provenance"]["protocol_sha256"] != PROTOCOL_SHA256
@@ -146,8 +170,138 @@ def _registry_contract(registry, protocol: dict, root: Path) -> None:
                 or registered.raw_filename != filename
             ):
                 raise ValueError
+        if numerical_method == "exact_box_quadratic_v2":
+            _registry_v2_contract(registry, root)
+        elif numerical_method != "v1":
+            raise ValueError
     except Exception:
         raise ValueError("registry_contract") from None
+
+
+def _estimate_metadata_contract(result: dict) -> None:
+    metadata = result.get("estimated_parameter_metadata")
+    if metadata is None:
+        return
+    orders = {
+        "primary_rates_per_source_day": [
+            "band0_to_band1",
+            "band1_to_band0",
+            "band1_to_band2",
+            "band2_to_band1",
+        ],
+        "general_rates_per_source_day": [
+            "band0_to_band1",
+            "band1_to_band0",
+            "band1_to_band2",
+            "band2_to_band1",
+            "band0_to_band2",
+            "band2_to_band0",
+        ],
+        "iid_followup_band_probabilities": ["band0", "band1", "band2"],
+    }
+    if set(metadata) != set(orders):
+        raise ValueError
+    for key, order in orders.items():
+        item = metadata[key]
+        if (
+            item["status"] != "estimated"
+            or item["evidence_grade"] != "D"
+            or item["clinical_use_allowed"] is not False
+            or item["order"] != order
+            or item["unit"]
+            != ("probability" if key.startswith("iid_") else "reciprocal source day")
+            or not item["conditioning"]
+            or not item["uncertainty"]
+        ):
+            raise ValueError
+
+
+def _registry_v2_contract(registry, root: Path) -> None:
+    """Separate adaptive numerical attempt; original source selection stays frozen."""
+    spec = copy.deepcopy(registry.datasets["ipop_a1c_working_fit_v2"])
+    policy = load_numerical_protocol(
+        root / "docs/validation/ipop-a1c-numerical-amendment-v2.json",
+        numerical_method="exact_box_quadratic_v2",
+    )
+    prior = (root / policy["prior_empirical_result_path"]).read_bytes()
+    if hashlib.sha256(prior).hexdigest() != V1_RESULT_SHA256:
+        raise ValueError
+    result = spec.pop("result", None)
+    working = spec["working_rate_parameters"]
+    if result is not None:
+        if set(result) not in (
+            {"path", "sha256", "estimated_parameters"},
+            {"path", "sha256", "estimated_parameters", "estimated_parameter_metadata"},
+        ):
+            raise ValueError
+        raw = (root / result["path"]).read_bytes()
+        if (
+            result["path"] != "docs/validation/ipop-a1c-working-result-v2.json"
+            or hashlib.sha256(raw).hexdigest() != result["sha256"]
+        ):
+            raise ValueError
+        report = json.loads(raw.decode("utf-8"), object_pairs_hook=v1._unique_json)
+        estimates = {
+            "primary_rates_per_source_day": report["models"]["adjacent"]["rates"],
+            "general_rates_per_source_day": report["models"]["unrestricted"]["rates"],
+            "iid_followup_band_probabilities": report["models"]["iid"]["probabilities"],
+        }
+        _estimate_metadata_contract(result)
+        if (
+            report["analysis_completed"] is not True
+            or report["validation_only"] is not False
+            or report["execution_scope"] != "conditional_empirical_laboratory_working_analysis"
+            or report["analysis_id"] != "ipop_a1c_conditional_working_fit_v2"
+            or report["provenance"]["acquisition_receipts_verified"] is not True
+            or report["provenance"]["protocol_sha256"] != PROTOCOL_SHA256
+            or report["provenance"]["source_bytes"]
+            != json.loads(prior)["provenance"]["source_bytes"]
+            or report["provenance"]["numerical_amendment_sha256"] != NUMERICAL_V2_SHA256
+            or report["provenance"]["prior_empirical_result_sha256"] != V1_RESULT_SHA256
+            or report["provenance"].get("numerical_method") != "exact_box_quadratic_v2"
+            or report["provenance"].get("statistical_selection_changed") is not False
+            or any(
+                report["models"][name].get("numerical_method") != "exact_box_quadratic_v2"
+                for name in ("adjacent", "unrestricted")
+            )
+            or report["joint_uncertainty"].get("numerical_method") != "exact_box_quadratic_v2"
+            or any(
+                profile.get("numerical_method") != "exact_box_quadratic_v2"
+                for profiles in report["profiles"].values()
+                for profile in profiles or ()
+            )
+            or report["selection"] != json.loads(prior)["selection"]
+            or working["value"] != estimates["primary_rates_per_source_day"]
+            or result["estimated_parameters"] != estimates
+            or working["estimation_status"]
+            != (
+                "conditional_analysis_completed_primary_estimate_unresolved"
+                if working["value"] is None
+                else "conditional_working_fit_completed_clinical_use_unresolved"
+            )
+            or any(
+                report[key] is not False
+                for key in (
+                    "clinical_fit_performed",
+                    "diagnosis_or_remission_inference_performed",
+                    "death_or_censoring_inference_performed",
+                    "dietary_effect_estimated",
+                    "national_transport_established",
+                    "engine_activation_allowed",
+                    "scientific_acceptance_changed",
+                )
+            )
+        ):
+            raise ValueError
+    elif (
+        working["value"] is not None
+        or working["estimation_status"] != "unresolved_before_frozen_analysis"
+    ):
+        raise ValueError
+    working["value"] = None
+    working["estimation_status"] = "unresolved_before_frozen_analysis"
+    if v1._canonical_sha256(spec) != REGISTRY_V2_SHA256:
+        raise ValueError
 
 
 def _admitted(clinical, samples):
@@ -362,6 +516,7 @@ def analyze_bytes(
     validation_only: bool = True,
     crosswalk_protocol: dict | None = None,
     progress=None,
+    numerical_method: str = "v1",
 ) -> dict:
     """Fit the frozen working analysis, returning sanitized aggregates only.
 
@@ -370,7 +525,11 @@ def analyze_bytes(
     Empirical receipt verification is separately mandatory in analyze_cache.
     """
     report = {
-        "analysis_id": "ipop_a1c_conditional_working_fit_v1",
+        "analysis_id": (
+            "ipop_a1c_conditional_working_fit_v1"
+            if numerical_method == "v1"
+            else "ipop_a1c_conditional_working_fit_v2"
+        ),
         "execution_scope": "synthetic_software_validation_only"
         if validation_only is True
         else "conditional_empirical_laboratory_working_analysis"
@@ -396,7 +555,10 @@ def analyze_bytes(
     stage = "frozen_contract"
     try:
         _contract(protocol)
-        load_numerical_protocol()
+        load_numerical_protocol(numerical_method=numerical_method)
+        numerical_keywords = (
+            {} if numerical_method == "v1" else {"numerical_method": numerical_method}
+        )
         stage = "source_selection"
         paths, coverage, source_bytes = _prepare(
             clinical_bytes,
@@ -417,7 +579,9 @@ def analyze_bytes(
             stage = "working_ctmc_fit"
             if progress:
                 progress("Fitting frozen " + name + " laboratory process")
-            fitted = models[name] = _without_coordinates(lab.fit_ctmc(training, settings))
+            fitted = models[name] = _without_coordinates(
+                lab.fit_ctmc(training, settings, **numerical_keywords)
+            )
             if not fitted["fit_performed"]:
                 profiles[name], scores[name] = None, {"unavailable": "no_converged_working_fit"}
                 continue
@@ -438,6 +602,7 @@ def analyze_bytes(
                     support_cutoff=float(
                         chi2.ppf(protocol["numerics"]["nominal_profile_support_probability"], 1)
                     ),
+                    **numerical_keywords,
                 )
                 for i, rate in enumerate(fitted["rates"])
             ]
@@ -470,6 +635,7 @@ def analyze_bytes(
             quantile_levels=uncertainty["quantiles"],
             evaluation_paths=evaluation,
             include_iid=True,
+            **numerical_keywords,
         )
         # Bootstrap draws contain only fitted aggregate model vectors/scores, not
         # source rows. Add explicit failure/boundary/cap counts, including all draws.
@@ -519,7 +685,9 @@ def analyze_bytes(
             joint_uncertainty=joint,
             provenance={
                 "protocol_sha256": PROTOCOL_SHA256,
-                "numerical_amendment_sha256": NUMERICAL_PROTOCOL_SHA256,
+                "numerical_amendment_sha256": (
+                    NUMERICAL_PROTOCOL_SHA256 if numerical_method == "v1" else NUMERICAL_V2_SHA256
+                ),
                 "supplied_protocol_canonical_sha256": CANONICAL_SHA256,
                 "source_bytes": source_bytes,
                 "binding_v1_protocol_sha256": v1.PROTOCOL_SHA256,
@@ -534,6 +702,12 @@ def analyze_bytes(
                 "independent_source_validation": False,
             },
         )
+        if numerical_method != "v1":
+            report["provenance"].update(
+                numerical_method=numerical_method,
+                prior_empirical_result_sha256=V1_RESULT_SHA256,
+                statistical_selection_changed=False,
+            )
         json.dumps(report, allow_nan=False)
         return report
     except Exception:
@@ -552,15 +726,15 @@ def analyze_bytes(
         }
 
 
-def analyze_cache(raw_directory: Path, *, progress=None) -> dict:
+def analyze_cache(raw_directory: Path, *, progress=None, numerical_method: str = "v1") -> dict:
     from demeter.data.ipop import load_sources
     from demeter.schema import EvidenceRegistry
 
     protocol = load_protocol()  # Frozen contracts before cache access.
-    load_numerical_protocol()
+    load_numerical_protocol(numerical_method=numerical_method)
     root = Path(__file__).resolve().parents[3]
     registry = EvidenceRegistry.from_yaml(root / "evidence/parameters.yaml")
-    _registry_contract(registry, protocol, root)
+    _registry_contract(registry, protocol, root, numerical_method=numerical_method)
     acquisition = load_sources(raw_directory, v1.load_frozen_protocol())
     if acquisition["passed"]:
         sources = acquisition["sources"]
@@ -570,12 +744,15 @@ def analyze_cache(raw_directory: Path, *, progress=None) -> dict:
             protocol=protocol,
             validation_only=False,
             progress=progress,
+            numerical_method=numerical_method,
         )
         if report["analysis_completed"]:
             report["provenance"]["acquisition_receipts_verified"] = True
             report["provenance"]["registry_sha256"] = registry.content_hash
     else:
-        report = analyze_bytes(b"", b"", protocol=protocol, validation_only=False)
+        report = analyze_bytes(
+            b"", b"", protocol=protocol, validation_only=False, numerical_method=numerical_method
+        )
         report["failure_stage"] = "acquisition_receipts_or_cached_bytes"
     report["acquisition_audit"] = {
         key: acquisition[key] for key in ("passed", "receipt_saved", "provenance")

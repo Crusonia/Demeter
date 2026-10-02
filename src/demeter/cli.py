@@ -786,13 +786,20 @@ def ipop_crosswalk_preflight(
 def ipop_a1c_working_fit(
     raw: Annotated[Path, typer.Option(help="Existing pinned iPOP cache with acquisition receipts")],
     output: Annotated[Path, typer.Option(help="Fresh aggregate report path; never overwritten")],
+    numerical_method: Annotated[
+        str, typer.Option(help="Frozen numerical version: v1 or exact_box_quadratic_v2")
+    ] = "v1",
 ) -> None:
     """Frozen conditional A1C-band fit with internal prediction and joint uncertainty."""
     from demeter.analysis.ipop_a1c import analyze_cache
     from demeter.analysis.ipop_preflight_io import write_fresh_report
 
     try:
-        report = analyze_cache(raw, progress=lambda message: typer.echo(message, err=True))
+        report = analyze_cache(
+            raw,
+            progress=lambda message: typer.echo(message, err=True),
+            numerical_method=numerical_method,
+        )
         write_fresh_report(report, output, raw)
     except (ValueError, OSError, RuntimeError):
         typer.echo(

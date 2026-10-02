@@ -5373,13 +5373,86 @@ datasets:
       order: [band0_to_band1, band1_to_band0, band1_to_band2, band2_to_band1]
       unit: reciprocal source day
       status: estimated
-      estimation_status: unresolved_before_frozen_analysis
+      estimation_status: conditional_analysis_completed_primary_estimate_unresolved
       value: null
       outcome_definition: Effective recorded-band switching, conditional on first band, recorded times and assay availability; not biological/clinical/causal hazards.
       evidence_grade: D
       transformation: Three-band adjacent CTMC conditional path likelihood; frozen protocol defines alternatives, numerical controls and evaluation.
       uncertainty: Whole-path paired bootstrap joint covariance/percentiles, rate profiles and actual-design rank; units, selection, treatment, linkage and structural uncertainty unresolved.
+    result:
+      path: docs/validation/ipop-a1c-working-result-v1.json
+      sha256: e44528ab04a13db4f8c30cf2365e86959aa13962a205a65b982615cfe61b9ced
+      estimated_parameters:
+        primary_rates_per_source_day: null
+        general_rates_per_source_day: null
+        iid_followup_band_probabilities: [0.5573294629898403, 0.41509433962264153, 0.027576197387518143]
+      estimated_parameter_metadata:
+        primary_rates_per_source_day:
+          status: estimated
+          evidence_grade: D
+          order: [band0_to_band1, band1_to_band0, band1_to_band2, band2_to_band1]
+          unit: reciprocal source day
+          conditioning: First recorded band, available A1C observations and recorded source-day coordinates in the selected calibration labels; association, units/rawness and clock remain working assumptions.
+          uncertainty: Point vector null; all six full-data starts failed at the frozen 1000-iteration limit. Profiles and point identification unavailable. Bootstrap summaries are conditional on 43 successful draws, not uncertainty around an available full-data estimate.
+          clinical_use_allowed: false
+        general_rates_per_source_day:
+          status: estimated
+          evidence_grade: D
+          order: [band0_to_band1, band1_to_band0, band1_to_band2, band2_to_band1, band0_to_band2, band2_to_band0]
+          unit: reciprocal source day
+          conditioning: Same selected calibration labels, first band, available observations and recorded source-day coordinates as the primary process; no biological-state, diagnosis or treatment effect interpretation.
+          uncertainty: Point vector null; all six full-data starts failed at the frozen 1000-iteration limit. Profiles, identification and general-model bootstrap intervals unavailable.
+          clinical_use_allowed: false
+        iid_followup_band_probabilities:
+          status: estimated
+          evidence_grade: D
+          order: [band0, band1, band2]
+          unit: probability
+          conditioning: Pooled post-first-observation A1C bands among the selected calibration labels under an IID categorical working null; first bands are conditioned on, not pooled.
+          uncertainty: Available pooled categorical point vector; paired predictive resampling is retained only for successful finite comparisons. No stand-alone IID parameter interval or independence of marginal probabilities is claimed; selection, units/rawness and clock uncertainty unresolved.
+          clinical_use_allowed: false
     numerical_controls: Frozen protocol contains search caps, starts, scale, roundoff/rank settings, profiles, resample count/seed and quantile levels; they are not clinical parameters.
+    engine_activation_allowed: false
+    scientific_acceptance_changed: false
+
+  ipop_a1c_working_fit_v2:
+    model_role: conditional_empirical_working_analysis_only
+    parent_dataset: ipop_a1c_working_fit
+    source_ids:
+    - ipop2022_clinical_tests
+    - ipop2022_sample_info
+    protocol_path: docs/validation/ipop-a1c-working-fit-protocol-v1.json
+    protocol_sha256: 9b7473bb2454934ba82ef9d80c41c4d94a06c8b5eeadbf029f99aacec60e8ea7
+    numerical_protocol_path: docs/validation/ipop-a1c-numerical-amendment-v2.json
+    numerical_protocol_sha256: 8f03d5a0f7377d843099b6dbacc2f5fa66c3311aa77cdcf705c74f6d5d0865d0
+    numerical_method: exact_box_quadratic_v2
+    prior_result_path: docs/validation/ipop-a1c-working-result-v1.json
+    prior_result_sha256: e44528ab04a13db4f8c30cf2365e86959aa13962a205a65b982615cfe61b9ced
+    population: Selected available iPOP laboratory panel under the frozen v2 sample-association hypothesis;
+      no national representation.
+    geography: Stanford volunteer cohort derivative; no U.S. transport.
+    time_period: Pinned producer commit ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c; elapsed specimen-day interpretation
+      assumed, calendar coverage unverified.
+    observation_parameters_inherited_from: ipop_a1c_working_fit
+    working_rate_parameters:
+      order:
+      - band0_to_band1
+      - band1_to_band0
+      - band1_to_band2
+      - band2_to_band1
+      unit: reciprocal source day
+      status: estimated
+      estimation_status: unresolved_before_frozen_analysis
+      value: null
+      outcome_definition: Effective recorded-band switching, conditional on first band, recorded times and
+        assay availability; not biological/clinical/causal hazards.
+      evidence_grade: D
+      transformation: Three-band adjacent CTMC conditional path likelihood; frozen protocol defines alternatives,
+        numerical controls and evaluation.
+      uncertainty: Whole-path paired bootstrap joint covariance/percentiles, rate profiles and actual-design
+        rank; units, selection, treatment, linkage and structural uncertainty unresolved.
+    numerical_controls: Only the inner BFGS quadratic direction changes in the explicitly adaptive v2 amendment;
+      original statistical selection and all outer controls remain frozen.
     engine_activation_allowed: false
     scientific_acceptance_changed: false
 

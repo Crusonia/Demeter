@@ -612,9 +612,10 @@ def test_optimizer_cannot_accept_unchanged_nonstationary_start(settings, case):
     )
 
 
-def test_boundary_optimum_retains_exact_zero_and_kkt(settings):
+@pytest.mark.parametrize("numerical_method", lab.NUMERICAL_METHODS)
+def test_boundary_optimum_retains_exact_zero_and_kkt(settings, numerical_method):
     paths = [lab.PanelPath((0.0, 1.0), (i, i)) for i in range(3)]
-    result = lab.fit_ctmc(paths, settings)
+    result = lab.fit_ctmc(paths, settings, numerical_method=numerical_method)
     assert result["fit_performed"] is True
     assert result["rates"] == [0.0] * 4
     assert result["zero_rate_indices"] == list(range(4))
@@ -656,3 +657,228 @@ def test_mixed_scale_eigendecomposition_error_triggers_direct_fallback():
             terms.extend((derivative / matrix).ravel())
         expected.append(fsum(terms))
     assert np.allclose(gradient, expected, rtol=1e-10, atol=1e-8)
+
+
+def test_fast_stationarity_cannot_override_direct_gradient_failure(settings, monkeypatch):
+    paths = (lab.PanelPath((0.0, 1.0), (0, 1)),)
+
+    def fake_search(objective, initial, caps, config, *, numerical_method="v1"):
+        return {
+            "x": initial,
+            "success": True,
+            "status": "projected_gradient_converged",
+            "iterations": 1,
+            "projected_gradient_norm": 0,
+            "small_objective_change_iterations": 0,
+        }
+
+    def differing_gradient(rates, structure, compiled, tolerance, *, direct=False):
+        return -2.0, np.ones(4) if direct else np.zeros(4), {"kernel_method": "synthetic"}
+
+    monkeypatch.setattr(lab, "_finite_box_minimize", fake_search)
+    monkeypatch.setattr(lab, "_compiled_likelihood", differing_gradient)
+    result = lab.fit_ctmc(paths, settings)
+    assert result["fit_performed"] is False
+    assert result["rates"] is None
+    assert all(
+        row["optimizer_status"] == "direct_gradient_verification_failed"
+        for row in result["multistarts"]
+    )
+    assert all(row["projected_gradient_norm"] == 1.0 for row in result["multistarts"])
+
+
+def test_irregular_panel_fit_at_native_numerical_scale():
+    # Independent synthetic paths, not real observations or fitted source rates.
+    from demeter.analysis.ipop_a1c import load_protocol, settings_for
+
+    settings = settings_for(load_protocol(), "adjacent")
+    truth = (0.001, 0.002, 0.0001, 0.003)
+    rng = np.random.default_rng(61001)
+    paths = []
+    for label in range(30):
+        days, bands = [0.0], [label % 3]
+        for _ in range(8):
+            gap = float(rng.uniform(20, 80))
+            probabilities = lab.transition_matrix(
+                truth, "adjacent", gap, probability_tolerance=1e-10
+            )[bands[-1]]
+            bands.append(int(rng.choice(3, p=probabilities)))
+            days.append(days[-1] + gap)
+        paths.append(lab.PanelPath(tuple(days), tuple(bands)))
+    fitted = lab.fit_ctmc(paths, settings)
+    assert fitted["fit_performed"] is True
+    assert (
+        fitted["log_likelihood"]["value"]
+        >= max(
+            lab.conditional_log_likelihood(paths, start, "adjacent", probability_tolerance=1e-10)
+            for start in settings.initial_rates
+        )
+        - 1e-9
+    )
+    assert all(
+        row["direct_likelihood_gradient_verified"]
+        for row in fitted["multistarts"]
+        if row["converged"]
+    )
+    assert fitted["engine_activation_allowed"] is False
+
+
+def test_exact_quadratic_resolves_weak_curvature_without_objective_stop(settings):
+    hessian = np.diag([1000.0, 0.01])
+    gradient = np.array([1e-4, 1e-4])
+    lower, upper = np.full(2, -1.0), np.ones(2)
+
+    def quadratic(step):
+        return gradient @ step + 0.5 * step @ hessian @ step, gradient + hessian @ step
+
+    historical = lab.minimize(
+        quadratic,
+        np.zeros(2),
+        method="L-BFGS-B",
+        jac=True,
+        bounds=list(zip(lower, upper, strict=True)),
+        options={"maxiter": 100, "ftol": settings.optimizer_ftol, "gtol": settings.optimizer_gtol},
+    )
+    assert np.max(np.abs(quadratic(historical.x)[1])) > settings.optimizer_gtol
+    step = lab._exact_box_quadratic(gradient, hessian, lower, upper)
+    assert np.array_equal(step, np.linalg.solve(hessian, -gradient))
+    assert np.max(np.abs(quadratic(step)[1])) == 0
+    assert quadratic(step)[0] < quadratic(historical.x)[0]
+
+
+def test_exact_quadratic_solves_coupled_active_face():
+    hessian = np.array([[2.0, 1.0], [1.0, 2.0]])
+    gradient = np.array([-4.0, 0.0])
+    step = lab._exact_box_quadratic(gradient, hessian, np.full(2, -1.0), np.ones(2))
+    assert np.array_equal(step, np.array([1.0, -0.5]))
+    derivative = gradient + hessian @ step
+    assert derivative[0] < 0  # Exact upper boundary has the proper KKT sign.
+    assert derivative[1] == 0
+
+
+def test_exact_quadratic_rejects_non_spd_and_excess_dimension():
+    with pytest.raises(np.linalg.LinAlgError):
+        lab._exact_box_quadratic(np.ones(2), np.diag([1.0, -1.0]), np.full(2, -1.0), np.ones(2))
+    with pytest.raises(ValueError, match="dimension one to six"):
+        lab._exact_box_quadratic(np.ones(7), np.eye(7), np.full(7, -1.0), np.ones(7))
+
+
+@pytest.fixture(scope="module")
+def rare_native_panel():
+    # Independent synthetic paths, not source records or source-fit rate estimates.
+    rng = np.random.default_rng(91001)
+    truth = (0.002, 0.004, 0.0002, 0.03)
+    paths = []
+    for label in range(70):
+        days, bands = [0.0], [0 if label < 42 else 1 if label < 68 else 2]
+        for _ in range(10):
+            gap = float(rng.choice([10.0, 20.0, 50.0, 100.0]))
+            probabilities = lab.transition_matrix(
+                truth, "adjacent", gap, probability_tolerance=1e-10
+            )[bands[-1]]
+            bands.append(int(rng.choice(3, p=probabilities)))
+            days.append(days[-1] + gap)
+        paths.append(lab.PanelPath(tuple(days), tuple(bands)))
+    return tuple(paths)
+
+
+@pytest.mark.parametrize("structure", ("adjacent", "unrestricted"))
+def test_exact_quadratic_native_rare_panel_six_start_regression(rare_native_panel, structure):
+    from demeter.analysis.ipop_a1c import load_protocol, settings_for
+
+    settings = settings_for(load_protocol(), structure)
+    # The explicit v1 control retains its historical plateau at the same outer
+    # tolerance/limit. All six unchanged prescribed starts then exercise v2.
+    control = replace(settings, initial_rates=(settings.initial_rates[1],))
+    historical = lab.fit_ctmc(
+        rare_native_panel, control, identification_diagnostics=False, numerical_method="v1"
+    )
+    assert historical["fit_performed"] is False
+    assert historical["multistarts"][0]["optimizer_status"] == "iteration_limit"
+    assert historical["multistarts"][0]["iterations"] == settings.optimizer_maxiter
+    assert historical["multistarts"][0]["projected_gradient_norm"] > settings.optimizer_gtol
+    fitted = lab.fit_ctmc(rare_native_panel, settings, numerical_method="exact_box_quadratic_v2")
+    assert fitted["fit_performed"] is True
+    assert fitted["numerical_method"] == "exact_box_quadratic_v2"
+    assert len(fitted["multistarts"]) == 6
+    assert all(row["converged"] for row in fitted["multistarts"])
+    assert all(row["direct_likelihood_gradient_verified"] for row in fitted["multistarts"])
+    assert all(
+        row["projected_gradient_norm"] <= settings.optimizer_gtol
+        and row["iterations"] < settings.optimizer_maxiter
+        for row in fitted["multistarts"]
+    )
+    assert (
+        fitted["log_likelihood"]["value"] >= historical["multistarts"][0]["log_likelihood"]["value"]
+    )
+    assert fitted["clinical_fit_performed"] is False
+    assert fitted["engine_activation_allowed"] is False
+    assert fitted["optimizer_convergence_is_identification"] is False
+
+
+def test_exact_quadratic_retains_computational_cap(settings):
+    paths = [lab.PanelPath((0.0, 1.0), (0, 1))] * 100
+    paths += [lab.PanelPath((0.0, 1.0), (2, 1))] * 100
+    paths += [lab.PanelPath((0.0, 1.0), (1, 0)), lab.PanelPath((0.0, 1.0), (1, 2))]
+    fitted = lab.fit_ctmc(paths, settings, numerical_method="exact_box_quadratic_v2")
+    assert fitted["fit_performed"] is True
+    assert fitted["search_cap_indices"] == [0, 3]
+    assert fitted["rates"][0] == fitted["rates"][3] == 4.0
+    assert fitted["search_cap_is_clinical_bound"] is False
+    assert all(
+        row["projected_gradient_norm"] <= settings.optimizer_gtol
+        for row in fitted["multistarts"]
+        if row["converged"]
+    )
+
+
+def test_v1_default_report_and_direction_path_remain_unchanged(paths, settings, monkeypatch):
+    def forbidden(*args, **kwargs):
+        pytest.fail("Default v1 must not invoke the v2 quadratic solver")
+
+    monkeypatch.setattr(lab, "_exact_box_quadratic", forbidden)
+    assert lab.fit_ctmc(paths, settings) == lab.fit_ctmc(paths, settings, numerical_method="v1")
+    assert "numerical_method" not in lab.fit_ctmc(paths, settings)
+
+
+def test_numerical_method_propagates_to_profiles_and_bootstrap(paths, settings, monkeypatch):
+    def forbidden(*args, **kwargs):
+        pytest.fail("Explicit v2 must not use the v1 inner L-BFGS-B direction")
+
+    monkeypatch.setattr(lab, "minimize", forbidden)
+    method = "exact_box_quadratic_v2"
+    fitted = lab.fit_ctmc(paths, settings, numerical_method=method)
+    profile = lab.profile_rate(
+        paths, fitted, settings, 0, (0.0, 0.1, 4.0), support_cutoff=3.84, numerical_method=method
+    )
+    assert profile["numerical_method"] == method
+    assert any(point["converged"] for point in profile["points"])
+    bootstrap = lab.paired_path_bootstrap(
+        paths,
+        {"primary": settings},
+        repetitions=2,
+        seed=91003,
+        quantile_levels=(0.025, 0.5, 0.975),
+        numerical_method=method,
+    )
+    assert bootstrap["numerical_method"] == method
+    assert bootstrap["repetitions_attempted"] == 2
+    assert all(row["models"]["primary"]["fit_performed"] for row in bootstrap["replicates"])
+    assert bootstrap["clinical_fit_performed"] is False
+    assert bootstrap["engine_activation_allowed"] is False
+
+
+def test_unknown_numerical_method_rejected_before_search(paths, settings):
+    with pytest.raises(ValueError, match="Unsupported laboratory numerical method"):
+        lab.fit_ctmc(paths, settings, numerical_method="unknown")
+    with pytest.raises(ValueError, match="Unsupported laboratory numerical method"):
+        lab.profile_rate(paths, {}, settings, 0, (0.1,), support_cutoff=3.84, numerical_method=None)
+    with pytest.raises(ValueError, match="Unsupported laboratory numerical method"):
+        lab.paired_path_bootstrap(
+            paths,
+            {"primary": settings},
+            repetitions=2,
+            seed=0,
+            quantile_levels=(0.5,),
+            numerical_method=True,
+        )
