@@ -1,0 +1,77 @@
+{
+  "acquisition_finished_at": "2026-10-02T23:11:28.340170+00:00",
+  "acquisition_started_at": "2026-10-02T23:11:27.490109+00:00",
+  "participant_records_parsed": false,
+  "prior_protocol_commit": "e5a2c5add785a7f6df7ceb5f6c49d3a8252c19f5",
+  "protocol_path": "docs/validation/nhanes-2021-2023-intake-protocol-v1.json",
+  "protocol_sha256": "5dae6588b3953f54e9fc89d5ebae701bf988b8f17a5d38a989f9be6fbc3c6a8c",
+  "schema_version": 1,
+  "source_store": "data/sources/nhanes/2021-2023",
+  "sources": {
+    "DEMO_L.xpt": {
+      "acquisition_kind": "reuse",
+      "bytes": 2582160,
+      "codebook_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/DEMO_L.htm",
+      "format": "SAS XPORT",
+      "model_role": "benchmark_only",
+      "original_acquisition": {
+        "bytes": 2582160,
+        "retrieved_at": "2026-09-28T01:20:58.006417+00:00",
+        "sha256": "ca4374a158b493b8b0163e1388da21d57a18d1b9cecff2aa4e2fa2bec494fe23",
+        "source_manifest_sha256": "8a9781a80d7bc1f0155148f15ad70850018db9099d69402142a8aaaa34390e92",
+        "source_store": "data/sources/dietary/2026-09-27",
+        "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/DEMO_L.xpt"
+      },
+      "publisher": "CDC/NCHS",
+      "retrieved_at": "2026-09-28T01:20:58.006417+00:00",
+      "reused_at": "2026-10-02T23:11:27.495111+00:00",
+      "sha256": "ca4374a158b493b8b0163e1388da21d57a18d1b9cecff2aa4e2fa2bec494fe23",
+      "title": "Demographic Variables and Sample Weights",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/DEMO_L.xpt",
+      "use_terms": "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+      "vintage": "August 2021-August 2023"
+    },
+    "DIQ_L.xpt": {
+      "acquisition_kind": "download",
+      "bytes": 847600,
+      "codebook_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/DIQ_L.htm",
+      "format": "SAS XPORT",
+      "model_role": "benchmark_only",
+      "publisher": "CDC/NCHS",
+      "retrieved_at": "2026-10-02T23:11:27.893344+00:00",
+      "sha256": "9535a023673ae869afae19d842d8679e06f6a464606ac15900686b41ef05090f",
+      "title": "Diabetes",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/DIQ_L.xpt",
+      "use_terms": "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+      "vintage": "August 2021-August 2023"
+    },
+    "GHB_L.xpt": {
+      "acquisition_kind": "download",
+      "bytes": 174000,
+      "codebook_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/GHB_L.htm",
+      "format": "SAS XPORT",
+      "model_role": "benchmark_only",
+      "publisher": "CDC/NCHS",
+      "retrieved_at": "2026-10-02T23:11:28.126870+00:00",
+      "sha256": "67aee0353160e2392dc0a33bece99b90764a630c76d82415ac4639105ad9dd03",
+      "title": "Glycohemoglobin",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/GHB_L.xpt",
+      "use_terms": "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+      "vintage": "August 2021-August 2023"
+    },
+    "GLU_L.xpt": {
+      "acquisition_kind": "download",
+      "bytes": 129200,
+      "codebook_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/GLU_L.htm",
+      "format": "SAS XPORT",
+      "model_role": "benchmark_only",
+      "publisher": "CDC/NCHS",
+      "retrieved_at": "2026-10-02T23:11:28.340170+00:00",
+      "sha256": "70f773ab37e3d8485341f32137e280e05b9279e5fe9b6f0362e4052d8fe9a201",
+      "title": "Plasma Fasting Glucose",
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/GLU_L.xpt",
+      "use_terms": "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+      "vintage": "August 2021-August 2023"
+    }
+  }
+}
