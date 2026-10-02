@@ -7,6 +7,11 @@ observation-design work for [#57](https://github.com/Crusonia/Demeter/issues/57)
 It preserves the [clinical observation contract](CLINICAL_OBSERVATION_CONTRACT.md)
 and v0.1 boundary.
 
+Implementation status: the [private nominal adapter, public aggregate audit and
+synthetic discrete likelihood evaluator](KERALA_NOMINAL_OBSERVATIONS.md) now
+implement the preservation and software-validation portions below. The empirical
+observation channel, clinical mapping and calibration remain unresolved.
+
 The public K-DPP release supports a linked, source-native observation process.
 It does not identify latent healthy/prediabetes/T2D hazards. All source outcomes
 and intake results have already been used; subsequent work is model development,
@@ -54,7 +59,7 @@ Eligibility also excluded baseline OGTT diabetes while retaining a subgroup
 with diabetes-range HbA1c. Preserve that source selection; do not repair it by
 inventing a homogeneous diabetes-free biological entry state.
 
-## Next executable observation design
+## Observation-design sequence
 
 1. Add a source-specific in-memory observation adapter with a **nominal visit
    index**, literal category, source incidence flags, assay availability and
@@ -91,8 +96,8 @@ history, but supplies neither this ascertainment process nor an informative
 missingness model. Its first-entry modes cannot silently substitute for detected
 study diagnoses, and `exp(Q t)` is not the annual engine operator.
 
-This next adapter and observation-process evaluator would advance actual source
-compatibility for #57. It would not establish remission, latent-state hazards,
+The implemented adapter and synthetic evaluator advance actual source
+compatibility for #57. They do not establish remission, latent-state hazards,
 an isolated dietary dose effect, U.S. transport, mortality improvement or
 healthcare savings. Independent scientific review and release acceptance remain
 separate.

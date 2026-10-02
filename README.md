@@ -259,6 +259,12 @@ The manifests record source URLs, retrieval times, vintages, hashes, and transfo
 
 ## Next scientific gate
 
+The [source-native Kerala adapter](docs/KERALA_NOMINAL_OBSERVATIONS.md) now
+preserves literal labels, nominal visit slots and unknown clinical clocks. Its
+public audit reproduces only approved aggregate diagnostics. A separate
+synthetic nominal-visit likelihood evaluator tests explicit observation and
+missingness assumptions; no source probabilities or clinical transitions are fitted.
+
 The [Kerala recorded-endpoint analysis](docs/KERALA_ENDPOINT_BOUNDS.md) now
 shows how unknown trial outcomes can change the comparison between assigned
 regimens. It retains recorded diagnosis, glucose categories and death

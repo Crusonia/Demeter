@@ -95,6 +95,7 @@ jobs:
           uv run demeter data verify-packages --check-tracked --output outputs/package-audit.json
           uv run python scripts/verify_kerala_registered_coverage.py --output outputs/kerala-registered-integrity.json
           uv run python scripts/verify_kerala_endpoints.py
+          uv run python scripts/verify_kerala_observations.py
       - name: Run baseline and scenario comparison
         run: |
           uv run demeter simulate scenarios/baseline.yaml --output outputs/baseline.json

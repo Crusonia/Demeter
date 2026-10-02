@@ -3915,6 +3915,36 @@ parameters:
         estimate.
     lower_bound: 0
 datasets:
+  kerala_nominal_observations:
+    status: derived
+    evidence_grade: C
+    model_role: benchmark_only
+    source_id: kerala2018_public_trial_v3
+    parameter_keys: []
+    protocol_path: docs/validation/kerala-observation-adapter-protocol-v1.json
+    protocol_sha256: 2736376f934146015fb8c26a0dea4f89b2bc89e5a3e43a4671be5c330b38faaa
+    report_path: docs/validation/kerala-nominal-observation-audit-v1.json
+    report_sha256: 42ec96732d8aceacb5712136ea7e70b5b61cfeab843218b335dedc25564beb1a
+    adapter_path: src/demeter/data/kerala_observations.py
+    adapter_sha256: d7d801ae3602290fb4a864a49cdc86c14881a722502676171043c60c1cd84c16
+    clinical_fit_allowed: false
+    engine_activation_allowed: false
+    independent_validation_allowed: false
+    scientific_release_ready: false
+    population: Public K-DPP v3 trial participants, retained as typed linked nominal observation slots
+    geography: Kerala, India
+    time_period: Source nominal baseline, 12-month and 24-month slots; exact elapsed clocks unknown
+    unit: Stored-record counts; nominal visit index; no probabilities or annual hazards
+    uncertainty: Unknown clocks, clinical confirmation, measurement validity, death/contact and absence
+      causes retained. No sampling distribution imposed.
+    transformation: Pinned source-native private adapter and strict aggregate publication allowlist; no
+      clinical state mapping, channel estimation or source likelihood.
+    design_inputs:
+    - I-11
+    - I-12
+    - F-08
+    - T-05
+    - T-08
   kerala_endpoint_bounds:
     report_path: docs/validation/kerala-endpoint-bounds-v1.json
     report_sha256: 63f59cd27046366de181ccc9932afd66247df410593d79e6f85681a56341d0f6
