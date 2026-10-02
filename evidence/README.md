@@ -1,5 +1,11 @@
 # Evidence registry
 
+The [ARIC outcome benchmark](../docs/ARIC_OUTCOMES_BENCHMARK.md) registers 44
+observed publication literals and 14 derived static counts under `aric_panel_*`.
+Its two public source receipts and conditional source reconstruction are
+benchmark-only. Complete provenance is checksum-bound; no clinical likelihood,
+sampling distribution, national transport or engine parameter is activated.
+
 Demeter treats evidence as part of the model, not as prose surrounding the model.
 
 The [Malawi follow-up benchmark](../docs/MALAWI_FOLLOWUP_BENCHMARK.md) registers

@@ -1,0 +1,513 @@
+{
+  "conditional_source_reconstruction": {
+    "counts": {
+      "original_unique_people": 3412,
+      "selected_unique_people": 2497,
+      "unrepresented_baseline_margin": 915
+    },
+    "interpretation": {
+      "baseline_categories_exhaustive_within_each_assay": true,
+      "common_elapsed_horizon_assumed": false,
+      "cross_assay_joint_followup_identified": false,
+      "diagnosis_before_death_identified": false,
+      "exact_event_times_identified": false,
+      "independently_verified_participant_subset_identity": false,
+      "mortality_priority_identified": false,
+      "panels_are_independent_samples": false,
+      "panels_share_population": true,
+      "residual_is_observed_followup_category": false,
+      "residual_is_wholly_untraced": false,
+      "residual_vital_status_identified": false,
+      "sampling_interval": null,
+      "scope": "Conditional reconstruction of supplied source-record partitions",
+      "source_labels_are_latent_clinical_states": false,
+      "source_subset_identity_declared": true,
+      "stochastic_or_clinical_fit_performed": false,
+      "unrepresented_fraction_within_selected_denominator": "Not applicable; null"
+    },
+    "panels": {
+      "a1c": {
+        "rows": {
+          "normal": {
+            "original_baseline_count": 1922,
+            "original_row_fraction_denominator": 1922,
+            "original_row_fractions": {
+              "mortality": {
+                "denominator": 1922,
+                "display_fraction": 0.11810613943808533,
+                "display_underflow": false,
+                "numerator": 227
+              },
+              "normal": {
+                "denominator": 1922,
+                "display_fraction": 0.46462018730489074,
+                "display_underflow": false,
+                "numerator": 893
+              },
+              "prediabetes": {
+                "denominator": 1922,
+                "display_fraction": 0.12434963579604578,
+                "display_underflow": false,
+                "numerator": 239
+              },
+              "total_diabetes": {
+                "denominator": 1922,
+                "display_fraction": 0.02133194588969823,
+                "display_underflow": false,
+                "numerator": 41
+              },
+              "unrepresented_baseline_margin": {
+                "denominator": 961,
+                "display_fraction": 0.2715920915712799,
+                "display_underflow": false,
+                "numerator": 261
+              }
+            },
+            "selected_baseline_count": 1400,
+            "selected_row_fraction_denominator": 1400,
+            "selected_row_fractions": {
+              "mortality": {
+                "denominator": 1400,
+                "display_fraction": 0.16214285714285714,
+                "display_underflow": false,
+                "numerator": 227
+              },
+              "normal": {
+                "denominator": 1400,
+                "display_fraction": 0.6378571428571429,
+                "display_underflow": false,
+                "numerator": 893
+              },
+              "prediabetes": {
+                "denominator": 1400,
+                "display_fraction": 0.1707142857142857,
+                "display_underflow": false,
+                "numerator": 239
+              },
+              "total_diabetes": {
+                "denominator": 1400,
+                "display_fraction": 0.029285714285714286,
+                "display_underflow": false,
+                "numerator": 41
+              },
+              "unrepresented_baseline_margin": null
+            },
+            "source_partition_counts": {
+              "mortality": 227,
+              "normal": 893,
+              "prediabetes": 239,
+              "total_diabetes": 41,
+              "unrepresented_baseline_margin": 522
+            }
+          },
+          "prediabetes": {
+            "original_baseline_count": 1490,
+            "original_row_fraction_denominator": 1490,
+            "original_row_fractions": {
+              "mortality": {
+                "denominator": 1490,
+                "display_fraction": 0.1389261744966443,
+                "display_underflow": false,
+                "numerator": 207
+              },
+              "normal": {
+                "denominator": 745,
+                "display_fraction": 0.09932885906040269,
+                "display_underflow": false,
+                "numerator": 74
+              },
+              "prediabetes": {
+                "denominator": 298,
+                "display_fraction": 0.43288590604026844,
+                "display_underflow": false,
+                "numerator": 129
+              },
+              "total_diabetes": {
+                "denominator": 1490,
+                "display_fraction": 0.06510067114093959,
+                "display_underflow": false,
+                "numerator": 97
+              },
+              "unrepresented_baseline_margin": {
+                "denominator": 1490,
+                "display_fraction": 0.26375838926174494,
+                "display_underflow": false,
+                "numerator": 393
+              }
+            },
+            "selected_baseline_count": 1097,
+            "selected_row_fraction_denominator": 1097,
+            "selected_row_fractions": {
+              "mortality": {
+                "denominator": 1097,
+                "display_fraction": 0.18869644484958978,
+                "display_underflow": false,
+                "numerator": 207
+              },
+              "normal": {
+                "denominator": 1097,
+                "display_fraction": 0.1349134001823154,
+                "display_underflow": false,
+                "numerator": 148
+              },
+              "prediabetes": {
+                "denominator": 1097,
+                "display_fraction": 0.5879671832269827,
+                "display_underflow": false,
+                "numerator": 645
+              },
+              "total_diabetes": {
+                "denominator": 1097,
+                "display_fraction": 0.08842297174111212,
+                "display_underflow": false,
+                "numerator": 97
+              },
+              "unrepresented_baseline_margin": null
+            },
+            "source_partition_counts": {
+              "mortality": 207,
+              "normal": 148,
+              "prediabetes": 645,
+              "total_diabetes": 97,
+              "unrepresented_baseline_margin": 393
+            }
+          }
+        }
+      },
+      "fg": {
+        "rows": {
+          "normal": {
+            "original_baseline_count": 1416,
+            "original_row_fraction_denominator": 1416,
+            "original_row_fractions": {
+              "mortality": {
+                "denominator": 236,
+                "display_fraction": 0.13983050847457626,
+                "display_underflow": false,
+                "numerator": 33
+              },
+              "normal": {
+                "denominator": 1416,
+                "display_fraction": 0.5162429378531074,
+                "display_underflow": false,
+                "numerator": 731
+              },
+              "prediabetes": {
+                "denominator": 177,
+                "display_fraction": 0.05649717514124294,
+                "display_underflow": false,
+                "numerator": 10
+              },
+              "total_diabetes": {
+                "denominator": 708,
+                "display_fraction": 0.018361581920903956,
+                "display_underflow": false,
+                "numerator": 13
+              },
+              "unrepresented_baseline_margin": {
+                "denominator": 472,
+                "display_fraction": 0.2690677966101695,
+                "display_underflow": false,
+                "numerator": 127
+              }
+            },
+            "selected_baseline_count": 1035,
+            "selected_row_fraction_denominator": 1035,
+            "selected_row_fractions": {
+              "mortality": {
+                "denominator": 115,
+                "display_fraction": 0.19130434782608696,
+                "display_underflow": false,
+                "numerator": 22
+              },
+              "normal": {
+                "denominator": 1035,
+                "display_fraction": 0.706280193236715,
+                "display_underflow": false,
+                "numerator": 731
+              },
+              "prediabetes": {
+                "denominator": 207,
+                "display_fraction": 0.07729468599033816,
+                "display_underflow": false,
+                "numerator": 16
+              },
+              "total_diabetes": {
+                "denominator": 1035,
+                "display_fraction": 0.025120772946859903,
+                "display_underflow": false,
+                "numerator": 26
+              },
+              "unrepresented_baseline_margin": null
+            },
+            "source_partition_counts": {
+              "mortality": 198,
+              "normal": 731,
+              "prediabetes": 80,
+              "total_diabetes": 26,
+              "unrepresented_baseline_margin": 381
+            }
+          },
+          "prediabetes": {
+            "original_baseline_count": 1996,
+            "original_row_fraction_denominator": 1996,
+            "original_row_fractions": {
+              "mortality": {
+                "denominator": 499,
+                "display_fraction": 0.11823647294589178,
+                "display_underflow": false,
+                "numerator": 59
+              },
+              "normal": {
+                "denominator": 1996,
+                "display_fraction": 0.3241482965931864,
+                "display_underflow": false,
+                "numerator": 647
+              },
+              "prediabetes": {
+                "denominator": 1996,
+                "display_fraction": 0.2339679358717435,
+                "display_underflow": false,
+                "numerator": 467
+              },
+              "total_diabetes": {
+                "denominator": 499,
+                "display_fraction": 0.056112224448897796,
+                "display_underflow": false,
+                "numerator": 28
+              },
+              "unrepresented_baseline_margin": {
+                "denominator": 998,
+                "display_fraction": 0.26753507014028055,
+                "display_underflow": false,
+                "numerator": 267
+              }
+            },
+            "selected_baseline_count": 1462,
+            "selected_row_fraction_denominator": 1462,
+            "selected_row_fractions": {
+              "mortality": {
+                "denominator": 731,
+                "display_fraction": 0.16142270861833105,
+                "display_underflow": false,
+                "numerator": 118
+              },
+              "normal": {
+                "denominator": 1462,
+                "display_fraction": 0.4425444596443228,
+                "display_underflow": false,
+                "numerator": 647
+              },
+              "prediabetes": {
+                "denominator": 1462,
+                "display_fraction": 0.31942544459644323,
+                "display_underflow": false,
+                "numerator": 467
+              },
+              "total_diabetes": {
+                "denominator": 731,
+                "display_fraction": 0.07660738714090287,
+                "display_underflow": false,
+                "numerator": 56
+              },
+              "unrepresented_baseline_margin": null
+            },
+            "source_partition_counts": {
+              "mortality": 236,
+              "normal": 647,
+              "prediabetes": 467,
+              "total_diabetes": 112,
+              "unrepresented_baseline_margin": 534
+            }
+          }
+        }
+      }
+    }
+  },
+  "cross_assay_joint_followup_identified": false,
+  "derivation_contract": {
+    "assay_panels_are_independent": false,
+    "basis": "Author-reported source flow and selected baseline rows; source-level subset interpretation, not independently verified participant membership.",
+    "diagnosis_mortality_order_known": false,
+    "independently_verified_missing_reassessment_strata": false,
+    "independently_verified_participant_subset_identity": false,
+    "source_subset_identity_declared": true,
+    "two_assay_panels_may_be_pooled": false,
+    "uniform_followup_horizon": false,
+    "unrepresented_baseline_margin_is_known_alive_at_study_end": false,
+    "unrepresented_baseline_margin_is_observed_followup": false,
+    "unrepresented_baseline_margin_is_wholly_untraced": false
+  },
+  "derived_counts": {
+    "a1c_normal_unrepresented_baseline_margin": 522,
+    "a1c_prediabetes_unrepresented_baseline_margin": 393,
+    "cumulative_minus_displayed_diabetes_count": 18,
+    "displayed_diabetes_count": 138,
+    "displayed_minus_previsit_mortality_count": 26,
+    "displayed_mortality_count": 434,
+    "fg_normal_unrepresented_baseline_margin": 381,
+    "fg_prediabetes_unrepresented_baseline_margin": 534,
+    "original_a1c_normal_count": 1922,
+    "original_a1c_only_prediabetes_count": 486,
+    "original_fg_normal_count": 1416,
+    "original_fg_only_prediabetes_count": 992,
+    "original_neither_prediabetes_count": 930,
+    "selected_from_dispositions_count": 2497
+  },
+  "dietary_causal_effect_identified": false,
+  "limitations": [
+    "Publication category partitions, not observed latent clinical transitions, type-specific diabetes, general metabolic health, or sustained remission.",
+    "Two assay panels describe the same source population. Shared original baseline joint counts are reconstructible; paired follow-up assay paths are unavailable. Do not pool panels or assume independence.",
+    "Original-minus-selected baseline margins require the declared author-reported subset interpretation. They do not independently identify participant membership, missed-visit histories, or subsequent alive/dead categories.",
+    "Attendance dispositions and displayed outcome slots use different timing. Additional mortality slots are an arithmetic contrast, not verified deaths among a named attendance group.",
+    "Cumulative incident diabetes and displayed diabetes slots differ. Their contrast does not identify diagnosis before death or a category priority algorithm.",
+    "Elapsed follow-up varies. Its median and range are source descriptors, not individual event times, one common biological horizon, or annual hazards.",
+    "No likelihood, iid sampling model, missingness independence, parameter fit, dietary causal effect, holdout validation, national transport, or engine activation follows from this intake.",
+    "Publisher HTML acquisition returned a denial. Public official PubMed abstract metadata and advertised supplement bytes were acquired separately and remain fetch-only; no participant records or access requests.",
+    "Full copyrighted source text and figures remain in ignored local caches. Only finite factual aggregates, locators and original Demeter software/documentation enter the repository."
+  ],
+  "original_assay_joint_baseline_counts": {
+    "a1c_normal": {
+      "fg_normal": 930,
+      "fg_prediabetes": 992
+    },
+    "a1c_prediabetes": {
+      "fg_normal": 486,
+      "fg_prediabetes": 1004
+    }
+  },
+  "participant_records_used": false,
+  "protocol_sha256": "00ddb6d4f74d859c28a7c7b716a1bfa4c08c80612e3335a6c22a80ac1cdb9a78",
+  "report_id": "aric-public-outcomes-reconstruction-v1",
+  "sampling_interval": null,
+  "schema_version": 1,
+  "scientific_gates": {
+    "clinical_fit_allowed": false,
+    "engine_activation_allowed": false,
+    "independent_validation_allowed": false,
+    "scientific_release_ready": false
+  },
+  "source_contrasts": {
+    "cumulative_vs_displayed_diabetes": {
+      "cumulative": 156,
+      "difference_is_diagnosis_before_death_count": false,
+      "displayed": 138
+    },
+    "displayed_vs_previsit_mortality": {
+      "additional_slots_allocated_to_attenders": false,
+      "before_visit6": 408,
+      "displayed": 434
+    }
+  },
+  "source_facts": {
+    "doi": "10.1001/jamainternmed.2020.8774",
+    "observed": {
+      "a1c_normal_baseline_count": 1400,
+      "a1c_normal_displayed_diabetes_count": 41,
+      "a1c_normal_displayed_mortality_count": 227,
+      "a1c_normal_followup_normal_count": 893,
+      "a1c_normal_followup_prediabetes_count": 239,
+      "a1c_prediabetes_baseline_count": 1097,
+      "a1c_prediabetes_displayed_diabetes_count": 97,
+      "a1c_prediabetes_displayed_mortality_count": 207,
+      "a1c_prediabetes_followup_normal_count": 148,
+      "a1c_prediabetes_followup_prediabetes_count": 645,
+      "a1c_prediabetes_lower": 5.7,
+      "a1c_prediabetes_upper": 6.4,
+      "alive_nonattender_count": 915,
+      "attended_visit6_count": 2089,
+      "baseline_year_end": 2013,
+      "baseline_year_start": 2011,
+      "cumulative_mortality_count": 434,
+      "cumulative_total_diabetes_count": 156,
+      "diabetes_a1c_threshold": 6.5,
+      "diabetes_fg_threshold": 126,
+      "died_before_visit6_count": 408,
+      "fg_normal_baseline_count": 1035,
+      "fg_normal_displayed_diabetes_count": 26,
+      "fg_normal_displayed_mortality_count": 198,
+      "fg_normal_followup_normal_count": 731,
+      "fg_normal_followup_prediabetes_count": 80,
+      "fg_prediabetes_baseline_count": 1462,
+      "fg_prediabetes_displayed_diabetes_count": 112,
+      "fg_prediabetes_displayed_mortality_count": 236,
+      "fg_prediabetes_followup_normal_count": 647,
+      "fg_prediabetes_followup_prediabetes_count": 467,
+      "fg_prediabetes_lower": 100,
+      "fg_prediabetes_upper": 125,
+      "followup_year_end": 2017,
+      "followup_year_start": 2016,
+      "maximum_followup_years": 6.5,
+      "median_followup_years": 5.0,
+      "minimum_followup_years": 0.1,
+      "original_a1c_prediabetes_count": 1490,
+      "original_analytic_count": 3412,
+      "original_both_prediabetes_count": 1004,
+      "original_either_prediabetes_count": 2482,
+      "original_fg_prediabetes_count": 1996,
+      "selected_count": 2497
+    },
+    "scientific_gates": {
+      "clinical_fit_allowed": false,
+      "engine_activation_allowed": false,
+      "independent_validation_allowed": false,
+      "scientific_release_ready": false
+    },
+    "source_locators": {
+      "a1c_normal_baseline_count": "PDF page4, eTable2, a1c_normal unique Overall row, ordered baseline_count column",
+      "a1c_normal_displayed_diabetes_count": "PDF page4, eTable2, a1c_normal unique Overall row, ordered displayed_diabetes_count column",
+      "a1c_normal_displayed_mortality_count": "PDF page4, eTable2, a1c_normal unique Overall row, ordered displayed_mortality_count column",
+      "a1c_normal_followup_normal_count": "PDF page4, eTable2, a1c_normal unique Overall row, ordered followup_normal_count column",
+      "a1c_normal_followup_prediabetes_count": "PDF page4, eTable2, a1c_normal unique Overall row, ordered followup_prediabetes_count column",
+      "a1c_prediabetes_baseline_count": "PDF page4, eTable2, a1c_prediabetes unique Overall row, ordered baseline_count column",
+      "a1c_prediabetes_displayed_diabetes_count": "PDF page4, eTable2, a1c_prediabetes unique Overall row, ordered displayed_diabetes_count column",
+      "a1c_prediabetes_displayed_mortality_count": "PDF page4, eTable2, a1c_prediabetes unique Overall row, ordered displayed_mortality_count column",
+      "a1c_prediabetes_followup_normal_count": "PDF page4, eTable2, a1c_prediabetes unique Overall row, ordered followup_normal_count column",
+      "a1c_prediabetes_followup_prediabetes_count": "PDF page4, eTable2, a1c_prediabetes unique Overall row, ordered followup_prediabetes_count column",
+      "a1c_prediabetes_lower": "a1c_thresholds exact frozen scope, named group a1c_prediabetes_lower",
+      "a1c_prediabetes_upper": "a1c_thresholds exact frozen scope, named group a1c_prediabetes_upper",
+      "alive_nonattender_count": "PDF page 3, attendance, unique selected pattern/group",
+      "attended_visit6_count": "PDF page 3, attendance, unique selected pattern/group",
+      "baseline_year_end": "baseline_period exact frozen scope, named group baseline_year_end",
+      "baseline_year_start": "baseline_period exact frozen scope, named group baseline_year_start",
+      "cumulative_mortality_count": "./PubmedArticle/MedlineCitation/Article/Abstract/AbstractText[@Label='RESULTS'], unique pattern/group cumulative_mortality_count",
+      "cumulative_total_diabetes_count": "./PubmedArticle/MedlineCitation/Article/Abstract/AbstractText[@Label='RESULTS'], unique pattern/group cumulative_total_diabetes_count",
+      "diabetes_a1c_threshold": "dm_thresholds exact frozen scope, named group diabetes_a1c_threshold",
+      "diabetes_fg_threshold": "dm_thresholds exact frozen scope, named group diabetes_fg_threshold",
+      "died_before_visit6_count": "PDF page 3, attendance, unique selected pattern/group",
+      "fg_normal_baseline_count": "PDF page4, eTable2, fg_normal unique Overall row, ordered baseline_count column",
+      "fg_normal_displayed_diabetes_count": "PDF page4, eTable2, fg_normal unique Overall row, ordered displayed_diabetes_count column",
+      "fg_normal_displayed_mortality_count": "PDF page4, eTable2, fg_normal unique Overall row, ordered displayed_mortality_count column",
+      "fg_normal_followup_normal_count": "PDF page4, eTable2, fg_normal unique Overall row, ordered followup_normal_count column",
+      "fg_normal_followup_prediabetes_count": "PDF page4, eTable2, fg_normal unique Overall row, ordered followup_prediabetes_count column",
+      "fg_prediabetes_baseline_count": "PDF page4, eTable2, fg_prediabetes unique Overall row, ordered baseline_count column",
+      "fg_prediabetes_displayed_diabetes_count": "PDF page4, eTable2, fg_prediabetes unique Overall row, ordered displayed_diabetes_count column",
+      "fg_prediabetes_displayed_mortality_count": "PDF page4, eTable2, fg_prediabetes unique Overall row, ordered displayed_mortality_count column",
+      "fg_prediabetes_followup_normal_count": "PDF page4, eTable2, fg_prediabetes unique Overall row, ordered followup_normal_count column",
+      "fg_prediabetes_followup_prediabetes_count": "PDF page4, eTable2, fg_prediabetes unique Overall row, ordered followup_prediabetes_count column",
+      "fg_prediabetes_lower": "fg_thresholds exact frozen scope, named group fg_prediabetes_lower",
+      "fg_prediabetes_upper": "fg_thresholds exact frozen scope, named group fg_prediabetes_upper",
+      "followup_year_end": "followup_period exact frozen scope, named group followup_year_end",
+      "followup_year_start": "followup_period exact frozen scope, named group followup_year_start",
+      "maximum_followup_years": "maximum_followup exact frozen scope, named group maximum_followup_years",
+      "median_followup_years": "./PubmedArticle/MedlineCitation/Article/Abstract/AbstractText[@Label='DESIGN, SETTING, AND PARTICIPANTS'], unique pattern/group median_followup_years",
+      "minimum_followup_years": "./PubmedArticle/MedlineCitation/Article/Abstract/AbstractText[@Label='DESIGN, SETTING, AND PARTICIPANTS'], unique pattern/group minimum_followup_years",
+      "original_a1c_prediabetes_count": "./PubmedArticle/MedlineCitation/Article/Abstract/AbstractText[@Label='RESULTS'], unique pattern/group original_a1c_prediabetes_count",
+      "original_analytic_count": "PDF page 3, attendance, unique selected pattern/group",
+      "original_both_prediabetes_count": "./PubmedArticle/MedlineCitation/Article/Abstract/AbstractText[@Label='RESULTS'], unique pattern/group original_both_prediabetes_count",
+      "original_either_prediabetes_count": "./PubmedArticle/MedlineCitation/Article/Abstract/AbstractText[@Label='RESULTS'], unique pattern/group original_either_prediabetes_count",
+      "original_fg_prediabetes_count": "./PubmedArticle/MedlineCitation/Article/Abstract/AbstractText[@Label='RESULTS'], unique pattern/group original_fg_prediabetes_count",
+      "selected_count": "PDF page 4, overall_panels, unique selected pattern/group"
+    },
+    "source_sha256": {
+      "pubmed_abstract": "41026875f9ec4a39ed901ca5034d8818a7dd1e3dabc9e78ac71cb10485818117",
+      "supplement": "2df66c94bced6a65f5042ea5ab96d1eaa896ee4683d536dffa0cfcc8ca4f491d"
+    },
+    "source_size_bytes": {
+      "pubmed_abstract": 26756,
+      "supplement": 533032
+    }
+  },
+  "status": "BENCHMARK ONLY \u2014 PUBLIC SOURCE PARTITIONS, NOT CLINICAL TRANSITIONS",
+  "working_fit_performed": false
+}

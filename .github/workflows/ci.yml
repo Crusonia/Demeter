@@ -98,6 +98,7 @@ jobs:
           uv run python scripts/verify_kerala_endpoints.py
           uv run python scripts/verify_kerala_observations.py
           uv run python scripts/verify_malawi_cohort.py
+          uv run python scripts/verify_aric_outcomes.py
       - name: Run baseline and scenario comparison
         run: |
           uv run demeter simulate scenarios/baseline.yaml --output outputs/baseline.json

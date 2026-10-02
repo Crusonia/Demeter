@@ -111,15 +111,19 @@ def test_real_packages_cover_every_source_and_bundle_without_network(monkeypatch
     monkeypatch.setattr("urllib.request.urlopen", no_network)
     report = verify_packages()
     assert report["passed"], [c for c in report["checks"] if not c["passed"]]
-    assert len(report["sources"]) == 85
-    assert len(report["artifacts"]) == 180
-    assert len(report["packages"]) == 36
+    assert len(report["sources"]) == 87
+    assert len(report["artifacts"]) == 183
+    assert len(report["packages"]) == 37
     assert not report["network_used"]
     assert report["documentation"]["metadata_passed"]
     assert len(report["documentation"]["source_checks"]) == 15
     assert not report["documentation"]["raw_bytes_checked"]
     assert report["documentation"]["raw_bytes_passed"] is None
     assert {s["distribution"] for s in report["sources"]} == {"archived", "fetch_only"}
+    aric = report["packages"]["aric_outcomes_benchmark"]
+    assert aric["model_role"] == "benchmark_only"
+    assert len(aric["registry_parameters"]) == 58
+    assert len(aric["artifacts"]) == 3
     da_qing = report["packages"]["da_qing_source_coverage"]
     assert da_qing["model_role"] == "benchmark_only"
     assert da_qing["registry_parameters"] == []

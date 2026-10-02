@@ -1481,6 +1481,99 @@
       ],
       "model_role": "benchmark_only",
       "redistribution": "Attributed public aggregate facts and authored bounds only. Public article CC-BY-4.0; full XML and all underlying participant records excluded from distributions."
+    },
+    "aric_outcomes_benchmark": {
+      "store": null,
+      "dependencies": [],
+      "registry_datasets": [
+        "aric_outcomes_benchmark"
+      ],
+      "registry_parameters": [
+        "aric_panel_original_analytic_count",
+        "aric_panel_attended_visit6_count",
+        "aric_panel_alive_nonattender_count",
+        "aric_panel_died_before_visit6_count",
+        "aric_panel_selected_count",
+        "aric_panel_a1c_normal_baseline_count",
+        "aric_panel_a1c_normal_followup_normal_count",
+        "aric_panel_a1c_normal_followup_prediabetes_count",
+        "aric_panel_a1c_normal_displayed_diabetes_count",
+        "aric_panel_a1c_normal_displayed_mortality_count",
+        "aric_panel_a1c_prediabetes_baseline_count",
+        "aric_panel_a1c_prediabetes_followup_normal_count",
+        "aric_panel_a1c_prediabetes_followup_prediabetes_count",
+        "aric_panel_a1c_prediabetes_displayed_diabetes_count",
+        "aric_panel_a1c_prediabetes_displayed_mortality_count",
+        "aric_panel_fg_normal_baseline_count",
+        "aric_panel_fg_normal_followup_normal_count",
+        "aric_panel_fg_normal_followup_prediabetes_count",
+        "aric_panel_fg_normal_displayed_diabetes_count",
+        "aric_panel_fg_normal_displayed_mortality_count",
+        "aric_panel_fg_prediabetes_baseline_count",
+        "aric_panel_fg_prediabetes_followup_normal_count",
+        "aric_panel_fg_prediabetes_followup_prediabetes_count",
+        "aric_panel_fg_prediabetes_displayed_diabetes_count",
+        "aric_panel_fg_prediabetes_displayed_mortality_count",
+        "aric_panel_a1c_prediabetes_lower",
+        "aric_panel_a1c_prediabetes_upper",
+        "aric_panel_fg_prediabetes_lower",
+        "aric_panel_fg_prediabetes_upper",
+        "aric_panel_diabetes_a1c_threshold",
+        "aric_panel_diabetes_fg_threshold",
+        "aric_panel_maximum_followup_years",
+        "aric_panel_baseline_year_start",
+        "aric_panel_baseline_year_end",
+        "aric_panel_followup_year_start",
+        "aric_panel_followup_year_end",
+        "aric_panel_original_a1c_prediabetes_count",
+        "aric_panel_original_fg_prediabetes_count",
+        "aric_panel_original_either_prediabetes_count",
+        "aric_panel_original_both_prediabetes_count",
+        "aric_panel_cumulative_total_diabetes_count",
+        "aric_panel_cumulative_mortality_count",
+        "aric_panel_median_followup_years",
+        "aric_panel_minimum_followup_years",
+        "aric_panel_selected_from_dispositions_count",
+        "aric_panel_displayed_diabetes_count",
+        "aric_panel_displayed_mortality_count",
+        "aric_panel_original_a1c_normal_count",
+        "aric_panel_a1c_normal_unrepresented_baseline_margin",
+        "aric_panel_a1c_prediabetes_unrepresented_baseline_margin",
+        "aric_panel_original_fg_normal_count",
+        "aric_panel_fg_normal_unrepresented_baseline_margin",
+        "aric_panel_fg_prediabetes_unrepresented_baseline_margin",
+        "aric_panel_cumulative_minus_displayed_diabetes_count",
+        "aric_panel_displayed_minus_previsit_mortality_count",
+        "aric_panel_original_a1c_only_prediabetes_count",
+        "aric_panel_original_fg_only_prediabetes_count",
+        "aric_panel_original_neither_prediabetes_count"
+      ],
+      "artifacts": [
+        {
+          "path": "docs/validation/aric-outcomes-intake-protocol-v1.json",
+          "sha256": "00ddb6d4f74d859c28a7c7b716a1bfa4c08c80612e3335a6c22a80ac1cdb9a78"
+        },
+        {
+          "path": "docs/validation/aric-outcomes-reconstruction-v1.json",
+          "sha256": "6941365f03060b54875973374f2ed905de108a38bceb589d61722d4964247c1e"
+        },
+        {
+          "path": "docs/ARIC_OUTCOMES_BENCHMARK.md",
+          "sha256": "f21cbbd5d851cf997600d45e177115b70605caa55d951f37eb07d5a45b8a78c7"
+        }
+      ],
+      "transform_files": [
+        "src/demeter/data/aric_outcomes.py",
+        "src/demeter/analysis/source_panel_reconstruction.py",
+        "src/demeter/analysis/aric_outcomes_audit.py",
+        "scripts/verify_aric_outcomes.py"
+      ],
+      "rebuild": [
+        "uv run python scripts/verify_aric_outcomes.py",
+        "uv run demeter evidence aric-outcomes --source-cache data/raw/aric"
+      ],
+      "model_role": "benchmark_only",
+      "redistribution": "Limited attributed publication facts and original Demeter conditional reconstruction. Full PDF/XML/text/figures and all participant records excluded."
     }
   },
   "supporting_artifacts": [
