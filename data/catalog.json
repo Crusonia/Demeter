@@ -1,195 +1,207 @@
 {
-  "schema_version": 1,
+  "official_json_services": [
+    {
+      "checked_on": "2026-09-27",
+      "contains": "Historical mortality and life expectancy aggregates; not single-age life tables",
+      "id": "cdc_life_expectancy",
+      "unauthenticated_result": "JSON data; snapshot stored",
+      "url": "https://data.cdc.gov/resource/w9j2-ggv5.json?$where=race=%27All%20Races%27&$limit=5000&$order=year,sex"
+    },
+    {
+      "checked_on": "2026-09-27",
+      "contains": "NHIS diagnosed diabetes; not all diabetes or specifically T2D",
+      "id": "cdc_nhis_diabetes",
+      "unauthenticated_result": "JSON data; filtered full-query snapshot in source manifest",
+      "url": "https://data.cdc.gov/resource/c9xs-vhst.json?$limit=1"
+    },
+    {
+      "authentication": "Append a Census API key privately for data queries; never commit credentials",
+      "checked_on": "2026-09-27",
+      "contains": "ACS 2024 population query and age/sex variable metadata; different vintage and methodology from the model's PEP 2025 counts",
+      "id": "census_acs_population",
+      "metadata_url": "https://api.census.gov/data/2024/acs/acs1/groups/B01001.json",
+      "unauthenticated_result": "Data query redirected to missing_key.html; metadata returned JSON",
+      "url": "https://api.census.gov/data/2024/acs/acs1?get=NAME,B01001_001E&for=us:*"
+    },
+    {
+      "checked_on": "2026-09-27",
+      "contains": "Population Estimates Program 2023 variable metadata, not population observations",
+      "id": "census_pep_age_sex",
+      "metadata_url": "https://api.census.gov/data/2023/pep/charv/variables.json",
+      "unauthenticated_result": "JSON metadata; snapshot stored"
+    }
+  ],
   "path_base": "data/",
+  "schema_version": 1,
   "stores": [
     {
-      "id": "nhanes_linked_mortality",
-      "manifest": "sources/nhanes-mortality/2011-2012/manifest.json",
-      "publisher": "CDC/NCHS",
+      "derived_bundle": "../src/demeter/data/bundled/linked_mortality_audit.json",
       "description": "Public-use 2011-2012 glycemic baseline linked to 2019 mortality; feasibility audit, no fitted hazards",
       "format": [
         "SAS XPORT",
         "fixed-width ASCII"
       ],
-      "derived_bundle": "../src/demeter/data/bundled/linked_mortality_audit.json",
+      "id": "nhanes_linked_mortality",
+      "manifest": "sources/nhanes-mortality/2011-2012/manifest.json",
       "model_role": "feasibility_only",
+      "publisher": "CDC/NCHS",
       "reload": "uv run demeter data rebuild-linked-mortality"
     },
     {
-      "id": "glp1_benchmarks",
-      "manifest": "sources/glp1/2026-09-28/manifest.json",
-      "publisher": "NIH NLM ClinicalTrials.gov; Demeter extraction from Rodriguez et al.",
+      "derived_bundle": "../src/demeter/data/bundled/glp1_benchmarks.json",
       "description": "Official STEP 1 and STEP 4 results JSON plus labeled observational persistence extraction",
       "format": [
         "official JSON",
         "JSON factual extraction"
       ],
-      "derived_bundle": "../src/demeter/data/bundled/glp1_benchmarks.json",
+      "id": "glp1_benchmarks",
+      "manifest": "sources/glp1/2026-09-28/manifest.json",
       "model_role": "benchmark_only",
+      "publisher": "NIH NLM ClinicalTrials.gov; Demeter extraction from Rodriguez et al.",
       "reload": "uv run demeter data rebuild-glp1"
     },
     {
-      "id": "diet_response_challenge",
-      "manifest": "sources/diet-dynamics/2026-09-27/manifest.json",
-      "publisher": "NIDDK/NIH; Demeter factual extraction from Gregg et al., JAMA 2012",
+      "derived_bundle": "../src/demeter/data/bundled/diet_response_challenge.json",
       "description": "Official NIH summary and a small separately labeled factual trial extraction, used to challenge timing shortcuts without calibrating dietary effects",
       "format": [
         "HTML",
         "JSON factual extraction"
       ],
-      "derived_bundle": "../src/demeter/data/bundled/diet_response_challenge.json",
+      "id": "diet_response_challenge",
+      "manifest": "sources/diet-dynamics/2026-09-27/manifest.json",
       "model_role": "historical_challenge_only",
+      "publisher": "NIDDK/NIH; Demeter factual extraction from Gregg et al., JAMA 2012",
       "reload": "uv run demeter data rebuild-diet-response"
     },
     {
-      "id": "dietary_baselines",
-      "manifest": "sources/dietary/2026-09-27/manifest.json",
-      "publisher": "CDC/NCHS; USDA WWEIA",
+      "derived_bundle": "../src/demeter/data/bundled/dietary_baselines.json",
       "description": "NHANES day-one dietary and demographic records for four cycles; published NCHS UPF means and standard errors. Reuses the existing 2017-2020 demographics store.",
       "format": [
         "SAS XPORT",
         "HTML"
       ],
-      "derived_bundle": "../src/demeter/data/bundled/dietary_baselines.json",
+      "id": "dietary_baselines",
+      "manifest": "sources/dietary/2026-09-27/manifest.json",
       "model_role": "exposure_reference_only",
+      "publisher": "CDC/NCHS; USDA WWEIA",
       "reload": "uv run demeter data rebuild-dietary"
     },
     {
-      "id": "nhanes_prechronic_risk",
-      "manifest": "sources/nhanes-risk/2017-2020/manifest.json",
-      "publisher": "CDC/NCHS",
+      "derived_bundle": "../src/demeter/data/bundled/prechronic_prevalence.json",
       "description": "Public-use waist, blood pressure, lipids, and diagnosis interviews for candidate earlier-risk definitions",
       "format": [
         "SAS XPORT"
       ],
-      "derived_bundle": "../src/demeter/data/bundled/prechronic_prevalence.json",
+      "id": "nhanes_prechronic_risk",
+      "manifest": "sources/nhanes-risk/2017-2020/manifest.json",
       "model_role": "benchmark_only",
+      "publisher": "CDC/NCHS",
       "reload": "uv run demeter data rebuild-prechronic"
     },
     {
-      "id": "healthspan_nchs_method",
-      "manifest": "sources/healthspan/nchs-2001/manifest.json",
-      "publisher": "CDC/NCHS",
+      "derived_bundle": "../src/demeter/data/bundled/healthspan_benchmark.json",
       "description": "NCHS Statistical Notes 21; original PDF Table 2 provides an independent healthspan arithmetic example, not metabolic calibration",
       "format": [
         "PDF"
       ],
-      "derived_bundle": "../src/demeter/data/bundled/healthspan_benchmark.json",
+      "id": "healthspan_nchs_method",
+      "manifest": "sources/healthspan/nchs-2001/manifest.json",
       "model_role": "method_validation_only",
+      "publisher": "CDC/NCHS",
       "reload": "uv run demeter data rebuild-healthspan"
     },
     {
-      "id": "us_baseline",
-      "manifest": "sources/baseline/2026-09-26/manifest.json",
-      "publisher": "U.S. Census Bureau; CDC/NCHS",
+      "derived_bundle": "../src/demeter/data/bundled/us_baseline.json",
       "description": "Census Vintage 2025 single-age population counts and NCHS 2022-2024 life tables",
       "format": [
         "CSV",
         "XLSX"
       ],
-      "derived_bundle": "../src/demeter/data/bundled/us_baseline.json",
+      "id": "us_baseline",
+      "manifest": "sources/baseline/2026-09-26/manifest.json",
+      "publisher": "U.S. Census Bureau; CDC/NCHS",
       "reload": "uv run demeter data rebuild --raw data/sources/baseline/2026-09-26"
     },
     {
-      "id": "historical",
-      "manifest": "sources/historical/2026-09-26/manifest.json",
-      "publisher": "CDC/NCHS; USDA ERS",
+      "derived_bundle": "../src/demeter/data/bundled/historical.json",
       "description": "Historical life expectancy, NHIS diagnosed diabetes, and sweetener availability",
       "format": [
         "CSV"
       ],
-      "derived_bundle": "../src/demeter/data/bundled/historical.json",
+      "id": "historical",
+      "manifest": "sources/historical/2026-09-26/manifest.json",
+      "publisher": "CDC/NCHS; USDA ERS",
       "reload": "uv run demeter data rebuild-history --raw data/sources/historical/2026-09-26"
     },
     {
-      "id": "nhanes_2017_2020",
-      "manifest": "sources/nhanes/2017-2020/manifest.json",
-      "publisher": "CDC/NCHS",
+      "derived_bundle": "../src/demeter/data/bundled/nhanes_prevalence.json",
       "description": "Deidentified public-use demographics, diabetes interview, A1c, and fasting glucose",
       "format": [
         "SAS XPORT"
       ],
-      "derived_bundle": "../src/demeter/data/bundled/nhanes_prevalence.json",
+      "id": "nhanes_2017_2020",
+      "manifest": "sources/nhanes/2017-2020/manifest.json",
       "model_role": "benchmark_only",
+      "publisher": "CDC/NCHS",
       "reload": "uv run demeter data rebuild-nhanes --destination outputs/nhanes-rebuilt"
     },
     {
-      "id": "official_json_2026_09_27",
-      "manifest": "sources/official-json/2026-09-27/manifest.json",
-      "publisher": "CDC/NCHS; U.S. Census Bureau",
       "description": "Official CDC data responses and Census API metadata responses; each source receipt distinguishes data from metadata",
       "format": [
         "JSON"
       ],
-      "model_role": "discovery_reference_only"
+      "id": "official_json_2026_09_27",
+      "manifest": "sources/official-json/2026-09-27/manifest.json",
+      "model_role": "discovery_reference_only",
+      "publisher": "CDC/NCHS; U.S. Census Bureau"
     },
     {
-      "id": "mortality_validation",
-      "manifest": "sources/nhanes-mortality/2013-2014/manifest.json",
-      "publisher": "CDC/NCHS",
+      "derived_bundle": "../docs/validation/issue-55-mortality-validation-amended.json",
       "description": "Reserved 2013-2014 public-use baseline and 2019 linked mortality evaluated under the pre-outcome RFC-55 protocol; descriptive prediction benchmark only",
       "format": [
         "SAS XPORT",
         "fixed-width ASCII"
       ],
-      "derived_bundle": "../docs/validation/issue-55-mortality-validation-amended.json",
+      "id": "mortality_validation",
+      "manifest": "sources/nhanes-mortality/2013-2014/manifest.json",
       "model_role": "prediction_benchmark_only",
+      "publisher": "CDC/NCHS",
       "reload": "uv run python scripts/validate_mortality_holdout.py"
     },
     {
-      "id": "cdc_prediabetes_2026",
-      "manifest": "sources/cdc-prediabetes/2026-10-01/manifest.json",
-      "publisher": "CDC",
       "description": "Published crude prediabetes prevalence and 95% CI for adults aged 65 and older; immutable aggregate report, benchmark only",
       "format": [
         "PDF"
       ],
+      "id": "cdc_prediabetes_2026",
+      "manifest": "sources/cdc-prediabetes/2026-10-01/manifest.json",
       "model_role": "benchmark_only",
+      "publisher": "CDC",
       "reload": "uv run python scripts/verify_prediabetes_benchmark.py"
     },
     {
-      "id": "geelong_label_pairs",
-      "manifest": "sources/geelong/2026-10-01/manifest.json",
-      "publisher": "Harland et al.; Journal of Diabetes Research / John Wiley & Sons; Europe PMC archive",
+      "derived_bundle": "../src/demeter/data/bundled/geelong_label_pairs.json",
       "description": "Unmodified public article XML and selected empirical linked ADA-label counts; conditional assessed-cohort benchmark, no annual clinical rate",
       "format": [
         "publication XML"
       ],
-      "derived_bundle": "../src/demeter/data/bundled/geelong_label_pairs.json",
+      "id": "geelong_label_pairs",
+      "manifest": "sources/geelong/2026-10-01/manifest.json",
       "model_role": "benchmark_only",
+      "publisher": "Harland et al.; Journal of Diabetes Research / John Wiley & Sons; Europe PMC archive",
       "reload": "uv run demeter evidence geelong-labels"
-    }
-  ],
-  "official_json_services": [
-    {
-      "id": "cdc_life_expectancy",
-      "url": "https://data.cdc.gov/resource/w9j2-ggv5.json?$where=race=%27All%20Races%27&$limit=5000&$order=year,sex",
-      "contains": "Historical mortality and life expectancy aggregates; not single-age life tables",
-      "checked_on": "2026-09-27",
-      "unauthenticated_result": "JSON data; snapshot stored"
     },
     {
-      "id": "cdc_nhis_diabetes",
-      "url": "https://data.cdc.gov/resource/c9xs-vhst.json?$limit=1",
-      "contains": "NHIS diagnosed diabetes; not all diabetes or specifically T2D",
-      "checked_on": "2026-09-27",
-      "unauthenticated_result": "JSON data; filtered full-query snapshot in source manifest"
-    },
-    {
-      "id": "census_acs_population",
-      "url": "https://api.census.gov/data/2024/acs/acs1?get=NAME,B01001_001E&for=us:*",
-      "metadata_url": "https://api.census.gov/data/2024/acs/acs1/groups/B01001.json",
-      "contains": "ACS 2024 population query and age/sex variable metadata; different vintage and methodology from the model's PEP 2025 counts",
-      "checked_on": "2026-09-27",
-      "unauthenticated_result": "Data query redirected to missing_key.html; metadata returned JSON",
-      "authentication": "Append a Census API key privately for data queries; never commit credentials"
-    },
-    {
-      "id": "census_pep_age_sex",
-      "metadata_url": "https://api.census.gov/data/2023/pep/charv/variables.json",
-      "contains": "Population Estimates Program 2023 variable metadata, not population observations",
-      "checked_on": "2026-09-27",
-      "unauthenticated_result": "JSON metadata; snapshot stored"
+      "derived_bundle": "../docs/validation/nhanes-2021-2023-glycemic-reconstruction-v1.json",
+      "description": "Separate current-cycle glycemic categories and dependent survey uncertainty, including incomplete observations; no clinical initialization.",
+      "format": [
+        "SAS XPORT"
+      ],
+      "id": "nhanes_2021_2023",
+      "manifest": "sources/nhanes/2021-2023/manifest.json",
+      "model_role": "benchmark_only",
+      "publisher": "CDC/NCHS",
+      "reload": "uv run demeter evidence glycemic-2021-2023 --output outputs/glycemic-2021-2023.json"
     }
   ]
 }

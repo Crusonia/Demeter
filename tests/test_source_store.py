@@ -17,7 +17,7 @@ def test_all_catalogued_sources_reload_offline(monkeypatch):
     monkeypatch.setattr("urllib.request.urlopen", no_network)
     report = verify_store()
     assert report["passed"]
-    assert report["files"] == 53
+    assert report["files"] == 57
     assert not report["network_used"]
 
 

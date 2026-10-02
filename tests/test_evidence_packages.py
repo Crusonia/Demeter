@@ -111,15 +111,20 @@ def test_real_packages_cover_every_source_and_bundle_without_network(monkeypatch
     monkeypatch.setattr("urllib.request.urlopen", no_network)
     report = verify_packages()
     assert report["passed"], [c for c in report["checks"] if not c["passed"]]
-    assert len(report["sources"]) == 87
-    assert len(report["artifacts"]) == 187
-    assert len(report["packages"]) == 37
+    assert len(report["sources"]) == 91
+    assert len(report["artifacts"]) == 191
+    assert len(report["packages"]) == 38
     assert not report["network_used"]
     assert report["documentation"]["metadata_passed"]
     assert len(report["documentation"]["source_checks"]) == 15
     assert not report["documentation"]["raw_bytes_checked"]
     assert report["documentation"]["raw_bytes_passed"] is None
     assert {s["distribution"] for s in report["sources"]} == {"archived", "fetch_only"}
+    current_nhanes = report["packages"]["nhanes_2021_2023"]
+    assert current_nhanes["model_role"] == "benchmark_only"
+    assert current_nhanes["registry_parameters"] == []
+    assert current_nhanes["registry_datasets"] == ["nhanes_glycemic_2021_2023"]
+    assert len(current_nhanes["artifacts"]) == 4
     aric = report["packages"]["aric_outcomes_benchmark"]
     assert aric["model_role"] == "benchmark_only"
     assert len(aric["registry_parameters"]) == 58

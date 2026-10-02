@@ -239,7 +239,7 @@ from the modeled quantities, and leave unsupported mappings explicitly unresolve
 
 ## NHANES and official JSON additions
 
-The [machine-readable catalog](catalog.json) covers all 53 archived source files, including
+The [machine-readable catalog](catalog.json) covers all 57 archived source files, including
 four deidentified NHANES 2017-March 2020 XPORT files and four official JSON
 snapshots and the NCHS healthspan method PDF. The original baseline and historical
 archives above remain canonical.
@@ -257,6 +257,11 @@ alternative definitions, survey uncertainty and missing-data limitations.
 - [Derived prevalence JSON](../src/demeter/data/bundled/nhanes_prevalence.json) and
   [reconstruction methods](../docs/NHANES_PREVALENCE.md) describe the survey
   classifications, weights, uncertainty and remaining engine-state mismatch.
+- The separate [2021–2023 source store](sources/nhanes/2021-2023/manifest.json)
+  and [glycemic reconstruction guide](../docs/NHANES_2021_2023_GLYCEMIC.md)
+  add a newer adult benchmark, explicit missingness and dependent survey
+  covariance. Run `uv run demeter evidence glycemic-2021-2023` for a compact
+  offline summary; this benchmark does not initialize the engine.
 
 Reload and verify without changing committed files:
 

@@ -79,6 +79,8 @@ jobs:
           uv run demeter evidence population --output outputs/population-evidence.json
           uv run demeter evidence state-mapping --output outputs/state-mapping.json
           uv run python scripts/verify_joint_glycemic_uncertainty.py
+          uv run demeter evidence glycemic-2021-2023 --output outputs/glycemic-2021-2023.json
+          uv run python scripts/verify_nhanes_current.py
           uv run demeter data rebuild-linked-mortality
           uv run demeter evidence linked-mortality --output outputs/linked-mortality-evidence.json
           uv run python scripts/fit_mortality_development.py

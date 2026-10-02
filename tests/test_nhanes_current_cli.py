@@ -94,3 +94,26 @@ def test_cli_source_failure_creates_no_output(monkeypatch, tmp_path):
     result = CliRunner().invoke(app, ["evidence", "glycemic-2021-2023", "--output", str(output)])
     assert result.exit_code != 0
     assert "checksum mismatch" in result.output and not output.exists()
+
+
+def test_real_current_cycle_cli_replays_frozen_aggregate_offline(monkeypatch, tmp_path):
+    from demeter.schema import EvidenceRegistry
+
+    def no_network(*args, **kwargs):
+        pytest.fail("Current-cycle reconstruction must remain offline")
+
+    monkeypatch.setattr("urllib.request.urlopen", no_network)
+    output = tmp_path / "current.json"
+    result = CliRunner().invoke(app, ["evidence", "glycemic-2021-2023", "--output", str(output)])
+    assert result.exit_code == 0, result.output
+    actual = json.loads(output.read_bytes())
+    expected = json.loads(
+        Path("docs/validation/nhanes-2021-2023-glycemic-reconstruction-v1.json").read_bytes()
+    )
+    registry = EvidenceRegistry.from_yaml("evidence/parameters.yaml")
+    assert actual["provenance"].pop("evidence_sha256") == registry.content_hash
+    expected["provenance"].pop("evidence_sha256")
+    assert actual == expected
+    assert actual["published_reconstruction"]["passed"]
+    assert actual["scientific_release_ready"] is False
+    assert actual["clinical_fit_allowed"] is False

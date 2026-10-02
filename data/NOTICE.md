@@ -2,7 +2,7 @@
 
 Demeter's MIT license covers its code and original documentation. It does not
 relicense source data, articles, logos, or restricted records. The machine-readable
-[rights inventory](rights.json) identifies all 53 archived artifacts and the
+[rights inventory](rights.json) identifies all 57 archived artifacts and the
 fetch-only sources by URL, publisher, vintage, retrieval time, checksum,
 privacy class and citation. Its policies distinguish download, transformation
 and redistribution conditions. These are packaging decisions; the linked source
@@ -14,6 +14,15 @@ commands. These records describe reproducibility, not scientific acceptance.
 Model outputs retain the existing validation-only boundary.
 
 ## Source-specific conditions
+
+The separate [NHANES 2021–2023 glycemic benchmark](../docs/NHANES_2021_2023_GLYCEMIC.md)
+includes four original CDC/NCHS public-use components and attributed aggregate
+reconstruction. DEMO_L retains its earlier dietary-bundle acquisition identity.
+The NCHS data-user agreement permits statistical reporting and analysis subject
+to its conditions; identification and linkage to identifiable records are
+prohibited. No joined participant records are distributed. The committed
+protocol, source admission and replay hashes document reproducibility; they do
+not establish clinical mapping or scientific acceptance.
 
 The [ARIC outcome benchmark](../docs/ARIC_OUTCOMES_BENCHMARK.md) distributes
 limited attributed factual counts and original Demeter source-accounting code.
