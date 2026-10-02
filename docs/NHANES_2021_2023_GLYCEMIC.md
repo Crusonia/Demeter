@@ -154,4 +154,3 @@ Original CDC/NCHS files remain separate from Demeter transformations and are
 available free from CDC. The [NCHS data-user agreement](https://www.cdc.gov/nchs/policy/data-user-agreement.html)
 and [repository notices](../data/NOTICE.md) apply. No identification, linkage
 to identifiable records or joined person-level export is performed.
-
