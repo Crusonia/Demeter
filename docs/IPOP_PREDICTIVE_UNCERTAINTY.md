@@ -54,9 +54,22 @@ comparison is not automatically a failed fit.
 For a verified cache, a maintainer first freezes and pushes the reporting code
 and protocol, then uses that full commit identity and a fresh output path:
 
+The published annotated tag preserves the original freeze after squash merge
+and is protected against movement and deletion.
+Use a Git clone and fetch that tag explicitly, including for a shallow checkout:
+
 ```text
-uv run python scripts/replay_ipop_predictive_supplement.py --raw data/raw/ipop-a1c-v1 --freeze-commit 6210db409e890ef3811afc1c01282d232e4a1dd7 --output outputs/ipop-predictive-supplement.json
+git fetch origin tag demeter-ipop-predictive-summary-freeze-v1
+uv run python scripts/run_ipop_predictive_supplement.py --raw data/raw/ipop-a1c-v1 --output outputs/ipop-predictive-supplement.json
 ```
+
+The supported launcher defaults to the exact frozen commit
+`6210db409e890ef3811afc1c01282d232e4a1dd7`. It creates missing output directories
+and checks publication storage before fitting. Existing output files are never
+overwritten. The original replay script stays byte-for-byte frozen; the new
+launcher handles publication setup around it. An extracted source distribution
+can perform the offline arithmetic audit below, but empirical replay needs the
+Git snapshot and a separately verified participant cache.
 
 Reconstruct the committed summary arithmetic offline, without participant data:
 

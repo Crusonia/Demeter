@@ -1167,7 +1167,7 @@
         },
         {
           "path": "docs/IPOP_PREDICTIVE_UNCERTAINTY.md",
-          "sha256": "10b791472a4d0c0fbc5156ee136cc8e82a379e886a2e1ad4d3ec68d62d3a06ca"
+          "sha256": "7dcabdd612635fd76480915d4eb0cf0d1778a59dedc66ff6643d101c09114bae"
         },
         {
           "path": "docs/validation/ipop-a1c-predictive-summary-protocol-v1.json",
@@ -1188,7 +1188,8 @@
         "scripts/verify_ipop_a1c_working_fit.py",
         "src/demeter/analysis/laboratory_bootstrap_reporting.py",
         "scripts/replay_ipop_predictive_supplement.py",
-        "scripts/verify_ipop_predictive_supplement.py"
+        "scripts/verify_ipop_predictive_supplement.py",
+        "scripts/run_ipop_predictive_supplement.py"
       ],
       "rebuild": [
         "uv run python scripts/verify_ipop_a1c_working_fit.py",

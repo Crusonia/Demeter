@@ -5544,6 +5544,7 @@ datasets:
     protocol_path: docs/validation/ipop-a1c-predictive-summary-protocol-v1.json
     protocol_sha256: 967c74c8c6d5bb208f307009b0198b8ec53abc2376594153cccb5d20af04818a
     freeze_commit: 6210db409e890ef3811afc1c01282d232e4a1dd7
+    freeze_tag: demeter-ipop-predictive-summary-freeze-v1
     result:
       path: docs/validation/ipop-a1c-predictive-summary-result-v1.json
       sha256: 85a2496f0d4d1ef41f9afd8dbcf0b85a0f824db9f619bc8e46beba0f90370120
