@@ -1,0 +1,87 @@
+{
+  "translation_id": "kerala-v3-before-values-artifact-translation-v1",
+  "frozen_at_utc": "2026-10-02T15:34:15.624679+00:00",
+  "participant_values_inspected": false,
+  "quantitative_workbook_counts_inspected": false,
+  "frozen_protocol_v2": {
+    "path": "docs/validation/kerala-joint-coverage-intake-protocol-v2.json",
+    "bytes": 9870,
+    "sha256": "c8c8a250614b8ceb5e83eaf5325e83c031a7462dde13cbc26a588b1c122ca4bd"
+  },
+  "path_aliases": [
+    {
+      "original_path": "schema-preflight-protocol-v1.json",
+      "committed_artifact": {
+        "path": "docs/validation/kerala-source-schema-protocol-v1.json",
+        "bytes": 2999,
+        "sha256": "29fa65faa6b3b80546b32c11defe0114ba3043761af3247eef2e269c7cfe44a2"
+      },
+      "transformation": "Exact bytes; renamed published path only."
+    },
+    {
+      "original_path": "schema-preflight-header-addendum-v1.json",
+      "committed_artifact": {
+        "path": "docs/validation/kerala-source-header-amendment-v1.json",
+        "bytes": 511,
+        "sha256": "f9652cdcf9a3aaeb4d34b6ad03481fa01def4256b61d8d5ff71d9b4f21909827"
+      },
+      "transformation": "Exact bytes; renamed published path only."
+    },
+    {
+      "original_path": "finite-joint-coverage-intake-protocol-v1.json",
+      "committed_artifact": {
+        "path": "docs/validation/kerala-joint-coverage-intake-protocol-v1.json",
+        "bytes": 9045,
+        "sha256": "762a866d73eb56c9497230f10b15e9a8a09b8a94fe78c48edebcfa78ed48383d"
+      },
+      "transformation": "Exact bytes; renamed published path only."
+    },
+    {
+      "original_path": "schema-headers-v1.json",
+      "committed_artifact": {
+        "path": "docs/validation/kerala-source-headers-v1.json",
+        "bytes": 40120,
+        "sha256": "c0b36bca5efc82d9e36ffb3fe921d84a95acd85108132c18ca24944d5f9c3b1e"
+      },
+      "transformation": "Exact bytes; renamed published path only."
+    }
+  ],
+  "original_coverage": {
+    "original_path": "clinical-contract-schema-coverage-v1.json",
+    "bytes": 18692,
+    "sha256": "335ef0771520aa55c10dccce9a2b767a6db25a24950fdc8cd2c407b9a370028e",
+    "raw_commit_allowed": false,
+    "reason": "Original acquisition-related receipt fields contained transient signed redirect query values. Original bytes remain ignored, not redistributed."
+  },
+  "redacted_historical_coverage": {
+    "path": "docs/validation/kerala-source-schema-coverage-original-redacted-v1.json",
+    "bytes": 17884,
+    "sha256": "14d0b76279879a56603519559654bd39b0a2abd904847aa705c60280daabbbd6"
+  },
+  "redaction_rule": "For actual_source_receipts and publication_receipt only: final_url becomes scheme+netloc+path; resolved_query_omitted records query presence; signed_query_omitted records X-Amz/X-Goog key presence. All other original fields unchanged. No query values retained.",
+  "amended_published_coverage": {
+    "path": "docs/validation/kerala-clinical-contract-schema-coverage-v1.json",
+    "bytes": 18589,
+    "sha256": "7d3ee8f92800d956aef6b7a870353848c420bbc5fdc0d0dfcab79fbab4086ab3"
+  },
+  "allowed_additive_amendments": [
+    "source_appraisal_amendment added with artifact pin",
+    "next_finite_gate replaced to permit private selected study-key representation checks and aggregate uninterpreted code frequencies"
+  ],
+  "unchanged_scientific_content": [
+    "source identity",
+    "clinical fields and locators",
+    "publication aggregate facts",
+    "scientific gates",
+    "prior inspection chronology",
+    "measurement/missingness/death limitations",
+    "source receipts after identical query redaction"
+  ],
+  "metadata_original_sha256": "799f4d4c6e61de038f5cace5a42ab6a71adb0f2ee2b8d8c2ddc920bbe435864b",
+  "scientific_gates": {
+    "clinical_fit_allowed": false,
+    "engine_activation_allowed": false,
+    "independent_validation_allowed": false,
+    "scientific_release_ready": false
+  }
+}

@@ -49,7 +49,10 @@ as an independently missed visit, a negative test or evidence of remission.
 
 Figure 1, visually checked on PDF page 11, reports one control death and two
 intervention deaths among losses at both follow-up horizons. These are cumulative
-counts, not six deaths. It also separates reasons for loss from the number
+counts, not six deaths. Nondeath loss reasons are follow-up snapshots: some
+reason counts decrease between waves. Do not subtract those snapshots to infer
+interval losses or assume an absent participant or loss reason is absorbing.
+The figure also separates reasons for loss from the number
 analyzed for the primary outcome. No explicit death, contact, withdrawal, loss
 reason or visit-date header appears in the released workbooks. Deaths therefore
 remain known aggregate facts with unknown person, cluster and glycemic-state
@@ -109,3 +112,13 @@ U.S. transport, clinical mortality and healthcare-savings claims are all blocked
 
 This intake feeds I-11/I-12 and F-08 in the design registers. It does not change
 the v0.1 engine, its evidence parameters or the wider program architecture.
+
+The active admission manifest is `validation/kerala-source-admission-v2.json`.
+It retains the original frozen manifest through a parent hash and adds an
+explicit artifact-path/redaction translation plus a follow-up snapshot
+amendment. Original acquisition-related redirect query values stay ignored;
+the historical sanitized coverage retains all clinical facts and limitations.
+`uv run python scripts/verify_kerala_source_coverage.py` verifies these authored
+relationships. Adding `--source-cache outputs/kerala-v3` also reproduces the
+pinned headers and the original coverage's query-redaction projection. Neither
+command reads participant values or verifies joint clinical coverage.
