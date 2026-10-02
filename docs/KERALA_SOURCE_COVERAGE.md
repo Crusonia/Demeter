@@ -122,3 +122,77 @@ the historical sanitized coverage retains all clinical facts and limitations.
 relationships. Adding `--source-cache outputs/kerala-v3` also reproduces the
 pinned headers and the original coverage's query-redaction projection. Neither
 command reads participant values or verifies joint clinical coverage.
+
+
+## Completed selected-field appraisal
+
+The reproducible aggregate report is
+[`validation/kerala-selected-source-representation-v1.json`](validation/kerala-selected-source-representation-v1.json).
+The before-values admission was committed as `ea66036` before the first workbook
+appraisal. Earlier used-source runs and the selected-string decoding repair are
+recorded with immutable hashes; this is model development, not independent validation.
+
+The primary workbook contains 1,007 unique typed opaque study keys. The secondary
+workbook contains 3,021 rows for exactly those same keys: every key has one row
+at each literal visit label `Baseline`, `12 months`, and `24 months`, with no
+duplicate key/visit pair. Primary assignments are Control 507 and Intervention
+500. Every linked long arm and opaque cluster agrees with its baseline wide
+assignment across all 3,021 records. Cluster keys and participant keys stay private.
+
+All 1,007 people contribute to 108 aggregate histories of source-native ADA
+labels, assigned regimen and separate total recorded-diagnosis flag. Missing
+labels remain in the histories. Baseline labels are NGT 312, IFG 579 and IGT 116;
+these are observed released labels, not engine H/P/D states. At the next two
+visits, 99 and 144 labels respectively are absent. A later lower glucose label
+cannot erase a recorded diabetes diagnosis or establish remission.
+
+The source total diagnosis flag is Yes 147, No 772 and absent 88: 919 available
+endpoints reproduces the publication's endpoint denominator without dropping or
+rescaling the released cohort. Among 88 source first-incidence Yes flags, all
+88 later two-hour glucose cells are absent, while 82 later fasting glucose cells
+are stored. This supports the publication's diagnosis-dependent OGTT stopping
+rule. It does not supply individual death/loss histories or establish independent
+censoring. The three reported cumulative deaths remain unlinked source facts;
+nondeath loss reasons remain visit snapshots and are never differenced into
+interval counts.
+
+To repeat the original authoring appraisal with privately cached, pinned public
+workbooks, use a new exclusive output filename:
+
+```powershell
+uv run python scripts/verify_kerala_source_coverage.py --source-cache outputs/kerala-v3 --appraise-selected-values --protocol-commit ea66036 --output outputs/kerala-v3/new-selected-appraisal.json
+```
+
+That command requires the original before-values commit in local Git history.
+The committed aggregate artifact can be checked from its registered pin without
+raw participant data or the authoring history. No clinical likelihood, biological
+transition rates, independent-binomial intervals, U.S. transport, isolated diet
+coefficient or engine activation is added by this report.
+
+## Replay from a fresh public checkout
+
+Verify the registered receipts, frozen aggregate report and exact appraisal code
+without downloading records or retaining the original author's Git history:
+
+```bash
+uv run python scripts/verify_kerala_registered_coverage.py
+```
+
+For a public workbook replay, download both spreadsheets from the
+[version 3 release](https://doi.org/10.6084/m9.figshare.5661610.v3) into
+`outputs/kerala-public-replay`, keeping their original filenames:
+`Primary outcome_K-DPP trial.xlsx` and `Secondary outcomes_K-DPP trial.xlsx`.
+The files remain ignored and contain participant-level clinical records; the
+replay emits only the authored aggregate diagnostics and verification flags.
+These commands work in PowerShell, macOS Terminal and Linux shells:
+
+```bash
+uv run python scripts/verify_kerala_registered_coverage.py --source-cache outputs/kerala-public-replay --replay-aggregates --output outputs/kerala-public-replay/replay-v1.json
+```
+
+Use a new output filename for each receipt. This replay verifies the exact public
+workbook bytes, headers and selected-field aggregate counts. It does not require
+the author's earlier signed acquisition redirects or the before-values Git
+commit, and it reports that omitted historical projection as unverified. The
+authored report and its documented development chronology remain immutable.
+All clinical fitting, engine activation and scientific release gates stay false.

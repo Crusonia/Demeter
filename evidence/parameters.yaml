@@ -3667,6 +3667,47 @@ parameters:
         estimate.
     lower_bound: 0
 datasets:
+  kerala_source_admission:
+    status: derived
+    evidence_grade: C
+    model_role: benchmark_only
+    source_id: kerala2018_public_trial_v3
+    source_ids:
+    - kerala2018_public_trial_v3
+    - kerala2018_primary_publication
+    - kerala2013_trial_protocol
+    - kerala2023_followup_protocol
+    parameter_keys: []
+    clinical_fit_allowed: false
+    engine_activation_allowed: false
+    independent_validation_allowed: false
+    scientific_release_ready: false
+    admission_path: docs/validation/kerala-source-admission-v2.json
+    admission_sha256: a5f2a495e2714071a8c90e57187b70e89c791dfee2e04bc3aeea0e9d19193038
+    population: Public K-DPP trial release v3, high-risk adults enrolled in a community cluster-randomized
+      peer-support lifestyle trial; precise released person-wave inclusion must be audited, not inferred
+      from paper denominators.
+    geography: Kerala, India
+    time_period: Original trial nominal baseline, 12-month and 24-month assessments; public release version3
+      posted2023. Later nine-year protocol is separate, not a workbook clock mapping.
+    unit: Source metadata, typed released-record coverage and missingness counts; source labels retain unknown
+      semantics where undocumented
+    uncertainty: No sampling distribution imposed. Repeated paths, community clusters, diagnosis-dependent
+      testing and unknown death/loss allocation remain explicit; raw numeric code frequencies do not identify
+      clinical categories.
+    transformation: Pinned before-values admission, source/header/protocol guards and selected-field aggregate
+      representation appraisal only. No per-person export, silent duplicate collapse, independent censoring
+      or clinical hazard fit.
+    description: Additive public trial intake with used-source chronology, immutable protocols and aggregate-only
+      diagnostics. No active model parameters or scientific acceptance changes.
+    design_inputs:
+    - I-11
+    - I-12
+    - F-08
+    - T-05
+    - T-08
+    representation_path: docs/validation/kerala-selected-source-representation-v1.json
+    representation_sha256: fc2fe0701cdabd176230d4259f120bdd310d290887b6fb8f2b3c41bbf42c1d99
   glycemic_joint_uncertainty:
     status: estimated
     evidence_grade: C
@@ -5992,3 +6033,51 @@ sources:
     correction_note: Narrative incident-diabetes count and diagnosis-time groups disagree as labeled; retained
       without substitution. Used-source audit only; no clinical fit, causal interpretation, U.S. transport
       or engine activation.
+  kerala2018_public_trial_v3:
+    url: https://api.figshare.com/v2/articles/5661610
+    citation: Thirunavukkarasu, Sathish. K-DPP datasets. Figshare public version 3. DOI10.6084/m9.figshare.5661610.v3.
+    doi: 10.6084/m9.figshare.5661610.v3
+    raw_filename: figshare5661610-metadata.json
+    sha256: 799f4d4c6e61de038f5cace5a42ab6a71adb0f2ee2b8d8c2ddc920bbe435864b
+    retrieved_at: '2026-10-02T15:00:49.250581+00:00'
+    license: CC BY 4.0, as stated in public version3 release metadata
+    correction_note: Public source appraisal only. Release metadata and two raw workbook pins are separate;
+      linked record identity, category code meanings and event/death clocks remain unresolved. No clinical
+      fitting, national transport or engine activation.
+  kerala2018_primary_publication:
+    url: https://journals.plos.org/plosmedicine/article/file?id=10.1371/journal.pmed.1002575&type=printable
+    citation: 'Thankappan KR et al. A peer-support lifestyle intervention for preventing type 2 diabetes
+      in India: A cluster-randomized controlled trial of the Kerala Diabetes Prevention Program. PLoS Med.
+      2018;15(6):e1002575.'
+    doi: 10.1371/journal.pmed.1002575
+    raw_filename: thankappan2018-primary-publication.pdf
+    sha256: eace56aae88c2359fc7b57d00a16ff978de51792de47ab78bfb742303dc8727e
+    retrieved_at: '2026-10-02T15:10:14.209360+00:00'
+    license: CC BY per primary article copyright statement; original author and source attribution required
+    correction_note: Public source appraisal only. Release metadata and two raw workbook pins are separate;
+      linked record identity, category code meanings and event/death clocks remain unresolved. No clinical
+      fitting, national transport or engine activation.
+  kerala2013_trial_protocol:
+    url: https://link.springer.com/article/10.1186/1471-2458-13-1035
+    citation: 'Sathish T et al. Cluster randomised controlled trial of a peer-led lifestyle intervention
+      program: study protocol for the Kerala diabetes prevention program. BMC Public Health. 2013;13:1035.'
+    doi: 10.1186/1471-2458-13-1035
+    raw_filename: 2013-trial-protocol.html
+    sha256: 66549ea4be5e4f649db5887376d0b7388ac29d853d2f9905e52b58e1a9488314
+    retrieved_at: '2026-10-02T15:16:46.527876+00:00'
+    license: Public primary protocol; article redistribution rights not established by this intake, fetch-only
+    correction_note: Public source appraisal only. Release metadata and two raw workbook pins are separate;
+      linked record identity, category code meanings and event/death clocks remain unresolved. No clinical
+      fitting, national transport or engine activation.
+  kerala2023_followup_protocol:
+    url: https://link.springer.com/article/10.1186/s12889-023-15392-6
+    citation: 'Haregu T et al. The long-term effects of Kerala Diabetes Prevention Program on diabetes incidence
+      and cardiometabolic risk: a study protocol. BMC Public Health. 2023;23:539.'
+    doi: 10.1186/s12889-023-15392-6
+    raw_filename: 2023-followup-protocol.html
+    sha256: 5202582b2ebf1b785552c47a9548ad35b967d999994d0deba05d68d79ef55166
+    retrieved_at: '2026-10-02T15:16:48.635366+00:00'
+    license: CC BY 4.0 per primary article rights section; third-party material may have separate conditions
+    correction_note: Public source appraisal only. Release metadata and two raw workbook pins are separate;
+      linked record identity, category code meanings and event/death clocks remain unresolved. No clinical
+      fitting, national transport or engine activation.

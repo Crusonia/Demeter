@@ -1,5 +1,12 @@
 # Evidence and learning work after Explorer
 
+The [Kerala public source intake](KERALA_SOURCE_COVERAGE.md) advances the next
+finite observation gate with exact public-version receipts, before-values
+protocols and selected-field aggregate representation checks. Source-defined
+clinical categories, regimen/wave meanings and linked death/loss timing must be
+resolved before dependent clinical interpretation or fitting. No clinical
+transition, active food coefficient or scientific acceptance requirement is closed.
+
 The October 2 parallel build adds [Da Qing source coverage](DA_QING_SOURCE_COVERAGE.md),
 conservative clinical chronology checks and robust competing-hazard arithmetic.
 The new source supplies updated diagnosis-history mortality observations while

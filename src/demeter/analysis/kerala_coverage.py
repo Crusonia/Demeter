@@ -2,7 +2,9 @@
 
 from __future__ import annotations
 
-from datetime import datetime
+from collections import Counter, defaultdict
+from datetime import datetime, timezone
+from xml.parsers import expat
 import hashlib
 import json
 from pathlib import Path
@@ -268,7 +270,7 @@ def read_headers_only(path: Path) -> list[dict[str, str]]:
         )
         row = None
         with book.open("xl/worksheets/sheet1.xml") as source:
-            for _, element in ET.iterparse(_PrefixReader(source), events=("end",)):
+            for _, element in _prefix_events(source):
                 if element.tag == TAG + "row":
                     if element.attrib.get("r") == "2":
                         row = element
@@ -293,7 +295,7 @@ def read_headers_only(path: Path) -> list[dict[str, str]]:
         if wanted:
             with book.open("xl/sharedStrings.xml") as source:
                 position = 0
-                for _, element in ET.iterparse(_PrefixReader(source), events=("end",)):
+                for _, element in _prefix_events(source):
                     if element.tag == TAG + "si":
                         if position in wanted:
                             shared[position] = "".join(element.itertext())
@@ -533,4 +535,387 @@ def verify_admission(package_root: Path, source_cache: Path | None = None) -> di
         "independent_validation_allowed": False,
         "scientific_release_ready": False,
         "interpretation": "Intake artifacts and optional headers verified; clinical admission remains unresolved.",
+    }
+
+
+def _prefix_events(source):
+    builder = ET.TreeBuilder()
+    pending = []
+    parser = expat.ParserCreate(namespace_separator="}")
+
+    def tag(value):
+        return "{" + value if "}" in value else value
+
+    parser.StartElementHandler = lambda name, attrs: builder.start(tag(name), attrs)
+
+    def end(name):
+        pending.append(builder.end(tag(name)))
+
+    parser.EndElementHandler = end
+    parser.CharacterDataHandler = builder.data
+
+    def reject(*args):
+        raise ValueError("XML entity declarations unsupported")
+
+    parser.StartDoctypeDeclHandler = reject
+    parser.EntityDeclHandler = reject
+    if hasattr(parser, "SetReparseDeferralEnabled"):
+        parser.SetReparseDeferralEnabled(False)
+    unfinished = 0
+    while value := source.read(1):
+        unfinished = 0 if value == b">" else unfinished + 1
+        _require(unfinished <= 8192, "XML token exceeds bounded prefix reader")
+        parser.Parse(value, False)
+        while pending:
+            yield ("end", pending.pop(0))
+    parser.Parse(b"", True)
+
+
+def _selected_rows(path: Path, selected: list[str]):
+    headers = read_headers_only(path)
+    columns = {item["column"][:-1]: item["label"] for item in headers if item["label"] in selected}
+    rows = []
+    with zipfile.ZipFile(path) as book:
+        needed = set()
+        with book.open("xl/worksheets/sheet1.xml") as source:
+            for _, cell in ET.iterparse(source, events=("end",)):
+                if cell.tag != TAG + "c":
+                    continue
+                locator = cell.attrib["r"]
+                if (
+                    re.sub(r"\d+$", "", locator) in columns
+                    and int(re.search(r"\d+$", locator).group()) > 2
+                    and cell.attrib.get("t") == "s"
+                ):
+                    value = cell.find("m:v", NS)
+                    if value is not None:
+                        needed.add(int(value.text))
+                cell.clear()
+        shared = {}
+        with book.open("xl/sharedStrings.xml") as source:
+            index = 0
+            for _, item in ET.iterparse(source, events=("end",)):
+                if item.tag != TAG + "si":
+                    continue
+                if index in needed:
+                    shared[index] = "".join(item.itertext())
+                item.clear()
+                index += 1
+        with book.open("xl/worksheets/sheet1.xml") as source:
+            for _, row in ET.iterparse(source, events=("end",)):
+                if row.tag != TAG + "row":
+                    continue
+                if int(row.attrib["r"]) <= 2:
+                    row.clear()
+                    continue
+                values = {field: ("absent", None) for field in selected}
+                for cell in row.findall("m:c", NS):
+                    column = re.sub(r"\d+$", "", cell.attrib["r"])
+                    if column not in columns:
+                        continue
+                    field = columns[column]
+                    if cell.find("m:f", NS) is not None:
+                        values[field] = ("formula_unsupported", None)
+                        continue
+                    value, inline = cell.find("m:v", NS), cell.find("m:is", NS)
+                    kind = cell.attrib.get("t", "n")
+                    if kind == "s" and value is not None:
+                        values[field] = ("string", shared[int(value.text)])
+                    elif kind == "inlineStr" and inline is not None:
+                        values[field] = ("string", "".join(inline.itertext()))
+                    elif value is None or value.text is None:
+                        values[field] = ("empty", None)
+                    else:
+                        values[field] = (
+                            {"n": "number", "b": "boolean", "e": "error"}.get(kind, "unsupported"),
+                            value.text,
+                        )
+                if any(kind not in {"absent", "empty"} for kind, _ in values.values()):
+                    rows.append(values)
+                row.clear()
+    return rows
+
+
+def _safe_code(kind, value):
+    if kind == "number" and value is not None and re.fullmatch(r"[-+]?\d+(\.\d+)?", value):
+        return "number:" + value
+    if kind == "boolean" and value in {"0", "1"}:
+        return "boolean:" + value
+    known = {
+        "control",
+        "intervention",
+        "yes",
+        "no",
+        "ngt",
+        "ifg",
+        "igt",
+        "normal glucose tolerance",
+        "impaired fasting glucose",
+        "impaired glucose tolerance",
+        "diabetes",
+        ".",
+        "na",
+        "n/a",
+        "unknown",
+        "baseline",
+        "12 months",
+        "24 months",
+    }
+    if kind == "string" and value is not None and value.lower() in known:
+        return "string:" + value
+    return kind + (":uninterpreted_text" if kind == "string" else "")
+
+
+INVALID_KEYS = {"absent", "empty", "formula_unsupported", "error", "unsupported"}
+
+
+def _group_rows(rows):
+    grouped, missing = defaultdict(list), 0
+    for row in rows:
+        key = row["participant_id"]
+        if key[0] in INVALID_KEYS:
+            missing += 1
+        else:
+            grouped[key].append(row)
+    return grouped, missing
+
+
+def aggregate_representation(primary, secondary, primary_fields, secondary_fields):
+    p_groups, p_missing = _group_rows(primary)
+    s_groups, s_missing = _group_rows(secondary)
+    result = {}
+    for name, rows, fields, groups, missing in [
+        ("primary", primary, primary_fields, p_groups, p_missing),
+        ("secondary", secondary, secondary_fields, s_groups, s_missing),
+    ]:
+        types = {
+            field: dict(sorted(Counter(row[field][0] for row in rows).items())) for field in fields
+        }
+        codes = {
+            field: dict(sorted(Counter(_safe_code(*row[field]) for row in rows).items()))
+            for field in fields
+            if field not in {"participant_id", "cluster", "cluster0", "cluster1", "cluster2"}
+            and not any(token in field for token in ("fpg", "twohrpg", "hba1c"))
+        }
+        pairs = Counter(
+            (row["participant_id"], row["timepoint"])
+            for row in rows
+            if row["participant_id"][0] not in INVALID_KEYS
+        )
+        result[name] = {
+            "selected_nonempty_record_rows": len(rows),
+            "distinct_typed_opaque_participant_keys": len(groups),
+            "participant_key_cell_type_counts": types["participant_id"],
+            "rows_with_missing_or_unsupported_key": missing,
+            "keys_with_multiple_record_rows": sum(len(records) > 1 for records in groups.values()),
+            "repeated_typed_key_timepoint_pairs": sum(count > 1 for count in pairs.values()),
+            "distinct_key_raw_timepoint_pairs": len(pairs),
+            "distinct_timepoint_cardinality_per_key": dict(
+                sorted(
+                    Counter(
+                        len({record["timepoint"] for record in records})
+                        for records in groups.values()
+                    ).items()
+                )
+            ),
+            "selected_field_cell_type_counts": types,
+            "uninterpreted_source_code_frequencies": codes,
+        }
+    shared = set(p_groups) & set(s_groups)
+    result["cross_file_linkage"] = {
+        "shared_typed_opaque_keys": len(shared),
+        "primary_only_keys": len(set(p_groups) - set(s_groups)),
+        "secondary_only_keys": len(set(s_groups) - set(p_groups)),
+        "typed_keys_coerced": False,
+        "producer_crosswalk_verified": False,
+    }
+    consistency = {}
+    for stem in ("arms", "cluster"):
+        for suffix in ("0", "1", "2"):
+            field = stem + suffix
+            comparisons = [
+                (row[stem + "0"], row[field])
+                for rows in p_groups.values()
+                for row in rows
+                if row[stem + "0"][0] in {"number", "string", "boolean"}
+                and row[field][0] in {"number", "string", "boolean"}
+            ]
+            consistency[field] = {
+                "rows_with_both_source_fields_present": len(comparisons),
+                "raw_typed_disagreements_from_baseline": sum(a != b for a, b in comparisons),
+            }
+    result["primary_assignment_consistency"] = consistency
+    paired = defaultdict(Counter)
+    excluded = 0
+    for key in shared:
+        if len(p_groups[key]) != 1:
+            excluded += 1
+            continue
+        wide = p_groups[key][0]
+        for long in s_groups[key]:
+            for suffix in ("0", "1", "2"):
+                for stem in (
+                    "fpgmgdl",
+                    "twohrpgmgdl",
+                    "hba1c",
+                    "NGTADA",
+                    "IFGADA",
+                    "IGTADA",
+                    "diabADA",
+                    "glycemiaADA",
+                ):
+                    if stem + suffix not in wide or stem not in long:
+                        continue
+                    left, right = wide[stem + suffix], long[stem]
+                    label = (
+                        _safe_code(*long["timepoint"])
+                        + "|candidate_suffix:"
+                        + suffix
+                        + "|field:"
+                        + stem
+                    )
+                    paired[label]["linked_record_pairs"] += 1
+                    if left[0] in {"number", "string", "boolean"} and right[0] in {
+                        "number",
+                        "string",
+                        "boolean",
+                    }:
+                        paired[label]["both_stored_source_values"] += 1
+                        paired[label]["exact_typed_matches"] += left == right
+                        paired[label]["exact_typed_disagreements"] += left != right
+                    else:
+                        paired[label]["one_or_both_unavailable_or_unsupported"] += 1
+    result["linked_wide_long_candidate_field_correspondence"] = {
+        "interpretation": "Uninterpreted raw timepoint codes crossed with all candidate wide suffixes; exact typed equality only, no wave/clinical meaning inferred.",
+        "shared_keys_excluded_because_primary_not_unique": excluded,
+        "aggregate_cells": {
+            key: dict(sorted(count.items())) for key, count in sorted(paired.items())
+        },
+    }
+    paths, excluded, assignments = Counter(), Counter(), defaultdict(Counter)
+    visits = ("Baseline", "12 months", "24 months")
+    for key, records in s_groups.items():
+        by_visit = defaultdict(list)
+        for row in records:
+            by_visit[row["timepoint"]].append(row)
+        if set(by_visit) != {("string", visit) for visit in visits}:
+            excluded["missing_or_unrecognized_nominal_visit_set"] += 1
+            continue
+        if any(len(rows) != 1 for rows in by_visit.values()):
+            excluded["duplicate_nominal_visit_records"] += 1
+            continue
+        if key not in p_groups or len(p_groups[key]) != 1:
+            excluded["missing_or_nonunique_primary_record"] += 1
+            continue
+        wide = p_groups[key][0]
+        verified = True
+        for row in records:
+            for left_field, right_field in [("arms", "arms0"), ("cluster", "cluster0")]:
+                left, right = row[left_field], wide[right_field]
+                if left[0] in {"string", "number", "boolean"} and right[0] in {
+                    "string",
+                    "number",
+                    "boolean",
+                }:
+                    assignments[left_field]["both_present"] += 1
+                    assignments[left_field]["exact_typed_matches"] += left == right
+                    assignments[left_field]["exact_typed_disagreements"] += left != right
+                    verified &= left == right
+                else:
+                    assignments[left_field]["unavailable_or_unsupported"] += 1
+                    verified = False
+        if not verified:
+            excluded["linked_assignment_unverified_or_drifted"] += 1
+            continue
+        labels = tuple(
+            _safe_code(*by_visit[("string", visit)][0]["glycemiaADA"]) for visit in visits
+        )
+        paths[(_safe_code(*wide["arms0"]), *labels, _safe_code(*wide["tot_diab_incidence"]))] += 1
+    result["source_defined_nominal_visit_label_histories"] = {
+        "nominal_visit_labels": list(visits),
+        "included_typed_keys": sum(paths.values()),
+        "excluded_key_reason_counts": dict(sorted(excluded.items())),
+        "interpretation": "Released ADA labels at literal nominal visits, retaining missing labels and separate total diagnosis flag; no latent H/P/D mapping or remission inference.",
+        "aggregate_paths": [
+            {
+                "assigned_arm_label": key[0],
+                "nominal_visit_source_labels": list(key[1:4]),
+                "total_recorded_diagnosis_flag": key[4],
+                "count": count,
+            }
+            for key, count in sorted(paths.items())
+        ],
+    }
+    result["linked_long_assignment_consistency"] = {
+        key: dict(sorted(count.items())) for key, count in sorted(assignments.items())
+    }
+    available = defaultdict(Counter)
+    for row in primary:
+        for field in ("fpgmgdl2", "twohrpgmgdl2", "glycemiaADA2"):
+            available[_safe_code(*row["tot_diab_incidence1"]) + "|field:" + field][
+                row[field][0]
+            ] += 1
+    result["suffix2_availability_by_source_incidence1_flag"] = {
+        "interpretation": "Literal selected source flag and cell storage types; no death/loss allocation or independent-censoring assumption.",
+        "aggregate_cells": {
+            key: dict(sorted(count.items())) for key, count in sorted(available.items())
+        },
+    }
+    return result
+
+
+def appraise_selected_values(root: Path, source_cache: Path, protocol_commit: str):
+    import subprocess
+
+    root, source_cache = root.resolve(), source_cache.resolve()
+    verify_admission(root, source_cache)
+    commit = (
+        subprocess.check_output(["git", "rev-parse", protocol_commit + "^{commit}"], cwd=root)
+        .decode()
+        .strip()
+    )
+    subprocess.run(["git", "merge-base", "--is-ancestor", commit, "HEAD"], cwd=root, check=True)
+    frozen = subprocess.check_output(
+        ["git", "show", commit + ":docs/validation/kerala-source-admission-v2.json"], cwd=root
+    )
+    admission = root / "docs/validation/kerala-source-admission-v2.json"
+    _require(
+        hashlib.sha256(frozen).hexdigest() == _digest(admission),
+        "protocol commit does not contain current admission v2 bytes",
+    )
+    protocol = _json(root / "docs/validation/kerala-joint-coverage-intake-protocol-v2.json")
+    receipts = _json(root / "docs/validation/kerala-source-acquisition-receipts-v1.json")
+    files = {item["file_id"]: item for item in receipts["workbook_receipts"]}
+    pf, sf = protocol["minimum_fields_primary"], protocol["minimum_fields_secondary"]
+    primary = _selected_rows(source_cache / files[39461149]["raw_filename"], pf)
+    secondary = _selected_rows(source_cache / files[39461152]["raw_filename"], sf)
+    return {
+        "report_id": "kerala-selected-source-representation-v1",
+        "source_id": "kerala2018_public_trial_v3",
+        "executed_at_utc": datetime.now(timezone.utc).isoformat(),
+        "prior_committed_protocol": commit,
+        "execution_code_pins": {
+            "module": {
+                "path": "src/demeter/analysis/kerala_coverage.py",
+                "sha256": _digest(Path(__file__)),
+            },
+            "script": {
+                "path": "scripts/verify_kerala_source_coverage.py",
+                "sha256": _digest(root / "scripts/verify_kerala_source_coverage.py"),
+            },
+        },
+        "admission_sha256": _digest(admission),
+        "source_files": [
+            {key: item[key] for key in ("file_id", "raw_filename", "bytes", "sha256", "md5")}
+            for item in receipts["workbook_receipts"]
+        ],
+        "scope": "Selected-field aggregate representation and source-defined nominal visit label histories; no IDs, cluster keys, participant assays or individual paths exported.",
+        "aggregate_representation": aggregate_representation(primary, secondary, pf, sf),
+        "record_rows_collapsed": False,
+        "raw_numeric_code_meanings_inferred": False,
+        "participant_records_exported": False,
+        "joint_clinical_category_paths_verified": False,
+        "death_loss_joint_allocation_verified": False,
+        "source_specific_observation_model_fitted": False,
+        "scientific_gates": {key: False for key in sorted(GATES)},
     }

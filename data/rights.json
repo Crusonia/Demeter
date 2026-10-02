@@ -301,6 +301,24 @@
         "Full article HTML, PDF, figures and publisher layout are excluded. Public factual observations and original Demeter structure are separate from protected article expression.",
         "Preserve the exact primary citation, DOI, source version, locators, precision and unreconciled source-count discrepancy. No clinical fit or causal result is inferred."
       ]
+    },
+    "kerala_public_appraisal": {
+      "title": "K-DPP public v3 appraisal: attributed aggregate outputs; raw records and documents fetch-only",
+      "terms_urls": [
+        "https://doi.org/10.6084/m9.figshare.5661610.v3",
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "checked_on": "2026-10-02",
+      "redistribution": "conditional",
+      "download": "Ordinary public Figshare release and primary publications, no account, agreement, contact or access bypass.",
+      "transform": "Authored source/protocol receipts and aggregate representation diagnostics; no participant identifiers, records or assay values.",
+      "conditions": [
+        "Attribute original producers, public version3 DOI and CC BY4.0 license; source licenses remain separate from MIT code.",
+        "Both raw participant workbooks remain ignored/fetch-only. Source metadata hash is distinct from the two exact workbook pins.",
+        "Primary publications remain fetch-only.2013 rights are unresolved;2023 article is CC BY4.0 with possible separate third-party rights.",
+        "Signed redirect queries are omitted from authored public receipts; originals remain ignored and are hash-linked.",
+        "Unknown source codes block dependent interpretations; aggregate availability does not certify survival, remission or causal food effects."
+      ]
     }
   },
   "source_files": {
@@ -1253,6 +1271,58 @@
       "retrieved_at": "2026-10-02T14:38:52.750834+00:00",
       "distribution": "fetch_only",
       "alternative": "Use the attributed authored aggregate coverage and pinned audit protocol offline; optionally re-extract exact local article bytes with scripts/verify_da_qing_source_coverage.py --article-cache PATH."
+    },
+    "kerala2018_public_trial_v3": {
+      "policy": "kerala_public_appraisal",
+      "privacy": "public_use_microdata",
+      "publisher": "K-DPP producers / Figshare",
+      "vintage": "Original trial publication/protocols and public v3 release; exact versions in source receipts",
+      "citation": "Thirunavukkarasu, Sathish. K-DPP datasets. Figshare public version 3. DOI10.6084/m9.figshare.5661610.v3.",
+      "notes": "Public source appraisal only. Release metadata and two raw workbook pins are separate; linked record identity, category code meanings and event/death clocks remain unresolved. No clinical fitting, national transport or engine activation.",
+      "url": "https://api.figshare.com/v2/articles/5661610",
+      "sha256": "799f4d4c6e61de038f5cace5a42ab6a71adb0f2ee2b8d8c2ddc920bbe435864b",
+      "retrieved_at": "2026-10-02T15:00:49.250581+00:00",
+      "distribution": "fetch_only",
+      "alternative": "Use attributed authored source admission and aggregate diagnostics offline; optionally replay exact ignored files with scripts/verify_kerala_source_coverage.py --source-cache PATH."
+    },
+    "kerala2018_primary_publication": {
+      "policy": "kerala_public_appraisal",
+      "privacy": "publication",
+      "publisher": "K-DPP producers / primary journal",
+      "vintage": "Original trial publication/protocols and public v3 release; exact versions in source receipts",
+      "citation": "Thankappan KR et al. A peer-support lifestyle intervention for preventing type 2 diabetes in India: A cluster-randomized controlled trial of the Kerala Diabetes Prevention Program. PLoS Med. 2018;15(6):e1002575.",
+      "notes": "Public source appraisal only. Release metadata and two raw workbook pins are separate; linked record identity, category code meanings and event/death clocks remain unresolved. No clinical fitting, national transport or engine activation.",
+      "url": "https://journals.plos.org/plosmedicine/article/file?id=10.1371/journal.pmed.1002575&type=printable",
+      "sha256": "eace56aae88c2359fc7b57d00a16ff978de51792de47ab78bfb742303dc8727e",
+      "retrieved_at": "2026-10-02T15:10:14.209360+00:00",
+      "distribution": "fetch_only",
+      "alternative": "Use attributed authored source admission and aggregate diagnostics offline; optionally replay exact ignored files with scripts/verify_kerala_source_coverage.py --source-cache PATH."
+    },
+    "kerala2013_trial_protocol": {
+      "policy": "kerala_public_appraisal",
+      "privacy": "publication",
+      "publisher": "K-DPP producers / primary journal",
+      "vintage": "Original trial publication/protocols and public v3 release; exact versions in source receipts",
+      "citation": "Sathish T et al. Cluster randomised controlled trial of a peer-led lifestyle intervention program: study protocol for the Kerala diabetes prevention program. BMC Public Health. 2013;13:1035.",
+      "notes": "Public source appraisal only. Release metadata and two raw workbook pins are separate; linked record identity, category code meanings and event/death clocks remain unresolved. No clinical fitting, national transport or engine activation.",
+      "url": "https://link.springer.com/article/10.1186/1471-2458-13-1035",
+      "sha256": "66549ea4be5e4f649db5887376d0b7388ac29d853d2f9905e52b58e1a9488314",
+      "retrieved_at": "2026-10-02T15:16:46.527876+00:00",
+      "distribution": "fetch_only",
+      "alternative": "Use attributed authored source admission and aggregate diagnostics offline; optionally replay exact ignored files with scripts/verify_kerala_source_coverage.py --source-cache PATH."
+    },
+    "kerala2023_followup_protocol": {
+      "policy": "kerala_public_appraisal",
+      "privacy": "publication",
+      "publisher": "K-DPP producers / primary journal",
+      "vintage": "Original trial publication/protocols and public v3 release; exact versions in source receipts",
+      "citation": "Haregu T et al. The long-term effects of Kerala Diabetes Prevention Program on diabetes incidence and cardiometabolic risk: a study protocol. BMC Public Health. 2023;23:539.",
+      "notes": "Public source appraisal only. Release metadata and two raw workbook pins are separate; linked record identity, category code meanings and event/death clocks remain unresolved. No clinical fitting, national transport or engine activation.",
+      "url": "https://link.springer.com/article/10.1186/s12889-023-15392-6",
+      "sha256": "5202582b2ebf1b785552c47a9548ad35b967d999994d0deba05d68d79ef55166",
+      "retrieved_at": "2026-10-02T15:16:48.635366+00:00",
+      "distribution": "fetch_only",
+      "alternative": "Use attributed authored source admission and aggregate diagnostics offline; optionally replay exact ignored files with scripts/verify_kerala_source_coverage.py --source-cache PATH."
     }
   },
   "documentation_receipts": "docs/validation/dpp-coverage-source-receipts.json",

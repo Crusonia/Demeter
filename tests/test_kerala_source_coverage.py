@@ -19,6 +19,85 @@ verify_admission = MODULE.verify_admission
 read_headers_only = MODULE.read_headers_only
 
 
+def test_raw_code_visit_labels_preserved_but_private_text_not_released():
+    for value in ("Baseline", "12 months", "24 months"):
+        assert MODULE._safe_code("string", value) == "string:" + value
+    assert MODULE._safe_code("string", "private-household-text") == "string:uninterpreted_text"
+
+
+def test_typed_keys_are_not_coerced_or_silently_collapsed():
+    rows = [
+        {"participant_id": ("number", "1")},
+        {"participant_id": ("string", "1")},
+        {"participant_id": ("string", "1")},
+        {"participant_id": ("error", "#N/A")},
+    ]
+    grouped, missing = MODULE._group_rows(rows)
+    assert len(grouped) == 2
+    assert len(grouped[("string", "1")]) == 2
+    assert missing == 1
+
+
+def test_literal_source_histories_retain_missing_and_separate_diagnosis():
+    protocol = json.loads(
+        (ROOT / "docs/validation/kerala-joint-coverage-intake-protocol-v2.json").read_text()
+    )
+    pf, sf = protocol["minimum_fields_primary"], protocol["minimum_fields_secondary"]
+    primary = {key: ("absent", None) for key in pf}
+    primary.update(
+        participant_id=("string", "private-id"),
+        timepoint=("string", "Baseline"),
+        arms0=("string", "Control"),
+        cluster0=("string", "private-cluster"),
+        tot_diab_incidence=("string", "Yes"),
+    )
+    secondary = []
+    for visit, label in zip(
+        ("Baseline", "12 months", "24 months"),
+        (("string", "IGT"), ("string", "NGT"), ("absent", None)),
+        strict=True,
+    ):
+        row = {key: ("absent", None) for key in sf}
+        row.update(
+            participant_id=("string", "private-id"),
+            timepoint=("string", visit),
+            glycemiaADA=label,
+            arms=("string", "Control"),
+            cluster=("string", "private-cluster"),
+        )
+        secondary.append(row)
+    result = MODULE.aggregate_representation([primary], secondary, pf, sf)
+    history = result["source_defined_nominal_visit_label_histories"]
+    assert history["included_typed_keys"] == 1
+    assert history["aggregate_paths"][0]["nominal_visit_source_labels"] == [
+        "string:IGT",
+        "string:NGT",
+        "absent",
+    ]
+    assert history["aggregate_paths"][0]["total_recorded_diagnosis_flag"] == "string:Yes"
+    assert "private-id" not in json.dumps(result)
+    assert result["secondary"]["distinct_timepoint_cardinality_per_key"] == {3: 1}
+    secondary[1]["arms"] = ("string", "Intervention")
+    drift = MODULE.aggregate_representation([primary], secondary, pf, sf)
+    assert drift["source_defined_nominal_visit_label_histories"]["included_typed_keys"] == 0
+    assert drift["source_defined_nominal_visit_label_histories"]["excluded_key_reason_counts"] == {
+        "linked_assignment_unverified_or_drifted": 1
+    }
+    assert drift["linked_long_assignment_consistency"]["arms"]["exact_typed_disagreements"] == 1
+
+
+def test_unsupported_keys_do_not_create_valid_timepoint_pairs():
+    protocol = json.loads(
+        (ROOT / "docs/validation/kerala-joint-coverage-intake-protocol-v2.json").read_text()
+    )
+    pf, sf = protocol["minimum_fields_primary"], protocol["minimum_fields_secondary"]
+    row = {key: ("absent", None) for key in pf}
+    row.update(participant_id=("error", "#N/A"), timepoint=("string", "Baseline"))
+    result = MODULE.aggregate_representation([row, row.copy()], [], pf, sf)
+    assert result["primary"]["distinct_key_raw_timepoint_pairs"] == 0
+    assert result["primary"]["repeated_typed_key_timepoint_pairs"] == 0
+
+
 @pytest.fixture
 def package(tmp_path):
     root = tmp_path / "package"

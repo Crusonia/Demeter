@@ -111,9 +111,9 @@ def test_real_packages_cover_every_source_and_bundle_without_network(monkeypatch
     monkeypatch.setattr("urllib.request.urlopen", no_network)
     report = verify_packages()
     assert report["passed"], [c for c in report["checks"] if not c["passed"]]
-    assert len(report["sources"]) == 80
-    assert len(report["artifacts"]) == 151
-    assert len(report["packages"]) == 32
+    assert len(report["sources"]) == 84
+    assert len(report["artifacts"]) == 166
+    assert len(report["packages"]) == 33
     assert not report["network_used"]
     assert report["documentation"]["metadata_passed"]
     assert len(report["documentation"]["source_checks"]) == 15
@@ -124,6 +124,17 @@ def test_real_packages_cover_every_source_and_bundle_without_network(monkeypatch
     assert da_qing["model_role"] == "benchmark_only"
     assert da_qing["registry_parameters"] == []
     assert len(da_qing["artifacts"]) == 3
+    kerala = report["packages"]["kerala_source_admission"]
+    assert kerala["model_role"] == "benchmark_only"
+    assert kerala["registry_parameters"] == []
+    assert len(kerala["artifacts"]) == 15
+    assert {
+        "docs/validation/kerala-source-admission-v2.json",
+        "docs/validation/kerala-selected-source-representation-v1.json",
+    } <= {a["path"] for a in kerala["artifacts"]}
+    kerala_sources = [s for s in report["sources"] if s["policy"] == "kerala_public_appraisal"]
+    assert len(kerala_sources) == 4
+    assert all(s["distribution"] == "fetch_only" for s in kerala_sources)
     da_qing_source = next(
         s for s in report["sources"] if s.get("source_id") == "da_qing2016_mortality_publication"
     )
