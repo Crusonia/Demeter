@@ -1,0 +1,1289 @@
+{
+  "assay_method_sources": {
+    "DEMO_L.xpt": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/DEMO_L.htm",
+    "DIQ_L.xpt": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/DIQ_L.htm",
+    "GHB_L.xpt": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/GHB_L.htm",
+    "GLU_L.xpt": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/GLU_L.htm"
+  },
+  "base_commit": "47f4ca414fc4c855811216a5eb2ca746f297ace0",
+  "chronology": "Official codebooks and published outcomes inspected before this freeze. DEMO_L was acquired and used in the prior dietary bundle on2026-09-28; reuse is explicit. The other three XPT files have not been acquired or empirically analyzed by this build before this committed protocol. Freeze precedes new raw acquisition/statistical execution; not preregistration or an untouched holdout.",
+  "clinical_fit_allowed": false,
+  "coordinate_order": [
+    {
+      "domain": "eligible:20_plus:all",
+      "membership": "complete:normoglycemia"
+    },
+    {
+      "domain": "eligible:20_plus:all",
+      "membership": "complete:prediabetes"
+    },
+    {
+      "domain": "eligible:20_plus:all",
+      "membership": "complete:diabetes_any_type"
+    },
+    {
+      "domain": "eligible:20_plus:all",
+      "membership": "complete:unclassified"
+    },
+    {
+      "domain": "eligible:20_plus:all",
+      "membership": "partial:normoglycemia"
+    },
+    {
+      "domain": "eligible:20_plus:all",
+      "membership": "partial:prediabetes"
+    },
+    {
+      "domain": "eligible:20_plus:all",
+      "membership": "partial:diabetes_any_type"
+    },
+    {
+      "domain": "eligible:20_plus:all",
+      "membership": "partial:normoglycemia|prediabetes"
+    },
+    {
+      "domain": "eligible:20_plus:all",
+      "membership": "partial:normoglycemia|diabetes_any_type"
+    },
+    {
+      "domain": "eligible:20_plus:all",
+      "membership": "partial:prediabetes|diabetes_any_type"
+    },
+    {
+      "domain": "eligible:20_plus:all",
+      "membership": "partial:normoglycemia|prediabetes|diabetes_any_type"
+    },
+    {
+      "domain": "eligible:20_plus:male",
+      "membership": "complete:normoglycemia"
+    },
+    {
+      "domain": "eligible:20_plus:male",
+      "membership": "complete:prediabetes"
+    },
+    {
+      "domain": "eligible:20_plus:male",
+      "membership": "complete:diabetes_any_type"
+    },
+    {
+      "domain": "eligible:20_plus:male",
+      "membership": "complete:unclassified"
+    },
+    {
+      "domain": "eligible:20_plus:male",
+      "membership": "partial:normoglycemia"
+    },
+    {
+      "domain": "eligible:20_plus:male",
+      "membership": "partial:prediabetes"
+    },
+    {
+      "domain": "eligible:20_plus:male",
+      "membership": "partial:diabetes_any_type"
+    },
+    {
+      "domain": "eligible:20_plus:male",
+      "membership": "partial:normoglycemia|prediabetes"
+    },
+    {
+      "domain": "eligible:20_plus:male",
+      "membership": "partial:normoglycemia|diabetes_any_type"
+    },
+    {
+      "domain": "eligible:20_plus:male",
+      "membership": "partial:prediabetes|diabetes_any_type"
+    },
+    {
+      "domain": "eligible:20_plus:male",
+      "membership": "partial:normoglycemia|prediabetes|diabetes_any_type"
+    },
+    {
+      "domain": "eligible:20_plus:female",
+      "membership": "complete:normoglycemia"
+    },
+    {
+      "domain": "eligible:20_plus:female",
+      "membership": "complete:prediabetes"
+    },
+    {
+      "domain": "eligible:20_plus:female",
+      "membership": "complete:diabetes_any_type"
+    },
+    {
+      "domain": "eligible:20_plus:female",
+      "membership": "complete:unclassified"
+    },
+    {
+      "domain": "eligible:20_plus:female",
+      "membership": "partial:normoglycemia"
+    },
+    {
+      "domain": "eligible:20_plus:female",
+      "membership": "partial:prediabetes"
+    },
+    {
+      "domain": "eligible:20_plus:female",
+      "membership": "partial:diabetes_any_type"
+    },
+    {
+      "domain": "eligible:20_plus:female",
+      "membership": "partial:normoglycemia|prediabetes"
+    },
+    {
+      "domain": "eligible:20_plus:female",
+      "membership": "partial:normoglycemia|diabetes_any_type"
+    },
+    {
+      "domain": "eligible:20_plus:female",
+      "membership": "partial:prediabetes|diabetes_any_type"
+    },
+    {
+      "domain": "eligible:20_plus:female",
+      "membership": "partial:normoglycemia|prediabetes|diabetes_any_type"
+    },
+    {
+      "domain": "eligible:20_39:all",
+      "membership": "complete:normoglycemia"
+    },
+    {
+      "domain": "eligible:20_39:all",
+      "membership": "complete:prediabetes"
+    },
+    {
+      "domain": "eligible:20_39:all",
+      "membership": "complete:diabetes_any_type"
+    },
+    {
+      "domain": "eligible:20_39:all",
+      "membership": "complete:unclassified"
+    },
+    {
+      "domain": "eligible:20_39:all",
+      "membership": "partial:normoglycemia"
+    },
+    {
+      "domain": "eligible:20_39:all",
+      "membership": "partial:prediabetes"
+    },
+    {
+      "domain": "eligible:20_39:all",
+      "membership": "partial:diabetes_any_type"
+    },
+    {
+      "domain": "eligible:20_39:all",
+      "membership": "partial:normoglycemia|prediabetes"
+    },
+    {
+      "domain": "eligible:20_39:all",
+      "membership": "partial:normoglycemia|diabetes_any_type"
+    },
+    {
+      "domain": "eligible:20_39:all",
+      "membership": "partial:prediabetes|diabetes_any_type"
+    },
+    {
+      "domain": "eligible:20_39:all",
+      "membership": "partial:normoglycemia|prediabetes|diabetes_any_type"
+    },
+    {
+      "domain": "eligible:20_39:male",
+      "membership": "complete:normoglycemia"
+    },
+    {
+      "domain": "eligible:20_39:male",
+      "membership": "complete:prediabetes"
+    },
+    {
+      "domain": "eligible:20_39:male",
+      "membership": "complete:diabetes_any_type"
+    },
+    {
+      "domain": "eligible:20_39:male",
+      "membership": "complete:unclassified"
+    },
+    {
+      "domain": "eligible:20_39:male",
+      "membership": "partial:normoglycemia"
+    },
+    {
+      "domain": "eligible:20_39:male",
+      "membership": "partial:prediabetes"
+    },
+    {
+      "domain": "eligible:20_39:male",
+      "membership": "partial:diabetes_any_type"
+    },
+    {
+      "domain": "eligible:20_39:male",
+      "membership": "partial:normoglycemia|prediabetes"
+    },
+    {
+      "domain": "eligible:20_39:male",
+      "membership": "partial:normoglycemia|diabetes_any_type"
+    },
+    {
+      "domain": "eligible:20_39:male",
+      "membership": "partial:prediabetes|diabetes_any_type"
+    },
+    {
+      "domain": "eligible:20_39:male",
+      "membership": "partial:normoglycemia|prediabetes|diabetes_any_type"
+    },
+    {
+      "domain": "eligible:20_39:female",
+      "membership": "complete:normoglycemia"
+    },
+    {
+      "domain": "eligible:20_39:female",
+      "membership": "complete:prediabetes"
+    },
+    {
+      "domain": "eligible:20_39:female",
+      "membership": "complete:diabetes_any_type"
+    },
+    {
+      "domain": "eligible:20_39:female",
+      "membership": "complete:unclassified"
+    },
+    {
+      "domain": "eligible:20_39:female",
+      "membership": "partial:normoglycemia"
+    },
+    {
+      "domain": "eligible:20_39:female",
+      "membership": "partial:prediabetes"
+    },
+    {
+      "domain": "eligible:20_39:female",
+      "membership": "partial:diabetes_any_type"
+    },
+    {
+      "domain": "eligible:20_39:female",
+      "membership": "partial:normoglycemia|prediabetes"
+    },
+    {
+      "domain": "eligible:20_39:female",
+      "membership": "partial:normoglycemia|diabetes_any_type"
+    },
+    {
+      "domain": "eligible:20_39:female",
+      "membership": "partial:prediabetes|diabetes_any_type"
+    },
+    {
+      "domain": "eligible:20_39:female",
+      "membership": "partial:normoglycemia|prediabetes|diabetes_any_type"
+    },
+    {
+      "domain": "eligible:40_59:all",
+      "membership": "complete:normoglycemia"
+    },
+    {
+      "domain": "eligible:40_59:all",
+      "membership": "complete:prediabetes"
+    },
+    {
+      "domain": "eligible:40_59:all",
+      "membership": "complete:diabetes_any_type"
+    },
+    {
+      "domain": "eligible:40_59:all",
+      "membership": "complete:unclassified"
+    },
+    {
+      "domain": "eligible:40_59:all",
+      "membership": "partial:normoglycemia"
+    },
+    {
+      "domain": "eligible:40_59:all",
+      "membership": "partial:prediabetes"
+    },
+    {
+      "domain": "eligible:40_59:all",
+      "membership": "partial:diabetes_any_type"
+    },
+    {
+      "domain": "eligible:40_59:all",
+      "membership": "partial:normoglycemia|prediabetes"
+    },
+    {
+      "domain": "eligible:40_59:all",
+      "membership": "partial:normoglycemia|diabetes_any_type"
+    },
+    {
+      "domain": "eligible:40_59:all",
+      "membership": "partial:prediabetes|diabetes_any_type"
+    },
+    {
+      "domain": "eligible:40_59:all",
+      "membership": "partial:normoglycemia|prediabetes|diabetes_any_type"
+    },
+    {
+      "domain": "eligible:40_59:male",
+      "membership": "complete:normoglycemia"
+    },
+    {
+      "domain": "eligible:40_59:male",
+      "membership": "complete:prediabetes"
+    },
+    {
+      "domain": "eligible:40_59:male",
+      "membership": "complete:diabetes_any_type"
+    },
+    {
+      "domain": "eligible:40_59:male",
+      "membership": "complete:unclassified"
+    },
+    {
+      "domain": "eligible:40_59:male",
+      "membership": "partial:normoglycemia"
+    },
+    {
+      "domain": "eligible:40_59:male",
+      "membership": "partial:prediabetes"
+    },
+    {
+      "domain": "eligible:40_59:male",
+      "membership": "partial:diabetes_any_type"
+    },
+    {
+      "domain": "eligible:40_59:male",
+      "membership": "partial:normoglycemia|prediabetes"
+    },
+    {
+      "domain": "eligible:40_59:male",
+      "membership": "partial:normoglycemia|diabetes_any_type"
+    },
+    {
+      "domain": "eligible:40_59:male",
+      "membership": "partial:prediabetes|diabetes_any_type"
+    },
+    {
+      "domain": "eligible:40_59:male",
+      "membership": "partial:normoglycemia|prediabetes|diabetes_any_type"
+    },
+    {
+      "domain": "eligible:40_59:female",
+      "membership": "complete:normoglycemia"
+    },
+    {
+      "domain": "eligible:40_59:female",
+      "membership": "complete:prediabetes"
+    },
+    {
+      "domain": "eligible:40_59:female",
+      "membership": "complete:diabetes_any_type"
+    },
+    {
+      "domain": "eligible:40_59:female",
+      "membership": "complete:unclassified"
+    },
+    {
+      "domain": "eligible:40_59:female",
+      "membership": "partial:normoglycemia"
+    },
+    {
+      "domain": "eligible:40_59:female",
+      "membership": "partial:prediabetes"
+    },
+    {
+      "domain": "eligible:40_59:female",
+      "membership": "partial:diabetes_any_type"
+    },
+    {
+      "domain": "eligible:40_59:female",
+      "membership": "partial:normoglycemia|prediabetes"
+    },
+    {
+      "domain": "eligible:40_59:female",
+      "membership": "partial:normoglycemia|diabetes_any_type"
+    },
+    {
+      "domain": "eligible:40_59:female",
+      "membership": "partial:prediabetes|diabetes_any_type"
+    },
+    {
+      "domain": "eligible:40_59:female",
+      "membership": "partial:normoglycemia|prediabetes|diabetes_any_type"
+    },
+    {
+      "domain": "eligible:60_plus:all",
+      "membership": "complete:normoglycemia"
+    },
+    {
+      "domain": "eligible:60_plus:all",
+      "membership": "complete:prediabetes"
+    },
+    {
+      "domain": "eligible:60_plus:all",
+      "membership": "complete:diabetes_any_type"
+    },
+    {
+      "domain": "eligible:60_plus:all",
+      "membership": "complete:unclassified"
+    },
+    {
+      "domain": "eligible:60_plus:all",
+      "membership": "partial:normoglycemia"
+    },
+    {
+      "domain": "eligible:60_plus:all",
+      "membership": "partial:prediabetes"
+    },
+    {
+      "domain": "eligible:60_plus:all",
+      "membership": "partial:diabetes_any_type"
+    },
+    {
+      "domain": "eligible:60_plus:all",
+      "membership": "partial:normoglycemia|prediabetes"
+    },
+    {
+      "domain": "eligible:60_plus:all",
+      "membership": "partial:normoglycemia|diabetes_any_type"
+    },
+    {
+      "domain": "eligible:60_plus:all",
+      "membership": "partial:prediabetes|diabetes_any_type"
+    },
+    {
+      "domain": "eligible:60_plus:all",
+      "membership": "partial:normoglycemia|prediabetes|diabetes_any_type"
+    },
+    {
+      "domain": "eligible:60_plus:male",
+      "membership": "complete:normoglycemia"
+    },
+    {
+      "domain": "eligible:60_plus:male",
+      "membership": "complete:prediabetes"
+    },
+    {
+      "domain": "eligible:60_plus:male",
+      "membership": "complete:diabetes_any_type"
+    },
+    {
+      "domain": "eligible:60_plus:male",
+      "membership": "complete:unclassified"
+    },
+    {
+      "domain": "eligible:60_plus:male",
+      "membership": "partial:normoglycemia"
+    },
+    {
+      "domain": "eligible:60_plus:male",
+      "membership": "partial:prediabetes"
+    },
+    {
+      "domain": "eligible:60_plus:male",
+      "membership": "partial:diabetes_any_type"
+    },
+    {
+      "domain": "eligible:60_plus:male",
+      "membership": "partial:normoglycemia|prediabetes"
+    },
+    {
+      "domain": "eligible:60_plus:male",
+      "membership": "partial:normoglycemia|diabetes_any_type"
+    },
+    {
+      "domain": "eligible:60_plus:male",
+      "membership": "partial:prediabetes|diabetes_any_type"
+    },
+    {
+      "domain": "eligible:60_plus:male",
+      "membership": "partial:normoglycemia|prediabetes|diabetes_any_type"
+    },
+    {
+      "domain": "eligible:60_plus:female",
+      "membership": "complete:normoglycemia"
+    },
+    {
+      "domain": "eligible:60_plus:female",
+      "membership": "complete:prediabetes"
+    },
+    {
+      "domain": "eligible:60_plus:female",
+      "membership": "complete:diabetes_any_type"
+    },
+    {
+      "domain": "eligible:60_plus:female",
+      "membership": "complete:unclassified"
+    },
+    {
+      "domain": "eligible:60_plus:female",
+      "membership": "partial:normoglycemia"
+    },
+    {
+      "domain": "eligible:60_plus:female",
+      "membership": "partial:prediabetes"
+    },
+    {
+      "domain": "eligible:60_plus:female",
+      "membership": "partial:diabetes_any_type"
+    },
+    {
+      "domain": "eligible:60_plus:female",
+      "membership": "partial:normoglycemia|prediabetes"
+    },
+    {
+      "domain": "eligible:60_plus:female",
+      "membership": "partial:normoglycemia|diabetes_any_type"
+    },
+    {
+      "domain": "eligible:60_plus:female",
+      "membership": "partial:prediabetes|diabetes_any_type"
+    },
+    {
+      "domain": "eligible:60_plus:female",
+      "membership": "partial:normoglycemia|prediabetes|diabetes_any_type"
+    },
+    {
+      "domain": "complete_case:20_plus:all",
+      "membership": "complete:normoglycemia"
+    },
+    {
+      "domain": "complete_case:20_plus:all",
+      "membership": "complete:prediabetes"
+    },
+    {
+      "domain": "complete_case:20_plus:all",
+      "membership": "complete:diabetes_any_type"
+    },
+    {
+      "domain": "complete_case:20_plus:all",
+      "membership": "diagnosis:diagnosed"
+    },
+    {
+      "domain": "complete_case:20_plus:all",
+      "membership": "diagnosis:undiagnosed"
+    },
+    {
+      "domain": "complete_case:20_plus:male",
+      "membership": "complete:normoglycemia"
+    },
+    {
+      "domain": "complete_case:20_plus:male",
+      "membership": "complete:prediabetes"
+    },
+    {
+      "domain": "complete_case:20_plus:male",
+      "membership": "complete:diabetes_any_type"
+    },
+    {
+      "domain": "complete_case:20_plus:male",
+      "membership": "diagnosis:diagnosed"
+    },
+    {
+      "domain": "complete_case:20_plus:male",
+      "membership": "diagnosis:undiagnosed"
+    },
+    {
+      "domain": "complete_case:20_plus:female",
+      "membership": "complete:normoglycemia"
+    },
+    {
+      "domain": "complete_case:20_plus:female",
+      "membership": "complete:prediabetes"
+    },
+    {
+      "domain": "complete_case:20_plus:female",
+      "membership": "complete:diabetes_any_type"
+    },
+    {
+      "domain": "complete_case:20_plus:female",
+      "membership": "diagnosis:diagnosed"
+    },
+    {
+      "domain": "complete_case:20_plus:female",
+      "membership": "diagnosis:undiagnosed"
+    },
+    {
+      "domain": "complete_case:20_39:all",
+      "membership": "complete:normoglycemia"
+    },
+    {
+      "domain": "complete_case:20_39:all",
+      "membership": "complete:prediabetes"
+    },
+    {
+      "domain": "complete_case:20_39:all",
+      "membership": "complete:diabetes_any_type"
+    },
+    {
+      "domain": "complete_case:20_39:all",
+      "membership": "diagnosis:diagnosed"
+    },
+    {
+      "domain": "complete_case:20_39:all",
+      "membership": "diagnosis:undiagnosed"
+    },
+    {
+      "domain": "complete_case:20_39:male",
+      "membership": "complete:normoglycemia"
+    },
+    {
+      "domain": "complete_case:20_39:male",
+      "membership": "complete:prediabetes"
+    },
+    {
+      "domain": "complete_case:20_39:male",
+      "membership": "complete:diabetes_any_type"
+    },
+    {
+      "domain": "complete_case:20_39:male",
+      "membership": "diagnosis:diagnosed"
+    },
+    {
+      "domain": "complete_case:20_39:male",
+      "membership": "diagnosis:undiagnosed"
+    },
+    {
+      "domain": "complete_case:20_39:female",
+      "membership": "complete:normoglycemia"
+    },
+    {
+      "domain": "complete_case:20_39:female",
+      "membership": "complete:prediabetes"
+    },
+    {
+      "domain": "complete_case:20_39:female",
+      "membership": "complete:diabetes_any_type"
+    },
+    {
+      "domain": "complete_case:20_39:female",
+      "membership": "diagnosis:diagnosed"
+    },
+    {
+      "domain": "complete_case:20_39:female",
+      "membership": "diagnosis:undiagnosed"
+    },
+    {
+      "domain": "complete_case:40_59:all",
+      "membership": "complete:normoglycemia"
+    },
+    {
+      "domain": "complete_case:40_59:all",
+      "membership": "complete:prediabetes"
+    },
+    {
+      "domain": "complete_case:40_59:all",
+      "membership": "complete:diabetes_any_type"
+    },
+    {
+      "domain": "complete_case:40_59:all",
+      "membership": "diagnosis:diagnosed"
+    },
+    {
+      "domain": "complete_case:40_59:all",
+      "membership": "diagnosis:undiagnosed"
+    },
+    {
+      "domain": "complete_case:40_59:male",
+      "membership": "complete:normoglycemia"
+    },
+    {
+      "domain": "complete_case:40_59:male",
+      "membership": "complete:prediabetes"
+    },
+    {
+      "domain": "complete_case:40_59:male",
+      "membership": "complete:diabetes_any_type"
+    },
+    {
+      "domain": "complete_case:40_59:male",
+      "membership": "diagnosis:diagnosed"
+    },
+    {
+      "domain": "complete_case:40_59:male",
+      "membership": "diagnosis:undiagnosed"
+    },
+    {
+      "domain": "complete_case:40_59:female",
+      "membership": "complete:normoglycemia"
+    },
+    {
+      "domain": "complete_case:40_59:female",
+      "membership": "complete:prediabetes"
+    },
+    {
+      "domain": "complete_case:40_59:female",
+      "membership": "complete:diabetes_any_type"
+    },
+    {
+      "domain": "complete_case:40_59:female",
+      "membership": "diagnosis:diagnosed"
+    },
+    {
+      "domain": "complete_case:40_59:female",
+      "membership": "diagnosis:undiagnosed"
+    },
+    {
+      "domain": "complete_case:60_plus:all",
+      "membership": "complete:normoglycemia"
+    },
+    {
+      "domain": "complete_case:60_plus:all",
+      "membership": "complete:prediabetes"
+    },
+    {
+      "domain": "complete_case:60_plus:all",
+      "membership": "complete:diabetes_any_type"
+    },
+    {
+      "domain": "complete_case:60_plus:all",
+      "membership": "diagnosis:diagnosed"
+    },
+    {
+      "domain": "complete_case:60_plus:all",
+      "membership": "diagnosis:undiagnosed"
+    },
+    {
+      "domain": "complete_case:60_plus:male",
+      "membership": "complete:normoglycemia"
+    },
+    {
+      "domain": "complete_case:60_plus:male",
+      "membership": "complete:prediabetes"
+    },
+    {
+      "domain": "complete_case:60_plus:male",
+      "membership": "complete:diabetes_any_type"
+    },
+    {
+      "domain": "complete_case:60_plus:male",
+      "membership": "diagnosis:diagnosed"
+    },
+    {
+      "domain": "complete_case:60_plus:male",
+      "membership": "diagnosis:undiagnosed"
+    },
+    {
+      "domain": "complete_case:60_plus:female",
+      "membership": "complete:normoglycemia"
+    },
+    {
+      "domain": "complete_case:60_plus:female",
+      "membership": "complete:prediabetes"
+    },
+    {
+      "domain": "complete_case:60_plus:female",
+      "membership": "complete:diabetes_any_type"
+    },
+    {
+      "domain": "complete_case:60_plus:female",
+      "membership": "diagnosis:diagnosed"
+    },
+    {
+      "domain": "complete_case:60_plus:female",
+      "membership": "diagnosis:undiagnosed"
+    }
+  ],
+  "created_at": "2026-10-02T23:03:38.627003+00:00",
+  "definition_fields": {
+    "analysis": {
+      "adult_age_min": 20,
+      "age_groups": [
+        {
+          "id": "20_plus",
+          "max": null,
+          "min": 20
+        },
+        {
+          "id": "20_39",
+          "max": 39,
+          "min": 20
+        },
+        {
+          "id": "40_59",
+          "max": 59,
+          "min": 40
+        },
+        {
+          "id": "60_plus",
+          "max": null,
+          "min": 60
+        }
+      ],
+      "confidence_level": 0.95,
+      "cycle_code": 12,
+      "definition_status": "derived",
+      "examined_code": 2,
+      "glucose_diabetes_min": 126,
+      "glucose_prediabetes_min": 100,
+      "glucose_unit": "mg/dL",
+      "hba1c_diabetes_min": 6.5,
+      "hba1c_prediabetes_min": 5.7,
+      "hba1c_unit": "percent",
+      "pregnancy_exclusion_age_max": 44,
+      "topcoded_age": 80,
+      "weight_field": "WTSAF2YR"
+    },
+    "assay_provenance": {
+      "glucose": "GLU_L documents unchanged methods/instrument/site for this cycle; no extra historical regression reapplied.",
+      "hba1c": "GHB_L documents a within-cycle primary instrument change from TosohG8 to Bio-RadD-100, plus secondary instrumentation change. Method/site unchanged. No participant-specific assignment or correction invented."
+    },
+    "clinical_fit_allowed": false,
+    "direct_initialization_allowed": false,
+    "engine_activation_allowed": false,
+    "evidence_grade": "C",
+    "geography": "United States",
+    "limitations": [
+      "Any-type diabetes is not T2D; normoglycemia is not general metabolic health.",
+      "Single assays and interview classifications are not confirmed clinical diagnoses or transition hazards.",
+      "Pregnancy uncertainty, assay change/comparability, missingness and measurement bias are not captured by sampling covariance.",
+      "Age80 is top-coded, not exact age; pediatric, institutionalized and2024 transport remain unresolved.",
+      "Publication matches use the same underlying survey, not an independent holdout.",
+      "No national engine initialization, dietary causal effect, clinical hazard, health forecast or scientific release is accepted."
+    ],
+    "method": "multivariate_taylor_ratio_current_cycle_v1",
+    "model_role": "benchmark_only",
+    "population": "U.S. civilian noninstitutionalized adults age20+ with positive NHANES fasting-subsample weights, excluding known pregnancy at ages20-44; incomplete observations retained in eligible-population categories",
+    "protocol_path": "docs/validation/nhanes-2021-2023-intake-protocol-v1.json",
+    "publication_citation": "Gwira JA, Fryar CD, Gu Q. Prevalence of Total, Diagnosed, and Undiagnosed Diabetes in Adults: United States, August2021-August2023. NCHS Data Brief516. November2024. Tables1-2, crude estimates.",
+    "publication_match_rule": "Exact sample sizes and half a one-decimal display unit (0.05 percentage point), a derived formatting check only; no fit to force agreement.",
+    "publication_target_status": "observed",
+    "publication_target_uncertainty": "Published95% confidence limits and displayed standard errors retained; no Gaussian likelihood or exact source covariance inferred.",
+    "publication_url": "https://www.cdc.gov/nchs/products/databriefs/db516.htm",
+    "published_diabetes_targets": [
+      {
+        "age_group": "20_plus",
+        "category": "total",
+        "ci_percent": [
+          13.6,
+          18.2
+        ],
+        "n": 2938,
+        "percent": 15.8,
+        "sex": "all",
+        "standard_error_percent": 1.1,
+        "table": 1,
+        "tolerance_pp": 0.05
+      },
+      {
+        "age_group": "20_plus",
+        "category": "diagnosed",
+        "ci_percent": [
+          9.3,
+          13.5
+        ],
+        "n": 2938,
+        "percent": 11.3,
+        "sex": "all",
+        "standard_error_percent": 1.0,
+        "table": 1,
+        "tolerance_pp": 0.05
+      },
+      {
+        "age_group": "20_plus",
+        "category": "undiagnosed",
+        "ci_percent": [
+          3.3,
+          5.9
+        ],
+        "n": 2938,
+        "percent": 4.5,
+        "sex": "all",
+        "standard_error_percent": 0.6,
+        "table": 1,
+        "tolerance_pp": 0.05
+      },
+      {
+        "age_group": "20_plus",
+        "category": "total",
+        "ci_percent": [
+          15.7,
+          20.4
+        ],
+        "n": 1306,
+        "percent": 18.0,
+        "sex": "male",
+        "standard_error_percent": 1.1,
+        "table": 1,
+        "tolerance_pp": 0.05
+      },
+      {
+        "age_group": "20_plus",
+        "category": "diagnosed",
+        "ci_percent": [
+          11.0,
+          15.0
+        ],
+        "n": 1306,
+        "percent": 12.9,
+        "sex": "male",
+        "standard_error_percent": 0.9,
+        "table": 1,
+        "tolerance_pp": 0.05
+      },
+      {
+        "age_group": "20_plus",
+        "category": "undiagnosed",
+        "ci_percent": [
+          3.6,
+          6.9
+        ],
+        "n": 1306,
+        "percent": 5.1,
+        "sex": "male",
+        "standard_error_percent": 0.8,
+        "table": 1,
+        "tolerance_pp": 0.05
+      },
+      {
+        "age_group": "20_plus",
+        "category": "total",
+        "ci_percent": [
+          11.0,
+          16.7
+        ],
+        "n": 1632,
+        "percent": 13.7,
+        "sex": "female",
+        "standard_error_percent": 1.3,
+        "table": 1,
+        "tolerance_pp": 0.05
+      },
+      {
+        "age_group": "20_plus",
+        "category": "diagnosed",
+        "ci_percent": [
+          7.3,
+          12.7
+        ],
+        "n": 1632,
+        "percent": 9.7,
+        "sex": "female",
+        "standard_error_percent": 1.2,
+        "table": 1,
+        "tolerance_pp": 0.05
+      },
+      {
+        "age_group": "20_plus",
+        "category": "undiagnosed",
+        "ci_percent": [
+          2.8,
+          5.3
+        ],
+        "n": 1632,
+        "percent": 3.9,
+        "sex": "female",
+        "standard_error_percent": 0.6,
+        "table": 1,
+        "tolerance_pp": 0.05
+      },
+      {
+        "age_group": "20_39",
+        "category": "total",
+        "ci_percent": [
+          2.0,
+          5.9
+        ],
+        "n": 688,
+        "percent": 3.6,
+        "sex": "all",
+        "standard_error_percent": 0.9,
+        "table": 2,
+        "tolerance_pp": 0.05
+      },
+      {
+        "age_group": "20_39",
+        "category": "diagnosed",
+        "ci_percent": [
+          1.1,
+          4.0
+        ],
+        "n": 688,
+        "percent": 2.2,
+        "sex": "all",
+        "standard_error_percent": 0.6,
+        "table": 2,
+        "tolerance_pp": 0.05
+      },
+      {
+        "age_group": "20_39",
+        "category": "undiagnosed",
+        "ci_percent": [
+          0.5,
+          3.0
+        ],
+        "n": 688,
+        "percent": 1.3,
+        "sex": "all",
+        "standard_error_percent": 0.5,
+        "table": 2,
+        "tolerance_pp": 0.05
+      },
+      {
+        "age_group": "40_59",
+        "category": "total",
+        "ci_percent": [
+          14.7,
+          21.0
+        ],
+        "n": 861,
+        "percent": 17.7,
+        "sex": "all",
+        "standard_error_percent": 1.4,
+        "table": 2,
+        "tolerance_pp": 0.05
+      },
+      {
+        "age_group": "40_59",
+        "category": "diagnosed",
+        "ci_percent": [
+          10.0,
+          14.5
+        ],
+        "n": 861,
+        "percent": 12.1,
+        "sex": "all",
+        "standard_error_percent": 1.0,
+        "table": 2,
+        "tolerance_pp": 0.05
+      },
+      {
+        "age_group": "40_59",
+        "category": "undiagnosed",
+        "ci_percent": [
+          3.3,
+          8.9
+        ],
+        "n": 861,
+        "percent": 5.6,
+        "sex": "all",
+        "standard_error_percent": 1.2,
+        "table": 2,
+        "tolerance_pp": 0.05
+      },
+      {
+        "age_group": "60_plus",
+        "category": "total",
+        "ci_percent": [
+          23.0,
+          31.9
+        ],
+        "n": 1389,
+        "percent": 27.3,
+        "sex": "all",
+        "standard_error_percent": 2.0,
+        "table": 2,
+        "tolerance_pp": 0.05
+      },
+      {
+        "age_group": "60_plus",
+        "category": "diagnosed",
+        "ci_percent": [
+          16.2,
+          25.3
+        ],
+        "n": 1389,
+        "percent": 20.5,
+        "sex": "all",
+        "standard_error_percent": 2.1,
+        "table": 2,
+        "tolerance_pp": 0.05
+      },
+      {
+        "age_group": "60_plus",
+        "category": "undiagnosed",
+        "ci_percent": [
+          5.3,
+          8.5
+        ],
+        "n": 1389,
+        "percent": 6.8,
+        "sex": "all",
+        "standard_error_percent": 0.7,
+        "table": 2,
+        "tolerance_pp": 0.05
+      }
+    ],
+    "sampling_distribution_assumed": false,
+    "source_codebook_counts": {
+      "GLU_L.xpt": {
+        "missing_fasting_weight": 0,
+        "missing_glucose": 324,
+        "positive_fasting_weight": 3361,
+        "rows": 3996,
+        "source_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/GLU_L.htm",
+        "status": "observed",
+        "zero_fasting_weight": 635
+      }
+    },
+    "source_store": "data/sources/nhanes/2021-2023",
+    "status": "estimated",
+    "time_period": "August2021-August2023",
+    "transformation": "demeter.data.nhanes_current_store.report",
+    "uncertainty": "Joint Taylor covariance across complete-case and eligible-population denominator families, overlapping age/sex domains and compatible-category bounds. Sampling only; preserve singularity. No independent category draws, fitted distribution or simultaneous confidence claim.",
+    "unit": "Category proportions in fraction; sampling covariance in fraction squared; publication comparisons in percent",
+    "weight_adapter": {
+      "internal_working_field": "WTSAFPRP",
+      "interpretation": "A copied working column for the unchanged historical pure estimator; no physical WTSAFPRP exists in this new cycle and conflicting/physical old fields are refused.",
+      "source_field": "WTSAF2YR"
+    }
+  },
+  "demographics_reuse": {
+    "original_retrieved_at": "2026-09-28T01:20:58.006417+00:00",
+    "path": "data/sources/dietary/2026-09-27/DEMO_L.xpt",
+    "reuse_is_new_role_not_new_acquisition": true,
+    "sha256": "ca4374a158b493b8b0163e1388da21d57a18d1b9cecff2aa4e2fa2bec494fe23",
+    "source_manifest": "data/sources/dietary/2026-09-27/manifest.json"
+  },
+  "denominator_contract": "Eligible shares retain unclassified and all seven compatible subsets; complete-case conditional categories require interpretable DIQ010 and both finite positive assays. Diagnosed incomplete observations remain compatible diabetes in eligible bounds, but unclassified under complete-case rules.",
+  "direct_initialization_allowed": false,
+  "engine_activation_allowed": false,
+  "estimator": "Unchanged survey_joint joint_proportions: full positive-weight design; domain indicators; corrected stratum-centered PSU outer products, no FPC. Fixed identity projection selects192 coordinates from24x13 grid. Bounds project seven disjoint compatible sets. Retain covariance singularity; no repair.",
+  "existing_artifact_sha256": {
+    "data/sources/dietary/2026-09-27/DEMO_L.xpt": "ca4374a158b493b8b0163e1388da21d57a18d1b9cecff2aa4e2fa2bec494fe23",
+    "data/sources/dietary/2026-09-27/manifest.json": "8a9781a80d7bc1f0155148f15ad70850018db9099d69402142a8aaaa34390e92",
+    "data/sources/nhanes/2017-2020/manifest.json": "7abddaffcad210931d7e2af5581e25b599c1c48b69d31e6aa2db0cebb2a0d822",
+    "docs/validation/joint-glycemic-uncertainty-protocol-v1.json": "dd0e88aadac16cc1d180f5be8adff270cbdbaf46d61a53b80ec20be15723454c",
+    "docs/validation/joint-glycemic-uncertainty.json": "f6d76b4440d10ec74a755db576dc1f9c69da8b53f2ffde3fd067a6a097c4301e",
+    "src/demeter/data/glycemic_uncertainty.py": "5f2ba3a75587aa210dfc072ef3e8565b37144bc18c5ffa54bd08879daf0b65f2",
+    "src/demeter/data/nhanes.py": "cac20cd09b1dddceab5b08b3b39b4b5f0ae36d27c509a4703daf4feac8add481",
+    "src/demeter/data/partial_observations.py": "7b296151807a6da51612e559d70316b95e6b5a151c472db48272e50e97ac15e4",
+    "src/demeter/data/state_mapping.py": "22bf586acdb4a02bd24bb106c9f6e01c37c4cd096615fc3b0527bde69668ce2d",
+    "src/demeter/data/survey_joint.py": "3eed6be120b8ae0947f489c7108fd1dff4c3a863863d4c6e8d192f7224dbba1f"
+  },
+  "existing_definition_sha256": {
+    "aric_outcomes_benchmark": "d474166684b73b141071884107d6bcc4382acd67836c57f44fb7ae8a0046c7e2",
+    "chen_followup_timing_audit": "209c4cfbd67288c8c52a0c6172a610be1b6ddafe80171689c12f3f648a4eff1c",
+    "chen_public_intake": "5dc510e3185e076aee1f4a2e4dcb1cd85ed1abc8557ab9be620b1d67853d22e3",
+    "da_qing_source_coverage": "2bc48db0ff593a24a24bceedcc2e383bfce993f4f5c4db229c1f315e9235eeb6",
+    "diet_response_challenge": "c9ac46f500b66b1c258ce00a45db823cb47628616eabcc9f3d5bc4b831cc2768",
+    "dietary_baselines": "a18d1bd5b6c42f137e3d66b9d983d9a8c2aa0a01b424d1792fb6093991adeb49",
+    "direct_paired_observations": "5f87ce899a984c956201798944e5e817ccc5d66d8806b234ba6ecff1de7f8683",
+    "dpp_observation_contract": "ecd5dc1112011c362d70b3a14eaee715e23a32bbb82c5322ed7c902333ec2111",
+    "dpp_observation_software_witness": "52ea137e2d9c3dea443e96e341bf4813478b59a5c85cc436e6d8c27f47b8f2ff",
+    "food_exposure_ontology": "9681a4bc70d219b3e1db692f3b1e15bc313e9728d7a29905d970536736e31800",
+    "food_intake_reproduction": "bfa8db572578822bbf811bb3a34650445592c413f622d488d2472bbfbee7e81d",
+    "geelong_label_pairs": "78ae2543f037ec1db58ed04061e8be2758925a2d03fc8082a6514231b545bf56",
+    "glp1_benchmarks": "5b6313ff741f0caacdff2f7597a4de2024f8618650b9c09b4c8183c606134208",
+    "glycemic_joint_uncertainty": "40617ac2f6e04937f15a2ae6565479246cf8b45dc1a73e9625dc81e3067d0adf",
+    "healthspan_method_benchmark": "3da2d90aecaa096977040a355ce19bee2ecaae649068d2244d2afb0dbb190834",
+    "historical_observations": "25930b403d3e82d53e7a7895738cebb28623406c379a4067176b5897093aff58",
+    "ipop_a1c_predictive_uncertainty_supplement_v1": "544114d68c70eb62084631f01a8bf03e9f23b9402d8f00817021b49d8b39e0ee",
+    "ipop_a1c_working_fit": "aa03ea78692365ca4210ad076e8a71fe96696ae2ae3f4774fce6f7703377b345",
+    "ipop_a1c_working_fit_v2": "95ab1a93e7e05a93c849de1045dd1f608d9e23827604cee7f71366994405c6ce",
+    "ipop_numerical_preflight": "bec83ce88abed7770625abdef3c2848a347cb8fb62ff1fd6f8ef671c81911b90",
+    "kerala_endpoint_bounds": "60024017e651d93dbeca7e74a08bd457e59375dac55ec5db491be717df93e4f7",
+    "kerala_nominal_observations": "ac10333b87fc66fc3817c019d213196ff00b9d86102dd7e3d81461369b1b7a96",
+    "kerala_source_admission": "35a5b22fd9140388fc02fb0d2a03e8c3e62cf065c478bd48c83adeb104c112fd",
+    "longitudinal_likelihood_software": "0c2b508a26192d158c05ac2c97326f50cafba4038cd19394a697b8d7959e90ff",
+    "malawi_followup_benchmark": "be02f65596015e9db25a2d37d045cee449866e8380e883954751a039850d48ef",
+    "mortality_development": "be67985ac9aa77bac6233619225c5525dec173b113d8e3793b287b358493f5d5",
+    "mortality_validation": "d1ec43a7c0ea2717ea666360b96d0dbfa42aff4f4631ca5f7c73aa5e98e0acac",
+    "nhanes_glycemic_prevalence": "5555efe1532ca8cda5113d0e2a38ee13c075ed720ec30ae5a405d2f23fae006f",
+    "nhanes_linked_mortality": "5aa8b35f072322b623a169772eedabafd3e92f3bab751e032c020f4118b6201e",
+    "nhanes_prechronic_candidates": "5de3ae16cf6ba414951a2f213156239129cba51ae319eb6eae6a24a41c080439",
+    "observation_partial_mapping": "91fae4f3c74c8c62d55f39e2ab9ddbf6754165a36e6dd4213d19bc3e0aaca005",
+    "observation_state_mapping": "1bb7b635df72a405404f1682b36da782e591cf081033c1eb3c7e3314a949894b",
+    "preview_endpoint_benchmark": "ee517cadf6dfff40109a9bc868c613597362c551d5df746786a4879d95a50533",
+    "reus_corrected_diabetes_benchmark": "091f3c09e783f3fcd5fc3a808bc5884347975c7aec8b43c3765524861115e191",
+    "reus_pathway_compatibility": "853b8304c7f55ed995eea0988fa50dd241163b4960e661bd6fc8fb788cff7de0",
+    "totum_source_row_adequacy": "d34896201dee8a3d507536e9c575297b2b7e6fe31ae351a9265c548fd844f372",
+    "us_mortality": "e5b0f8c3432c3026bd5f1c8f85c3447c20b2e388f9d0ccf9981beaf38761fdd1",
+    "us_population": "7da70b4a5ae22f422ae88a7ad93f47b048fda93d535257d49c2a2c72262e1ba6",
+    "whitehall_fpg_endpoint": "4e86bb134fd92ceca5c023f5e1ee1634d263d33c7f34704673e5d18eb3b1718e"
+  },
+  "existing_parameters_sha256": "494c60a26013cf1896e4d9d83c29a2134d63bafb3f204317f85a9e2b3f09633f",
+  "existing_sources_sha256": "f9c612d777fb3563b983740b5f5e6b261b7c4ff2b2eda25be6a328fa02c6cbdd",
+  "failure_policy": [
+    "Verify exact protocol, pinned prior methods/definitions, admitted manifest and every raw byte before parsing/statistical work.",
+    "Reject duplicate JSONkeys, incomplete/swapped components, checksum/size mismatch, invalid/missing/nonintegral/duplicate linkage keys and orphan component keys without exporting identifiers.",
+    "Retain all positive-weight design rows and zero-domain PSUs; reject missing design, singleton full-design strata, unsupported cycles and conflicting weights.",
+    "Source and publication mismatches are reported, never fixed through changed exclusions, thresholds, weights or tuning."
+  ],
+  "full_grid_domains": [
+    "eligible:20_plus:all",
+    "eligible:20_plus:male",
+    "eligible:20_plus:female",
+    "eligible:20_39:all",
+    "eligible:20_39:male",
+    "eligible:20_39:female",
+    "eligible:40_59:all",
+    "eligible:40_59:male",
+    "eligible:40_59:female",
+    "eligible:60_plus:all",
+    "eligible:60_plus:male",
+    "eligible:60_plus:female",
+    "complete_case:20_plus:all",
+    "complete_case:20_plus:male",
+    "complete_case:20_plus:female",
+    "complete_case:20_39:all",
+    "complete_case:20_39:male",
+    "complete_case:20_39:female",
+    "complete_case:40_59:all",
+    "complete_case:40_59:male",
+    "complete_case:40_59:female",
+    "complete_case:60_plus:all",
+    "complete_case:60_plus:male",
+    "complete_case:60_plus:female"
+  ],
+  "kind": "nhanes_2021_2023_intake_protocol",
+  "membership_order": [
+    "complete:normoglycemia",
+    "complete:prediabetes",
+    "complete:diabetes_any_type",
+    "complete:unclassified",
+    "partial:normoglycemia",
+    "partial:prediabetes",
+    "partial:diabetes_any_type",
+    "partial:normoglycemia|prediabetes",
+    "partial:normoglycemia|diabetes_any_type",
+    "partial:prediabetes|diabetes_any_type",
+    "partial:normoglycemia|prediabetes|diabetes_any_type",
+    "diagnosis:diagnosed",
+    "diagnosis:undiagnosed"
+  ],
+  "method": "multivariate_taylor_ratio_current_cycle_v1",
+  "model_role": "benchmark_only",
+  "publication_targets_already_seen": true,
+  "required_columns": {
+    "DEMO_L.xpt": [
+      "SEQN",
+      "SDDSRVYR",
+      "RIDSTATR",
+      "RIAGENDR",
+      "RIDAGEYR",
+      "RIDEXPRG",
+      "SDMVSTRA",
+      "SDMVPSU"
+    ],
+    "DIQ_L.xpt": [
+      "SEQN",
+      "DIQ010"
+    ],
+    "GHB_L.xpt": [
+      "SEQN",
+      "LBXGH",
+      "WTPH2YR"
+    ],
+    "GLU_L.xpt": [
+      "SEQN",
+      "LBXGLU",
+      "WTSAF2YR"
+    ]
+  },
+  "sampling_distribution_assumed": false,
+  "schema_version": 1,
+  "scientific_release_ready": false,
+  "selected_coordinate_count": 192,
+  "software_settings": "Inherited confidence0.95 and twelve-significant-digit derived storage; source hashes exact. Half-decimal publication check is formatting, not an empirical tolerance.",
+  "source_store": "data/sources/nhanes/2021-2023",
+  "source_urls": {
+    "DEMO_L.xpt": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/DEMO_L.xpt",
+    "DIQ_L.xpt": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/DIQ_L.xpt",
+    "GHB_L.xpt": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/GHB_L.xpt",
+    "GLU_L.xpt": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/GLU_L.xpt"
+  },
+  "tests": [
+    "Independent synthetic ratio/covariance fixtures and scalar comparison.",
+    "Incomplete diagnosed observations differ visibly between eligible and complete-case denominators.",
+    "Nested domains, cross-family covariance, complement closure and bounds projection; singularity preserved.",
+    "Offline byte-exact rebuild on all supported platforms; source corruption refused before parsing/output.",
+    "All historical validation JSON and original evidence definitions preserved; annual scenarios and fixed-seed uncertainty parity."
+  ],
+  "use_terms_url": "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+  "used_source": true
+}
