@@ -92,7 +92,7 @@ conclusion follows from this exercise. The broader phased program remains in the
 
 ## Numerical correction and current-code replay
 
-The [additive amendment](validation/longitudinal-probability-contract-amendment-v2.json)
+The [preserved v2 amendment](validation/longitudinal-probability-contract-amendment-v2.json)
 corrects the former ability to admit impossible mass by supplying a loose caller
 tolerance. The original protocol and results remain unchanged. Stochastic checks
 now accept an allowance at most `1e-10`, the existing registered software ceiling;
@@ -112,7 +112,18 @@ matrix-exponential or forward arithmetic produces slight surplus mass. Such a
 failure is numerical, not structural impossibility or a scientific result; the
 library neither clamps the probability nor increases the tolerance to pass it.
 
-The [current-code replay](validation/longitudinal-probability-contract-replay-v2.json)
+The [current v3 amendment](validation/longitudinal-probability-contract-amendment-v3.json)
+also rejects nonfinite exact-event aggregate hazards, density factors, nonzero-path
+log likelihoods and displayed contributions. Finite input edges can overflow when
+summed near the binary64 ceiling; this fails explicitly rather than returning an
+infinite fitted contribution. Finite densities above one and structural zeros keep
+their existing meaning. Independent review found this defect in published revision
+`af223600843b8ea40ae9c51a2f87a3a1061a903d`; its failed case and the original
+[v2 replay](validation/longitudinal-probability-contract-replay-v2.json) remain
+historical records of that earlier code. Neither prior artifact is rewritten to
+claim the extreme input passed.
+
+The [current-code replay](validation/longitudinal-probability-contract-replay-v3.json)
 uses the original 19 registered inputs and compares the old mathematical outputs
 under unchanged tolerances. Run its verifier from the repository root:
 

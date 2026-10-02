@@ -15,8 +15,8 @@ from demeter.analysis.longitudinal_likelihood_validation import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
-REPLAY_PATH = "docs/validation/longitudinal-probability-contract-replay-v2.json"
-REPLAY_SHA256 = "297d290b5e203f60fc420ad102cd5b7c35bd1e9da6a13ea785ee64eac0621e43"
+REPLAY_PATH = "docs/validation/longitudinal-probability-contract-replay-v3.json"
+REPLAY_SHA256 = "981624b9a5701a5c3cba6b9e5fc2d349711f23ab3ccb3d8641dff60ea613f33a"
 
 
 def _pinned(path, expected):
@@ -76,6 +76,15 @@ def verify():
     receipt = _pinned(REPLAY_PATH, REPLAY_SHA256)
     original_spec = amendment["preserved_original_report"]
     original = _pinned(original_spec["path"], original_spec["sha256"])
+    parent_spec = amendment["parent_amendment"]
+    prior_spec = amendment["preserved_prior_replay"]
+    _pinned(parent_spec["path"], parent_spec["sha256"])
+    prior = _pinned(prior_spec["path"], prior_spec["sha256"])
+    if (
+        prior["amendment_sha256"] != parent_spec["sha256"]
+        or receipt["preserved_prior_replay"] != prior_spec
+    ):
+        raise ValueError("Numerical replay historical parent mismatch")
     if receipt["amendment_sha256"] != AMENDMENT_SHA256:
         raise ValueError("Numerical replay parent mismatch")
     for name, expected in receipt["current_implementation_sha256"].items():

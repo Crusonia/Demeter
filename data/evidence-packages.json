@@ -887,7 +887,7 @@
         },
         {
           "path": "docs/LONGITUDINAL_LIKELIHOOD.md",
-          "sha256": "11e927b9382a950c508d671e1da3909d1d9213b99511ead0fdd5e6a7ce9c4430"
+          "sha256": "34af12f61297cc1b7065a1f6793f4faf7cd08aadab5c2a8819fc8c641833bdd5"
         },
         {
           "path": "docs/validation/issue-57-58-longitudinal-likelihood.json",
@@ -904,6 +904,14 @@
         {
           "path": "docs/validation/longitudinal-probability-contract-replay-v2.json",
           "sha256": "297d290b5e203f60fc420ad102cd5b7c35bd1e9da6a13ea785ee64eac0621e43"
+        },
+        {
+          "path": "docs/validation/longitudinal-probability-contract-amendment-v3.json",
+          "sha256": "fd119457b06b05c6463572ecbd04fb860b2d7c301f266a113d04f75fa1506d67"
+        },
+        {
+          "path": "docs/validation/longitudinal-probability-contract-replay-v3.json",
+          "sha256": "981624b9a5701a5c3cba6b9e5fc2d349711f23ab3ccb3d8641dff60ea613f33a"
         }
       ],
       "dependencies": [],

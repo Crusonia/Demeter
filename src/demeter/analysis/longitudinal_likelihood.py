@@ -580,8 +580,14 @@ def path_likelihood(
                 (item for item in segments if item.start_year <= end < item.end_year), segments[-1]
             )
             q = np.asarray(segment.generator)
-            hazards = q[np.ix_(indices, groups[terminal.event])].sum(axis=1)
-            factor = float(alpha @ hazards)
+            with np.errstate(over="ignore", invalid="ignore"):
+                hazards = q[np.ix_(indices, groups[terminal.event])].sum(axis=1)
+            if not np.isfinite(hazards).all():
+                raise FloatingPointError("Exact-event aggregate hazard is not finite")
+            with np.errstate(over="ignore", invalid="ignore"):
+                factor = float(alpha @ hazards)
+            if not isfinite(factor):
+                raise FloatingPointError("Exact-event density factor is not finite")
             if factor == 0 and np.any(support & (hazards > 0)):
                 raise FloatingPointError("Positive exact-event density underflowed")
         elif terminal.kind == "interval_first_entry":
@@ -607,6 +613,8 @@ def path_likelihood(
             log_likelihood += log(factor)
     if impossible:
         log_likelihood = float("-inf")
+    elif not isfinite(log_likelihood):
+        raise FloatingPointError("Log likelihood is outside finite floating-point representation")
     density = terminal.kind == "exact_first_entry"
     if not density and log_likelihood > 0:
         raise FloatingPointError("Evaluated probability exceeds one; inputs are not repaired")
@@ -616,6 +624,8 @@ def path_likelihood(
         raise FloatingPointError(
             "Likelihood is outside finite floating-point representation"
         ) from error
+    if not isfinite(likelihood):
+        raise FloatingPointError("Likelihood is outside finite floating-point representation")
     if not density and likelihood > 1:
         raise FloatingPointError("Evaluated probability exceeds one; inputs are not repaired")
     return {

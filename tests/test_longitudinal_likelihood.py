@@ -205,6 +205,73 @@ def test_exact_first_entry_density_is_allowed_above_one():
     assert result["units"] == "per_year"
 
 
+def test_finite_near_ceiling_grouped_event_hazards_cannot_return_infinite_density():
+    maximum = np.finfo(float).max
+    q = [[-maximum, maximum * (0.5 + 1e-12), maximum * (0.5 + 1e-12), 0]] + [[0] * 4] * 3
+    space = StateSpace(("live", "event1", "event2", "dead"), (False, True, True, None), 3)
+    # Relative roundoff allowance legitimately accepts the finite input entries;
+    # the aggregate exact-event hazard still has no finite binary64 representation.
+    validate_generator(space, q, tolerance=1e-10)
+    with np.errstate(over="raise", invalid="raise"):
+        with pytest.raises(FloatingPointError, match="aggregate hazard is not finite"):
+            path_likelihood(
+                space,
+                [1, 0, 0, 0],
+                [RateSegment(0, 1, q)],
+                [],
+                terminal=TerminalObservation("exact_first_entry", 0, event="event"),
+                contract=contract("first_entry_ascertainment"),
+                event_targets={"event": (1, 2), "death": (3,)},
+                tolerance=1e-10,
+            )
+
+
+def test_largest_finite_exact_event_density_remains_supported_at_zero_time():
+    maximum = np.finfo(float).max
+    result = event_path("exact_first_entry", time=0, lam=maximum, mu=0)
+    assert np.isfinite(result["likelihood"])
+    assert result["likelihood"] == pytest.approx(maximum, rel=1e-13)
+    assert np.isfinite(result["log_likelihood"])
+    assert result["contribution_kind"] == "density"
+
+
+def test_nonfinite_exact_event_factor_is_rejected_without_clamping(monkeypatch):
+    import demeter.analysis.longitudinal_likelihood as module
+
+    original = module._advance
+
+    def corrupt_forward(*args, **kwargs):
+        alpha, support, increment = original(*args, **kwargs)
+        return np.full_like(alpha, np.inf), support, increment
+
+    monkeypatch.setattr(module, "_advance", corrupt_forward)
+    with pytest.raises(FloatingPointError, match="density factor is not finite"):
+        event_path("exact_first_entry", time=0)
+
+
+@pytest.mark.parametrize("log_increment", [float("inf"), float("nan")])
+def test_nonfinite_accumulated_log_likelihood_is_rejected(monkeypatch, log_increment):
+    import demeter.analysis.longitudinal_likelihood as module
+
+    original = module._advance
+
+    def corrupt_log(*args, **kwargs):
+        alpha, support, _ = original(*args, **kwargs)
+        return alpha, support, log_increment
+
+    monkeypatch.setattr(module, "_advance", corrupt_log)
+    with pytest.raises(FloatingPointError, match="Log likelihood"):
+        event_path("exact_first_entry", time=0)
+
+
+def test_nonfinite_displayed_density_is_rejected(monkeypatch):
+    import demeter.analysis.longitudinal_likelihood as module
+
+    monkeypatch.setattr(module, "exp", lambda _: float("inf"))
+    with pytest.raises(FloatingPointError, match="Likelihood is outside finite"):
+        event_path("exact_first_entry", time=0)
+
+
 def test_rank_threshold_remains_a_distinct_relative_design_choice():
     result = observable_jacobian(
         lambda x: [x[0], 0.1 * x[1]], [1, 1], [1e-4] * 2, rank_tolerance=0.5

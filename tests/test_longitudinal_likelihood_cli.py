@@ -94,9 +94,12 @@ def test_real_frozen_report_retains_local_scope_and_all_nonpromotion_flags(real_
     assert real_report["provenance"]["numerical_amendment_sha256"] == module.AMENDMENT_SHA256
 
 
-def test_missing_amendment_is_not_replaced_by_cli_failure_output(tmp_path, monkeypatch):
+@pytest.mark.parametrize(
+    "constant", ["AMENDMENT_PATH", "PRIOR_AMENDMENT_PATH", "PRIOR_REPLAY_PATH"]
+)
+def test_missing_amendment_is_not_replaced_by_cli_failure_output(tmp_path, monkeypatch, constant):
     missing = tmp_path / "missing-numerical-amendment.json"
-    monkeypatch.setattr(module, "AMENDMENT_PATH", str(missing))
+    monkeypatch.setattr(module, constant, str(missing))
     result = CliRunner().invoke(app, [*COMMAND, "--output", str(missing)])
     assert result.exit_code == 1
     assert "Output must not replace" in result.output
@@ -169,7 +172,10 @@ def test_boolean_zero_cannot_masquerade_as_numeric_time_origin(selected, no_arit
     assert_blocked_before_arithmetic(selected, no_arithmetic, "registered_inputs")
 
 
-@pytest.mark.parametrize("constant", ("PROTOCOL_PATH", "RFC_PATH", "AMENDMENT_PATH"))
+@pytest.mark.parametrize(
+    "constant",
+    ("PROTOCOL_PATH", "RFC_PATH", "AMENDMENT_PATH", "PRIOR_AMENDMENT_PATH", "PRIOR_REPLAY_PATH"),
+)
 def test_actual_changed_contract_bytes_fail_safely_before_arithmetic(
     selected, no_arithmetic, tmp_path, monkeypatch, constant
 ):
