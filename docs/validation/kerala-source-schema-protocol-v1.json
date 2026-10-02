@@ -1,0 +1,65 @@
+{
+  "protocol_id": "kerala-v3-schema-preflight-v1",
+  "frozen_at_utc": "2026-10-02T15:07:31.675228+00:00",
+  "source_doi": "10.6084/m9.figshare.5661610.v3",
+  "metadata_sha256": "799f4d4c6e61de038f5cace5a42ab6a71adb0f2ee2b8d8c2ddc920bbe435864b",
+  "source_scope": "Public version 3 files explicitly linked by the primary trial publication.",
+  "prior_inspection": "Primary publication aggregate outcomes and design were read before this protocol. No workbook rows or aggregate outcomes have been inspected. This is a schema preflight, not an independent preregistration.",
+  "allowed_initial_inspection": [
+    "workbook sheet names",
+    "string-only first-row column headers",
+    "embedded explicitly labelled dictionary documentation"
+  ],
+  "participant_rows_allowed": false,
+  "aggregate_outcomes_allowed": false,
+  "author_code_execution_allowed": false,
+  "raw_commit_allowed": false,
+  "identifier_stop_rule": "Stop record analysis if headers identify names, street addresses, email, phone, exact date of birth or other direct identifiers; record only field presence, never values. Pseudonymous linkage must be verified rather than assumed.",
+  "required_field_coverage": [
+    "randomized cluster",
+    "assigned regimen",
+    "participant linkage",
+    "baseline/12/24 month observation clocks",
+    "glucose units and fasting/OGTT status",
+    "diagnosed diabetes history",
+    "medication",
+    "confirmation",
+    "death and clock",
+    "loss/withdrawal/missed visits and clocks"
+  ],
+  "observation_model_constraints": [
+    "Keep cluster design and categorical combined intervention.",
+    "Preserve baseline HbA1c diagnostic mismatch.",
+    "Post-diagnosis omission of 24-month OGTT is diagnosis-dependent; FPG-only records are not independent missingness.",
+    "Do not infer unreported deaths as zero.",
+    "Do not infer undocumented variable units, codes or clocks."
+  ],
+  "scientific_gates": {
+    "clinical_fit_allowed": false,
+    "engine_activation_allowed": false,
+    "independent_validation_allowed": false,
+    "scientific_release_ready": false
+  },
+  "expected_files": [
+    {
+      "id": 39461149,
+      "name": "Primary outcome_K-DPP trial.xlsx",
+      "size": 2168989,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/39461149",
+      "supplied_md5": "969885309a193323b24310c8479ca405",
+      "computed_md5": "969885309a193323b24310c8479ca405",
+      "mimetype": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    },
+    {
+      "id": 39461152,
+      "name": "Secondary outcomes_K-DPP trial.xlsx",
+      "size": 1676671,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/39461152",
+      "supplied_md5": "865321dbee94a996c9386866d488782b",
+      "computed_md5": "865321dbee94a996c9386866d488782b",
+      "mimetype": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    }
+  ]
+}

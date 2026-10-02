@@ -1,0 +1,188 @@
+{
+  "protocol_id": "kerala-v3-finite-joint-coverage-intake-v2",
+  "frozen_at_utc": "2026-10-02T15:21:51.272942+00:00",
+  "chronology": {
+    "paper_outcomes_already_used": true,
+    "workbook_headers_already_inspected": true,
+    "participant_values_inspected": false,
+    "quantitative_workbook_counts_inspected": false,
+    "independent_validation_claim_allowed": false
+  },
+  "source_scope": {
+    "doi": "10.6084/m9.figshare.5661610.v3",
+    "raw_files": [
+      {
+        "path": "Primary outcome_K-DPP trial.xlsx",
+        "bytes": 2168989,
+        "sha256": "20736b53c9d3704179a3f6c8ce89d417edf730ceff0448a1f28ac7f54db14421"
+      },
+      {
+        "path": "Secondary outcomes_K-DPP trial.xlsx",
+        "bytes": 1676671,
+        "sha256": "f963ff821c11b40e796fe9bce16ee5c21e22833653797c7c94d3bf28fbd4e7dc"
+      }
+    ],
+    "header_preflight": {
+      "path": "schema-headers-v1.json",
+      "bytes": 40120,
+      "sha256": "c0b36bca5efc82d9e36ffb3fe921d84a95acd85108132c18ca24944d5f9c3b1e"
+    },
+    "contract_coverage": {
+      "path": "clinical-contract-schema-coverage-v1.json",
+      "bytes": 18692,
+      "sha256": "335ef0771520aa55c10dccce9a2b767a6db25a24950fdc8cd2c407b9a370028e"
+    }
+  },
+  "execution_state": "NOT_AUTHORIZED_FOR_VALUE_INSPECTION_UNTIL_ROOT_FREEZES_COMMITTED_PROTOCOL_AND_SCOPED_SOURCE_SEMANTICS",
+  "entry_requirements": [
+    "Verify exact immutable source files and source version, public release and license metadata.",
+    "Use only explicitly released selected study fields. Participant linkage keys remain private and in memory; examine types and consistency without asserting a verified producer crosswalk. Unresolved representation/wave/category/assignment semantics limit dependent interpretation, not safe selected representation checks.",
+    "Resolve source-defined category and medication labels/codes from producer documentation or explicit workbook labels. Numeric codes cannot be assigned by expected paper counts or familiar assumptions.",
+    "If any direct identifier or unanticipated contact field appears, stop record analysis and report only field presence. Never print raw values or participant identifiers.",
+    "Root commits the protocol and metadata receipts in the next intake branch before quantitative values are inspected."
+  ],
+  "minimum_fields_primary": [
+    "participant_id",
+    "arms0",
+    "cluster0",
+    "arms1",
+    "cluster1",
+    "arms2",
+    "cluster2",
+    "timepoint",
+    "fpgmgdl0",
+    "twohrpgmgdl0",
+    "fpgmmol0",
+    "twohrpgmmol0",
+    "hba1c0",
+    "NGTADA0",
+    "IFGADA0",
+    "IGTADA0",
+    "diabADA0",
+    "glycemiaADA0",
+    "NGTADA1",
+    "IFGADA1",
+    "IGTADA1",
+    "diabADA1",
+    "glycemiaADA1",
+    "NGTADA2",
+    "IFGADA2",
+    "IGTADA2",
+    "diabADA2",
+    "glycemiaADA2",
+    "glycemiaWHO0",
+    "glycemiaWHO1",
+    "glycemiaWHO2",
+    "fpgmgdl1",
+    "twohrpgmgdl1",
+    "fpgmgdl2",
+    "twohrpgmgdl2",
+    "diabdrugs_10",
+    "diabdrugs_20",
+    "diabdrugs_1",
+    "diabdrugs_2",
+    "tot_diab_incidence",
+    "tot_diab_incidence1",
+    "tot_diab_incidence2"
+  ],
+  "minimum_fields_secondary": [
+    "participant_id",
+    "timepoint",
+    "arms",
+    "cluster",
+    "fpgmgdl",
+    "twohrpgmgdl",
+    "hba1c",
+    "NGTADA",
+    "IFGADA",
+    "IGTADA",
+    "diabADA",
+    "glycemiaADA",
+    "NGTWHO",
+    "IFGWHO",
+    "IGTWHO",
+    "diabWHO",
+    "glycemiaWHO",
+    "diabdrugs_1",
+    "diabdrugs_2"
+  ],
+  "excluded_fields": "No household, religion, occupation, free-text others fields, questionnaire responses, personal contact reconstruction or participant-level exports. Only the approved linkage, assignment, wave, clinical measurement and history subset enters the finite gate.",
+  "phase1_representation_checks": [
+    "Exact expected headers at frozen locators. Accept only explicitly authorized representation types; formulas, macros, external links and author scripts are never executed.",
+    "Opaque linkage keys processed only in memory; never emit keys, rows, per-person assays or derived participant paths. Report aggregate counts or failure categories without identifiers.",
+    "Determine whether primary is unique wide person rows, repeated wide rows, or an unresolved representation, using private in-memory opaque linkage and aggregate consistency evidence. Do not claim a producer crosswalk or collapse duplicate participant rows without documented semantics.",
+    "Determine whether secondary is unique person-wave rows. Validate shared participant-wave sets and matching approved measurements against primary after documented wave mapping.",
+    "Validate assigned cluster/regimen consistency across waves; missing follow-up assignment does not erase baseline assignment. Any nonmissing assignment drift is a source check failure, not automatically repaired.",
+    "Preserve null, absent, spreadsheet error, string missing-marker, documented invalid and unverified-code states distinctly. No default zero, float coercion or silent complete-case deletion."
+  ],
+  "phase2_observed_joint_coverage_if_phase1_succeeds": [
+    "Report all enrolled released source participants separately from participants with any clinical measurement, complete paired panels and known recorded diabetes event status.",
+    "Count joint paths of documented source labels over nominal baseline/12/24 assessments within assigned arm and cluster. Categories retain their producer meanings; no automatic H/P/D engine mapping.",
+    "Compare incidence and valid clinical endpoint denominators with paper values without rescaling or selecting rows to force agreement. All discrepancies stay visible.",
+    "Count missing two-hour tests stratified by preceding recorded diagnosis history and FPG presence, where history is documented; distinguish compatible protocol-driven absence from unknown test absence.",
+    "Retain medication/history observations without inventing start dates, treatment-free duration, remission or biological onset.",
+    "Repeated participant summaries preserve shared paths and cluster assignment, never independent binomial sampling."
+  ],
+  "death_and_loss_contract": {
+    "paper_locator": "Thankappan2018 Figure1, PDFpage11",
+    "released_explicit_status_headers": [],
+    "rules": [
+      "Published death counts by assigned arm are cumulative at12 and24 months; repeating identical counts is not additional deaths.",
+      "No person/cluster/start-state allocation of deaths or loss reasons is claimed. No exact death time is supplied.",
+      "Death/loss category allocation must be an explicit compatible integer constraint with bounds; it is not a random independent censoring process.",
+      "Any observed follow-up record is not blanket proof of survival to the complete horizon. Absence of a death header is not zero deaths.",
+      "If paper and released cohort identity or denominators cannot be established, aggregate death/loss constraints cannot be transferred to raw paths. Keep them parallel facts until reconciled."
+    ]
+  },
+  "conditional_estimand": "Source-specific distribution of the recorded linked glycemic-label histories at nominal trial visits, under assigned categorical peer-support package versus booklet, conditional on verified released-source inclusion and separately described measurement availability. No true clinical transition probability or causal dietary dose is inferred.",
+  "unresolved_before_any_fit": [
+    "producer code dictionary and clinical-label semantics",
+    "released record unit and clocks",
+    "diagnosis/history and medication mapping",
+    "source-specific measurement and confirmation error",
+    "death/loss linkage or justified partial-identification constraints",
+    "informative diagnosis-dependent OGTT stopping",
+    "selection and missingness alternatives",
+    "cluster and repeated-path joint uncertainty",
+    "identification/synthetic recovery diagnostics",
+    "scientific review and independent evaluation target"
+  ],
+  "allowed_outputs": [
+    "aggregate source coverage report",
+    "unresolved-code and failed-check counts without participant values",
+    "reproducible authored receipt and source-specific admission decision",
+    "aggregate observed joint-label path table only after documented semantics and cohort identity pass"
+  ],
+  "prohibited_outputs": [
+    "participant records/identifiers/assay values",
+    "clinical hazard/rate fit",
+    "imputed mortality states",
+    "independent binomial confidence intervals",
+    "engine activation",
+    "national transport",
+    "causal isolated food or UPF dose response",
+    "healthcare-savings/investment interpretation"
+  ],
+  "scientific_gates": {
+    "clinical_fit_allowed": false,
+    "engine_activation_allowed": false,
+    "independent_validation_allowed": false,
+    "scientific_release_ready": false
+  },
+  "stop_conditions": [
+    "direct identifiers or contact fields detected",
+    "source integrity mismatch",
+    "incompatible cohort/version",
+    "unjustified selection repair needed",
+    "parent has not frozen the next intake branch"
+  ],
+  "supersedes": {
+    "path": "finite-joint-coverage-intake-protocol-v1.json",
+    "sha256": "762a866d73eb56c9497230f10b15e9a8a09b8a94fe78c48edebcfa78ed48383d",
+    "reason": "Root clarified selected explicitly public study fields may undergo private type/linkage checks without a verified producer crosswalk. No values inspected between versions."
+  },
+  "semantic_stop_conditions": [
+    "Unresolved record, wave, assignment, category or medication codes stop only the dependent interpretation or joint-label summaries; safe selected representation checks may continue.",
+    "No producer crosswalk can be inferred from consistent keys."
+  ]
+}

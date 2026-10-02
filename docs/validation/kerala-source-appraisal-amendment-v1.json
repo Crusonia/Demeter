@@ -1,0 +1,23 @@
+{
+  "amendment_id": "kerala-v3-source-appraisal-amendment-v1",
+  "frozen_at_utc": "2026-10-02T15:23:52.432135+00:00",
+  "superseded_protocols_preserved": true,
+  "participant_values_inspected": false,
+  "quantitative_workbook_counts_inspected": false,
+  "reason": "User authorized public source appraisal. Root clarified aggregate representation/code checks may proceed with in-memory opaque released linkage keys; producer crosswalk must not be claimed.",
+  "permitted_after_committed_freeze": [
+    "Private in-memory participant_id and cluster linkage type, uniqueness and cross-file consistency checks.",
+    "Aggregate arm, wave, source category, medication and incidence code frequencies, including unknown codes, without assuming code meaning.",
+    "Aggregate measurement availability counts only; never participant assay values or exact assay-value frequencies.",
+    "Report row-representation contradictions and safe bounds before any source-category interpretation."
+  ],
+  "identifier_policy": "Never emit participant keys, cluster keys, records, per-person paths or assay values. Unexpected direct identifier/contact fields stop record analysis. Selected source-defined study fields only; no free-text or author code execution.",
+  "semantic_boundary": "Unknown numeric codes do not prevent aggregate code/representation appraisal. They block dependent category, regimen, time or medication interpretation. Consistent keys do not establish a producer crosswalk.",
+  "death_boundary": "Three cumulative arm-level reported deaths remain aggregate constraints with unknown joint allocation; never infer zero deaths, six deaths or independent censoring.",
+  "scientific_gates": {
+    "clinical_fit_allowed": false,
+    "engine_activation_allowed": false,
+    "independent_validation_allowed": false,
+    "scientific_release_ready": false
+  }
+}
