@@ -445,6 +445,50 @@ def whitehall_endpoint_evidence(
         raise typer.Exit(1)
 
 
+@evidence_app.command("kerala-endpoints")
+def kerala_endpoint_evidence(
+    evidence: Path = DEFAULT_EVIDENCE,
+    project: Path = Path("."),
+    output: Path | None = None,
+    source_cache: Path | None = None,
+    publication: Path | None = None,
+    assume_complete_deaths: bool = False,
+) -> None:
+    """Bound source-native recorded endpoints; missing outcomes are never assumed negative."""
+    from demeter.analysis.kerala_endpoints import audit_kerala_endpoints
+    from demeter.data.nhanes import encoded
+
+    try:
+        root = project.resolve()
+        if output is not None:
+            destination = output.resolve()
+            protected = [evidence.resolve()]
+            if publication is not None:
+                protected.append(publication.resolve())
+            protected_folders = [root / folder for folder in ("data", "src", "docs", "evidence")]
+            if source_cache is not None:
+                protected_folders.append(source_cache.resolve())
+            if (
+                output.exists()
+                or destination in protected
+                or any(destination.is_relative_to(folder.resolve()) for folder in protected_folders)
+            ):
+                typer.echo("Output must be new and outside sources and frozen records", err=True)
+                raise typer.Exit(1)
+        report = audit_kerala_endpoints(
+            registry(evidence), root, source_cache=source_cache, publication=publication,
+            assume_complete_deaths=assume_complete_deaths,
+        )
+        if output is not None:
+            output.parent.mkdir(parents=True, exist_ok=True)
+            with output.open("xb") as target:
+                target.write(encoded(report))
+    except (ValueError, OSError, KeyError, TypeError, IndexError) as exc:
+        typer.echo("Kerala endpoint evidence or output is invalid", err=True)
+        raise typer.Exit(1) from exc
+    emit(report)
+
+
 @evidence_app.command("geelong-labels")
 def geelong_label_evidence(
     evidence: Path = DEFAULT_EVIDENCE,

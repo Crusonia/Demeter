@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "source_id": "kerala2018_primary_publication",
+  "source_sha256": "eace56aae88c2359fc7b57d00a16ff978de51792de47ab78bfb742303dc8727e",
+  "source_locators": {
+    "assigned_and_endpoint": "Primary publication PDF page 10: Participants and Incidence of diabetes",
+    "reported_cumulative_deaths": "Figure 1, PDF page 11; same cumulative counts at both horizons"
+  },
+  "counts": {
+    "Control": {
+      "assigned": 507,
+      "known_endpoints": 463,
+      "recorded_events": 79,
+      "reported_cumulative_deaths": 1
+    },
+    "Intervention": {
+      "assigned": 500,
+      "known_endpoints": 456,
+      "recorded_events": 68,
+      "reported_cumulative_deaths": 2
+    }
+  },
+  "nominal_endpoint": "24 months",
+  "death_counts_complete_for_assigned_cohort_verified": false,
+  "interpretation": "Primary-publication aggregate transcription, already-used source, not independent validation. Recorded history is distinct from current glycemic category; deaths do not erase earlier diagnoses."
+}
