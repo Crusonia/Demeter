@@ -12,11 +12,16 @@ import sys
 import pytest
 
 from demeter.analysis import kerala_coverage as coverage
-from demeter.analysis.kerala_registration import DATASET, verify_registered
+from demeter.analysis.kerala_registration import (
+    DATASET,
+    _verify_public_histories,
+    verify_registered,
+)
 from demeter.schema import EvidenceRegistry
 
 ROOT = Path(__file__).resolve().parents[1]
-REPORT = "docs/validation/kerala-selected-source-representation-v1.json"
+REPORT = "docs/validation/kerala-selected-source-representation-v2.json"
+REAL_VERIFY_ADMISSION = coverage.verify_admission
 
 
 def _write(path, value):
@@ -24,11 +29,22 @@ def _write(path, value):
 
 
 def _repin_report(registry, root):
-    registry.datasets[DATASET]["representation_sha256"] = coverage._digest(root / REPORT)
+    spec = registry.datasets[DATASET]
+    spec["representation_sha256"] = coverage._digest(root / REPORT)
+    withdrawal = root / spec["withdrawal_receipt_path"]
+    receipt = json.loads(withdrawal.read_bytes())
+    receipt["replacement_sha256"] = spec["representation_sha256"]
+    _write(withdrawal, receipt)
+    spec["withdrawal_receipt_sha256"] = coverage._digest(withdrawal)
+
+
+@pytest.fixture(scope="session")
+def frozen_registry():
+    return EvidenceRegistry.from_yaml(ROOT / "evidence/parameters.yaml")
 
 
 @pytest.fixture
-def registered_package(tmp_path):
+def registered_package(tmp_path, frozen_registry, monkeypatch):
     root = tmp_path / "package"
     validation = root / "docs/validation"
     validation.mkdir(parents=True)
@@ -39,11 +55,16 @@ def registered_package(tmp_path):
         destination = root / pin["path"]
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(ROOT / pin["path"], destination)
-    registry = EvidenceRegistry.from_yaml(ROOT / "evidence/parameters.yaml")
+    registry = frozen_registry.model_copy(deep=True)
     # The fixture can exercise the wrapper while integration updates the registry.
     registry.datasets[DATASET].update(
         representation_path=REPORT,
         representation_sha256=coverage._digest(root / REPORT),
+    )
+    # Real admission is covered by the offline/copied-package tests and its own suite.
+    # Negative wrapper tests isolate the registry/publication boundary under review.
+    monkeypatch.setattr(
+        coverage, "verify_admission", lambda *args: {"artifact_pins_verified": True}
     )
     return registry, root
 
@@ -62,8 +83,9 @@ def test_actual_registered_source_is_offline_and_requires_no_author_git(monkeypa
     assert all(value is False for value in result["scientific_gates"].values())
 
 
-def test_frozen_registration_can_verify_outside_git(registered_package):
+def test_frozen_registration_can_verify_outside_git(registered_package, monkeypatch):
     registry, root = registered_package
+    monkeypatch.setattr(coverage, "verify_admission", REAL_VERIFY_ADMISSION)
     assert not (root / ".git").exists()
     assert verify_registered(registry, root)["registered_artifacts_verified"] is True
 
@@ -125,6 +147,180 @@ def test_repinning_cannot_promote_report_semantics(registered_package, flag):
     _repin_report(registry, root)
     with pytest.raises(ValueError, match="scientific boundary"):
         verify_registered(registry, root)
+
+
+@pytest.mark.parametrize(
+    "field",
+    [
+        "aggregate_paths",
+        "assigned_arm_label",
+        "nominal_visit_source_labels",
+        "total_recorded_diagnosis_flag",
+    ],
+)
+@pytest.mark.parametrize("location", ["history", "unrelated_nested_section", "report_envelope"])
+def test_labeled_tuples_rejected_even_with_nonsingleton_counts_and_false_privacy_flag(
+    registered_package, field, location
+):
+    registry, root = registered_package
+    report = json.loads((root / REPORT).read_bytes())
+    aggregate = report["aggregate_representation"]
+    history = aggregate["source_defined_nominal_visit_label_histories"]
+    assert history["labeled_multiwave_tuples_exported"] is False
+    if location == "history":
+        target = history
+    elif location == "report_envelope":
+        target = report.setdefault("extra_section", {"nested": {}})["nested"]
+    else:
+        target = aggregate.setdefault(location, {"nested": {}})["nested"]
+    target[field] = [{"synthetic_label": "not a source participant", "count": 2}]
+    _write(root / REPORT, report)
+    _repin_report(registry, root)
+    with pytest.raises(ValueError, match="history|label|tuple|privacy"):
+        verify_registered(registry, root)
+
+
+def test_legacy_report_identity_cannot_be_reenabled_by_repinning(registered_package):
+    registry, root = registered_package
+    report = json.loads((root / REPORT).read_bytes())
+    report["report_id"] = "kerala-selected-source-representation-v1"
+    _write(root / REPORT, report)
+    _repin_report(registry, root)
+    with pytest.raises(ValueError, match="representation identity"):
+        verify_registered(registry, root)
+
+
+def test_publication_redaction_protocol_byte_drift_fails(registered_package):
+    registry, root = registered_package
+    report = json.loads((root / REPORT).read_bytes())
+    protocol = root / report["publication_redaction_protocol"]["path"]
+    with protocol.open("ab") as stream:
+        stream.write(b" ")
+    with pytest.raises(ValueError, match="publication redaction protocol checksum"):
+        verify_registered(registry, root)
+
+
+def test_withdrawal_receipt_byte_drift_fails(registered_package):
+    registry, root = registered_package
+    withdrawal = root / registry.datasets[DATASET]["withdrawal_receipt_path"]
+    with withdrawal.open("ab") as stream:
+        stream.write(b" ")
+    with pytest.raises(ValueError, match="withdrawal.*checksum"):
+        verify_registered(registry, root)
+
+
+@pytest.mark.parametrize(
+    "change", ["replacement", "parent", "source", "artifact", "protocol", "history_erasure"]
+)
+def test_withdrawal_receipt_identity_cannot_be_changed_by_repinning(registered_package, change):
+    registry, root = registered_package
+    spec = registry.datasets[DATASET]
+    withdrawal = root / spec["withdrawal_receipt_path"]
+    receipt = json.loads(withdrawal.read_bytes())
+    if change == "replacement":
+        receipt["replacement_sha256"] = "0" * 64
+    elif change == "parent":
+        receipt["withdrawn_original"]["sha256"] = "0" * 64
+    elif change == "source":
+        receipt["source_id"] = "incorrect-source"
+    elif change == "artifact":
+        receipt["artifact_id"] = "incorrect-artifact"
+    elif change == "protocol":
+        receipt["redaction_protocol"]["sha256"] = "0" * 64
+    else:
+        receipt["git_history_rewritten"] = True
+    _write(withdrawal, receipt)
+    spec["withdrawal_receipt_sha256"] = coverage._digest(withdrawal)
+    with pytest.raises(ValueError, match="withdrawal|redaction|history|original"):
+        verify_registered(registry, root)
+
+
+@pytest.mark.parametrize(
+    "change",
+    [
+        "cell_count",
+        "weighted_total",
+        "exclusion_total",
+        "negative_exclusion",
+        "zero_size",
+        "boolean_frequency",
+        "privacy_flag",
+        "unknown_field",
+    ],
+)
+def test_history_summary_invariants_cannot_be_bypassed_by_repinning(registered_package, change):
+    registry, root = registered_package
+    report = json.loads((root / REPORT).read_bytes())
+    history = report["aggregate_representation"]["source_defined_nominal_visit_label_histories"]
+    if change == "cell_count":
+        history["distinct_unlabeled_history_cells"] += 1
+    elif change == "weighted_total":
+        history["included_typed_keys"] -= 1
+    elif change == "exclusion_total":
+        history["excluded_key_reason_counts"]["synthetic_exclusion"] = (
+            history["retained_internal_typed_keys"] + 1
+        )
+    elif change == "negative_exclusion":
+        history["excluded_key_reason_counts"]["synthetic_exclusion"] = -1
+    elif change == "zero_size":
+        history["unlabeled_history_cell_size_histogram"]["0"] = 1
+    elif change == "boolean_frequency":
+        first = next(iter(history["unlabeled_history_cell_size_histogram"]))
+        history["unlabeled_history_cell_size_histogram"][first] = True
+    elif change == "privacy_flag":
+        history["labeled_multiwave_tuples_exported"] = True
+    else:
+        history["unexpected_output"] = []
+    _write(root / REPORT, report)
+    _repin_report(registry, root)
+    with pytest.raises(ValueError, match="history|histogram|label|tuple|privacy|exclusion"):
+        verify_registered(registry, root)
+
+
+def test_actual_redacted_histogram_preserves_counts_without_paths():
+    report = json.loads((ROOT / REPORT).read_bytes())
+    history = report["aggregate_representation"]["source_defined_nominal_visit_label_histories"]
+    histogram = history["unlabeled_history_cell_size_histogram"]
+    assert sum(histogram.values()) == history["distinct_unlabeled_history_cells"]
+    assert (
+        sum(int(size) * frequency for size, frequency in histogram.items())
+        == history["included_typed_keys"]
+    )
+    assert (
+        history["included_typed_keys"] + sum(history["excluded_key_reason_counts"].values())
+        == history["retained_internal_typed_keys"]
+    )
+    assert history["labeled_multiwave_tuples_exported"] is False
+    assert "aggregate_paths" not in history
+
+
+@pytest.mark.parametrize(
+    "clocks",
+    [
+        ["Baseline", "12 months", "unknown clock"],
+        [["synthetic arm", "synthetic glycemia"], "12 months", "24 months"],
+    ],
+)
+def test_public_history_clock_field_cannot_smuggle_a_trajectory(clocks):
+    history = {
+        "nominal_visit_labels": clocks,
+        "retained_internal_typed_keys": 3,
+        "included_typed_keys": 3,
+        "excluded_key_reason_counts": {},
+        "distinct_unlabeled_history_cells": 1,
+        "unlabeled_history_cell_size_histogram": {"3": 1},
+        "labeled_multiwave_tuples_exported": False,
+        "interpretation": "Synthetic coverage summary, with no participant records.",
+    }
+    with pytest.raises(ValueError, match="history|nominal|visit|clock"):
+        _verify_public_histories({"source_defined_nominal_visit_label_histories": history})
+    history["nominal_visit_labels"] = ["Baseline", "12 months", "24 months"]
+    assert (
+        _verify_public_histories({"source_defined_nominal_visit_label_histories": history}) is None
+    )
+    history["interpretation"] = ["synthetic arm", "synthetic glycemia"]
+    with pytest.raises(ValueError, match="history|interpretation"):
+        _verify_public_histories({"source_defined_nominal_visit_label_histories": history})
 
 
 def test_replay_requires_source_cache(registered_package):

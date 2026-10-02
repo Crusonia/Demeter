@@ -112,7 +112,7 @@ def test_real_packages_cover_every_source_and_bundle_without_network(monkeypatch
     report = verify_packages()
     assert report["passed"], [c for c in report["checks"] if not c["passed"]]
     assert len(report["sources"]) == 84
-    assert len(report["artifacts"]) == 166
+    assert len(report["artifacts"]) == 168
     assert len(report["packages"]) == 33
     assert not report["network_used"]
     assert report["documentation"]["metadata_passed"]
@@ -127,10 +127,11 @@ def test_real_packages_cover_every_source_and_bundle_without_network(monkeypatch
     kerala = report["packages"]["kerala_source_admission"]
     assert kerala["model_role"] == "benchmark_only"
     assert kerala["registry_parameters"] == []
-    assert len(kerala["artifacts"]) == 15
+    assert len(kerala["artifacts"]) == 17
     assert {
         "docs/validation/kerala-source-admission-v2.json",
-        "docs/validation/kerala-selected-source-representation-v1.json",
+        "docs/validation/kerala-selected-source-representation-v2.json",
+        "docs/validation/kerala-longitudinal-output-redaction-protocol-v2.json",
     } <= {a["path"] for a in kerala["artifacts"]}
     kerala_sources = [s for s in report["sources"] if s["policy"] == "kerala_public_appraisal"]
     assert len(kerala_sources) == 4

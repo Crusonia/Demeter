@@ -3706,8 +3706,10 @@ datasets:
     - F-08
     - T-05
     - T-08
-    representation_path: docs/validation/kerala-selected-source-representation-v1.json
-    representation_sha256: fc2fe0701cdabd176230d4259f120bdd310d290887b6fb8f2b3c41bbf42c1d99
+    representation_path: docs/validation/kerala-selected-source-representation-v2.json
+    representation_sha256: 4f7214155fc0db8d21ca59e9f1e3af06e76f585ae89e201c6df65741c160f7a2
+    withdrawal_receipt_path: docs/validation/kerala-selected-source-representation-v1.json
+    withdrawal_receipt_sha256: 1bb0cdc22210d72441809addbeef0781f826a4557dc234af99486f98e5192248
   glycemic_joint_uncertainty:
     status: estimated
     evidence_grade: C

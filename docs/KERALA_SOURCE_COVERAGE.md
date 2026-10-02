@@ -127,7 +127,7 @@ command reads participant values or verifies joint clinical coverage.
 ## Completed selected-field appraisal
 
 The reproducible aggregate report is
-[`validation/kerala-selected-source-representation-v1.json`](validation/kerala-selected-source-representation-v1.json).
+[`validation/kerala-selected-source-representation-v2.json`](validation/kerala-selected-source-representation-v2.json).
 The before-values admission was committed as `ea66036` before the first workbook
 appraisal. Earlier used-source runs and the selected-string decoding repair are
 recorded with immutable hashes; this is model development, not independent validation.
@@ -139,9 +139,11 @@ duplicate key/visit pair. Primary assignments are Control 507 and Intervention
 500. Every linked long arm and opaque cluster agrees with its baseline wide
 assignment across all 3,021 records. Cluster keys and participant keys stay private.
 
-All 1,007 people contribute to 108 aggregate histories of source-native ADA
-labels, assigned regimen and separate total recorded-diagnosis flag. Missing
-labels remain in the histories. Baseline labels are NGT 312, IFG 579 and IGT 116;
+All 1,007 people contribute privately to 108 history cells of source-native ADA
+labels, assigned regimen and separate total recorded-diagnosis flag. The public
+report contains only an unlabeled cell-size histogram and coverage totals; no
+labeled multiwave tuples are published, regardless of cell size. Missing
+labels remain in the private computation. Baseline labels are NGT 312, IFG 579 and IGT 116;
 these are observed released labels, not engine H/P/D states. At the next two
 visits, 99 and 144 labels respectively are absent. A later lower glucose label
 cannot erase a recorded diabetes diagnosis or establish remission.
@@ -168,6 +170,21 @@ The committed aggregate artifact can be checked from its registered pin without
 raw participant data or the authoring history. No clinical likelihood, biological
 transition rates, independent-binomial intervals, U.S. transport, isolated diet
 coefficient or engine activation is added by this report.
+
+### Publication correction after review
+
+The first published v1 aggregate included 20 singleton labeled history cells.
+Although it contained no participant IDs, cluster keys or individual assays,
+those cells disclosed derived individual trajectories and contradicted the
+no-individual-path-export promise. The current v1 file is an explicit withdrawal
+receipt; the original byte hash and used-source chronology are preserved, and
+the corrected v2 report publishes no labeled multiwave combinations. The
+post-inspection redaction protocol was committed before the corrective rerun.
+It changes the publication surface, with no exclusion or rescaling of people.
+
+The exact original report is retained in ignored local storage. Earlier Git
+history remains accessible; this correction does not claim erasure or anonymity
+against arbitrary external data. It makes no new independent-validation claim.
 
 ## Replay from a fresh public checkout
 

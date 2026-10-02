@@ -1263,8 +1263,16 @@
           "sha256": "c8c8a250614b8ceb5e83eaf5325e83c031a7462dde13cbc26a588b1c122ca4bd"
         },
         {
+          "path": "docs/validation/kerala-longitudinal-output-redaction-protocol-v2.json",
+          "sha256": "37280e31ea8b477d5c6c81686ae8dd11a6d0dd43cb65aeef64a9d874dfc35b19"
+        },
+        {
           "path": "docs/validation/kerala-selected-source-representation-v1.json",
-          "sha256": "fc2fe0701cdabd176230d4259f120bdd310d290887b6fb8f2b3c41bbf42c1d99"
+          "sha256": "1bb0cdc22210d72441809addbeef0781f826a4557dc234af99486f98e5192248"
+        },
+        {
+          "path": "docs/validation/kerala-selected-source-representation-v2.json",
+          "sha256": "4f7214155fc0db8d21ca59e9f1e3af06e76f585ae89e201c6df65741c160f7a2"
         },
         {
           "path": "docs/validation/kerala-source-acquisition-receipts-v1.json",
@@ -1308,7 +1316,7 @@
         },
         {
           "path": "docs/KERALA_SOURCE_COVERAGE.md",
-          "sha256": "010d63cd2981aaca5ca2a19bd9be44e6cfb1baabd82f0bd9e0a3cde0d2b8ad8a"
+          "sha256": "8a424cc8e53286f3423e67775519bf14a09a2c2456200b83cebcd60391e2ddc2"
         }
       ],
       "transform_files": [

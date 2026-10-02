@@ -76,7 +76,7 @@ def verify_registered(
         )
     report = json.loads(_pinned(root, spec, "representation").read_bytes())
     coverage._require(
-        report["report_id"] == "kerala-selected-source-representation-v1"
+        report["report_id"] == "kerala-selected-source-representation-v2"
         and report["source_id"] == SOURCE,
         "registered representation identity",
     )
@@ -84,6 +84,37 @@ def verify_registered(
         report["admission_sha256"] == spec["admission_sha256"], "report admission identity"
     )
     coverage._gates(report["scientific_gates"])
+    redaction = report["publication_redaction_protocol"]
+    coverage._require(
+        redaction["path"] == "docs/validation/kerala-longitudinal-output-redaction-protocol-v2.json"
+        and coverage._digest(root / redaction["path"]) == redaction["sha256"],
+        "publication redaction protocol checksum",
+    )
+    redaction_protocol = json.loads((root / redaction["path"]).read_bytes())
+    coverage._gates(redaction_protocol["scientific_gates"])
+    coverage._require(
+        redaction_protocol["protocol_id"] == "kerala-longitudinal-output-redaction-protocol-v2"
+        and redaction_protocol["source_id"] == SOURCE
+        and redaction_protocol["parent_representation"]
+        == report["run_chronology"]["prior_published_representation"],
+        "publication redaction parent identity",
+    )
+    withdrawal = json.loads(_pinned(root, spec, "withdrawal_receipt").read_bytes())
+    coverage._gates(withdrawal["scientific_gates"])
+    coverage._require(
+        withdrawal["artifact_id"] == "kerala-selected-source-representation-v1-withdrawal-receipt"
+        and withdrawal["source_id"] == SOURCE
+        and withdrawal["redaction_protocol"] == redaction
+        and withdrawal["withdrawn_original"] == redaction_protocol["parent_representation"]
+        and withdrawal["replacement_path"] == spec["representation_path"]
+        and withdrawal["replacement_sha256"] == spec["representation_sha256"]
+        and withdrawal["existing_git_history_remains_accessible"] is True
+        and withdrawal["git_history_rewritten"] is False
+        and withdrawal["labeled_multiwave_tuples_in_current_artifact"] is False,
+        "publication withdrawal identity",
+    )
+    _verify_public_histories(report["aggregate_representation"], envelope=withdrawal)
+    _verify_public_histories(report["aggregate_representation"], envelope=report)
     expected_code = {
         "module": "src/demeter/analysis/kerala_coverage.py",
         "script": "scripts/verify_kerala_source_coverage.py",
@@ -158,6 +189,7 @@ def verify_registered(
                 p_fields,
                 s_fields,
             )
+            _verify_public_histories(json.loads(json.dumps(actual)))
             coverage._require(
                 json.loads(json.dumps(actual)) == report["aggregate_representation"],
                 "registered aggregate replay mismatch",
@@ -177,3 +209,82 @@ def verify_registered(
         "participant_records_exported": False,
         "scientific_gates": {key: False for key in sorted(coverage.GATES)},
     }
+
+
+def _verify_public_histories(aggregate: dict, *, envelope: dict | None = None) -> None:
+    """Keep labeled multiwave paths private, including non-singleton cells."""
+    forbidden = {
+        "aggregate_paths",
+        "assigned_arm_label",
+        "nominal_visit_source_labels",
+        "total_recorded_diagnosis_flag",
+    }
+
+    def inspect(value):
+        if isinstance(value, dict):
+            coverage._require(not (set(value) & forbidden), "labeled multiwave export prohibited")
+            for nested in value.values():
+                inspect(nested)
+        elif isinstance(value, list):
+            for nested in value:
+                inspect(nested)
+
+    inspect(aggregate if envelope is None else envelope)
+    history = aggregate["source_defined_nominal_visit_label_histories"]
+    allowed = {
+        "nominal_visit_labels",
+        "retained_internal_typed_keys",
+        "included_typed_keys",
+        "excluded_key_reason_counts",
+        "distinct_unlabeled_history_cells",
+        "unlabeled_history_cell_size_histogram",
+        "labeled_multiwave_tuples_exported",
+        "interpretation",
+    }
+    coverage._require(set(history) == allowed, "public history fields mismatch")
+    coverage._require(
+        history["nominal_visit_labels"] == ["Baseline", "12 months", "24 months"],
+        "public nominal visit labels mismatch",
+    )
+    coverage._require(isinstance(history["interpretation"], str), "history interpretation shape")
+    coverage._require(
+        history["labeled_multiwave_tuples_exported"] is False, "labeled history export"
+    )
+    histogram = history["unlabeled_history_cell_size_histogram"]
+    coverage._require(isinstance(histogram, dict), "history histogram shape")
+    for size, frequency in histogram.items():
+        coverage._require(
+            isinstance(size, str)
+            and size.isdecimal()
+            and str(int(size)) == size
+            and int(size) > 0
+            and type(frequency) is int
+            and frequency > 0,
+            "history histogram count bounds",
+        )
+    for name in (
+        "included_typed_keys",
+        "retained_internal_typed_keys",
+        "distinct_unlabeled_history_cells",
+    ):
+        coverage._require(type(history[name]) is int and history[name] >= 0, "history total bounds")
+    exclusions = history["excluded_key_reason_counts"]
+    coverage._require(isinstance(exclusions, dict), "history exclusion shape")
+    coverage._require(
+        all(type(value) is int and value >= 0 for value in exclusions.values()),
+        "history exclusion bounds",
+    )
+    coverage._require(
+        sum(histogram.values()) == history["distinct_unlabeled_history_cells"],
+        "history cell conservation",
+    )
+    coverage._require(
+        sum(int(size) * frequency for size, frequency in histogram.items())
+        == history["included_typed_keys"],
+        "history people conservation",
+    )
+    coverage._require(
+        history["included_typed_keys"] + sum(exclusions.values())
+        == history["retained_internal_typed_keys"],
+        "history inclusion conservation",
+    )

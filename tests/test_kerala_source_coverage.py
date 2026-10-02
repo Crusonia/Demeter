@@ -69,12 +69,18 @@ def test_literal_source_histories_retain_missing_and_separate_diagnosis():
     result = MODULE.aggregate_representation([primary], secondary, pf, sf)
     history = result["source_defined_nominal_visit_label_histories"]
     assert history["included_typed_keys"] == 1
-    assert history["aggregate_paths"][0]["nominal_visit_source_labels"] == [
-        "string:IGT",
-        "string:NGT",
-        "absent",
-    ]
-    assert history["aggregate_paths"][0]["total_recorded_diagnosis_flag"] == "string:Yes"
+    assert history["distinct_unlabeled_history_cells"] == 1
+    assert history["unlabeled_history_cell_size_histogram"] == {1: 1}
+    assert history["labeled_multiwave_tuples_exported"] is False
+    assert history["retained_internal_typed_keys"] == 1
+    serialized = json.dumps(result)
+    for forbidden in (
+        "aggregate_paths",
+        "nominal_visit_source_labels",
+        "assigned_arm_label",
+        "total_recorded_diagnosis_flag",
+    ):
+        assert forbidden not in serialized
     assert "private-id" not in json.dumps(result)
     assert result["secondary"]["distinct_timepoint_cardinality_per_key"] == {3: 1}
     secondary[1]["arms"] = ("string", "Intervention")
@@ -84,6 +90,15 @@ def test_literal_source_histories_retain_missing_and_separate_diagnosis():
         "linked_assignment_unverified_or_drifted": 1
     }
     assert drift["linked_long_assignment_consistency"]["arms"]["exact_typed_disagreements"] == 1
+    drift_history = drift["source_defined_nominal_visit_label_histories"]
+    assert drift_history["retained_internal_typed_keys"] == 1
+    assert drift_history["distinct_unlabeled_history_cells"] == 0
+    assert drift_history["unlabeled_history_cell_size_histogram"] == {}
+    assert (
+        drift_history["included_typed_keys"]
+        + sum(drift_history["excluded_key_reason_counts"].values())
+        == 1
+    )
 
 
 def test_unsupported_keys_do_not_create_valid_timepoint_pairs():
@@ -352,3 +367,58 @@ def test_header_reader_direct_identifiers_rejected(tmp_path):
     workbook(path, header="date_of_birth")
     with pytest.raises(ValueError, match="direct identifier"):
         read_headers_only(path)
+
+
+def test_unlabeled_history_histogram_keeps_singletons_and_conserves_all_people():
+    protocol = json.loads(
+        (ROOT / "docs/validation/kerala-joint-coverage-intake-protocol-v2.json").read_text()
+    )
+    pf, sf = protocol["minimum_fields_primary"], protocol["minimum_fields_secondary"]
+    primary, secondary = [], []
+    for index, labels in enumerate(
+        (("IGT", "NGT", None), ("IGT", "NGT", None), ("NGT", "NGT", "NGT"))
+    ):
+        key = ("string", "private-key-" + str(index))
+        wide = {field: ("absent", None) for field in pf}
+        wide.update(
+            participant_id=key,
+            timepoint=("string", "Baseline"),
+            arms0=("string", "Control"),
+            cluster0=("string", "private-cluster"),
+            tot_diab_incidence=("string", "Yes"),
+        )
+        primary.append(wide)
+        for visit, label in zip(("Baseline", "12 months", "24 months"), labels, strict=True):
+            row = {field: ("absent", None) for field in sf}
+            row.update(
+                participant_id=key,
+                timepoint=("string", visit),
+                arms=("string", "Control"),
+                cluster=("string", "private-cluster"),
+                glycemiaADA=("absent", None) if label is None else ("string", label),
+            )
+            secondary.append(row)
+    result = MODULE.aggregate_representation(primary, secondary, pf, sf)
+    history = result["source_defined_nominal_visit_label_histories"]
+    assert history["retained_internal_typed_keys"] == history["included_typed_keys"] == 3
+    assert history["distinct_unlabeled_history_cells"] == 2
+    assert history["unlabeled_history_cell_size_histogram"] == {1: 1, 2: 1}
+    histogram = history["unlabeled_history_cell_size_histogram"]
+    assert sum(histogram.values()) == history["distinct_unlabeled_history_cells"]
+    assert sum(size * count for size, count in histogram.items()) == history["included_typed_keys"]
+    assert (
+        history["included_typed_keys"] + sum(history["excluded_key_reason_counts"].values())
+        == history["retained_internal_typed_keys"]
+    )
+    serialized = json.dumps(result)
+    for forbidden in (
+        "aggregate_paths",
+        "nominal_visit_source_labels",
+        "assigned_arm_label",
+        "total_recorded_diagnosis_flag",
+        "private-key",
+        "private-cluster",
+    ):
+        assert forbidden not in serialized
+    for labeled_component in ("string:IGT", "string:NGT", "string:Control", "string:Yes"):
+        assert labeled_component not in json.dumps(history)

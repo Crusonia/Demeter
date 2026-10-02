@@ -1,4 +1,4 @@
-"""Inspect the recorded intake boundary without accessing participant values."""
+"""Verify intake artifacts or appraise selected source fields with unlabeled history coverage."""
 
 from __future__ import annotations
 

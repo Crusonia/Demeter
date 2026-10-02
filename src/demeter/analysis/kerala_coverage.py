@@ -833,18 +833,13 @@ def aggregate_representation(primary, secondary, primary_fields, secondary_field
         paths[(_safe_code(*wide["arms0"]), *labels, _safe_code(*wide["tot_diab_incidence"]))] += 1
     result["source_defined_nominal_visit_label_histories"] = {
         "nominal_visit_labels": list(visits),
+        "retained_internal_typed_keys": len(s_groups),
         "included_typed_keys": sum(paths.values()),
         "excluded_key_reason_counts": dict(sorted(excluded.items())),
-        "interpretation": "Released ADA labels at literal nominal visits, retaining missing labels and separate total diagnosis flag; no latent H/P/D mapping or remission inference.",
-        "aggregate_paths": [
-            {
-                "assigned_arm_label": key[0],
-                "nominal_visit_source_labels": list(key[1:4]),
-                "total_recorded_diagnosis_flag": key[4],
-                "count": count,
-            }
-            for key, count in sorted(paths.items())
-        ],
+        "distinct_unlabeled_history_cells": len(paths),
+        "unlabeled_history_cell_size_histogram": dict(sorted(Counter(paths.values()).items())),
+        "labeled_multiwave_tuples_exported": False,
+        "interpretation": "History grouping remains private. Only coverage totals and an unlabeled cell-size histogram are released; no labeled trajectory tuple, latent H/P/D mapping or remission inference.",
     }
     result["linked_long_assignment_consistency"] = {
         key: dict(sorted(count.items())) for key, count in sorted(assignments.items())
@@ -890,7 +885,7 @@ def appraise_selected_values(root: Path, source_cache: Path, protocol_commit: st
     primary = _selected_rows(source_cache / files[39461149]["raw_filename"], pf)
     secondary = _selected_rows(source_cache / files[39461152]["raw_filename"], sf)
     return {
-        "report_id": "kerala-selected-source-representation-v1",
+        "report_id": "kerala-selected-source-representation-v2",
         "source_id": "kerala2018_public_trial_v3",
         "executed_at_utc": datetime.now(timezone.utc).isoformat(),
         "prior_committed_protocol": commit,
@@ -909,7 +904,7 @@ def appraise_selected_values(root: Path, source_cache: Path, protocol_commit: st
             {key: item[key] for key in ("file_id", "raw_filename", "bytes", "sha256", "md5")}
             for item in receipts["workbook_receipts"]
         ],
-        "scope": "Selected-field aggregate representation and source-defined nominal visit label histories; no IDs, cluster keys, participant assays or individual paths exported.",
+        "scope": "Selected-field aggregate representation and unlabeled nominal-visit history coverage; no IDs, cluster keys, participant assays or labeled multiwave paths exported.",
         "aggregate_representation": aggregate_representation(primary, secondary, pf, sf),
         "record_rows_collapsed": False,
         "raw_numeric_code_meanings_inferred": False,
