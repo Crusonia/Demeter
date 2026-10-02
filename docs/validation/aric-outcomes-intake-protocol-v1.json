@@ -1,0 +1,903 @@
+{
+  "protocol_id": "aric-public-outcomes-intake-v1",
+  "authored_at_utc": "2026-10-02T21:18:56.648219+00:00",
+  "chronology": "Used-source development: all selected publication counts, definitions, and embedded diagrams were inspected before this proposal. Not preregistration or independent validation. Frozen contract must precede new parser replay and derived audit. No participant/restricted data. Additive publicNLM abstract acquisition succeeded after publisherHTML ordinaryrequest403; exact primaryabstract original margins/cumulative counts were inspected before this amendment. No independent validation claim. Additiveguard amendment binds nativePDFXObject decodedstream/palette bytes and structuralmetadata, without Pillow/PNGencoding dependency or numericOCR. Frozen before the new source adapter replay and derived reconstruction report; the mathematical helper uses synthetic inputs only before source replay.",
+  "design_ids": [
+    "I-01",
+    "I-05",
+    "I-07",
+    "I-11",
+    "I-12",
+    "F-04",
+    "F-08",
+    "T-05",
+    "T-08"
+  ],
+  "estimand": "Two overlapping assay-defined publication endpoint partitions for source-selected2497 older adults, with original visit attendance dispositions kept separately. No uniform follow-up time, latent health-state transition, diabetes remission, dietary effect, or population mortality likelihood.",
+  "decoder": {
+    "library": "pypdf",
+    "version": "6.19.0",
+    "no_dependency_changes": true,
+    "xml_library": "Pythonstdlib xml.etree.ElementTree; no externalDTD/entity/network resolution"
+  },
+  "selectors": {
+    "identity": {
+      "pdf_page_1based": 1,
+      "normalized_text_sha256": "742716f734d7b62171cbe4a4e99383231382986bad7f0de613fd80a5703aeb9f",
+      "normalization": "pypdf extract_text default; Unicode whitespace split then single ASCII space join; UTF-8 SHA256",
+      "unique_anchor": "Supplementary Online Content",
+      "anchor_occurrences": 1
+    },
+    "attendance": {
+      "pdf_page_1based": 3,
+      "normalized_text_sha256": "b4cb5929572c8e95b39c75d692b2917aced34f6d6a06ce5edb1a5daf7f5e5fd7",
+      "normalization": "pypdf extract_text default; Unicode whitespace split then single ASCII space join; UTF-8 SHA256",
+      "unique_anchor": "eTable 1. Baseline (Visit 5, 2011-2013) characteristics of participants by attendance at visit 6 (2016-2017)",
+      "anchor_occurrences": 1
+    },
+    "overall_panels": {
+      "pdf_page_1based": 4,
+      "normalized_text_sha256": "41774ac0897c7a7e91770ced8e34b7ae0c6d0f924213958aa847ce433653f195",
+      "normalization": "pypdf extract_text default; Unicode whitespace split then single ASCII space join; UTF-8 SHA256",
+      "unique_anchor": "eTable 2. Cumulative incidence over 6.5 years (maximum)",
+      "anchor_occurrences": 1
+    },
+    "table2_definition": {
+      "pdf_page_1based": 5,
+      "normalized_text_sha256": "e4444f0568e9eea09a404185f7f99dc084d64525801aee0a88d9ee758a4b9b61",
+      "normalization": "pypdf extract_text default; Unicode whitespace split then single ASCII space join; UTF-8 SHA256",
+      "unique_anchor": "Abbreviation: FG, fasting glucose; IFG, impaired fasting glucose.",
+      "anchor_occurrences": 1
+    },
+    "selection_flowchart": {
+      "pdf_page_1based": 9,
+      "normalized_text_sha256": "7a196cc2f0428a108e8a4bb18ed2b5a53f755cecb63300b738cfd7b11fab13a3",
+      "normalization": "pypdf extract_text default; Unicode whitespace split then single ASCII space join; UTF-8 SHA256",
+      "unique_anchor": "eFigure 1. Participant flow chart",
+      "anchor_occurrences": 1,
+      "embedded_image": {
+        "xobject_path": "/Resources/XObject/Im0",
+        "resource_xobject_count": 1,
+        "expected_name": "/Im0",
+        "subtype": "/Image",
+        "width": 460,
+        "height": 656,
+        "bits_per_component": 8,
+        "filter": "/FlateDecode",
+        "decode_parms": null,
+        "decoded_stream_size_bytes": 301760,
+        "decoded_stream_sha256": "ac1334d2ef45c23803a483bad40235ba99214421de881a04abe81eed12d2bd13",
+        "colorspace": {
+          "family": "/Indexed",
+          "base": "/DeviceRGB",
+          "maximum_index": 223,
+          "lookup_stream_size_bytes": 672,
+          "lookup_stream_sha256": "ac4e9b18ff3ff069be57e605b5a8f979bcfba4128e4794234947c4db379762d0"
+        },
+        "inspection": "Previouslyvisually inspected rasterdiagram corroborates3412 analytic,915 alive nonattenders,2497 final. Current automatedguard only verifies exact sourceimage bytes/structure, no OCR numericalcapture or imageexport."
+      }
+    }
+  },
+  "attendance_column_guard": "Characteristic (Visit 5)* Overall Attended Visit 6 Did not Attend Visit 6 Alive Dead",
+  "panel_selectors": {
+    "a1c_normal": {
+      "selector": "overall_panels",
+      "unique_section_heading": "Normoglycemia A1C <5.7% at Baseline (2011-2013)",
+      "followup_heading": "Status at Follow-up (2016-2017)",
+      "exact_column_header": "Baseline N Normoglycemia A1C <5.7% Prediabetes A1C 5.7-6.4% Total Diabetes a Mortality",
+      "expected_column_count": 5,
+      "overall_row_occurrences_within_section": 1,
+      "section_end": "Age",
+      "row_pattern": "Overall (?P<baseline_count>\\d+) (?P<followup_normal_count>\\d+) \\(\\d+%\\) (?P<followup_prediabetes_count>\\d+) \\(\\d+%\\) (?P<displayed_diabetes_count>\\d+) \\(\\d+%\\) (?P<displayed_mortality_count>\\d+) \\(\\d+%\\)",
+      "selected_percentages": false
+    },
+    "a1c_prediabetes": {
+      "selector": "overall_panels",
+      "unique_section_heading": "Prediabetes A1C 5.7-6.4% at Baseline (2011-2013)",
+      "followup_heading": "Status at Follow-up (2016-2017)",
+      "exact_column_header": "Baseline N Normoglycemia A1C <5.7% Prediabetes A1C 5.7-6.4% Total Diabetes a Mortality",
+      "expected_column_count": 5,
+      "overall_row_occurrences_within_section": 1,
+      "section_end": "Age",
+      "row_pattern": "Overall (?P<baseline_count>\\d+) (?P<followup_normal_count>\\d+) \\(\\d+%\\) (?P<followup_prediabetes_count>\\d+) \\(\\d+%\\) (?P<displayed_diabetes_count>\\d+) \\(\\d+%\\) (?P<displayed_mortality_count>\\d+) \\(\\d+%\\)",
+      "selected_percentages": false
+    },
+    "fg_normal": {
+      "selector": "overall_panels",
+      "unique_section_heading": "Normoglycemia FG <100 mg/dL at Baseline (2011-2013)",
+      "followup_heading": "Status at Follow-up (2016-2017)",
+      "exact_column_header": "Baseline N Normoglycemia FG <100 mg/dL Prediabetes IFG 100-125 mg/dL Total Diabetes a Mortality",
+      "expected_column_count": 5,
+      "overall_row_occurrences_within_section": 1,
+      "section_end": "Age",
+      "row_pattern": "Overall (?P<baseline_count>\\d+) (?P<followup_normal_count>\\d+) \\(\\d+%\\) (?P<followup_prediabetes_count>\\d+) \\(\\d+%\\) (?P<displayed_diabetes_count>\\d+) \\(\\d+%\\) (?P<displayed_mortality_count>\\d+) \\(\\d+%\\)",
+      "selected_percentages": false
+    },
+    "fg_prediabetes": {
+      "selector": "overall_panels",
+      "unique_section_heading": "Prediabetes IFG 100-125 mg/dL at Baseline (2011-2013)",
+      "followup_heading": "Status at Follow-up (2016-2017)",
+      "exact_column_header": "Baseline N Normoglycemia FG <100 mg/dL Prediabetes IFG 100-125 mg/dL Total Diabetes a Mortality",
+      "expected_column_count": 5,
+      "overall_row_occurrences_within_section": 1,
+      "section_end": "Age",
+      "row_pattern": "Overall (?P<baseline_count>\\d+) (?P<followup_normal_count>\\d+) \\(\\d+%\\) (?P<followup_prediabetes_count>\\d+) \\(\\d+%\\) (?P<displayed_diabetes_count>\\d+) \\(\\d+%\\) (?P<displayed_mortality_count>\\d+) \\(\\d+%\\)",
+      "selected_percentages": false
+    }
+  },
+  "numeric_definition_selectors": {
+    "a1c_thresholds": {
+      "panel_selector": "a1c_normal",
+      "component": "exact_column_header"
+    },
+    "fg_thresholds": {
+      "panel_selector": "fg_normal",
+      "component": "exact_column_header"
+    },
+    "dm_thresholds": {
+      "selector": "table2_definition",
+      "component": "definition_guard_from_unique_start"
+    },
+    "maximum_followup": {
+      "selector": "overall_panels",
+      "component": "normalized_page_text"
+    },
+    "baseline_period": {
+      "panel_selector": "a1c_normal",
+      "component": "unique_section_heading"
+    },
+    "followup_period": {
+      "panel_selector": "a1c_normal",
+      "component": "followup_heading"
+    }
+  },
+  "captures": [
+    {
+      "name": "original_analytic_count",
+      "selector": "attendance",
+      "row_pattern": "(?<!\\S)N (?P<original_analytic_count>\\d+) (?P<attended_visit6_count>\\d+) (?P<alive_nonattender_count>\\d+) (?P<died_before_visit6_count>\\d+) (?=Age )",
+      "group": "original_analytic_count",
+      "expected": 3412,
+      "type": "integer",
+      "unit": "persons",
+      "source_locator": "PDF page 3, attendance, unique selected pattern/group",
+      "source": "supplement"
+    },
+    {
+      "name": "attended_visit6_count",
+      "selector": "attendance",
+      "row_pattern": "(?<!\\S)N (?P<original_analytic_count>\\d+) (?P<attended_visit6_count>\\d+) (?P<alive_nonattender_count>\\d+) (?P<died_before_visit6_count>\\d+) (?=Age )",
+      "group": "attended_visit6_count",
+      "expected": 2089,
+      "type": "integer",
+      "unit": "persons",
+      "source_locator": "PDF page 3, attendance, unique selected pattern/group",
+      "source": "supplement"
+    },
+    {
+      "name": "alive_nonattender_count",
+      "selector": "attendance",
+      "row_pattern": "(?<!\\S)N (?P<original_analytic_count>\\d+) (?P<attended_visit6_count>\\d+) (?P<alive_nonattender_count>\\d+) (?P<died_before_visit6_count>\\d+) (?=Age )",
+      "group": "alive_nonattender_count",
+      "expected": 915,
+      "type": "integer",
+      "unit": "persons",
+      "source_locator": "PDF page 3, attendance, unique selected pattern/group",
+      "source": "supplement"
+    },
+    {
+      "name": "died_before_visit6_count",
+      "selector": "attendance",
+      "row_pattern": "(?<!\\S)N (?P<original_analytic_count>\\d+) (?P<attended_visit6_count>\\d+) (?P<alive_nonattender_count>\\d+) (?P<died_before_visit6_count>\\d+) (?=Age )",
+      "group": "died_before_visit6_count",
+      "expected": 408,
+      "type": "integer",
+      "unit": "persons",
+      "source_locator": "PDF page 3, attendance, unique selected pattern/group",
+      "source": "supplement"
+    },
+    {
+      "name": "selected_count",
+      "selector": "overall_panels",
+      "row_pattern": "ARIC Study \\(2011-2017\\), n=(?P<selected_count>\\d+) (?=A1C )",
+      "group": "selected_count",
+      "expected": 2497,
+      "type": "integer",
+      "unit": "persons",
+      "source_locator": "PDF page 4, overall_panels, unique selected pattern/group",
+      "source": "supplement"
+    },
+    {
+      "name": "a1c_normal_baseline_count",
+      "panel_selector": "a1c_normal",
+      "group": "baseline_count",
+      "expected": 1400,
+      "type": "integer",
+      "unit": "persons",
+      "source_locator": "PDF page4, eTable2, a1c_normal unique Overall row, ordered baseline_count column",
+      "source": "supplement"
+    },
+    {
+      "name": "a1c_normal_followup_normal_count",
+      "panel_selector": "a1c_normal",
+      "group": "followup_normal_count",
+      "expected": 893,
+      "type": "integer",
+      "unit": "persons",
+      "source_locator": "PDF page4, eTable2, a1c_normal unique Overall row, ordered followup_normal_count column",
+      "source": "supplement"
+    },
+    {
+      "name": "a1c_normal_followup_prediabetes_count",
+      "panel_selector": "a1c_normal",
+      "group": "followup_prediabetes_count",
+      "expected": 239,
+      "type": "integer",
+      "unit": "persons",
+      "source_locator": "PDF page4, eTable2, a1c_normal unique Overall row, ordered followup_prediabetes_count column",
+      "source": "supplement"
+    },
+    {
+      "name": "a1c_normal_displayed_diabetes_count",
+      "panel_selector": "a1c_normal",
+      "group": "displayed_diabetes_count",
+      "expected": 41,
+      "type": "integer",
+      "unit": "persons",
+      "source_locator": "PDF page4, eTable2, a1c_normal unique Overall row, ordered displayed_diabetes_count column",
+      "source": "supplement"
+    },
+    {
+      "name": "a1c_normal_displayed_mortality_count",
+      "panel_selector": "a1c_normal",
+      "group": "displayed_mortality_count",
+      "expected": 227,
+      "type": "integer",
+      "unit": "persons",
+      "source_locator": "PDF page4, eTable2, a1c_normal unique Overall row, ordered displayed_mortality_count column",
+      "source": "supplement"
+    },
+    {
+      "name": "a1c_prediabetes_baseline_count",
+      "panel_selector": "a1c_prediabetes",
+      "group": "baseline_count",
+      "expected": 1097,
+      "type": "integer",
+      "unit": "persons",
+      "source_locator": "PDF page4, eTable2, a1c_prediabetes unique Overall row, ordered baseline_count column",
+      "source": "supplement"
+    },
+    {
+      "name": "a1c_prediabetes_followup_normal_count",
+      "panel_selector": "a1c_prediabetes",
+      "group": "followup_normal_count",
+      "expected": 148,
+      "type": "integer",
+      "unit": "persons",
+      "source_locator": "PDF page4, eTable2, a1c_prediabetes unique Overall row, ordered followup_normal_count column",
+      "source": "supplement"
+    },
+    {
+      "name": "a1c_prediabetes_followup_prediabetes_count",
+      "panel_selector": "a1c_prediabetes",
+      "group": "followup_prediabetes_count",
+      "expected": 645,
+      "type": "integer",
+      "unit": "persons",
+      "source_locator": "PDF page4, eTable2, a1c_prediabetes unique Overall row, ordered followup_prediabetes_count column",
+      "source": "supplement"
+    },
+    {
+      "name": "a1c_prediabetes_displayed_diabetes_count",
+      "panel_selector": "a1c_prediabetes",
+      "group": "displayed_diabetes_count",
+      "expected": 97,
+      "type": "integer",
+      "unit": "persons",
+      "source_locator": "PDF page4, eTable2, a1c_prediabetes unique Overall row, ordered displayed_diabetes_count column",
+      "source": "supplement"
+    },
+    {
+      "name": "a1c_prediabetes_displayed_mortality_count",
+      "panel_selector": "a1c_prediabetes",
+      "group": "displayed_mortality_count",
+      "expected": 207,
+      "type": "integer",
+      "unit": "persons",
+      "source_locator": "PDF page4, eTable2, a1c_prediabetes unique Overall row, ordered displayed_mortality_count column",
+      "source": "supplement"
+    },
+    {
+      "name": "fg_normal_baseline_count",
+      "panel_selector": "fg_normal",
+      "group": "baseline_count",
+      "expected": 1035,
+      "type": "integer",
+      "unit": "persons",
+      "source_locator": "PDF page4, eTable2, fg_normal unique Overall row, ordered baseline_count column",
+      "source": "supplement"
+    },
+    {
+      "name": "fg_normal_followup_normal_count",
+      "panel_selector": "fg_normal",
+      "group": "followup_normal_count",
+      "expected": 731,
+      "type": "integer",
+      "unit": "persons",
+      "source_locator": "PDF page4, eTable2, fg_normal unique Overall row, ordered followup_normal_count column",
+      "source": "supplement"
+    },
+    {
+      "name": "fg_normal_followup_prediabetes_count",
+      "panel_selector": "fg_normal",
+      "group": "followup_prediabetes_count",
+      "expected": 80,
+      "type": "integer",
+      "unit": "persons",
+      "source_locator": "PDF page4, eTable2, fg_normal unique Overall row, ordered followup_prediabetes_count column",
+      "source": "supplement"
+    },
+    {
+      "name": "fg_normal_displayed_diabetes_count",
+      "panel_selector": "fg_normal",
+      "group": "displayed_diabetes_count",
+      "expected": 26,
+      "type": "integer",
+      "unit": "persons",
+      "source_locator": "PDF page4, eTable2, fg_normal unique Overall row, ordered displayed_diabetes_count column",
+      "source": "supplement"
+    },
+    {
+      "name": "fg_normal_displayed_mortality_count",
+      "panel_selector": "fg_normal",
+      "group": "displayed_mortality_count",
+      "expected": 198,
+      "type": "integer",
+      "unit": "persons",
+      "source_locator": "PDF page4, eTable2, fg_normal unique Overall row, ordered displayed_mortality_count column",
+      "source": "supplement"
+    },
+    {
+      "name": "fg_prediabetes_baseline_count",
+      "panel_selector": "fg_prediabetes",
+      "group": "baseline_count",
+      "expected": 1462,
+      "type": "integer",
+      "unit": "persons",
+      "source_locator": "PDF page4, eTable2, fg_prediabetes unique Overall row, ordered baseline_count column",
+      "source": "supplement"
+    },
+    {
+      "name": "fg_prediabetes_followup_normal_count",
+      "panel_selector": "fg_prediabetes",
+      "group": "followup_normal_count",
+      "expected": 647,
+      "type": "integer",
+      "unit": "persons",
+      "source_locator": "PDF page4, eTable2, fg_prediabetes unique Overall row, ordered followup_normal_count column",
+      "source": "supplement"
+    },
+    {
+      "name": "fg_prediabetes_followup_prediabetes_count",
+      "panel_selector": "fg_prediabetes",
+      "group": "followup_prediabetes_count",
+      "expected": 467,
+      "type": "integer",
+      "unit": "persons",
+      "source_locator": "PDF page4, eTable2, fg_prediabetes unique Overall row, ordered followup_prediabetes_count column",
+      "source": "supplement"
+    },
+    {
+      "name": "fg_prediabetes_displayed_diabetes_count",
+      "panel_selector": "fg_prediabetes",
+      "group": "displayed_diabetes_count",
+      "expected": 112,
+      "type": "integer",
+      "unit": "persons",
+      "source_locator": "PDF page4, eTable2, fg_prediabetes unique Overall row, ordered displayed_diabetes_count column",
+      "source": "supplement"
+    },
+    {
+      "name": "fg_prediabetes_displayed_mortality_count",
+      "panel_selector": "fg_prediabetes",
+      "group": "displayed_mortality_count",
+      "expected": 236,
+      "type": "integer",
+      "unit": "persons",
+      "source_locator": "PDF page4, eTable2, fg_prediabetes unique Overall row, ordered displayed_mortality_count column",
+      "source": "supplement"
+    },
+    {
+      "name": "a1c_prediabetes_lower",
+      "definition_selector": "a1c_thresholds",
+      "pattern": "Prediabetes A1C (?P<a1c_prediabetes_lower>\\d+\\.\\d+)-(?P<a1c_prediabetes_upper>\\d+\\.\\d+)%",
+      "group": "a1c_prediabetes_lower",
+      "expected": 5.7,
+      "type": "decimal",
+      "unit": "%",
+      "source_locator": "a1c_thresholds exact frozen scope, named group a1c_prediabetes_lower",
+      "source": "supplement"
+    },
+    {
+      "name": "a1c_prediabetes_upper",
+      "definition_selector": "a1c_thresholds",
+      "pattern": "Prediabetes A1C (?P<a1c_prediabetes_lower>\\d+\\.\\d+)-(?P<a1c_prediabetes_upper>\\d+\\.\\d+)%",
+      "group": "a1c_prediabetes_upper",
+      "expected": 6.4,
+      "type": "decimal",
+      "unit": "%",
+      "source_locator": "a1c_thresholds exact frozen scope, named group a1c_prediabetes_upper",
+      "source": "supplement"
+    },
+    {
+      "name": "fg_prediabetes_lower",
+      "definition_selector": "fg_thresholds",
+      "pattern": "Prediabetes IFG (?P<fg_prediabetes_lower>\\d+)-(?P<fg_prediabetes_upper>\\d+) mg/dL",
+      "group": "fg_prediabetes_lower",
+      "expected": 100,
+      "type": "integer",
+      "unit": "mg/dL",
+      "source_locator": "fg_thresholds exact frozen scope, named group fg_prediabetes_lower",
+      "source": "supplement"
+    },
+    {
+      "name": "fg_prediabetes_upper",
+      "definition_selector": "fg_thresholds",
+      "pattern": "Prediabetes IFG (?P<fg_prediabetes_lower>\\d+)-(?P<fg_prediabetes_upper>\\d+) mg/dL",
+      "group": "fg_prediabetes_upper",
+      "expected": 125,
+      "type": "integer",
+      "unit": "mg/dL",
+      "source_locator": "fg_thresholds exact frozen scope, named group fg_prediabetes_upper",
+      "source": "supplement"
+    },
+    {
+      "name": "diabetes_a1c_threshold",
+      "definition_selector": "dm_thresholds",
+      "pattern": "visit 6 A1C ≥(?P<diabetes_a1c_threshold>\\d+\\.\\d+)%",
+      "group": "diabetes_a1c_threshold",
+      "expected": 6.5,
+      "type": "decimal",
+      "unit": "%",
+      "source_locator": "dm_thresholds exact frozen scope, named group diabetes_a1c_threshold",
+      "source": "supplement"
+    },
+    {
+      "name": "diabetes_fg_threshold",
+      "definition_selector": "dm_thresholds",
+      "pattern": "visit 6 FG ≥(?P<diabetes_fg_threshold>\\d+) mg/dL",
+      "group": "diabetes_fg_threshold",
+      "expected": 126,
+      "type": "integer",
+      "unit": "mg/dL",
+      "source_locator": "dm_thresholds exact frozen scope, named group diabetes_fg_threshold",
+      "source": "supplement"
+    },
+    {
+      "name": "maximum_followup_years",
+      "definition_selector": "maximum_followup",
+      "pattern": "eTable 2\\. Cumulative incidence over (?P<maximum_followup_years>\\d+\\.\\d+) years \\(maximum\\)",
+      "group": "maximum_followup_years",
+      "expected": 6.5,
+      "type": "decimal",
+      "unit": "years",
+      "source_locator": "maximum_followup exact frozen scope, named group maximum_followup_years",
+      "source": "supplement"
+    },
+    {
+      "name": "baseline_year_start",
+      "definition_selector": "baseline_period",
+      "pattern": "at Baseline \\((?P<baseline_year_start>\\d{4})-(?P<baseline_year_end>\\d{4})\\)",
+      "group": "baseline_year_start",
+      "expected": 2011,
+      "type": "integer",
+      "unit": "calendar_year",
+      "source_locator": "baseline_period exact frozen scope, named group baseline_year_start",
+      "source": "supplement"
+    },
+    {
+      "name": "baseline_year_end",
+      "definition_selector": "baseline_period",
+      "pattern": "at Baseline \\((?P<baseline_year_start>\\d{4})-(?P<baseline_year_end>\\d{4})\\)",
+      "group": "baseline_year_end",
+      "expected": 2013,
+      "type": "integer",
+      "unit": "calendar_year",
+      "source_locator": "baseline_period exact frozen scope, named group baseline_year_end",
+      "source": "supplement"
+    },
+    {
+      "name": "followup_year_start",
+      "definition_selector": "followup_period",
+      "pattern": "Status at Follow-up \\((?P<followup_year_start>\\d{4})-(?P<followup_year_end>\\d{4})\\)",
+      "group": "followup_year_start",
+      "expected": 2016,
+      "type": "integer",
+      "unit": "calendar_year",
+      "source_locator": "followup_period exact frozen scope, named group followup_year_start",
+      "source": "supplement"
+    },
+    {
+      "name": "followup_year_end",
+      "definition_selector": "followup_period",
+      "pattern": "Status at Follow-up \\((?P<followup_year_start>\\d{4})-(?P<followup_year_end>\\d{4})\\)",
+      "group": "followup_year_end",
+      "expected": 2017,
+      "type": "integer",
+      "unit": "calendar_year",
+      "source_locator": "followup_period exact frozen scope, named group followup_year_end",
+      "source": "supplement"
+    },
+    {
+      "name": "original_a1c_prediabetes_count",
+      "source": "pubmed_abstract",
+      "xml_selector": "results",
+      "pattern": "A total of (?P<original_a1c_prediabetes_count>\\d+) participants \\(\\d+%\\) had HbA1c levels of 5\\.7% to 6\\.4%",
+      "group": "original_a1c_prediabetes_count",
+      "expected": 1490,
+      "type": "integer",
+      "unit": "persons",
+      "source_locator": "./PubmedArticle/MedlineCitation/Article/Abstract/AbstractText[@Label='RESULTS'], unique pattern/group original_a1c_prediabetes_count"
+    },
+    {
+      "name": "original_fg_prediabetes_count",
+      "source": "pubmed_abstract",
+      "xml_selector": "results",
+      "pattern": "(?P<original_fg_prediabetes_count>\\d+) \\(\\d+%\\) had IFG,",
+      "group": "original_fg_prediabetes_count",
+      "expected": 1996,
+      "type": "integer",
+      "unit": "persons",
+      "source_locator": "./PubmedArticle/MedlineCitation/Article/Abstract/AbstractText[@Label='RESULTS'], unique pattern/group original_fg_prediabetes_count"
+    },
+    {
+      "name": "original_either_prediabetes_count",
+      "source": "pubmed_abstract",
+      "xml_selector": "results",
+      "pattern": "(?P<original_either_prediabetes_count>\\d+) \\(\\d+%\\) met the HbA1c or IFG criteria",
+      "group": "original_either_prediabetes_count",
+      "expected": 2482,
+      "type": "integer",
+      "unit": "persons",
+      "source_locator": "./PubmedArticle/MedlineCitation/Article/Abstract/AbstractText[@Label='RESULTS'], unique pattern/group original_either_prediabetes_count"
+    },
+    {
+      "name": "original_both_prediabetes_count",
+      "source": "pubmed_abstract",
+      "xml_selector": "results",
+      "pattern": "(?P<original_both_prediabetes_count>\\d+) \\(\\d+%\\) met both the HbA1c and IFG criteria",
+      "group": "original_both_prediabetes_count",
+      "expected": 1004,
+      "type": "integer",
+      "unit": "persons",
+      "source_locator": "./PubmedArticle/MedlineCitation/Article/Abstract/AbstractText[@Label='RESULTS'], unique pattern/group original_both_prediabetes_count"
+    },
+    {
+      "name": "cumulative_total_diabetes_count",
+      "source": "pubmed_abstract",
+      "xml_selector": "results",
+      "pattern": "there were (?P<cumulative_total_diabetes_count>\\d+) incident total diabetes cases",
+      "group": "cumulative_total_diabetes_count",
+      "expected": 156,
+      "type": "integer",
+      "unit": "persons",
+      "source_locator": "./PubmedArticle/MedlineCitation/Article/Abstract/AbstractText[@Label='RESULTS'], unique pattern/group cumulative_total_diabetes_count"
+    },
+    {
+      "name": "cumulative_mortality_count",
+      "source": "pubmed_abstract",
+      "xml_selector": "results",
+      "pattern": "and (?P<cumulative_mortality_count>\\d+) deaths\\.",
+      "group": "cumulative_mortality_count",
+      "expected": 434,
+      "type": "integer",
+      "unit": "persons",
+      "source_locator": "./PubmedArticle/MedlineCitation/Article/Abstract/AbstractText[@Label='RESULTS'], unique pattern/group cumulative_mortality_count"
+    },
+    {
+      "name": "median_followup_years",
+      "source": "pubmed_abstract",
+      "xml_selector": "design",
+      "pattern": "median \\[range\\] follow-up, (?P<median_followup_years>\\d+\\.\\d+) \\[",
+      "group": "median_followup_years",
+      "expected": 5.0,
+      "type": "decimal",
+      "unit": "years",
+      "source_locator": "./PubmedArticle/MedlineCitation/Article/Abstract/AbstractText[@Label='DESIGN, SETTING, AND PARTICIPANTS'], unique pattern/group median_followup_years"
+    },
+    {
+      "name": "minimum_followup_years",
+      "source": "pubmed_abstract",
+      "xml_selector": "design",
+      "pattern": "median \\[range\\] follow-up, \\d+\\.\\d+ \\[(?P<minimum_followup_years>\\d+\\.\\d+)-",
+      "group": "minimum_followup_years",
+      "expected": 0.1,
+      "type": "decimal",
+      "unit": "years",
+      "source_locator": "./PubmedArticle/MedlineCitation/Article/Abstract/AbstractText[@Label='DESIGN, SETTING, AND PARTICIPANTS'], unique pattern/group minimum_followup_years"
+    }
+  ],
+  "definition_guard": {
+    "selector": "table2_definition",
+    "unique_start": "a Incident total diabetes includes",
+    "normalized_definition_sha256": "ae1c0df9e9e67f2ea64517ac2f11d0dfdb9f7fff32fd6ebe3b0a00a9ecaa881b",
+    "semantics": "Source OR definition: telephone/visit physician diagnosis, medication, visit6A1c threshold, or visit6fasting glucose threshold; no requirement of all routes, onset timing, or independent confirmation."
+  },
+  "required_arithmetic_checks": [
+    "original_analytic_count == attended_visit6_count + alive_nonattender_count + died_before_visit6_count",
+    "selected_count == original_analytic_count - alive_nonattender_count == attended_visit6_count + died_before_visit6_count",
+    "For each panel baseline_count == sum(four displayed categories)",
+    "Within each assay sum(two baseline rows) == selected_count",
+    "Both assay displayed diabetes totals identical (138), compared not pooled",
+    "Both assay displayed mortality totals identical (434), compared not pooled",
+    "original_either_prediabetes_count == original_a1c_prediabetes_count + original_fg_prediabetes_count - original_both_prediabetes_count",
+    "Originalderived normal andprediabetes baseline margins nonnegative andsumoriginalcount, each assay.",
+    "Derivedunrepresented baselinemargins nonnegative andsumoriginal-minus-selected, each assay; do not identify specificpersondisposition orstate.",
+    "minimum_followup_years <= median_followup_years <= maximum_followup_years; these describevariable followup, notuniformtime.",
+    "cumulative_mortality_count == displayed_mortality_count is countcorroborationonly; neither equalsdied_before_visit6_count andnointervalloss inferred."
+  ],
+  "out_of_scope_context_not_numeric_inputs": {
+    "cumulative_diabetes": "Now pinned separateprimaryabstract count156 differs from eTable2displayed138; both source-defined count quantities are captured separately, never a common-clock exclusive partition or assumed diabetes-before-death overlap.",
+    "mortality": "eTable1 died408 beforevisit6 differs from eTable2 displayed434 by followupend. No allocation or exact clock conversion inferred.",
+    "selection": "Originalminusselected baseline quantities may be represented solely as derived unrepresented_baseline_margin. They are not independently verified915person missed-reassessment strata, individual histories, or imputed endpoint states. No count is manufactured from roundedpercentages.",
+    "selected_membership": "eFigure1 subtraction supports selectedsample cardinality, not verified individual membership. eTable1 408previsitdeaths vs434displayeddeaths creates a time/membership ambiguity; the displayed2497 count alone does not verify any proposed original-minus-selected baseline-stratum allocation.",
+    "correction": "Correction10.1001/jamainternmed.2021.1321 explicitly addresses rates in Results/Table2/eTable3 and KeyPoints text, not stated eTable2counts.",
+    "ordering": "eFigure2parallel outcome boxes show no rule for diabetes-before-death histories or classification priority; graphical vertical order is not an algorithm.",
+    "percentages": "Excluded; acquired eTable2subgroup includes source malformed392(322%). No silent correction."
+  },
+  "scientific_gates": {
+    "clinical_fit_allowed": false,
+    "engine_activation_allowed": false,
+    "independent_validation_allowed": false,
+    "scientific_release_ready": false
+  },
+  "fail_closed_requirements": [
+    "Byte/size/page/library-version/identity guards before capture.",
+    "Exact normalized page hashes; unique title/headings and exact ordered header tokens; no cross-table or Age/Sex/Race subgroup capture.",
+    "Duplicate headings, duplicate overall rows, reordered category headers, moved pages, changed count, malformed counts, unexpected type or capture mismatch fail with sanitized errors.",
+    "No CSV/fullpage/sourceimage exports, person identifiers, unknown baseline allocations, hazard fit, annualization, remission or latent-state mapping."
+  ],
+  "parent_proposal_sha256": "cfe5226187ff70ea756992a4480a1abd9fcf72cf8b4267639c34df2b307294c4",
+  "sources": {
+    "supplement": {
+      "doi": "10.1001/jamainternmed.2020.8774",
+      "article_title": "Risk of progression to diabetes among older adults with prediabetes",
+      "sha256": "2df66c94bced6a65f5042ea5ab96d1eaa896ee4683d536dffa0cfcc8ca4f491d",
+      "size_bytes": 533032,
+      "page_count": 12,
+      "raw_filename": "rooney2021-corrected-supplement.pdf",
+      "license": "Copyright2021 American Medical Association; all rights reserved. Public read/download verified; no redistribution permission established; ignored local source only.",
+      "url": "https://cdn.jamanetwork.com/ama/content_public/journal/intemed/938677/ioi200113supp1_prod_1617393547.06512.pdf",
+      "public_landing_url": "https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2775594",
+      "retrieved_at_utc": "2026-10-02T20:52:48.309346+00:00",
+      "acquisition_receipt_path": "outputs/malawi-public-candidate/aric-supplement-acquisition-v2.json",
+      "acquisition_receipt_sha256": "bded810c8829703c061f0a492accffcbef93f1c1609dfcf471b9db43884c5470",
+      "signed_query_omitted": true,
+      "reacquisition": "Discover current public Supplemental Content anchor on primary landing matching raw basename. Use exact producer href unchanged. Stop challenge/login/denial. Link54 is current web-tool inventory identifier, not stable publisherAPI. No signature generation or saved expiring token.",
+      "source_id": "aric2021_supplement"
+    },
+    "pubmed_abstract": {
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=33555311&retmode=xml",
+      "pmid": "33555311",
+      "doi": "10.1001/jamainternmed.2020.8774",
+      "article_title": "Risk of Progression to Diabetes Among Older Adults With Prediabetes.",
+      "raw_filename": "rooney2021-pubmed-abstract.xml",
+      "sha256": "41026875f9ec4a39ed901ca5034d8818a7dd1e3dabc9e78ac71cb10485818117",
+      "size_bytes": 26756,
+      "retrieved_at_utc": "2026-10-02T21:14:26.764336+00:00",
+      "license": "Official public metadata retrieval only; publisher abstract copyright must be preserved. No unrestricted redistribution claimed; ignoredlocalcache.",
+      "acquisition_receipt_path": "outputs/aric-public-intake/aric-pubmed-acquisition-v1.json",
+      "acquisition_receipt_sha256": "ea6a9563af36b7a6f774f13387fbfbe4092961e4074ea9c82e1d14f740da1d83",
+      "correction": "Official primaryabstract record links ErratumIn PMID33818604 DOI10.1001/jamainternmed.2021.1321; publisher notice identifies rate correction, not stated eTable2count replacement.",
+      "expected_pubmed_article_count": 1,
+      "expected_root_tag": "PubmedArticleSet",
+      "source_id": "aric2021_pubmed_abstract"
+    }
+  },
+  "xml_selectors": {
+    "pmid": {
+      "xpath": "./PubmedArticle/MedlineCitation/PMID",
+      "expected_occurrences": 1,
+      "normalized_text_sha256": "2615319bfbb7b6792ea6b4d4b7ea2509f811925a7684724890182e608c90fe6e",
+      "normalization": "ElementTree itertext concatenation; Unicode whitespace split then single ASCII space join; UTF-8 SHA256",
+      "expected_text": "33555311"
+    },
+    "article_title": {
+      "xpath": "./PubmedArticle/MedlineCitation/Article/ArticleTitle",
+      "expected_occurrences": 1,
+      "normalized_text_sha256": "9342f2891ee4a0ad900f59d489eb28ccd9929dc02cba9b0e4077a329ace25faa",
+      "normalization": "ElementTree itertext concatenation; Unicode whitespace split then single ASCII space join; UTF-8 SHA256",
+      "expected_text": "Risk of Progression to Diabetes Among Older Adults With Prediabetes."
+    },
+    "doi": {
+      "xpath": "./PubmedArticle/PubmedData/ArticleIdList/ArticleId[@IdType='doi']",
+      "expected_occurrences": 1,
+      "normalized_text_sha256": "d5533bebe7e0b5defe46766cbb346e1a040ba1cb114cd1d5cfe7143f06262d43",
+      "normalization": "ElementTree itertext concatenation; Unicode whitespace split then single ASCII space join; UTF-8 SHA256",
+      "expected_text": "10.1001/jamainternmed.2020.8774"
+    },
+    "results": {
+      "xpath": "./PubmedArticle/MedlineCitation/Article/Abstract/AbstractText[@Label='RESULTS']",
+      "expected_occurrences": 1,
+      "normalized_text_sha256": "ed0e05915aa29c8834483949617eb870bd0684bcb1dff536c8ab1635ea6716fd",
+      "normalization": "ElementTree itertext concatenation; Unicode whitespace split then single ASCII space join; UTF-8 SHA256"
+    },
+    "design": {
+      "xpath": "./PubmedArticle/MedlineCitation/Article/Abstract/AbstractText[@Label='DESIGN, SETTING, AND PARTICIPANTS']",
+      "expected_occurrences": 1,
+      "normalized_text_sha256": "b01bf8f747f7c5beb2b387d931a15f58a1063023689b667adc3fc549a8a51b8d",
+      "normalization": "ElementTree itertext concatenation; Unicode whitespace split then single ASCII space join; UTF-8 SHA256"
+    },
+    "exposures": {
+      "xpath": "./PubmedArticle/MedlineCitation/Article/Abstract/AbstractText[@Label='EXPOSURES']",
+      "expected_occurrences": 1,
+      "normalized_text_sha256": "766ca926147083863d1dde86b3fa6f47b401a6752dc46bba4e9a6d733781ad51",
+      "normalization": "ElementTree itertext concatenation; Unicode whitespace split then single ASCII space join; UTF-8 SHA256"
+    },
+    "outcome_definition": {
+      "xpath": "./PubmedArticle/MedlineCitation/Article/Abstract/AbstractText[@Label='MAIN OUTCOMES AND MEASURES']",
+      "expected_occurrences": 1,
+      "normalized_text_sha256": "64a69e5dd673c2a182365d29f38f4e59eaaffe10455da62a0f717bdeae94cd0e",
+      "normalization": "ElementTree itertext concatenation; Unicode whitespace split then single ASCII space join; UTF-8 SHA256"
+    },
+    "erratum_link": {
+      "xpath": "./PubmedArticle/MedlineCitation/CommentsCorrectionsList/CommentsCorrections[@RefType='ErratumIn']",
+      "expected_occurrences": 1,
+      "normalized_text_sha256": "01e5ee8f0389c03ddaca6a6f47c31e6aff3795754fe441fc45bd3fe394a8916d",
+      "normalization": "ElementTree itertext concatenation; Unicode whitespace split then single ASCII space join; UTF-8 SHA256",
+      "expected_correction_doi": "10.1001/jamainternmed.2021.1321",
+      "expected_correction_pmid": "33818604"
+    }
+  },
+  "xml_corroborations": [
+    {
+      "observed_name": "original_analytic_count",
+      "xml_selector": "results",
+      "pattern": "A total of (?P<count>\\d+) participants without diabetes",
+      "group": "count"
+    },
+    {
+      "observed_name": "selected_count",
+      "xml_selector": "results",
+      "pattern": "a total of (?P<count>\\d+) participants attended the follow-up visit or died",
+      "group": "count"
+    },
+    {
+      "observed_name": "maximum_followup_years",
+      "xml_selector": "design",
+      "pattern": "median \\[range\\] follow-up, \\d+\\.\\d+ \\[\\d+\\.\\d+-(?P<count>\\d+\\.\\d+)\\] years",
+      "group": "count"
+    }
+  ],
+  "representation_flags": {
+    "independently_verified_missing_reassessment_strata": false,
+    "uniform_followup_horizon": false,
+    "independent_assay_samples": false,
+    "diagnosis_mortality_order_known": false
+  },
+  "schema_version": 1,
+  "output_contract": {
+    "fields": [
+      "source_sha256",
+      "source_size_bytes",
+      "doi",
+      "observed",
+      "source_locators",
+      "scientific_gates"
+    ],
+    "source_sha256": "exact per-source map for supplement and pubmed_abstract",
+    "source_size_bytes": "exact per-source integer byte counts",
+    "observed": "Exactly the 44 scoped publication literals; no derived count, parameter fit, raw text or image.",
+    "source_locators": "Exactly one frozen source locator per observed name."
+  },
+  "derivation_contract": {
+    "source_subset_identity_declared": true,
+    "basis": "Author-reported source flow and selected baseline rows; source-level subset interpretation, not independently verified participant membership.",
+    "independently_verified_participant_subset_identity": false,
+    "independently_verified_missing_reassessment_strata": false,
+    "unrepresented_baseline_margin_is_observed_followup": false,
+    "unrepresented_baseline_margin_is_wholly_untraced": false,
+    "unrepresented_baseline_margin_is_known_alive_at_study_end": false,
+    "uniform_followup_horizon": false,
+    "diagnosis_mortality_order_known": false,
+    "assay_panels_are_independent": false,
+    "two_assay_panels_may_be_pooled": false
+  },
+  "derived_parameters": [
+    {
+      "name": "selected_from_dispositions_count",
+      "unit": "persons",
+      "formula": "attended_visit6_count + died_before_visit6_count",
+      "conditional_source_subset": false
+    },
+    {
+      "name": "displayed_diabetes_count",
+      "unit": "persons",
+      "formula": "a1c_normal_displayed_diabetes_count + a1c_prediabetes_displayed_diabetes_count; corroborate FG total, never pool",
+      "conditional_source_subset": false
+    },
+    {
+      "name": "displayed_mortality_count",
+      "unit": "persons",
+      "formula": "a1c_normal_displayed_mortality_count + a1c_prediabetes_displayed_mortality_count; corroborate FG total, never pool",
+      "conditional_source_subset": false
+    },
+    {
+      "name": "original_a1c_normal_count",
+      "unit": "persons",
+      "formula": "original_analytic_count - original_a1c_prediabetes_count",
+      "conditional_source_subset": false
+    },
+    {
+      "name": "original_fg_normal_count",
+      "unit": "persons",
+      "formula": "original_analytic_count - original_fg_prediabetes_count",
+      "conditional_source_subset": false
+    },
+    {
+      "name": "a1c_normal_unrepresented_baseline_margin",
+      "unit": "persons",
+      "formula": "original_a1c_normal_count - a1c_normal_baseline_count; conditional source-subset interpretation",
+      "conditional_source_subset": true
+    },
+    {
+      "name": "a1c_prediabetes_unrepresented_baseline_margin",
+      "unit": "persons",
+      "formula": "original_a1c_prediabetes_count - a1c_prediabetes_baseline_count; conditional source-subset interpretation",
+      "conditional_source_subset": true
+    },
+    {
+      "name": "fg_normal_unrepresented_baseline_margin",
+      "unit": "persons",
+      "formula": "original_fg_normal_count - fg_normal_baseline_count; conditional source-subset interpretation",
+      "conditional_source_subset": true
+    },
+    {
+      "name": "fg_prediabetes_unrepresented_baseline_margin",
+      "unit": "persons",
+      "formula": "original_fg_prediabetes_count - fg_prediabetes_baseline_count; conditional source-subset interpretation",
+      "conditional_source_subset": true
+    },
+    {
+      "name": "cumulative_minus_displayed_diabetes_count",
+      "unit": "persons",
+      "formula": "cumulative_total_diabetes_count - displayed_diabetes_count; arithmetic contrast only, not diabetes-before-death count",
+      "conditional_source_subset": false
+    },
+    {
+      "name": "displayed_minus_previsit_mortality_count",
+      "unit": "persons",
+      "formula": "displayed_mortality_count - died_before_visit6_count; arithmetic contrast only, no participant allocation",
+      "conditional_source_subset": false
+    },
+    {
+      "name": "original_a1c_only_prediabetes_count",
+      "unit": "persons",
+      "formula": "original_a1c_prediabetes_count - original_both_prediabetes_count",
+      "conditional_source_subset": false
+    },
+    {
+      "name": "original_fg_only_prediabetes_count",
+      "unit": "persons",
+      "formula": "original_fg_prediabetes_count - original_both_prediabetes_count",
+      "conditional_source_subset": false
+    },
+    {
+      "name": "original_neither_prediabetes_count",
+      "unit": "persons",
+      "formula": "original_analytic_count - original_either_prediabetes_count",
+      "conditional_source_subset": false
+    }
+  ],
+  "limitations": [
+    "Publication category partitions, not observed latent clinical transitions, type-specific diabetes, general metabolic health, or sustained remission.",
+    "Two assay panels describe the same source population. Shared original baseline joint counts are reconstructible; paired follow-up assay paths are unavailable. Do not pool panels or assume independence.",
+    "Original-minus-selected baseline margins require the declared author-reported subset interpretation. They do not independently identify participant membership, missed-visit histories, or subsequent alive/dead categories.",
+    "Attendance dispositions and displayed outcome slots use different timing. Additional mortality slots are an arithmetic contrast, not verified deaths among a named attendance group.",
+    "Cumulative incident diabetes and displayed diabetes slots differ. Their contrast does not identify diagnosis before death or a category priority algorithm.",
+    "Elapsed follow-up varies. Its median and range are source descriptors, not individual event times, one common biological horizon, or annual hazards.",
+    "No likelihood, iid sampling model, missingness independence, parameter fit, dietary causal effect, holdout validation, national transport, or engine activation follows from this intake.",
+    "Publisher HTML acquisition returned a denial. Public official PubMed abstract metadata and advertised supplement bytes were acquired separately and remain fetch-only; no participant records or access requests.",
+    "Full copyrighted source text and figures remain in ignored local caches. Only finite factual aggregates, locators and original Demeter software/documentation enter the repository."
+  ]
+}

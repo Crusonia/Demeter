@@ -12,5 +12,7 @@ docs/validation/totum-source-row-receipts-v1.json -text -whitespace
 docs/validation/kerala-*.json -text -whitespace
 # Preserve the public Malawi intake and derived benchmark byte pins.
 docs/validation/malawi-*.json -text -whitespace
+# Preserve exact public ARIC protocol and reconstruction byte pins.
+docs/validation/aric-*.json -text -whitespace
 *.xlsx binary
 *.xpt binary

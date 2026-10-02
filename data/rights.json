@@ -1352,6 +1352,32 @@
       "retrieved_at": "2026-10-02T19:33:41.061585+00:00",
       "distribution": "fetch_only",
       "alternative": "Offline pinned aggregate report and optional exact public XML replay; no source text/figures or participant data distributed."
+    },
+    "aric2021_supplement": {
+      "policy": "article_fetch_only",
+      "privacy": "publication",
+      "publisher": "American Medical Association",
+      "vintage": "2021 publication; pinned public source retrieved October 2, 2026",
+      "citation": "Rooney MR, Rawlings AM, Pankow JS, et al. Risk of Progression to Diabetes Among Older Adults With Prediabetes. JAMA Internal Medicine 2021;181(4):511-519. DOI 10.1001/jamainternmed.2020.8774. Public supplement and official PubMed abstract metadata.",
+      "notes": "Finite aggregate publication intake; no participant records. Full publication/abstract/image snapshots remain ignored local caches.",
+      "distribution": "fetch_only",
+      "url": "https://cdn.jamanetwork.com/ama/content_public/journal/intemed/938677/ioi200113supp1_prod_1617393547.06512.pdf",
+      "sha256": "2df66c94bced6a65f5042ea5ab96d1eaa896ee4683d536dffa0cfcc8ca4f491d",
+      "retrieved_at": "2026-10-02T20:52:48.309346+00:00",
+      "alternative": "Offline attributed fact/reconstruction report; optional exact two-source replay. No copyrighted full text or figures bundled."
+    },
+    "aric2021_pubmed_abstract": {
+      "policy": "article_fetch_only",
+      "privacy": "publication",
+      "publisher": "American Medical Association; NLM supplies official abstract metadata",
+      "vintage": "2021 publication; pinned public source retrieved October 2, 2026",
+      "citation": "Rooney MR, Rawlings AM, Pankow JS, et al. Risk of Progression to Diabetes Among Older Adults With Prediabetes. JAMA Internal Medicine 2021;181(4):511-519. DOI 10.1001/jamainternmed.2020.8774. Public supplement and official PubMed abstract metadata.",
+      "notes": "Finite aggregate publication intake; no participant records. Full publication/abstract/image snapshots remain ignored local caches.",
+      "distribution": "fetch_only",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=33555311&retmode=xml",
+      "sha256": "41026875f9ec4a39ed901ca5034d8818a7dd1e3dabc9e78ac71cb10485818117",
+      "retrieved_at": "2026-10-02T21:14:26.764336+00:00",
+      "alternative": "Offline attributed fact/reconstruction report; optional exact two-source replay. No copyrighted full text or figures bundled."
     }
   },
   "documentation_receipts": "docs/validation/dpp-coverage-source-receipts.json",

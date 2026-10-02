@@ -15,6 +15,15 @@ Model outputs retain the existing validation-only boundary.
 
 ## Source-specific conditions
 
+The [ARIC outcome benchmark](../docs/ARIC_OUTCOMES_BENCHMARK.md) distributes
+limited attributed factual counts and original Demeter source-accounting code.
+Rooney et al. (2021), DOI `10.1001/jamainternmed.2020.8774`, and its supplement
+carry American Medical Association copyright. The official PubMed metadata
+source does not grant unrestricted rights to the abstract. Full PDF/XML/text
+and figures remain fetch-only in ignored local caches; participant records are
+neither acquired nor distributed. Scientific interpretation and conditional
+baseline reconstruction remain separate from publication rights.
+
 The [Malawi follow-up benchmark](../docs/MALAWI_FOLLOWUP_BENCHMARK.md) distributes
 attributed publication aggregates and Demeter's derived bounds from Nakanga et al.
 (2023), DOI `10.1371/journal.pgph.0001263`, under the article's

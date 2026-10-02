@@ -489,6 +489,43 @@ def malawi_cohort_evidence(
     emit(report)
 
 
+@evidence_app.command("aric-outcomes")
+def aric_outcomes_evidence(
+    evidence: Path = DEFAULT_EVIDENCE,
+    project: Path = Path("."),
+    output: Path | None = None,
+    source_cache: Path | None = None,
+) -> None:
+    """Audit overlapping publication panels; optionally replay both public sources."""
+    from demeter.analysis.aric_outcomes_audit import audit_aric_outcomes
+    from demeter.data.nhanes import encoded
+
+    try:
+        root = project.resolve()
+        if output is not None:
+            destination = output.resolve()
+            if (
+                output.exists()
+                or destination == evidence.resolve()
+                or (source_cache is not None and destination.is_relative_to(source_cache.resolve()))
+                or any(
+                    destination.is_relative_to((root / folder).resolve())
+                    for folder in ("data", "src", "docs", "evidence", ".git")
+                )
+            ):
+                typer.echo("Output must be new and outside sources and frozen records", err=True)
+                raise typer.Exit(1)
+        report = audit_aric_outcomes(registry(evidence), root, source_cache=source_cache)
+        if output is not None:
+            output.parent.mkdir(parents=True, exist_ok=True)
+            with output.open("xb") as target:
+                target.write(encoded(report))
+    except (ValueError, OSError, KeyError, TypeError, IndexError) as exc:
+        typer.echo("ARIC source evidence or output is invalid", err=True)
+        raise typer.Exit(1) from exc
+    emit(report)
+
+
 @evidence_app.command("kerala-observations")
 def kerala_observation_evidence(
     evidence: Path = DEFAULT_EVIDENCE,
@@ -556,7 +593,10 @@ def kerala_endpoint_evidence(
                 typer.echo("Output must be new and outside sources and frozen records", err=True)
                 raise typer.Exit(1)
         report = audit_kerala_endpoints(
-            registry(evidence), root, source_cache=source_cache, publication=publication,
+            registry(evidence),
+            root,
+            source_cache=source_cache,
+            publication=publication,
             assume_complete_deaths=assume_complete_deaths,
         )
         if output is not None:
