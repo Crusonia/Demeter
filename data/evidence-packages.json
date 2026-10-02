@@ -887,7 +887,7 @@
         },
         {
           "path": "docs/LONGITUDINAL_LIKELIHOOD.md",
-          "sha256": "bc9b0b81dadb23053be1b88db7a8151b6d966f24eadea52709931f3ff0f510d3"
+          "sha256": "11e927b9382a950c508d671e1da3909d1d9213b99511ead0fdd5e6a7ce9c4430"
         },
         {
           "path": "docs/validation/issue-57-58-longitudinal-likelihood.json",
@@ -896,12 +896,21 @@
         {
           "path": "docs/validation/issue-57-58-longitudinal-likelihood-before-after.json",
           "sha256": "31c19b60ab1bbb74f3873e2b548f7f6efd5f6a0318e074b7583e460f99aebb65"
+        },
+        {
+          "path": "docs/validation/longitudinal-probability-contract-amendment-v2.json",
+          "sha256": "769376aed81d4659945085ae25662e98dcb300e97175e45003a2fee46cf71c5b"
+        },
+        {
+          "path": "docs/validation/longitudinal-probability-contract-replay-v2.json",
+          "sha256": "297d290b5e203f60fc420ad102cd5b7c35bd1e9da6a13ea785ee64eac0621e43"
         }
       ],
       "dependencies": [],
       "model_role": "benchmark_only",
       "rebuild": [
-        "uv run demeter evidence longitudinal-likelihood --output outputs/longitudinal-likelihood.json"
+        "uv run demeter evidence longitudinal-likelihood --output outputs/longitudinal-likelihood.json",
+        "uv run python scripts/verify_longitudinal_probability_contract.py"
       ],
       "redistribution": "Demeter-authored synthetic protocol, mathematical software, aggregate validation diagnostics and before/after proof only; no source participant records, empirical clinical fit or active engine inputs.",
       "registry_datasets": [
@@ -931,7 +940,8 @@
       "store": null,
       "transform_files": [
         "src/demeter/analysis/longitudinal_likelihood.py",
-        "src/demeter/analysis/longitudinal_likelihood_validation.py"
+        "src/demeter/analysis/longitudinal_likelihood_validation.py",
+        "scripts/verify_longitudinal_probability_contract.py"
       ]
     },
     "cdc_prediabetes_benchmark": {

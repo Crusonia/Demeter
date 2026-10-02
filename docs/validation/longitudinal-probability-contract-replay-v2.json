@@ -1,0 +1,247 @@
+{
+  "amendment_path": "docs/validation/longitudinal-probability-contract-amendment-v2.json",
+  "amendment_sha256": "769376aed81d4659945085ae25662e98dcb300e97175e45003a2fee46cf71c5b",
+  "checks": {
+    "analytic_interval_matches_quadrature": true,
+    "competing_event_death_survival_mass": true,
+    "full_design_local_rank_nine": true,
+    "interval_matches_analytic_competing_hazards": true,
+    "linked_forward_matches_enumeration": true,
+    "restricted_alternative_full_rows_differ": true,
+    "restricted_alternative_nonnegative_and_distinct": true,
+    "restricted_alternative_same_scalar_endpoint": true,
+    "scalar_design_local_rank_one": true,
+    "scaled_log_matches_enumeration": true
+  },
+  "clinical_fit_performed": false,
+  "comparison": {
+    "exclusions": [
+      "provenance",
+      "additive numerical_input_deviations within contributions"
+    ],
+    "original_mathematical_results_exact_on_recorded_platform": true,
+    "portable_log_likelihood_absolute_tolerance": 1e-10,
+    "portable_probability_absolute_tolerance": 1e-10,
+    "tolerances_widened": false
+  },
+  "current_contribution_input_deviations": {
+    "cumulative_competing_death": {
+      "generator_scaled_row_sums": [
+        [
+          8.326672684688674e-17,
+          -5.551115123125783e-17,
+          5.551115123125783e-17,
+          5.551115123125783e-17,
+          0.0
+        ],
+        [
+          8.326672684688674e-17,
+          0.0,
+          5.551115123125783e-17,
+          5.551115123125783e-17,
+          0.0
+        ]
+      ],
+      "generator_scaling": "Each row divided by its largest absolute hazard; zero row stays zero",
+      "initial_sum_minus_one": 0.0,
+      "inputs_repaired": false
+    },
+    "cumulative_diagnosis": {
+      "generator_scaled_row_sums": [
+        [
+          8.326672684688674e-17,
+          -5.551115123125783e-17,
+          5.551115123125783e-17,
+          5.551115123125783e-17,
+          0.0
+        ],
+        [
+          8.326672684688674e-17,
+          0.0,
+          5.551115123125783e-17,
+          5.551115123125783e-17,
+          0.0
+        ]
+      ],
+      "generator_scaling": "Each row divided by its largest absolute hazard; zero row stays zero",
+      "initial_sum_minus_one": 0.0,
+      "inputs_repaired": false
+    },
+    "event_free_lower_endpoint": {
+      "generator_scaled_row_sums": [
+        [
+          8.326672684688674e-17,
+          -5.551115123125783e-17,
+          5.551115123125783e-17,
+          5.551115123125783e-17,
+          0.0
+        ],
+        [
+          8.326672684688674e-17,
+          0.0,
+          5.551115123125783e-17,
+          5.551115123125783e-17,
+          0.0
+        ]
+      ],
+      "generator_scaling": "Each row divided by its largest absolute hazard; zero row stays zero",
+      "initial_sum_minus_one": 0.0,
+      "inputs_repaired": false
+    },
+    "event_free_right_censor": {
+      "generator_scaled_row_sums": [
+        [
+          8.326672684688674e-17,
+          -5.551115123125783e-17,
+          5.551115123125783e-17,
+          5.551115123125783e-17,
+          0.0
+        ],
+        [
+          8.326672684688674e-17,
+          0.0,
+          5.551115123125783e-17,
+          5.551115123125783e-17,
+          0.0
+        ]
+      ],
+      "generator_scaling": "Each row divided by its largest absolute hazard; zero row stays zero",
+      "initial_sum_minus_one": 0.0,
+      "inputs_repaired": false
+    },
+    "exact_death_after_panel": {
+      "generator_scaled_row_sums": [
+        [
+          8.326672684688674e-17,
+          -5.551115123125783e-17,
+          5.551115123125783e-17,
+          5.551115123125783e-17,
+          0.0
+        ],
+        [
+          8.326672684688674e-17,
+          0.0,
+          5.551115123125783e-17,
+          5.551115123125783e-17,
+          0.0
+        ]
+      ],
+      "generator_scaling": "Each row divided by its largest absolute hazard; zero row stays zero",
+      "initial_sum_minus_one": 0.0,
+      "inputs_repaired": false
+    },
+    "exact_diagnosis": {
+      "generator_scaled_row_sums": [
+        [
+          8.326672684688674e-17,
+          -5.551115123125783e-17,
+          5.551115123125783e-17,
+          5.551115123125783e-17,
+          0.0
+        ],
+        [
+          8.326672684688674e-17,
+          0.0,
+          5.551115123125783e-17,
+          5.551115123125783e-17,
+          0.0
+        ]
+      ],
+      "generator_scaling": "Each row divided by its largest absolute hazard; zero row stays zero",
+      "initial_sum_minus_one": 0.0,
+      "inputs_repaired": false
+    },
+    "interval_diagnosis": {
+      "generator_scaled_row_sums": [
+        [
+          8.326672684688674e-17,
+          -5.551115123125783e-17,
+          5.551115123125783e-17,
+          5.551115123125783e-17,
+          0.0
+        ],
+        [
+          8.326672684688674e-17,
+          0.0,
+          5.551115123125783e-17,
+          5.551115123125783e-17,
+          0.0
+        ]
+      ],
+      "generator_scaling": "Each row divided by its largest absolute hazard; zero row stays zero",
+      "initial_sum_minus_one": 0.0,
+      "inputs_repaired": false
+    },
+    "linked_panel": {
+      "generator_scaled_row_sums": [
+        [
+          8.326672684688674e-17,
+          -5.551115123125783e-17,
+          5.551115123125783e-17,
+          5.551115123125783e-17,
+          0.0
+        ],
+        [
+          8.326672684688674e-17,
+          0.0,
+          5.551115123125783e-17,
+          5.551115123125783e-17,
+          0.0
+        ]
+      ],
+      "generator_scaling": "Each row divided by its largest absolute hazard; zero row stays zero",
+      "initial_sum_minus_one": 0.0,
+      "inputs_repaired": false
+    },
+    "linked_prefix_interval_diagnosis": {
+      "generator_scaled_row_sums": [
+        [
+          8.326672684688674e-17,
+          -5.551115123125783e-17,
+          5.551115123125783e-17,
+          5.551115123125783e-17,
+          0.0
+        ],
+        [
+          8.326672684688674e-17,
+          0.0,
+          5.551115123125783e-17,
+          5.551115123125783e-17,
+          0.0
+        ]
+      ],
+      "generator_scaling": "Each row divided by its largest absolute hazard; zero row stays zero",
+      "initial_sum_minus_one": 0.0,
+      "inputs_repaired": false
+    }
+  },
+  "current_implementation_sha256": {
+    "src/demeter/analysis/longitudinal_likelihood.py": "2f541323fb045bad7cbd45f88707c9f22fb6e6cb275943201ab7747e5cf7f278",
+    "src/demeter/analysis/longitudinal_likelihood_validation.py": "e0d47b9fd296cc00a345f7a8dba1a55ed40170587d53564d901ec1f2077369e8"
+  },
+  "engine_parameters_updated": false,
+  "limitations": [
+    "Mathematically valid probability-one paths can fail explicitly on surplus roundoff; no mass repair.",
+    "Synthetic panel parity assumes explicit known times, full matching token channels and shared linked histories; no source clock or state mapping inferred.",
+    "Original frozen artifacts remain unchanged. This receipt follows corrective evaluation; not preregistration or independent validation."
+  ],
+  "preserved_original_report": {
+    "path": "docs/validation/issue-57-58-longitudinal-likelihood.json",
+    "sha256": "58d79954f7501a1322bb041323e42b7fdebc4860857465311b78c9bc6efbb46e"
+  },
+  "recorded_at_utc": "2026-10-02T22:03:11Z",
+  "registered_inputs_changed": false,
+  "registered_numeric_input_count": 19,
+  "registered_scope_sha256": "ba26196af79bedc6395ad9e20c155ebe211485537524b4c7fb9bbe0a22334735",
+  "report_id": "longitudinal-probability-contract-replay-v2",
+  "schema_version": 1,
+  "scientific_gates": {
+    "clinical_fit_allowed": false,
+    "engine_activation_allowed": false,
+    "independent_validation_allowed": false,
+    "scientific_release_ready": false
+  },
+  "source_records_read": false,
+  "status": "USED-CODE SYNTHETIC REPLAY; NOT CLINICAL VALIDATION",
+  "validation_only": true
+}

@@ -24,6 +24,195 @@ from demeter.analysis.longitudinal_likelihood import (
 TOL = 1e-12
 
 
+@pytest.mark.parametrize("tolerance", [0.5, 0.1, 1e-6, np.nextafter(1e-10, 1)])
+@pytest.mark.parametrize("api", ["generator", "emissions", "transition", "path"])
+def test_stochastic_tolerance_cannot_admit_material_mass_errors(tolerance, api):
+    space = StateSpace(("live", "dead"), (False, None), 1)
+    with pytest.raises(ValueError, match="Stochastic roundoff"):
+        if api == "generator":
+            validate_generator(space, [[-0.1, 0.4], [0, 0]], tolerance=tolerance)
+        elif api == "emissions":
+            validate_categorical_emissions([[1, 0.4], [1, 0]], state_count=2, tolerance=tolerance)
+        elif api == "transition":
+            transition_matrix(space, [[0, 0], [0, 0]], 1, tolerance=tolerance)
+        else:
+            path_likelihood(
+                space,
+                [1, 0.4],
+                [RateSegment(0, 1, [[0, 0], [0, 0]])],
+                [PanelObservation(0, [1, 1], "category")],
+                terminal=TerminalObservation("panel", 1),
+                contract=contract(),
+                tolerance=tolerance,
+            )
+
+
+@pytest.mark.parametrize("mass", [0.6, 1.4])
+def test_material_initial_and_channel_mass_fail_at_valid_ceiling(mass):
+    space = StateSpace(("live", "dead"), (False, None), 1)
+    with pytest.raises(ValueError, match="Initial state probabilities"):
+        path_likelihood(
+            space,
+            [mass, 0],
+            [RateSegment(0, 1, [[0, 0], [0, 0]])],
+            [],
+            terminal=TerminalObservation("panel", 1),
+            contract=contract(),
+            tolerance=1e-10,
+        )
+    with pytest.raises(ValueError, match="sum to one"):
+        validate_categorical_emissions([[mass / 2, mass / 2]], state_count=1, tolerance=1e-10)
+
+
+@pytest.mark.parametrize("scale", [1e-200, 1e-20, 1, 1e200])
+@pytest.mark.parametrize("sign", [-1, 1])
+def test_generator_conservation_is_relative_to_hazard_scale(scale, sign):
+    space = StateSpace(("live", "dead"), (False, None), 1)
+    with pytest.raises(ValueError, match="zero row sums"):
+        validate_generator(space, [[-scale, scale * (1 + sign * 0.1)], [0, 0]], tolerance=1e-10)
+
+
+def test_valid_tiny_rate_process_matches_independent_competing_event_formula():
+    # Long time is caller-known synthetic years, never inferred from source labels.
+    result = event_path("interval_first_entry", time=1e20, start=0, lam=1e-20, mu=2e-20)
+    assert result["likelihood"] == pytest.approx(-expm1(-3) / 3, rel=1e-12, abs=0)
+
+
+def test_accepted_initial_roundoff_is_visible_and_never_normalized():
+    space = StateSpace(("live", "dead"), (False, None), 1)
+    epsilon = 1e-13
+    result = path_likelihood(
+        space,
+        [0.5, 0.5 - epsilon],
+        [RateSegment(0, 1, [[0, 0], [0, 0]])],
+        [],
+        terminal=TerminalObservation("panel", 1),
+        contract=contract(),
+        tolerance=TOL,
+    )
+    assert result["likelihood"] == pytest.approx(1 - epsilon, rel=0, abs=np.spacing(1.0))
+    assert result["likelihood"] < 1
+    deviations = result["numerical_input_deviations"]
+    assert deviations["initial_sum_minus_one"] < 0
+    assert deviations["inputs_repaired"] is False
+    assert deviations["generator_scaled_row_sums"] == ((0.0, 0.0),)
+
+
+def test_accepted_generator_roundoff_is_visible_and_not_repaired():
+    space = StateSpace(("live", "dead"), (False, None), 1)
+    q = [[-0.1, 0.1 - 1e-15], [0, 0]]
+    snapshot = np.asarray(q).copy()
+    assert np.array_equal(validate_generator(space, q, tolerance=TOL), snapshot)
+    result = path_likelihood(
+        space,
+        [1, 0],
+        [RateSegment(0, 1, q)],
+        [PanelObservation(1, [1, 0], "category")],
+        terminal=TerminalObservation("panel", 1),
+        contract=contract(),
+        tolerance=TOL,
+    )
+    assert result["numerical_input_deviations"]["generator_scaled_row_sums"][0][0] < 0
+    assert result["likelihood"] == pytest.approx(exp(-0.1))
+
+
+def test_accepted_channel_roundoff_is_not_repaired():
+    matrix = np.array([[0.5, 0.5 - 1e-13]])
+    result = validate_categorical_emissions(matrix, state_count=1, tolerance=TOL)
+    assert np.array_equal(result, matrix)
+    assert result.sum() < 1
+
+
+def test_even_roundoff_surplus_cannot_return_a_probability_above_one():
+    space = StateSpace(("live", "dead"), (False, None), 1)
+    with pytest.raises(FloatingPointError, match="probability exceeds one"):
+        path_likelihood(
+            space,
+            [0.5, 0.5 + 1e-13],
+            [RateSegment(0, 1, [[0, 0], [0, 0]])],
+            [PanelObservation(0, [1, 1], "category")],
+            terminal=TerminalObservation("panel", 1),
+            contract=contract(),
+            tolerance=TOL,
+        )
+
+
+@pytest.mark.parametrize("time", [0, 1])
+@pytest.mark.parametrize("deviation", [-1e-13, 1e-13])
+def test_no_observations_still_account_for_initial_mass_at_zero_time(time, deviation):
+    space = StateSpace(("live", "dead"), (False, None), 1)
+
+    def evaluate():
+        return path_likelihood(
+            space,
+            [0.5, 0.5 + deviation],
+            [RateSegment(0, 1, [[0, 0], [0, 0]])],
+            [],
+            terminal=TerminalObservation("panel", time),
+            contract=contract(),
+            tolerance=TOL,
+        )
+
+    if deviation > 0:
+        with pytest.raises(FloatingPointError, match="probability exceeds one"):
+            evaluate()
+    else:
+        result = evaluate()
+        assert result["likelihood"] < 1
+        assert result["log_likelihood"] == pytest.approx(log(1 + deviation), abs=TOL / 100)
+        assert result["normalizers"][0] < 1
+
+
+def test_original_decimal_rate_all_state_boundary_remains_explicit(monkeypatch):
+    import demeter.analysis.longitudinal_likelihood as module
+
+    space, q, _ = event_model()  # Original [-.3, .1, .2] numerical boundary.
+    kernel = module.expm(np.asarray(q))
+
+    def evaluate():
+        return path_likelihood(
+            space,
+            [1, 0, 0],
+            [RateSegment(0, 1, q)],
+            [PanelObservation(1, [1, 1, 1], "coarsened")],
+            terminal=TerminalObservation("panel", 1),
+            contract=contract(missingness="explicit_coarsening"),
+            tolerance=TOL,
+        )
+
+    # Native expm and forward-sum arithmetic differ by platform. The analytic
+    # all-state probability is one; either a bounded result or an explicit
+    # numerical failure is allowed, never an out-of-range returned probability.
+    try:
+        result = evaluate()
+    except FloatingPointError as error:
+        assert "probability exceeds one" in str(error)
+    else:
+        assert result["likelihood"] == pytest.approx(1, abs=TOL)
+        assert result["likelihood"] <= 1
+    # Deterministically retain the observed one-ulp surplus failure on every platform.
+    rounded = kernel.copy()
+    rounded[0, 0] += 2 * np.spacing(1.0)
+    monkeypatch.setattr(module, "expm", lambda matrix: rounded)
+    with pytest.raises(FloatingPointError, match="probability exceeds one"):
+        evaluate()
+
+
+def test_exact_first_entry_density_is_allowed_above_one():
+    result = event_path("exact_first_entry", time=0, lam=4, mu=1)
+    assert result["likelihood"] == 4
+    assert result["contribution_kind"] == "density"
+    assert result["units"] == "per_year"
+
+
+def test_rank_threshold_remains_a_distinct_relative_design_choice():
+    result = observable_jacobian(
+        lambda x: [x[0], 0.1 * x[1]], [1, 1], [1e-4] * 2, rank_tolerance=0.5
+    )
+    assert result["relative_rank_tolerance"] == 0.5
+    assert result["local_numerical_rank"] == 1
+
+
 def contract(
     stopping="administrative_observation_end", *, missingness="no_missing", treatment="held_fixed"
 ):
@@ -457,7 +646,9 @@ def test_schedule_does_not_guess_origin_gaps_overlaps_or_final_rates(segments):
 
 
 def test_coarsened_unknown_keeps_death_possible_under_explicit_assumption():
-    space, q, _ = event_model()
+    # Binary-representable hazards isolate observation semantics. The original
+    # decimal-rate numerical boundary remains covered separately below.
+    space, q, _ = event_model(lam=0.125, mu=0.25)
     obs = [PanelObservation(1, [1, 1, 1], "coarsened")]
     with pytest.raises(ValueError, match="Coarsened"):
         path_likelihood(

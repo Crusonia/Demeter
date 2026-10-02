@@ -30,6 +30,8 @@ PROTOCOL_PATH = "docs/validation/longitudinal-likelihood-protocol-v1.json"
 PROTOCOL_SHA256 = "fb830574b696c623ca00282bda3c31093369c05ddb420458a53a83f27a22910e"
 RFC_PATH = "docs/rfcs/RFC-57-longitudinal-likelihood.md"
 RFC_SHA256 = "680d1a1b854e07e73f633db8b57a602df15a1193c46f6426d95907c136e44385"
+AMENDMENT_PATH = "docs/validation/longitudinal-probability-contract-amendment-v2.json"
+AMENDMENT_SHA256 = "769376aed81d4659945085ae25662e98dcb300e97175e45003a2fee46cf71c5b"
 
 
 def _frozen(path: str, expected: str) -> dict | None:
@@ -123,6 +125,16 @@ def likelihood_software_report(registry: EvidenceRegistry) -> dict:
     try:
         protocol = _frozen(PROTOCOL_PATH, PROTOCOL_SHA256)
         _frozen(RFC_PATH, RFC_SHA256)
+        amendment = _frozen(AMENDMENT_PATH, AMENDMENT_SHA256)
+        if (
+            amendment["parent_protocol"] != {"path": PROTOCOL_PATH, "sha256": PROTOCOL_SHA256}
+            or amendment["current_kernel"]["path"]
+            != "src/demeter/analysis/longitudinal_likelihood.py"
+            or digest(Path(amendment["current_kernel"]["path"]).read_bytes())
+            != amendment["current_kernel"]["sha256"]
+            or any(value is not False for value in amendment["scientific_gates"].values())
+        ):
+            raise ValueError("Current numerical amendment differs")
         spec = registry.datasets[DATASET]
         for field, expected in {
             "protocol_path": PROTOCOL_PATH,
@@ -159,6 +171,8 @@ def likelihood_software_report(registry: EvidenceRegistry) -> dict:
             "protocol_sha256": PROTOCOL_SHA256,
             "rfc_path": RFC_PATH,
             "rfc_sha256": RFC_SHA256,
+            "numerical_amendment_path": AMENDMENT_PATH,
+            "numerical_amendment_sha256": AMENDMENT_SHA256,
             "evidence_sha256": registry.content_hash,
             "implementation_sha256": {
                 path: digest(Path(path).read_bytes())
