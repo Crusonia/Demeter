@@ -111,15 +111,23 @@ def test_real_packages_cover_every_source_and_bundle_without_network(monkeypatch
     monkeypatch.setattr("urllib.request.urlopen", no_network)
     report = verify_packages()
     assert report["passed"], [c for c in report["checks"] if not c["passed"]]
-    assert len(report["sources"]) == 79
-    assert len(report["artifacts"]) == 146
-    assert len(report["packages"]) == 31
+    assert len(report["sources"]) == 80
+    assert len(report["artifacts"]) == 151
+    assert len(report["packages"]) == 32
     assert not report["network_used"]
     assert report["documentation"]["metadata_passed"]
     assert len(report["documentation"]["source_checks"]) == 15
     assert not report["documentation"]["raw_bytes_checked"]
     assert report["documentation"]["raw_bytes_passed"] is None
     assert {s["distribution"] for s in report["sources"]} == {"archived", "fetch_only"}
+    da_qing = report["packages"]["da_qing_source_coverage"]
+    assert da_qing["model_role"] == "benchmark_only"
+    assert da_qing["registry_parameters"] == []
+    assert len(da_qing["artifacts"]) == 3
+    da_qing_source = next(
+        s for s in report["sources"] if s.get("source_id") == "da_qing2016_mortality_publication"
+    )
+    assert da_qing_source["distribution"] == "fetch_only"
     direct_sources = [s for s in report["sources"] if s["policy"] == "direct_paired_public_facts"]
     assert {s["source_id"] for s in direct_sources} == {
         "direct_one_year_accepted",

@@ -4496,8 +4496,8 @@ datasets:
     model_role: benchmark_only
     protocol_path: docs/validation/reus-diabetes-protocol-v1.json
     protocol_sha256: df1e72ac4da424c90fc78a2743160bd3698d992c447618d4899224447dd69853
-    amendment_path: docs/validation/reus-diabetes-amendment-1.json
-    amendment_sha256: 4aac541bce132a6aeb59962f49779df8c3d1eecf25f67d5c8db99183dda8084e
+    amendment_path: docs/validation/reus-diabetes-amendment-2.json
+    amendment_sha256: 6e5587848b231d639e263f15aa1a3df90708ec908f2588ae688beb6b281841a9
     analysis:
       absolute_tolerance: 1.0e-12
       counterexample_scale: 2.0
@@ -5562,6 +5562,44 @@ datasets:
     engine_activation_allowed: false
     scientific_acceptance_changed: false
 
+  da_qing_source_coverage:
+    status: derived
+    evidence_grade: C
+    model_role: benchmark_only
+    clinical_fit_allowed: false
+    engine_activation_allowed: false
+    scientific_release_ready: false
+    source_id: da_qing2016_mortality_publication
+    parameter_keys: []
+    protocol_path: docs/validation/da-qing-source-audit-protocol-v1.json
+    protocol_sha256: 01a9da2afadb9e6ac20327cf91694433f4eb17bb14b37b5255b4b49422e10bda
+    coverage_path: docs/validation/da-qing-source-coverage-v1.json
+    coverage_sha256: bc9dfc8bca49f4a214f2807f6fb1906c882c2eafaf06f80708987c3c71cb313f
+    population: Original impaired-glucose-tolerance trial cohort in Da Qing, China; retained clinical follow-up
+      subset. Pooled clinic-randomized diet/exercise interventions and control; no current-state or U.S.
+      mapping.
+    geography: Da Qing, China
+    time_period: 1986-2009; scheduled OGTT during original trial, then mainly clinical diagnosis ascertainment
+      between later follow-up assessments.
+    unit: Literal deaths and published whole person-years by updated age and time before or since recorded
+      diabetes diagnosis
+    uncertainty: Source observations retain displayed precision. No sampling distribution, confidence interval,
+      covariance or independence assumption imposed; repeated person-time and clinic dependence unresolved.
+    transformation: Literal integer deaths/person-year source cells and consistency arithmetic only; no
+      rates, likelihood, causal estimates or independent draws. Recorded source-count discrepancy retained.
+    description: Used-source mortality observation coverage by updated age and time before/since recorded
+      diagnosis. Baseline IGT does not identify current glycemic state. The registered hashed authored observations
+      are source facts, not engine parameters.
+    design_inputs:
+    - I-01
+    - I-07
+    - I-11
+    - I-12
+    - F-04
+    - F-08
+    - T-05
+    - T-08
+
 scientific_blockers:
 - National age-specific metabolic transition hazards are unresolved.
 - Age-specific T2D/prediabetes initial prevalence is not calibrated; CDC total diabetes includes
@@ -5940,4 +5978,17 @@ sources:
     correction_note: Complete pinned Git blob and size verified before parsing. Assay
       units/rawness, specimen clock, fasting interpretation and conditional subject
       namespace association are not clinical identity certification. No clinical fit
+      or engine activation.
+  da_qing2016_mortality_publication:
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC5001147/
+    citation: Gong Q et al. Changes in Mortality in People With IGT Before and After the Onset of Diabetes
+      During the 23-Year Follow-up of the Da Qing Diabetes Prevention Study. Diabetes Care. 2016;39(9):1550-1555.
+    doi: 10.2337/dc16-0429
+    raw_filename: gong2016-pmc-article.html
+    sha256: 442bf71b2b4d08eebba024bcd4fec2177bcb6251690a3c838d9d7a44d9d0c9af
+    retrieved_at: '2026-10-02T14:38:52.750834+00:00'
+    license: ADA copyright2016; educational, not-for-profit, unaltered use with citation. Public access
+      does not establish unrestricted redistribution. Fetch-only documentation.
+    correction_note: Narrative incident-diabetes count and diagnosis-time groups disagree as labeled; retained
+      without substitution. Used-source audit only; no clinical fit, causal interpretation, U.S. transport
       or engine activation.

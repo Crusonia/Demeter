@@ -1,0 +1,28 @@
+{
+  "analysis_id": "reus-corrected-diabetes-v1",
+  "chronology": "Additive used-source numerical repair declaration after the legacy synthetic witness results and edge-case failures were known, before rerunning the compatibility witness with the repaired helper. The original protocol, amendment1 and results remain immutable; no empirical extraction, new clinical effect, reference parameter or tolerance is changed.",
+  "implementation_sha256": {
+    "src/demeter/health/transitions.py": "f424f1b9ec59cd43991bc404d11df2098948bb320c4a8ffa27ad218fdaf677d4",
+    "src/demeter/nutrition/response.py": "d5a0ea385b72b8d7089f9393b626923abcda0b90ad2b66ea2fe539c4e3030e8a"
+  },
+  "parent_protocol_sha256": "df1e72ac4da424c90fc78a2743160bd3698d992c447618d4899224447dd69853",
+  "reference_definition_sha256": {
+    "beta_upf_progression": "87e60f5a8367e20708c55c95ad0b15ada8b2a5f91827f8eada31c3a62c9eb8b8",
+    "diet_lag_years": "993faa25c22c461df0b880678dc753f6e9216ee5c0b1cf7994a1fb41133a477f",
+    "h_to_ir_rate": "c4006c90728137319512c5f9511a76033dc8f012612736bfcaff0b4f3fd3862e",
+    "initial_healthy_share": "f1996bf527aba22aaa6140cc3a5173f0bdef257ccce78a33c749cbf4a4b3467a",
+    "initial_ir_share": "7b76809084be068fbd86dd7559d6e34e2b6e9a5057a2172f999948474ce9db5a",
+    "ir_to_h_rate": "c051be62c47098d025580c4ef75b57fe2f22044aa00605ce47a8e472a4b4b1a0",
+    "ir_to_t2d_rate": "41a5c48c08dde7d9ef0889a33bfbce8a3383a85a7e543b364e5f122ed2e83c62"
+  },
+  "schema_version": 1,
+  "amendment_number": 2,
+  "recorded_at_utc": "2026-10-02T15:09:02.880422+00:00",
+  "parent_amendment_path": "docs/validation/reus-diabetes-amendment-1.json",
+  "parent_amendment_sha256": "4aac541bce132a6aeb59962f49779df8c3d1eecf25f67d5c8db99183dda8084e",
+  "reason": "The annual competing-hazard helper can overflow its sum or intermediate stock-times-hazard product, or lose a representable small flow through underflow. Scaled/binary fallback repairs these identified numerical failures while preserving ordinary arithmetic and the annual operator semantics.",
+  "changed_helpers": [
+    "src/demeter/health/transitions.py"
+  ],
+  "required_replay": "The complete synthetic results payload must exactly equal docs/validation/issue-58-pathway-compatibility.json; provenance changes are reported. Independent extreme-scale numerical tests and full model parity are separate checks. No widened witness tolerance or clinical activation."
+}
