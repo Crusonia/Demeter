@@ -1,0 +1,6083 @@
+{
+  "aggregate_bootstrap_score_vectors_retained": true,
+  "analysis_completed": true,
+  "analysis_id": "ipop_a1c_predictive_uncertainty_supplement_v1",
+  "clinical_fit_performed": false,
+  "death_or_censoring_inference_performed": false,
+  "diagnosis_or_remission_inference_performed": false,
+  "dietary_effect_estimated": false,
+  "engine_activation_allowed": false,
+  "execution_scope": "conditional_empirical_laboratory_working_analysis",
+  "full_data_fits_or_profiles_rerun": false,
+  "legacy_bootstrap_summaries_reproduced_exactly": true,
+  "national_transport_established": false,
+  "participant_records_or_predictions_exported": false,
+  "post_outcome_reporting_amendment": true,
+  "predictive_uncertainty": {
+    "clinical_fit_performed": false,
+    "coordinates": [
+      {
+        "higher_is_better": true,
+        "metric": "log_score",
+        "mode": "one_step",
+        "weighting": "equal_label"
+      },
+      {
+        "higher_is_better": true,
+        "metric": "log_score",
+        "mode": "one_step",
+        "weighting": "transition_weighted"
+      },
+      {
+        "higher_is_better": false,
+        "metric": "brier",
+        "mode": "one_step",
+        "weighting": "equal_label"
+      },
+      {
+        "higher_is_better": false,
+        "metric": "brier",
+        "mode": "one_step",
+        "weighting": "transition_weighted"
+      },
+      {
+        "higher_is_better": true,
+        "metric": "log_score",
+        "mode": "first_only",
+        "weighting": "equal_label"
+      },
+      {
+        "higher_is_better": true,
+        "metric": "log_score",
+        "mode": "first_only",
+        "weighting": "transition_weighted"
+      },
+      {
+        "higher_is_better": false,
+        "metric": "brier",
+        "mode": "first_only",
+        "weighting": "equal_label"
+      },
+      {
+        "higher_is_better": false,
+        "metric": "brier",
+        "mode": "first_only",
+        "weighting": "transition_weighted"
+      }
+    ],
+    "covariance_uses_pairwise_deletion": false,
+    "engine_activation_allowed": false,
+    "failed_draws_redrawn": false,
+    "models": {
+      "adjacent": {
+        "complete_vector": {
+          "attempted_draws": 200,
+          "conditioning": "finite_differences_for_exactly_the_declared_coordinates",
+          "coordinate_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "finite_draws": 199,
+          "nominal_contributing_draw_resolution": 0.005025125628140704,
+          "summary": {
+            "available": true,
+            "covariance": [
+              [
+                0.010281639296480329,
+                0.011104224340512567,
+                -0.005447938733351194,
+                -0.006482549983188765,
+                0.003368513145640693,
+                0.0017385664624754709,
+                -0.001991582082887976,
+                -0.0007429513070483431
+              ],
+              [
+                0.011104224340512567,
+                0.020502311164200714,
+                -0.0055746332373841434,
+                -0.01418417155780949,
+                0.0013811971268600706,
+                0.0011384108330270983,
+                3.522171457584534e-05,
+                -0.00011041540564104788
+              ],
+              [
+                -0.005447938733351194,
+                -0.0055746332373841434,
+                0.00403482560147,
+                0.004199280278620691,
+                -0.0023403782993080373,
+                -0.0006210477221038067,
+                0.0018859578539608959,
+                0.00046396819138005323
+              ],
+              [
+                -0.006482549983188765,
+                -0.01418417155780949,
+                0.004199280278620691,
+                0.011290565932742736,
+                -0.0005289786593833556,
+                -0.0001796614826444698,
+                -5.089078242576062e-05,
+                -3.858813244482916e-05
+              ],
+              [
+                0.003368513145640693,
+                0.0013811971268600706,
+                -0.0023403782993080373,
+                -0.0005289786593833556,
+                0.0036728206639669507,
+                0.0026683211067213635,
+                -0.0029563260052011724,
+                -0.002106495955628892
+              ],
+              [
+                0.0017385664624754709,
+                0.0011384108330270983,
+                -0.0006210477221038067,
+                -0.0001796614826444698,
+                0.0026683211067213635,
+                0.005147557390592962,
+                -0.0019305083514244623,
+                -0.0041524420157044864
+              ],
+              [
+                -0.001991582082887976,
+                3.522171457584534e-05,
+                0.0018859578539608959,
+                -5.089078242576062e-05,
+                -0.0029563260052011724,
+                -0.0019305083514244623,
+                0.002647593823704199,
+                0.001728241643114347
+              ],
+              [
+                -0.0007429513070483431,
+                -0.00011041540564104788,
+                0.00046396819138005323,
+                -3.858813244482916e-05,
+                -0.002106495955628892,
+                -0.0041524420157044864,
+                0.001728241643114347,
+                0.0035615417247004486
+              ]
+            ],
+            "quantile_levels": [
+              0.025,
+              0.5,
+              0.975
+            ],
+            "quantiles": [
+              [
+                0.14558901746104586,
+                0.14261943650351763,
+                -0.3664172309968812,
+                -0.5409970798791204,
+                0.046052464718208896,
+                -0.06422682824129086,
+                -0.23667522570910773,
+                -0.1607669768780921
+              ],
+              [
+                0.3329908399321513,
+                0.42545755367078314,
+                -0.24905317687746648,
+                -0.3248919216805688,
+                0.1432524517303102,
+                0.05974961422689562,
+                -0.10550536301020796,
+                -0.040851206208047774
+              ],
+              [
+                0.560651845021546,
+                0.7074464065411624,
+                -0.1274423780546835,
+                -0.13969541375531397,
+                0.29240392861863024,
+                0.21260781738185427,
+                -0.027570812528587674,
+                0.07217521803895538
+              ]
+            ],
+            "successful_draws": 199
+          },
+          "unavailable_draws": 1
+        },
+        "covariance_uses_pairwise_deletion": false,
+        "fit_status_counts": {
+          "performed": 200
+        },
+        "metric_blocks": {
+          "brier": {
+            "attempted_draws": 200,
+            "conditioning": "finite_differences_for_exactly_the_declared_coordinates",
+            "coordinate_indices": [
+              2,
+              3,
+              6,
+              7
+            ],
+            "finite_draws": 200,
+            "nominal_contributing_draw_resolution": 0.005,
+            "summary": {
+              "available": true,
+              "covariance": [
+                [
+                  0.004146751357144232,
+                  0.004234585638778341,
+                  0.0019613211411366165,
+                  0.0005437658323715222
+                ],
+                [
+                  0.004234585638778341,
+                  0.011257897120057711,
+                  -1.4435554361109309e-05,
+                  -3.3515865432555365e-06
+                ],
+                [
+                  0.0019613211411366165,
+                  -1.4435554361109309e-05,
+                  0.0026887358932350357,
+                  0.0017722635751774858
+                ],
+                [
+                  0.0005437658323715222,
+                  -3.3515865432555365e-06,
+                  0.0017722635751774858,
+                  0.0035946667025367916
+                ]
+              ],
+              "quantile_levels": [
+                0.025,
+                0.5,
+                0.975
+              ],
+              "quantiles": [
+                [
+                  -0.36831804152713815,
+                  -0.5404863426748909,
+                  -0.2365378527181188,
+                  -0.16073911528179816
+                ],
+                [
+                  -0.2490795200995327,
+                  -0.32564874372469066,
+                  -0.10585275990936649,
+                  -0.041058127538929484
+                ],
+                [
+                  -0.1277254749740113,
+                  -0.13974503395099255,
+                  -0.027756072553667552,
+                  0.07216558621235461
+                ]
+              ],
+              "successful_draws": 200
+            },
+            "unavailable_draws": 0
+          },
+          "log_score": {
+            "attempted_draws": 200,
+            "conditioning": "finite_differences_for_exactly_the_declared_coordinates",
+            "coordinate_indices": [
+              0,
+              1,
+              4,
+              5
+            ],
+            "finite_draws": 199,
+            "nominal_contributing_draw_resolution": 0.005025125628140704,
+            "summary": {
+              "available": true,
+              "covariance": [
+                [
+                  0.010281639296480329,
+                  0.011104224340512567,
+                  0.003368513145640693,
+                  0.0017385664624754709
+                ],
+                [
+                  0.011104224340512567,
+                  0.020502311164200714,
+                  0.0013811971268600706,
+                  0.0011384108330270983
+                ],
+                [
+                  0.003368513145640693,
+                  0.0013811971268600706,
+                  0.0036728206639669507,
+                  0.0026683211067213635
+                ],
+                [
+                  0.0017385664624754709,
+                  0.0011384108330270983,
+                  0.0026683211067213635,
+                  0.005147557390592962
+                ]
+              ],
+              "quantile_levels": [
+                0.025,
+                0.5,
+                0.975
+              ],
+              "quantiles": [
+                [
+                  0.14558901746104586,
+                  0.14261943650351763,
+                  0.046052464718208896,
+                  -0.06422682824129086
+                ],
+                [
+                  0.3329908399321513,
+                  0.42545755367078314,
+                  0.1432524517303102,
+                  0.05974961422689562
+                ],
+                [
+                  0.560651845021546,
+                  0.7074464065411624,
+                  0.29240392861863024,
+                  0.21260781738185427
+                ]
+              ],
+              "successful_draws": 199
+            },
+            "unavailable_draws": 1
+          }
+        },
+        "per_coordinate": [
+          {
+            "attempted_draws": 200,
+            "conditioning": "finite_differences_for_exactly_the_declared_coordinates",
+            "coordinate_index": 0,
+            "finite_draws": 199,
+            "nominal_contributing_draw_resolution": 0.005025125628140704,
+            "status_counts": {
+              "finite": 199,
+              "unavailable_or_nonfinite_difference": 1
+            },
+            "summary": {
+              "available": true,
+              "covariance": [
+                [
+                  0.010281639296480329
+                ]
+              ],
+              "quantile_levels": [
+                0.025,
+                0.5,
+                0.975
+              ],
+              "quantiles": [
+                [
+                  0.14558901746104586
+                ],
+                [
+                  0.3329908399321513
+                ],
+                [
+                  0.560651845021546
+                ]
+              ],
+              "successful_draws": 199
+            },
+            "unavailable_draws": 1
+          },
+          {
+            "attempted_draws": 200,
+            "conditioning": "finite_differences_for_exactly_the_declared_coordinates",
+            "coordinate_index": 1,
+            "finite_draws": 199,
+            "nominal_contributing_draw_resolution": 0.005025125628140704,
+            "status_counts": {
+              "finite": 199,
+              "unavailable_or_nonfinite_difference": 1
+            },
+            "summary": {
+              "available": true,
+              "covariance": [
+                [
+                  0.020502311164200714
+                ]
+              ],
+              "quantile_levels": [
+                0.025,
+                0.5,
+                0.975
+              ],
+              "quantiles": [
+                [
+                  0.14261943650351763
+                ],
+                [
+                  0.42545755367078314
+                ],
+                [
+                  0.7074464065411624
+                ]
+              ],
+              "successful_draws": 199
+            },
+            "unavailable_draws": 1
+          },
+          {
+            "attempted_draws": 200,
+            "conditioning": "finite_differences_for_exactly_the_declared_coordinates",
+            "coordinate_index": 2,
+            "finite_draws": 200,
+            "nominal_contributing_draw_resolution": 0.005,
+            "status_counts": {
+              "finite": 200
+            },
+            "summary": {
+              "available": true,
+              "covariance": [
+                [
+                  0.004146751357144232
+                ]
+              ],
+              "quantile_levels": [
+                0.025,
+                0.5,
+                0.975
+              ],
+              "quantiles": [
+                [
+                  -0.36831804152713815
+                ],
+                [
+                  -0.2490795200995327
+                ],
+                [
+                  -0.1277254749740113
+                ]
+              ],
+              "successful_draws": 200
+            },
+            "unavailable_draws": 0
+          },
+          {
+            "attempted_draws": 200,
+            "conditioning": "finite_differences_for_exactly_the_declared_coordinates",
+            "coordinate_index": 3,
+            "finite_draws": 200,
+            "nominal_contributing_draw_resolution": 0.005,
+            "status_counts": {
+              "finite": 200
+            },
+            "summary": {
+              "available": true,
+              "covariance": [
+                [
+                  0.011257897120057711
+                ]
+              ],
+              "quantile_levels": [
+                0.025,
+                0.5,
+                0.975
+              ],
+              "quantiles": [
+                [
+                  -0.5404863426748909
+                ],
+                [
+                  -0.32564874372469066
+                ],
+                [
+                  -0.13974503395099255
+                ]
+              ],
+              "successful_draws": 200
+            },
+            "unavailable_draws": 0
+          },
+          {
+            "attempted_draws": 200,
+            "conditioning": "finite_differences_for_exactly_the_declared_coordinates",
+            "coordinate_index": 4,
+            "finite_draws": 200,
+            "nominal_contributing_draw_resolution": 0.005,
+            "status_counts": {
+              "finite": 200
+            },
+            "summary": {
+              "available": true,
+              "covariance": [
+                [
+                  0.0037946632811137917
+                ]
+              ],
+              "quantile_levels": [
+                0.025,
+                0.5,
+                0.975
+              ],
+              "quantiles": [
+                [
+                  0.04620241226729871
+                ],
+                [
+                  0.14333480550752065
+                ],
+                [
+                  0.2990689425404316
+                ]
+              ],
+              "successful_draws": 200
+            },
+            "unavailable_draws": 0
+          },
+          {
+            "attempted_draws": 200,
+            "conditioning": "finite_differences_for_exactly_the_declared_coordinates",
+            "coordinate_index": 5,
+            "finite_draws": 200,
+            "nominal_contributing_draw_resolution": 0.005,
+            "status_counts": {
+              "finite": 200
+            },
+            "summary": {
+              "available": true,
+              "covariance": [
+                [
+                  0.005303784486713869
+                ]
+              ],
+              "quantile_levels": [
+                0.025,
+                0.5,
+                0.975
+              ],
+              "quantiles": [
+                [
+                  -0.06416610640468733
+                ],
+                [
+                  0.06027497235685392
+                ],
+                [
+                  0.22363240578819887
+                ]
+              ],
+              "successful_draws": 200
+            },
+            "unavailable_draws": 0
+          },
+          {
+            "attempted_draws": 200,
+            "conditioning": "finite_differences_for_exactly_the_declared_coordinates",
+            "coordinate_index": 6,
+            "finite_draws": 200,
+            "nominal_contributing_draw_resolution": 0.005,
+            "status_counts": {
+              "finite": 200
+            },
+            "summary": {
+              "available": true,
+              "covariance": [
+                [
+                  0.0026887358932350357
+                ]
+              ],
+              "quantile_levels": [
+                0.025,
+                0.5,
+                0.975
+              ],
+              "quantiles": [
+                [
+                  -0.2365378527181188
+                ],
+                [
+                  -0.10585275990936649
+                ],
+                [
+                  -0.027756072553667552
+                ]
+              ],
+              "successful_draws": 200
+            },
+            "unavailable_draws": 0
+          },
+          {
+            "attempted_draws": 200,
+            "conditioning": "finite_differences_for_exactly_the_declared_coordinates",
+            "coordinate_index": 7,
+            "finite_draws": 200,
+            "nominal_contributing_draw_resolution": 0.005,
+            "status_counts": {
+              "finite": 200
+            },
+            "summary": {
+              "available": true,
+              "covariance": [
+                [
+                  0.0035946667025367916
+                ]
+              ],
+              "quantile_levels": [
+                0.025,
+                0.5,
+                0.975
+              ],
+              "quantiles": [
+                [
+                  -0.16073911528179816
+                ],
+                [
+                  -0.041058127538929484
+                ],
+                [
+                  0.07216558621235461
+                ]
+              ],
+              "successful_draws": 200
+            },
+            "unavailable_draws": 0
+          }
+        ],
+        "prediction_status_counts": {
+          "nonfinite_or_unavailable_scores": 1,
+          "performed_finite": 199
+        },
+        "unsupported_log_difference_causes_identified": false
+      }
+    },
+    "quantile_levels": [
+      0.025,
+      0.5,
+      0.975
+    ],
+    "repetitions_attempted": 200,
+    "repetitions_requested": 200,
+    "replicate_score_vectors": {
+      "adjacent": [
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 0,
+          "values": [
+            0.35277151805272317,
+            0.5430337898396697,
+            -0.26316853341329055,
+            -0.4348545845279285,
+            0.08870987427193266,
+            -0.01742024567081013,
+            -0.059207198134338224,
+            0.025476113691953017
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 1,
+          "values": [
+            0.3948801418996224,
+            0.4928657713190173,
+            -0.262642394199806,
+            -0.34022196680333483,
+            0.16651626676162834,
+            0.01315879481877269,
+            -0.12036285149255166,
+            0.014587361207609617
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 2,
+          "values": [
+            0.09150630524182946,
+            0.2699352804327967,
+            -0.067388020380443,
+            -0.19660934665608587,
+            -0.019153696597757452,
+            -0.1258399227588075,
+            0.027760669605701227,
+            0.12979619919482765
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 3,
+          "values": [
+            0.21819587672722895,
+            0.424097370962195,
+            -0.17870212687479123,
+            -0.3736918337917331,
+            0.10890691686955523,
+            0.06349167567254466,
+            -0.07519763233044985,
+            -0.05032886120240643
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 4,
+          "values": [
+            0.3101576403845353,
+            0.42798257484925095,
+            -0.23558931234020503,
+            -0.3331278093200257,
+            0.1369713552525339,
+            -0.0030150493193070727,
+            -0.10517424225971966,
+            0.01536620787511056
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 5,
+          "values": [
+            0.2106553301634423,
+            0.2132641269782164,
+            -0.1465960672589483,
+            -0.15153160070256877,
+            0.08190623207359626,
+            0.06597049159089119,
+            -0.05849271494711622,
+            -0.04430731903623336
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 6,
+          "values": [
+            0.45241474821374184,
+            0.5006226181082765,
+            -0.2840709493673159,
+            -0.3083803101939015,
+            0.2104386884354842,
+            0.06606065510300718,
+            -0.15344623900674847,
+            -0.02536910527324654
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 7,
+          "values": [
+            0.315946116215991,
+            0.4512484170480549,
+            -0.2714812908664289,
+            -0.37277033933199033,
+            0.1588144357190493,
+            -0.028372854984110907,
+            -0.13254866736593834,
+            0.03650861818629403
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 8,
+          "values": [
+            0.5809008210036645,
+            0.6359553492649312,
+            -0.3039377124967901,
+            -0.38889535672110137,
+            0.21656712575678738,
+            0.16943227211828038,
+            -0.10171177122292929,
+            -0.07923911525352856
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 9,
+          "values": [
+            0.48140429057884415,
+            0.44772583828484247,
+            -0.3313745475941026,
+            -0.30740029407811686,
+            0.20100725964920663,
+            0.1435508337496546,
+            -0.1497115111490816,
+            -0.10087928170427296
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 10,
+          "values": [
+            0.3124924648631273,
+            0.4422100534037836,
+            -0.18695503521726214,
+            -0.30782815934720836,
+            0.15182728008171542,
+            0.08843169054835887,
+            -0.10385501152488086,
+            -0.05576088850458727
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 11,
+          "values": [
+            0.4695530769295103,
+            0.41716646859349454,
+            -0.39556983671826706,
+            -0.3601909415354025,
+            0.30317992032248686,
+            0.2230399905426167,
+            -0.256429151541635,
+            -0.1943574674681791
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 12,
+          "values": [
+            0.2263057198675391,
+            0.1267626583386281,
+            -0.20476186676164332,
+            -0.13646910164638737,
+            0.12964370172951434,
+            0.04194440508219932,
+            -0.10035782784423619,
+            -0.036463006731495884
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 13,
+          "values": [
+            0.2776127417670914,
+            0.21472835488616693,
+            -0.2584646085837828,
+            -0.20450173746926725,
+            0.1473311526957879,
+            0.053872469386677,
+            -0.1317578899809096,
+            -0.04784526024448815
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 14,
+          "values": [
+            0.29991522281781413,
+            0.28207643620681766,
+            -0.18710284307444935,
+            -0.17063823706011633,
+            0.16559058506653146,
+            0.10657800720188171,
+            -0.11335516914483545,
+            -0.06348881764571623
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 15,
+          "values": [
+            0.31092079025932723,
+            0.2866174559488236,
+            -0.21867765175286746,
+            -0.1945108477433582,
+            0.19481230096554292,
+            0.15049371188248695,
+            -0.15211942570751347,
+            -0.11531442173508438
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 16,
+          "values": [
+            0.29696707417060064,
+            0.4285991369512278,
+            -0.296167431880573,
+            -0.41202788088180453,
+            0.12363699801804728,
+            0.0325137514465893,
+            -0.11124169932151129,
+            -0.03256098252172657
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 17,
+          "values": [
+            0.2178910741897654,
+            0.14271254717127702,
+            -0.2181317680070191,
+            -0.16612593780876006,
+            0.24112224597312037,
+            0.14660558264927792,
+            -0.2028152178330494,
+            -0.12880626490026725
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 18,
+          "values": [
+            0.3924903003813728,
+            0.3841638226259045,
+            -0.3263605631706872,
+            -0.31552022232103316,
+            0.19759162736879754,
+            0.032089511863399034,
+            -0.16508791151887264,
+            -0.02380174709933658
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 19,
+          "values": [
+            0.2831018428940179,
+            0.2725083864985313,
+            -0.23783584536077912,
+            -0.23113408124692186,
+            0.14487093259372252,
+            0.09434566836961111,
+            -0.11028243673103716,
+            -0.0710914657879177
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 20,
+          "values": [
+            0.2783628576113877,
+            0.22291722777518996,
+            -0.2258208280070929,
+            -0.18091366211262971,
+            0.17701096897753876,
+            0.10436305111516408,
+            -0.14296556341147493,
+            -0.07875875735780397
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 21,
+          "values": [
+            0.6342429944842783,
+            0.9320097378377133,
+            -0.366323173122297,
+            -0.6710357037355171,
+            0.21973910592740897,
+            0.17885247357337897,
+            -0.09170717675113849,
+            -0.07918840232718671
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 22,
+          "values": [
+            0.3050048967364602,
+            0.5913060721368187,
+            -0.2876796645413742,
+            -0.5226615829399477,
+            0.07276585037331507,
+            0.08471336003450325,
+            -0.06829572120615529,
+            -0.08092887117528269
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 23,
+          "values": [
+            0.20458658558402776,
+            0.33016727338455193,
+            -0.1807445314067243,
+            -0.284938494809485,
+            0.10432035126494132,
+            0.044104837111803796,
+            -0.08802118738329684,
+            -0.033500927654678714
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 24,
+          "values": [
+            0.27616901357444024,
+            0.3844063345208168,
+            -0.2522699663797392,
+            -0.35294044547528575,
+            0.13830376523183674,
+            -0.008946805696247617,
+            -0.10923036179715728,
+            0.005697643348323234
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 25,
+          "values": [
+            0.3329908399321513,
+            0.49549953094912885,
+            -0.2086995505897175,
+            -0.3558952031901166,
+            0.12459368561336359,
+            0.08838743200735677,
+            -0.0729086462593736,
+            -0.05088726599147686
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 26,
+          "values": [
+            0.2666499161341692,
+            0.3383352307255628,
+            -0.22847819819707577,
+            -0.28865609302871004,
+            0.09626238637779605,
+            0.030417783303517743,
+            -0.06970329750929644,
+            -0.012765562643026973
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 27,
+          "values": [
+            0.26731408295383485,
+            0.39411906126484864,
+            -0.2145717967242487,
+            -0.3322811257205893,
+            0.054961957075888246,
+            -0.003328832534905124,
+            -0.034934405502360655,
+            0.009888818217662854
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 28,
+          "values": [
+            0.2961811777703135,
+            0.26750374701003343,
+            -0.20670890120304097,
+            -0.17691335942771153,
+            0.18354716312243624,
+            0.126944381465098,
+            -0.13389659969510515,
+            -0.08284120218461682
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 29,
+          "values": [
+            0.3355112637622237,
+            0.47668201806905897,
+            -0.2729460916731353,
+            -0.3883212305216648,
+            0.15951513586163524,
+            0.05851244731295435,
+            -0.11622657024306832,
+            -0.02929477154027793
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 30,
+          "values": [
+            0.2798338739509011,
+            0.4154451753609927,
+            -0.22856146172686373,
+            -0.35237986859696996,
+            0.1436667537889771,
+            0.0553126626847954,
+            -0.10620015680852501,
+            -0.033956029325228565
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 31,
+          "values": [
+            0.4368465372604715,
+            0.56670260386762,
+            -0.27382140686182505,
+            -0.3976073212323059,
+            0.0886544217955012,
+            0.04593028663858634,
+            -0.05105802282373473,
+            -0.014742793316876002
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 32,
+          "values": [
+            0.5037008916980013,
+            0.6063362272862797,
+            -0.28968361674138865,
+            -0.39701036240188503,
+            0.24360266701513167,
+            0.1678027365971837,
+            -0.15260923860959008,
+            -0.09298968599497248
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 33,
+          "values": [
+            0.4092038655925855,
+            0.49741376808892224,
+            -0.33095755752440725,
+            -0.38490453048996387,
+            0.10910528207979364,
+            -0.01281308384378943,
+            -0.08431903929803997,
+            0.02511456106465687
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 34,
+          "values": [
+            0.17112348819706613,
+            0.14085033381608913,
+            -0.11219953061539778,
+            -0.09732245853260502,
+            0.09050937123367997,
+            0.02032834309050746,
+            -0.060298124153508326,
+            -0.0011252051581035483
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 35,
+          "values": [
+            0.38874368398400555,
+            0.4421722018996139,
+            -0.2891893136788573,
+            -0.3270619945729527,
+            0.17032180863568092,
+            0.052133067548197354,
+            -0.13645194304856256,
+            -0.027981391459731553
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 36,
+          "values": [
+            0.36379976663200286,
+            0.5832360695834752,
+            -0.1812263419116812,
+            -0.3816503793845962,
+            0.11204927868443404,
+            0.11493584092906728,
+            -0.055895344233489186,
+            -0.06465279126263113
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 37,
+          "values": [
+            0.3255286361667912,
+            0.3216523057618603,
+            -0.2209087635538931,
+            -0.21571861314209845,
+            0.16790083132655897,
+            0.10878453708825431,
+            -0.12827039486390807,
+            -0.08267075972729054
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 38,
+          "values": [
+            0.29328569270370664,
+            0.47479349153481604,
+            -0.26700387193312936,
+            -0.4105760821112567,
+            0.10900206841806692,
+            -0.008134826890032643,
+            -0.08809564927743097,
+            0.010962439868220097
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 39,
+          "values": [
+            0.24826963099731414,
+            0.415677432947536,
+            -0.19905730753366124,
+            -0.3426948621698921,
+            0.06678307551725982,
+            -0.053570624135170886,
+            -0.03830935908962352,
+            0.059399619419650995
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 40,
+          "values": [
+            0.2913235716659561,
+            0.36670318919687683,
+            -0.22322531526002087,
+            -0.2904312472220461,
+            0.1039800025435691,
+            0.02810795899165175,
+            -0.06814112631633051,
+            -0.004333102299033276
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 41,
+          "values": [
+            0.36669196425681017,
+            0.41895589579710013,
+            -0.3017657134033072,
+            -0.35431090288565403,
+            0.18584918855218557,
+            0.07597316929006992,
+            -0.15293199786412615,
+            -0.05845044484884043
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 42,
+          "values": [
+            0.46390497511830975,
+            0.4174489129524356,
+            -0.3303974694500827,
+            -0.29541154263120595,
+            0.22150925462717375,
+            0.07649494464962103,
+            -0.16752686578673215,
+            -0.047326057551670186
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 43,
+          "values": [
+            0.3073118942934828,
+            0.40588788795257713,
+            -0.20839053392783818,
+            -0.3062507870031771,
+            0.12624239646520152,
+            0.03019006885375397,
+            -0.08352987121976174,
+            -0.008138987809973353
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 44,
+          "values": [
+            0.3829598008813264,
+            0.47007942974063427,
+            -0.32482408177508393,
+            -0.3884031496501037,
+            0.1696808349544805,
+            0.05687089419873259,
+            -0.15204141268046717,
+            -0.050588538608308364
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 45,
+          "values": [
+            0.3191620787644492,
+            0.3820546221740017,
+            -0.25747055544270236,
+            -0.2893728114712729,
+            0.09028089708911646,
+            -0.07985457545402064,
+            -0.06411617244062329,
+            0.0939390115462555
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 46,
+          "values": [
+            0.3641641587498645,
+            0.44602826326782496,
+            -0.26835600984571734,
+            -0.3359845003941773,
+            0.09810716251338458,
+            -0.032459400700270646,
+            -0.06648626437097144,
+            0.04311837938469987
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 47,
+          "values": [
+            0.31921075742581406,
+            0.45894833367177273,
+            -0.20810278283274722,
+            -0.33131572546058274,
+            0.1606769246080907,
+            0.05201386379208839,
+            -0.1100035170030298,
+            -0.0281605596801332
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 48,
+          "values": [
+            0.21237073156691033,
+            0.31950845147636125,
+            -0.19255210705293802,
+            -0.2842388154665474,
+            0.09038979947514636,
+            -0.028123679988116712,
+            -0.07592212410954846,
+            0.025758825811468156
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 49,
+          "values": [
+            0.38205348851502563,
+            0.49863263569200567,
+            -0.20221905897822484,
+            -0.3384006701128935,
+            0.0983298065627185,
+            0.04679515883256535,
+            -0.03964536915667305,
+            -0.011243697332195102
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 50,
+          "values": [
+            0.23684213927494258,
+            0.24306821665779788,
+            -0.15896847535801162,
+            -0.1663170608424277,
+            0.11769239340591875,
+            -0.013351169525526063,
+            -0.08753050407607799,
+            0.029561047872842527
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 51,
+          "values": [
+            0.404427255312222,
+            0.6377044595117597,
+            -0.3045129812582102,
+            -0.5145309243752225,
+            0.15636559114868886,
+            0.08133052399320728,
+            -0.11762180787459464,
+            -0.05963426606730238
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 52,
+          "values": [
+            0.3922786307787087,
+            0.5691173172210162,
+            -0.31035949277232566,
+            -0.47570874942129593,
+            0.12995669745184601,
+            0.04073108906235845,
+            -0.09860750037179555,
+            -0.02904913216744409
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 53,
+          "values": [
+            0.4507470230041975,
+            0.7859360092550423,
+            -0.2619759177635228,
+            -0.5702451847050287,
+            0.17905611974953584,
+            0.24673660036589817,
+            -0.08620859981903345,
+            -0.15238997938575682
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 54,
+          "values": [
+            0.3506325209644882,
+            0.485258749834008,
+            -0.2420279248097862,
+            -0.3578417579676171,
+            0.19712362957461327,
+            0.16039124728972842,
+            -0.14138937468292356,
+            -0.12054553692650061
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 55,
+          "values": [
+            0.5404996623195968,
+            0.5643859469449044,
+            -0.34132503873149034,
+            -0.35618766826797127,
+            0.2109075155486564,
+            0.09945435832614502,
+            -0.15668410397536725,
+            -0.05638174679132468
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 56,
+          "values": [
+            0.388314481409845,
+            0.591270405012147,
+            -0.269860054551652,
+            -0.4516425119489321,
+            0.11708799518066992,
+            0.1147847131853501,
+            -0.07705502339773929,
+            -0.07741372253380974
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 57,
+          "values": [
+            0.39959119143095656,
+            0.4609622104759369,
+            -0.24622123127972056,
+            -0.30715054133546377,
+            0.12809295547545607,
+            0.038958777701959435,
+            -0.08491794570125244,
+            -0.006015849808410301
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 58,
+          "values": [
+            0.26862564560006996,
+            0.20287612997952909,
+            -0.246949868113729,
+            -0.20366728850326998,
+            0.16682126330867675,
+            0.08152308020694643,
+            -0.1400114865269591,
+            -0.06847724341531841
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 59,
+          "values": [
+            0.27481295140863987,
+            0.2508537344089329,
+            -0.17471707515547558,
+            -0.1465652686282652,
+            0.13978548956155146,
+            0.10182843715862022,
+            -0.0977780333309553,
+            -0.06478383527203907
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 60,
+          "values": [
+            0.3156569644550933,
+            0.329677201898931,
+            -0.17551328122984866,
+            -0.22426273836786487,
+            0.08861426090449354,
+            0.04318732021261895,
+            -0.03009831229711657,
+            -0.003145099814375496
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 61,
+          "values": [
+            0.3593220834068288,
+            0.3908509311362158,
+            -0.26086612379516655,
+            -0.2769777619787305,
+            0.14977293767695266,
+            -0.09553981532584688,
+            -0.10362925455009903,
+            0.10636118488516
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 62,
+          "values": [
+            0.26617006682649724,
+            0.4309383306566789,
+            -0.1936394537775717,
+            -0.3494237976267015,
+            0.04035445785279601,
+            -0.0453726662211873,
+            -0.02053093157554564,
+            0.04609070494579259
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 63,
+          "values": [
+            0.42464974804361644,
+            0.45439266769260495,
+            -0.2888472325949409,
+            -0.3128184214273011,
+            0.14065758528037664,
+            -0.044768484414896226,
+            -0.09613621204059336,
+            0.06263403452954874
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 64,
+          "values": [
+            0.4426689810151458,
+            0.4485126700284933,
+            -0.3435692585674295,
+            -0.33244229242385787,
+            0.22000747270878207,
+            0.04135612796546306,
+            -0.17502193313392705,
+            -0.022326047795969806
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 65,
+          "values": [
+            0.3212066259914792,
+            0.4411580950812571,
+            -0.21203208820908315,
+            -0.3192580221863676,
+            0.07507286304870864,
+            0.06300588051088007,
+            -0.03302849507919481,
+            -0.02396484634400553
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 66,
+          "values": [
+            0.30567947460836115,
+            0.42545755367078314,
+            -0.24432936112623532,
+            -0.3388532961106815,
+            0.09134019840134555,
+            0.0324560717882143,
+            -0.07453168735731619,
+            -0.020573343708615244
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 67,
+          "values": [
+            0.1745202558827873,
+            0.3046167817671166,
+            -0.16591310559049077,
+            -0.2529247038566178,
+            0.05752592280920166,
+            0.06308081388167575,
+            -0.044675572021226295,
+            -0.05128357314293536
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 68,
+          "values": [
+            0.3785992709380007,
+            0.45514783845060164,
+            -0.23661382170475548,
+            -0.30242736405472115,
+            0.15055495719741696,
+            0.06507770262234336,
+            -0.09872668008828794,
+            -0.03038450887700428
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 69,
+          "values": [
+            0.4016085458608116,
+            0.5260438180678444,
+            -0.28305605412160667,
+            -0.3958528973634555,
+            0.13458070343414041,
+            0.11070553075099354,
+            -0.09751221766729656,
+            -0.07722444218944058
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 70,
+          "values": [
+            0.40405251399915776,
+            0.4738547845263321,
+            -0.306271001702145,
+            -0.35289686704796563,
+            0.11659923480504997,
+            -0.007677845223879043,
+            -0.09584738746199511,
+            0.020322969772000543
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 71,
+          "values": [
+            0.4608529066159003,
+            0.4773207261553177,
+            -0.3174502654793531,
+            -0.3584577449501365,
+            0.14026044586622022,
+            -0.05742043765911653,
+            -0.08189533625527867,
+            0.07850301876116383
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 72,
+          "values": [
+            0.17416462588988058,
+            0.45361829642570384,
+            -0.15640347116681808,
+            -0.39950823108898426,
+            0.06951231170500494,
+            0.04987826679370955,
+            -0.04719659620472427,
+            -0.041265048869811194
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 73,
+          "values": [
+            0.25290985423888923,
+            0.2805520014024293,
+            -0.17431530180380017,
+            -0.19215585151290204,
+            0.15658105149036938,
+            0.13139244878968515,
+            -0.10486812964336284,
+            -0.08433443440193383
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 74,
+          "values": [
+            0.24623333895119603,
+            0.2216221566730761,
+            -0.21060673265081098,
+            -0.18764182636348264,
+            0.13683730141596773,
+            0.131792814098037,
+            -0.10889074103601931,
+            -0.10536765327037473
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 75,
+          "values": [
+            0.27796542771927424,
+            0.48456082776848697,
+            -0.2809220424120073,
+            -0.4478146599887356,
+            0.1285800329968234,
+            0.07323465033790855,
+            -0.11473750540750466,
+            -0.06655960705247088
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 76,
+          "values": [
+            0.24311892521305656,
+            0.20629285673153264,
+            -0.21957404089699317,
+            -0.19300209610850633,
+            0.1458592207063244,
+            0.08916020362818267,
+            -0.10694814201700026,
+            -0.05912206268080489
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 77,
+          "values": [
+            0.24349977719064764,
+            0.14645205250849724,
+            -0.21823053337675685,
+            -0.15357829766507092,
+            0.1987125678796276,
+            0.1284832320967919,
+            -0.1689100107386471,
+            -0.11331446622454217
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 78,
+          "values": [
+            0.2784303050806599,
+            0.3256390676430353,
+            -0.2411287052621119,
+            -0.26564460398286616,
+            0.1558788626630354,
+            0.013175357949983924,
+            -0.13502870675572315,
+            -0.004888401483879035
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 79,
+          "values": [
+            0.36240027202120856,
+            0.3745783621875941,
+            -0.2730246594067449,
+            -0.2978477954834771,
+            0.18371416267782126,
+            0.0013988175566375105,
+            -0.12731750040571527,
+            0.017367336784306464
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 80,
+          "values": [
+            0.11743474726779118,
+            0.1648349753173518,
+            -0.11668469512021717,
+            -0.17518776799455255,
+            0.08195519997072748,
+            0.06784954176727609,
+            -0.06644391176128772,
+            -0.0619541784399687
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 81,
+          "values": [
+            0.32397592028082134,
+            0.4510826678693882,
+            -0.23189660505022763,
+            -0.3615202070171575,
+            0.13383936646963346,
+            0.052901618394051386,
+            -0.09083619228999001,
+            -0.03238749874473634
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 82,
+          "values": [
+            0.4868585491191608,
+            0.6971067007881345,
+            -0.36389265110177926,
+            -0.5604050936398368,
+            0.23553340954693636,
+            0.17971512536605438,
+            -0.17032686497462873,
+            -0.144868806283738
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 83,
+          "values": [
+            0.2605452683789741,
+            0.1638613109293609,
+            -0.24574260031715967,
+            -0.16246921059232622,
+            0.13333267602854826,
+            0.04647691942023058,
+            -0.11652840591774516,
+            -0.040851206208047774
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 84,
+          "values": [
+            0.35687118939356177,
+            0.3395557027039521,
+            -0.28342145032824245,
+            -0.24019191364740475,
+            0.23489576622940944,
+            -0.055883606594251956,
+            -0.18680032887469494,
+            0.06866097521243975
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 85,
+          "values": [
+            0.14598289730617098,
+            0.15885654059821874,
+            -0.14108052388255937,
+            -0.15307673453140452,
+            0.06324705402074182,
+            0.035112415145789666,
+            -0.053390059025895,
+            -0.026236766941124645
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 86,
+          "values": [
+            0.3860629963453952,
+            0.4895374177410698,
+            -0.292323924313609,
+            -0.3764285636704041,
+            0.04769980215529379,
+            -0.06410538456808379,
+            -0.03002620059237915,
+            0.07215595438575384
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 87,
+          "values": [
+            0.35806749746727246,
+            0.46448349219856855,
+            -0.24580571095376957,
+            -0.34959270546385757,
+            0.12377127200915738,
+            0.02355271230967615,
+            -0.09272207073673677,
+            -0.011121679902623027
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 88,
+          "values": [
+            0.29805617054692424,
+            0.7061051327819975,
+            -0.2676458988390631,
+            -0.6161451799178999,
+            0.06692470135968143,
+            0.05046413512297443,
+            -0.05277194147313702,
+            -0.045567277616067936
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 89,
+          "values": [
+            0.40522457406737994,
+            0.43990445505447134,
+            -0.29528533690192843,
+            -0.3248919216805688,
+            0.1768427539698103,
+            0.07165357460503441,
+            -0.14549801025539605,
+            -0.05044080870660178
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 90,
+          "values": [
+            0.38105213585913844,
+            0.5422393114198063,
+            -0.2717664992923105,
+            -0.4248020251335628,
+            0.13469706157324468,
+            0.07645680689558287,
+            -0.08239481867087672,
+            -0.041603288918041104
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 91,
+          "values": [
+            0.18848179502921747,
+            0.20104026545166243,
+            -0.12800857189333942,
+            -0.1524797513869947,
+            0.016322692483176415,
+            0.008620966675244035,
+            -0.004411421554786021,
+            0.0008086443479539129
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 92,
+          "values": [
+            0.4973924153317944,
+            0.4853813316961985,
+            -0.3682043306139819,
+            -0.3548795574598901,
+            0.29904148155707333,
+            0.0875319557569173,
+            -0.24189539936668764,
+            -0.057656964493826346
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 93,
+          "values": [
+            0.35143465866130347,
+            0.32583278805454163,
+            -0.3146546906538079,
+            -0.30664540911160604,
+            0.23356036283205195,
+            0.17045551733744813,
+            -0.19700789900593096,
+            -0.14405157818253872
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 94,
+          "values": [
+            0.45402657303060995,
+            0.5354290492811452,
+            -0.3245027882670688,
+            -0.385495816564249,
+            0.18798171549285536,
+            0.06996287736364115,
+            -0.14307510134075296,
+            -0.04227004142313329
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 95,
+          "values": [
+            0.462405565968758,
+            0.5596436456797288,
+            -0.3415771237915306,
+            -0.45342291782348765,
+            0.17613634732090366,
+            0.008058632001858634,
+            -0.12329782846702286,
+            0.006657886597770335
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 96,
+          "values": [
+            0.4438803416510977,
+            0.43483081380389155,
+            -0.3653197490657543,
+            -0.34056223399944585,
+            0.2670778360748684,
+            0.0028353163519904134,
+            -0.21823290951764113,
+            0.009275973668574855
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 97,
+          "values": [
+            0.17148904887633942,
+            0.33313108381790796,
+            -0.1928163255407988,
+            -0.3239132367824025,
+            0.01316356650900452,
+            -0.06653425803222524,
+            -0.007442544780861926,
+            0.061934780347230656
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 98,
+          "values": [
+            0.12788760674613486,
+            0.12231837187541972,
+            -0.09775721430512868,
+            -0.0963313761013867,
+            0.050477017868801655,
+            0.037036058257139626,
+            -0.03723867853840501,
+            -0.024390080321346375
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 99,
+          "values": [
+            0.2594846217562473,
+            0.41164342759836836,
+            -0.18509164286932456,
+            -0.31276184335837387,
+            0.04635235981638852,
+            -0.03741585063029229,
+            -0.027941332578747646,
+            0.047609946006688886
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 100,
+          "values": [
+            0.2522037274485803,
+            0.2138586829562631,
+            -0.21575518201913363,
+            -0.18208207549638475,
+            0.15696442894907603,
+            0.08460524583775364,
+            -0.13135920583876204,
+            -0.07321266325714149
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 101,
+          "values": [
+            0.28111669461726985,
+            0.49554506122371017,
+            -0.18729722709081098,
+            -0.38348119066129627,
+            0.11507488891268591,
+            0.08957866786111457,
+            -0.06627437731113145,
+            -0.053880094544431434
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 102,
+          "values": [
+            0.5121003096824256,
+            0.514029804052485,
+            -0.32097373540688867,
+            -0.34175022986730086,
+            0.13916113975472222,
+            -0.049880481766535256,
+            -0.08666611208461228,
+            0.07254122744978475
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 103,
+          "values": [
+            0.3958965789790886,
+            0.4458706881371592,
+            -0.27352050574340186,
+            -0.3014108641262015,
+            0.12833566804985475,
+            0.04619507974724735,
+            -0.10185952475766386,
+            -0.028377151218399232
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 104,
+          "values": [
+            0.5002483864914691,
+            0.6133506960688404,
+            -0.34550087095136417,
+            -0.42842460991955766,
+            0.2614278814493233,
+            0.16945218432659026,
+            -0.18324860654534908,
+            -0.09936919504659725
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 105,
+          "values": [
+            0.416750397455104,
+            0.4730423742247786,
+            -0.19000118935911714,
+            -0.18973475943090873,
+            0.20703463515314358,
+            0.20356740814811325,
+            -0.09645735856537513,
+            -0.07448855873177318
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 106,
+          "values": [
+            0.32241593635459365,
+            0.2983055203253131,
+            -0.2559159150076724,
+            -0.22348266111758774,
+            0.27542878206108456,
+            0.2025583692414853,
+            -0.2183401309125993,
+            -0.15056134638493363
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 107,
+          "values": [
+            0.3493637397962319,
+            0.5845495645401395,
+            -0.29428948839728386,
+            -0.48587337116554685,
+            0.17081942287305873,
+            0.08811599046410112,
+            -0.14810476779582915,
+            -0.0779656477507844
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 108,
+          "values": [
+            0.2646779721752306,
+            0.2597870737342406,
+            -0.16629736397577188,
+            -0.13780984631952586,
+            0.1892901026800985,
+            0.15976527083803616,
+            -0.13107285825717596,
+            -0.09438338355915854
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 109,
+          "values": [
+            0.3783990589538246,
+            0.4790785905660982,
+            -0.24442891707116088,
+            -0.3381042689609076,
+            0.1576483686533594,
+            0.060800330486812215,
+            -0.11355270303955484,
+            -0.03898488193258204
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 110,
+          "values": [
+            0.1496795903277085,
+            0.11777569193755488,
+            -0.11555264067710996,
+            -0.09520825525401455,
+            0.1615831033841496,
+            0.12447463037793938,
+            -0.12507888250341775,
+            -0.09812327343827182
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 111,
+          "values": [
+            0.4226574344935668,
+            0.46092802583769044,
+            -0.324071880164706,
+            -0.34174989796255395,
+            0.18739226202858728,
+            0.025190938281994035,
+            -0.14773714234942664,
+            -0.00843007506475002
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 112,
+          "values": [
+            0.21854663024908394,
+            0.29465985195478445,
+            -0.18931293936039645,
+            -0.2486344493442998,
+            0.07789834616666091,
+            -0.012433337386304033,
+            -0.05311074058676629,
+            0.021813251874386874
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 113,
+          "values": [
+            0.2160422653692613,
+            0.27026867830657963,
+            -0.22296846518048385,
+            -0.2564942669281242,
+            0.18708729224463938,
+            0.07007468868762057,
+            -0.16546374370382794,
+            -0.061034459700553545
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 114,
+          "values": [
+            0.2833972854485419,
+            0.2674408340254403,
+            -0.22062739640699652,
+            -0.19985271518325898,
+            0.20859969259409772,
+            0.19792383178487094,
+            -0.16812626563328437,
+            -0.16182571753726227
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 115,
+          "values": [
+            0.30924198598230573,
+            0.28962449313493005,
+            -0.2814103717475229,
+            -0.2533384626770641,
+            0.14810593890870682,
+            0.0153013678487266,
+            -0.13445687500805076,
+            -0.007878122471463411
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 116,
+          "values": [
+            0.3853534015015817,
+            0.2827744037627391,
+            -0.31387621363143164,
+            -0.23883957281484164,
+            0.30013992089140296,
+            0.19365610676909417,
+            -0.24565577454906584,
+            -0.1607112536855042
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 117,
+          "values": [
+            0.45290597932792565,
+            0.5851500839959315,
+            -0.2491058633215989,
+            -0.377034375112683,
+            0.10134245842999223,
+            -0.015557655519099267,
+            -0.07675395296782617,
+            0.02525160133535609
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 118,
+          "values": [
+            0.4057505805477751,
+            0.45819783583266344,
+            -0.30909317523881863,
+            -0.3598419883475725,
+            0.1926838518389209,
+            0.0035513803141775657,
+            -0.14772716441535272,
+            0.015571593369022585
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 119,
+          "values": [
+            0.28634014800603447,
+            0.20942843576900805,
+            -0.22603705093445525,
+            -0.15686348386193466,
+            0.15381976805952846,
+            0.08691708594769687,
+            -0.11764218924158032,
+            -0.060471269712929876
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 120,
+          "values": [
+            0.27084497440992594,
+            0.32121479738106484,
+            -0.2099894773436365,
+            -0.27944490137205574,
+            0.09319958332718914,
+            0.05974961422689562,
+            -0.06453726401599191,
+            -0.045324724370941816
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 121,
+          "values": [
+            0.4188886820937271,
+            0.4207852182682916,
+            -0.2876980558199186,
+            -0.26295339138443274,
+            0.14294742973590235,
+            0.08499910748688855,
+            -0.11600146100463454,
+            -0.06318595558777185
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 122,
+          "values": [
+            0.3376484837491873,
+            0.27044923699954676,
+            -0.2884853546954975,
+            -0.25204471573429565,
+            0.17064016458351483,
+            0.03918682447027255,
+            -0.12792833675017307,
+            -0.023746677542946237
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 123,
+          "values": [
+            0.2989928555401945,
+            0.33575987996696144,
+            -0.14695736060498005,
+            -0.15943912924561848,
+            0.11208985774657831,
+            0.08510247364988754,
+            -0.0357309714461459,
+            -0.00790294245055534
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 124,
+          "values": [
+            0.453971833245171,
+            0.46100890931563276,
+            -0.24903741236915206,
+            -0.24893412352435362,
+            0.0720877540917797,
+            0.023168818501917654,
+            -0.04077104012017885,
+            -0.0011191923757396527
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 125,
+          "values": [
+            0.23920203640220122,
+            0.16443400166499333,
+            -0.22085403777613527,
+            -0.15660064050175787,
+            0.1434171592847311,
+            0.08976040058552748,
+            -0.12918325285778953,
+            -0.08134888728059086
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 126,
+          "values": [
+            0.29852446970280466,
+            0.5049711978643987,
+            -0.23939768212539475,
+            -0.41528323373574505,
+            0.1117377768435841,
+            0.07520234701607709,
+            -0.08808653567998587,
+            -0.05915634050392904
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 127,
+          "values": [
+            0.610111471960223,
+            0.7377288528458222,
+            -0.4255493842486243,
+            -0.5395447806741794,
+            0.29205458372713333,
+            0.18751684281535352,
+            -0.19483317071742168,
+            -0.11143064146470782
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 128,
+          "values": [
+            0.36624249589691554,
+            0.454778797256864,
+            -0.2890512087682342,
+            -0.3708680636855034,
+            0.18741666192194362,
+            0.03695393198636432,
+            -0.1372025325142866,
+            -0.022018481282193858
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 129,
+          "values": [
+            0.2951129444077176,
+            0.4489838760071953,
+            -0.22586072873215374,
+            -0.3602091566461656,
+            0.049377799822789226,
+            -0.023495589749216506,
+            -0.030410693371214714,
+            0.03371706560516807
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 130,
+          "values": [
+            0.26192555585313315,
+            0.26270753078161324,
+            -0.16341547009172164,
+            -0.1523572039515157,
+            0.11303437685976114,
+            0.0836265120715074,
+            -0.08259798898508508,
+            -0.05095443316959414
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 131,
+          "values": [
+            0.43710471325237,
+            0.6877565139217103,
+            -0.31461350786619463,
+            -0.5399756054706616,
+            0.163298630272121,
+            0.15172641701548317,
+            -0.11066898642875184,
+            -0.11773055027101964
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 132,
+          "values": [
+            0.43336696741888103,
+            0.5674497905111764,
+            -0.25692939006997156,
+            -0.3912608307394819,
+            0.14099971507583786,
+            0.105461415300935,
+            -0.06603330401184898,
+            -0.04567250043559157
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 133,
+          "values": [
+            0.490988248035611,
+            0.5625190644597087,
+            -0.33383695378558725,
+            -0.38086456089007736,
+            0.15700710483439062,
+            0.06905134872300556,
+            -0.1268434444188659,
+            -0.04412016215159231
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 134,
+          "values": [
+            0.2656008281162566,
+            0.22241209346663604,
+            -0.21923877833998734,
+            -0.18546921754458406,
+            0.07372674814853708,
+            0.030281134526249698,
+            -0.05855542708551792,
+            -0.01731727505071179
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 135,
+          "values": [
+            0.3939166091380856,
+            0.4315165702597235,
+            -0.3246528104483503,
+            -0.3390042383491695,
+            0.20419696291744827,
+            -0.03587001502518361,
+            -0.16180469411105275,
+            0.04412679168144018
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 136,
+          "values": [
+            0.5136740987618392,
+            0.6328159749654483,
+            -0.3455213431390346,
+            -0.4643224121609659,
+            0.15006316700682776,
+            0.0619793605188379,
+            -0.10625125666058888,
+            -0.03211252388504193
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 137,
+          "values": [
+            0.23723557481435287,
+            0.37579260667405645,
+            -0.18491481115964364,
+            -0.30874083242240835,
+            0.1571171132999888,
+            0.12810678117506136,
+            -0.11535089376753688,
+            -0.09772924353109202
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 138,
+          "values": [
+            0.3319518088074383,
+            0.44827338059903316,
+            -0.26979165681476514,
+            -0.3734739047473924,
+            0.13574451507379948,
+            0.0490260009995529,
+            -0.10686182704254887,
+            -0.037866930993319614
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 139,
+          "values": [
+            0.297433516390473,
+            0.39213395784126315,
+            -0.19544206332090092,
+            -0.28386365237934263,
+            0.09102323829159231,
+            0.026974926581531777,
+            -0.06053175363587748,
+            -0.004529010676717959
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 140,
+          "values": [
+            0.307285338451353,
+            0.36351965522378626,
+            -0.23145965656793877,
+            -0.27540282752856615,
+            0.14044957141005243,
+            0.15273013215996323,
+            -0.11835551388837884,
+            -0.129372416011725
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 141,
+          "values": [
+            0.3088488646606802,
+            0.24103146582738033,
+            -0.27039474973585953,
+            -0.24216785665777785,
+            0.035014852320241374,
+            -0.07229469349582862,
+            -0.014378939772383137,
+            0.07146789951886001
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 142,
+          "values": [
+            0.5562867543724664,
+            0.5503705400638952,
+            -0.3449831072666103,
+            -0.3737255500327284,
+            0.16111412559322824,
+            -0.026570131282251608,
+            -0.09979538494421347,
+            0.05642091292907725
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 143,
+          "values": [
+            0.35180296522637866,
+            0.38848674596701505,
+            -0.2465056689581977,
+            -0.2911461999498731,
+            0.23220223054897782,
+            0.2120587556365512,
+            -0.16594062092515732,
+            -0.15224150192431374
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 144,
+          "values": [
+            0.34054458557673584,
+            0.33947646650650753,
+            -0.18914250574938862,
+            -0.17363695322506845,
+            0.18251981581874854,
+            0.15305698092952047,
+            -0.11645688818912708,
+            -0.08939030426553657
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 145,
+          "values": [
+            0.33611369270462055,
+            0.47588126500787375,
+            -0.1782110061704837,
+            -0.33700064758406706,
+            0.09499575180984965,
+            0.009717244989806972,
+            -0.03775919300020647,
+            0.017551405494625194
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 146,
+          "values": [
+            0.36211498578619455,
+            0.6193554936634105,
+            -0.232319405814504,
+            -0.4788013637565067,
+            0.1031794620726939,
+            0.0909648578657618,
+            -0.047783594199998225,
+            -0.05227117359036604
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 147,
+          "values": [
+            0.34089521699009695,
+            0.303535903328479,
+            -0.21495316328690678,
+            -0.16241757852991012,
+            0.2196605106504974,
+            0.16215530080714513,
+            -0.15433884260443698,
+            -0.10081305938366936
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 148,
+          "values": [
+            0.23483961383246577,
+            0.29157132460131374,
+            -0.1866019671815911,
+            -0.21827000880306324,
+            0.12945268823617795,
+            -0.0038280309329146167,
+            -0.10550536301020796,
+            0.019642713245320076
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 149,
+          "values": [
+            0.28227302057662085,
+            0.3854463559178778,
+            -0.2399850149337171,
+            -0.3450727578124263,
+            0.06602041860347774,
+            0.05240444638727271,
+            -0.04874076667980154,
+            -0.041709363722702175
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 150,
+          "values": [
+            0.13810530040366842,
+            0.28314865277797524,
+            -0.14357831784058134,
+            -0.2516011498060104,
+            0.13092364783244248,
+            0.051535266202049845,
+            -0.11141843026400838,
+            -0.04195416450337891
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 151,
+          "values": [
+            0.3926917041495631,
+            0.38854790539545875,
+            -0.2651797033389009,
+            -0.2492618557585497,
+            0.18911537997289507,
+            0.14352955424742575,
+            -0.13738216986526275,
+            -0.09159763018482386
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 152,
+          "values": [
+            0.34390752094357224,
+            0.32268306915556944,
+            -0.27426030735107343,
+            -0.26053893911868364,
+            0.1432524517303102,
+            0.0799539745675677,
+            -0.11303939340483188,
+            -0.05549502098513204
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 153,
+          "values": [
+            0.4533285540037927,
+            0.49188326342953215,
+            -0.3219636596595353,
+            -0.3280796874169394,
+            0.18968490544015504,
+            0.032396893623535816,
+            -0.16102180683818645,
+            -0.01958575288548592
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 154,
+          "values": [
+            0.33193565255578816,
+            0.2202005039270456,
+            -0.2933705684893912,
+            -0.22114207976898365,
+            0.21711823058803625,
+            0.10170014912199565,
+            -0.17509806439555764,
+            -0.081896188312725
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 155,
+          "values": [
+            0.2739795271705575,
+            0.25480808054161364,
+            -0.2006181166865768,
+            -0.19354438469616153,
+            0.12215629141375783,
+            0.059034641582638714,
+            -0.09107343158914466,
+            -0.041449341214644275
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 156,
+          "values": [
+            0.39847231998903154,
+            0.371240591097282,
+            -0.2390800141880226,
+            -0.20825466706451384,
+            0.2306468675834763,
+            0.16118913113510003,
+            -0.16318492673678603,
+            -0.10960458874848489
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 157,
+          "values": [
+            0.21246484706393548,
+            0.20439376059810538,
+            -0.19329980841691516,
+            -0.20537397271092334,
+            0.1817807925182211,
+            0.12049298086356075,
+            -0.15218520806822472,
+            -0.10649856442285377
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 158,
+          "values": [
+            0.3374242864446123,
+            0.3400441476357202,
+            -0.24828930089456114,
+            -0.2524098424938491,
+            0.16086158747940837,
+            0.010297901593410819,
+            -0.1259913459333794,
+            0.002757869302986382
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 159,
+          "values": [
+            0.30722809467649764,
+            0.30214576651899505,
+            -0.28270285989993815,
+            -0.2817981133286338,
+            0.31075965619141827,
+            0.27721581015566,
+            -0.2663788493997026,
+            -0.24545335526173734
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 160,
+          "values": [
+            0.44220616224054754,
+            0.5091917751966651,
+            -0.2508761332343817,
+            -0.333729213133852,
+            0.1279403124613271,
+            0.15003250650051625,
+            -0.07739144953019639,
+            -0.10078623153756683
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 161,
+          "values": [
+            0.4574523248097771,
+            0.5432170496098511,
+            -0.2681367916707387,
+            -0.3495658745278325,
+            0.17838990641623464,
+            0.12690371046289806,
+            -0.13719290337858486,
+            -0.09322786023577917
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 162,
+          "values": [
+            0.5413678383512126,
+            0.621678494966956,
+            -0.34676745406362797,
+            -0.41744704116392994,
+            0.2267437691348957,
+            0.0713026992674477,
+            -0.15308556311472615,
+            -0.02273695518468044
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 163,
+          "values": [
+            0.13330876583013584,
+            0.13252098499460307,
+            -0.14449656013701306,
+            -0.1397946541466712,
+            0.09024918361252543,
+            0.054934785401763,
+            -0.08011331503080604,
+            -0.04710822306373785
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 164,
+          "values": [
+            0.3353073597394498,
+            0.506183896919193,
+            -0.2951147190673177,
+            -0.43188494673870326,
+            0.15545775710172172,
+            -0.02955239149399047,
+            -0.11808145668002251,
+            0.035810560046778295
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 165,
+          "values": [
+            0.22001819609713358,
+            0.25230369470057157,
+            -0.12946323639809804,
+            -0.16337483107271955,
+            0.0894504755297052,
+            0.07646874538541837,
+            -0.05231726192843161,
+            -0.04370141498971186
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 166,
+          "values": [
+            0.40329946558425905,
+            0.46032525245812295,
+            -0.3050204901336283,
+            -0.3451799401751996,
+            0.20265399333433565,
+            0.018600024490196376,
+            -0.16572364696695457,
+            -0.0018319434212309416
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 167,
+          "values": [
+            0.385034802531106,
+            0.5700333004554667,
+            -0.29699952077600705,
+            -0.47514087498726154,
+            0.11277269679628421,
+            0.035721973622931946,
+            -0.08083294584627754,
+            -0.02472750401749013
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 168,
+          "values": [
+            0.469529733535983,
+            0.6435139824538831,
+            -0.3174964692444008,
+            -0.49239076806667903,
+            0.14440681820297463,
+            0.061489917205305056,
+            -0.09255425040301618,
+            -0.03513490584573853
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 169,
+          "values": [
+            0.21841290499227728,
+            0.29659238429960594,
+            -0.18951492717624152,
+            -0.24332010265562176,
+            0.1386996816102416,
+            0.0618571909635216,
+            -0.11264785963704516,
+            -0.0449986851120428
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 170,
+          "values": [
+            0.3538790710706632,
+            0.2667126047832391,
+            -0.3034244387372927,
+            -0.21921339883757537,
+            0.19591488284290282,
+            -0.06349549278103628,
+            -0.1567331426385994,
+            0.06682330240506934
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 171,
+          "values": [
+            0.3133666676240774,
+            0.39032720526495923,
+            -0.23615503414890676,
+            -0.2974237239045555,
+            0.13817652598027463,
+            0.05765801791406244,
+            -0.10970016440933178,
+            -0.036538363254429385
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 172,
+          "values": [
+            0.402835538787597,
+            0.48900660750390784,
+            -0.29873713588895223,
+            -0.3817467764191286,
+            0.12761817901607664,
+            0.038584771147180175,
+            -0.0884584728566532,
+            -0.017912368188793937
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 173,
+          "values": [
+            0.2788645373650154,
+            0.3754163368758634,
+            -0.20583677834786612,
+            -0.2947791269899029,
+            0.05397842090698923,
+            -0.058239062336883696,
+            -0.02989003081592445,
+            0.06369867580795818
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 174,
+          "values": [
+            0.4051018187051799,
+            0.39024140145017827,
+            -0.26786192966822553,
+            -0.25163288141799467,
+            0.19195264416966284,
+            0.12683934765132288,
+            -0.1462438172313283,
+            -0.09256236059218742
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 175,
+          "values": [
+            0.311948760866103,
+            0.4580562007211412,
+            -0.2468181320873751,
+            -0.3797564662919708,
+            0.14881940233269486,
+            0.11777390284439282,
+            -0.10057045018464261,
+            -0.08042159454001496
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 176,
+          "values": [
+            0.378452556206867,
+            0.37619471438082935,
+            -0.30084906051272925,
+            -0.28366451637818574,
+            0.2353659909266257,
+            0.08583958287828031,
+            -0.18705519185829367,
+            -0.05535722725713638
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 177,
+          "values": [
+            0.3075448488874263,
+            0.47668594975488476,
+            -0.19532416552903292,
+            -0.3391144714394621,
+            0.11377662556486234,
+            0.09194701761897917,
+            -0.07454344180063843,
+            -0.05632947288165735
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 178,
+          "values": [
+            0.48745690762739025,
+            0.4858690551631771,
+            -0.3660157219465465,
+            -0.3396704197436655,
+            0.32973780439237244,
+            0.2677221460024939,
+            -0.2640091561906581,
+            -0.2106415648377295
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 179,
+          "values": [
+            0.3258127780260033,
+            0.43509978402522487,
+            -0.23066433315792323,
+            -0.3264055657688126,
+            0.12018671891897392,
+            0.07418175513300174,
+            -0.0874236431780267,
+            -0.04650754947268809
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 180,
+          "values": [
+            0.3118157148761429,
+            0.6240851638272156,
+            -0.2575198700340294,
+            -0.532148234974088,
+            0.1116241286769214,
+            0.11504302447487247,
+            -0.08007996056727867,
+            -0.09326596078983551
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 181,
+          "values": [
+            0.3056361895422989,
+            0.2945424883493525,
+            -0.21626245396673438,
+            -0.2056185953693344,
+            0.10207520632604483,
+            0.05883669727099583,
+            -0.07496404333164697,
+            -0.039187263857339005
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 182,
+          "values": [
+            0.3202298795988844,
+            0.4655561199260894,
+            -0.2192632448027843,
+            -0.351468095506709,
+            0.08773433733436287,
+            0.04173643752874734,
+            -0.05556854725247601,
+            -0.020957348091443007
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 183,
+          "values": [
+            0.328120589486945,
+            0.37078759968180963,
+            -0.24905317687746648,
+            -0.28900348367589507,
+            0.14272013269370187,
+            0.00907569912950923,
+            -0.11411468686373105,
+            0.004175321413265709
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 184,
+          "values": [
+            0.3725744715027083,
+            0.4109819516274187,
+            -0.3132118835447329,
+            -0.33935421913175357,
+            0.20397789439077718,
+            0.08155627867050186,
+            -0.1690218548823439,
+            -0.06678509468735672
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 185,
+          "values": [
+            0.2252104123851203,
+            0.2352680273501916,
+            -0.16450431291119955,
+            -0.17847208537998221,
+            0.0981827645126524,
+            0.05278852338467943,
+            -0.06955547165277798,
+            -0.03257749655468645
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 186,
+          "values": [
+            0.4002909868605116,
+            0.4830633876809383,
+            -0.33143753969868284,
+            -0.38977075185276017,
+            0.13492160157895772,
+            -0.06091727640774536,
+            -0.10645911402265029,
+            0.06883393413753547
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 187,
+          "values": [
+            0.3795960650184688,
+            0.4455550464170401,
+            -0.28267426986643385,
+            -0.34984101686458025,
+            0.13842242674995542,
+            0.04466418018457419,
+            -0.10250732192156281,
+            -0.024104521906347598
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 188,
+          "values": [
+            0.5753395221297499,
+            0.7329306079653048,
+            -0.3000986427907542,
+            -0.48822462573624537,
+            0.1628692224718824,
+            0.1330828107637272,
+            -0.0872319435060036,
+            -0.07940312731132848
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 189,
+          "values": [
+            0.3585390835506242,
+            0.4279688402651944,
+            -0.2910020121797957,
+            -0.33904101535239,
+            0.1721579118980765,
+            0.07034122351082994,
+            -0.1421503504906816,
+            -0.05671387540946743
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 190,
+          "values": [
+            0.3118001272606058,
+            0.4360056662441323,
+            -0.2170741160003723,
+            -0.33522864800998053,
+            0.08396570819312699,
+            0.01971520926816528,
+            -0.062315870025419384,
+            -0.008195601104294292
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 191,
+          "values": [
+            0.5333594953698259,
+            0.5317289030983258,
+            -0.32308349067647335,
+            -0.37307469955879435,
+            0.17904133758060659,
+            0.0969432544048271,
+            -0.08181783204586746,
+            -0.03237915941089009
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 192,
+          "values": [
+            0.3273489688295951,
+            0.42409061396873243,
+            -0.2689589557993313,
+            -0.3408776432777094,
+            0.12296329029112252,
+            0.007087255906593759,
+            -0.09979243425192308,
+            0.0005489164702840998
+          ]
+        },
+        {
+          "coordinate_status": [
+            "unavailable_or_nonfinite_difference",
+            "unavailable_or_nonfinite_difference",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "nonfinite_or_unavailable_scores",
+          "replicate": 193,
+          "values": [
+            null,
+            null,
+            -0.414111751690019,
+            -0.3821085032716059,
+            0.3160762020276142,
+            0.2552228885255081,
+            -0.2132711748478623,
+            -0.13994678676598626
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 194,
+          "values": [
+            0.5526305351715295,
+            0.764316081882505,
+            -0.3614322495823627,
+            -0.5871504783114104,
+            0.13846929357863824,
+            0.05970828894201752,
+            -0.06814472117015258,
+            -0.024241983544251666
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 195,
+          "values": [
+            0.5698930990722546,
+            0.60120184401946,
+            -0.3994417041069885,
+            -0.41256737593827597,
+            0.2907135827395194,
+            0.2789456153672494,
+            -0.23640047972712985,
+            -0.2296155455145214
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 196,
+          "values": [
+            0.5601654632294036,
+            0.5638050372494989,
+            -0.3727527671402333,
+            -0.3833053401532407,
+            0.26730360526262453,
+            0.046008828572050464,
+            -0.1963173429644396,
+            -0.00919232692948746
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 197,
+          "values": [
+            0.25175819477106254,
+            0.35905692519393184,
+            -0.18341283540530146,
+            -0.26769440085766855,
+            0.0942785800672673,
+            0.04397577215643289,
+            -0.06200977532805052,
+            -0.017624627833914386
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 198,
+          "values": [
+            0.3907166190748568,
+            0.42091328561849883,
+            -0.19673429617935606,
+            -0.2198220462974611,
+            0.17739277121793284,
+            0.15147976983138167,
+            -0.10044730904197918,
+            -0.07750849357120204
+          ]
+        },
+        {
+          "coordinate_status": [
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite",
+            "finite"
+          ],
+          "fit_available": true,
+          "fit_status": "performed",
+          "prediction_status": "performed_finite",
+          "replicate": 199,
+          "values": [
+            0.35869467618352313,
+            0.2901625270065101,
+            -0.31042497986195605,
+            -0.2339414261978435,
+            0.2368100174425441,
+            0.11459116150746063,
+            -0.20001994944341162,
+            -0.09078119266271462
+          ]
+        }
+      ]
+    },
+    "schema_version": 1,
+    "scope": "additive conditional predictive metric reporting"
+  },
+  "provenance": {
+    "acquisition_receipts_verified": true,
+    "bootstrap_seed": 20261001,
+    "completed_at": "2026-10-02T05:27:05.456595+00:00",
+    "freeze_commit": "6210db409e890ef3811afc1c01282d232e4a1dd7",
+    "implementation_sha256": {
+      "scripts/replay_ipop_predictive_supplement.py": "2a69761a2fd9f6595b2ac58542c3d1375e8516eb429c6bae69d7b1f836ba5afe",
+      "src/demeter/analysis/ipop_a1c.py": "3deba415d1df29240f3baeacffb579ea74ec913ca40d2ff52bfcc72e59f611a2",
+      "src/demeter/analysis/laboratory_bootstrap_reporting.py": "862a2a4412dbe3744f598530503ef3d1b8fabe48e5ddb5b7212c73e95205f7cc",
+      "src/demeter/analysis/laboratory_panel.py": "c644a365da8709bb5af9629cd007ace9a7d3454658119880d16f462daa353f0d"
+    },
+    "independent_source_validation": false,
+    "numerical_method": "exact_box_quadratic_v2",
+    "parent_result_sha256": "30a4cc66a9af406af0ebfac0c2a0237609d1606aecb6f08c9e0b8ca000b0d988",
+    "reporting_protocol_sha256": "967c74c8c6d5bb208f307009b0198b8ec53abc2376594153cccb5d20af04818a",
+    "source_bytes": {
+      "clinical": {
+        "basename": "clinical_tests.txt",
+        "git_blob": "cb01fe38378f8cef951837414e241c3e8d6a8bcc",
+        "sha256": "94bca4d56dcb96e83a780479c5e23610e366060bcc8607f67377378d3fc39f52",
+        "size_bytes": 231694
+      },
+      "sample_info": {
+        "basename": "SampleInfo.csv",
+        "git_blob": "342d35d36eb422cf315a9757b7514c45312173e5",
+        "sha256": "7e9026e13f0cf105ade8429e40c5f5ca4adaa248f4552f32a71fa4327c3e4a3e",
+        "size_bytes": 36407
+      }
+    },
+    "started_at": "2026-10-02T05:18:28.205058+00:00"
+  },
+  "schema_version": 1,
+  "scientific_acceptance_changed": false,
+  "selection": {
+    "admitted_assay_token_categories": {
+      "empty": 0,
+      "explicit_nonfinite": 0,
+      "finite_decimal": 938,
+      "nonnumeric_or_undocumented_code": 13,
+      "whitespace_only": 0
+    },
+    "admitted_row_partition": {
+      "eligible_assay_day": 938,
+      "outside_percent_range": 0,
+      "unavailable_assay": 13,
+      "unusable_day": 0
+    },
+    "assay_units_rawness_specimen_clock_verified": false,
+    "coordinate_values_or_individual_paths_exported": false,
+    "denominator_admitted_labels": 104,
+    "denominator_admitted_rows": 951,
+    "eligible_band_counts": [
+      507,
+      402,
+      29
+    ],
+    "full_namespace_consistency": {
+      "clinical_namespace": {
+        "denominator_distinct_nonempty_source_subject_labels": 104,
+        "observed_partner_degree": {
+          "multiple": 0,
+          "one": 104,
+          "zero": 0
+        }
+      },
+      "clinical_rows_contributing_possible_edges": 953,
+      "clinical_rows_with_ambiguous_sample_keys_contributing_possible_edges": 2,
+      "denominator_source_clinical_rows": 969,
+      "distinct_possible_subject_pair_edges": 104,
+      "metadata_namespace": {
+        "denominator_distinct_nonempty_source_subject_labels": 106,
+        "observed_partner_degree": {
+          "multiple": 0,
+          "one": 104,
+          "zero": 2
+        }
+      }
+    },
+    "full_source_linkage": {
+      "denominator_clinical_rows": 969,
+      "denominator_unique_sample_candidate_rows_with_both_subjects_nonempty": 951,
+      "iterative_edge_removal_performed": false,
+      "lexical_subject_equality_bypass_performed": false,
+      "many_to_many_materialization_performed": false,
+      "ordered_partition": {
+        "clinical_namespace_multiple_partners": 0,
+        "metadata_namespace_multiple_partners": 0,
+        "missing_clinical_visit_or_subject_key": 0,
+        "missing_subject_in_unique_sample_match": 0,
+        "multiple_sample_rows_for_matching_key": 2,
+        "mutually_degree_one_unique_sample_association": 951,
+        "no_exact_sample_key_match": 16
+      },
+      "right_duplicate_key_support": {
+        "extra_rows_beyond_one_per_group": 3,
+        "groups_with_multiple_rows": 3,
+        "rows_in_repeated_groups": 6
+      },
+      "unique_sample_candidate_degree_combinations": {
+        "multiple_multiple": 0,
+        "multiple_one": 0,
+        "one_multiple": 0,
+        "one_one": 951
+      }
+    },
+    "full_source_structure": {
+      "clinical": {
+        "keys": {
+          "SubjectID": {
+            "denominator_rows": 969,
+            "distinct_nonempty_labels": 104,
+            "leading_or_trailing_whitespace_rows": 0,
+            "repeated_key_support": {
+              "extra_rows_beyond_one_per_group": 865,
+              "groups_with_multiple_rows": 94,
+              "rows_in_repeated_groups": 959
+            },
+            "token_classes": {
+              "empty": 0,
+              "nonempty": 969,
+              "whitespace_only": 0
+            }
+          },
+          "VisitID": {
+            "denominator_rows": 969,
+            "distinct_nonempty_labels": 965,
+            "leading_or_trailing_whitespace_rows": 0,
+            "repeated_key_support": {
+              "extra_rows_beyond_one_per_group": 4,
+              "groups_with_multiple_rows": 4,
+              "rows_in_repeated_groups": 8
+            },
+            "token_classes": {
+              "empty": 0,
+              "nonempty": 969,
+              "whitespace_only": 0
+            }
+          }
+        },
+        "repeated_selected_token_patterns": {
+          "extra_rows_beyond_one_per_group": 0,
+          "groups_with_multiple_rows": 0,
+          "rows_in_repeated_groups": 0
+        },
+        "source_record_count": 969
+      },
+      "sample_info": {
+        "keys": {
+          "SampleID": {
+            "denominator_rows": 1092,
+            "distinct_nonempty_labels": 1089,
+            "leading_or_trailing_whitespace_rows": 0,
+            "repeated_key_support": {
+              "extra_rows_beyond_one_per_group": 3,
+              "groups_with_multiple_rows": 3,
+              "rows_in_repeated_groups": 6
+            },
+            "token_classes": {
+              "empty": 0,
+              "nonempty": 1092,
+              "whitespace_only": 0
+            }
+          },
+          "SubjectID": {
+            "denominator_rows": 1092,
+            "distinct_nonempty_labels": 106,
+            "leading_or_trailing_whitespace_rows": 0,
+            "repeated_key_support": {
+              "extra_rows_beyond_one_per_group": 986,
+              "groups_with_multiple_rows": 95,
+              "rows_in_repeated_groups": 1081
+            },
+            "token_classes": {
+              "empty": 0,
+              "nonempty": 1092,
+              "whitespace_only": 0
+            }
+          }
+        },
+        "repeated_selected_token_patterns": {
+          "extra_rows_beyond_one_per_group": 2,
+          "groups_with_multiple_rows": 2,
+          "rows_in_repeated_groups": 4
+        },
+        "source_record_count": 1092
+      }
+    },
+    "participant_identity_verified": false,
+    "partitions": {
+      "calibration": {
+        "admitted_labels": 88,
+        "eligible_rows": 777,
+        "label_partition": {
+          "coordinate_conversion_loss": 0,
+          "multiple_observations": 78,
+          "no_eligible_observation": 0,
+          "one_observation": 10,
+          "repeated_eligible_time": 0
+        }
+      },
+      "evaluation": {
+        "admitted_labels": 16,
+        "eligible_rows": 161,
+        "label_partition": {
+          "coordinate_conversion_loss": 0,
+          "multiple_observations": 16,
+          "no_eligible_observation": 0,
+          "one_observation": 0,
+          "repeated_eligible_time": 0
+        }
+      }
+    }
+  },
+  "source_selection_unchanged": true,
+  "validation_only": false
+}

@@ -1,0 +1,21 @@
+{
+  "aggregate_draws_reconciled": 200,
+  "clinical_fit_performed": false,
+  "complete_vector_draws": 199,
+  "death_or_censoring_inference_performed": false,
+  "diagnosis_or_remission_inference_performed": false,
+  "dietary_effect_estimated": false,
+  "engine_activation_allowed": false,
+  "historical_git_snapshot_or_freeze_chronology_independently_verified": false,
+  "metric_block_draws": {
+    "brier": 200,
+    "log_score": 199
+  },
+  "national_transport_established": false,
+  "passed": true,
+  "result_sha256": "85a2496f0d4d1ef41f9afd8dbcf0b85a0f824db9f619bc8e46beba0f90370120",
+  "scientific_acceptance_changed": false,
+  "source_fitting_independently_verified": false,
+  "source_records_read": false,
+  "summary_arithmetic_reconstructed": true
+}

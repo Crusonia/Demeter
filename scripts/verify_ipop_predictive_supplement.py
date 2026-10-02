@@ -11,8 +11,10 @@ import hashlib
 import json
 from datetime import datetime
 from pathlib import Path
+from sys import float_info
 
 from demeter.analysis import laboratory_bootstrap_reporting as reporting
+from demeter.schema import EvidenceRegistry
 
 from replay_ipop_predictive_supplement import IMPLEMENTATIONS, ROOT, contract, digest
 
@@ -93,6 +95,17 @@ def assess(result):
         or any(c not in "0123456789abcdef" for c in commit)
     ):
         raise ValueError("Invalid freeze commit identity")
+    registered = EvidenceRegistry.from_yaml(ROOT / "evidence/parameters.yaml").datasets[
+        policy["analysis_id"]
+    ]
+    if (
+        registered["freeze_commit"] != commit
+        or registered["protocol_sha256"] != provenance["reporting_protocol_sha256"]
+        or registered["parent_result_sha256"] != provenance["parent_result_sha256"]
+        or registered["engine_activation_allowed"] is not False
+        or registered["clinical_use_allowed"] is not False
+    ):
+        raise ValueError("Reporting provenance differs from registered evidence")
     start, end = (datetime.fromisoformat(provenance[k]) for k in ("started_at", "completed_at"))
     if start.tzinfo is None or end.tzinfo is None or end < start:
         raise ValueError("Invalid execution chronology")
@@ -134,6 +147,16 @@ def assess(result):
         for row in vectors
     ):
         raise ValueError("Unexpected public aggregate vector fields")
+    # A multicategory Brier score lies in [0, 2]; two valid scores differ
+    # within [-2, 2]. This is a definitional domain, with arithmetic roundoff
+    # only, not a clinical tolerance or a floor on unsupported log scores.
+    brier_bound = 2.0 + 16 * float_info.epsilon * 2.0
+    if any(
+        value is not None and not -brier_bound <= value <= brier_bound
+        for row in vectors
+        for value in (row["values"][i] for i in (2, 3, 6, 7))
+    ):
+        raise ValueError("Brier difference outside its definitional domain")
     reconstructed = reporting.summarize_predictive_vectors(
         vectors, quantile_levels=uncertainty["quantiles"]
     )
@@ -151,6 +174,7 @@ def assess(result):
             name: block["finite_draws"] for name, block in reconstructed["metric_blocks"].items()
         },
         "summary_arithmetic_reconstructed": True,
+        "historical_git_snapshot_or_freeze_chronology_independently_verified": False,
         "source_fitting_independently_verified": False,
         **gates,
     }
@@ -163,6 +187,11 @@ def main():
     try:
         raw = args.result.read_bytes()
         result = json.loads(raw.decode("utf-8"))
+        registered = EvidenceRegistry.from_yaml(ROOT / "evidence/parameters.yaml").datasets[
+            "ipop_a1c_predictive_uncertainty_supplement_v1"
+        ]
+        if hashlib.sha256(raw).hexdigest() != registered["result"]["sha256"]:
+            raise ValueError("Registered result identity failed")
         report = {**assess(result), "result_sha256": hashlib.sha256(raw).hexdigest()}
     except Exception:
         print(json.dumps({"passed": False, "source_records_read": False}))
