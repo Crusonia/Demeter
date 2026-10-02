@@ -645,7 +645,7 @@ def test_rehashed_profile_roundoff_does_not_admit_material_or_exact_control_drif
                 if attack == "grid_over_ulps"
                 else profile["support_cutoff"]
             )
-            for _ in range(5):
+            for _ in range(5 if attack == "grid_over_ulps" else 9):
                 value = float(np.nextafter(value, np.inf))
             if attack == "grid_over_ulps":
                 profile["points"][1]["rate"] = value
@@ -698,6 +698,7 @@ def test_profile_reconstruction_failure_reports_only_safe_aggregate_controls(tmp
         "retained_cutoff",
         "expected_cutoff",
         "cutoff_ulp_distance",
+        "cutoff_within_roundoff_budget",
         "zero_endpoint_exact",
         "cap_endpoint_exact",
         "fitted_coordinate_exact",
@@ -712,6 +713,7 @@ def test_profile_reconstruction_failure_reports_only_safe_aggregate_controls(tmp
     assert diagnostics["mismatched_grid_indices"] == ([1] if attack == "ulp_drift" else [30])
     assert diagnostics["max_grid_ulp_distance"] == (5 if attack == "ulp_drift" else 0)
     assert diagnostics["cutoff_ulp_distance"] == (6 if attack == "ulp_drift" else 0)
+    assert diagnostics["cutoff_within_roundoff_budget"] is True
     assert diagnostics["expected_cutoff"] == float(chi2.ppf(0.95, 1))
     assert diagnostics["retained_cutoff"] >= diagnostics["expected_cutoff"]
     assert diagnostics["cap_endpoint_exact"] is (attack == "ulp_drift")
@@ -726,6 +728,29 @@ def test_profile_reconstruction_failure_reports_only_safe_aggregate_controls(tmp
             "interior_assumption_declared",
         )
     )
+
+
+@pytest.mark.parametrize("ulps", (8, 9))
+def test_inverse_cdf_reconstruction_budget_is_anchored_to_retained_synthetic_control(
+    tmp_path, monkeypatch, ulps
+):
+    root = _edited_report(tmp_path, lambda report: None, synthetic_available=True)
+    report = json.loads((root / "docs/validation/ipop-a1c-working-result-v1.json").read_bytes())
+    retained = report["profiles"]["adjacent"][0]["support_cutoff"]
+    reconstructed = retained
+    for _ in range(ulps):
+        reconstructed = float(np.nextafter(reconstructed, -np.inf))
+    # Anchor to the retained toy value, avoiding accumulated platform differences.
+    monkeypatch.setattr(chi2, "ppf", lambda *args, **kwargs: reconstructed)
+    if ulps == 8:
+        assert ASSESS(root)["passed"] is True
+    else:
+        with pytest.raises(ValueError, match="Frozen profile grid") as error:
+            ASSESS(root)
+        diagnostics = json.loads(str(error.value).split(": ", 1)[1])
+        assert diagnostics["max_grid_ulp_distance"] == 0
+        assert diagnostics["cutoff_ulp_distance"] == 9
+        assert diagnostics["cutoff_within_roundoff_budget"] is False
 
 
 def test_frozen_profile_builder_roundtrip_passes_with_mocked_toy_search(monkeypatch):

@@ -25,6 +25,8 @@ from demeter.analysis import laboratory_panel as lab
 from demeter.schema import EvidenceRegistry
 
 ROOT = Path(__file__).resolve().parents[1]
+PROFILE_GRID_RECONSTRUCTION_ULPS = 4
+PROFILE_CUTOFF_RECONSTRUCTION_ULPS = 8
 GATES = (
     "clinical_fit_performed",
     "diagnosis_or_remission_inference_performed",
@@ -75,7 +77,7 @@ def _profile_reconstruction_diagnostics(profile, model, settings, grid, cutoff):
             i
             for i in range(max(len(retained), len(grid)))
             if i >= min(len(retained), len(grid))
-            or not _roundoff_equal(retained[i], grid[i], ulps=4)
+            or not _roundoff_equal(retained[i], grid[i], ulps=PROFILE_GRID_RECONSTRUCTION_ULPS)
         ],
         "max_grid_ulp_distance": max(comparable) if comparable else None,
         "retained_cutoff": float(stored_cutoff)
@@ -83,6 +85,9 @@ def _profile_reconstruction_diagnostics(profile, model, settings, grid, cutoff):
         else None,
         "expected_cutoff": cutoff,
         "cutoff_ulp_distance": _ulp_distance(stored_cutoff, cutoff),
+        "cutoff_within_roundoff_budget": bool(
+            _roundoff_equal(stored_cutoff, cutoff, ulps=PROFILE_CUTOFF_RECONSTRUCTION_ULPS)
+        ),
         "zero_endpoint_exact": bool(retained) and retained[0] == 0.0,
         "cap_endpoint_exact": bool(retained) and retained[-1] == settings.rate_upper_bounds[index],
         "fitted_coordinate_exact": model["rates"][index] in retained,
@@ -237,20 +242,23 @@ def _profile_contract(profile, model, settings, protocol):
     cutoff = float(chi2.ppf(protocol["numerics"]["nominal_profile_support_probability"], 1))
     points = profile["points"]
     retained_grid = [point["rate"] for point in points]
-    # libm power/inverse-CDF implementations can differ by a few ULPs across
-    # platforms. This audit budget applies only to reconstruction, never to
-    # likelihood convergence or the frozen statistical/numerical controls.
+    # Grid powers retain a four-ULP budget. The measured macOS ARM inverse-CDF
+    # reconstruction differs by eight ULPs (3.8414588206941205 versus the retained
+    # 3.841458820694124). Its separate audit budget changes no likelihood,
+    # optimizer or frozen statistical/numerical control.
     if (
         len(retained_grid) != len(grid)
         or any(
-            not _roundoff_equal(value, expected, ulps=4)
+            not _roundoff_equal(value, expected, ulps=PROFILE_GRID_RECONSTRUCTION_ULPS)
             for value, expected in zip(retained_grid, grid, strict=False)
         )
         or any(b <= a for a, b in zip(retained_grid, retained_grid[1:], strict=False))
         or retained_grid[0] != 0.0
         or retained_grid[-1] != settings.rate_upper_bounds[index]
         or model["rates"][index] not in retained_grid
-        or not _roundoff_equal(profile["support_cutoff"], cutoff, ulps=4)
+        or not _roundoff_equal(
+            profile["support_cutoff"], cutoff, ulps=PROFILE_CUTOFF_RECONSTRUCTION_ULPS
+        )
         or profile["rate_unit"] != "per_source_day"
         or profile["support_reference"] != "caller_declared_interior_asymptotic_only"
         or profile["interior_reference_requires_correctly_specified_independent_label_model"]

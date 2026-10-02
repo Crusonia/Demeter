@@ -17,6 +17,7 @@ from runpy import run_path
 import sys
 
 import pytest
+from scipy.stats import chi2
 import yaml
 
 from demeter.analysis import ipop_a1c as a1c
@@ -263,6 +264,24 @@ def test_completed_public_v2_aggregate_passes_without_source_replay(monkeypatch,
     assert proof["actual_source_replay"] is None
     assert proof["clinical_acceptance_established"] is False
     assert proof["engine_activation_allowed"] is False
+
+
+def test_public_v2_cutoff_accepts_exact_measured_macos_inverse_cdf(monkeypatch):
+    def forbidden(*args, **kwargs):
+        pytest.fail("Measured platform-control audit must not acquire or replay source data")
+
+    report = json.loads((ROOT / RESULT_PATH).read_bytes())
+    assert all(
+        profile["support_cutoff"] == 3.841458820694124
+        for profiles in report["profiles"].values()
+        for profile in profiles
+    )
+    monkeypatch.setattr("urllib.request.urlopen", forbidden)
+    monkeypatch.setattr(a1c, "analyze_cache", forbidden)
+    monkeypatch.setattr(chi2, "ppf", lambda *args, **kwargs: 3.8414588206941205)
+    proof = ASSESS(numerical_method=METHOD)
+    assert proof["passed"] is True
+    assert proof["actual_source_replay"] is None
 
 
 def test_optional_raw_dispatch_is_mocked_and_selects_v2(tmp_path, synthetic_report, monkeypatch):
