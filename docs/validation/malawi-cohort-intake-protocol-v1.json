@@ -1,0 +1,331 @@
+{
+  "protocol_id": "malawi-public-cohort-intake-v1",
+  "authored_at_utc": "2026-10-02T20:17:50.375172+00:00",
+  "chronology": "Used-source development: publication aggregate counts, definitions, and headers were inspected before this protocol. This is not preregistration or independent validation. No participant or restricted data are used. Frozen before this adapter replay and the new coupled ascertainment-bound report; existing published values were already seen.",
+  "design_ids": [
+    "I-01",
+    "I-05",
+    "I-07",
+    "I-11",
+    "I-12",
+    "F-04",
+    "F-08",
+    "T-05",
+    "T-08"
+  ],
+  "estimand": "Published ascertainment partition of adults with source baseline IFG and variable elapsed follow-up; endpoint categories conditional on reassessment. No stable horizon, latent metabolic-state mapping, dietary causal effect or annual hazard.",
+  "source": {
+    "doi": "10.1371/journal.pgph.0001263",
+    "article_title": "Waist circumference and glycaemia are strong predictors of progression to diabetes in individuals with prediabetes in sub-Saharan Africa: 4-year prospective cohort study in Malawi",
+    "sha256": "0ffa7630f06de10880d9742462202cbcf77bb365e940005097aaf0cedf2afd6d",
+    "size_bytes": 142219,
+    "raw_filename": "nakanga2023-manuscript.xml",
+    "license": "CC-BY-4.0",
+    "url": "https://journals.plos.org/globalpublichealth/article/file?id=10.1371/journal.pgph.0001263&type=manuscript"
+  },
+  "selectors": {
+    "baseline": {
+      "xpath": "./body/sec[@id='sec002']/sec[@id='sec003']/p[1]",
+      "normalized_text_sha256": "3cd0a90ee27a0a9d7d9b4df175b96368f4a92bfbd05f62eb533c3f4448899a24",
+      "sibling_count": 2
+    },
+    "definition": {
+      "xpath": "./body/sec[@id='sec002']/sec[@id='sec005']/sec[@id='sec009']/p[1]",
+      "normalized_text_sha256": "9a704d7b3e5dc8bc9e21f14381e985923bd7b959aa2fb8feb3a09d9dc594e825",
+      "sibling_count": 1
+    },
+    "results": {
+      "xpath": "./body/sec[@id='sec011']/p[1]",
+      "normalized_text_sha256": "3e7f3d118a10be83c69c7c8ee8d78a5a8cab451f73401764e1df82263d6025d5",
+      "sibling_count": 5
+    },
+    "followup_categories": {
+      "xpath": "./body/sec[@id='sec011']/p[2]",
+      "normalized_text_sha256": "4029f6c90d5db04ab7f78fad6aca967c3af6d9eea677336b94579cf74ccb185e",
+      "sibling_count": 5
+    },
+    "abstract": {
+      "xpath": "./front/article-meta/abstract/p[1]",
+      "normalized_text_sha256": "6579ef21e5f4feb7c3bbb3045f9adc10669ba671c2d7fe2cbb34f951e6ae3bc2",
+      "sibling_count": 1
+    },
+    "table_caption": {
+      "xpath": "./body/sec[@id='sec011']/table-wrap[@id='pgph.0001263.t001']/caption/title",
+      "normalized_text_sha256": "903b69a09e9ca6eb568e7d8b2d1afb955d16345fd63985f2faae27ef06792f14",
+      "sibling_count": 1
+    },
+    "table_header": {
+      "xpath": "./body/sec[@id='sec011']/table-wrap[@id='pgph.0001263.t001']/alternatives/table/thead/tr",
+      "normalized_text_sha256": "6a2d2366360e04a059c1dc58c7d6c68810e136c79bf79a574349c3064332c0d1",
+      "sibling_count": 1
+    }
+  },
+  "captures": [
+    {
+      "name": "cohort_count",
+      "selector": "baseline",
+      "pattern": "\\(n = ([0-9]+)\\)",
+      "group": 1,
+      "type": "int",
+      "expected": 389,
+      "corroboration": [
+        {
+          "selector": "results",
+          "pattern": "of the ([0-9]+) who had IFG",
+          "group": 1
+        }
+      ],
+      "unit": "people"
+    },
+    {
+      "name": "traced_count",
+      "selector": "results",
+      "pattern": "A total of ([0-9]+) participants",
+      "group": 1,
+      "type": "int",
+      "expected": 190,
+      "unit": "people"
+    },
+    {
+      "name": "confirmed_deaths_count",
+      "selector": "results",
+      "pattern": "(Fifteen) of those traced were confirmed to have died",
+      "group": 1,
+      "type": "int",
+      "expected": 15,
+      "unit": "people"
+    },
+    {
+      "name": "assessed_count",
+      "selector": "results",
+      "pattern": "results of ([0-9]+) participants",
+      "group": 1,
+      "type": "int",
+      "expected": 175,
+      "corroboration": [
+        {
+          "selector": "table_caption",
+          "pattern": "\\(n = ([0-9]+)\\)",
+          "group": 1
+        }
+      ],
+      "unit": "people"
+    },
+    {
+      "name": "ngt_count",
+      "selector": "table_header",
+      "pattern": "Regressed to NGT ([0-9]+)\\(",
+      "group": 1,
+      "type": "int",
+      "expected": 106,
+      "corroboration": [
+        {
+          "selector": "followup_categories",
+          "pattern": "([0-9]+) \\([0-9]+%\\) participants regressed to normal glucose tolerance",
+          "group": 1
+        }
+      ],
+      "unit": "people"
+    },
+    {
+      "name": "ifg_count",
+      "selector": "table_header",
+      "pattern": "Remained as IFG ([0-9]+)\\(",
+      "group": 1,
+      "type": "int",
+      "expected": 24,
+      "corroboration": [
+        {
+          "selector": "followup_categories",
+          "pattern": "and ([0-9]+) \\([0-9]+%\\) remained as IFG",
+          "group": 1
+        }
+      ],
+      "unit": "people"
+    },
+    {
+      "name": "dm_count",
+      "selector": "table_header",
+      "pattern": "Progressed to DM ([0-9]+)\\(",
+      "group": 1,
+      "type": "int",
+      "expected": 45,
+      "corroboration": [
+        {
+          "selector": "followup_categories",
+          "pattern": "(Forty-five) \\([0-9]+%\\) participants with IFG at baseline progressed to diabetes",
+          "group": 1
+        }
+      ],
+      "unit": "people"
+    },
+    {
+      "name": "baseline_ifg_lower_mmol_l",
+      "selector": "baseline",
+      "pattern": "greater or equal to ([0-9.]+) mmol/L",
+      "group": 1,
+      "type": "float",
+      "expected": 6.1,
+      "unit": "mmol/L"
+    },
+    {
+      "name": "baseline_ifg_upper_mmol_l",
+      "selector": "baseline",
+      "pattern": "less than (seven) mmol/L",
+      "group": 1,
+      "type": "float",
+      "expected": 7.0,
+      "unit": "mmol/L"
+    },
+    {
+      "name": "followup_ifg_lower_mmol_l",
+      "selector": "definition",
+      "pattern": "IFG was diagnosed if FPG was greater or equal to ([0-9.]+) mmol/L",
+      "group": 1,
+      "type": "float",
+      "expected": 6.0,
+      "unit": "mmol/L"
+    },
+    {
+      "name": "followup_ifg_upper_mmol_l",
+      "selector": "definition",
+      "pattern": "and less than ([0-9.]+) mmol/L",
+      "group": 1,
+      "type": "float",
+      "expected": 7.0,
+      "unit": "mmol/L"
+    },
+    {
+      "name": "followup_ngt_upper_mmol_l",
+      "selector": "definition",
+      "pattern": "FPG less than ([0-9.]+)mmol/L",
+      "group": 1,
+      "type": "float",
+      "expected": 6.0,
+      "unit": "mmol/L"
+    },
+    {
+      "name": "followup_dm_lower_mmol_l",
+      "selector": "definition",
+      "pattern": "greater than or equal to ([0-9.]+) mmol/L",
+      "group": 1,
+      "type": "float",
+      "expected": 7.0,
+      "unit": "mmol/L"
+    },
+    {
+      "name": "followup_median_years",
+      "selector": "results",
+      "pattern": "median of ([0-9.]+) years",
+      "group": 1,
+      "type": "float",
+      "expected": 4.2,
+      "corroboration": [
+        {
+          "selector": "abstract",
+          "pattern": "followed up for a median of ([0-9.]+) years",
+          "group": 1
+        }
+      ],
+      "unit": "years"
+    },
+    {
+      "name": "followup_iqr_lower_years",
+      "selector": "abstract",
+      "pattern": "IQR ([0-9.]+)[\\u2013-]([0-9.]+)",
+      "group": 1,
+      "type": "float",
+      "expected": 3.4,
+      "unit": "years"
+    },
+    {
+      "name": "followup_iqr_upper_years",
+      "selector": "abstract",
+      "pattern": "IQR ([0-9.]+)[\\u2013-]([0-9.]+)",
+      "group": 2,
+      "type": "float",
+      "expected": 4.7,
+      "unit": "years"
+    },
+    {
+      "name": "abstract_person_years",
+      "selector": "abstract",
+      "pattern": "\\(([0-9.]+) person-years\\)",
+      "group": 1,
+      "type": "float",
+      "expected": 714.0,
+      "unit": "person_years"
+    },
+    {
+      "name": "results_person_years",
+      "selector": "results",
+      "pattern": "\\(([0-9.]+) person-years to follow-up\\)",
+      "group": 1,
+      "type": "float",
+      "expected": 714.9,
+      "unit": "person_years"
+    },
+    {
+      "name": "baseline_start_year",
+      "selector": "baseline",
+      "pattern": "between ([0-9]+) and ([0-9]+)",
+      "group": 1,
+      "type": "int",
+      "expected": 2013,
+      "unit": "calendar_year"
+    },
+    {
+      "name": "baseline_end_year",
+      "selector": "baseline",
+      "pattern": "between ([0-9]+) and ([0-9]+)",
+      "group": 2,
+      "type": "int",
+      "expected": 2016,
+      "unit": "calendar_year"
+    },
+    {
+      "name": "followup_start_year",
+      "selector": "results",
+      "pattern": "conducted in ([0-9]+)[\\u2013-]([0-9]+)",
+      "group": 1,
+      "type": "int",
+      "expected": 2018,
+      "unit": "calendar_year"
+    },
+    {
+      "name": "followup_end_year",
+      "selector": "results",
+      "pattern": "conducted in ([0-9]+)[\\u2013-]([0-9]+)",
+      "group": 2,
+      "type": "int",
+      "expected": 2019,
+      "unit": "calendar_year"
+    }
+  ],
+  "scientific_gates": {
+    "clinical_fit_allowed": false,
+    "engine_activation_allowed": false,
+    "independent_validation_allowed": false,
+    "scientific_release_ready": false
+  },
+  "definition_semantics": {
+    "baseline": "Source WHO IFG: FPG >=6.1 and <7.0 mmol/L, no diabetes diagnosis history and no diabetes medication.",
+    "followup": "Diabetes: diagnosis since baseline OR current diabetes medication OR FPG >=7.0 mmol/L. Source IFG FPG >=6.0 and <7.0; source NGT FPG <6.0. Fasting-only, no OGTT evidence of normal glucose tolerance.",
+    "uncertainty": "Deaths and untraced participants have unknown joint glycaemia/history. Calendar periods and median/IQR are descriptors, not a common exact horizon. Abstract/results person-years differ and are not repaired or annualized."
+  },
+  "schema_version": 1,
+  "source_id": "malawi2023_public_cohort",
+  "limitations": [
+    "One baseline source-IFG row only; not a complete healthy/prediabetes/diabetes transition matrix.",
+    "Baseline IFG lower threshold is 6.1 mmol/L; follow-up uses 6.0. Preserve this source definition change; do not repair it.",
+    "Source NGT is fasting-only and does not establish OGTT normality, untreated sustained remission or general metabolic health.",
+    "Diabetes uses diagnosis since baseline OR current medication OR follow-up FPG; this is not a type-specific latent state or isolated assay endpoint.",
+    "Known categories, confirmed deaths and wholly untraced people form the reported ascertainment partition. Death and diagnosis histories before an endpoint are not recovered.",
+    "Untraced people may occupy any one source-category/death disposition. Coordinate extremes share one integer allocation; they cannot be combined as an independent table.",
+    "Source follow-up has person-specific mixed elapsed times, not one exact horizon. Completions describe source-ascertainment dispositions, not survival or prevalence at a fixed date.",
+    "Abstract and Results person-years differ. Neither denominator is selected, repaired, annualized or used to fit a transition hazard.",
+    "Reassessed participants differ from those lost. Independent missingness, iid sampling, complete death ascertainment and source-to-US transport are not established.",
+    "Underlying cross-sectional data currently require a repository request/data-sharing agreement; no participant records are acquired or requested.",
+    "No dietary causal coefficient, lag, mortality hazard, clinical calibration, independent holdout validation or engine parameter is activated."
+  ]
+}
