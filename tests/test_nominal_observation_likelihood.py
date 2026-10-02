@@ -425,3 +425,79 @@ def test_small_row_sum_deviations_are_reported_without_input_normalization():
     assert actual["likelihood"] == pytest.approx(
         enumerate_hidden(("low", "high"), channels, [matrix], initial), abs=1e-16
     )
+
+
+@pytest.mark.parametrize("tolerance", [0.5, 0.1, 1e-6, 1e-11, np.nextafter(TOL, 1)])
+def test_loose_tolerance_cannot_turn_material_mass_error_into_probability(tolerance):
+    space = StateSpace(("live", "dead"), (False, None), 1)
+    certain = NominalObservationChannel(0, ("certain",), [[1], [1]])
+    with pytest.raises(ValueError, match="roundoff only"):
+        nominal_path_likelihood(
+            space,
+            [1, 0.4],
+            [],
+            [certain],
+            [NominalObservation(0, "certain")],
+            contract=contract(),
+            tolerance=tolerance,
+        )
+    with pytest.raises(ValueError, match="roundoff only"):
+        validate_nominal_transition(space, [[1, 0.4], [0, 1]], tolerance=tolerance)
+    # A loose caller setting is rejected even when its input happens to be valid.
+    with pytest.raises(ValueError, match="roundoff only"):
+        validate_nominal_transition(space, np.eye(2), tolerance=tolerance)
+
+
+@pytest.mark.parametrize("component", ["initial", "channel", "transition"])
+@pytest.mark.parametrize("mass", [0.6, 1.4])
+@pytest.mark.parametrize("tolerance", [TOL, 0.5])
+def test_material_excess_and_deficient_mass_always_fail(component, mass, tolerance):
+    initial = INITIAL.copy()
+    channel = [row[:] for row in EMISSIONS]
+    matrix = [row[:] for row in MATRIX]
+    invalid = [mass / 2, mass / 2, 0, 0]
+    if component == "initial":
+        initial = invalid
+    elif component == "channel":
+        channel[0] = invalid[:3]
+    else:
+        matrix[0] = invalid
+    before = (
+        tuple(initial),
+        tuple(tuple(row) for row in channel),
+        tuple(tuple(row) for row in matrix),
+    )
+    with pytest.raises(ValueError):
+        nominal_path_likelihood(
+            SPACE,
+            initial,
+            [NominalTransition(0, 1, matrix)],
+            [NominalObservationChannel(i, TOKENS, channel) for i in range(2)],
+            [NominalObservation(0, "low"), NominalObservation(1, "high")],
+            contract=contract(),
+            tolerance=tolerance,
+        )
+    assert before == (
+        tuple(initial),
+        tuple(tuple(row) for row in channel),
+        tuple(tuple(row) for row in matrix),
+    )
+    if component == "transition":
+        with pytest.raises(ValueError):
+            validate_nominal_transition(SPACE, matrix, tolerance=tolerance)
+
+
+def test_smaller_roundoff_allowance_is_respected_without_normalization():
+    initial = INITIAL.copy()
+    initial[0] += 5e-13
+    channel = NominalObservationChannel(0, TOKENS, EMISSIONS)
+    with pytest.raises(ValueError, match="sum to one"):
+        nominal_path_likelihood(
+            SPACE,
+            initial,
+            [],
+            [channel],
+            [NominalObservation(0, "low")],
+            contract=contract(),
+            tolerance=1e-14,
+        )

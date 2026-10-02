@@ -22,6 +22,23 @@ from demeter.analysis.longitudinal_likelihood import (
 )
 
 
+MAX_NOMINAL_ROUNDOFF_TOLERANCE = 1e-12
+
+
+def _nominal_tolerance(value) -> float:
+    """A numeric row-sum allowance, never an empirical probability relaxation.
+
+    The cap permits the existing binary64 row-sum roundoff allowance (about
+    4,504 machine epsilons) while rejecting materially incomplete/excess mass.
+    Callers may require a smaller allowance. Accepted deviations stay visible;
+    neither initial probabilities nor channel/transition rows are repaired.
+    """
+    tolerance = _tolerance(value)
+    if tolerance > MAX_NOMINAL_ROUNDOFF_TOLERANCE:
+        raise ValueError("Nominal probability tolerance must be at most 1e-12 for roundoff only")
+    return tolerance
+
+
 def _index(value) -> int:
     if type(value) is not int or value < 0:
         raise ValueError("Nominal visit index must be a nonnegative Python integer")
@@ -132,6 +149,7 @@ class NominalObservationContract:
 
 def validate_nominal_transition(space: StateSpace, matrix, *, tolerance: float) -> np.ndarray:
     """Stochastic rows, exactly absorbing death, and no live diagnosis-history erasure."""
+    tolerance = _nominal_tolerance(tolerance)
     if type(space) is not StateSpace:
         raise ValueError("A declared StateSpace is required")
     count = len(space.labels)
@@ -177,7 +195,7 @@ def nominal_path_likelihood(
     assumed. Log-domain filtering retains positive paths whose displayed ordinary
     probability underflows, including a tiny posterior that becomes relevant later.
     """
-    tolerance = _tolerance(tolerance)
+    tolerance = _nominal_tolerance(tolerance)
     if type(space) is not StateSpace or type(contract) is not NominalObservationContract:
         raise ValueError("Declared state space and nominal observation contract are required")
     count = len(space.labels)

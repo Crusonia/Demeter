@@ -110,7 +110,10 @@ and explicit missingness dependence, preserve death and diagnosis-history
 invariants, and distinguish impossible paths from floating-point underflow.
 Log-domain filtering preserves tiny positive paths and later-relevant small
 posteriors. Input row deviations are reported; empirical rows are not silently
-renormalized. These are software properties, not source calibration evidence.
+renormalized. Caller tolerances must be positive and at most `1e-12`; they allow
+numerical roundoff, never materially deficient or excessive probability mass.
+Both the standalone transition validator and path evaluator enforce this cap.
+These are software properties, not source calibration evidence.
 
 See [the kernel](../src/demeter/analysis/nominal_observation_likelihood.py) and
 [its synthetic tests](../tests/test_nominal_observation_likelihood.py).
