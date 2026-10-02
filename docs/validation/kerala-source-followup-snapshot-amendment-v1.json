@@ -1,0 +1,34 @@
+{
+  "amendment_id": "kerala-v3-followup-snapshot-amendment-v1",
+  "frozen_at_utc": "2026-10-02T15:35:55Z",
+  "participant_values_inspected": false,
+  "quantitative_workbook_counts_inspected": false,
+  "source_doi": "10.1371/journal.pmed.1002575",
+  "source_locator": "Figure 1, visually read primary publication PDF page 11",
+  "source_sha256": "eace56aae88c2359fc7b57d00a16ff978de51792de47ab78bfb742303dc8727e",
+  "correction_scope": "Earlier schema coverage and admission prose used cumulative loss terminology. Nondeath losses are follow-up snapshots; no monotone or absorbing reason-specific process is supported. Frozen earlier artifacts remain unchanged and this additive declaration controls the subsequent appraisal.",
+  "published_snapshots": {
+    "control": {
+      "12_month": {"not_willing": 3, "lack_of_time": 1, "relocated": 7, "died": 1, "other_reasons": 0, "total_lost": 12},
+      "24_month": {"not_willing": 12, "lack_of_time": 1, "relocated": 10, "died": 1, "other_reasons": 1, "total_lost": 25}
+    },
+    "intervention": {
+      "12_month": {"not_willing": 3, "lack_of_time": 2, "relocated": 3, "died": 2, "other_reasons": 3, "total_lost": 13},
+      "24_month": {"not_willing": 9, "lack_of_time": 1, "relocated": 4, "died": 2, "other_reasons": 2, "total_lost": 18}
+    }
+  },
+  "constraints": [
+    "Do not subtract snapshot reason counts to derive interval losses.",
+    "Do not assume nondeath loss or a reported reason is absorbing or monotone. Reasons may change and previously unobserved participants may return.",
+    "The same one control and two intervention deaths are reported at both horizons; never add the repeated death counts to infer six deaths.",
+    "No released person, glycemic-state or cluster allocation of deaths or loss reasons has yet been established.",
+    "Use each snapshot only at its stated assessment horizon after released-cohort identity is established. Do not transfer reason-specific counts to participant paths by guessing.",
+    "No independent censoring, missing-at-random or complete-case causal interpretation is supplied."
+  ],
+  "scientific_gates": {
+    "clinical_fit_allowed": false,
+    "engine_activation_allowed": false,
+    "independent_validation_allowed": false,
+    "scientific_release_ready": false
+  }
+}

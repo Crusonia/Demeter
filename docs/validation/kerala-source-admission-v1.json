@@ -1,0 +1,54 @@
+{
+  "package_id": "kerala-source-admission-v1",
+  "source_id": "kerala2018_public_trial_v3",
+  "dataset_id": "kerala_source_admission",
+  "parameter_keys": [],
+  "model_role": "benchmark_only",
+  "created_at_utc": "2026-10-02T15:23:52.459646+00:00",
+  "artifacts": [
+    {
+      "path": "docs/validation/kerala-source-schema-protocol-v1.json",
+      "bytes": 2999,
+      "sha256": "29fa65faa6b3b80546b32c11defe0114ba3043761af3247eef2e269c7cfe44a2"
+    },
+    {
+      "path": "docs/validation/kerala-source-header-amendment-v1.json",
+      "bytes": 511,
+      "sha256": "f9652cdcf9a3aaeb4d34b6ad03481fa01def4256b61d8d5ff71d9b4f21909827"
+    },
+    {
+      "path": "docs/validation/kerala-joint-coverage-intake-protocol-v1.json",
+      "bytes": 9045,
+      "sha256": "762a866d73eb56c9497230f10b15e9a8a09b8a94fe78c48edebcfa78ed48383d"
+    },
+    {
+      "path": "docs/validation/kerala-joint-coverage-intake-protocol-v2.json",
+      "bytes": 9870,
+      "sha256": "c8c8a250614b8ceb5e83eaf5325e83c031a7462dde13cbc26a588b1c122ca4bd"
+    },
+    {
+      "path": "docs/validation/kerala-source-headers-v1.json",
+      "bytes": 40120,
+      "sha256": "c0b36bca5efc82d9e36ffb3fe921d84a95acd85108132c18ca24944d5f9c3b1e"
+    },
+    {
+      "path": "docs/validation/kerala-source-appraisal-amendment-v1.json",
+      "bytes": 1877,
+      "sha256": "3b5ff5e360d9effd45dc11b4bd0b5785a25edac618348ccd9b223cbf7572ab95"
+    },
+    {
+      "path": "docs/validation/kerala-source-acquisition-receipts-v1.json",
+      "bytes": 9400,
+      "sha256": "f4c9e577da3dcc88a8c06a2e98485cbe703d8a5a0e7b3b14e4bb6646df347813"
+    },
+    {
+      "path": "docs/validation/kerala-clinical-contract-schema-coverage-v1.json",
+      "bytes": 18589,
+      "sha256": "7d3ee8f92800d956aef6b7a870353848c420bbc5fdc0d0dfcab79fbab4086ab3"
+    }
+  ],
+  "guard_scope": "Pinned public source identity, authored before-values protocol, selected header locators; no participant values, clinical fit or admission acceptance.",
+  "clinical_fit_allowed": false,
+  "engine_activation_allowed": false,
+  "scientific_release_ready": false
+}

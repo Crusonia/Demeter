@@ -1,5 +1,12 @@
 # Building Demeter with public evidence
 
+The [Kerala public trial intake](KERALA_SOURCE_COVERAGE.md) adds a versioned
+producer release with candidate repeated glucose assessments. Its source,
+header and representation checks preserve used-source chronology, typed linkage,
+unknown codes and diagnosis-dependent testing. Published deaths remain cumulative
+aggregate facts with unknown allocation; nondeath losses are visit snapshots.
+These observations do not identify clinical hazards or an isolated dietary effect.
+
 The [Da Qing aggregate source audit](DA_QING_SOURCE_COVERAGE.md) now reproduces
 published death/person-year observations by updated age and time before or since
 recorded diagnosis. It preserves a narrative/table count disagreement and the

@@ -91,7 +91,9 @@ jobs:
           uv run demeter data rebuild-glp1
           uv run demeter evidence glp1 --output outputs/glp1-evidence.json
       - name: Audit data rights and evidence package inventory
-        run: uv run demeter data verify-packages --check-tracked --output outputs/package-audit.json
+        run: |
+          uv run demeter data verify-packages --check-tracked --output outputs/package-audit.json
+          uv run python scripts/verify_kerala_registered_coverage.py --output outputs/kerala-registered-integrity.json
       - name: Run baseline and scenario comparison
         run: |
           uv run demeter simulate scenarios/baseline.yaml --output outputs/baseline.json

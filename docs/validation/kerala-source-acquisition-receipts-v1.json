@@ -1,0 +1,226 @@
+{
+  "source_id": "kerala2018_public_trial_v3",
+  "release_metadata": {
+    "files": [
+      {
+        "id": 39461149,
+        "name": "Primary outcome_K-DPP trial.xlsx",
+        "size": 2168989,
+        "is_link_only": false,
+        "download_url": "https://ndownloader.figshare.com/files/39461149",
+        "supplied_md5": "969885309a193323b24310c8479ca405",
+        "computed_md5": "969885309a193323b24310c8479ca405",
+        "mimetype": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+      },
+      {
+        "id": 39461152,
+        "name": "Secondary outcomes_K-DPP trial.xlsx",
+        "size": 1676671,
+        "is_link_only": false,
+        "download_url": "https://ndownloader.figshare.com/files/39461152",
+        "supplied_md5": "865321dbee94a996c9386866d488782b",
+        "computed_md5": "865321dbee94a996c9386866d488782b",
+        "mimetype": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+      }
+    ],
+    "folder_structure": {},
+    "authors": [
+      {
+        "id": 4638580,
+        "full_name": "Sathish Thirunavukkarasu",
+        "first_name": "Sathish",
+        "last_name": "Thirunavukkarasu",
+        "is_active": true,
+        "url_name": "Sathish_Thirunavukkarasu",
+        "orcid_id": ""
+      }
+    ],
+    "custom_fields": [],
+    "figshare_url": "https://figshare.com/articles/dataset/K-DPP_datasets/5661610",
+    "download_disabled": false,
+    "description": "The Kerala Diabetes Prevention Program is a cluster randomised controlled trial testing the effectiveness of a peer-support lifetsyle intervention program for the prevention of type 2 diabetes in India.",
+    "funding": "NHMRC Australia",
+    "funding_list": [
+      {
+        "id": 266855,
+        "title": "NHMRC Australia",
+        "grant_code": "",
+        "funder_name": null,
+        "is_user_defined": 1
+      }
+    ],
+    "version": 3,
+    "status": "public",
+    "size": 3845660,
+    "created_date": "2023-03-02T13:42:44Z",
+    "modified_date": "2023-03-02T13:42:44Z",
+    "is_public": true,
+    "is_confidential": false,
+    "is_metadata_record": false,
+    "confidential_reason": "",
+    "metadata_reason": "",
+    "license": {
+      "value": 1,
+      "name": "CC BY 4.0",
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    "tags": [
+      "diabetes and endocrinology/type 2 diabetes",
+      "Public Health and Health Services not elsewhere classified"
+    ],
+    "keywords": [
+      "diabetes and endocrinology/type 2 diabetes",
+      "Public Health and Health Services not elsewhere classified"
+    ],
+    "categories": [
+      {
+        "id": 27205,
+        "title": "Public health not elsewhere classified",
+        "parent_id": 27184,
+        "path": "/27001/27184/27205",
+        "source_id": "420699",
+        "taxonomy_id": 100
+      }
+    ],
+    "references": [],
+    "has_linked_file": false,
+    "citation": "Thirunavukkarasu, Sathish (2017). K-DPP datasets. figshare. Dataset. https://doi.org/10.6084/m9.figshare.5661610.v3",
+    "related_materials": [],
+    "is_embargoed": false,
+    "embargo_date": null,
+    "embargo_type": "file",
+    "embargo_title": "",
+    "embargo_reason": "",
+    "embargo_options": [],
+    "id": 5661610,
+    "title": "K-DPP datasets",
+    "doi": "10.6084/m9.figshare.5661610.v3",
+    "handle": "",
+    "url": "https://api.figshare.com/v2/articles/5661610",
+    "published_date": "2023-03-02T13:42:44Z",
+    "thumb": "",
+    "defined_type": 3,
+    "defined_type_name": "dataset",
+    "group_id": null,
+    "url_private_api": "https://api.figshare.com/v2/account/articles/5661610",
+    "url_public_api": "https://api.figshare.com/v2/articles/5661610",
+    "url_private_html": "https://figshare.com/account/articles/5661610",
+    "url_public_html": "https://figshare.com/articles/dataset/K-DPP_datasets/5661610",
+    "timeline": {
+      "posted": "2023-03-02T13:42:44",
+      "firstOnline": "2017-12-03"
+    },
+    "resource_title": null,
+    "resource_doi": null
+  },
+  "original_ignored_receipt_sha256": {
+    "metadata-receipt.json": "0797f518ed13cc0615c2c6d7db5c049d51c8078af5d6d0ba5e47a73253361672",
+    "workbook-acquisition-receipts.json": "af295cf8970358b5face9ca281d401113f4c11c215f8ae1e2443f6aa8bcf33df",
+    "publication-acquisition-receipt.json": "6a8bc3b561f1cbdcb44e103ab7860e45a1cbb7cebc05a5d9668e326a8ccd6c27",
+    "protocol-document-acquisition-receipts.json": "56c061bb7ac19b5133ba0a9c43b72808079fd61929a37c9a4fa10413f20578d5"
+  },
+  "metadata_receipt": {
+    "url": "https://api.figshare.com/v2/articles/5661610",
+    "status": 200,
+    "content_type": "application/json",
+    "retrieved_at_utc": "2026-10-02T15:00:49.250581+00:00",
+    "bytes": 3251,
+    "sha256": "799f4d4c6e61de038f5cace5a42ab6a71adb0f2ee2b8d8c2ddc920bbe435864b",
+    "participant_data": false
+  },
+  "workbook_receipts": [
+    {
+      "url": "https://ndownloader.figshare.com/files/39461149",
+      "final_url": "https://s3-eu-west-1.amazonaws.com/pfigshare-u-files/39461149/Primaryoutcome_KDPPtrial.xlsx",
+      "status": 200,
+      "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "retrieved_at_utc": "2026-10-02T15:07:36.848336+00:00",
+      "filename": "Primary outcome_K-DPP trial.xlsx",
+      "file_id": 39461149,
+      "bytes": 2168989,
+      "sha256": "20736b53c9d3704179a3f6c8ce89d417edf730ceff0448a1f28ac7f54db14421",
+      "md5": "969885309a193323b24310c8479ca405",
+      "license": {
+        "value": 1,
+        "name": "CC BY 4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "source_doi": "10.6084/m9.figshare.5661610.v3",
+      "raw_commit_allowed": false,
+      "raw_filename": "Primary outcome_K-DPP trial.xlsx",
+      "resolved_query_omitted": true,
+      "signed_query_omitted": true
+    },
+    {
+      "url": "https://ndownloader.figshare.com/files/39461152",
+      "final_url": "https://s3-eu-west-1.amazonaws.com/pfigshare-u-files/39461152/Secondaryoutcomes_KDPPtrial.xlsx",
+      "status": 200,
+      "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "retrieved_at_utc": "2026-10-02T15:07:42.848174+00:00",
+      "filename": "Secondary outcomes_K-DPP trial.xlsx",
+      "file_id": 39461152,
+      "bytes": 1676671,
+      "sha256": "f963ff821c11b40e796fe9bce16ee5c21e22833653797c7c94d3bf28fbd4e7dc",
+      "md5": "865321dbee94a996c9386866d488782b",
+      "license": {
+        "value": 1,
+        "name": "CC BY 4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "source_doi": "10.6084/m9.figshare.5661610.v3",
+      "raw_commit_allowed": false,
+      "raw_filename": "Secondary outcomes_K-DPP trial.xlsx",
+      "resolved_query_omitted": true,
+      "signed_query_omitted": true
+    }
+  ],
+  "publication_receipt": {
+    "url": "https://journals.plos.org/plosmedicine/article/file?id=10.1371/journal.pmed.1002575&type=printable",
+    "final_url": "https://journals.plos.org/plosmedicine/article/file",
+    "status": 200,
+    "content_type": "application/pdf",
+    "retrieved_at_utc": "2026-10-02T15:10:14.209360+00:00",
+    "bytes": 1851243,
+    "sha256": "eace56aae88c2359fc7b57d00a16ff978de51792de47ab78bfb742303dc8727e",
+    "raw_filename": "thankappan2018-primary-publication.pdf",
+    "doi": "10.1371/journal.pmed.1002575",
+    "license": "CC BY per primary article copyright statement; original author and source attribution required",
+    "participant_data": false,
+    "resolved_query_omitted": true,
+    "signed_query_omitted": false
+  },
+  "supporting_document_receipts": [
+    {
+      "url": "https://link.springer.com/article/10.1186/1471-2458-13-1035",
+      "doi": "10.1186/1471-2458-13-1035",
+      "retrieved_at_utc": "2026-10-02T15:16:46.527876+00:00",
+      "participant_data": false,
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 482035,
+      "sha256": "66549ea4be5e4f649db5887376d0b7388ac29d853d2f9905e52b58e1a9488314",
+      "final_url": "https://link.springer.com/article/10.1186/1471-2458-13-1035",
+      "raw_filename": "2013-trial-protocol.html",
+      "disposition": "Primary document fetched; public article only, no participant fields.",
+      "license_scope": "Article rights must be read from cached copyright section before distribution.",
+      "resolved_query_omitted": true,
+      "signed_query_omitted": false
+    },
+    {
+      "url": "https://link.springer.com/article/10.1186/s12889-023-15392-6",
+      "doi": "10.1186/s12889-023-15392-6",
+      "retrieved_at_utc": "2026-10-02T15:16:48.635366+00:00",
+      "participant_data": false,
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 446472,
+      "sha256": "5202582b2ebf1b785552c47a9548ad35b967d999994d0deba05d68d79ef55166",
+      "final_url": "https://link.springer.com/article/10.1186/s12889-023-15392-6",
+      "raw_filename": "2023-followup-protocol.html",
+      "disposition": "Primary document fetched; public article only, no participant fields.",
+      "license_scope": "Article rights must be read from cached copyright section before distribution.",
+      "resolved_query_omitted": true,
+      "signed_query_omitted": false
+    }
+  ]
+}

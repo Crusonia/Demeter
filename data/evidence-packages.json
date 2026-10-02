@@ -1241,6 +1241,96 @@
       ],
       "model_role": "benchmark_only",
       "redistribution": "Attributed literal publication-level aggregate facts, original authored audit/coverage and immutable used-source protocol only. Full copyrighted article HTML/PDF and publisher layout are fetch-only and excluded. No participant records, fitted clinical rate, independent sampling distribution or engine activation."
+    },
+    "kerala_source_admission": {
+      "store": null,
+      "dependencies": [],
+      "registry_datasets": [
+        "kerala_source_admission"
+      ],
+      "registry_parameters": [],
+      "artifacts": [
+        {
+          "path": "docs/validation/kerala-clinical-contract-schema-coverage-v1.json",
+          "sha256": "7d3ee8f92800d956aef6b7a870353848c420bbc5fdc0d0dfcab79fbab4086ab3"
+        },
+        {
+          "path": "docs/validation/kerala-joint-coverage-intake-protocol-v1.json",
+          "sha256": "762a866d73eb56c9497230f10b15e9a8a09b8a94fe78c48edebcfa78ed48383d"
+        },
+        {
+          "path": "docs/validation/kerala-joint-coverage-intake-protocol-v2.json",
+          "sha256": "c8c8a250614b8ceb5e83eaf5325e83c031a7462dde13cbc26a588b1c122ca4bd"
+        },
+        {
+          "path": "docs/validation/kerala-longitudinal-output-redaction-protocol-v2.json",
+          "sha256": "37280e31ea8b477d5c6c81686ae8dd11a6d0dd43cb65aeef64a9d874dfc35b19"
+        },
+        {
+          "path": "docs/validation/kerala-selected-source-representation-v1.json",
+          "sha256": "1bb0cdc22210d72441809addbeef0781f826a4557dc234af99486f98e5192248"
+        },
+        {
+          "path": "docs/validation/kerala-selected-source-representation-v2.json",
+          "sha256": "4f7214155fc0db8d21ca59e9f1e3af06e76f585ae89e201c6df65741c160f7a2"
+        },
+        {
+          "path": "docs/validation/kerala-source-acquisition-receipts-v1.json",
+          "sha256": "f4c9e577da3dcc88a8c06a2e98485cbe703d8a5a0e7b3b14e4bb6646df347813"
+        },
+        {
+          "path": "docs/validation/kerala-source-admission-v1.json",
+          "sha256": "dfc5f3dec1fdcbae7f85afbfdacf7ece7cad009417c6c596bb14ecc1858339dd"
+        },
+        {
+          "path": "docs/validation/kerala-source-admission-v2.json",
+          "sha256": "a5f2a495e2714071a8c90e57187b70e89c791dfee2e04bc3aeea0e9d19193038"
+        },
+        {
+          "path": "docs/validation/kerala-source-appraisal-amendment-v1.json",
+          "sha256": "3b5ff5e360d9effd45dc11b4bd0b5785a25edac618348ccd9b223cbf7572ab95"
+        },
+        {
+          "path": "docs/validation/kerala-source-artifact-translation-v1.json",
+          "sha256": "54df934020b59d65cead6d416203ea470ac157cbea22d7580aa9b1eca24ea6c2"
+        },
+        {
+          "path": "docs/validation/kerala-source-followup-snapshot-amendment-v1.json",
+          "sha256": "4d39ca5658fd6912a374b2f6b0db2190940e1058de2a310351186b8adf0fdf2f"
+        },
+        {
+          "path": "docs/validation/kerala-source-header-amendment-v1.json",
+          "sha256": "f9652cdcf9a3aaeb4d34b6ad03481fa01def4256b61d8d5ff71d9b4f21909827"
+        },
+        {
+          "path": "docs/validation/kerala-source-headers-v1.json",
+          "sha256": "c0b36bca5efc82d9e36ffb3fe921d84a95acd85108132c18ca24944d5f9c3b1e"
+        },
+        {
+          "path": "docs/validation/kerala-source-schema-coverage-original-redacted-v1.json",
+          "sha256": "14d0b76279879a56603519559654bd39b0a2abd904847aa705c60280daabbbd6"
+        },
+        {
+          "path": "docs/validation/kerala-source-schema-protocol-v1.json",
+          "sha256": "29fa65faa6b3b80546b32c11defe0114ba3043761af3247eef2e269c7cfe44a2"
+        },
+        {
+          "path": "docs/KERALA_SOURCE_COVERAGE.md",
+          "sha256": "8a424cc8e53286f3423e67775519bf14a09a2c2456200b83cebcd60391e2ddc2"
+        }
+      ],
+      "transform_files": [
+        "src/demeter/analysis/kerala_coverage.py",
+        "scripts/verify_kerala_source_coverage.py",
+        "src/demeter/analysis/kerala_registration.py",
+        "scripts/verify_kerala_registered_coverage.py"
+      ],
+      "rebuild": [
+        "uv run python scripts/verify_kerala_registered_coverage.py",
+        "Optional exact public source-cache replay uses --source-cache PATH --replay-aggregates; it verifies the frozen aggregate without author Git history or private redirect originals and never exports participants."
+      ],
+      "model_role": "benchmark_only",
+      "redistribution": "Attributed source metadata, authored aggregate-only source/representation diagnostics, exact immutable protocols and MIT code only. Both raw clinical workbooks and primary publications remain ignored/fetch-only. No participant/cluster identifiers, individual assays, clinical hazard fit, independent censoring, national transport or engine activation."
     }
   },
   "supporting_artifacts": [

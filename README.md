@@ -358,6 +358,13 @@ explain which linked records or sufficient aggregate tables could unblock clinic
 fitting. Contributors can propose a primary source with its definitions and reuse
 terms; the guide records the gaps found in the latest bounded source search.
 
+The [Kerala public trial intake](docs/KERALA_SOURCE_COVERAGE.md) checks a versioned
+producer release with candidate repeated glucose observations. Exact source and
+protocol pins, typed linked-record coverage, unexplained codes and measurement
+availability stay separate from clinical state meanings. Raw participant files
+are fetch-only; reports contain aggregate diagnostics. This source does not yet
+supply active transition rates or a causal dietary coefficient.
+
 Resolve state definitions and age-specific baseline prevalence, fit defensible transition hazards and mortality ratios, encode study-compatible dietary doses and uncertainty, and evaluate an independent historical health holdout. Until then, the software reports validation-only results and remains a prerelease. Agriculture, agent behavior, policy, economics, and a public simulator follow the phases in the program vision.
 
 The [issue #1 audit](docs/ISSUE_1_AUDIT.md) records the remaining acceptance criteria.

@@ -207,6 +207,19 @@ does not grant access to participant records. The recorded clinical-source
 identity points to this reviewed archive, rather than authorizing any other
 registry article to be redistributed.
 
+The [Kerala trial intake](../docs/KERALA_SOURCE_COVERAGE.md) records the public
+K-DPP dataset version 3, [DOI10.6084/m9.figshare.5661610.v3](https://doi.org/10.6084/m9.figshare.5661610.v3),
+attributed to Sathish Thirunavukkarasu under its stated CC BY 4.0 license.
+Both participant workbooks remain ignored and fetch-only. Authored receipts and
+aggregate diagnostics omit participant keys, cluster keys, records and individual
+assays. The release-metadata hash and two workbook hashes are separate pins.
+Transient signed redirect queries are removed from public receipts and their
+ignored originals are hash-linked. Trial publications/protocols stay fetch-only:
+the 2018 trial article and 2023 follow-up protocol have separate CC BY attribution
+conditions; this intake does not establish redistribution rights for the 2013
+protocol. Study-ID consistency does not establish a producer identity crosswalk,
+and undocumented numeric codes do not establish clinical or regimen meanings.
+
 Before adding data, review contents, privacy classification, exact terms,
 rights holder and attribution. Add reviewed rights, receipt, registry and package
 records together. If rights or privacy are unresolved, exclude raw data and record

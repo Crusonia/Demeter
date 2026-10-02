@@ -1,0 +1,29 @@
+{
+  "artifact_id": "kerala-selected-source-representation-v1-withdrawal-receipt",
+  "source_id": "kerala2018_public_trial_v3",
+  "withdrawn_original": {
+    "path": "docs/validation/kerala-selected-source-representation-v1.json",
+    "sha256": "fc2fe0701cdabd176230d4259f120bdd310d290887b6fb8f2b3c41bbf42c1d99",
+    "bytes": 68043,
+    "historical_commit": "1f103307d12a32c87922ea8ba4db6e5cb505d9a2"
+  },
+  "reason": "Withdraw current-tree labeled multiwave trajectory payload including20 singleton cells; correct the documented no-individual-path-export promise.",
+  "replacement_path": "docs/validation/kerala-selected-source-representation-v2.json",
+  "replacement_sha256": "4f7214155fc0db8d21ca59e9f1e3af06e76f585ae89e201c6df65741c160f7a2",
+  "redaction_protocol": {
+    "path": "docs/validation/kerala-longitudinal-output-redaction-protocol-v2.json",
+    "sha256": "37280e31ea8b477d5c6c81686ae8dd11a6d0dd43cb65aeef64a9d874dfc35b19",
+    "commit_before_corrective_rerun": "978ca9077c3af601497a624102d161ee009f8401",
+    "interpretation": "Known-source publication correction after values had already been inspected; no independent-validation or before-values claim for this correction."
+  },
+  "original_preserved_in_ignored_local_storage": true,
+  "existing_git_history_remains_accessible": true,
+  "git_history_rewritten": false,
+  "labeled_multiwave_tuples_in_current_artifact": false,
+  "scientific_gates": {
+    "clinical_fit_allowed": false,
+    "engine_activation_allowed": false,
+    "independent_validation_allowed": false,
+    "scientific_release_ready": false
+  }
+}

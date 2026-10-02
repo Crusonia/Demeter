@@ -1,0 +1,472 @@
+{
+  "source_id": "kerala2018_public_trial_v3",
+  "created_at_utc": "2026-10-02T15:13:04.578441+00:00",
+  "status": "schema-only-preflight; quantitative workbook analysis not performed",
+  "participant_rows_inspected": false,
+  "aggregate_workbook_outcomes_inspected": false,
+  "raw_committed": false,
+  "source_doi": "10.6084/m9.figshare.5661610.v3",
+  "publication_doi": "10.1371/journal.pmed.1002575",
+  "protocol": {
+    "path": "schema-preflight-protocol-v1.json",
+    "bytes": 2999,
+    "sha256": "29fa65faa6b3b80546b32c11defe0114ba3043761af3247eef2e269c7cfe44a2"
+  },
+  "header_addendum": {
+    "path": "schema-preflight-header-addendum-v1.json",
+    "bytes": 511,
+    "sha256": "f9652cdcf9a3aaeb4d34b6ad03481fa01def4256b61d8d5ff71d9b4f21909827"
+  },
+  "metadata": {
+    "path": "figshare5661610-metadata.json",
+    "bytes": 3251,
+    "sha256": "799f4d4c6e61de038f5cace5a42ab6a71adb0f2ee2b8d8c2ddc920bbe435864b"
+  },
+  "header_manifest": {
+    "path": "schema-headers-v1.json",
+    "bytes": 40120,
+    "sha256": "c0b36bca5efc82d9e36ffb3fe921d84a95acd85108132c18ca24944d5f9c3b1e"
+  },
+  "actual_source_receipts": [
+    {
+      "url": "https://ndownloader.figshare.com/files/39461149",
+      "final_url": "https://s3-eu-west-1.amazonaws.com/pfigshare-u-files/39461149/Primaryoutcome_KDPPtrial.xlsx",
+      "status": 200,
+      "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "retrieved_at_utc": "2026-10-02T15:07:36.848336+00:00",
+      "filename": "Primary outcome_K-DPP trial.xlsx",
+      "file_id": 39461149,
+      "bytes": 2168989,
+      "sha256": "20736b53c9d3704179a3f6c8ce89d417edf730ceff0448a1f28ac7f54db14421",
+      "md5": "969885309a193323b24310c8479ca405",
+      "license": {
+        "value": 1,
+        "name": "CC BY 4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "source_doi": "10.6084/m9.figshare.5661610.v3",
+      "raw_commit_allowed": false,
+      "raw_filename": "Primary outcome_K-DPP trial.xlsx",
+      "resolved_query_omitted": true,
+      "signed_query_omitted": true
+    },
+    {
+      "url": "https://ndownloader.figshare.com/files/39461152",
+      "final_url": "https://s3-eu-west-1.amazonaws.com/pfigshare-u-files/39461152/Secondaryoutcomes_KDPPtrial.xlsx",
+      "status": 200,
+      "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "retrieved_at_utc": "2026-10-02T15:07:42.848174+00:00",
+      "filename": "Secondary outcomes_K-DPP trial.xlsx",
+      "file_id": 39461152,
+      "bytes": 1676671,
+      "sha256": "f963ff821c11b40e796fe9bce16ee5c21e22833653797c7c94d3bf28fbd4e7dc",
+      "md5": "865321dbee94a996c9386866d488782b",
+      "license": {
+        "value": 1,
+        "name": "CC BY 4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "source_doi": "10.6084/m9.figshare.5661610.v3",
+      "raw_commit_allowed": false,
+      "raw_filename": "Secondary outcomes_K-DPP trial.xlsx",
+      "resolved_query_omitted": true,
+      "signed_query_omitted": true
+    }
+  ],
+  "publication_receipt": {
+    "url": "https://journals.plos.org/plosmedicine/article/file?id=10.1371/journal.pmed.1002575&type=printable",
+    "final_url": "https://journals.plos.org/plosmedicine/article/file",
+    "status": 200,
+    "content_type": "application/pdf",
+    "retrieved_at_utc": "2026-10-02T15:10:14.209360+00:00",
+    "bytes": 1851243,
+    "sha256": "eace56aae88c2359fc7b57d00a16ff978de51792de47ab78bfb742303dc8727e",
+    "raw_filename": "thankappan2018-primary-publication.pdf",
+    "doi": "10.1371/journal.pmed.1002575",
+    "license": "CC BY per primary article copyright statement; original author and source attribution required",
+    "participant_data": false,
+    "resolved_query_omitted": true,
+    "signed_query_omitted": false
+  },
+  "fields": [
+    {
+      "contract": "identity and permission",
+      "status": "verified public release and file byte pins",
+      "details": "Version 3, CC BY4.0, two advertised XLSX files; size and both metadata MD5 fields match downloads. Raw participant files stay ignored."
+    },
+    {
+      "contract": "estimand and comparator",
+      "status": "primary publication documented; raw category encoding unresolved",
+      "fields": [
+        {
+          "field": "arms0",
+          "locator": "primary:Sheet 1!B2"
+        },
+        {
+          "field": "arms1",
+          "locator": "primary:Sheet 1!DC2"
+        },
+        {
+          "field": "arms2",
+          "locator": "primary:Sheet 1!HC2"
+        }
+      ],
+      "publication_locator": "Methods: Randomization, Intervention group, Control group, Outcomes; PDF pages4-8",
+      "details": "Total offered peer-support lifestyle package versus advice booklet, randomized at polling-area level. Diet, activity, weight goals and other cointerventions inseparable; no UPF dose effect."
+    },
+    {
+      "contract": "baseline and selection",
+      "status": "publication eligibility verified; released subset/code mapping unverified",
+      "fields": [
+        {
+          "field": "participant_id",
+          "locator": "primary:Sheet 1!A2"
+        },
+        {
+          "field": "age0",
+          "locator": "primary:Sheet 1!C2"
+        },
+        {
+          "field": "sex",
+          "locator": "primary:Sheet 1!D2"
+        },
+        {
+          "field": "cluster0",
+          "locator": "primary:Sheet 1!T2"
+        },
+        {
+          "field": "NGTADA0",
+          "locator": "primary:Sheet 1!BW2"
+        },
+        {
+          "field": "IFGADA0",
+          "locator": "primary:Sheet 1!BX2"
+        },
+        {
+          "field": "IGTADA0",
+          "locator": "primary:Sheet 1!BY2"
+        },
+        {
+          "field": "diabADA0",
+          "locator": "primary:Sheet 1!BZ2"
+        },
+        {
+          "field": "glycemiaADA0",
+          "locator": "primary:Sheet 1!CA2"
+        },
+        {
+          "field": "hba1c0",
+          "locator": "primary:Sheet 1!BN2"
+        },
+        {
+          "field": "hba1cada0",
+          "locator": "primary:Sheet 1!CG2"
+        }
+      ],
+      "publication_locator": "Methods: Study setting and participants; Results: Participant flow; PDF pages4-5,10",
+      "details": "Selected Kerala high diabetes-risk-score adults, OGTT screening excludes diabetes; baseline HbA1c diabetes-range subgroup retained by trial eligibility. Normal glycemia is not general metabolic health. participant_id is header-only linkage candidate, not verified pseudonymous field."
+    },
+    {
+      "contract": "exposure",
+      "status": "categorical offer supported; adherence codes unresolved",
+      "fields": [
+        {
+          "field": "arms0",
+          "locator": "primary:Sheet 1!B2"
+        },
+        {
+          "field": "totsessions",
+          "locator": "primary:Sheet 1!LW2"
+        },
+        {
+          "field": "peersessions",
+          "locator": "primary:Sheet 1!LX2"
+        },
+        {
+          "field": "vegcat0",
+          "locator": "primary:Sheet 1!ME2"
+        },
+        {
+          "field": "fruitcat0",
+          "locator": "primary:Sheet 1!MF2"
+        },
+        {
+          "field": "vegcat1",
+          "locator": "primary:Sheet 1!MG2"
+        },
+        {
+          "field": "fruitcat1",
+          "locator": "primary:Sheet 1!MH2"
+        },
+        {
+          "field": "vegcat2",
+          "locator": "primary:Sheet 1!MI2"
+        },
+        {
+          "field": "fruitcat2",
+          "locator": "primary:Sheet 1!MJ2"
+        }
+      ],
+      "publication_locator": "Methods: Intervention group; Results: Process evaluation; PDF pages5-7,10",
+      "details": "A regimen offer plus attendance/category fields; no isolated consumed nutrient or UPF dose established. Treatment-assignment, attendance and measured diet roles must stay distinct."
+    },
+    {
+      "contract": "measurement and thresholds",
+      "status": "assay conditions in publication, labelled glucose unit fields; category encodings and suffix time mapping unresolved",
+      "fields": [
+        {
+          "field": "fpgmgdl0",
+          "locator": "primary:Sheet 1!U2"
+        },
+        {
+          "field": "twohrpgmgdl0",
+          "locator": "primary:Sheet 1!V2"
+        },
+        {
+          "field": "fpgmmol0",
+          "locator": "primary:Sheet 1!CN2"
+        },
+        {
+          "field": "twohrpgmmol0",
+          "locator": "primary:Sheet 1!CO2"
+        },
+        {
+          "field": "hba1c0",
+          "locator": "primary:Sheet 1!BN2"
+        },
+        {
+          "field": "fpgmgdl1",
+          "locator": "primary:Sheet 1!DV2"
+        },
+        {
+          "field": "twohrpgmgdl1",
+          "locator": "primary:Sheet 1!DW2"
+        },
+        {
+          "field": "fpgmgdl2",
+          "locator": "primary:Sheet 1!HV2"
+        },
+        {
+          "field": "twohrpgmgdl2",
+          "locator": "primary:Sheet 1!HW2"
+        },
+        {
+          "field": "glycemiaADA1",
+          "locator": "primary:Sheet 1!GA2"
+        },
+        {
+          "field": "glycemiaADA2",
+          "locator": "primary:Sheet 1!KA2"
+        },
+        {
+          "field": "glycemiaWHO0",
+          "locator": "primary:Sheet 1!CF2"
+        },
+        {
+          "field": "glycemiaWHO1",
+          "locator": "primary:Sheet 1!GF2"
+        },
+        {
+          "field": "glycemiaWHO2",
+          "locator": "primary:Sheet 1!KF2"
+        }
+      ],
+      "publication_locator": "Methods: Data collection and Outcomes; PDF pages7-8",
+      "details": "Source ADA and WHO category partitions differ. Do not assign codes from familiar names. Clinical thresholds require registry sourcing before any conversion."
+    },
+    {
+      "contract": "confirmation and history",
+      "status": "trial diagnostic algorithm documented; raw confirmation/history fields unresolved",
+      "fields": [
+        {
+          "field": "diabdrugs_10",
+          "locator": "primary:Sheet 1!BS2"
+        },
+        {
+          "field": "diabdrugs_20",
+          "locator": "primary:Sheet 1!BT2"
+        },
+        {
+          "field": "diabdrugs_1",
+          "locator": "primary:Sheet 1!FT2"
+        },
+        {
+          "field": "diabdrugs_2",
+          "locator": "primary:Sheet 1!JT2"
+        },
+        {
+          "field": "diabADA1",
+          "locator": "primary:Sheet 1!FZ2"
+        },
+        {
+          "field": "diabADA2",
+          "locator": "primary:Sheet 1!JZ2"
+        },
+        {
+          "field": "tot_diab_incidence",
+          "locator": "primary:Sheet 1!LC2"
+        },
+        {
+          "field": "tot_diab_incidence1",
+          "locator": "primary:Sheet 1!LD2"
+        },
+        {
+          "field": "tot_diab_incidence2",
+          "locator": "primary:Sheet 1!LE2"
+        }
+      ],
+      "publication_locator": "Methods: Data collection and Outcomes; PDF pages7-8",
+      "details": "Paper counts annual OGTT diagnoses or physician diagnosis with antidiabetic medication. Headers alone do not verify drug codes, repeat confirmation, type, diagnosis dates, persistence or absorbing history. Lower later glucose cannot erase a prior diagnosis."
+    },
+    {
+      "contract": "visits and ascertainment",
+      "status": "nominal annual clocks documented, actual dates/windows unavailable in headers",
+      "fields": [
+        {
+          "field": "timepoint",
+          "locator": "primary:Sheet 1!MY2"
+        },
+        {
+          "field": "timepoint",
+          "locator": "secondary:Sheet 1!B2"
+        }
+      ],
+      "publication_locator": "Methods: Data collection; Statistical analysis; PDF pages7-9",
+      "details": "Baseline/12/24 months in paper. Suffix0/1/2 and timepoint codes need verified dictionary or explicit assumed mapping. Diagnosed at12 months stops24-month OGTT; FPG alone still collected. This is informative by diagnosed history, never ordinary independent missingness."
+    },
+    {
+      "contract": "first event and stopping",
+      "status": "annual interval detection documented; event flags present but raw meanings unresolved",
+      "fields": [
+        {
+          "field": "tot_diab_incidence",
+          "locator": "primary:Sheet 1!LC2"
+        },
+        {
+          "field": "tot_diab_incidence1",
+          "locator": "primary:Sheet 1!LD2"
+        },
+        {
+          "field": "tot_diab_incidence2",
+          "locator": "primary:Sheet 1!LE2"
+        }
+      ],
+      "publication_locator": "Methods: Outcomes and Statistical analysis; PDF pages8-9",
+      "details": "Annual systematic detection, not biological onset or exact event time. Cumulative versus interval flags cannot be guessed. Trial originally proposed Cox but switched to risk-ratio GEE because only annual observations existed."
+    },
+    {
+      "contract": "treatment and causal role",
+      "status": "medication candidates present, starts/stops and role unresolved",
+      "fields": [
+        {
+          "field": "diabdrugs_10",
+          "locator": "primary:Sheet 1!BS2"
+        },
+        {
+          "field": "diabdrugs_20",
+          "locator": "primary:Sheet 1!BT2"
+        },
+        {
+          "field": "diabdrugs_1",
+          "locator": "primary:Sheet 1!FT2"
+        },
+        {
+          "field": "diabdrugs_2",
+          "locator": "primary:Sheet 1!JT2"
+        }
+      ],
+      "publication_locator": "Methods: Data collection; PDF page7",
+      "details": "Referral and clinical treatment after diagnosis can mediate later glucose. No treatment-free remission or medication history duration can be inferred."
+    },
+    {
+      "contract": "death loss and withdrawal",
+      "status": "aggregate paper death/loss reasons verified; no explicit corresponding workbook header",
+      "fields": [],
+      "publication_locator": "Figure1: Trial profile, visually read PDFpage11",
+      "published_facts": {
+        "interpretation": "Cumulative loss lists at each nominal follow-up, not additional intervals; do not sum repeated deaths.",
+        "control": {
+          "12_month_loss": 12,
+          "24_month_loss": 25,
+          "12_month_died": 1,
+          "24_month_died": 1,
+          "primary_analyzed": 463,
+          "enrolled": 507
+        },
+        "intervention": {
+          "12_month_loss": 13,
+          "24_month_loss": 18,
+          "12_month_died": 2,
+          "24_month_died": 2,
+          "primary_analyzed": 456,
+          "enrolled": 500
+        }
+      },
+      "details": "No explicit death/contact/withdrawal/date header. Figure supplies deaths and cause-specific losses by arm, but no person/cluster/glycemic-state linkage or exact death resolution. Primary outcome completeness differs from any follow-up completeness. Missing records cannot be marked alive or unchanged."
+    },
+    {
+      "contract": "missingness",
+      "status": "publication sensitivity documented, raw codes and reason linkage unverified",
+      "publication_locator": "Methods: Statistical analysis; Results: Participant flow and Incidence; PDF pages9-10",
+      "details": "Paper multilevel imputation accounts for cluster design; this does not automatically establish MAR. Unknown fields/reasons retained separately. Null, blank, spreadsheet error, text marker and invalid range codes must be inspected and scoped before arithmetic."
+    },
+    {
+      "contract": "dependence and uncertainty",
+      "status": "cluster and repeated structure documented; actual linkage and group codes unverified",
+      "fields": [
+        {
+          "field": "cluster0",
+          "locator": "primary:Sheet 1!T2"
+        },
+        {
+          "field": "cluster1",
+          "locator": "primary:Sheet 1!DU2"
+        },
+        {
+          "field": "cluster2",
+          "locator": "primary:Sheet 1!HU2"
+        },
+        {
+          "field": "cluster",
+          "locator": "primary:Sheet 1!MX2"
+        },
+        {
+          "field": "participant_id",
+          "locator": "primary:Sheet 1!A2"
+        },
+        {
+          "field": "cluster",
+          "locator": "secondary:Sheet 1!U2"
+        },
+        {
+          "field": "participant_id",
+          "locator": "secondary:Sheet 1!A2"
+        },
+        {
+          "field": "timepoint",
+          "locator": "secondary:Sheet 1!B2"
+        }
+      ],
+      "publication_locator": "Methods: Randomization and Statistical analysis; PDF pages4,8-9",
+      "details": "Preserve polling-area assignment and repeated participants. Primary exchangeable GEE/robust SE; no individual independent-binomial uncertainty. Paper subgroup signals are post hoc and interaction not established. Finite sample/descriptive source bounds precede any fitted uncertainty."
+    },
+    {
+      "contract": "likelihood identification and evaluation",
+      "status": "not specified; fitting blocked",
+      "details": "Potential use: source-specific linked observed glycemic categories under categorical assignment, with diagnosis-history coarsening and aggregate death/loss allocation constraints. This needs a frozen observation/selection model, explicit unknown-code handling and jointly compatible uncertainty. All paper outcomes already used; workbook preflight not independent validation. No national transport, causal diet dose, mortality coefficient or engine activation."
+    }
+  ],
+  "dictionary": {
+    "separate_release_file": false,
+    "embedded_dictionary_sheet": false,
+    "embedded_comments_or_metadata_part": false,
+    "code_semantics_verified": false
+  },
+  "next_finite_gate": "Freeze and authorize narrow semantic/value-code inspection and record-representation validation with no IDs or individual values emitted; preserve absent death linkage and informative post-diagnosis OGTT missingness. Do not fit until scope and observation model are separately settled.",
+  "scientific_gates": {
+    "clinical_fit_allowed": false,
+    "engine_activation_allowed": false,
+    "independent_validation_allowed": false,
+    "scientific_release_ready": false
+  }
+}
