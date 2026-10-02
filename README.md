@@ -132,6 +132,12 @@ Implemented:
 
 See [acceptance status](docs/V0_1_STATUS.md), [model specification](docs/MODEL_SPEC.md), and [evidence gaps](docs/EVIDENCE_GAPS.md).
 
+The [Malawi follow-up benchmark](docs/MALAWI_FOLLOWUP_BENCHMARK.md) adds public
+source-category counts with deaths and untraced people accounted for separately.
+Run `uv run demeter evidence malawi-cohort` to inspect the offline benchmark and
+coupled missing-follow-up bounds. These source records do not activate clinical
+transition rates or change the validation-only status of health scenarios.
+
 For versioned results, use the [release and replay workflow](docs/RELEASES.md).
 It captures exact source/data bytes, canonical outputs, uncertainty, historical
 diagnostics and a model card while retaining the alpha's scientific limitations.

@@ -14,7 +14,8 @@ jobs:
   test:
     name: test (${{ matrix.label }})
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 20
+    # Retain the complete platform gates as source audits and fixtures grow.
+    timeout-minutes: 30
     env:
       # Keep uv run on the matrix version even with the novice .python-version pin.
       UV_PYTHON: ${{ matrix.python-version }}
@@ -96,6 +97,7 @@ jobs:
           uv run python scripts/verify_kerala_registered_coverage.py --output outputs/kerala-registered-integrity.json
           uv run python scripts/verify_kerala_endpoints.py
           uv run python scripts/verify_kerala_observations.py
+          uv run python scripts/verify_malawi_cohort.py
       - name: Run baseline and scenario comparison
         run: |
           uv run demeter simulate scenarios/baseline.yaml --output outputs/baseline.json

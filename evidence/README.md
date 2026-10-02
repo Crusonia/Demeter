@@ -2,6 +2,12 @@
 
 Demeter treats evidence as part of the model, not as prose surrounding the model.
 
+The [Malawi follow-up benchmark](../docs/MALAWI_FOLLOWUP_BENCHMARK.md) registers
+22 literal publication values and one derived untraced residual. Its source
+threshold change, person-year discrepancy, confirmed deaths and missing people
+remain explicit. Coupled completion bounds are finite-cohort information ranges,
+not sampling intervals or annual hazards. No clinical input is activated.
+
 The [joint glycemic uncertainty report](../docs/JOINT_GLYCEMIC_UNCERTAINTY.md)
 estimates full survey covariance of existing observed-category partitions and
 partial-membership endpoints. Shared respondents, unknowns and cross-domain

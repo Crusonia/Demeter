@@ -15,6 +15,14 @@ Model outputs retain the existing validation-only boundary.
 
 ## Source-specific conditions
 
+The [Malawi follow-up benchmark](../docs/MALAWI_FOLLOWUP_BENCHMARK.md) distributes
+attributed publication aggregates and Demeter's derived bounds from Nakanga et al.
+(2023), DOI `10.1371/journal.pgph.0001263`, under the article's
+[CC-BY-4.0 notice](https://creativecommons.org/licenses/by/4.0/). Full publisher XML
+is fetch-only by packaging choice. Underlying participant records remain
+request-restricted and are neither acquired nor distributed. Extraction,
+definitions and altered/derived calculations remain clearly identified.
+
 The [Da Qing source audit](../docs/DA_QING_SOURCE_COVERAGE.md) distributes
 attributed literal aggregate observations, an authored consistency audit and
 receipts from Gong et al. (2016), DOI `10.2337/dc16-0429`. The primary article

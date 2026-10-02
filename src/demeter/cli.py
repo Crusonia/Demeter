@@ -445,6 +445,50 @@ def whitehall_endpoint_evidence(
         raise typer.Exit(1)
 
 
+@evidence_app.command("malawi-cohort")
+def malawi_cohort_evidence(
+    evidence: Path = DEFAULT_EVIDENCE,
+    project: Path = Path("."),
+    output: Path | None = None,
+    raw: Path | None = None,
+) -> None:
+    """Audit public follow-up counts and bounds; optionally replay pinned article XML."""
+    from demeter.analysis.malawi_cohort_audit import audit_malawi_cohort
+    from demeter.data.nhanes import encoded
+
+    try:
+        root = project.resolve()
+        if output is not None:
+            destination = output.resolve()
+            protected = [evidence.resolve()]
+            if raw is not None:
+                protected.append(raw.resolve())
+            if (
+                output.exists()
+                or destination in protected
+                or any(
+                    destination.is_relative_to((root / folder).resolve())
+                    for folder in (
+                        "data",
+                        "src",
+                        "docs",
+                        "evidence",
+                    )
+                )
+            ):
+                typer.echo("Output must be new and outside sources and frozen records", err=True)
+                raise typer.Exit(1)
+        report = audit_malawi_cohort(registry(evidence), root, raw=raw)
+        if output is not None:
+            output.parent.mkdir(parents=True, exist_ok=True)
+            with output.open("xb") as target:
+                target.write(encoded(report))
+    except (ValueError, OSError, KeyError, TypeError, IndexError) as exc:
+        typer.echo("Malawi aggregate evidence or output is invalid", err=True)
+        raise typer.Exit(1) from exc
+    emit(report)
+
+
 @evidence_app.command("kerala-observations")
 def kerala_observation_evidence(
     evidence: Path = DEFAULT_EVIDENCE,

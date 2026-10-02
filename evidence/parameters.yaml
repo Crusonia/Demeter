@@ -1,4 +1,809 @@
 parameters:
+  malawi_cohort_count:
+    key: malawi_cohort_count
+    value: 389
+    unit: people
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: ./body/sec[@id='sec002']/sec[@id='sec003']/p[1]
+    source_id: malawi2023_public_cohort
+    source_url: https://journals.plos.org/globalpublichealth/article/file?id=10.1371/journal.pgph.0001263&type=manuscript
+    citation: 'Nakanga WP et al. Waist circumference and glycaemia are strong predictors of progression
+      to diabetes in individuals with prediabetes in sub-Saharan Africa: 4-year prospective cohort study
+      in Malawi. PLOS Global Public Health 3(9):e0001263 (2023). DOI 10.1371/journal.pgph.0001263.'
+    population: Source baseline WHO-IFG adults from the MEIRU rural Karonga/urban Lilongwe survey, with
+      no diabetes diagnosis history or medication at baseline; incomplete tracing and variable follow-up.
+    geography: Karonga and Lilongwe, Malawi; no U.S. transport
+    time_period: Baseline 2013-2016; follow-up 2018-2019; published 2023. Individual clocks unavailable.
+    exposure_definition: Observational source IFG cohort; no isolated dietary intervention or causal
+      exposure contrast.
+    outcome_definition: Published source record/definition/timing literal, not a latent health state
+      or annual transition. Baseline FPG IFG threshold 6.1 differs from follow-up 6.0 mmol/L. DM permits
+      diagnosis since baseline OR current medication OR FPG threshold. NGT is fasting-only. Confirmed
+      deaths and untraced remain distinct.
+    transformation: Pinned XML selection/capture with paragraph hashes and corroboration where available;
+      no repair/annualization
+    uncertainty:
+      kind: fixed
+      rationale: Literal selected value in the pinned publication or its deterministic residual. Fixed
+        release representation supplies no population sampling distribution and does not resolve missing
+        follow-up, classification error, unknown history or transport.
+    lower_bound: 0
+    notes: Grade C describes this scoped observational benchmark with incomplete tracing and changing
+      definitions. Abstract and Results person-years are distinct preserved observations. No sampling
+      model, clinical fit, latent-state mapping, dietary effect, complete death assumption, independent
+      evaluation or engine activation.
+  malawi_traced_count:
+    key: malawi_traced_count
+    value: 190
+    unit: people
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: ./body/sec[@id='sec011']/p[1]
+    source_id: malawi2023_public_cohort
+    source_url: https://journals.plos.org/globalpublichealth/article/file?id=10.1371/journal.pgph.0001263&type=manuscript
+    citation: 'Nakanga WP et al. Waist circumference and glycaemia are strong predictors of progression
+      to diabetes in individuals with prediabetes in sub-Saharan Africa: 4-year prospective cohort study
+      in Malawi. PLOS Global Public Health 3(9):e0001263 (2023). DOI 10.1371/journal.pgph.0001263.'
+    population: Source baseline WHO-IFG adults from the MEIRU rural Karonga/urban Lilongwe survey, with
+      no diabetes diagnosis history or medication at baseline; incomplete tracing and variable follow-up.
+    geography: Karonga and Lilongwe, Malawi; no U.S. transport
+    time_period: Baseline 2013-2016; follow-up 2018-2019; published 2023. Individual clocks unavailable.
+    exposure_definition: Observational source IFG cohort; no isolated dietary intervention or causal
+      exposure contrast.
+    outcome_definition: Published source record/definition/timing literal, not a latent health state
+      or annual transition. Baseline FPG IFG threshold 6.1 differs from follow-up 6.0 mmol/L. DM permits
+      diagnosis since baseline OR current medication OR FPG threshold. NGT is fasting-only. Confirmed
+      deaths and untraced remain distinct.
+    transformation: Pinned XML selection/capture with paragraph hashes and corroboration where available;
+      no repair/annualization
+    uncertainty:
+      kind: fixed
+      rationale: Literal selected value in the pinned publication or its deterministic residual. Fixed
+        release representation supplies no population sampling distribution and does not resolve missing
+        follow-up, classification error, unknown history or transport.
+    lower_bound: 0
+    notes: Grade C describes this scoped observational benchmark with incomplete tracing and changing
+      definitions. Abstract and Results person-years are distinct preserved observations. No sampling
+      model, clinical fit, latent-state mapping, dietary effect, complete death assumption, independent
+      evaluation or engine activation.
+  malawi_confirmed_deaths_count:
+    key: malawi_confirmed_deaths_count
+    value: 15
+    unit: people
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: ./body/sec[@id='sec011']/p[1]
+    source_id: malawi2023_public_cohort
+    source_url: https://journals.plos.org/globalpublichealth/article/file?id=10.1371/journal.pgph.0001263&type=manuscript
+    citation: 'Nakanga WP et al. Waist circumference and glycaemia are strong predictors of progression
+      to diabetes in individuals with prediabetes in sub-Saharan Africa: 4-year prospective cohort study
+      in Malawi. PLOS Global Public Health 3(9):e0001263 (2023). DOI 10.1371/journal.pgph.0001263.'
+    population: Source baseline WHO-IFG adults from the MEIRU rural Karonga/urban Lilongwe survey, with
+      no diabetes diagnosis history or medication at baseline; incomplete tracing and variable follow-up.
+    geography: Karonga and Lilongwe, Malawi; no U.S. transport
+    time_period: Baseline 2013-2016; follow-up 2018-2019; published 2023. Individual clocks unavailable.
+    exposure_definition: Observational source IFG cohort; no isolated dietary intervention or causal
+      exposure contrast.
+    outcome_definition: Published source record/definition/timing literal, not a latent health state
+      or annual transition. Baseline FPG IFG threshold 6.1 differs from follow-up 6.0 mmol/L. DM permits
+      diagnosis since baseline OR current medication OR FPG threshold. NGT is fasting-only. Confirmed
+      deaths and untraced remain distinct.
+    transformation: Pinned XML selection/capture with paragraph hashes and corroboration where available;
+      no repair/annualization
+    uncertainty:
+      kind: fixed
+      rationale: Literal selected value in the pinned publication or its deterministic residual. Fixed
+        release representation supplies no population sampling distribution and does not resolve missing
+        follow-up, classification error, unknown history or transport.
+    lower_bound: 0
+    notes: Grade C describes this scoped observational benchmark with incomplete tracing and changing
+      definitions. Abstract and Results person-years are distinct preserved observations. No sampling
+      model, clinical fit, latent-state mapping, dietary effect, complete death assumption, independent
+      evaluation or engine activation.
+  malawi_assessed_count:
+    key: malawi_assessed_count
+    value: 175
+    unit: people
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: ./body/sec[@id='sec011']/p[1]
+    source_id: malawi2023_public_cohort
+    source_url: https://journals.plos.org/globalpublichealth/article/file?id=10.1371/journal.pgph.0001263&type=manuscript
+    citation: 'Nakanga WP et al. Waist circumference and glycaemia are strong predictors of progression
+      to diabetes in individuals with prediabetes in sub-Saharan Africa: 4-year prospective cohort study
+      in Malawi. PLOS Global Public Health 3(9):e0001263 (2023). DOI 10.1371/journal.pgph.0001263.'
+    population: Source baseline WHO-IFG adults from the MEIRU rural Karonga/urban Lilongwe survey, with
+      no diabetes diagnosis history or medication at baseline; incomplete tracing and variable follow-up.
+    geography: Karonga and Lilongwe, Malawi; no U.S. transport
+    time_period: Baseline 2013-2016; follow-up 2018-2019; published 2023. Individual clocks unavailable.
+    exposure_definition: Observational source IFG cohort; no isolated dietary intervention or causal
+      exposure contrast.
+    outcome_definition: Published source record/definition/timing literal, not a latent health state
+      or annual transition. Baseline FPG IFG threshold 6.1 differs from follow-up 6.0 mmol/L. DM permits
+      diagnosis since baseline OR current medication OR FPG threshold. NGT is fasting-only. Confirmed
+      deaths and untraced remain distinct.
+    transformation: Pinned XML selection/capture with paragraph hashes and corroboration where available;
+      no repair/annualization
+    uncertainty:
+      kind: fixed
+      rationale: Literal selected value in the pinned publication or its deterministic residual. Fixed
+        release representation supplies no population sampling distribution and does not resolve missing
+        follow-up, classification error, unknown history or transport.
+    lower_bound: 0
+    notes: Grade C describes this scoped observational benchmark with incomplete tracing and changing
+      definitions. Abstract and Results person-years are distinct preserved observations. No sampling
+      model, clinical fit, latent-state mapping, dietary effect, complete death assumption, independent
+      evaluation or engine activation.
+  malawi_ngt_count:
+    key: malawi_ngt_count
+    value: 106
+    unit: people
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: ./body/sec[@id='sec011']/table-wrap[@id='pgph.0001263.t001']/alternatives/table/thead/tr
+    source_id: malawi2023_public_cohort
+    source_url: https://journals.plos.org/globalpublichealth/article/file?id=10.1371/journal.pgph.0001263&type=manuscript
+    citation: 'Nakanga WP et al. Waist circumference and glycaemia are strong predictors of progression
+      to diabetes in individuals with prediabetes in sub-Saharan Africa: 4-year prospective cohort study
+      in Malawi. PLOS Global Public Health 3(9):e0001263 (2023). DOI 10.1371/journal.pgph.0001263.'
+    population: Source baseline WHO-IFG adults from the MEIRU rural Karonga/urban Lilongwe survey, with
+      no diabetes diagnosis history or medication at baseline; incomplete tracing and variable follow-up.
+    geography: Karonga and Lilongwe, Malawi; no U.S. transport
+    time_period: Baseline 2013-2016; follow-up 2018-2019; published 2023. Individual clocks unavailable.
+    exposure_definition: Observational source IFG cohort; no isolated dietary intervention or causal
+      exposure contrast.
+    outcome_definition: Published source record/definition/timing literal, not a latent health state
+      or annual transition. Baseline FPG IFG threshold 6.1 differs from follow-up 6.0 mmol/L. DM permits
+      diagnosis since baseline OR current medication OR FPG threshold. NGT is fasting-only. Confirmed
+      deaths and untraced remain distinct.
+    transformation: Pinned XML selection/capture with paragraph hashes and corroboration where available;
+      no repair/annualization
+    uncertainty:
+      kind: fixed
+      rationale: Literal selected value in the pinned publication or its deterministic residual. Fixed
+        release representation supplies no population sampling distribution and does not resolve missing
+        follow-up, classification error, unknown history or transport.
+    lower_bound: 0
+    notes: Grade C describes this scoped observational benchmark with incomplete tracing and changing
+      definitions. Abstract and Results person-years are distinct preserved observations. No sampling
+      model, clinical fit, latent-state mapping, dietary effect, complete death assumption, independent
+      evaluation or engine activation.
+  malawi_ifg_count:
+    key: malawi_ifg_count
+    value: 24
+    unit: people
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: ./body/sec[@id='sec011']/table-wrap[@id='pgph.0001263.t001']/alternatives/table/thead/tr
+    source_id: malawi2023_public_cohort
+    source_url: https://journals.plos.org/globalpublichealth/article/file?id=10.1371/journal.pgph.0001263&type=manuscript
+    citation: 'Nakanga WP et al. Waist circumference and glycaemia are strong predictors of progression
+      to diabetes in individuals with prediabetes in sub-Saharan Africa: 4-year prospective cohort study
+      in Malawi. PLOS Global Public Health 3(9):e0001263 (2023). DOI 10.1371/journal.pgph.0001263.'
+    population: Source baseline WHO-IFG adults from the MEIRU rural Karonga/urban Lilongwe survey, with
+      no diabetes diagnosis history or medication at baseline; incomplete tracing and variable follow-up.
+    geography: Karonga and Lilongwe, Malawi; no U.S. transport
+    time_period: Baseline 2013-2016; follow-up 2018-2019; published 2023. Individual clocks unavailable.
+    exposure_definition: Observational source IFG cohort; no isolated dietary intervention or causal
+      exposure contrast.
+    outcome_definition: Published source record/definition/timing literal, not a latent health state
+      or annual transition. Baseline FPG IFG threshold 6.1 differs from follow-up 6.0 mmol/L. DM permits
+      diagnosis since baseline OR current medication OR FPG threshold. NGT is fasting-only. Confirmed
+      deaths and untraced remain distinct.
+    transformation: Pinned XML selection/capture with paragraph hashes and corroboration where available;
+      no repair/annualization
+    uncertainty:
+      kind: fixed
+      rationale: Literal selected value in the pinned publication or its deterministic residual. Fixed
+        release representation supplies no population sampling distribution and does not resolve missing
+        follow-up, classification error, unknown history or transport.
+    lower_bound: 0
+    notes: Grade C describes this scoped observational benchmark with incomplete tracing and changing
+      definitions. Abstract and Results person-years are distinct preserved observations. No sampling
+      model, clinical fit, latent-state mapping, dietary effect, complete death assumption, independent
+      evaluation or engine activation.
+  malawi_dm_count:
+    key: malawi_dm_count
+    value: 45
+    unit: people
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: ./body/sec[@id='sec011']/table-wrap[@id='pgph.0001263.t001']/alternatives/table/thead/tr
+    source_id: malawi2023_public_cohort
+    source_url: https://journals.plos.org/globalpublichealth/article/file?id=10.1371/journal.pgph.0001263&type=manuscript
+    citation: 'Nakanga WP et al. Waist circumference and glycaemia are strong predictors of progression
+      to diabetes in individuals with prediabetes in sub-Saharan Africa: 4-year prospective cohort study
+      in Malawi. PLOS Global Public Health 3(9):e0001263 (2023). DOI 10.1371/journal.pgph.0001263.'
+    population: Source baseline WHO-IFG adults from the MEIRU rural Karonga/urban Lilongwe survey, with
+      no diabetes diagnosis history or medication at baseline; incomplete tracing and variable follow-up.
+    geography: Karonga and Lilongwe, Malawi; no U.S. transport
+    time_period: Baseline 2013-2016; follow-up 2018-2019; published 2023. Individual clocks unavailable.
+    exposure_definition: Observational source IFG cohort; no isolated dietary intervention or causal
+      exposure contrast.
+    outcome_definition: Published source record/definition/timing literal, not a latent health state
+      or annual transition. Baseline FPG IFG threshold 6.1 differs from follow-up 6.0 mmol/L. DM permits
+      diagnosis since baseline OR current medication OR FPG threshold. NGT is fasting-only. Confirmed
+      deaths and untraced remain distinct.
+    transformation: Pinned XML selection/capture with paragraph hashes and corroboration where available;
+      no repair/annualization
+    uncertainty:
+      kind: fixed
+      rationale: Literal selected value in the pinned publication or its deterministic residual. Fixed
+        release representation supplies no population sampling distribution and does not resolve missing
+        follow-up, classification error, unknown history or transport.
+    lower_bound: 0
+    notes: Grade C describes this scoped observational benchmark with incomplete tracing and changing
+      definitions. Abstract and Results person-years are distinct preserved observations. No sampling
+      model, clinical fit, latent-state mapping, dietary effect, complete death assumption, independent
+      evaluation or engine activation.
+  malawi_baseline_ifg_lower_mmol_l:
+    key: malawi_baseline_ifg_lower_mmol_l
+    value: 6.1
+    unit: mmol/L
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: ./body/sec[@id='sec002']/sec[@id='sec003']/p[1]
+    source_id: malawi2023_public_cohort
+    source_url: https://journals.plos.org/globalpublichealth/article/file?id=10.1371/journal.pgph.0001263&type=manuscript
+    citation: 'Nakanga WP et al. Waist circumference and glycaemia are strong predictors of progression
+      to diabetes in individuals with prediabetes in sub-Saharan Africa: 4-year prospective cohort study
+      in Malawi. PLOS Global Public Health 3(9):e0001263 (2023). DOI 10.1371/journal.pgph.0001263.'
+    population: Source baseline WHO-IFG adults from the MEIRU rural Karonga/urban Lilongwe survey, with
+      no diabetes diagnosis history or medication at baseline; incomplete tracing and variable follow-up.
+    geography: Karonga and Lilongwe, Malawi; no U.S. transport
+    time_period: Baseline 2013-2016; follow-up 2018-2019; published 2023. Individual clocks unavailable.
+    exposure_definition: Observational source IFG cohort; no isolated dietary intervention or causal
+      exposure contrast.
+    outcome_definition: Published source record/definition/timing literal, not a latent health state
+      or annual transition. Baseline FPG IFG threshold 6.1 differs from follow-up 6.0 mmol/L. DM permits
+      diagnosis since baseline OR current medication OR FPG threshold. NGT is fasting-only. Confirmed
+      deaths and untraced remain distinct.
+    transformation: Pinned XML selection/capture with paragraph hashes and corroboration where available;
+      no repair/annualization
+    uncertainty:
+      kind: fixed
+      rationale: Literal selected value in the pinned publication or its deterministic residual. Fixed
+        release representation supplies no population sampling distribution and does not resolve missing
+        follow-up, classification error, unknown history or transport.
+    lower_bound: 0
+    notes: Grade C describes this scoped observational benchmark with incomplete tracing and changing
+      definitions. Abstract and Results person-years are distinct preserved observations. No sampling
+      model, clinical fit, latent-state mapping, dietary effect, complete death assumption, independent
+      evaluation or engine activation.
+  malawi_baseline_ifg_upper_mmol_l:
+    key: malawi_baseline_ifg_upper_mmol_l
+    value: 7.0
+    unit: mmol/L
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: ./body/sec[@id='sec002']/sec[@id='sec003']/p[1]
+    source_id: malawi2023_public_cohort
+    source_url: https://journals.plos.org/globalpublichealth/article/file?id=10.1371/journal.pgph.0001263&type=manuscript
+    citation: 'Nakanga WP et al. Waist circumference and glycaemia are strong predictors of progression
+      to diabetes in individuals with prediabetes in sub-Saharan Africa: 4-year prospective cohort study
+      in Malawi. PLOS Global Public Health 3(9):e0001263 (2023). DOI 10.1371/journal.pgph.0001263.'
+    population: Source baseline WHO-IFG adults from the MEIRU rural Karonga/urban Lilongwe survey, with
+      no diabetes diagnosis history or medication at baseline; incomplete tracing and variable follow-up.
+    geography: Karonga and Lilongwe, Malawi; no U.S. transport
+    time_period: Baseline 2013-2016; follow-up 2018-2019; published 2023. Individual clocks unavailable.
+    exposure_definition: Observational source IFG cohort; no isolated dietary intervention or causal
+      exposure contrast.
+    outcome_definition: Published source record/definition/timing literal, not a latent health state
+      or annual transition. Baseline FPG IFG threshold 6.1 differs from follow-up 6.0 mmol/L. DM permits
+      diagnosis since baseline OR current medication OR FPG threshold. NGT is fasting-only. Confirmed
+      deaths and untraced remain distinct.
+    transformation: Pinned XML selection/capture with paragraph hashes and corroboration where available;
+      no repair/annualization
+    uncertainty:
+      kind: fixed
+      rationale: Literal selected value in the pinned publication or its deterministic residual. Fixed
+        release representation supplies no population sampling distribution and does not resolve missing
+        follow-up, classification error, unknown history or transport.
+    lower_bound: 0
+    notes: Grade C describes this scoped observational benchmark with incomplete tracing and changing
+      definitions. Abstract and Results person-years are distinct preserved observations. No sampling
+      model, clinical fit, latent-state mapping, dietary effect, complete death assumption, independent
+      evaluation or engine activation.
+  malawi_followup_ifg_lower_mmol_l:
+    key: malawi_followup_ifg_lower_mmol_l
+    value: 6.0
+    unit: mmol/L
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: ./body/sec[@id='sec002']/sec[@id='sec005']/sec[@id='sec009']/p[1]
+    source_id: malawi2023_public_cohort
+    source_url: https://journals.plos.org/globalpublichealth/article/file?id=10.1371/journal.pgph.0001263&type=manuscript
+    citation: 'Nakanga WP et al. Waist circumference and glycaemia are strong predictors of progression
+      to diabetes in individuals with prediabetes in sub-Saharan Africa: 4-year prospective cohort study
+      in Malawi. PLOS Global Public Health 3(9):e0001263 (2023). DOI 10.1371/journal.pgph.0001263.'
+    population: Source baseline WHO-IFG adults from the MEIRU rural Karonga/urban Lilongwe survey, with
+      no diabetes diagnosis history or medication at baseline; incomplete tracing and variable follow-up.
+    geography: Karonga and Lilongwe, Malawi; no U.S. transport
+    time_period: Baseline 2013-2016; follow-up 2018-2019; published 2023. Individual clocks unavailable.
+    exposure_definition: Observational source IFG cohort; no isolated dietary intervention or causal
+      exposure contrast.
+    outcome_definition: Published source record/definition/timing literal, not a latent health state
+      or annual transition. Baseline FPG IFG threshold 6.1 differs from follow-up 6.0 mmol/L. DM permits
+      diagnosis since baseline OR current medication OR FPG threshold. NGT is fasting-only. Confirmed
+      deaths and untraced remain distinct.
+    transformation: Pinned XML selection/capture with paragraph hashes and corroboration where available;
+      no repair/annualization
+    uncertainty:
+      kind: fixed
+      rationale: Literal selected value in the pinned publication or its deterministic residual. Fixed
+        release representation supplies no population sampling distribution and does not resolve missing
+        follow-up, classification error, unknown history or transport.
+    lower_bound: 0
+    notes: Grade C describes this scoped observational benchmark with incomplete tracing and changing
+      definitions. Abstract and Results person-years are distinct preserved observations. No sampling
+      model, clinical fit, latent-state mapping, dietary effect, complete death assumption, independent
+      evaluation or engine activation.
+  malawi_followup_ifg_upper_mmol_l:
+    key: malawi_followup_ifg_upper_mmol_l
+    value: 7.0
+    unit: mmol/L
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: ./body/sec[@id='sec002']/sec[@id='sec005']/sec[@id='sec009']/p[1]
+    source_id: malawi2023_public_cohort
+    source_url: https://journals.plos.org/globalpublichealth/article/file?id=10.1371/journal.pgph.0001263&type=manuscript
+    citation: 'Nakanga WP et al. Waist circumference and glycaemia are strong predictors of progression
+      to diabetes in individuals with prediabetes in sub-Saharan Africa: 4-year prospective cohort study
+      in Malawi. PLOS Global Public Health 3(9):e0001263 (2023). DOI 10.1371/journal.pgph.0001263.'
+    population: Source baseline WHO-IFG adults from the MEIRU rural Karonga/urban Lilongwe survey, with
+      no diabetes diagnosis history or medication at baseline; incomplete tracing and variable follow-up.
+    geography: Karonga and Lilongwe, Malawi; no U.S. transport
+    time_period: Baseline 2013-2016; follow-up 2018-2019; published 2023. Individual clocks unavailable.
+    exposure_definition: Observational source IFG cohort; no isolated dietary intervention or causal
+      exposure contrast.
+    outcome_definition: Published source record/definition/timing literal, not a latent health state
+      or annual transition. Baseline FPG IFG threshold 6.1 differs from follow-up 6.0 mmol/L. DM permits
+      diagnosis since baseline OR current medication OR FPG threshold. NGT is fasting-only. Confirmed
+      deaths and untraced remain distinct.
+    transformation: Pinned XML selection/capture with paragraph hashes and corroboration where available;
+      no repair/annualization
+    uncertainty:
+      kind: fixed
+      rationale: Literal selected value in the pinned publication or its deterministic residual. Fixed
+        release representation supplies no population sampling distribution and does not resolve missing
+        follow-up, classification error, unknown history or transport.
+    lower_bound: 0
+    notes: Grade C describes this scoped observational benchmark with incomplete tracing and changing
+      definitions. Abstract and Results person-years are distinct preserved observations. No sampling
+      model, clinical fit, latent-state mapping, dietary effect, complete death assumption, independent
+      evaluation or engine activation.
+  malawi_followup_ngt_upper_mmol_l:
+    key: malawi_followup_ngt_upper_mmol_l
+    value: 6.0
+    unit: mmol/L
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: ./body/sec[@id='sec002']/sec[@id='sec005']/sec[@id='sec009']/p[1]
+    source_id: malawi2023_public_cohort
+    source_url: https://journals.plos.org/globalpublichealth/article/file?id=10.1371/journal.pgph.0001263&type=manuscript
+    citation: 'Nakanga WP et al. Waist circumference and glycaemia are strong predictors of progression
+      to diabetes in individuals with prediabetes in sub-Saharan Africa: 4-year prospective cohort study
+      in Malawi. PLOS Global Public Health 3(9):e0001263 (2023). DOI 10.1371/journal.pgph.0001263.'
+    population: Source baseline WHO-IFG adults from the MEIRU rural Karonga/urban Lilongwe survey, with
+      no diabetes diagnosis history or medication at baseline; incomplete tracing and variable follow-up.
+    geography: Karonga and Lilongwe, Malawi; no U.S. transport
+    time_period: Baseline 2013-2016; follow-up 2018-2019; published 2023. Individual clocks unavailable.
+    exposure_definition: Observational source IFG cohort; no isolated dietary intervention or causal
+      exposure contrast.
+    outcome_definition: Published source record/definition/timing literal, not a latent health state
+      or annual transition. Baseline FPG IFG threshold 6.1 differs from follow-up 6.0 mmol/L. DM permits
+      diagnosis since baseline OR current medication OR FPG threshold. NGT is fasting-only. Confirmed
+      deaths and untraced remain distinct.
+    transformation: Pinned XML selection/capture with paragraph hashes and corroboration where available;
+      no repair/annualization
+    uncertainty:
+      kind: fixed
+      rationale: Literal selected value in the pinned publication or its deterministic residual. Fixed
+        release representation supplies no population sampling distribution and does not resolve missing
+        follow-up, classification error, unknown history or transport.
+    lower_bound: 0
+    notes: Grade C describes this scoped observational benchmark with incomplete tracing and changing
+      definitions. Abstract and Results person-years are distinct preserved observations. No sampling
+      model, clinical fit, latent-state mapping, dietary effect, complete death assumption, independent
+      evaluation or engine activation.
+  malawi_followup_dm_lower_mmol_l:
+    key: malawi_followup_dm_lower_mmol_l
+    value: 7.0
+    unit: mmol/L
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: ./body/sec[@id='sec002']/sec[@id='sec005']/sec[@id='sec009']/p[1]
+    source_id: malawi2023_public_cohort
+    source_url: https://journals.plos.org/globalpublichealth/article/file?id=10.1371/journal.pgph.0001263&type=manuscript
+    citation: 'Nakanga WP et al. Waist circumference and glycaemia are strong predictors of progression
+      to diabetes in individuals with prediabetes in sub-Saharan Africa: 4-year prospective cohort study
+      in Malawi. PLOS Global Public Health 3(9):e0001263 (2023). DOI 10.1371/journal.pgph.0001263.'
+    population: Source baseline WHO-IFG adults from the MEIRU rural Karonga/urban Lilongwe survey, with
+      no diabetes diagnosis history or medication at baseline; incomplete tracing and variable follow-up.
+    geography: Karonga and Lilongwe, Malawi; no U.S. transport
+    time_period: Baseline 2013-2016; follow-up 2018-2019; published 2023. Individual clocks unavailable.
+    exposure_definition: Observational source IFG cohort; no isolated dietary intervention or causal
+      exposure contrast.
+    outcome_definition: Published source record/definition/timing literal, not a latent health state
+      or annual transition. Baseline FPG IFG threshold 6.1 differs from follow-up 6.0 mmol/L. DM permits
+      diagnosis since baseline OR current medication OR FPG threshold. NGT is fasting-only. Confirmed
+      deaths and untraced remain distinct.
+    transformation: Pinned XML selection/capture with paragraph hashes and corroboration where available;
+      no repair/annualization
+    uncertainty:
+      kind: fixed
+      rationale: Literal selected value in the pinned publication or its deterministic residual. Fixed
+        release representation supplies no population sampling distribution and does not resolve missing
+        follow-up, classification error, unknown history or transport.
+    lower_bound: 0
+    notes: Grade C describes this scoped observational benchmark with incomplete tracing and changing
+      definitions. Abstract and Results person-years are distinct preserved observations. No sampling
+      model, clinical fit, latent-state mapping, dietary effect, complete death assumption, independent
+      evaluation or engine activation.
+  malawi_followup_median_years:
+    key: malawi_followup_median_years
+    value: 4.2
+    unit: years
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: ./body/sec[@id='sec011']/p[1]
+    source_id: malawi2023_public_cohort
+    source_url: https://journals.plos.org/globalpublichealth/article/file?id=10.1371/journal.pgph.0001263&type=manuscript
+    citation: 'Nakanga WP et al. Waist circumference and glycaemia are strong predictors of progression
+      to diabetes in individuals with prediabetes in sub-Saharan Africa: 4-year prospective cohort study
+      in Malawi. PLOS Global Public Health 3(9):e0001263 (2023). DOI 10.1371/journal.pgph.0001263.'
+    population: Source baseline WHO-IFG adults from the MEIRU rural Karonga/urban Lilongwe survey, with
+      no diabetes diagnosis history or medication at baseline; incomplete tracing and variable follow-up.
+    geography: Karonga and Lilongwe, Malawi; no U.S. transport
+    time_period: Baseline 2013-2016; follow-up 2018-2019; published 2023. Individual clocks unavailable.
+    exposure_definition: Observational source IFG cohort; no isolated dietary intervention or causal
+      exposure contrast.
+    outcome_definition: Published source record/definition/timing literal, not a latent health state
+      or annual transition. Baseline FPG IFG threshold 6.1 differs from follow-up 6.0 mmol/L. DM permits
+      diagnosis since baseline OR current medication OR FPG threshold. NGT is fasting-only. Confirmed
+      deaths and untraced remain distinct.
+    transformation: Pinned XML selection/capture with paragraph hashes and corroboration where available;
+      no repair/annualization
+    uncertainty:
+      kind: fixed
+      rationale: Literal selected value in the pinned publication or its deterministic residual. Fixed
+        release representation supplies no population sampling distribution and does not resolve missing
+        follow-up, classification error, unknown history or transport.
+    lower_bound: 0
+    notes: Grade C describes this scoped observational benchmark with incomplete tracing and changing
+      definitions. Abstract and Results person-years are distinct preserved observations. No sampling
+      model, clinical fit, latent-state mapping, dietary effect, complete death assumption, independent
+      evaluation or engine activation.
+  malawi_followup_iqr_lower_years:
+    key: malawi_followup_iqr_lower_years
+    value: 3.4
+    unit: years
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: ./front/article-meta/abstract/p[1]
+    source_id: malawi2023_public_cohort
+    source_url: https://journals.plos.org/globalpublichealth/article/file?id=10.1371/journal.pgph.0001263&type=manuscript
+    citation: 'Nakanga WP et al. Waist circumference and glycaemia are strong predictors of progression
+      to diabetes in individuals with prediabetes in sub-Saharan Africa: 4-year prospective cohort study
+      in Malawi. PLOS Global Public Health 3(9):e0001263 (2023). DOI 10.1371/journal.pgph.0001263.'
+    population: Source baseline WHO-IFG adults from the MEIRU rural Karonga/urban Lilongwe survey, with
+      no diabetes diagnosis history or medication at baseline; incomplete tracing and variable follow-up.
+    geography: Karonga and Lilongwe, Malawi; no U.S. transport
+    time_period: Baseline 2013-2016; follow-up 2018-2019; published 2023. Individual clocks unavailable.
+    exposure_definition: Observational source IFG cohort; no isolated dietary intervention or causal
+      exposure contrast.
+    outcome_definition: Published source record/definition/timing literal, not a latent health state
+      or annual transition. Baseline FPG IFG threshold 6.1 differs from follow-up 6.0 mmol/L. DM permits
+      diagnosis since baseline OR current medication OR FPG threshold. NGT is fasting-only. Confirmed
+      deaths and untraced remain distinct.
+    transformation: Pinned XML selection/capture with paragraph hashes and corroboration where available;
+      no repair/annualization
+    uncertainty:
+      kind: fixed
+      rationale: Literal selected value in the pinned publication or its deterministic residual. Fixed
+        release representation supplies no population sampling distribution and does not resolve missing
+        follow-up, classification error, unknown history or transport.
+    lower_bound: 0
+    notes: Grade C describes this scoped observational benchmark with incomplete tracing and changing
+      definitions. Abstract and Results person-years are distinct preserved observations. No sampling
+      model, clinical fit, latent-state mapping, dietary effect, complete death assumption, independent
+      evaluation or engine activation.
+  malawi_followup_iqr_upper_years:
+    key: malawi_followup_iqr_upper_years
+    value: 4.7
+    unit: years
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: ./front/article-meta/abstract/p[1]
+    source_id: malawi2023_public_cohort
+    source_url: https://journals.plos.org/globalpublichealth/article/file?id=10.1371/journal.pgph.0001263&type=manuscript
+    citation: 'Nakanga WP et al. Waist circumference and glycaemia are strong predictors of progression
+      to diabetes in individuals with prediabetes in sub-Saharan Africa: 4-year prospective cohort study
+      in Malawi. PLOS Global Public Health 3(9):e0001263 (2023). DOI 10.1371/journal.pgph.0001263.'
+    population: Source baseline WHO-IFG adults from the MEIRU rural Karonga/urban Lilongwe survey, with
+      no diabetes diagnosis history or medication at baseline; incomplete tracing and variable follow-up.
+    geography: Karonga and Lilongwe, Malawi; no U.S. transport
+    time_period: Baseline 2013-2016; follow-up 2018-2019; published 2023. Individual clocks unavailable.
+    exposure_definition: Observational source IFG cohort; no isolated dietary intervention or causal
+      exposure contrast.
+    outcome_definition: Published source record/definition/timing literal, not a latent health state
+      or annual transition. Baseline FPG IFG threshold 6.1 differs from follow-up 6.0 mmol/L. DM permits
+      diagnosis since baseline OR current medication OR FPG threshold. NGT is fasting-only. Confirmed
+      deaths and untraced remain distinct.
+    transformation: Pinned XML selection/capture with paragraph hashes and corroboration where available;
+      no repair/annualization
+    uncertainty:
+      kind: fixed
+      rationale: Literal selected value in the pinned publication or its deterministic residual. Fixed
+        release representation supplies no population sampling distribution and does not resolve missing
+        follow-up, classification error, unknown history or transport.
+    lower_bound: 0
+    notes: Grade C describes this scoped observational benchmark with incomplete tracing and changing
+      definitions. Abstract and Results person-years are distinct preserved observations. No sampling
+      model, clinical fit, latent-state mapping, dietary effect, complete death assumption, independent
+      evaluation or engine activation.
+  malawi_abstract_person_years:
+    key: malawi_abstract_person_years
+    value: 714.0
+    unit: person_years
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: ./front/article-meta/abstract/p[1]
+    source_id: malawi2023_public_cohort
+    source_url: https://journals.plos.org/globalpublichealth/article/file?id=10.1371/journal.pgph.0001263&type=manuscript
+    citation: 'Nakanga WP et al. Waist circumference and glycaemia are strong predictors of progression
+      to diabetes in individuals with prediabetes in sub-Saharan Africa: 4-year prospective cohort study
+      in Malawi. PLOS Global Public Health 3(9):e0001263 (2023). DOI 10.1371/journal.pgph.0001263.'
+    population: Source baseline WHO-IFG adults from the MEIRU rural Karonga/urban Lilongwe survey, with
+      no diabetes diagnosis history or medication at baseline; incomplete tracing and variable follow-up.
+    geography: Karonga and Lilongwe, Malawi; no U.S. transport
+    time_period: Baseline 2013-2016; follow-up 2018-2019; published 2023. Individual clocks unavailable.
+    exposure_definition: Observational source IFG cohort; no isolated dietary intervention or causal
+      exposure contrast.
+    outcome_definition: Published source record/definition/timing literal, not a latent health state
+      or annual transition. Baseline FPG IFG threshold 6.1 differs from follow-up 6.0 mmol/L. DM permits
+      diagnosis since baseline OR current medication OR FPG threshold. NGT is fasting-only. Confirmed
+      deaths and untraced remain distinct.
+    transformation: Pinned XML selection/capture with paragraph hashes and corroboration where available;
+      no repair/annualization
+    uncertainty:
+      kind: fixed
+      rationale: Literal selected value in the pinned publication or its deterministic residual. Fixed
+        release representation supplies no population sampling distribution and does not resolve missing
+        follow-up, classification error, unknown history or transport.
+    lower_bound: 0
+    notes: Grade C describes this scoped observational benchmark with incomplete tracing and changing
+      definitions. Abstract and Results person-years are distinct preserved observations. No sampling
+      model, clinical fit, latent-state mapping, dietary effect, complete death assumption, independent
+      evaluation or engine activation.
+  malawi_results_person_years:
+    key: malawi_results_person_years
+    value: 714.9
+    unit: person_years
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: ./body/sec[@id='sec011']/p[1]
+    source_id: malawi2023_public_cohort
+    source_url: https://journals.plos.org/globalpublichealth/article/file?id=10.1371/journal.pgph.0001263&type=manuscript
+    citation: 'Nakanga WP et al. Waist circumference and glycaemia are strong predictors of progression
+      to diabetes in individuals with prediabetes in sub-Saharan Africa: 4-year prospective cohort study
+      in Malawi. PLOS Global Public Health 3(9):e0001263 (2023). DOI 10.1371/journal.pgph.0001263.'
+    population: Source baseline WHO-IFG adults from the MEIRU rural Karonga/urban Lilongwe survey, with
+      no diabetes diagnosis history or medication at baseline; incomplete tracing and variable follow-up.
+    geography: Karonga and Lilongwe, Malawi; no U.S. transport
+    time_period: Baseline 2013-2016; follow-up 2018-2019; published 2023. Individual clocks unavailable.
+    exposure_definition: Observational source IFG cohort; no isolated dietary intervention or causal
+      exposure contrast.
+    outcome_definition: Published source record/definition/timing literal, not a latent health state
+      or annual transition. Baseline FPG IFG threshold 6.1 differs from follow-up 6.0 mmol/L. DM permits
+      diagnosis since baseline OR current medication OR FPG threshold. NGT is fasting-only. Confirmed
+      deaths and untraced remain distinct.
+    transformation: Pinned XML selection/capture with paragraph hashes and corroboration where available;
+      no repair/annualization
+    uncertainty:
+      kind: fixed
+      rationale: Literal selected value in the pinned publication or its deterministic residual. Fixed
+        release representation supplies no population sampling distribution and does not resolve missing
+        follow-up, classification error, unknown history or transport.
+    lower_bound: 0
+    notes: Grade C describes this scoped observational benchmark with incomplete tracing and changing
+      definitions. Abstract and Results person-years are distinct preserved observations. No sampling
+      model, clinical fit, latent-state mapping, dietary effect, complete death assumption, independent
+      evaluation or engine activation.
+  malawi_baseline_start_year:
+    key: malawi_baseline_start_year
+    value: 2013
+    unit: calendar_year
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: ./body/sec[@id='sec002']/sec[@id='sec003']/p[1]
+    source_id: malawi2023_public_cohort
+    source_url: https://journals.plos.org/globalpublichealth/article/file?id=10.1371/journal.pgph.0001263&type=manuscript
+    citation: 'Nakanga WP et al. Waist circumference and glycaemia are strong predictors of progression
+      to diabetes in individuals with prediabetes in sub-Saharan Africa: 4-year prospective cohort study
+      in Malawi. PLOS Global Public Health 3(9):e0001263 (2023). DOI 10.1371/journal.pgph.0001263.'
+    population: Source baseline WHO-IFG adults from the MEIRU rural Karonga/urban Lilongwe survey, with
+      no diabetes diagnosis history or medication at baseline; incomplete tracing and variable follow-up.
+    geography: Karonga and Lilongwe, Malawi; no U.S. transport
+    time_period: Baseline 2013-2016; follow-up 2018-2019; published 2023. Individual clocks unavailable.
+    exposure_definition: Observational source IFG cohort; no isolated dietary intervention or causal
+      exposure contrast.
+    outcome_definition: Published source record/definition/timing literal, not a latent health state
+      or annual transition. Baseline FPG IFG threshold 6.1 differs from follow-up 6.0 mmol/L. DM permits
+      diagnosis since baseline OR current medication OR FPG threshold. NGT is fasting-only. Confirmed
+      deaths and untraced remain distinct.
+    transformation: Pinned XML selection/capture with paragraph hashes and corroboration where available;
+      no repair/annualization
+    uncertainty:
+      kind: fixed
+      rationale: Literal selected value in the pinned publication or its deterministic residual. Fixed
+        release representation supplies no population sampling distribution and does not resolve missing
+        follow-up, classification error, unknown history or transport.
+    lower_bound: 0
+    notes: Grade C describes this scoped observational benchmark with incomplete tracing and changing
+      definitions. Abstract and Results person-years are distinct preserved observations. No sampling
+      model, clinical fit, latent-state mapping, dietary effect, complete death assumption, independent
+      evaluation or engine activation.
+  malawi_baseline_end_year:
+    key: malawi_baseline_end_year
+    value: 2016
+    unit: calendar_year
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: ./body/sec[@id='sec002']/sec[@id='sec003']/p[1]
+    source_id: malawi2023_public_cohort
+    source_url: https://journals.plos.org/globalpublichealth/article/file?id=10.1371/journal.pgph.0001263&type=manuscript
+    citation: 'Nakanga WP et al. Waist circumference and glycaemia are strong predictors of progression
+      to diabetes in individuals with prediabetes in sub-Saharan Africa: 4-year prospective cohort study
+      in Malawi. PLOS Global Public Health 3(9):e0001263 (2023). DOI 10.1371/journal.pgph.0001263.'
+    population: Source baseline WHO-IFG adults from the MEIRU rural Karonga/urban Lilongwe survey, with
+      no diabetes diagnosis history or medication at baseline; incomplete tracing and variable follow-up.
+    geography: Karonga and Lilongwe, Malawi; no U.S. transport
+    time_period: Baseline 2013-2016; follow-up 2018-2019; published 2023. Individual clocks unavailable.
+    exposure_definition: Observational source IFG cohort; no isolated dietary intervention or causal
+      exposure contrast.
+    outcome_definition: Published source record/definition/timing literal, not a latent health state
+      or annual transition. Baseline FPG IFG threshold 6.1 differs from follow-up 6.0 mmol/L. DM permits
+      diagnosis since baseline OR current medication OR FPG threshold. NGT is fasting-only. Confirmed
+      deaths and untraced remain distinct.
+    transformation: Pinned XML selection/capture with paragraph hashes and corroboration where available;
+      no repair/annualization
+    uncertainty:
+      kind: fixed
+      rationale: Literal selected value in the pinned publication or its deterministic residual. Fixed
+        release representation supplies no population sampling distribution and does not resolve missing
+        follow-up, classification error, unknown history or transport.
+    lower_bound: 0
+    notes: Grade C describes this scoped observational benchmark with incomplete tracing and changing
+      definitions. Abstract and Results person-years are distinct preserved observations. No sampling
+      model, clinical fit, latent-state mapping, dietary effect, complete death assumption, independent
+      evaluation or engine activation.
+  malawi_followup_start_year:
+    key: malawi_followup_start_year
+    value: 2018
+    unit: calendar_year
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: ./body/sec[@id='sec011']/p[1]
+    source_id: malawi2023_public_cohort
+    source_url: https://journals.plos.org/globalpublichealth/article/file?id=10.1371/journal.pgph.0001263&type=manuscript
+    citation: 'Nakanga WP et al. Waist circumference and glycaemia are strong predictors of progression
+      to diabetes in individuals with prediabetes in sub-Saharan Africa: 4-year prospective cohort study
+      in Malawi. PLOS Global Public Health 3(9):e0001263 (2023). DOI 10.1371/journal.pgph.0001263.'
+    population: Source baseline WHO-IFG adults from the MEIRU rural Karonga/urban Lilongwe survey, with
+      no diabetes diagnosis history or medication at baseline; incomplete tracing and variable follow-up.
+    geography: Karonga and Lilongwe, Malawi; no U.S. transport
+    time_period: Baseline 2013-2016; follow-up 2018-2019; published 2023. Individual clocks unavailable.
+    exposure_definition: Observational source IFG cohort; no isolated dietary intervention or causal
+      exposure contrast.
+    outcome_definition: Published source record/definition/timing literal, not a latent health state
+      or annual transition. Baseline FPG IFG threshold 6.1 differs from follow-up 6.0 mmol/L. DM permits
+      diagnosis since baseline OR current medication OR FPG threshold. NGT is fasting-only. Confirmed
+      deaths and untraced remain distinct.
+    transformation: Pinned XML selection/capture with paragraph hashes and corroboration where available;
+      no repair/annualization
+    uncertainty:
+      kind: fixed
+      rationale: Literal selected value in the pinned publication or its deterministic residual. Fixed
+        release representation supplies no population sampling distribution and does not resolve missing
+        follow-up, classification error, unknown history or transport.
+    lower_bound: 0
+    notes: Grade C describes this scoped observational benchmark with incomplete tracing and changing
+      definitions. Abstract and Results person-years are distinct preserved observations. No sampling
+      model, clinical fit, latent-state mapping, dietary effect, complete death assumption, independent
+      evaluation or engine activation.
+  malawi_followup_end_year:
+    key: malawi_followup_end_year
+    value: 2019
+    unit: calendar_year
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: ./body/sec[@id='sec011']/p[1]
+    source_id: malawi2023_public_cohort
+    source_url: https://journals.plos.org/globalpublichealth/article/file?id=10.1371/journal.pgph.0001263&type=manuscript
+    citation: 'Nakanga WP et al. Waist circumference and glycaemia are strong predictors of progression
+      to diabetes in individuals with prediabetes in sub-Saharan Africa: 4-year prospective cohort study
+      in Malawi. PLOS Global Public Health 3(9):e0001263 (2023). DOI 10.1371/journal.pgph.0001263.'
+    population: Source baseline WHO-IFG adults from the MEIRU rural Karonga/urban Lilongwe survey, with
+      no diabetes diagnosis history or medication at baseline; incomplete tracing and variable follow-up.
+    geography: Karonga and Lilongwe, Malawi; no U.S. transport
+    time_period: Baseline 2013-2016; follow-up 2018-2019; published 2023. Individual clocks unavailable.
+    exposure_definition: Observational source IFG cohort; no isolated dietary intervention or causal
+      exposure contrast.
+    outcome_definition: Published source record/definition/timing literal, not a latent health state
+      or annual transition. Baseline FPG IFG threshold 6.1 differs from follow-up 6.0 mmol/L. DM permits
+      diagnosis since baseline OR current medication OR FPG threshold. NGT is fasting-only. Confirmed
+      deaths and untraced remain distinct.
+    transformation: Pinned XML selection/capture with paragraph hashes and corroboration where available;
+      no repair/annualization
+    uncertainty:
+      kind: fixed
+      rationale: Literal selected value in the pinned publication or its deterministic residual. Fixed
+        release representation supplies no population sampling distribution and does not resolve missing
+        follow-up, classification error, unknown history or transport.
+    lower_bound: 0
+    notes: Grade C describes this scoped observational benchmark with incomplete tracing and changing
+      definitions. Abstract and Results person-years are distinct preserved observations. No sampling
+      model, clinical fit, latent-state mapping, dietary effect, complete death assumption, independent
+      evaluation or engine activation.
+  malawi_untraced_count:
+    key: malawi_untraced_count
+    value: 199
+    unit: people
+    status: derived
+    evidence_grade: C
+    model_role: benchmark_only
+    source: Derived original cohort minus traced; Results paragraph 1 and Methods/Study population paragraph
+      1
+    source_id: malawi2023_public_cohort
+    source_url: https://journals.plos.org/globalpublichealth/article/file?id=10.1371/journal.pgph.0001263&type=manuscript
+    citation: 'Nakanga WP et al. Waist circumference and glycaemia are strong predictors of progression
+      to diabetes in individuals with prediabetes in sub-Saharan Africa: 4-year prospective cohort study
+      in Malawi. PLOS Global Public Health 3(9):e0001263 (2023). DOI 10.1371/journal.pgph.0001263.'
+    population: Source baseline WHO-IFG adults from the MEIRU rural Karonga/urban Lilongwe survey, with
+      no diabetes diagnosis history or medication at baseline; incomplete tracing and variable follow-up.
+    geography: Karonga and Lilongwe, Malawi; no U.S. transport
+    time_period: Baseline 2013-2016; follow-up 2018-2019; published 2023. Individual clocks unavailable.
+    exposure_definition: Observational source IFG cohort; no isolated dietary intervention or causal
+      exposure contrast.
+    outcome_definition: Published source record/definition/timing literal, not a latent health state
+      or annual transition. Baseline FPG IFG threshold 6.1 differs from follow-up 6.0 mmol/L. DM permits
+      diagnosis since baseline OR current medication OR FPG threshold. NGT is fasting-only. Confirmed
+      deaths and untraced remain distinct.
+    transformation: cohort_count - traced_count; never classify residual as dead/alive
+    uncertainty:
+      kind: fixed
+      rationale: Literal selected value in the pinned publication or its deterministic residual. Fixed
+        release representation supplies no population sampling distribution and does not resolve missing
+        follow-up, classification error, unknown history or transport.
+    lower_bound: 0
+    notes: Grade C describes this scoped observational benchmark with incomplete tracing and changing
+      definitions. Abstract and Results person-years are distinct preserved observations. No sampling
+      model, clinical fit, latent-state mapping, dietary effect, complete death assumption, independent
+      evaluation or engine activation.
   kerala_control_assigned_n:
     key: kerala_control_assigned_n
     value: 507
@@ -3915,6 +4720,54 @@ parameters:
         estimate.
     lower_bound: 0
 datasets:
+  malawi_followup_benchmark:
+    model_role: benchmark_only
+    source_id: malawi2023_public_cohort
+    protocol_path: docs/validation/malawi-cohort-intake-protocol-v1.json
+    protocol_sha256: 0a1d1b7bbde1bca3f15aecf1b395050b2a0277c9e385f799889a8c6786e5aafb
+    report_path: docs/validation/malawi-cohort-ascertainment-v1.json
+    report_sha256: 09f478764f70b3253f333e4d031310dc1564f29da5c3c34fb0187b92a9674636
+    transforms:
+      extractor:
+        path: src/demeter/data/malawi_cohort.py
+        sha256: a87c5ca8294a28fa4309de90e1caba81b9acf07a8d5cb9bd035398cac2a17ffa
+      bounds:
+        path: src/demeter/analysis/followup_category_bounds.py
+        sha256: ee4155213eb044d07bd08839a57163d863e9fde73a8b2ac39fd2b86223cf7f71
+    parameter_keys:
+    - malawi_cohort_count
+    - malawi_traced_count
+    - malawi_confirmed_deaths_count
+    - malawi_assessed_count
+    - malawi_ngt_count
+    - malawi_ifg_count
+    - malawi_dm_count
+    - malawi_baseline_ifg_lower_mmol_l
+    - malawi_baseline_ifg_upper_mmol_l
+    - malawi_followup_ifg_lower_mmol_l
+    - malawi_followup_ifg_upper_mmol_l
+    - malawi_followup_ngt_upper_mmol_l
+    - malawi_followup_dm_lower_mmol_l
+    - malawi_followup_median_years
+    - malawi_followup_iqr_lower_years
+    - malawi_followup_iqr_upper_years
+    - malawi_abstract_person_years
+    - malawi_results_person_years
+    - malawi_baseline_start_year
+    - malawi_baseline_end_year
+    - malawi_followup_start_year
+    - malawi_followup_end_year
+    - malawi_untraced_count
+    scientific_gates:
+      clinical_fit_allowed: false
+      engine_activation_allowed: false
+      independent_validation_allowed: false
+      scientific_release_ready: false
+    estimand: Published ascertainment partition of adults with source baseline IFG and variable elapsed
+      follow-up; endpoint categories conditional on reassessment. No stable horizon, latent metabolic-state
+      mapping, dietary causal effect or annual hazard.
+    derived_bounds: Coupled nonnegative integer completions of original-cohort source follow-up dispositions;
+      no iid distribution or common elapsed horizon.
   kerala_nominal_observations:
     status: derived
     evidence_grade: C
@@ -6401,3 +7254,15 @@ sources:
     correction_note: Public source appraisal only. Release metadata and two raw workbook pins are separate;
       linked record identity, category code meanings and event/death clocks remain unresolved. No clinical
       fitting, national transport or engine activation.
+  malawi2023_public_cohort:
+    url: https://journals.plos.org/globalpublichealth/article/file?id=10.1371/journal.pgph.0001263&type=manuscript
+    citation: 'Nakanga WP et al. Waist circumference and glycaemia are strong predictors of progression
+      to diabetes in individuals with prediabetes in sub-Saharan Africa: 4-year prospective cohort study
+      in Malawi. PLOS Global Public Health 3(9):e0001263 (2023). DOI 10.1371/journal.pgph.0001263.'
+    doi: 10.1371/journal.pgph.0001263
+    raw_filename: nakanga2023-manuscript.xml
+    sha256: 0ffa7630f06de10880d9742462202cbcf77bb365e940005097aaf0cedf2afd6d
+    retrieved_at: '2026-10-02T19:33:41.061585+00:00'
+    license: CC-BY-4.0
+    correction_note: Historical public manuscript XML; selected aggregate facts only. Underlying participant
+      data remain request-restricted; none acquired.
