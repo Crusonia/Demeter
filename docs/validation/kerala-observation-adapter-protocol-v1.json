@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "protocol_id": "kerala-source-native-nominal-observations-v1",
+  "authored_on": "2026-10-02",
+  "chronology": "After published outcomes, selected-field marginals and prior linked representation appraisal were inspected; before this adapter's joint flag/availability diagnostics. Used-source development, not preregistration or independent evaluation.",
+  "source_id": "kerala2018_public_trial_v3",
+  "source_doi": "10.6084/m9.figshare.5661610.v3",
+  "parent_representation_sha256": "4f7214155fc0db8d21ca59e9f1e3af06e76f585ae89e201c6df65741c160f7a2",
+  "raw_files": [
+    {"raw_filename": "Primary outcome_K-DPP trial.xlsx", "bytes": 2168989, "sha256": "20736b53c9d3704179a3f6c8ce89d417edf730ceff0448a1f28ac7f54db14421"},
+    {"raw_filename": "Secondary outcomes_K-DPP trial.xlsx", "bytes": 1676671, "sha256": "f963ff821c11b40e796fe9bce16ee5c21e22833653797c7c94d3bf28fbd4e7dc"}
+  ],
+  "nominal_visit_labels": ["Baseline", "12 months", "24 months"],
+  "clock": "Nominal visit index only. Exact assay/contact/diagnosis/death times remain unknown; no conversion to exact years or relative days.",
+  "selected_primary_fields": ["participant_id", "arms0", "cluster0", "arms1", "cluster1", "arms2", "cluster2", "glycemiaADA0", "glycemiaADA1", "glycemiaADA2", "diabADA0", "diabADA1", "diabADA2", "fpgmgdl0", "fpgmgdl1", "fpgmgdl2", "twohrpgmgdl0", "twohrpgmgdl1", "twohrpgmgdl2", "diabdrugs_10", "diabdrugs_20", "diabdrugs_1", "diabdrugs_2", "tot_diab_incidence", "tot_diab_incidence1", "tot_diab_incidence2"],
+  "selected_secondary_fields": ["participant_id", "timepoint", "arms", "cluster", "glycemiaADA", "diabADA", "fpgmgdl", "twohrpgmgdl"],
+  "representation": "Immutable private subject/visit objects retain opaque typed person and cluster keys, literal labels, storage availability and qualified flags. Every linked subject has all three nominal row slots, including empty clinical observations. Object representations and public reports expose no keys, assays, individual paths or labeled multiwave tuples.",
+  "history": "A positive suffix flag is source-slot positive evidence only; No or blank never erases earlier positive evidence. Absence of a seen positive is not documented absence of prior diagnosis. Horizon-total positivity is separate and never backdated. Clinical confirmation and first-onset intervals remain unknown; Boolean agreement cannot prove interval/cumulative semantics.",
+  "measurement_policy": "Earlier source ADA-diabetes category/flag compatibility is separate from any incidence-positive flag. Later two-hour absence can be consistent with the trial OGTT-omission rule, never proof of an individual absence cause. Missing fasting glucose does not imply an omitted OGTT or death. Medication flags never establish physician diagnosis, medication-free remission or treatment clocks.",
+  "allowed_public_diagnostics": [
+    "All retained subjects, nominal rows, exclusions/failures and one-way literal label/flag/storage marginals with unknowns preserved.",
+    "Scalar incidence-flag algebra: fully interpretable flag triples, suffix-positive union/overlap, total-negative with positive suffix, total-positive with both suffixes negative, unknown-total with positive suffix. No joint flag-cell table or individual membership exported.",
+    "Boolean consistency for source ADA-category/flag agreement and compatibility with later two-hour absence; no positive conditional trajectory counts or case-based examples exported.",
+    "Unlabeled internal observation-pattern cell-size histogram; no token/path labels, category cross-tabs or cluster-level summaries."
+  ],
+  "discrete_likelihood": "A separate software evaluator requires caller-declared nominal-interval stochastic matrices and exhaustive joint observation channels, including missing/unavailable tokens and explicit preceding-token conditioning. No source channel is constructed or fitted automatically; no iid product across people or clusters, annual hazard, independent censoring or clinical-state mapping.",
+  "death": "All individual death/contact/loss statuses remain unknown. Previously registered endpoint completion bounds remain separate; repeated cumulative arm-level deaths are not attached to paths or multiplied as independent factors.",
+  "design_ids": ["I-11", "I-12", "F-08", "T-05", "T-08"],
+  "clinical_fit_allowed": false,
+  "engine_activation_allowed": false,
+  "independent_validation_allowed": false,
+  "scientific_release_ready": false,
+  "stop_conditions": ["Source/header/pin mismatch", "Missing, duplicate or incompatible typed person/visit linkage", "Assignment drift or unsupported nonmissing source labels needed for dependent interpretation", "Unexpected contact/direct-identifier fields", "Any proposal to export identifiers, assays, labeled multiwave tuples or fitted source probabilities without a new protocol"]
+}

@@ -1,0 +1,182 @@
+{
+  "adapter_sha256": "d7d801ae3602290fb4a864a49cdc86c14881a722502676171043c60c1cd84c16",
+  "chronology": "After published outcomes, selected-field marginals and prior linked representation appraisal were inspected; before this adapter's joint flag/availability diagnostics. Used-source development, not preregistration or independent evaluation.",
+  "clinical_fit_allowed": false,
+  "diagnostics": {
+    "ada_category_and_flag_agree_where_both_interpretable": true,
+    "assignment_marginal": {
+      "Control": 507,
+      "Intervention": 500
+    },
+    "clinical_fit_allowed": false,
+    "engine_activation_allowed": false,
+    "horizon_total_marginal": {
+      "absent:uninterpreted": 88,
+      "string:No": 772,
+      "string:Yes": 147
+    },
+    "incidence_flag_algebra": {
+      "fully_interpretable_triples": 872,
+      "suffix_positive_overlap": 0,
+      "suffix_positive_union": 147,
+      "total_negative_with_positive_suffix": 0,
+      "total_positive_with_both_suffixes_negative": 0,
+      "unknown_total_with_positive_suffix": 0
+    },
+    "independent_validation_allowed": false,
+    "individual_death_contact_confirmation_and_first_onset_unknown": true,
+    "later_two_hour_storage_absent_after_earlier_ada_positive_compatible": true,
+    "nominal_rows": 3021,
+    "scientific_release_ready": false,
+    "subjects": 1007,
+    "unlabeled_observation_pattern_cell_size_histogram": {
+      "1": 20,
+      "10": 2,
+      "11": 1,
+      "13": 4,
+      "15": 1,
+      "16": 1,
+      "17": 2,
+      "19": 2,
+      "2": 12,
+      "21": 1,
+      "220": 1,
+      "26": 1,
+      "3": 7,
+      "30": 1,
+      "31": 1,
+      "32": 1,
+      "33": 1,
+      "36": 1,
+      "4": 2,
+      "40": 1,
+      "46": 1,
+      "5": 5,
+      "58": 1,
+      "6": 2,
+      "7": 3,
+      "8": 1,
+      "9": 2,
+      "91": 1
+    },
+    "visit_marginals": {
+      "12 months": {
+        "ada_diabetes": {
+          "absent:uninterpreted": 99,
+          "string:No": 821,
+          "string:Yes": 87
+        },
+        "fasting_storage": {
+          "absent:uninterpreted": 97,
+          "numeric_cell_present": 910
+        },
+        "glycemia": {
+          "absent:uninterpreted": 99,
+          "string:IFG": 465,
+          "string:IGT": 131,
+          "string:NGT": 225,
+          "string:diabetes": 87
+        },
+        "incidence_flag": {
+          "absent:uninterpreted": 105,
+          "string:No": 814,
+          "string:Yes": 88
+        },
+        "medication_flags": [
+          {
+            "string:No": 964,
+            "string:Yes": 1,
+            "string:uninterpreted_text": 42
+          }
+        ],
+        "two_hour_storage": {
+          "absent:uninterpreted": 98,
+          "numeric_cell_present": 909
+        }
+      },
+      "24 months": {
+        "ada_diabetes": {
+          "absent:uninterpreted": 144,
+          "string:No": 772,
+          "string:Yes": 91
+        },
+        "fasting_storage": {
+          "absent:uninterpreted": 92,
+          "numeric_cell_present": 915
+        },
+        "glycemia": {
+          "absent:uninterpreted": 144,
+          "string:IFG": 443,
+          "string:IGT": 93,
+          "string:NGT": 236,
+          "string:diabetes": 91
+        },
+        "incidence_flag": {
+          "absent:uninterpreted": 88,
+          "string:No": 860,
+          "string:Yes": 59
+        },
+        "medication_flags": [
+          {
+            "string:No": 961,
+            "string:Yes": 3,
+            "string:uninterpreted_text": 43
+          }
+        ],
+        "two_hour_storage": {
+          "absent:uninterpreted": 178,
+          "numeric_cell_present": 829
+        }
+      },
+      "Baseline": {
+        "ada_diabetes": {
+          "string:No": 1007
+        },
+        "fasting_storage": {
+          "numeric_cell_present": 1007
+        },
+        "glycemia": {
+          "string:IFG": 579,
+          "string:IGT": 116,
+          "string:NGT": 312
+        },
+        "incidence_flag": {
+          "absent:uninterpreted": 1007
+        },
+        "medication_flags": [
+          {
+            "absent:uninterpreted": 1007
+          },
+          {
+            "absent:uninterpreted": 1007
+          }
+        ],
+        "two_hour_storage": {
+          "numeric_cell_present": 1007
+        }
+      }
+    }
+  },
+  "engine_activation_allowed": false,
+  "exact_elapsed_time_inferred": false,
+  "independent_validation_allowed": false,
+  "individual_deaths_or_contact_times_inferred": false,
+  "interpretation": "Used-source stored observations and flag algebra; not biological transitions, first-onset intervals, clinical remission, sampling probabilities or independent validation.",
+  "labeled_multiwave_tuples_exported": false,
+  "parent_representation_sha256": "4f7214155fc0db8d21ca59e9f1e3af06e76f585ae89e201c6df65741c160f7a2",
+  "participant_keys_cluster_keys_assays_and_paths_exported": false,
+  "protocol_id": "kerala-source-native-nominal-observations-v1",
+  "protocol_sha256": "2736376f934146015fb8c26a0dea4f89b2bc89e5a3e43a4671be5c330b38faaa",
+  "raw_file_sha256": [
+    "20736b53c9d3704179a3f6c8ce89d417edf730ceff0448a1f28ac7f54db14421",
+    "f963ff821c11b40e796fe9bce16ee5c21e22833653797c7c94d3bf28fbd4e7dc"
+  ],
+  "report_id": "kerala-source-native-nominal-observation-audit-v1",
+  "schema_version": 1,
+  "scientific_release_ready": false,
+  "source_doi": "10.6084/m9.figshare.5661610.v3",
+  "source_id": "kerala2018_public_trial_v3",
+  "source_likelihood_computed": false,
+  "source_observation_channel_estimated": false,
+  "time_basis": "nominal_visit_index"
+}

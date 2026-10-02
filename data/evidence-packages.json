@@ -1373,7 +1373,7 @@
         },
         {
           "path": "docs/KERALA_OBSERVATION_MODEL.md",
-          "sha256": "0d10ca8cbdb641be988233e121497019e0e1444210839207d737d07819b3551b"
+          "sha256": "d2d33aad2ea68fa55d197f68427dee44d75e4ff45cb01fa1f1034a0369ce83ae"
         }
       ],
       "transform_files": [
@@ -1387,6 +1387,42 @@
       ],
       "model_role": "benchmark_only",
       "redistribution": "Attributed aggregate source-count transcription and authored analysis under source CC BY terms; public participant workbooks and primary PDF remain fetch-only. No labeled multiwave tuples, identifiers, cluster keys or assays exported."
+    },
+    "kerala_nominal_observations": {
+      "artifacts": [
+        {
+          "path": "docs/validation/kerala-observation-adapter-protocol-v1.json",
+          "sha256": "2736376f934146015fb8c26a0dea4f89b2bc89e5a3e43a4671be5c330b38faaa"
+        },
+        {
+          "path": "docs/validation/kerala-nominal-observation-audit-v1.json",
+          "sha256": "42ec96732d8aceacb5712136ea7e70b5b61cfeab843218b335dedc25564beb1a"
+        },
+        {
+          "path": "docs/KERALA_NOMINAL_OBSERVATIONS.md",
+          "sha256": "d306b671122044d94aed7e1e77e34f5752ae7705a0a3cc1b83f5794d81f79035"
+        }
+      ],
+      "dependencies": [
+        "kerala_source_admission"
+      ],
+      "model_role": "benchmark_only",
+      "rebuild": [
+        "uv run demeter evidence kerala-observations",
+        "uv run python scripts/verify_kerala_observations.py"
+      ],
+      "redistribution": "Attributed aggregate-only diagnostics under source CC BY terms. Source workbooks remain fetch-only; no participant keys, cluster keys, assays or labeled multiwave paths exported.",
+      "registry_datasets": [
+        "kerala_nominal_observations"
+      ],
+      "registry_parameters": [],
+      "store": null,
+      "transform_files": [
+        "src/demeter/data/kerala_observations.py",
+        "src/demeter/analysis/kerala_observation_audit.py",
+        "src/demeter/analysis/nominal_observation_likelihood.py",
+        "scripts/verify_kerala_observations.py"
+      ]
     }
   },
   "supporting_artifacts": [

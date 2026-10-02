@@ -445,6 +445,42 @@ def whitehall_endpoint_evidence(
         raise typer.Exit(1)
 
 
+@evidence_app.command("kerala-observations")
+def kerala_observation_evidence(
+    evidence: Path = DEFAULT_EVIDENCE,
+    project: Path = Path("."),
+    output: Path | None = None,
+    source_cache: Path | None = None,
+) -> None:
+    """Verify source-native nominal observations; optionally replay pinned private cells."""
+    from demeter.analysis.kerala_observation_audit import audit_kerala_observations
+    from demeter.data.nhanes import encoded
+
+    try:
+        root = project.resolve()
+        if output is not None:
+            destination = output.resolve()
+            protected_folders = [root / folder for folder in ("data", "src", "docs", "evidence")]
+            if source_cache is not None:
+                protected_folders.append(source_cache.resolve())
+            if (
+                output.exists()
+                or destination == evidence.resolve()
+                or any(destination.is_relative_to(folder.resolve()) for folder in protected_folders)
+            ):
+                typer.echo("Output must be new and outside sources and frozen records", err=True)
+                raise typer.Exit(1)
+        report = audit_kerala_observations(registry(evidence), root, source_cache=source_cache)
+        if output is not None:
+            output.parent.mkdir(parents=True, exist_ok=True)
+            with output.open("xb") as target:
+                target.write(encoded(report))
+    except (ValueError, OSError, KeyError, TypeError, IndexError) as exc:
+        typer.echo("Kerala observation evidence or output is invalid", err=True)
+        raise typer.Exit(1) from exc
+    emit(report)
+
+
 @evidence_app.command("kerala-endpoints")
 def kerala_endpoint_evidence(
     evidence: Path = DEFAULT_EVIDENCE,
