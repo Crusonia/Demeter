@@ -186,6 +186,11 @@ uv run ruff check .
 
 Commands emit readable JSON. Ordinary runs and tests are offline after installation. `validate` exits successfully when software/data checks pass, while reporting `scientific_release_ready: false`. `validate --scientific-required` deliberately exits with code 1 for this alpha.
 
+Contributors can [save and check model parity](docs/MODEL_PARITY.md) across code
+changes. The offline check covers six scenarios, complete cohort/life-table/flow
+outputs and fixed-seed uncertainty, retaining both revisions' provenance.
+Unchanged software behavior is separate from clinical validation.
+
 For more stable Sobol estimates, increase `--samples` to 256 or 1024 and inspect the reported confidence half-widths. Small sample runs are tests of the analysis pipeline, not reliable rankings.
 
 ## Architecture
@@ -253,6 +258,11 @@ The manifests record source URLs, retrieval times, vintages, hashes, and transfo
 - **The historical backtest** carries 2022 mortality forward into 2023. It measures the error of a no-change mortality forecast. It does not validate dietary effects.
 
 ## Next scientific gate
+
+The [Da Qing source audit](docs/DA_QING_SOURCE_COVERAGE.md) reproduces public
+mortality observations that update diagnosis history during follow-up. Its
+source-count discrepancy, repeated person-time and current-state/causal mapping
+limits remain explicit. No clinical parameter or diet-only effect is activated.
 
 The [DPP observation adapter](docs/DPP_OBSERVATION_ADAPTER.md) provides an offline
 learning exercise: `uv run demeter evidence dpp-observations --output outputs/dpp-observations.json`.

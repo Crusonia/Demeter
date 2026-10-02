@@ -240,6 +240,10 @@ def summarize_observations(batch: ObservationBatch) -> dict:
             issues["censoring_reason_unknown"] += 1
         if _before(p.follow_up.last_contact_time, p.follow_up.last_glucose_time):
             contradictions["last_contact_before_last_glucose"] += 1
+        if events.death_status is True and _before(
+            events.death_time, p.follow_up.last_glucose_time
+        ):
+            contradictions["last_glucose_after_death"] += 1
         confirmed = [item for item in p.diagnosis_observations if item.outcome == "confirmed"]
         if events.diagnosed_during_source_followup is True and not confirmed:
             issues["confirmation_observation_unavailable"] += 1
@@ -263,11 +267,24 @@ def summarize_observations(batch: ObservationBatch) -> dict:
                 issues["glucose_unit_unresolved"] += 1
             if item.time.kind == "unknown":
                 issues["glucose_collection_time_unknown"] += 1
+            if item.status == "observed" and _before(p.follow_up.last_glucose_time, item.time):
+                contradictions["glucose_collection_after_last_glucose"] += 1
             if events.death_status is True and _before(events.death_time, item.time):
-                contradictions["glucose_collection_after_death"] += 1
+                if item.status == "observed":
+                    contradictions["glucose_collection_after_death"] += 1
+                else:
+                    # A dated unmeasured item does not establish that a specimen
+                    # was collected. Preserve the source's unresolved time role.
+                    issues["unobserved_glucose_time_after_death_role_unresolved"] += 1
         for item in p.treatment_changes:
             if item.action == "unknown" or item.time.kind == "unknown":
                 issues["treatment_change_unresolved"] += 1
+            if (
+                item.action != "unknown"
+                and events.death_status is True
+                and _before(events.death_time, item.time)
+            ):
+                contradictions["treatment_change_after_death"] += 1
 
     def tally(values) -> dict:
         return dict(sorted(Counter(values).items()))

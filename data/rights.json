@@ -286,6 +286,21 @@
         "No clinical fit, national transport, dietary effect, death/censoring estimate or active model parameter follows from this intake.",
         "A1C working analysis must retain its separate frozen protocol, used-source chronology, source/measurement/selection assumptions and all clinical/transport limitations; conditional aggregate estimates do not establish diagnosis, remission or dietary effects."
       ]
+    },
+    "da_qing_public_facts": {
+      "title": "Da Qing publication: facts-only distribution; article fetch-only",
+      "terms_urls": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC5001147/"
+      ],
+      "checked_on": "2026-10-02",
+      "redistribution": "facts_only",
+      "download": "Ordinary public primary PMC article into ignored local storage; no participant records or access-control bypass.",
+      "transform": "Attributed literal published aggregate counts and displayed person-years, with authored source audit and provenance only.",
+      "conditions": [
+        "The primary article records ADA educational, not-for-profit, unaltered-use conditions with citation; this is not unrestricted article redistribution permission.",
+        "Full article HTML, PDF, figures and publisher layout are excluded. Public factual observations and original Demeter structure are separate from protected article expression.",
+        "Preserve the exact primary citation, DOI, source version, locators, precision and unreconciled source-count discrepancy. No clinical fit or causal result is inferred."
+      ]
     }
   },
   "source_files": {
@@ -1225,6 +1240,19 @@
       "retrieved_at": "2026-10-01T21:37:21.808642+00:00",
       "distribution": "fetch_only",
       "alternative": "Use data fetch-ipop for exact ignored raw acquisition and evidence ipop-preflight / ipop-crosswalk-preflight for offline aggregate-only receipt-verified replay; no participant bytes are bundled."
+    },
+    "da_qing2016_mortality_publication": {
+      "policy": "da_qing_public_facts",
+      "privacy": "publication",
+      "publisher": "American Diabetes Association / NLM PMC public primary article",
+      "vintage": "Diabetes Care 2016; follow-up 1986-2009",
+      "citation": "Gong Q et al. Changes in Mortality in People With IGT Before and After the Onset of Diabetes During the 23-Year Follow-up of the Da Qing Diabetes Prevention Study. Diabetes Care. 2016;39(9):1550-1555.",
+      "notes": "Literal aggregate observation source audit only. Repeated person-time and pooled clinic-assigned arms do not identify current-state mortality or a diet-only effect. No full article or participant records distributed.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5001147/",
+      "sha256": "442bf71b2b4d08eebba024bcd4fec2177bcb6251690a3c838d9d7a44d9d0c9af",
+      "retrieved_at": "2026-10-02T14:38:52.750834+00:00",
+      "distribution": "fetch_only",
+      "alternative": "Use the attributed authored aggregate coverage and pinned audit protocol offline; optionally re-extract exact local article bytes with scripts/verify_da_qing_source_coverage.py --article-cache PATH."
     }
   },
   "documentation_receipts": "docs/validation/dpp-coverage-source-receipts.json",

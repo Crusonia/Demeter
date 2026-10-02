@@ -197,3 +197,34 @@ def test_metadata_pins_expose_all_seven_reference_definitions():
         "src/demeter/health/transitions.py",
         "src/demeter/nutrition/response.py",
     }
+
+
+def test_numerical_repair_preserves_original_frozen_witness_results():
+    registry, _ = fixture()
+    current = audit_compatibility(registry)
+    original = json.loads(Path("docs/validation/issue-58-pathway-compatibility.json").read_bytes())
+    replay = json.loads(Path("docs/validation/reus-compatibility-numerics-v2-replay.json").read_bytes())
+    assert current["results"] == original["results"] == replay["replayed_report"]["results"]
+    assert current["provenance"]["numerical_amendment"] == 2
+    assert current["provenance"]["parent_amendment_sha256"] == (
+        "4aac541bce132a6aeb59962f49779df8c3d1eecf25f67d5c8db99183dda8084e"
+    )
+    assert replay["original_results_exactly_reproduced"]
+    assert not replay["scientific_acceptance"]
+
+
+def test_changed_numerical_parent_fails_before_calculation(monkeypatch):
+    registry, _ = fixture()
+    original = Path.read_bytes
+
+    def changed(path):
+        value = original(path)
+        return value + b" " if path.name == "reus-diabetes-amendment-1.json" else value
+
+    monkeypatch.setattr(Path, "read_bytes", changed)
+    monkeypatch.setattr(
+        "demeter.analysis.pathway_compatibility.analyze_compatibility",
+        lambda *args: pytest.fail("Unverified numerical amendment parent used"),
+    )
+    with pytest.raises(ValueError, match="numerical amendment parent"):
+        audit_compatibility(registry)

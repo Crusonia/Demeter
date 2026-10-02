@@ -15,6 +15,14 @@ Model outputs retain the existing validation-only boundary.
 
 ## Source-specific conditions
 
+The [Da Qing source audit](../docs/DA_QING_SOURCE_COVERAGE.md) distributes
+attributed literal aggregate observations, an authored consistency audit and
+receipts from Gong et al. (2016), DOI `10.2337/dc16-0429`. The primary article
+records ADA educational, not-for-profit, unaltered-use conditions with citation.
+Its full HTML, PDFs, figures and publisher layout remain fetch-only. The retained
+facts are not fitted clinical parameters; the published count discrepancy and
+repeated person-time/clinic dependence remain unresolved.
+
 The [iPOP numerical preflight](../docs/IPOP_PREFLIGHT.md) uses the author-declared
 public derivative accompanying [Zheng et al. (2022)](https://doi.org/10.1038/s41598-022-16326-9),
 from the [producer repository](https://github.com/gmiaslab/TemporalMultiomicsDiabetes)

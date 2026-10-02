@@ -4,7 +4,12 @@ from __future__ import annotations
 
 import numpy as np
 
-from demeter.health.transitions import STATES, TRANSITIONS, transition_survivors
+from demeter.health.transitions import (
+    STATES,
+    TRANSITIONS,
+    _split_competing_exits,
+    transition_survivors,
+)
 
 PRECHRONIC_STATES = ("healthy", "prechronic", "prediabetes", "t2d")
 PRECHRONIC_TRANSITIONS = (
@@ -88,12 +93,17 @@ def prechronic_transitions(stocks, *rates, adult_age, by_row=False):
     output, by_age = stocks.copy(), {}
     for source, state in enumerate(PRECHRONIC_STATES):
         indices = [i for i, edge in enumerate(PRECHRONIC_TRANSITIONS) if edge["source"] == state]
-        total = float(rates[indices].sum())
-        exits = stocks[adult_age:, source] * -np.expm1(-total)
-        for i in indices:
+        movements, exits, robust = _split_competing_exits(
+            stocks[adult_age:, source], rates[indices]
+        )
+        if robust:
+            # Remove the source exit once: subtracting a dominant cause and
+            # then a tiny representable cause can otherwise create negatives.
+            output[adult_age:, source] -= exits
+        for i, moved in zip(indices, movements, strict=True):
             edge = PRECHRONIC_TRANSITIONS[i]
-            moved = exits * (rates[i] / total) if total else np.zeros_like(exits)
-            output[adult_age:, source] -= moved
+            if not robust:
+                output[adult_age:, source] -= moved
             output[adult_age:, PRECHRONIC_STATES.index(edge["target"])] += moved
             by_age[edge["flow"]] = np.pad(moved, (adult_age, 0))
     flows = {key: float(values.sum()) for key, values in by_age.items()}

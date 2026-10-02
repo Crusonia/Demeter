@@ -270,6 +270,26 @@ def audit_compatibility(registry: EvidenceRegistry) -> dict:
     protocol_bytes = Path(spec["protocol_path"]).read_bytes()
     amendment_bytes = Path(spec["amendment_path"]).read_bytes()
     protocol, amendment = json.loads(protocol_bytes), json.loads(amendment_bytes)
+    parent_amendment = None
+    if type(amendment.get("amendment_number")) is int and amendment["amendment_number"] == 2:
+        parent_path = amendment.get("parent_amendment_path")
+        if parent_path != "docs/validation/reus-diabetes-amendment-1.json":
+            raise ValueError("Compatibility numerical amendment parent mismatch")
+        parent_bytes = Path(parent_path).read_bytes()
+        parent_amendment = json.loads(parent_bytes)
+        if (
+            digest(parent_bytes) != amendment.get("parent_amendment_sha256")
+            or parent_amendment["parent_protocol_sha256"] != amendment["parent_protocol_sha256"]
+            or parent_amendment["analysis_id"] != amendment["analysis_id"]
+            or parent_amendment["reference_definition_sha256"]
+            != amendment["reference_definition_sha256"]
+            or amendment.get("changed_helpers") != ["src/demeter/health/transitions.py"]
+            or parent_amendment["implementation_sha256"]["src/demeter/nutrition/response.py"]
+            != amendment["implementation_sha256"]["src/demeter/nutrition/response.py"]
+        ):
+            raise ValueError("Compatibility numerical amendment parent mismatch")
+    elif "amendment_number" in amendment:
+        raise ValueError("Unsupported compatibility numerical amendment")
     if (
         digest(protocol_bytes) != spec["protocol_sha256"]
         or digest(amendment_bytes) != spec["amendment_sha256"]
@@ -308,5 +328,10 @@ def audit_compatibility(registry: EvidenceRegistry) -> dict:
             "transform_sha256": digest(Path(__file__).read_bytes()),
             "clinical_hr_used_in_witnesses": False,
             "clinical_records_used": False,
+            **(
+                {"numerical_amendment": 2, "parent_amendment_sha256": digest(parent_bytes)}
+                if parent_amendment is not None
+                else {}
+            ),
         },
     }

@@ -1,5 +1,13 @@
 # Evidence and learning work after Explorer
 
+The October 2 parallel build adds [Da Qing source coverage](DA_QING_SOURCE_COVERAGE.md),
+conservative clinical chronology checks and robust competing-hazard arithmetic.
+The new source supplies updated diagnosis-history mortality observations while
+retaining its failed count-consistency check. The [cross-code parity tool](MODEL_PARITY.md)
+saves complete outputs before changes and checks six scenarios and paired
+uncertainty afterward. These advances preserve the unresolved clinical gates;
+source reproduction and numerical parity are separate from clinical acceptance.
+
 Implementation tracking for the maintainer's requested next steps, September 29,
 2026. This preserves the full scientific objective; a completed software feature
 does not satisfy an unresolved empirical requirement.

@@ -121,6 +121,15 @@ See the [design RFC](rfcs/RFC-58-reus-source-and-compatibility.md),
 [frozen protocol](validation/reus-diabetes-protocol-v1.json), and
 [dependency amendment](validation/reus-diabetes-amendment-1.json).
 
+The original frozen results and dependency amendment remain unchanged. An
+[additive numerical amendment](validation/reus-diabetes-amendment-2.json)
+now pins the repaired annual competing-hazard helper after extreme finite
+hazards exposed overflow/underflow failures. The
+[separate replay](validation/reus-compatibility-numerics-v2-replay.json)
+exactly reproduces every original synthetic witness result with unchanged
+reference definitions, equations and tolerances. Only implementation/provenance
+changes are declared; neither version fits or activates a clinical effect.
+
 ## Run the source reproduction
 
 Start with [Getting started](GETTING_STARTED.md), then open a terminal in the

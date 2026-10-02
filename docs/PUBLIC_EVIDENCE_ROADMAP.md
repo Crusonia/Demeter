@@ -1,5 +1,12 @@
 # Building Demeter with public evidence
 
+The [Da Qing aggregate source audit](DA_QING_SOURCE_COVERAGE.md) now reproduces
+published death/person-year observations by updated age and time before or since
+recorded diagnosis. It preserves a narrative/table count disagreement and the
+distinction between time-updated diagnosis history and current glycemic state.
+No clinical rate or food effect is fitted. The original diet-only assignment is
+a separate lead; pooled later intervention reports cannot substitute for it.
+
 The [Stanford iPOP working analysis](IPOP_A1C_WORKING_FIT.md) and its
 [predictive uncertainty supplement](IPOP_PREDICTIVE_UNCERTAINTY.md) are completed
 under separately frozen, explicit measurement/clock and reporting assumptions.

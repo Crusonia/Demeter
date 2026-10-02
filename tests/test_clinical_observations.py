@@ -405,3 +405,111 @@ def test_conflicting_same_unit_histories_are_reported_not_rewritten(registered_p
     assert report["contradictions"]["last_contact_before_last_glucose"] == 1
     assert not report["clinical_fit_allowed"]
     assert registered_payload == original
+
+
+def chronology_payload(registered_payload):
+    """Reuse registered arbitrary clocks; these are not clinical observations."""
+    participant = registered_payload["participants"][0]
+    early, middle, late = [
+        copy.deepcopy(item["time"]) for item in participant["glucose_observations"]
+    ]
+    assert early["day"] < middle["day"] < late["day"]
+    participant["events"].update(death_status=True, death_time=middle)
+    participant["glucose_observations"] = [participant["glucose_observations"][-1]]
+    participant["diagnosis_observations"] = []
+    participant["follow_up"]["last_glucose_time"] = early
+    participant["treatment_changes"][0]["time"] = late
+    registered_payload["participants"] = [participant]
+    return participant, early, middle, late
+
+
+def test_measured_collection_and_known_treatment_after_death_are_contradictions(
+    registered_payload,
+):
+    participant, _, _, _ = chronology_payload(registered_payload)
+    original = copy.deepcopy(registered_payload)
+    report = summarize_observations(preserve_observations(registered_payload))
+    assert report["contradictions"] == {
+        "glucose_collection_after_death": 1,
+        "glucose_collection_after_last_glucose": 1,
+        "treatment_change_after_death": 1,
+    }
+    assert not report["clinical_fit_allowed"]
+    assert registered_payload == original
+    assert participant["record_id"] not in json.dumps(report)
+
+
+@pytest.mark.parametrize("status", ["missing", "unknown"])
+def test_dated_unmeasured_item_does_not_establish_collection_after_death(
+    registered_payload, status
+):
+    participant, _, _, _ = chronology_payload(registered_payload)
+    participant["glucose_observations"][0].update(status=status, value=None)
+    participant["treatment_changes"][0]["action"] = "unknown"
+    report = summarize_observations(preserve_observations(registered_payload))
+    assert report["contradictions"] == {}
+    assert (
+        report["unresolved_observations"]["unobserved_glucose_time_after_death_role_unresolved"]
+        == 1
+    )
+    assert report["unresolved_observations"]["treatment_change_unresolved"] == 1
+    assert report["glucose"]["fasting_glucose"]["status"] == {status: 1}
+
+
+@pytest.mark.parametrize("death_status", [None, False])
+def test_recorded_time_does_not_infer_death_for_new_ordering_checks(
+    registered_payload, death_status
+):
+    participant, _, _, late = chronology_payload(registered_payload)
+    participant["events"]["death_status"] = death_status
+    participant["follow_up"]["last_glucose_time"] = late
+    report = summarize_observations(preserve_observations(registered_payload))
+    assert not any(
+        key in report["contradictions"]
+        for key in (
+            "glucose_collection_after_death",
+            "last_glucose_after_death",
+            "treatment_change_after_death",
+        )
+    )
+
+
+def test_known_last_glucose_after_death_is_reported_without_assessment_records(
+    registered_payload,
+):
+    participant, _, _, late = chronology_payload(registered_payload)
+    participant["follow_up"]["last_glucose_time"] = late
+    participant["glucose_observations"] = []
+    participant["treatment_changes"] = []
+    report = summarize_observations(preserve_observations(registered_payload))
+    assert report["contradictions"] == {"last_glucose_after_death": 1}
+
+
+@pytest.mark.parametrize("clock_kind", ["unknown", "overlapping", "touching", "separated"])
+def test_chronology_uses_proven_interval_order_without_midpoint_or_boundary_invention(
+    registered_payload, clock_kind
+):
+    participant, early, middle, late = chronology_payload(registered_payload)
+    participant["treatment_changes"] = []
+    participant["follow_up"]["last_glucose_time"] = {"kind": "unknown"}
+    if clock_kind == "unknown":
+        participant["events"]["death_time"] = {"kind": "unknown"}
+    else:
+        participant["events"]["death_time"] = {
+            "kind": "interval",
+            "lower_day": early["day"],
+            "upper_day": middle["day"],
+        }
+        item = participant["glucose_observations"][0]
+        lower = late["day"] if clock_kind == "separated" else middle["day"]
+        if clock_kind == "overlapping":
+            lower = early["day"]
+        item["time"] = {
+            "kind": "interval",
+            "lower_day": lower,
+            "upper_day": participant["follow_up"]["last_contact_time"]["day"],
+        }
+    report = summarize_observations(preserve_observations(registered_payload))
+    assert report["contradictions"] == (
+        {"glucose_collection_after_death": 1} if clock_kind == "separated" else {}
+    )

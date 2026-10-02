@@ -573,6 +573,14 @@
         {
           "path": "docs/validation/issue-58-reus-before-after.json",
           "sha256": "2d3bc49e98cf90951a054eb0542303ca52d06416b3a30f555cc94afa214ae53f"
+        },
+        {
+          "path": "docs/validation/reus-diabetes-amendment-2.json",
+          "sha256": "6e5587848b231d639e263f15aa1a3df90708ec908f2588ae688beb6b281841a9"
+        },
+        {
+          "path": "docs/validation/reus-compatibility-numerics-v2-replay.json",
+          "sha256": "d961107a56f85ff0eeb51494a78fdb36905b0c4ae720833df7450587ef8064b8"
         }
       ],
       "transform_files": [
@@ -1201,6 +1209,38 @@
       ],
       "model_role": "conditional_empirical_working_analysis_only",
       "redistribution": "Attributed conditional aggregate diagnostics and immutable protocols only. Failed v1 point estimates remain null; its successful bootstrap subset is conditional. Adaptive v2 repair is frozen separately after v1 outcomes and supplies working estimates with profile limitations and all resampling dispositions retained. No clinical or engine activation. Complete source clinical/metadata bytes remain fetch-only, with no participant identifiers, assays, coordinates, crosswalks or paths bundled."
+    },
+    "da_qing_source_coverage": {
+      "store": null,
+      "dependencies": [],
+      "registry_datasets": [
+        "da_qing_source_coverage"
+      ],
+      "registry_parameters": [],
+      "artifacts": [
+        {
+          "path": "docs/validation/da-qing-source-audit-protocol-v1.json",
+          "sha256": "01a9da2afadb9e6ac20327cf91694433f4eb17bb14b37b5255b4b49422e10bda"
+        },
+        {
+          "path": "docs/validation/da-qing-source-coverage-v1.json",
+          "sha256": "bc9dfc8bca49f4a214f2807f6fb1906c882c2eafaf06f80708987c3c71cb313f"
+        },
+        {
+          "path": "docs/DA_QING_SOURCE_COVERAGE.md",
+          "sha256": "e793f77984f7253fb45c5216f2d4dd131788cea10ca1d509dca93992b3fdf575"
+        }
+      ],
+      "transform_files": [
+        "src/demeter/analysis/da_qing_coverage.py",
+        "scripts/verify_da_qing_source_coverage.py"
+      ],
+      "rebuild": [
+        "uv run python scripts/verify_da_qing_source_coverage.py",
+        "Optional exact local article replay: add --article-cache PATH. Exit 1 currently preserves the source-count discrepancy; artifact reproduction is reported separately."
+      ],
+      "model_role": "benchmark_only",
+      "redistribution": "Attributed literal publication-level aggregate facts, original authored audit/coverage and immutable used-source protocol only. Full copyrighted article HTML/PDF and publisher layout are fetch-only and excluded. No participant records, fitted clinical rate, independent sampling distribution or engine activation."
     }
   },
   "supporting_artifacts": [

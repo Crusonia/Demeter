@@ -1,0 +1,578 @@
+{
+  "schema_version": "da-qing-source-coverage-v1",
+  "source_id": "da_qing2016_mortality_publication",
+  "protocol_sha256": "01a9da2afadb9e6ac20327cf91694433f4eb17bb14b37b5255b4b49422e10bda",
+  "model_role": "benchmark_only",
+  "actual_source_receipt": {
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5001147/",
+    "retrieved_at_utc": "2026-10-02T14:38:52.750834+00:00",
+    "participant_data": false,
+    "status": 200,
+    "final_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5001147/",
+    "content_type": "text/html; charset=utf-8",
+    "bytes": 175381,
+    "sha256": "442bf71b2b4d08eebba024bcd4fec2177bcb6251690a3c838d9d7a44d9d0c9af",
+    "expected_content_verified": true,
+    "cache_path": "gong2016-pmc-article.html",
+    "citation": "Gong Q et al. Changes in Mortality in People With IGT Before and After the Onset of Diabetes During the 23-Year Follow-up of the Da Qing Diabetes Prevention Study. Diabetes Care. 2016;39(9):1550-1555.",
+    "doi": "10.2337/dc16-0429",
+    "raw_filename": "gong2016-pmc-article.html",
+    "license": "ADA copyright2016; educational, not-for-profit, unaltered use with citation. Public access does not establish unrestricted redistribution. Fetch-only documentation."
+  },
+  "acquisition_receipts": [
+    {
+      "url": "https://stacks.cdc.gov/view/cdc/106845/cdc_106845_DS1.pdf",
+      "retrieved_at_utc": "2026-10-02T14:38:51.923600+00:00",
+      "participant_data": false,
+      "status": 403,
+      "disposition": "ordinary public GET failed; no challenge or credential interaction"
+    },
+    {
+      "url": "https://stacks.cdc.gov/view/cdc/106845",
+      "retrieved_at_utc": "2026-10-02T14:38:52.604130+00:00",
+      "participant_data": false,
+      "status": 403,
+      "disposition": "ordinary public GET failed; no challenge or credential interaction"
+    },
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5001147/",
+      "retrieved_at_utc": "2026-10-02T14:38:52.750834+00:00",
+      "participant_data": false,
+      "status": 200,
+      "final_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5001147/",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 175381,
+      "sha256": "442bf71b2b4d08eebba024bcd4fec2177bcb6251690a3c838d9d7a44d9d0c9af",
+      "expected_content_verified": true,
+      "cache_path": "gong2016-pmc-article.html",
+      "citation": "Gong Q et al. Changes in Mortality in People With IGT Before and After the Onset of Diabetes During the 23-Year Follow-up of the Da Qing Diabetes Prevention Study. Diabetes Care. 2016;39(9):1550-1555.",
+      "doi": "10.2337/dc16-0429",
+      "raw_filename": "gong2016-pmc-article.html",
+      "license": "ADA copyright2016; educational, not-for-profit, unaltered use with citation. Public access does not establish unrestricted redistribution. Fetch-only documentation."
+    },
+    {
+      "url": "https://diabetesjournals.org/care/article-pdf/20/4/537/584483/20-4-537.pdf",
+      "retrieved_at_utc": "2026-10-02T14:38:53.206035+00:00",
+      "participant_data": false,
+      "status": 403,
+      "disposition": "ordinary public GET failed; no challenge or credential interaction"
+    },
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5001147/pdf/dc160429.pdf",
+      "retrieved_at_utc": "2026-10-02T14:40:16.912913+00:00",
+      "participant_data": false,
+      "status": 200,
+      "final_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5001147/pdf/dc160429.pdf",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 1817,
+      "sha256": "f13280371190d01de7c72a1f8fca48a27d3c06b5a9afb0b27bef4782ff1a5252",
+      "expected_content_verified": false,
+      "disposition": "unexpected media or challenge; no document cache; no challenge interaction"
+    },
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/instance/5001147/bin/DC160429SupplementaryData.pdf",
+      "retrieved_at_utc": "2026-10-02T14:40:17.216580+00:00",
+      "participant_data": false,
+      "status": 200,
+      "final_url": "https://pmc.ncbi.nlm.nih.gov/articles/instance/5001147/bin/DC160429SupplementaryData.pdf",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 1817,
+      "sha256": "e453083d5286690c068421ce60de8346a439a4a46cdb2bf7620380b43206c071",
+      "expected_content_verified": false,
+      "disposition": "unexpected media or challenge; no document cache; no challenge interaction"
+    },
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8172050/",
+      "retrieved_at_utc": "2026-10-02T14:40:17.431097+00:00",
+      "participant_data": false,
+      "status": 200,
+      "final_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8172050/",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 216520,
+      "sha256": "20260c0c749dfc8789176aecacb6b24edd69ace4b6dd2c801ce2d907a0bab4b1",
+      "expected_content_verified": true,
+      "cache_path": "gong2019-pmc-article.html"
+    }
+  ],
+  "observations": {
+    "source_id": "da_qing2016_mortality_publication",
+    "death_exposure_table": {
+      "before_diagnosis": {
+        "source_group_label": "Time before onset of diabetes (years)",
+        "rows": {
+          "0–5": {
+            "25–59": {
+              "deaths": 8,
+              "person_years": 2048,
+              "source_literal": "8/2,048",
+              "source_locator": "Table 2 #T2/tbody/tr[2]/td[2]"
+            },
+            "60–69": {
+              "deaths": 7,
+              "person_years": 198,
+              "source_literal": "7/198",
+              "source_locator": "Table 2 #T2/tbody/tr[2]/td[4]"
+            },
+            "≥70": {
+              "deaths": 1,
+              "person_years": 25,
+              "source_literal": "1/25",
+              "source_locator": "Table 2 #T2/tbody/tr[2]/td[6]"
+            },
+            "All ages": {
+              "deaths": 16,
+              "person_years": 2271,
+              "source_literal": "16/2,271",
+              "source_locator": "Table 2 #T2/tbody/tr[2]/td[8]"
+            }
+          },
+          "5–10": {
+            "25–59": {
+              "deaths": 7,
+              "person_years": 1005,
+              "source_literal": "7/1,005",
+              "source_locator": "Table 2 #T2/tbody/tr[3]/td[2]"
+            },
+            "60–69": {
+              "deaths": 3,
+              "person_years": 227,
+              "source_literal": "3/227",
+              "source_locator": "Table 2 #T2/tbody/tr[3]/td[4]"
+            },
+            "≥70": {
+              "deaths": 1,
+              "person_years": 30,
+              "source_literal": "1/30",
+              "source_locator": "Table 2 #T2/tbody/tr[3]/td[6]"
+            },
+            "All ages": {
+              "deaths": 11,
+              "person_years": 1262,
+              "source_literal": "11/1,262",
+              "source_locator": "Table 2 #T2/tbody/tr[3]/td[8]"
+            }
+          },
+          "10–15": {
+            "25–59": {
+              "deaths": 0,
+              "person_years": 571,
+              "source_literal": "0/571",
+              "source_locator": "Table 2 #T2/tbody/tr[4]/td[2]"
+            },
+            "60–69": {
+              "deaths": 0,
+              "person_years": 219,
+              "source_literal": "0/219",
+              "source_locator": "Table 2 #T2/tbody/tr[4]/td[4]"
+            },
+            "≥70": {
+              "deaths": 4,
+              "person_years": 67,
+              "source_literal": "4/67",
+              "source_locator": "Table 2 #T2/tbody/tr[4]/td[6]"
+            },
+            "All ages": {
+              "deaths": 4,
+              "person_years": 857,
+              "source_literal": "4/857",
+              "source_locator": "Table 2 #T2/tbody/tr[4]/td[8]"
+            }
+          },
+          "≥15": {
+            "25–59": {
+              "deaths": 1,
+              "person_years": 403,
+              "source_literal": "1/403",
+              "source_locator": "Table 2 #T2/tbody/tr[5]/td[2]"
+            },
+            "60–69": {
+              "deaths": 3,
+              "person_years": 260,
+              "source_literal": "3/260",
+              "source_locator": "Table 2 #T2/tbody/tr[5]/td[4]"
+            },
+            "≥70": {
+              "deaths": 9,
+              "person_years": 135,
+              "source_literal": "9/135",
+              "source_locator": "Table 2 #T2/tbody/tr[5]/td[6]"
+            },
+            "All ages": {
+              "deaths": 13,
+              "person_years": 798,
+              "source_literal": "13/798",
+              "source_locator": "Table 2 #T2/tbody/tr[5]/td[8]"
+            }
+          }
+        },
+        "totals": {
+          "25–59": {
+            "deaths": 16,
+            "person_years": 4027,
+            "source_literal": "16/4,027",
+            "source_locator": "Table 2 #T2/tbody/tr[6]/td[2]"
+          },
+          "60–69": {
+            "deaths": 13,
+            "person_years": 904,
+            "source_literal": "13/904",
+            "source_locator": "Table 2 #T2/tbody/tr[6]/td[4]"
+          },
+          "≥70": {
+            "deaths": 15,
+            "person_years": 257,
+            "source_literal": "15/257",
+            "source_locator": "Table 2 #T2/tbody/tr[6]/td[6]"
+          },
+          "All ages": {
+            "deaths": 44,
+            "person_years": 5188,
+            "source_literal": "44/5,188",
+            "source_locator": "Table 2 #T2/tbody/tr[6]/td[8]"
+          }
+        }
+      },
+      "after_diagnosis": {
+        "source_group_label": "Diabetes duration (years)",
+        "rows": {
+          "0–5": {
+            "25–59": {
+              "deaths": 8,
+              "person_years": 1435,
+              "source_literal": "8/1,435",
+              "source_locator": "Table 2 #T2/tbody/tr[8]/td[2]"
+            },
+            "60–69": {
+              "deaths": 18,
+              "person_years": 441,
+              "source_literal": "18/441",
+              "source_locator": "Table 2 #T2/tbody/tr[8]/td[4]"
+            },
+            "≥70": {
+              "deaths": 9,
+              "person_years": 125,
+              "source_literal": "9/125",
+              "source_locator": "Table 2 #T2/tbody/tr[8]/td[6]"
+            },
+            "All ages": {
+              "deaths": 35,
+              "person_years": 2001,
+              "source_literal": "35/2,001",
+              "source_locator": "Table 2 #T2/tbody/tr[8]/td[8]"
+            }
+          },
+          "5–10": {
+            "25–59": {
+              "deaths": 12,
+              "person_years": 985,
+              "source_literal": "12/985",
+              "source_locator": "Table 2 #T2/tbody/tr[9]/td[2]"
+            },
+            "60–69": {
+              "deaths": 12,
+              "person_years": 546,
+              "source_literal": "12/546",
+              "source_locator": "Table 2 #T2/tbody/tr[9]/td[4]"
+            },
+            "≥70": {
+              "deaths": 12,
+              "person_years": 140,
+              "source_literal": "12/140",
+              "source_locator": "Table 2 #T2/tbody/tr[9]/td[6]"
+            },
+            "All ages": {
+              "deaths": 36,
+              "person_years": 1671,
+              "source_literal": "36/1,671",
+              "source_locator": "Table 2 #T2/tbody/tr[9]/td[8]"
+            }
+          },
+          "10–15": {
+            "25–59": {
+              "deaths": 7,
+              "person_years": 578,
+              "source_literal": "7/578",
+              "source_locator": "Table 2 #T2/tbody/tr[10]/td[2]"
+            },
+            "60–69": {
+              "deaths": 11,
+              "person_years": 490,
+              "source_literal": "11/490",
+              "source_locator": "Table 2 #T2/tbody/tr[10]/td[4]"
+            },
+            "≥70": {
+              "deaths": 14,
+              "person_years": 181,
+              "source_literal": "14/181",
+              "source_locator": "Table 2 #T2/tbody/tr[10]/td[6]"
+            },
+            "All ages": {
+              "deaths": 32,
+              "person_years": 1249,
+              "source_literal": "32/1,249",
+              "source_locator": "Table 2 #T2/tbody/tr[10]/td[8]"
+            }
+          },
+          "≥15": {
+            "25–59": {
+              "deaths": 4,
+              "person_years": 269,
+              "source_literal": "4/269",
+              "source_locator": "Table 2 #T2/tbody/tr[11]/td[2]"
+            },
+            "60–69": {
+              "deaths": 11,
+              "person_years": 369,
+              "source_literal": "11/369",
+              "source_locator": "Table 2 #T2/tbody/tr[11]/td[4]"
+            },
+            "≥70": {
+              "deaths": 12,
+              "person_years": 204,
+              "source_literal": "12/204",
+              "source_locator": "Table 2 #T2/tbody/tr[11]/td[6]"
+            },
+            "All ages": {
+              "deaths": 27,
+              "person_years": 842,
+              "source_literal": "27/842",
+              "source_locator": "Table 2 #T2/tbody/tr[11]/td[8]"
+            }
+          }
+        },
+        "totals": {
+          "25–59": {
+            "deaths": 31,
+            "person_years": 3267,
+            "source_literal": "31/3,267",
+            "source_locator": "Table 2 #T2/tbody/tr[12]/td[2]"
+          },
+          "60–69": {
+            "deaths": 52,
+            "person_years": 1846,
+            "source_literal": "52/1,846",
+            "source_locator": "Table 2 #T2/tbody/tr[12]/td[4]"
+          },
+          "≥70": {
+            "deaths": 47,
+            "person_years": 650,
+            "source_literal": "47/650",
+            "source_locator": "Table 2 #T2/tbody/tr[12]/td[6]"
+          },
+          "All ages": {
+            "deaths": 130,
+            "person_years": 5763,
+            "source_literal": "130/5,763",
+            "source_locator": "Table 2 #T2/tbody/tr[12]/td[8]"
+          }
+        }
+      }
+    },
+    "diagnosis_time_cohort_counts": [
+      {
+        "source_label": "0–10",
+        "n": 319,
+        "deaths": 125
+      },
+      {
+        "source_label": "10–20",
+        "n": 118,
+        "deaths": 37
+      },
+      {
+        "source_label": ">20 or never",
+        "n": 105,
+        "deaths": 12
+      }
+    ],
+    "narrative_incident_diabetes_n": 428,
+    "narrative_followed_cohort_n": 542,
+    "narrative_deaths_n": 174,
+    "narrative_source_locator": "Results, paragraph beginning 'The vital status'; (428 of 542; 79.0%)"
+  },
+  "audit": {
+    "kind": "da_qing_literal_aggregate_source_audit",
+    "source_id": "da_qing2016_mortality_publication",
+    "table_arithmetic_checks": [
+      {
+        "id": "before_diagnosis/0–5/deaths/row_total",
+        "passed": true
+      },
+      {
+        "id": "before_diagnosis/0–5/person_years/row_total",
+        "passed": true
+      },
+      {
+        "id": "before_diagnosis/5–10/deaths/row_total",
+        "passed": true
+      },
+      {
+        "id": "before_diagnosis/5–10/person_years/row_total",
+        "passed": true
+      },
+      {
+        "id": "before_diagnosis/10–15/deaths/row_total",
+        "passed": true
+      },
+      {
+        "id": "before_diagnosis/10–15/person_years/row_total",
+        "passed": true
+      },
+      {
+        "id": "before_diagnosis/≥15/deaths/row_total",
+        "passed": true
+      },
+      {
+        "id": "before_diagnosis/≥15/person_years/row_total",
+        "passed": true
+      },
+      {
+        "id": "before_diagnosis/25–59/deaths/column_total",
+        "passed": true
+      },
+      {
+        "id": "before_diagnosis/25–59/person_years/column_total",
+        "passed": true
+      },
+      {
+        "id": "before_diagnosis/60–69/deaths/column_total",
+        "passed": true
+      },
+      {
+        "id": "before_diagnosis/60–69/person_years/column_total",
+        "passed": true
+      },
+      {
+        "id": "before_diagnosis/≥70/deaths/column_total",
+        "passed": true
+      },
+      {
+        "id": "before_diagnosis/≥70/person_years/column_total",
+        "passed": true
+      },
+      {
+        "id": "before_diagnosis/All ages/deaths/column_total",
+        "passed": true
+      },
+      {
+        "id": "before_diagnosis/All ages/person_years/column_total",
+        "passed": true
+      },
+      {
+        "id": "after_diagnosis/0–5/deaths/row_total",
+        "passed": true
+      },
+      {
+        "id": "after_diagnosis/0–5/person_years/row_total",
+        "passed": true
+      },
+      {
+        "id": "after_diagnosis/5–10/deaths/row_total",
+        "passed": true
+      },
+      {
+        "id": "after_diagnosis/5–10/person_years/row_total",
+        "passed": true
+      },
+      {
+        "id": "after_diagnosis/10–15/deaths/row_total",
+        "passed": true
+      },
+      {
+        "id": "after_diagnosis/10–15/person_years/row_total",
+        "passed": true
+      },
+      {
+        "id": "after_diagnosis/≥15/deaths/row_total",
+        "passed": true
+      },
+      {
+        "id": "after_diagnosis/≥15/person_years/row_total",
+        "passed": true
+      },
+      {
+        "id": "after_diagnosis/25–59/deaths/column_total",
+        "passed": true
+      },
+      {
+        "id": "after_diagnosis/25–59/person_years/column_total",
+        "passed": true
+      },
+      {
+        "id": "after_diagnosis/60–69/deaths/column_total",
+        "passed": true
+      },
+      {
+        "id": "after_diagnosis/60–69/person_years/column_total",
+        "passed": true
+      },
+      {
+        "id": "after_diagnosis/≥70/deaths/column_total",
+        "passed": true
+      },
+      {
+        "id": "after_diagnosis/≥70/person_years/column_total",
+        "passed": true
+      },
+      {
+        "id": "after_diagnosis/All ages/deaths/column_total",
+        "passed": true
+      },
+      {
+        "id": "after_diagnosis/All ages/person_years/column_total",
+        "passed": true
+      },
+      {
+        "id": "diagnosis_time_cohort_partition",
+        "passed": true
+      },
+      {
+        "id": "diagnosis_time_cohort_deaths_equal_narrative",
+        "passed": true
+      },
+      {
+        "id": "before_after_deaths_equal_narrative",
+        "passed": true
+      }
+    ],
+    "table_arithmetic_passed": true,
+    "source_consistency_check": {
+      "id": "incident_diabetes_narrative_covers_first_two_time_groups",
+      "passed": false,
+      "narrative_incident_diabetes_n": 428,
+      "first_two_time_groups_n": 437,
+      "disposition": "Unreconciled source-level count discrepancy; no value corrected or substituted"
+    },
+    "source_consistency_passed": false,
+    "selected_age_time_cells": 24,
+    "model_role": "benchmark_only",
+    "clinical_fit_allowed": false,
+    "engine_activation_allowed": false,
+    "scientific_release_ready": false,
+    "independent_validation": false,
+    "uncertainty": "No likelihood or independent draws assigned to repeated person-time or clinic clusters"
+  },
+  "population": "Original impaired-glucose-tolerance trial cohort in Da Qing, China; retained clinical follow-up subset. Pooled clinic-randomized diet/exercise interventions and control; no current-state or U.S. mapping.",
+  "time_period": "1986-2009; scheduled OGTT during original trial, then mainly clinical diagnosis ascertainment between later follow-up assessments.",
+  "unit": "Literal deaths and published whole person-years by updated age and time before or since recorded diabetes diagnosis",
+  "uncertainty": "Source observations retain displayed precision. No sampling distribution, confidence interval, covariance or independence assumption imposed; repeated person-time and clinic dependence unresolved.",
+  "rights": "Source HTML excluded from repository and distribution. Only attributed literal public aggregate facts, authored audit and receipts are committed; no participant records.",
+  "clinical_unknowns": [
+    "Baseline IGT does not guarantee persistent IGT before diagnosis; current glycemic reversion is not observed here",
+    "Dates after the original trial depend mainly on clinical diagnoses rather than systematic scheduled OGTTs",
+    "Displayed person-years are rounded aggregates, not individual clocks or complete linked histories",
+    "Intervention groups are pooled in this mortality analysis; it does not isolate diet-only assignment",
+    "Time-dependent association is not a causal effect of changing diabetes state",
+    "Incomplete follow-up and baseline-only confounder adjustment do not establish ignorable selection or transport to the U.S."
+  ],
+  "design_inputs": [
+    "I-01",
+    "I-07",
+    "I-11",
+    "I-12",
+    "F-04",
+    "F-08",
+    "T-05",
+    "T-08"
+  ]
+}

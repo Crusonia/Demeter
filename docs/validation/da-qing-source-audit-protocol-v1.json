@@ -1,0 +1,44 @@
+{
+  "protocol_version": "da-qing-source-audit-v1",
+  "recorded_at_utc": "2026-10-02T14:45:05Z",
+  "scope": "Used-source literal aggregate extraction and consistency checks only; no rate fitting, uncertainty simulation or clinical activation",
+  "chronology": "Published outcomes and Table 2 were inspected before this plan; this is an analysis plan recorded before automated extraction, not preregistration or independent validation",
+  "source_id": "da_qing2016_mortality_publication",
+  "source": {
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5001147/",
+    "doi": "10.2337/dc16-0429",
+    "pmcid": "PMC5001147",
+    "sha256": "442bf71b2b4d08eebba024bcd4fec2177bcb6251690a3c838d9d7a44d9d0c9af",
+    "size_bytes": 175381,
+    "retrieved_at_utc": "2026-10-02T14:38:52.750834+00:00",
+    "cache_disposition": "fetch_only; ignored research documentation; source article not redistributed",
+    "intended_cache_path": "outputs/da-qing-source-sprint-v1/gong2016-pmc-article.html"
+  },
+  "selection": {
+    "table_id": "T2",
+    "table_caption": "Death rates (per 1,000 person-years) before and after the onset of diabetes",
+    "selected_columns": "Only literal death-count/person-year pairs; published rates and age-standardized rates are not selected or recomputed",
+    "age_labels": ["25–59", "60–69", "≥70"],
+    "duration_labels": ["0–5", "5–10", "10–15", "≥15"],
+    "group_labels": ["Time before onset of diabetes (years)", "Diabetes duration (years)"],
+    "counts_and_exposure": "Published integer death counts and whole person-years; preserve displayed precision",
+    "time_semantics": "Updated age; time before recorded diagnosis or duration since recorded diagnosis, not biological onset or full current glycemic state",
+    "crosschecks": "Compare selected cells with all-age row totals and age-column total rows; compare Table 1 denominators with reported total followed cohort and total deaths; retain narrative incident-diabetes discrepancy",
+    "failure_policy": "Raise on corrupted source/schema/extraction; return observed failed consistency checks without changing source values or tolerances"
+  },
+  "scientific_gates": {
+    "clinical_fit_allowed": false,
+    "engine_activation_allowed": false,
+    "scientific_release_ready": false,
+    "independent_validation": false
+  },
+  "uncertainty": "No sampling distribution is imposed. Repeated person-time and clinic assignment are preserved; no independent Poisson/binomial draws, confidence intervals or joint covariance are invented.",
+  "limits": [
+    "Baseline IGT does not guarantee persistent IGT before diagnosis; current glycemic reversion is not observed here",
+    "Dates after the original trial depend mainly on clinical diagnoses rather than systematic scheduled OGTTs",
+    "Displayed person-years are rounded aggregates, not individual clocks or complete linked histories",
+    "Intervention groups are pooled in this mortality analysis; it does not isolate diet-only assignment",
+    "Time-dependent association is not a causal effect of changing diabetes state",
+    "Incomplete follow-up and baseline-only confounder adjustment do not establish ignorable selection or transport to the U.S."
+  ]
+}

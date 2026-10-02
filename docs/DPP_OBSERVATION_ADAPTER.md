@@ -163,6 +163,23 @@ structural validation. `summarize_observations(batch)` returns aggregate counts,
 unknowns, definite same-unit contradictions and fit blockers. It does not emit
 participant identifiers or individual measurements.
 
+The chronology audit now reports measured glucose collections later than the
+supplied last-glucose time, a supplied last-glucose time after known death, and
+known treatment actions after known death. A dated missing or unknown glucose
+entry does not establish a measured collection; if its time is after known
+death, the audit records its unresolved timing role instead of a collection
+contradiction. It does not assume that the date represents a planned appointment
+or that a specimen was collected. First-positive and confirmation timestamps
+likewise do not acquire an unverified collection-date meaning.
+
+These checks compare only supplied relative-day clocks and only report an order
+when the earlier interval's upper bound is strictly below the later interval's
+lower bound. Unknown, overlapping or touching bounds do not prove an order;
+no midpoint, guessed boundary convention or source-year conversion is used.
+They require an explicit positive death status, retain the input unchanged, and
+do not infer survival, independent censoring or fit eligibility. The original
+registered synthetic fixture's aggregate summary is unchanged by these checks.
+
 After validation, participants, observations, treatment changes and test
 references are immutable collections inside frozen objects. JSON inputs and
 exports still use arrays. This prevents later edits from bypassing validation;

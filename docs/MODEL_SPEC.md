@@ -24,13 +24,49 @@ From NCHS obtain annual `q[a]`, the probability of dying in the age interval. St
 
 This calibration uses the initial state shares. Freeze the resulting state-specific hazards throughout a scenario; recalibrating to each year's changing shares would erase the state-to-mortality mechanism. Annual deaths equal each stock times its state-specific death probability. Clinical hazard ratios are still synthetic. Reproducing aggregate mortality does not validate their decomposition.
 
+Calibration now verifies the reconstructed probabilities instead of assuming
+that a fixed base-hazard search bracket covers every positive state ratio. The
+established ordinary-case arithmetic remains unchanged. Where it misses a
+target, a normalized hazard coordinate and adaptive bracket avoid loss of root
+precision at small or large ratio scales. Positive targets are checked with
+relative error only; a zero target requires exactly zero state hazards. The
+verification bound is `4096 × float64 epsilon` (about `9.09e-13` relative), a
+computational bound preserving the existing solver's measured roundoff, not a
+clinical calibration or acceptance tolerance. Closed-interval probabilities
+must be below one; a probability of one cannot identify a finite hazard.
+Incomplete/invalid partitions or nonrepresentable state hazards fail explicitly;
+weights, ages and source values are not repaired to make calibration pass.
+
 The terminal source group has `q100 = 1` over its entire remaining lifetime; that is not an annual probability. For simulation, calibrate exponential state hazards so the frozen-state mean remaining lifetime matches source `e100`: `h100_base = sum_s(reference_share100[s]/r[s]) / source_e100`. Annual death probabilities are then `1 − exp(−h100_base × r[s])`. Period terminal years use `sum_s(current_share100[s]/h100[s])`. This tail holds states fixed; it does not model transitions within the tail.
+
+The terminal calculation retains its ordinary arithmetic and verifies the
+reconstructed remaining years. A fallback combines binary exponents before
+summing the nonnegative terms `reference_share[j] × r[s] / (r[j] × source_e100)`;
+this prevents an intermediate reciprocal overflow from destroying a finite
+answer. Returned state hazards must remain finite and positive in the tail.
+The computation still conditions on the supplied state shares and ratios; it
+does not identify either from the aggregate life table.
 
 ## Metabolic flows
 
 For healthy survivors, annual progression probability is `1 − exp(−lambda_HIR)`. For IR survivors, two competing hazards `lambda_IRH` and `lambda_IRD` give exit probability `1 − exp(−(lambda_IRH + lambda_IRD))`; divide exits in proportion to the two hazards. No survivor can exit twice. No T2D remission pathway is assumed. Pediatric progression is omitted.
 
 Unlike the former scaffold's bounded fractions, registered transition units are now **hazard per year**. Hazard values are nonnegative and may exceed 1; the exponential conversion guarantees valid probabilities.
+
+Finite competing hazards are partitioned without overflowing their sum or losing
+representable flows through an intermediate product of survivors and a hazard.
+Division precedes multiplication if that intermediate product would overflow
+or enter the subnormal range. When necessary, the calculation
+uses hazards divided by their maximum to retain the relative exit proportions.
+If a relative hazard is too small for a normal floating-point fraction, binary
+mantissas and exponents combine the stock and hazard before rescaling, retaining
+a representable flow even when the fraction alone would round to zero.
+For a hazard sum beyond floating-point range, `exp(-sum)` is already represented
+as zero, so all source survivors exit in those proportions. This is numerical
+evaluation of the same annual equation, not an empirical hazard cap. Safe
+ordinary-case arithmetic is preserved. The shared kernels also serve original
+cohort accounting and GLP-1 health transitions; mortality ordering, adult
+eligibility and the rule of one endpoint transition per year remain unchanged.
 
 ## Diet and lag
 
