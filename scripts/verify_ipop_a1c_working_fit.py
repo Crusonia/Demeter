@@ -51,6 +51,53 @@ def _roundoff_equal(value, expected, *, ulps):
     return abs(value - expected) <= ulps * abs(np.spacing(expected))
 
 
+def _ulp_distance(value, expected):
+    """Count float64 steps for nonnegative aggregate control values only."""
+    if any(type(x) not in (int, float) or not np.isfinite(x) or x < 0 for x in (value, expected)):
+        return None
+    bits = [int(np.asarray(x, dtype=np.float64).view(np.uint64).item()) for x in (value, expected)]
+    return abs(bits[0] - bits[1])
+
+
+def _profile_reconstruction_diagnostics(profile, model, settings, grid, cutoff):
+    """Safe aggregate controls only; no paths, source coordinates or labels."""
+    index = profile["rate_index"]
+    retained = [point["rate"] for point in profile["points"]]
+    distances = [_ulp_distance(a, b) for a, b in zip(retained, grid, strict=False)]
+    comparable = [value for value in distances if value is not None]
+    numeric = all(type(x) in (int, float) and np.isfinite(x) for x in retained)
+    stored_cutoff = profile["support_cutoff"]
+    return {
+        "profile_index": index,
+        "retained_point_count": len(retained),
+        "expected_point_count": len(grid),
+        "mismatched_grid_indices": [
+            i
+            for i in range(max(len(retained), len(grid)))
+            if i >= min(len(retained), len(grid))
+            or not _roundoff_equal(retained[i], grid[i], ulps=4)
+        ],
+        "max_grid_ulp_distance": max(comparable) if comparable else None,
+        "retained_cutoff": float(stored_cutoff)
+        if type(stored_cutoff) in (int, float) and np.isfinite(stored_cutoff)
+        else None,
+        "expected_cutoff": cutoff,
+        "cutoff_ulp_distance": _ulp_distance(stored_cutoff, cutoff),
+        "zero_endpoint_exact": bool(retained) and retained[0] == 0.0,
+        "cap_endpoint_exact": bool(retained) and retained[-1] == settings.rate_upper_bounds[index],
+        "fitted_coordinate_exact": model["rates"][index] in retained,
+        "point_order_strict": numeric
+        and all(b > a for a, b in zip(retained, retained[1:], strict=False)),
+        "rate_unit_matches": profile["rate_unit"] == "per_source_day",
+        "support_reference_matches": profile["support_reference"]
+        == "caller_declared_interior_asymptotic_only",
+        "interior_assumption_declared": profile[
+            "interior_reference_requires_correctly_specified_independent_label_model"
+        ]
+        is True,
+    }
+
+
 def _covariance_contract(value, dimension):
     covariance = np.asarray(value)
     if covariance.shape != (dimension, dimension) or not np.isfinite(covariance).all():
@@ -209,7 +256,11 @@ def _profile_contract(profile, model, settings, protocol):
         or profile["interior_reference_requires_correctly_specified_independent_label_model"]
         is not True
     ):
-        raise ValueError("Frozen profile grid or support controls drift")
+        diagnostics = _profile_reconstruction_diagnostics(profile, model, settings, grid, cutoff)
+        raise ValueError(
+            "Frozen profile grid or support controls drift: "
+            + json.dumps(diagnostics, sort_keys=True, allow_nan=False)
+        )
     # Annotation arithmetic follows the exact retained values used by the run.
     grid, cutoff = retained_grid, profile["support_cutoff"]
     accepted, failed, structural, better = [], 0, 0, False

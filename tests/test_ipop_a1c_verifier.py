@@ -672,6 +672,62 @@ def test_rehashed_profile_roundoff_does_not_admit_material_or_exact_control_drif
         ASSESS(_edited_report(tmp_path, edit, synthetic_available=True))
 
 
+@pytest.mark.parametrize("attack", ("ulp_drift", "missing_endpoint"))
+def test_profile_reconstruction_failure_reports_only_safe_aggregate_controls(tmp_path, attack):
+    def edit(report):
+        profile = report["profiles"]["adjacent"][0]
+        if attack == "ulp_drift":
+            for _ in range(5):
+                profile["points"][1]["rate"] = float(
+                    np.nextafter(profile["points"][1]["rate"], np.inf)
+                )
+            for _ in range(6):
+                profile["support_cutoff"] = float(np.nextafter(profile["support_cutoff"], np.inf))
+        else:
+            profile["points"].pop()
+
+    with pytest.raises(ValueError, match="Frozen profile grid or support controls drift:") as error:
+        ASSESS(_edited_report(tmp_path, edit, synthetic_available=True))
+    diagnostics = json.loads(str(error.value).split(": ", 1)[1])
+    assert set(diagnostics) == {
+        "profile_index",
+        "retained_point_count",
+        "expected_point_count",
+        "mismatched_grid_indices",
+        "max_grid_ulp_distance",
+        "retained_cutoff",
+        "expected_cutoff",
+        "cutoff_ulp_distance",
+        "zero_endpoint_exact",
+        "cap_endpoint_exact",
+        "fitted_coordinate_exact",
+        "point_order_strict",
+        "rate_unit_matches",
+        "support_reference_matches",
+        "interior_assumption_declared",
+    }
+    assert diagnostics["profile_index"] == 0
+    assert diagnostics["expected_point_count"] == 31
+    assert diagnostics["retained_point_count"] == (31 if attack == "ulp_drift" else 30)
+    assert diagnostics["mismatched_grid_indices"] == ([1] if attack == "ulp_drift" else [30])
+    assert diagnostics["max_grid_ulp_distance"] == (5 if attack == "ulp_drift" else 0)
+    assert diagnostics["cutoff_ulp_distance"] == (6 if attack == "ulp_drift" else 0)
+    assert diagnostics["expected_cutoff"] == float(chi2.ppf(0.95, 1))
+    assert diagnostics["retained_cutoff"] >= diagnostics["expected_cutoff"]
+    assert diagnostics["cap_endpoint_exact"] is (attack == "ulp_drift")
+    assert all(
+        diagnostics[key] is True
+        for key in (
+            "zero_endpoint_exact",
+            "fitted_coordinate_exact",
+            "point_order_strict",
+            "rate_unit_matches",
+            "support_reference_matches",
+            "interior_assumption_declared",
+        )
+    )
+
+
 def test_frozen_profile_builder_roundtrip_passes_with_mocked_toy_search(monkeypatch):
     """Real profile annotations around a mocked toy search, never an optimizer fit."""
     protocol = a1c.load_protocol()
