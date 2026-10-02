@@ -1138,7 +1138,7 @@
         },
         {
           "path": "docs/IPOP_A1C_WORKING_FIT.md",
-          "sha256": "3be941f4396bae3b6134601c62418e972926667a9f036d0555e4716a914b5b47"
+          "sha256": "88400f4a2c9827db80467a6cd18542cafb88dc80305d74d49637caf201eef5bb"
         },
         {
           "path": "docs/validation/ipop-a1c-working-result-v1.json",
@@ -1163,12 +1163,23 @@
         {
           "path": "docs/validation/ipop-a1c-simulation-preservation-v2.json",
           "sha256": "12f61aff411683893245a2d7d7cd01997e255214855b93f4b6180cc17050b0f1"
+        },
+        {
+          "path": "docs/IPOP_PREDICTIVE_UNCERTAINTY.md",
+          "sha256": "ae7e82e998afc7db4fb079e6824bd9361382bf192141533a873083ae75689d08"
+        },
+        {
+          "path": "docs/validation/ipop-a1c-predictive-summary-protocol-v1.json",
+          "sha256": "967c74c8c6d5bb208f307009b0198b8ec53abc2376594153cccb5d20af04818a"
         }
       ],
       "transform_files": [
         "src/demeter/analysis/laboratory_panel.py",
         "src/demeter/analysis/ipop_a1c.py",
-        "scripts/verify_ipop_a1c_working_fit.py"
+        "scripts/verify_ipop_a1c_working_fit.py",
+        "src/demeter/analysis/laboratory_bootstrap_reporting.py",
+        "scripts/replay_ipop_predictive_supplement.py",
+        "scripts/verify_ipop_predictive_supplement.py"
       ],
       "rebuild": [
         "uv run python scripts/verify_ipop_a1c_working_fit.py",

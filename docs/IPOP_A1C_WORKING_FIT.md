@@ -215,11 +215,19 @@ Whole-path bootstrap draws preserve dependence within each label. Joint
 covariance describes the four rates together; separate marginal summaries are
 not independent priors. Paired model comparisons use identical resampled training
 and evaluation labels. Failed draws are retained, not redrawn. Summaries over
-successful finite draws are conditional on success. Boundary/cap counts and both
+successful finite draws are conditional on success. V2 uses the same 199
+all-eight-finite draws for its log-score and Brier summaries: its Brier intervals
+are therefore also conditional on finite log-score support. They do not summarize
+every draw with a usable Brier difference. Boundary/cap counts and both
 attempted and successful draw counts must accompany percentile summaries. The
 v1 percentiles have only 43 contributing draws; 200 attempts do not give them
 200-draw resolution. Sampling uncertainty
 does not include linkage, units, treatment, visit selection, structure or transport.
+
+The separate [predictive-summary supplement](IPOP_PREDICTIVE_UNCERTAINTY.md)
+adds coordinate and metric-specific support, preserving the original joint
+summary. Its reporting estimands were selected after inspecting v2 and review;
+the original protocols, results, fits and engine gates remain unchanged.
 
 ## Remaining clinical work
 
