@@ -259,6 +259,13 @@ The manifests record source URLs, retrieval times, vintages, hashes, and transfo
 
 ## Next scientific gate
 
+The [Kerala recorded-endpoint analysis](docs/KERALA_ENDPOINT_BOUNDS.md) now
+shows how unknown trial outcomes can change the comparison between assigned
+regimens. It retains recorded diagnosis, glucose categories and death
+ascertainment as separate observations. The
+[source-specific observation design](docs/KERALA_OBSERVATION_MODEL.md) explains
+what a future clinical likelihood still needs; no clinical rates are activated.
+
 The [Da Qing source audit](docs/DA_QING_SOURCE_COVERAGE.md) reproduces public
 mortality observations that update diagnosis history during follow-up. Its
 source-count discrepancy, repeated person-time and current-state/causal mapping

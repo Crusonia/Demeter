@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "protocol_id": "kerala-recorded-endpoint-bounds-v1",
+  "authored_on": "2026-10-02",
+  "parent_protocol_path": "docs/validation/kerala-endpoint-bounds-protocol-v1.json",
+  "correction": "PDF text inspection places the Results/Incidence of diabetes paragraph on PDF page 10, not page 12 as the original locator stated. Participants also appears on page 10; Figure 1 remains page 11. The original protocol is retained unchanged.",
+  "survivor_condition": "Reported deaths are not proven to exhaust mortality among every assigned participant. Survivor bounds are unavailable by default and require an explicit extra complete-death-total assumption. Missing outcomes can include unascertained deaths."
+}

@@ -1,4 +1,252 @@
 parameters:
+  kerala_control_assigned_n:
+    key: kerala_control_assigned_n
+    value: 507
+    unit: people
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: Thankappan et al. 2018; Results/Participants and Incidence of diabetes (PDF page 10), Figure
+      1 (page 11)
+    source_id: kerala2018_primary_publication
+    source_url: https://journals.plos.org/plosmedicine/article/file?id=10.1371/journal.pmed.1002575&type=printable
+    citation: 'Thankappan KR et al. A peer-support lifestyle intervention for preventing type 2 diabetes
+      in India: A cluster-randomized controlled trial of the Kerala Diabetes Prevention Program. PLoS Med.
+      2018;15(6):e1002575.'
+    population: K-DPP high-risk adults assigned to Control; source recorded incidence endpoint, not latent
+      disease state
+    geography: Kerala, India
+    time_period: 2013 enrollment to nominal 24-month follow-up; publication 2018
+    exposure_definition: Assigned peer-support multicomponent lifestyle program or advice booklet, not an
+      isolated food exposure
+    outcome_definition: Literal primary-publication assigned; reported deaths are unlinked, cumulative and
+      not independently certified complete
+    transformation: Literal primary-publication count; optional pinned workbook arm-by-total-endpoint aggregate
+      cross-check
+    uncertainty:
+      kind: fixed
+      rationale: Exact count in this source-defined finite cohort; no sampling, selection, missing-outcome,
+        death-ascertainment or population uncertainty is thereby resolved.
+    lower_bound: 0
+    notes: Used-source benchmark only. No fitted clinical hazard, diagnosis erasure, independent-binomial
+      interval, national transport or engine activation.
+  kerala_control_known_endpoints_n:
+    key: kerala_control_known_endpoints_n
+    value: 463
+    unit: people
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: Thankappan et al. 2018; Results/Participants and Incidence of diabetes (PDF page 10), Figure
+      1 (page 11)
+    source_id: kerala2018_primary_publication
+    source_url: https://journals.plos.org/plosmedicine/article/file?id=10.1371/journal.pmed.1002575&type=printable
+    citation: 'Thankappan KR et al. A peer-support lifestyle intervention for preventing type 2 diabetes
+      in India: A cluster-randomized controlled trial of the Kerala Diabetes Prevention Program. PLoS Med.
+      2018;15(6):e1002575.'
+    population: K-DPP high-risk adults assigned to Control; source recorded incidence endpoint, not latent
+      disease state
+    geography: Kerala, India
+    time_period: 2013 enrollment to nominal 24-month follow-up; publication 2018
+    exposure_definition: Assigned peer-support multicomponent lifestyle program or advice booklet, not an
+      isolated food exposure
+    outcome_definition: Literal primary-publication known_endpoints; reported deaths are unlinked, cumulative
+      and not independently certified complete
+    transformation: Literal primary-publication count; optional pinned workbook arm-by-total-endpoint aggregate
+      cross-check
+    uncertainty:
+      kind: fixed
+      rationale: Exact count in this source-defined finite cohort; no sampling, selection, missing-outcome,
+        death-ascertainment or population uncertainty is thereby resolved.
+    lower_bound: 0
+    notes: Used-source benchmark only. No fitted clinical hazard, diagnosis erasure, independent-binomial
+      interval, national transport or engine activation.
+  kerala_control_recorded_events_n:
+    key: kerala_control_recorded_events_n
+    value: 79
+    unit: people
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: Thankappan et al. 2018; Results/Participants and Incidence of diabetes (PDF page 10), Figure
+      1 (page 11)
+    source_id: kerala2018_primary_publication
+    source_url: https://journals.plos.org/plosmedicine/article/file?id=10.1371/journal.pmed.1002575&type=printable
+    citation: 'Thankappan KR et al. A peer-support lifestyle intervention for preventing type 2 diabetes
+      in India: A cluster-randomized controlled trial of the Kerala Diabetes Prevention Program. PLoS Med.
+      2018;15(6):e1002575.'
+    population: K-DPP high-risk adults assigned to Control; source recorded incidence endpoint, not latent
+      disease state
+    geography: Kerala, India
+    time_period: 2013 enrollment to nominal 24-month follow-up; publication 2018
+    exposure_definition: Assigned peer-support multicomponent lifestyle program or advice booklet, not an
+      isolated food exposure
+    outcome_definition: Literal primary-publication recorded_events; reported deaths are unlinked, cumulative
+      and not independently certified complete
+    transformation: Literal primary-publication count; optional pinned workbook arm-by-total-endpoint aggregate
+      cross-check
+    uncertainty:
+      kind: fixed
+      rationale: Exact count in this source-defined finite cohort; no sampling, selection, missing-outcome,
+        death-ascertainment or population uncertainty is thereby resolved.
+    lower_bound: 0
+    notes: Used-source benchmark only. No fitted clinical hazard, diagnosis erasure, independent-binomial
+      interval, national transport or engine activation.
+  kerala_control_reported_cumulative_deaths_n:
+    key: kerala_control_reported_cumulative_deaths_n
+    value: 1
+    unit: people
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: Thankappan et al. 2018; Results/Participants and Incidence of diabetes (PDF page 10), Figure
+      1 (page 11)
+    source_id: kerala2018_primary_publication
+    source_url: https://journals.plos.org/plosmedicine/article/file?id=10.1371/journal.pmed.1002575&type=printable
+    citation: 'Thankappan KR et al. A peer-support lifestyle intervention for preventing type 2 diabetes
+      in India: A cluster-randomized controlled trial of the Kerala Diabetes Prevention Program. PLoS Med.
+      2018;15(6):e1002575.'
+    population: K-DPP high-risk adults assigned to Control; source recorded incidence endpoint, not latent
+      disease state
+    geography: Kerala, India
+    time_period: 2013 enrollment to nominal 24-month follow-up; publication 2018
+    exposure_definition: Assigned peer-support multicomponent lifestyle program or advice booklet, not an
+      isolated food exposure
+    outcome_definition: Literal primary-publication reported_cumulative_deaths; reported deaths are unlinked,
+      cumulative and not independently certified complete
+    transformation: Literal primary-publication count; optional pinned workbook arm-by-total-endpoint aggregate
+      cross-check
+    uncertainty:
+      kind: fixed
+      rationale: Exact count in this source-defined finite cohort; no sampling, selection, missing-outcome,
+        death-ascertainment or population uncertainty is thereby resolved.
+    lower_bound: 0
+    notes: Used-source benchmark only. No fitted clinical hazard, diagnosis erasure, independent-binomial
+      interval, national transport or engine activation.
+  kerala_intervention_assigned_n:
+    key: kerala_intervention_assigned_n
+    value: 500
+    unit: people
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: Thankappan et al. 2018; Results/Participants and Incidence of diabetes (PDF page 10), Figure
+      1 (page 11)
+    source_id: kerala2018_primary_publication
+    source_url: https://journals.plos.org/plosmedicine/article/file?id=10.1371/journal.pmed.1002575&type=printable
+    citation: 'Thankappan KR et al. A peer-support lifestyle intervention for preventing type 2 diabetes
+      in India: A cluster-randomized controlled trial of the Kerala Diabetes Prevention Program. PLoS Med.
+      2018;15(6):e1002575.'
+    population: K-DPP high-risk adults assigned to Intervention; source recorded incidence endpoint, not
+      latent disease state
+    geography: Kerala, India
+    time_period: 2013 enrollment to nominal 24-month follow-up; publication 2018
+    exposure_definition: Assigned peer-support multicomponent lifestyle program or advice booklet, not an
+      isolated food exposure
+    outcome_definition: Literal primary-publication assigned; reported deaths are unlinked, cumulative and
+      not independently certified complete
+    transformation: Literal primary-publication count; optional pinned workbook arm-by-total-endpoint aggregate
+      cross-check
+    uncertainty:
+      kind: fixed
+      rationale: Exact count in this source-defined finite cohort; no sampling, selection, missing-outcome,
+        death-ascertainment or population uncertainty is thereby resolved.
+    lower_bound: 0
+    notes: Used-source benchmark only. No fitted clinical hazard, diagnosis erasure, independent-binomial
+      interval, national transport or engine activation.
+  kerala_intervention_known_endpoints_n:
+    key: kerala_intervention_known_endpoints_n
+    value: 456
+    unit: people
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: Thankappan et al. 2018; Results/Participants and Incidence of diabetes (PDF page 10), Figure
+      1 (page 11)
+    source_id: kerala2018_primary_publication
+    source_url: https://journals.plos.org/plosmedicine/article/file?id=10.1371/journal.pmed.1002575&type=printable
+    citation: 'Thankappan KR et al. A peer-support lifestyle intervention for preventing type 2 diabetes
+      in India: A cluster-randomized controlled trial of the Kerala Diabetes Prevention Program. PLoS Med.
+      2018;15(6):e1002575.'
+    population: K-DPP high-risk adults assigned to Intervention; source recorded incidence endpoint, not
+      latent disease state
+    geography: Kerala, India
+    time_period: 2013 enrollment to nominal 24-month follow-up; publication 2018
+    exposure_definition: Assigned peer-support multicomponent lifestyle program or advice booklet, not an
+      isolated food exposure
+    outcome_definition: Literal primary-publication known_endpoints; reported deaths are unlinked, cumulative
+      and not independently certified complete
+    transformation: Literal primary-publication count; optional pinned workbook arm-by-total-endpoint aggregate
+      cross-check
+    uncertainty:
+      kind: fixed
+      rationale: Exact count in this source-defined finite cohort; no sampling, selection, missing-outcome,
+        death-ascertainment or population uncertainty is thereby resolved.
+    lower_bound: 0
+    notes: Used-source benchmark only. No fitted clinical hazard, diagnosis erasure, independent-binomial
+      interval, national transport or engine activation.
+  kerala_intervention_recorded_events_n:
+    key: kerala_intervention_recorded_events_n
+    value: 68
+    unit: people
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: Thankappan et al. 2018; Results/Participants and Incidence of diabetes (PDF page 10), Figure
+      1 (page 11)
+    source_id: kerala2018_primary_publication
+    source_url: https://journals.plos.org/plosmedicine/article/file?id=10.1371/journal.pmed.1002575&type=printable
+    citation: 'Thankappan KR et al. A peer-support lifestyle intervention for preventing type 2 diabetes
+      in India: A cluster-randomized controlled trial of the Kerala Diabetes Prevention Program. PLoS Med.
+      2018;15(6):e1002575.'
+    population: K-DPP high-risk adults assigned to Intervention; source recorded incidence endpoint, not
+      latent disease state
+    geography: Kerala, India
+    time_period: 2013 enrollment to nominal 24-month follow-up; publication 2018
+    exposure_definition: Assigned peer-support multicomponent lifestyle program or advice booklet, not an
+      isolated food exposure
+    outcome_definition: Literal primary-publication recorded_events; reported deaths are unlinked, cumulative
+      and not independently certified complete
+    transformation: Literal primary-publication count; optional pinned workbook arm-by-total-endpoint aggregate
+      cross-check
+    uncertainty:
+      kind: fixed
+      rationale: Exact count in this source-defined finite cohort; no sampling, selection, missing-outcome,
+        death-ascertainment or population uncertainty is thereby resolved.
+    lower_bound: 0
+    notes: Used-source benchmark only. No fitted clinical hazard, diagnosis erasure, independent-binomial
+      interval, national transport or engine activation.
+  kerala_intervention_reported_cumulative_deaths_n:
+    key: kerala_intervention_reported_cumulative_deaths_n
+    value: 2
+    unit: people
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: Thankappan et al. 2018; Results/Participants and Incidence of diabetes (PDF page 10), Figure
+      1 (page 11)
+    source_id: kerala2018_primary_publication
+    source_url: https://journals.plos.org/plosmedicine/article/file?id=10.1371/journal.pmed.1002575&type=printable
+    citation: 'Thankappan KR et al. A peer-support lifestyle intervention for preventing type 2 diabetes
+      in India: A cluster-randomized controlled trial of the Kerala Diabetes Prevention Program. PLoS Med.
+      2018;15(6):e1002575.'
+    population: K-DPP high-risk adults assigned to Intervention; source recorded incidence endpoint, not
+      latent disease state
+    geography: Kerala, India
+    time_period: 2013 enrollment to nominal 24-month follow-up; publication 2018
+    exposure_definition: Assigned peer-support multicomponent lifestyle program or advice booklet, not an
+      isolated food exposure
+    outcome_definition: Literal primary-publication reported_cumulative_deaths; reported deaths are unlinked,
+      cumulative and not independently certified complete
+    transformation: Literal primary-publication count; optional pinned workbook arm-by-total-endpoint aggregate
+      cross-check
+    uncertainty:
+      kind: fixed
+      rationale: Exact count in this source-defined finite cohort; no sampling, selection, missing-outcome,
+        death-ascertainment or population uncertainty is thereby resolved.
+    lower_bound: 0
+    notes: Used-source benchmark only. No fitted clinical hazard, diagnosis erasure, independent-binomial
+      interval, national transport or engine activation.
   longitudinal_toy_n_to_p_rate:
     key: longitudinal_toy_n_to_p_rate
     value: 0.1
@@ -3667,6 +3915,46 @@ parameters:
         estimate.
     lower_bound: 0
 datasets:
+  kerala_endpoint_bounds:
+    report_path: docs/validation/kerala-endpoint-bounds-v1.json
+    report_sha256: 63f59cd27046366de181ccc9932afd66247df410593d79e6f85681a56341d0f6
+    status: derived
+    evidence_grade: C
+    model_role: benchmark_only
+    source_id: kerala2018_primary_publication
+    parameter_keys:
+    - kerala_control_assigned_n
+    - kerala_control_known_endpoints_n
+    - kerala_control_recorded_events_n
+    - kerala_control_reported_cumulative_deaths_n
+    - kerala_intervention_assigned_n
+    - kerala_intervention_known_endpoints_n
+    - kerala_intervention_recorded_events_n
+    - kerala_intervention_reported_cumulative_deaths_n
+    bundle_path: src/demeter/data/bundled/kerala_endpoint_counts.json
+    bundle_sha256: cc094313092fb7d4dca5df1342b9a78b34bbb4d803d147c804bd0dee38341741
+    protocol_path: docs/validation/kerala-endpoint-bounds-protocol-v1.json
+    protocol_sha256: 5f4552e0016e19d28867314019fa21092bea9489b5ef54aaba4efbf4b954e7d9
+    amendment_path: docs/validation/kerala-endpoint-bounds-locator-amendment-v1.json
+    amendment_sha256: c6b18a568c7252acf18bbeb9dcc0fb8f273c32e724524cb5d717d6339f62f19e
+    clinical_fit_allowed: false
+    engine_activation_allowed: false
+    independent_validation_allowed: false
+    scientific_release_ready: false
+    population: Source-defined K-DPP randomized community cohorts
+    geography: Kerala, India
+    time_period: Original trial nominal 24-month endpoint
+    unit: people; finite-cohort count-ratio bounds
+    uncertainty: Exact compatible completions of unknown binary recorded endpoints; not confidence intervals.
+      Survivor bounds need an extra complete-death-total assumption.
+    transformation: Source-native aggregate endpoint completion and unlinked death allocation; separate
+      all-assigned and survivor estimands
+    design_inputs:
+    - I-11
+    - I-12
+    - F-08
+    - T-05
+    - T-08
   kerala_source_admission:
     status: derived
     evidence_grade: C

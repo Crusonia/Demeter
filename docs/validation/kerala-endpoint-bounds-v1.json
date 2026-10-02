@@ -1,0 +1,200 @@
+{
+  "amendment_sha256": "c6b18a568c7252acf18bbeb9dcc0fb8f273c32e724524cb5d717d6339f62f19e",
+  "arms": {
+    "Control": {
+      "all_assigned": {
+        "denominator": 507,
+        "event_count_bounds": {
+          "lower": 79,
+          "upper": 123
+        },
+        "event_fraction_bounds": {
+          "lower": {
+            "denominator": 507,
+            "display_fraction": 0.15581854043392504,
+            "display_underflow": false,
+            "numerator": 79
+          },
+          "upper": {
+            "denominator": 169,
+            "display_fraction": 0.24260355029585798,
+            "display_underflow": false,
+            "numerator": 41
+          }
+        }
+      },
+      "assumptions": {
+        "cohort_identity_or_death_completeness_verified_by_math": false,
+        "complete_same_cohort_death_total_assumed": false,
+        "event_death_independence_assumed": false,
+        "recorded_event_before_death_allowed": true,
+        "unknown_endpoint_imputed_negative": false
+      },
+      "counts": {
+        "cumulative_deaths": 1,
+        "known_endpoints": 463,
+        "known_non_events": 384,
+        "n": 507,
+        "recorded_events": 79,
+        "unknown_endpoints": 44
+      },
+      "interpretation": {
+        "causal_effect_identified": false,
+        "clinical_hazards_identified": false,
+        "engine_activation_allowed": false,
+        "finite_cohort_identification_bounds": true,
+        "sampling_interval": null
+      },
+      "survivor_conditional": null,
+      "unlinked_death_allocation": null
+    },
+    "Intervention": {
+      "all_assigned": {
+        "denominator": 500,
+        "event_count_bounds": {
+          "lower": 68,
+          "upper": 112
+        },
+        "event_fraction_bounds": {
+          "lower": {
+            "denominator": 125,
+            "display_fraction": 0.136,
+            "display_underflow": false,
+            "numerator": 17
+          },
+          "upper": {
+            "denominator": 125,
+            "display_fraction": 0.224,
+            "display_underflow": false,
+            "numerator": 28
+          }
+        }
+      },
+      "assumptions": {
+        "cohort_identity_or_death_completeness_verified_by_math": false,
+        "complete_same_cohort_death_total_assumed": false,
+        "event_death_independence_assumed": false,
+        "recorded_event_before_death_allowed": true,
+        "unknown_endpoint_imputed_negative": false
+      },
+      "counts": {
+        "cumulative_deaths": 2,
+        "known_endpoints": 456,
+        "known_non_events": 388,
+        "n": 500,
+        "recorded_events": 68,
+        "unknown_endpoints": 44
+      },
+      "interpretation": {
+        "causal_effect_identified": false,
+        "clinical_hazards_identified": false,
+        "engine_activation_allowed": false,
+        "finite_cohort_identification_bounds": true,
+        "sampling_interval": null
+      },
+      "survivor_conditional": null,
+      "unlinked_death_allocation": null
+    }
+  },
+  "bundle_sha256": "cc094313092fb7d4dca5df1342b9a78b34bbb4d803d147c804bd0dee38341741",
+  "causal_effect_identified": false,
+  "clinical_fit_ready": false,
+  "complete_death_total_assumption_supplied": false,
+  "engine_activation_allowed": false,
+  "interpretation": "Used-source recorded-endpoint finite-cohort bounds; not clinical hazards, confidence intervals, isolated food effects or independent validation.",
+  "labeled_multiwave_tuples_exported": false,
+  "national_transport_ready": false,
+  "participant_records_exported": false,
+  "protocol_sha256": "5f4552e0016e19d28867314019fa21092bea9489b5ef54aaba4efbf4b954e7d9",
+  "public_workbook_endpoint_counts_reproduced": null,
+  "publication_text_counts_reproduced": null,
+  "regimen_contrast": {
+    "all_assigned_direction_unresolved": true,
+    "direction": "Intervention minus Control",
+    "fraction_difference": {
+      "all_assigned": {
+        "lower": {
+          "denominator": 21125,
+          "display_fraction": -0.10660355029585798,
+          "display_underflow": false,
+          "numerator": -2252
+        },
+        "upper": {
+          "denominator": 63375,
+          "display_fraction": 0.06818145956607495,
+          "display_underflow": false,
+          "numerator": 4321
+        }
+      },
+      "causal_interpretation": false,
+      "complete_same_cohort_death_totals_assumed": false,
+      "direction": "first_minus_second",
+      "distinct_cohorts_required": true,
+      "sampling_interval": null,
+      "survivor_conditional": null
+    },
+    "missing_endpoint_completions": {
+      "compatible_aggregate_pairs": 2025,
+      "equal_fraction": 0,
+      "higher_intervention_fraction": 630,
+      "interpretation": "Counts of aggregate missing-positive-count pairs, not participant assignments, probabilities, posterior weights or sampling intervals.",
+      "lower_intervention_fraction": 1395,
+      "pairs_have_equal_probability": false
+    },
+    "tipping_sensitivities": {
+      "control_unknown_all_negative": {
+        "causal_interpretation": false,
+        "direction": "first_minus_second",
+        "estimand": "all_assigned_recorded_endpoint_fraction",
+        "first_unknown_endpoints": 44,
+        "missing_endpoint_completion_is_observed": false,
+        "second_unknown_events_assumed": 0,
+        "thresholds": {
+          "nonnegative_difference": {
+            "algebraic_required_count": 10,
+            "minimum_first_unknown_events": 10,
+            "reachable": true
+          },
+          "positive_difference": {
+            "algebraic_required_count": 10,
+            "minimum_first_unknown_events": 10,
+            "reachable": true
+          }
+        },
+        "unavailable_reason": null
+      },
+      "control_unknown_all_positive": {
+        "causal_interpretation": false,
+        "direction": "first_minus_second",
+        "estimand": "all_assigned_recorded_endpoint_fraction",
+        "first_unknown_endpoints": 44,
+        "missing_endpoint_completion_is_observed": false,
+        "second_unknown_events_assumed": 44,
+        "thresholds": {
+          "nonnegative_difference": {
+            "algebraic_required_count": 54,
+            "minimum_first_unknown_events": null,
+            "reachable": false
+          },
+          "positive_difference": {
+            "algebraic_required_count": 54,
+            "minimum_first_unknown_events": null,
+            "reachable": false
+          }
+        },
+        "unavailable_reason": null
+      }
+    }
+  },
+  "registered_parent_verified": true,
+  "reported_deaths": {
+    "automatically_extracted_from_figure": false,
+    "complete_ascertainment_verified": false,
+    "source_locator": "Figure 1, PDF page 11",
+    "unlinked_to_endpoint_records": true
+  },
+  "schema_version": 1,
+  "source_audit_passed": true,
+  "source_id": "kerala2018_primary_publication",
+  "source_sha256": "eace56aae88c2359fc7b57d00a16ff978de51792de47ab78bfb742303dc8727e"
+}

@@ -1331,6 +1331,62 @@
       ],
       "model_role": "benchmark_only",
       "redistribution": "Attributed source metadata, authored aggregate-only source/representation diagnostics, exact immutable protocols and MIT code only. Both raw clinical workbooks and primary publications remain ignored/fetch-only. No participant/cluster identifiers, individual assays, clinical hazard fit, independent censoring, national transport or engine activation."
+    },
+    "kerala_endpoint_bounds": {
+      "store": null,
+      "dependencies": [
+        "kerala_source_admission"
+      ],
+      "registry_datasets": [
+        "kerala_endpoint_bounds"
+      ],
+      "registry_parameters": [
+        "kerala_control_assigned_n",
+        "kerala_control_known_endpoints_n",
+        "kerala_control_recorded_events_n",
+        "kerala_control_reported_cumulative_deaths_n",
+        "kerala_intervention_assigned_n",
+        "kerala_intervention_known_endpoints_n",
+        "kerala_intervention_recorded_events_n",
+        "kerala_intervention_reported_cumulative_deaths_n"
+      ],
+      "artifacts": [
+        {
+          "path": "src/demeter/data/bundled/kerala_endpoint_counts.json",
+          "sha256": "cc094313092fb7d4dca5df1342b9a78b34bbb4d803d147c804bd0dee38341741"
+        },
+        {
+          "path": "docs/validation/kerala-endpoint-bounds-protocol-v1.json",
+          "sha256": "5f4552e0016e19d28867314019fa21092bea9489b5ef54aaba4efbf4b954e7d9"
+        },
+        {
+          "path": "docs/validation/kerala-endpoint-bounds-locator-amendment-v1.json",
+          "sha256": "c6b18a568c7252acf18bbeb9dcc0fb8f273c32e724524cb5d717d6339f62f19e"
+        },
+        {
+          "path": "docs/validation/kerala-endpoint-bounds-v1.json",
+          "sha256": "63f59cd27046366de181ccc9932afd66247df410593d79e6f85681a56341d0f6"
+        },
+        {
+          "path": "docs/KERALA_ENDPOINT_BOUNDS.md",
+          "sha256": "5cc7ef21bb67b425ed16ffc1fa7bb0669f3356bc94bd6e395018704f8da44c82"
+        },
+        {
+          "path": "docs/KERALA_OBSERVATION_MODEL.md",
+          "sha256": "0d10ca8cbdb641be988233e121497019e0e1444210839207d737d07819b3551b"
+        }
+      ],
+      "transform_files": [
+        "src/demeter/analysis/endpoint_bounds.py",
+        "src/demeter/analysis/kerala_endpoints.py",
+        "scripts/verify_kerala_endpoints.py"
+      ],
+      "rebuild": [
+        "uv run demeter evidence kerala-endpoints",
+        "uv run python scripts/verify_kerala_endpoints.py"
+      ],
+      "model_role": "benchmark_only",
+      "redistribution": "Attributed aggregate source-count transcription and authored analysis under source CC BY terms; public participant workbooks and primary PDF remain fetch-only. No labeled multiwave tuples, identifiers, cluster keys or assays exported."
     }
   },
   "supporting_artifacts": [
