@@ -15,6 +15,9 @@ SOURCE = "malawi2023_public_cohort"
 PROTOCOL_PATH = "docs/validation/malawi-cohort-intake-protocol-v1.json"
 REPORT_PATH = "docs/validation/malawi-cohort-ascertainment-v1.json"
 PROTOCOL_SHA256 = "0a1d1b7bbde1bca3f15aecf1b395050b2a0277c9e385f799889a8c6786e5aafb"
+# Freeze complete scoped registry records, including every provenance/uncertainty
+# field. This excludes unrelated registry entries, so later intakes remain possible.
+REGISTRY_RECORDS_SHA256 = "accd71da15500c53fb4ddfcdde7319bb0be16d9607c0698fcb31952c90dc2d68"
 GATES = {
     "clinical_fit_allowed": False,
     "engine_activation_allowed": False,
@@ -67,6 +70,15 @@ def _contract(registry, root: Path) -> tuple[dict, dict]:
         or source.license != "CC-BY-4.0"
     ):
         raise ValueError("Malawi source receipt mismatch")
+    names = ["malawi_" + item["name"] for item in protocol["captures"]] + ["malawi_untraced_count"]
+    records = {
+        "parameters": {key: registry.parameters[key].model_dump(mode="json") for key in names},
+        "source": source.model_dump(mode="json"),
+        "dataset": spec,
+    }
+    canonical = json.dumps(records, sort_keys=True, separators=(",", ":"), allow_nan=False).encode()
+    if _digest(canonical) != REGISTRY_RECORDS_SHA256:
+        raise ValueError("Malawi complete registry records or provenance mismatch")
     if set(spec["transforms"]) != set(TRANSFORMS):
         raise ValueError("Malawi transform inventory mismatch")
     for key, name in TRANSFORMS.items():

@@ -39,6 +39,12 @@ transform bytes and derived bounds. It reports `raw_values_read: false` and
 `source_aggregates_reproduced: null`; checking committed metadata is different
 from re-extracting the publication.
 
+The complete scoped registry records are checksum-bound: values, units, status,
+citation, locator, population, geography, time period, transformations, uncertainty
+and source receipt. A custom `--evidence` file may change unrelated records; any
+change to these frozen Malawi records fails the audit, even when its value is
+unchanged. An approved amendment needs a new reviewed record pin.
+
 To repeat extraction, obtain the public publisher XML from the source URL in
 `evidence/parameters.yaml`, retain the exact bytes as
 `data/raw/malawi/nakanga2023-manuscript.xml`, and run:

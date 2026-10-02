@@ -94,6 +94,70 @@ def test_registry_record_mismatch_is_rejected(package, field):
 
 
 @pytest.mark.parametrize(
+    "field",
+    [
+        "citation",
+        "source",
+        "population",
+        "geography",
+        "time_period",
+        "transformation",
+        "notes",
+        "exposure_definition",
+        "outcome_definition",
+    ],
+)
+def test_entire_parameter_provenance_is_bound(package, field):
+    registry, root = package
+    setattr(registry.parameters["malawi_dm_count"], field, "FABRICATED_PROVENANCE")
+    with pytest.raises(ValueError, match="complete registry records"):
+        module.audit_malawi_cohort(registry, root)
+
+
+def test_uncertainty_rationale_and_unused_fields_are_bound(package):
+    registry, root = package
+    parameter = registry.parameters["malawi_dm_count"]
+    parameter.uncertainty.rationale = "FABRICATED_PROVENANCE"
+    with pytest.raises(ValueError, match="complete registry records"):
+        module.audit_malawi_cohort(registry, root)
+    parameter.uncertainty.rationale = (
+        EvidenceRegistry.from_yaml(ROOT / "evidence/parameters.yaml")
+        .parameters["malawi_dm_count"]
+        .uncertainty.rationale
+    )
+    parameter.upper_bound = 10000
+    with pytest.raises(ValueError, match="complete registry records"):
+        module.audit_malawi_cohort(registry, root)
+
+
+@pytest.mark.parametrize("field", ["citation", "retrieved_at", "correction_note"])
+def test_complete_source_receipt_is_bound(package, field):
+    registry, root = package
+    source = registry.sources[module.SOURCE]
+    if field == "retrieved_at":
+        from datetime import timedelta
+
+        source.retrieved_at += timedelta(seconds=1)
+    else:
+        setattr(source, field, "FABRICATED_PROVENANCE")
+    with pytest.raises(ValueError, match="complete registry records"):
+        module.audit_malawi_cohort(registry, root)
+
+
+def test_complete_dataset_contract_is_bound(package):
+    registry, root = package
+    registry.datasets[module.DATASET]["estimand"] = "FABRICATED_PROVENANCE"
+    with pytest.raises(ValueError, match="complete registry records"):
+        module.audit_malawi_cohort(registry, root)
+
+
+def test_unrelated_registry_changes_remain_permitted(package):
+    registry, root = package
+    registry.parameters["ir_to_t2d_rate"].notes = "Unrelated development record"
+    assert module.audit_malawi_cohort(registry, root)["registered_artifacts_verified"] is True
+
+
+@pytest.mark.parametrize(
     "mutation",
     [
         lambda report: report.update(working_fit_performed=True),
