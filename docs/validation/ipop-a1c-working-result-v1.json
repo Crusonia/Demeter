@@ -1,0 +1,1258 @@
+{
+  "acquisition_audit": {
+    "passed": true,
+    "provenance": {
+      "acquisition_passed": true,
+      "bytes_retained_definition": "complete verified bytes saved; raw-write failure may separately leave an unknown partial file",
+      "distribution": "fetch_only",
+      "failure_stage": null,
+      "frozen_protocol_sha256_reference": "2d8b53ae10a018fde16bc91108db57d49a788f473fc8fc0dfe65a44e28ac2b89",
+      "implementation_sha256": "e24f0a4b312fe31f7eb014347c7c1bc9e735179df9a9472268fd0b4e01690533",
+      "interpretation": "source bytes only; no clinical interpretation",
+      "schema_version": 1,
+      "sources": {
+        "clinical": {
+          "bytes_retained": true,
+          "cache_filename": "clinical_tests.txt",
+          "content_type": "text/plain",
+          "failure_stage": null,
+          "final_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/clinical_tests.txt",
+          "full_bytes": true,
+          "git_blob": "cb01fe38378f8cef951837414e241c3e8d6a8bcc",
+          "raw_write_failure_may_leave_partial_bytes": false,
+          "requested_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/clinical_tests.txt",
+          "result": "verified",
+          "retrieved_utc": "2026-10-01T21:37:21.386428+00:00",
+          "sha256": "94bca4d56dcb96e83a780479c5e23610e366060bcc8607f67377378d3fc39f52",
+          "size_bytes": 231694,
+          "source_identity_passed": true,
+          "status": 200
+        },
+        "sample_info": {
+          "bytes_retained": true,
+          "cache_filename": "SampleInfo.csv",
+          "content_type": "text/plain",
+          "failure_stage": null,
+          "final_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/SampleInfo.csv",
+          "full_bytes": true,
+          "git_blob": "342d35d36eb422cf315a9757b7514c45312173e5",
+          "raw_write_failure_may_leave_partial_bytes": false,
+          "requested_url": "https://raw.githubusercontent.com/gmiaslab/TemporalMultiomicsDiabetes/ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c/data/SampleInfo.csv",
+          "result": "verified",
+          "retrieved_utc": "2026-10-01T21:37:21.808642+00:00",
+          "sha256": "7e9026e13f0cf105ade8429e40c5f5ca4adaa248f4552f32a71fa4327c3e4a3e",
+          "size_bytes": 36407,
+          "source_identity_passed": true,
+          "status": 200
+        }
+      },
+      "validation_only": false,
+      "verification_mode": "local_byte_replay",
+      "whole_protocol_validation": "caller responsibility; exact source declarations checked here"
+    },
+    "receipt_saved": true
+  },
+  "analysis_completed": true,
+  "analysis_id": "ipop_a1c_conditional_working_fit_v1",
+  "clinical_fit_performed": false,
+  "death_or_censoring_inference_performed": false,
+  "diagnosis_or_remission_inference_performed": false,
+  "dietary_effect_estimated": false,
+  "engine_activation_allowed": false,
+  "execution_scope": "conditional_empirical_laboratory_working_analysis",
+  "failure_stage": null,
+  "internal_evaluation": {
+    "clinical_acceptance_tolerance": null,
+    "kind": "internal_used_source_whole_label_evaluation",
+    "scores": {
+      "adjacent": {
+        "unavailable": "no_converged_working_fit"
+      },
+      "iid": {
+        "modes": {
+          "first_only": {
+            "equal_label_mean_brier": 0.5290146653631972,
+            "equal_label_mean_log_score": {
+              "status": "finite",
+              "value": -0.8397922631666547
+            },
+            "scored_observations": 145,
+            "sum_is_joint_conditional_path_log_likelihood": false,
+            "sum_log_score": {
+              "status": "finite",
+              "value": -126.08144421194989
+            },
+            "transition_weighted_mean_brier": 0.5678498492290462,
+            "transition_weighted_mean_log_score": {
+              "status": "finite",
+              "value": -0.8695272014617234
+            },
+            "zero_probability_observations": 0
+          },
+          "one_step": {
+            "equal_label_mean_brier": 0.5290146653631972,
+            "equal_label_mean_log_score": {
+              "status": "finite",
+              "value": -0.8397922631666547
+            },
+            "scored_observations": 145,
+            "sum_is_joint_conditional_path_log_likelihood": true,
+            "sum_log_score": {
+              "status": "finite",
+              "value": -126.08144421194989
+            },
+            "transition_weighted_mean_brier": 0.5678498492290462,
+            "transition_weighted_mean_log_score": {
+              "status": "finite",
+              "value": -0.8695272014617234
+            },
+            "zero_probability_observations": 0
+          }
+        },
+        "scored_repeat_paths": 16,
+        "single_observation_paths": 0,
+        "total_label_paths": 16
+      },
+      "persistence": {
+        "modes": {
+          "first_only": {
+            "equal_label_mean_brier": 0.272531512605042,
+            "equal_label_mean_log_score": {
+              "status": "negative_infinity_zero_probability",
+              "value": null
+            },
+            "scored_observations": 145,
+            "sum_is_joint_conditional_path_log_likelihood": false,
+            "sum_log_score": {
+              "status": "negative_infinity_zero_probability",
+              "value": null
+            },
+            "transition_weighted_mean_brier": 0.2482758620689655,
+            "transition_weighted_mean_log_score": {
+              "status": "negative_infinity_zero_probability",
+              "value": null
+            },
+            "zero_probability_observations": 18
+          },
+          "one_step": {
+            "equal_label_mean_brier": 0.27274159663865544,
+            "equal_label_mean_log_score": {
+              "status": "negative_infinity_zero_probability",
+              "value": null
+            },
+            "scored_observations": 145,
+            "sum_is_joint_conditional_path_log_likelihood": true,
+            "sum_log_score": {
+              "status": "negative_infinity_zero_probability",
+              "value": null
+            },
+            "transition_weighted_mean_brier": 0.2482758620689655,
+            "transition_weighted_mean_log_score": {
+              "status": "negative_infinity_zero_probability",
+              "value": null
+            },
+            "zero_probability_observations": 18
+          }
+        },
+        "scored_repeat_paths": 16,
+        "single_observation_paths": 0,
+        "total_label_paths": 16
+      },
+      "unrestricted": {
+        "unavailable": "no_converged_working_fit"
+      }
+    }
+  },
+  "joint_uncertainty": {
+    "clinical_fit_performed": false,
+    "dispositions": {
+      "attempted": 200,
+      "failed_primary_fits": 157,
+      "nominal_percentile_resolution": 0.005,
+      "paired_prediction_unavailable_draws": 157,
+      "primary_computational_cap_draws": 0,
+      "primary_identification_unavailable_draws": 0,
+      "primary_rank_deficient_draws": 0,
+      "primary_zero_boundary_draws": 0,
+      "requested": 200
+    },
+    "engine_activation_allowed": false,
+    "evaluation_resampled_separately_and_paired_across_models": true,
+    "failed_draws_redrawn": false,
+    "independence_across_labels_assumed": true,
+    "joint_rate_summary": {
+      "available": true,
+      "covariance": [
+        [
+          8.116688760831182e-07,
+          9.92373830378573e-07,
+          -4.114720047625204e-07,
+          -3.061274974306721e-06
+        ],
+        [
+          9.92373830378573e-07,
+          2.498498451970038e-06,
+          -8.537195441871629e-07,
+          -6.370308016763548e-06
+        ],
+        [
+          -4.114720047625204e-07,
+          -8.537195441871629e-07,
+          1.6616115855261081e-06,
+          1.3497022770812579e-05
+        ],
+        [
+          -3.061274974306721e-06,
+          -6.370308016763548e-06,
+          1.3497022770812579e-05,
+          0.00012763592774892035
+        ]
+      ],
+      "quantile_levels": [
+        0.025,
+        0.5,
+        0.975
+      ],
+      "quantiles": [
+        [
+          0.0017064444173628067,
+          0.002760322177008008,
+          0.0002678107330421455,
+          0.014408501163566833
+        ],
+        [
+          0.0027234526114781467,
+          0.004847735715457258,
+          0.0018393240872940644,
+          0.032371331767035764
+        ],
+        [
+          0.00454466441727112,
+          0.008214610036190485,
+          0.004251286599557026,
+          0.05099066707555354
+        ]
+      ],
+      "successful_draws": 43
+    },
+    "per_model_rate_summaries": {
+      "adjacent": {
+        "available": true,
+        "covariance": [
+          [
+            8.116688760831182e-07,
+            9.92373830378573e-07,
+            -4.114720047625204e-07,
+            -3.061274974306721e-06
+          ],
+          [
+            9.92373830378573e-07,
+            2.498498451970038e-06,
+            -8.537195441871629e-07,
+            -6.370308016763548e-06
+          ],
+          [
+            -4.114720047625204e-07,
+            -8.537195441871629e-07,
+            1.6616115855261081e-06,
+            1.3497022770812579e-05
+          ],
+          [
+            -3.061274974306721e-06,
+            -6.370308016763548e-06,
+            1.3497022770812579e-05,
+            0.00012763592774892035
+          ]
+        ],
+        "quantile_levels": [
+          0.025,
+          0.5,
+          0.975
+        ],
+        "quantiles": [
+          [
+            0.0017064444173628067,
+            0.002760322177008008,
+            0.0002678107330421455,
+            0.014408501163566833
+          ],
+          [
+            0.0027234526114781467,
+            0.004847735715457258,
+            0.0018393240872940644,
+            0.032371331767035764
+          ],
+          [
+            0.00454466441727112,
+            0.008214610036190485,
+            0.004251286599557026,
+            0.05099066707555354
+          ]
+        ],
+        "successful_draws": 43
+      }
+    },
+    "predictive_difference_coordinates": [
+      {
+        "higher_is_better": true,
+        "metric": "log_score",
+        "mode": "one_step",
+        "weighting": "equal_label"
+      },
+      {
+        "higher_is_better": true,
+        "metric": "log_score",
+        "mode": "one_step",
+        "weighting": "transition_weighted"
+      },
+      {
+        "higher_is_better": false,
+        "metric": "brier",
+        "mode": "one_step",
+        "weighting": "equal_label"
+      },
+      {
+        "higher_is_better": false,
+        "metric": "brier",
+        "mode": "one_step",
+        "weighting": "transition_weighted"
+      },
+      {
+        "higher_is_better": true,
+        "metric": "log_score",
+        "mode": "first_only",
+        "weighting": "equal_label"
+      },
+      {
+        "higher_is_better": true,
+        "metric": "log_score",
+        "mode": "first_only",
+        "weighting": "transition_weighted"
+      },
+      {
+        "higher_is_better": false,
+        "metric": "brier",
+        "mode": "first_only",
+        "weighting": "equal_label"
+      },
+      {
+        "higher_is_better": false,
+        "metric": "brier",
+        "mode": "first_only",
+        "weighting": "transition_weighted"
+      }
+    ],
+    "predictive_difference_summaries": {
+      "adjacent": {
+        "available": true,
+        "covariance": [
+          [
+            0.013096056123246517,
+            0.017044492331114516,
+            -0.006881773405517491,
+            -0.010676577650580254,
+            0.0036292608741852308,
+            0.0029063035111977814,
+            -0.0017446521015903208,
+            -0.0014268624027825186
+          ],
+          [
+            0.017044492331114516,
+            0.028923084775711087,
+            -0.00871849875036828,
+            -0.019707651738686074,
+            0.0027647474927455762,
+            0.0036506440727455116,
+            -0.0003506171580190786,
+            -0.0016559770695661659
+          ],
+          [
+            -0.006881773405517491,
+            -0.00871849875036828,
+            0.004866182566041587,
+            0.006548618116692283,
+            -0.0024654559430041184,
+            -0.0013237156350550667,
+            0.0018768928734134143,
+            0.001048895974627926
+          ],
+          [
+            -0.010676577650580254,
+            -0.019707651738686074,
+            0.006548618116692283,
+            0.0150292145480329,
+            -0.0016243097105173242,
+            -0.0020808930175893504,
+            0.00047667147360872436,
+            0.001334948988561492
+          ],
+          [
+            0.0036292608741852308,
+            0.0027647474927455762,
+            -0.0024654559430041184,
+            -0.0016243097105173242,
+            0.0036649807071805866,
+            0.0035220072037318887,
+            -0.002815527086057054,
+            -0.0027833653361714365
+          ],
+          [
+            0.0029063035111977814,
+            0.0036506440727455116,
+            -0.0013237156350550667,
+            -0.0020808930175893504,
+            0.0035220072037318887,
+            0.006950031911135529,
+            -0.0022982275037373837,
+            -0.0054688882740737315
+          ],
+          [
+            -0.0017446521015903208,
+            -0.0003506171580190786,
+            0.0018768928734134143,
+            0.00047667147360872436,
+            -0.002815527086057054,
+            -0.0022982275037373837,
+            0.0026125228694059578,
+            0.002183435488566057
+          ],
+          [
+            -0.0014268624027825186,
+            -0.0016559770695661659,
+            0.001048895974627926,
+            0.001334948988561492,
+            -0.0027833653361714365,
+            -0.0054688882740737315,
+            0.002183435488566057,
+            0.004678144064346891
+          ]
+        ],
+        "quantile_levels": [
+          0.025,
+          0.5,
+          0.975
+        ],
+        "quantiles": [
+          [
+            0.14616773205450526,
+            0.12324496920862614,
+            -0.3642106069362984,
+            -0.5395842370707463,
+            0.04778370106398374,
+            -0.06407489033179153,
+            -0.1965102636105265,
+            -0.16134650690153396
+          ],
+          [
+            0.3191620787396644,
+            0.3820546222223886,
+            -0.23066433378459245,
+            -0.29114619907983014,
+            0.12945268792306952,
+            0.0527885222867045,
+            -0.09107343184365108,
+            -0.026236766874396855
+          ],
+          [
+            0.580350439760907,
+            0.6851664561956139,
+            -0.11236718644746127,
+            -0.09638093012298901,
+            0.23527570933748526,
+            0.21163418530796257,
+            -0.029896839371658736,
+            0.07252196349197665
+          ]
+        ],
+        "successful_draws": 43
+      }
+    },
+    "rank_deficient_draws_excluded_from_covariance": false,
+    "rate_coordinates": [
+      {
+        "model": "adjacent",
+        "rate_index": 0
+      },
+      {
+        "model": "adjacent",
+        "rate_index": 1
+      },
+      {
+        "model": "adjacent",
+        "rate_index": 2
+      },
+      {
+        "model": "adjacent",
+        "rate_index": 3
+      }
+    ],
+    "repetitions_attempted": 200,
+    "repetitions_requested": 200,
+    "seed": 20261001,
+    "selection_measurement_or_transport_uncertainty_included": false,
+    "summaries_conditioned_on_successful_finite_draws": true,
+    "unit_resampled": "whole_label_path",
+    "within_path_dependence_preserved": true
+  },
+  "models": {
+    "adjacent": {
+      "clinical_fit_performed": false,
+      "engine_activation_allowed": false,
+      "evaluation_failures": {
+        "numerical_evaluations_failed": 0,
+        "zero_probability_evaluations": 70
+      },
+      "failure": "no_converged_finite_multistart",
+      "fit_performed": false,
+      "identification": null,
+      "kind": "ctmc",
+      "log_likelihood": null,
+      "multistarts": [
+        {
+          "converged": false,
+          "direct_likelihood_gradient_verified": false,
+          "iterations": 1000,
+          "log_likelihood": {
+            "status": "finite",
+            "value": -328.5922857340713
+          },
+          "optimizer_status": "iteration_limit",
+          "projected_gradient_norm": 1.8452358613255216e-05,
+          "rates": [
+            0.0025152354144959694,
+            0.00461523769832498,
+            0.0022556486284922724,
+            0.03993703524070444
+          ],
+          "search_gradient_norm": 1.8452358619020946e-05,
+          "small_objective_change_iterations": 970
+        },
+        {
+          "converged": false,
+          "direct_likelihood_gradient_verified": false,
+          "iterations": 1000,
+          "log_likelihood": {
+            "status": "finite",
+            "value": -328.5922857338454
+          },
+          "optimizer_status": "iteration_limit",
+          "projected_gradient_norm": 1.4255091360730909e-05,
+          "rates": [
+            0.0025152353861832843,
+            0.004615237476161645,
+            0.0022556720119965975,
+            0.039937566006073434
+          ],
+          "search_gradient_norm": 1.4255091564980714e-05,
+          "small_objective_change_iterations": 980
+        },
+        {
+          "converged": false,
+          "direct_likelihood_gradient_verified": false,
+          "iterations": 1000,
+          "log_likelihood": {
+            "status": "finite",
+            "value": -328.59228573376623
+          },
+          "optimizer_status": "iteration_limit",
+          "projected_gradient_norm": 7.803072183104401e-06,
+          "rates": [
+            0.0025152356709215516,
+            0.0046152374975816516,
+            0.00225566063963339,
+            0.03993730767833342
+          ],
+          "search_gradient_norm": 7.803072332595469e-06,
+          "small_objective_change_iterations": 984
+        },
+        {
+          "converged": false,
+          "direct_likelihood_gradient_verified": false,
+          "iterations": 1000,
+          "log_likelihood": {
+            "status": "finite",
+            "value": -328.5922857339703
+          },
+          "optimizer_status": "iteration_limit",
+          "projected_gradient_norm": 1.541197751850918e-05,
+          "rates": [
+            0.0025152357803533863,
+            0.0046152375552114214,
+            0.0022556512732255377,
+            0.03993709500642718
+          ],
+          "search_gradient_norm": 1.5411977461450934e-05,
+          "small_objective_change_iterations": 973
+        },
+        {
+          "converged": false,
+          "direct_likelihood_gradient_verified": false,
+          "iterations": 1000,
+          "log_likelihood": {
+            "status": "finite",
+            "value": -328.5922857337684
+          },
+          "optimizer_status": "iteration_limit",
+          "projected_gradient_norm": 4.165161604088496e-06,
+          "rates": [
+            0.002515235611429911,
+            0.004615237518986749,
+            0.002255660398335989,
+            0.039937302244258295
+          ],
+          "search_gradient_norm": 4.165161618855045e-06,
+          "small_objective_change_iterations": 971
+        },
+        {
+          "converged": false,
+          "direct_likelihood_gradient_verified": false,
+          "iterations": 1000,
+          "log_likelihood": {
+            "status": "finite",
+            "value": -328.59228573384826
+          },
+          "optimizer_status": "iteration_limit",
+          "projected_gradient_norm": 1.2674401160008987e-05,
+          "rates": [
+            0.002515235704927256,
+            0.004615237372919606,
+            0.002255672147652489,
+            0.03993756885605771
+          ],
+          "search_gradient_norm": 1.2674401312204626e-05,
+          "small_objective_change_iterations": 970
+        }
+      ],
+      "parameter_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "rate_unit": "per_source_day",
+      "rates": null,
+      "search_cap_indices": [],
+      "search_cap_is_clinical_bound": false,
+      "settings": {
+        "day_scale": 100.0,
+        "initial_rates": [
+          [
+            0.0001,
+            0.0001,
+            0.0001,
+            0.0001
+          ],
+          [
+            0.001,
+            0.001,
+            0.001,
+            0.001
+          ],
+          [
+            0.01,
+            0.01,
+            0.01,
+            0.01
+          ],
+          [
+            0.1,
+            0.1,
+            0.1,
+            0.1
+          ],
+          [
+            0.001,
+            0.01,
+            0.001,
+            0.01
+          ],
+          [
+            0.01,
+            0.001,
+            0.01,
+            0.001
+          ]
+        ],
+        "jacobian_step": 1e-05,
+        "optimizer_ftol": 1e-10,
+        "optimizer_gtol": 1e-07,
+        "optimizer_maxiter": 1000,
+        "probability_tolerance": 1e-10,
+        "rank_relative_tolerance": 1e-08,
+        "rate_upper_bounds": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "structure": "adjacent"
+      },
+      "source_support": {
+        "adjacent_observation_pairs": 689,
+        "distinct_elapsed_gaps": 186,
+        "exact_process_jump_counts": false,
+        "independent_pair_sampling_assumed": false,
+        "label_paths": 88,
+        "observations": 777,
+        "observed_pair_counts": [
+          [
+            333,
+            50,
+            1
+          ],
+          [
+            51,
+            226,
+            9
+          ],
+          [
+            0,
+            10,
+            9
+          ]
+        ],
+        "repeat_observation_paths": 78,
+        "single_observation_paths": 10
+      },
+      "structure": "adjacent",
+      "zero_rate_indices": []
+    },
+    "iid": {
+      "clinical_fit_performed": false,
+      "engine_activation_allowed": false,
+      "fit_performed": true,
+      "kind": "iid",
+      "log_likelihood": {
+        "status": "finite",
+        "value": -544.1764970360834
+      },
+      "post_first_counts": [
+        384,
+        286,
+        19
+      ],
+      "probabilities": [
+        0.5573294629898403,
+        0.41509433962264153,
+        0.027576197387518143
+      ]
+    },
+    "persistence": {
+      "clinical_fit_performed": false,
+      "engine_activation_allowed": false,
+      "fit_performed": false,
+      "impossible_paths": 36,
+      "kind": "no_switching",
+      "log_likelihood": {
+        "status": "negative_infinity_zero_probability",
+        "value": null
+      }
+    },
+    "unrestricted": {
+      "clinical_fit_performed": false,
+      "engine_activation_allowed": false,
+      "evaluation_failures": {
+        "numerical_evaluations_failed": 0,
+        "zero_probability_evaluations": 53
+      },
+      "failure": "no_converged_finite_multistart",
+      "fit_performed": false,
+      "identification": null,
+      "kind": "ctmc",
+      "log_likelihood": null,
+      "multistarts": [
+        {
+          "converged": false,
+          "direct_likelihood_gradient_verified": false,
+          "iterations": 1000,
+          "log_likelihood": {
+            "status": "finite",
+            "value": -328.59228573375407
+          },
+          "optimizer_status": "iteration_limit",
+          "projected_gradient_norm": 1.3970217411464072e-06,
+          "rates": [
+            0.002515235556645802,
+            0.004615237491362517,
+            0.0022556649633312183,
+            0.039937405897189505,
+            0.0,
+            0.0
+          ],
+          "search_gradient_norm": 1.3970217386245157e-06,
+          "small_objective_change_iterations": 960
+        },
+        {
+          "converged": false,
+          "direct_likelihood_gradient_verified": false,
+          "iterations": 1000,
+          "log_likelihood": {
+            "status": "finite",
+            "value": -328.5922857342141
+          },
+          "optimizer_status": "iteration_limit",
+          "projected_gradient_norm": 2.225231897167109e-05,
+          "rates": [
+            0.002515235815613611,
+            0.004615237600455899,
+            0.0022556455574795466,
+            0.03993696524836305,
+            0.0,
+            0.0
+          ],
+          "search_gradient_norm": 2.2252318977702385e-05,
+          "small_objective_change_iterations": 978
+        },
+        {
+          "converged": false,
+          "direct_likelihood_gradient_verified": false,
+          "iterations": 1000,
+          "log_likelihood": {
+            "status": "finite",
+            "value": -328.59228573375225
+          },
+          "optimizer_status": "iteration_limit",
+          "projected_gradient_norm": 2.491208284639649e-07,
+          "rates": [
+            0.002515235568646087,
+            0.004615237497229735,
+            0.002255663981970491,
+            0.039937383614222756,
+            0.0,
+            0.0
+          ],
+          "search_gradient_norm": 2.4912042127986857e-07,
+          "small_objective_change_iterations": 969
+        },
+        {
+          "converged": false,
+          "direct_likelihood_gradient_verified": false,
+          "iterations": 1000,
+          "log_likelihood": {
+            "status": "finite",
+            "value": -328.592285733757
+          },
+          "optimizer_status": "iteration_limit",
+          "projected_gradient_norm": 3.0779174202433893e-06,
+          "rates": [
+            0.0025152355393105604,
+            0.004615237526656414,
+            0.0022556619544219884,
+            0.03993733761520707,
+            0.0,
+            0.0
+          ],
+          "search_gradient_norm": 3.0779174623391658e-06,
+          "small_objective_change_iterations": 967
+        },
+        {
+          "converged": false,
+          "direct_likelihood_gradient_verified": false,
+          "iterations": 1000,
+          "log_likelihood": {
+            "status": "finite",
+            "value": -328.5922857338394
+          },
+          "optimizer_status": "iteration_limit",
+          "projected_gradient_norm": 9.926334255665023e-06,
+          "rates": [
+            0.0025152357058656756,
+            0.0046152375334118124,
+            0.0022556558862094327,
+            0.039937199762789005,
+            0.0,
+            0.0
+          ],
+          "search_gradient_norm": 9.926334667408269e-06,
+          "small_objective_change_iterations": 981
+        },
+        {
+          "converged": false,
+          "direct_likelihood_gradient_verified": false,
+          "iterations": 1000,
+          "log_likelihood": {
+            "status": "finite",
+            "value": -328.5922857340375
+          },
+          "optimizer_status": "iteration_limit",
+          "projected_gradient_norm": 1.749105831850778e-05,
+          "rates": [
+            0.0025152353460925533,
+            0.00461523742813393,
+            0.0022556781654014583,
+            0.03993770570113255,
+            0.0,
+            0.0
+          ],
+          "search_gradient_norm": 1.7491058309734698e-05,
+          "small_objective_change_iterations": 964
+        }
+      ],
+      "parameter_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "rate_unit": "per_source_day",
+      "rates": null,
+      "search_cap_indices": [],
+      "search_cap_is_clinical_bound": false,
+      "settings": {
+        "day_scale": 100.0,
+        "initial_rates": [
+          [
+            0.0001,
+            0.0001,
+            0.0001,
+            0.0001,
+            0.0001,
+            0.0001
+          ],
+          [
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001,
+            0.001
+          ],
+          [
+            0.01,
+            0.01,
+            0.01,
+            0.01,
+            0.01,
+            0.01
+          ],
+          [
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.1
+          ],
+          [
+            0.001,
+            0.01,
+            0.001,
+            0.01,
+            0.001,
+            0.01
+          ],
+          [
+            0.01,
+            0.001,
+            0.01,
+            0.001,
+            0.01,
+            0.001
+          ]
+        ],
+        "jacobian_step": 1e-05,
+        "optimizer_ftol": 1e-10,
+        "optimizer_gtol": 1e-07,
+        "optimizer_maxiter": 1000,
+        "probability_tolerance": 1e-10,
+        "rank_relative_tolerance": 1e-08,
+        "rate_upper_bounds": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "structure": "unrestricted"
+      },
+      "source_support": {
+        "adjacent_observation_pairs": 689,
+        "distinct_elapsed_gaps": 186,
+        "exact_process_jump_counts": false,
+        "independent_pair_sampling_assumed": false,
+        "label_paths": 88,
+        "observations": 777,
+        "observed_pair_counts": [
+          [
+            333,
+            50,
+            1
+          ],
+          [
+            51,
+            226,
+            9
+          ],
+          [
+            0,
+            10,
+            9
+          ]
+        ],
+        "repeat_observation_paths": 78,
+        "single_observation_paths": 10
+      },
+      "structure": "unrestricted",
+      "zero_rate_indices": []
+    }
+  },
+  "national_transport_established": false,
+  "profiles": {
+    "adjacent": null,
+    "unrestricted": null
+  },
+  "provenance": {
+    "acquisition_receipts_verified": true,
+    "assumptions": {
+      "assumptions": [
+        "Conditional timing and assay availability treated as ignorable for this working likelihood, not established by source.",
+        "Homogeneous Markov recorded-band dynamics despite A1C temporal averaging, visit triggers and individual heterogeneity.",
+        "Observed band taken as the process label; no freely fitted biological-state/measurement-error mixture.",
+        "Unmeasured changing treatment included in usual care; never held fixed or absent.",
+        "Selected complete available observation sequence only; no inferred death, withdrawal, missed-visit schedule, survival, independent censoring or administrative stop."
+      ],
+      "estimand": "Effective homogeneous usual-care switching between recorded A1C bands in this selected available panel, conditional on first recorded band, recorded specimen times and assay availability; no biological, clinical, causal or national hazard claim.",
+      "likelihood": "Sum across labels and consecutive observations log([exp(Q*elapsed_source_days)]previous_band,next_band); exact recorded-band process, not latent disease-state fit.",
+      "terminal": "No terminal contribution after last recorded measurement."
+    },
+    "binding_v1_protocol_sha256": "2d8b53ae10a018fde16bc91108db57d49a788f473fc8fc0dfe65a44e28ac2b89",
+    "binding_v2_protocol_sha256": "531a521156f40dae687c903b7c902b59cb34ad24014e2957c55141fa923b1ba0",
+    "implementation_sha256": "3ea8c90e43edfb7dfd51646b0a0134e325a7cd7da71c7493f3145a0ca3bd4b39",
+    "independent_source_validation": false,
+    "laboratory_implementation_sha256": "8b34f18b76dbe3b85d3b79c4a79d17be81e71e397450eded85c958487fa9fde0",
+    "numerical_amendment_sha256": "11f492eeea19cf8ab9bcc0f5ce58c012ff93e99c1b9057340f87bbf307bb4a42",
+    "prior_v2_result_sha256": "035cb972134b547acf9da959d11606187c9d7d0064d3269fe43c699c116dd0ab",
+    "protocol_sha256": "9b7473bb2454934ba82ef9d80c41c4d94a06c8b5eeadbf029f99aacec60e8ea7",
+    "registry_sha256": "f6d10e7c7d412ff8a0e00206ce691c0c15a5a8d9bf48ad7e4677cca65e976c41",
+    "source_bytes": {
+      "clinical": {
+        "basename": "clinical_tests.txt",
+        "git_blob": "cb01fe38378f8cef951837414e241c3e8d6a8bcc",
+        "sha256": "94bca4d56dcb96e83a780479c5e23610e366060bcc8607f67377378d3fc39f52",
+        "size_bytes": 231694
+      },
+      "sample_info": {
+        "basename": "SampleInfo.csv",
+        "git_blob": "342d35d36eb422cf315a9757b7514c45312173e5",
+        "sha256": "7e9026e13f0cf105ade8429e40c5f5ca4adaa248f4552f32a71fa4327c3e4a3e",
+        "size_bytes": 36407
+      }
+    },
+    "supplied_protocol_canonical_sha256": "36212ff71b040d35a5e6bd2d36200de7175a050ad2a86200a59be4680dc947ba"
+  },
+  "scientific_acceptance_changed": false,
+  "selection": {
+    "admitted_assay_token_categories": {
+      "empty": 0,
+      "explicit_nonfinite": 0,
+      "finite_decimal": 938,
+      "nonnumeric_or_undocumented_code": 13,
+      "whitespace_only": 0
+    },
+    "admitted_row_partition": {
+      "eligible_assay_day": 938,
+      "outside_percent_range": 0,
+      "unavailable_assay": 13,
+      "unusable_day": 0
+    },
+    "assay_units_rawness_specimen_clock_verified": false,
+    "coordinate_values_or_individual_paths_exported": false,
+    "denominator_admitted_labels": 104,
+    "denominator_admitted_rows": 951,
+    "eligible_band_counts": [
+      507,
+      402,
+      29
+    ],
+    "full_namespace_consistency": {
+      "clinical_namespace": {
+        "denominator_distinct_nonempty_source_subject_labels": 104,
+        "observed_partner_degree": {
+          "multiple": 0,
+          "one": 104,
+          "zero": 0
+        }
+      },
+      "clinical_rows_contributing_possible_edges": 953,
+      "clinical_rows_with_ambiguous_sample_keys_contributing_possible_edges": 2,
+      "denominator_source_clinical_rows": 969,
+      "distinct_possible_subject_pair_edges": 104,
+      "metadata_namespace": {
+        "denominator_distinct_nonempty_source_subject_labels": 106,
+        "observed_partner_degree": {
+          "multiple": 0,
+          "one": 104,
+          "zero": 2
+        }
+      }
+    },
+    "full_source_linkage": {
+      "denominator_clinical_rows": 969,
+      "denominator_unique_sample_candidate_rows_with_both_subjects_nonempty": 951,
+      "iterative_edge_removal_performed": false,
+      "lexical_subject_equality_bypass_performed": false,
+      "many_to_many_materialization_performed": false,
+      "ordered_partition": {
+        "clinical_namespace_multiple_partners": 0,
+        "metadata_namespace_multiple_partners": 0,
+        "missing_clinical_visit_or_subject_key": 0,
+        "missing_subject_in_unique_sample_match": 0,
+        "multiple_sample_rows_for_matching_key": 2,
+        "mutually_degree_one_unique_sample_association": 951,
+        "no_exact_sample_key_match": 16
+      },
+      "right_duplicate_key_support": {
+        "extra_rows_beyond_one_per_group": 3,
+        "groups_with_multiple_rows": 3,
+        "rows_in_repeated_groups": 6
+      },
+      "unique_sample_candidate_degree_combinations": {
+        "multiple_multiple": 0,
+        "multiple_one": 0,
+        "one_multiple": 0,
+        "one_one": 951
+      }
+    },
+    "full_source_structure": {
+      "clinical": {
+        "keys": {
+          "SubjectID": {
+            "denominator_rows": 969,
+            "distinct_nonempty_labels": 104,
+            "leading_or_trailing_whitespace_rows": 0,
+            "repeated_key_support": {
+              "extra_rows_beyond_one_per_group": 865,
+              "groups_with_multiple_rows": 94,
+              "rows_in_repeated_groups": 959
+            },
+            "token_classes": {
+              "empty": 0,
+              "nonempty": 969,
+              "whitespace_only": 0
+            }
+          },
+          "VisitID": {
+            "denominator_rows": 969,
+            "distinct_nonempty_labels": 965,
+            "leading_or_trailing_whitespace_rows": 0,
+            "repeated_key_support": {
+              "extra_rows_beyond_one_per_group": 4,
+              "groups_with_multiple_rows": 4,
+              "rows_in_repeated_groups": 8
+            },
+            "token_classes": {
+              "empty": 0,
+              "nonempty": 969,
+              "whitespace_only": 0
+            }
+          }
+        },
+        "repeated_selected_token_patterns": {
+          "extra_rows_beyond_one_per_group": 0,
+          "groups_with_multiple_rows": 0,
+          "rows_in_repeated_groups": 0
+        },
+        "source_record_count": 969
+      },
+      "sample_info": {
+        "keys": {
+          "SampleID": {
+            "denominator_rows": 1092,
+            "distinct_nonempty_labels": 1089,
+            "leading_or_trailing_whitespace_rows": 0,
+            "repeated_key_support": {
+              "extra_rows_beyond_one_per_group": 3,
+              "groups_with_multiple_rows": 3,
+              "rows_in_repeated_groups": 6
+            },
+            "token_classes": {
+              "empty": 0,
+              "nonempty": 1092,
+              "whitespace_only": 0
+            }
+          },
+          "SubjectID": {
+            "denominator_rows": 1092,
+            "distinct_nonempty_labels": 106,
+            "leading_or_trailing_whitespace_rows": 0,
+            "repeated_key_support": {
+              "extra_rows_beyond_one_per_group": 986,
+              "groups_with_multiple_rows": 95,
+              "rows_in_repeated_groups": 1081
+            },
+            "token_classes": {
+              "empty": 0,
+              "nonempty": 1092,
+              "whitespace_only": 0
+            }
+          }
+        },
+        "repeated_selected_token_patterns": {
+          "extra_rows_beyond_one_per_group": 2,
+          "groups_with_multiple_rows": 2,
+          "rows_in_repeated_groups": 4
+        },
+        "source_record_count": 1092
+      }
+    },
+    "participant_identity_verified": false,
+    "partitions": {
+      "calibration": {
+        "admitted_labels": 88,
+        "eligible_rows": 777,
+        "label_partition": {
+          "coordinate_conversion_loss": 0,
+          "multiple_observations": 78,
+          "no_eligible_observation": 0,
+          "one_observation": 10,
+          "repeated_eligible_time": 0
+        }
+      },
+      "evaluation": {
+        "admitted_labels": 16,
+        "eligible_rows": 161,
+        "label_partition": {
+          "coordinate_conversion_loss": 0,
+          "multiple_observations": 16,
+          "no_eligible_observation": 0,
+          "one_observation": 0,
+          "repeated_eligible_time": 0
+        }
+      }
+    }
+  },
+  "validation_only": false
+}

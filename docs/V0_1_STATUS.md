@@ -15,6 +15,7 @@ Release identifier: **0.1.0a1**. Engineering functionality is implemented; scien
 | Evidence completeness | Auditable | Status, unit, uncertainty, source metadata; missing entries reported |
 | Authoritative mortality calibration | Pass | All-age e_x error below 0.001 year |
 | U.S. diabetes/prediabetes prevalence | Benchmarks reconstructed; engine mapping unresolved | NHANES age/sex shares with survey uncertainty and 12 published cross-checks; total diabetes and glycemic states not silently relabeled as T2D/metabolic health |
+| Recorded-A1C laboratory dynamics | V1 failed estimates preserved; adaptive v2 working estimates completed; clinical calibration unresolved | [Versioned iPOP analysis](IPOP_A1C_WORKING_FIT.md): v2 all 12 starts and 200 primary bootstrap fits converged; 199 finite paired predictions, profile boundaries/search caps and mixed forecast metrics retained. V1 null estimates and 43 successful/157 failed draws remain immutable. No clinical-state, national transport or engine activation |
 | Historical backtest | Limited benchmark implemented | Frozen 2022 mortality predicts 2023; no diet-effect validation |
 | Reserved-cycle mortality prediction | Descriptive evaluation performed; clinical acceptance unresolved | [Four frozen models evaluated on NHANES 2013–2014](MORTALITY_VALIDATION.md); no refitting, no demonstrated glycemic score improvement, no causal state-hazard validation |
 | Uncertainty propagation | Implemented | Seeded independent draws and paired scenario deltas |

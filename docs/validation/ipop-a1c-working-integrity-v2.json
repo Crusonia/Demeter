@@ -1,0 +1,32 @@
+{
+  "actual_source_replay": null,
+  "clinical_acceptance_established": false,
+  "current_registry_sha256": "445e399d9a758344015563141b67921678411a3da9e9192b77226421d45d38d2",
+  "engine_activation_allowed": false,
+  "fit_checks": {
+    "adjacent": {
+      "clinical_interval_claimed": false,
+      "fit_available": true,
+      "generator_and_kernel_conserve_mass": true,
+      "profile_count": 4
+    },
+    "unrestricted": {
+      "clinical_interval_claimed": false,
+      "fit_available": true,
+      "generator_and_kernel_conserve_mass": true,
+      "profile_count": 6
+    }
+  },
+  "historical_run_registry_sha256": "31b9be2c72da6ac47b40ea94c96c36bf9e324b00fc19f212d7a04998ef14138c",
+  "joint_uncertainty_contract_checked": true,
+  "numerical_amendment_sha256": "8f03d5a0f7377d843099b6dbacc2f5fa66c3311aa77cdcf705c74f6d5d0865d0",
+  "numerical_method": "exact_box_quadratic_v2",
+  "passed": true,
+  "prior_empirical_result_sha256": "e44528ab04a13db4f8c30cf2365e86959aa13962a205a65b982615cfe61b9ced",
+  "protocol_sha256": "9b7473bb2454934ba82ef9d80c41c4d94a06c8b5eeadbf029f99aacec60e8ea7",
+  "report_sha256": "30a4cc66a9af406af0ebfac0c2a0237609d1606aecb6f08c9e0b8ca000b0d988",
+  "reported_source_pins_match_immutable_prior_artifact": true,
+  "scope": "offline aggregate integrity and mathematical consistency; no participant replay or independent clinical validation",
+  "selection_denominators_reconcile": true,
+  "statistical_selection_changed": false
+}

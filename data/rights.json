@@ -278,12 +278,13 @@
       "checked_on": "2026-10-01",
       "redistribution": "facts_only",
       "download": "Credible primary-author public lineage supports intake of exactly the two frozen GitHub files without an account, access agreement or controlled dbGaP record request.",
-      "transform": "Attributed aggregate integrity, selected-token coverage and conditional sample-association diagnostics only; no identifiers, assay values or participant crosswalk export.",
+      "transform": "Attributed aggregate integrity/coverage/association diagnostics and the separately frozen conditional A1C recorded-band working analysis, including aggregate fitted parameters and internal predictive/joint sampling diagnostics. No participant identifiers, assay values, coordinates, crosswalks or individual paths/scores exported; no clinical or engine activation.",
       "conditions": [
         "Complete source bytes stay immutable in ignored fetch-only caches; they are not relicensed or committed.",
         "Preserve source pins, actual acquisition receipts, failed acquisition history and both the frozen-v1 and adaptive frozen-v2 results.",
         "Original CC0 lineage and derivative repository MIT code license remain distinct; neither certifies source units, clinical meanings, identity or specimen timing.",
-        "No clinical fit, national transport, dietary effect, death/censoring estimate or active model parameter follows from this intake."
+        "No clinical fit, national transport, dietary effect, death/censoring estimate or active model parameter follows from this intake.",
+        "A1C working analysis must retain its separate frozen protocol, used-source chronology, source/measurement/selection assumptions and all clinical/transport limitations; conditional aggregate estimates do not establish diagnosis, remission or dietary effects."
       ]
     }
   },
@@ -512,7 +513,7 @@
       "policy": "census",
       "privacy": "aggregate",
       "publisher": "U.S. Census Bureau",
-      "vintage": "2025 (using 2022\u20132024 estimates)",
+      "vintage": "2025 (using 2022–2024 estimates)",
       "citation": "U.S. Census Bureau. Resident population by single year of age and sex, Vintage 2025",
       "notes": "Unmodified source snapshot; source terms apply separately from Demeter MIT code.",
       "url": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/national/asrh/nc-est2025-agesex-res.csv",

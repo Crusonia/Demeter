@@ -730,7 +730,9 @@ def fetch_ipop_sources(
     try:
         result = fetch_sources(load_frozen_protocol(), destination)
     except (ValueError, OSError):
-        typer.echo("iPOP acquisition failed before intake; no clinical analysis performed.", err=True)
+        typer.echo(
+            "iPOP acquisition failed before intake; no clinical analysis performed.", err=True
+        )
         raise typer.Exit(1) from None
     # The in-memory wrapper may contain source bytes; never serialize its full return value.
     emit({key: result[key] for key in ("passed", "receipt_saved", "provenance")})
@@ -750,7 +752,9 @@ def ipop_preflight(
         report = audit_preflight(raw)
         write_fresh_report(report, output, raw)
     except (ValueError, OSError):
-        typer.echo("iPOP intake or fresh report publication failed; source evidence preserved.", err=True)
+        typer.echo(
+            "iPOP intake or fresh report publication failed; source evidence preserved.", err=True
+        )
         raise typer.Exit(1) from None
     emit(report)
     if not report["source_audit"]["passed"]:
@@ -769,10 +773,42 @@ def ipop_crosswalk_preflight(
         report = audit_crosswalk(raw)
         write_fresh_report(report, output, raw)
     except (ValueError, OSError, RuntimeError):
-        typer.echo("iPOP intake or fresh report publication failed; source evidence preserved.", err=True)
+        typer.echo(
+            "iPOP intake or fresh report publication failed; source evidence preserved.", err=True
+        )
         raise typer.Exit(1) from None
     emit(report)
     if not report["source_audit"]["passed"]:
+        raise typer.Exit(1)
+
+
+@evidence_app.command("ipop-a1c-working-fit")
+def ipop_a1c_working_fit(
+    raw: Annotated[Path, typer.Option(help="Existing pinned iPOP cache with acquisition receipts")],
+    output: Annotated[Path, typer.Option(help="Fresh aggregate report path; never overwritten")],
+    numerical_method: Annotated[
+        str, typer.Option(help="Frozen numerical version: v1 or exact_box_quadratic_v2")
+    ] = "v1",
+) -> None:
+    """Frozen conditional A1C-band fit with internal prediction and joint uncertainty."""
+    from demeter.analysis.ipop_a1c import analyze_cache
+    from demeter.analysis.ipop_preflight_io import write_fresh_report
+
+    try:
+        report = analyze_cache(
+            raw,
+            progress=lambda message: typer.echo(message, err=True),
+            numerical_method=numerical_method,
+        )
+        write_fresh_report(report, output, raw)
+    except (ValueError, OSError, RuntimeError):
+        typer.echo(
+            "iPOP working analysis or fresh publication failed; source evidence preserved.",
+            err=True,
+        )
+        raise typer.Exit(1) from None
+    emit(report)
+    if not report["analysis_completed"]:
         raise typer.Exit(1)
 
 

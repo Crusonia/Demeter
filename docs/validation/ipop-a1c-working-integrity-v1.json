@@ -1,0 +1,25 @@
+{
+  "actual_source_replay": null,
+  "clinical_acceptance_established": false,
+  "current_registry_sha256": "31b9be2c72da6ac47b40ea94c96c36bf9e324b00fc19f212d7a04998ef14138c",
+  "engine_activation_allowed": false,
+  "fit_checks": {
+    "adjacent": {
+      "failure": "no_converged_finite_multistart",
+      "fit_available": false
+    },
+    "unrestricted": {
+      "failure": "no_converged_finite_multistart",
+      "fit_available": false
+    }
+  },
+  "historical_run_registry_sha256": "f6d10e7c7d412ff8a0e00206ce691c0c15a5a8d9bf48ad7e4677cca65e976c41",
+  "joint_uncertainty_contract_checked": true,
+  "numerical_amendment_sha256": "11f492eeea19cf8ab9bcc0f5ce58c012ff93e99c1b9057340f87bbf307bb4a42",
+  "passed": true,
+  "protocol_sha256": "9b7473bb2454934ba82ef9d80c41c4d94a06c8b5eeadbf029f99aacec60e8ea7",
+  "report_sha256": "e44528ab04a13db4f8c30cf2365e86959aa13962a205a65b982615cfe61b9ced",
+  "reported_source_pins_match_immutable_prior_artifact": true,
+  "scope": "offline aggregate integrity and mathematical consistency; no participant replay or independent clinical validation",
+  "selection_denominators_reconcile": true
+}

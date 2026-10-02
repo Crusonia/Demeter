@@ -1108,6 +1108,77 @@
       ],
       "model_role": "source_intake_only",
       "redistribution": "Attributed aggregate diagnostics, protocols and acquisition receipts only. Complete clinical/metadata bytes are fetch-only; original public CC0 lineage and derivative MIT code license remain distinct. No participant identifiers, measurements or crosswalk is bundled."
+    },
+    "ipop_a1c_working_fit": {
+      "store": null,
+      "dependencies": [
+        "ipop_numerical_preflight"
+      ],
+      "registry_datasets": [
+        "ipop_a1c_working_fit",
+        "ipop_a1c_working_fit_v2"
+      ],
+      "registry_parameters": [],
+      "artifacts": [
+        {
+          "path": "docs/validation/ipop-a1c-working-fit-protocol-v1.json",
+          "sha256": "9b7473bb2454934ba82ef9d80c41c4d94a06c8b5eeadbf029f99aacec60e8ea7"
+        },
+        {
+          "path": "docs/validation/ipop-a1c-numerical-amendment-v1.json",
+          "sha256": "11f492eeea19cf8ab9bcc0f5ce58c012ff93e99c1b9057340f87bbf307bb4a42"
+        },
+        {
+          "path": "docs/validation/ipop-a1c-numerical-amendment-v2.json",
+          "sha256": "8f03d5a0f7377d843099b6dbacc2f5fa66c3311aa77cdcf705c74f6d5d0865d0"
+        },
+        {
+          "path": "docs/rfcs/RFC-57-ipop-a1c-working-fit.md",
+          "sha256": "8ffc3a17fb1564c901995cce6f4411a7bf77c49a12891f1242bc78d406dfb7ac"
+        },
+        {
+          "path": "docs/IPOP_A1C_WORKING_FIT.md",
+          "sha256": "3be941f4396bae3b6134601c62418e972926667a9f036d0555e4716a914b5b47"
+        },
+        {
+          "path": "docs/validation/ipop-a1c-working-result-v1.json",
+          "sha256": "e44528ab04a13db4f8c30cf2365e86959aa13962a205a65b982615cfe61b9ced"
+        },
+        {
+          "path": "docs/validation/ipop-a1c-working-integrity-v1.json",
+          "sha256": "659c671cdf1f0d92d326e57f49749be1a886fd9622d8a496589960101273d743"
+        },
+        {
+          "path": "docs/validation/ipop-a1c-simulation-preservation-v1.json",
+          "sha256": "c296599881eb4226a69a47696d21dbc19ad884f33ae72f36ba62622e0ef9f58a"
+        },
+        {
+          "path": "docs/validation/ipop-a1c-working-result-v2.json",
+          "sha256": "30a4cc66a9af406af0ebfac0c2a0237609d1606aecb6f08c9e0b8ca000b0d988"
+        },
+        {
+          "path": "docs/validation/ipop-a1c-working-integrity-v2.json",
+          "sha256": "b6a88516f2e73fad26464c0dc8330e6d55ad3cece531da80c062e5347f137639"
+        },
+        {
+          "path": "docs/validation/ipop-a1c-simulation-preservation-v2.json",
+          "sha256": "12f61aff411683893245a2d7d7cd01997e255214855b93f4b6180cc17050b0f1"
+        }
+      ],
+      "transform_files": [
+        "src/demeter/analysis/laboratory_panel.py",
+        "src/demeter/analysis/ipop_a1c.py",
+        "scripts/verify_ipop_a1c_working_fit.py"
+      ],
+      "rebuild": [
+        "uv run python scripts/verify_ipop_a1c_working_fit.py",
+        "uv run python scripts/verify_ipop_a1c_working_fit.py --numerical-method exact_box_quadratic_v2",
+        "uv run demeter data fetch-ipop --destination data/raw/ipop-a1c-v1",
+        "uv run demeter evidence ipop-a1c-working-fit --raw data/raw/ipop-a1c-v1 --output outputs/ipop-a1c-working-v1.json",
+        "uv run demeter evidence ipop-a1c-working-fit --numerical-method exact_box_quadratic_v2 --raw data/raw/ipop-a1c-v1 --output outputs/ipop-a1c-working-v2.json"
+      ],
+      "model_role": "conditional_empirical_working_analysis_only",
+      "redistribution": "Attributed conditional aggregate diagnostics and immutable protocols only. Failed v1 point estimates remain null; its successful bootstrap subset is conditional. Adaptive v2 repair is frozen separately after v1 outcomes and supplies working estimates with profile limitations and all resampling dispositions retained. No clinical or engine activation. Complete source clinical/metadata bytes remain fetch-only, with no participant identifiers, assays, coordinates, crosswalks or paths bundled."
     }
   },
   "supporting_artifacts": [
@@ -1202,6 +1273,10 @@
     {
       "path": "docs/validation/ipop-public-provenance-correction-v1.json",
       "sha256": "6278390527f9cbbbc1bf444890a5d44dc089610d78afd5c94b1ac25a64ea9ec2"
+    },
+    {
+      "path": "docs/validation/haalsi-codebook-coverage-v1.json",
+      "sha256": "1258da6841c5f2d543826a545bdb0266a93b0bb1f188eb9c7644ab8fa89f6751"
     }
   ]
 }

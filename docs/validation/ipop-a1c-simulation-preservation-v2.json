@@ -1,0 +1,115 @@
+{
+  "before_evidence_sha256": "7331b35451eb4ab7de954682760da922043d7af008a96650c899c09c4c4a21e0",
+  "after_evidence_sha256": "445e399d9a758344015563141b67921678411a3da9e9192b77226421d45d38d2",
+  "excluded_paths": [
+    "/metadata/evidence_sha256",
+    "/healthspan/evidence_sha256"
+  ],
+  "canonical_scenarios": [
+    {
+      "scenario": "baseline",
+      "complete_outputs_equal_except_evidence_hash": true,
+      "absolute_numeric_change": 0,
+      "relative_numeric_change": 0
+    },
+    {
+      "scenario": "reduce_upf_30",
+      "complete_outputs_equal_except_evidence_hash": true,
+      "absolute_numeric_change": 0,
+      "relative_numeric_change": 0
+    },
+    {
+      "scenario": "prechronic_baseline",
+      "complete_outputs_equal_except_evidence_hash": true,
+      "absolute_numeric_change": 0,
+      "relative_numeric_change": 0
+    },
+    {
+      "scenario": "prechronic_reduce_upf_30",
+      "complete_outputs_equal_except_evidence_hash": true,
+      "absolute_numeric_change": 0,
+      "relative_numeric_change": 0
+    }
+  ],
+  "refreshed_observation_reports": {
+    "issue-56-state-mapping.json": {
+      "all_other_outputs_identical": true,
+      "excluded_paths": [
+        "/provenance/evidence_sha256"
+      ]
+    },
+    "issue-56-partial-observations.json": {
+      "all_other_outputs_identical": true,
+      "excluded_paths": [
+        "/provenance/evidence_sha256"
+      ]
+    },
+    "joint-glycemic-uncertainty.json": {
+      "all_other_outputs_identical": true,
+      "exact_encoded_payload_equal_after_only_named_exclusion": true,
+      "full_encoded_bytes_equal": false,
+      "excluded_paths": [
+        "/provenance/evidence_sha256"
+      ],
+      "before_complete_output_sha256": "ec5854a3f7961f940566293d4be1e5f0b4bec5049d3e2592cb45a7676144282c",
+      "after_complete_output_sha256": "37fc774502345f6902cc7c2cbf0835e706e8ae45fa0c2a7762d81fe2603c8fd3",
+      "before_normalized_output_sha256": "c71acb7caad072f327d5667f9e08c69f5ee0d3a31e8a3b13720fd00d16550586",
+      "after_normalized_output_sha256": "c71acb7caad072f327d5667f9e08c69f5ee0d3a31e8a3b13720fd00d16550586",
+      "current_fingerprint_matches_current_registry": true,
+      "numerical_storage": "Existing 12-significant-figure storage_numbers convention; no new tolerance or covariance repair"
+    }
+  },
+  "sampling_inputs_unchanged": true,
+  "benchmark_not_sampled": true,
+  "fixed_seed_uncertainty_unchanged": true,
+  "uncertainty_check": {
+    "seed": 42,
+    "draws": 2,
+    "years": 2,
+    "scope": "Software regression with synthetic active parameters"
+  },
+  "prevalence_checks_unchanged": true,
+  "mortality_backtest_unchanged": true,
+  "scientific_blockers_unchanged": true,
+  "before_missing_uncertainty": [],
+  "after_missing_uncertainty": [],
+  "scientific_release_ready": false,
+  "interpretation": "Completed conditional laboratory working-analysis registration, including the separately frozen post-outcome numerical v2 repair. Every top-level parameter record and scientific blocker is unchanged. Engine simulations and validation outputs are preserved outside only the named registry-provenance paths. This audit neither repeats the iPOP fit nor validates clinical rates, dietary effects or national transport.",
+  "passed": true,
+  "schema_version": 2,
+  "checked_at_utc": "2026-10-02T03:45:40.324804+00:00",
+  "model_role": "conditional_lab_working_analysis_preservation_only",
+  "parameter_semantics_unchanged": true,
+  "parameter_count_before": 146,
+  "parameter_count_after": 146,
+  "scientific_blocker_count_before": 5,
+  "scientific_blocker_count_after": 5,
+  "exact_parameter_payload_equality": true,
+  "exact_scientific_blocker_payload_equality": true,
+  "clinical_fit_performed": false,
+  "engine_activation_allowed": false,
+  "scientific_acceptance_changed": false,
+  "ipop_raw_records_read": false,
+  "empirical_lab_analysis_replayed": false,
+  "provenance": {
+    "before_registry_path": "outputs/ipop-a1c-before-main-registry.yaml",
+    "before_registry_bytes_sha256": "39a9e01f96b3c92ee03496f32e70d27ec68c2796c6b067a959ad33e708631493",
+    "after_registry_path": "evidence/parameters.yaml",
+    "after_registry_bytes_sha256": "b18dbbb0885d6383f89cc1ce01a821e3b51f4acb486c583109526565a9a5e480",
+    "compare_helper_path": "scripts/verify_prediabetes_benchmark.py",
+    "compare_helper_sha256": "414018c37dcb832645e48ec7e384c848328d9ebf7d8d200bf746aa3f96b2727b",
+    "immutable_v1_preservation_path": "docs/validation/ipop-a1c-simulation-preservation-v1.json",
+    "immutable_v1_preservation_sha256": "c296599881eb4226a69a47696d21dbc19ad884f33ae72f36ba62622e0ef9f58a",
+    "immutable_failed_v1_result_path": "docs/validation/ipop-a1c-working-result-v1.json",
+    "immutable_failed_v1_result_sha256": "e44528ab04a13db4f8c30cf2365e86959aa13962a205a65b982615cfe61b9ced",
+    "registered_v2_result_path": "docs/validation/ipop-a1c-working-result-v2.json",
+    "registered_v2_result_sha256": "30a4cc66a9af406af0ebfac0c2a0237609d1606aecb6f08c9e0b8ca000b0d988",
+    "numerical_method": "exact_box_quadratic_v2",
+    "v2_amendment_path": "docs/validation/ipop-a1c-numerical-amendment-v2.json",
+    "v2_amendment_sha256": "8f03d5a0f7377d843099b6dbacc2f5fa66c3311aa77cdcf705c74f6d5d0865d0",
+    "likelihood_selection_protocol_path": "docs/validation/ipop-a1c-working-fit-protocol-v1.json",
+    "likelihood_selection_protocol_sha256": "9b7473bb2454934ba82ef9d80c41c4d94a06c8b5eeadbf029f99aacec60e8ea7",
+    "before_registry_git_reference": "97ffeec24f651ec2bcdd39fdf18154b4811a7e45:evidence/parameters.yaml",
+    "before_registry_git_bytes_equal_ignored_snapshot": true
+  }
+}
