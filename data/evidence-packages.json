@@ -1116,7 +1116,8 @@
       ],
       "registry_datasets": [
         "ipop_a1c_working_fit",
-        "ipop_a1c_working_fit_v2"
+        "ipop_a1c_working_fit_v2",
+        "ipop_a1c_predictive_uncertainty_supplement_v1"
       ],
       "registry_parameters": [],
       "artifacts": [
@@ -1138,7 +1139,7 @@
         },
         {
           "path": "docs/IPOP_A1C_WORKING_FIT.md",
-          "sha256": "3be941f4396bae3b6134601c62418e972926667a9f036d0555e4716a914b5b47"
+          "sha256": "88400f4a2c9827db80467a6cd18542cafb88dc80305d74d49637caf201eef5bb"
         },
         {
           "path": "docs/validation/ipop-a1c-working-result-v1.json",
@@ -1163,19 +1164,40 @@
         {
           "path": "docs/validation/ipop-a1c-simulation-preservation-v2.json",
           "sha256": "12f61aff411683893245a2d7d7cd01997e255214855b93f4b6180cc17050b0f1"
+        },
+        {
+          "path": "docs/IPOP_PREDICTIVE_UNCERTAINTY.md",
+          "sha256": "7dcabdd612635fd76480915d4eb0cf0d1778a59dedc66ff6643d101c09114bae"
+        },
+        {
+          "path": "docs/validation/ipop-a1c-predictive-summary-protocol-v1.json",
+          "sha256": "967c74c8c6d5bb208f307009b0198b8ec53abc2376594153cccb5d20af04818a"
+        },
+        {
+          "path": "docs/validation/ipop-a1c-predictive-summary-result-v1.json",
+          "sha256": "85a2496f0d4d1ef41f9afd8dbcf0b85a0f824db9f619bc8e46beba0f90370120"
+        },
+        {
+          "path": "docs/validation/ipop-a1c-predictive-summary-integrity-v1.json",
+          "sha256": "f006679b4a9d4c3b95b53cde7cff3211de7bea6d62bfdb29f2ef2b64ced9fb54"
         }
       ],
       "transform_files": [
         "src/demeter/analysis/laboratory_panel.py",
         "src/demeter/analysis/ipop_a1c.py",
-        "scripts/verify_ipop_a1c_working_fit.py"
+        "scripts/verify_ipop_a1c_working_fit.py",
+        "src/demeter/analysis/laboratory_bootstrap_reporting.py",
+        "scripts/replay_ipop_predictive_supplement.py",
+        "scripts/verify_ipop_predictive_supplement.py",
+        "scripts/run_ipop_predictive_supplement.py"
       ],
       "rebuild": [
         "uv run python scripts/verify_ipop_a1c_working_fit.py",
         "uv run python scripts/verify_ipop_a1c_working_fit.py --numerical-method exact_box_quadratic_v2",
         "uv run demeter data fetch-ipop --destination data/raw/ipop-a1c-v1",
         "uv run demeter evidence ipop-a1c-working-fit --raw data/raw/ipop-a1c-v1 --output outputs/ipop-a1c-working-v1.json",
-        "uv run demeter evidence ipop-a1c-working-fit --numerical-method exact_box_quadratic_v2 --raw data/raw/ipop-a1c-v1 --output outputs/ipop-a1c-working-v2.json"
+        "uv run demeter evidence ipop-a1c-working-fit --numerical-method exact_box_quadratic_v2 --raw data/raw/ipop-a1c-v1 --output outputs/ipop-a1c-working-v2.json",
+        "uv run python scripts/verify_ipop_predictive_supplement.py"
       ],
       "model_role": "conditional_empirical_working_analysis_only",
       "redistribution": "Attributed conditional aggregate diagnostics and immutable protocols only. Failed v1 point estimates remain null; its successful bootstrap subset is conditional. Adaptive v2 repair is frozen separately after v1 outcomes and supplies working estimates with profile limitations and all resampling dispositions retained. No clinical or engine activation. Complete source clinical/metadata bytes remain fetch-only, with no participant identifiers, assays, coordinates, crosswalks or paths bundled."

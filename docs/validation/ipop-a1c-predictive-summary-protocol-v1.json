@@ -1,0 +1,38 @@
+{
+  "activation": {
+    "clinical_fit_performed": false,
+    "death_or_censoring_inference_performed": false,
+    "diagnosis_or_remission_inference_performed": false,
+    "dietary_effect_estimated": false,
+    "engine_activation_allowed": false,
+    "national_transport_established": false,
+    "scientific_acceptance_changed": false
+  },
+  "analysis_id": "ipop_a1c_predictive_uncertainty_supplement_v1",
+  "chronology": "Post-outcome reporting supplement selected after the complete v2 analysis and post-merge PR84 review were inspected. V2 used 199 all-eight-finite paired score vectors; the missing vector may still contain usable Brier coordinates. This is additional reporting under a new version, not a prospective analysis or a replacement of v1/v2.",
+  "frozen_implementations": {
+    "src/demeter/analysis/ipop_a1c.py": "3deba415d1df29240f3baeacffb579ea74ec913ca40d2ff52bfcc72e59f611a2",
+    "src/demeter/analysis/laboratory_panel.py": "c644a365da8709bb5af9629cd007ace9a7d3454658119880d16f462daa353f0d"
+  },
+  "inherited_protocols": {
+    "docs/validation/ipop-a1c-numerical-amendment-v2.json": "8f03d5a0f7377d843099b6dbacc2f5fa66c3311aa77cdcf705c74f6d5d0865d0",
+    "docs/validation/ipop-a1c-working-fit-protocol-v1.json": "9b7473bb2454934ba82ef9d80c41c4d94a06c8b5eeadbf029f99aacec60e8ea7"
+  },
+  "limitations": "Conditional working-model sampling uncertainty only; successful finite subsets must be explicit. Does not include source identity/clock/unit ambiguity, treatment, informative observation/stopping, model structure, transport or causal uncertainty. The reporting estimands were selected after v2 outcomes were seen.",
+  "parent_result": {
+    "path": "docs/validation/ipop-a1c-working-result-v2.json",
+    "sha256": "30a4cc66a9af406af0ebfac0c2a0237609d1606aecb6f08c9e0b8ca000b0d988"
+  },
+  "schema_version": 1,
+  "summary_policy": {
+    "complete_vector": "Preserve the original eight-coordinate covariance/percentiles conditional on every coordinate being finite; do not relabel it as unconditional metric-specific uncertainty.",
+    "coordinate": "Each coordinate uses every finite value for that coordinate from a successful primary fit and valid paired evaluation. Report total, finite and unavailable counts and nominal contributing-draw resolution; a nonfinite value in another coordinate cannot remove it.",
+    "insufficient_support": "Fewer than two contributing vectors gives unavailable covariance/percentiles, with counts retained.",
+    "method": "coordinate_and_metric_support_v1",
+    "metric_blocks": "Separate four-coordinate log-score and four-coordinate Brier covariance/percentiles on draws complete for that block. Do not combine entries calculated on different supports into one joint covariance.",
+    "publication": "Retain identifier-free aggregate bootstrap score vectors with finite/null statuses for offline reconstruction. These are model score differences, not participant predictions, labels, assays, time coordinates, allocation hashes or source rows.",
+    "reconciliation": "Same-platform replay must exactly reproduce original complete-vector and rate summaries, coordinate order, settings, and selection. Failure to reconcile prevents publication; no rate or uncertainty result is silently substituted.",
+    "unsupported_log_scores": "Keep unavailable/nonfinite log differences explicit. No probability floors, replacing infinity with zero, redraws or extrapolation. Legacy differences do not distinguish all causes, so do not infer that an unavailable difference is a numerical fit failure."
+  },
+  "unchanged": "Source pins/acquisition, exact selection/allocation, first-observation/available-time conditioning, primary CTMC and IID fitting, six starts, rates/caps/scaling/optimizer tolerances, 200 whole-label resamples, seed 20261001, quantile levels 0.025/0.5/0.975, failed draws retained without replacement, and all scientific/engine gates remain unchanged. Replay only the existing bootstrap; do not refit full-data models or profiles."
+}

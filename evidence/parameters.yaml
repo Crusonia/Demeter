@@ -5526,6 +5526,42 @@ datasets:
             clock uncertainty unresolved.
           clinical_use_allowed: false
 
+  ipop_a1c_predictive_uncertainty_supplement_v1:
+    model_role: conditional_empirical_working_analysis_only
+    status: derived
+    evidence_grade: D
+    parent_dataset: ipop_a1c_working_fit_v2
+    parent_result_sha256: 30a4cc66a9af406af0ebfac0c2a0237609d1606aecb6f08c9e0b8ca000b0d988
+    source_ids:
+    - ipop2022_clinical_tests
+    - ipop2022_sample_info
+    population: Same frozen selected available iPOP laboratory paths as v2; no national representation.
+    geography: Stanford volunteer cohort derivative; no U.S. transport.
+    time_period: Pinned producer commit ba55996cb51a8bc4fbe9374633e9cb3223c6ea8c; elapsed source-day interpretation
+      assumed, calendar coverage unverified.
+    unit: Paired primary-minus-IID predictive log-score or multicategory Brier-score difference; dimensionless,
+      with equal-label and observation-weighted summaries.
+    protocol_path: docs/validation/ipop-a1c-predictive-summary-protocol-v1.json
+    protocol_sha256: 967c74c8c6d5bb208f307009b0198b8ec53abc2376594153cccb5d20af04818a
+    freeze_commit: 6210db409e890ef3811afc1c01282d232e4a1dd7
+    freeze_tag: demeter-ipop-predictive-summary-freeze-v1
+    result:
+      path: docs/validation/ipop-a1c-predictive-summary-result-v1.json
+      sha256: 85a2496f0d4d1ef41f9afd8dbcf0b85a0f824db9f619bc8e46beba0f90370120
+    observation_parameters_inherited_from: ipop_a1c_working_fit
+    numerical_controls: Unchanged v2 method and original frozen bootstrap count, seed, quantile levels,
+      starts, caps, fit tolerances and whole-label RNG order; only additive score-summary support differs.
+    transformation: Separately frozen post-outcome reporting supplement. Exact replay of original rate/complete-vector
+      summaries precedes publication; per-coordinate and metric-block support derived from retained identifier-free
+      aggregate score vectors.
+    uncertainty: Conditional working-model bootstrap sampling summaries. Each coordinate/metric block reports
+      finite and unavailable support. Joint covariance uses common finite draws within its declared block;
+      no pairwise deletion, floors or redraws. Excludes measurement, linkage, observation selection, treatment,
+      structure, transport and causal uncertainty.
+    clinical_use_allowed: false
+    engine_activation_allowed: false
+    scientific_acceptance_changed: false
+
 scientific_blockers:
 - National age-specific metabolic transition hazards are unresolved.
 - Age-specific T2D/prediabetes initial prevalence is not calibrated; CDC total diabetes includes
