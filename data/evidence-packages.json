@@ -1423,6 +1423,64 @@
         "src/demeter/analysis/nominal_observation_likelihood.py",
         "scripts/verify_kerala_observations.py"
       ]
+    },
+    "malawi_followup_benchmark": {
+      "store": null,
+      "dependencies": [],
+      "registry_datasets": [
+        "malawi_followup_benchmark"
+      ],
+      "registry_parameters": [
+        "malawi_cohort_count",
+        "malawi_traced_count",
+        "malawi_confirmed_deaths_count",
+        "malawi_assessed_count",
+        "malawi_ngt_count",
+        "malawi_ifg_count",
+        "malawi_dm_count",
+        "malawi_baseline_ifg_lower_mmol_l",
+        "malawi_baseline_ifg_upper_mmol_l",
+        "malawi_followup_ifg_lower_mmol_l",
+        "malawi_followup_ifg_upper_mmol_l",
+        "malawi_followup_ngt_upper_mmol_l",
+        "malawi_followup_dm_lower_mmol_l",
+        "malawi_followup_median_years",
+        "malawi_followup_iqr_lower_years",
+        "malawi_followup_iqr_upper_years",
+        "malawi_abstract_person_years",
+        "malawi_results_person_years",
+        "malawi_baseline_start_year",
+        "malawi_baseline_end_year",
+        "malawi_followup_start_year",
+        "malawi_followup_end_year",
+        "malawi_untraced_count"
+      ],
+      "artifacts": [
+        {
+          "path": "docs/validation/malawi-cohort-intake-protocol-v1.json",
+          "sha256": "0a1d1b7bbde1bca3f15aecf1b395050b2a0277c9e385f799889a8c6786e5aafb"
+        },
+        {
+          "path": "docs/validation/malawi-cohort-ascertainment-v1.json",
+          "sha256": "09f478764f70b3253f333e4d031310dc1564f29da5c3c34fb0187b92a9674636"
+        },
+        {
+          "path": "docs/MALAWI_FOLLOWUP_BENCHMARK.md",
+          "sha256": "3d386fcfe4b5d53b6142161ff63a6c638fb4b6955f157f95c701e3ce2c223124"
+        }
+      ],
+      "transform_files": [
+        "src/demeter/data/malawi_cohort.py",
+        "src/demeter/analysis/followup_category_bounds.py",
+        "src/demeter/analysis/malawi_cohort_audit.py",
+        "scripts/verify_malawi_cohort.py"
+      ],
+      "rebuild": [
+        "uv run python scripts/verify_malawi_cohort.py",
+        "uv run demeter evidence malawi-cohort --raw data/raw/malawi/nakanga2023-manuscript.xml"
+      ],
+      "model_role": "benchmark_only",
+      "redistribution": "Attributed public aggregate facts and authored bounds only. Public article CC-BY-4.0; full XML and all underlying participant records excluded from distributions."
     }
   },
   "supporting_artifacts": [

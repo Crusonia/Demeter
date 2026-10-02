@@ -320,6 +320,21 @@
         "Unknown source codes block dependent interpretations; aggregate availability does not certify survival, remission or causal food effects.",
         "The first published representation disclosed singleton derived trajectories without IDs or assays. Current-tree v1 is a withdrawal receipt and v2 exports no labeled multiwave tuples at any cell size; original hashes and accessible Git history are explicitly retained."
       ]
+    },
+    "plos_cc_by4": {
+      "title": "PLOS article-specific Creative Commons Attribution 4.0",
+      "terms_urls": [
+        "https://creativecommons.org/licenses/by/4.0/",
+        "https://journals.plos.org/globalpublichealth/article?id=10.1371/journal.pgph.0001263"
+      ],
+      "checked_on": "2026-10-02",
+      "redistribution": "conditional",
+      "download": "Public publisher manuscript XML only; no restricted underlying participant records.",
+      "transform": "Attribute original authors, article DOI and CC-BY-4.0 notice; identify factual extraction and Demeter calculations.",
+      "conditions": [
+        "Publication access/reuse does not authorize underlying participant-data access.",
+        "Raw XML is fetch-only by packaging choice. Distributed material is limited attributed aggregate facts, hashes and authored analyses."
+      ]
     }
   },
   "source_files": {
@@ -1324,6 +1339,19 @@
       "retrieved_at": "2026-10-02T15:16:48.635366+00:00",
       "distribution": "fetch_only",
       "alternative": "Use attributed authored source admission and aggregate diagnostics offline; optionally replay exact ignored files with scripts/verify_kerala_source_coverage.py --source-cache PATH."
+    },
+    "malawi2023_public_cohort": {
+      "policy": "plos_cc_by4",
+      "privacy": "publication",
+      "publisher": "PLOS Global Public Health",
+      "vintage": "Published September 27, 2023; historical XML retrieved October 2, 2026",
+      "citation": "Nakanga WP et al. Waist circumference and glycaemia are strong predictors of progression to diabetes in individuals with prediabetes in sub-Saharan Africa: 4-year prospective cohort study in Malawi. PLOS Global Public Health 3(9):e0001263 (2023). DOI 10.1371/journal.pgph.0001263.",
+      "notes": "Public aggregate publication; underlying Data Compass data request-restricted. No participant records.",
+      "url": "https://journals.plos.org/globalpublichealth/article/file?id=10.1371/journal.pgph.0001263&type=manuscript",
+      "sha256": "0ffa7630f06de10880d9742462202cbcf77bb365e940005097aaf0cedf2afd6d",
+      "retrieved_at": "2026-10-02T19:33:41.061585+00:00",
+      "distribution": "fetch_only",
+      "alternative": "Offline pinned aggregate report and optional exact public XML replay; no source text/figures or participant data distributed."
     }
   },
   "documentation_receipts": "docs/validation/dpp-coverage-source-receipts.json",

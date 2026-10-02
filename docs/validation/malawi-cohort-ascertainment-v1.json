@@ -1,0 +1,295 @@
+{
+  "ascertainment_bounds": {
+    "all_assigned": {
+      "category_fraction_bounds": {
+        "DM": {
+          "lower": {
+            "denominator": 389,
+            "display_fraction": 0.11568123393316196,
+            "display_underflow": false,
+            "numerator": 45
+          },
+          "upper": {
+            "denominator": 389,
+            "display_fraction": 0.6272493573264781,
+            "display_underflow": false,
+            "numerator": 244
+          }
+        },
+        "IFG": {
+          "lower": {
+            "denominator": 389,
+            "display_fraction": 0.061696658097686374,
+            "display_underflow": false,
+            "numerator": 24
+          },
+          "upper": {
+            "denominator": 389,
+            "display_fraction": 0.5732647814910026,
+            "display_underflow": false,
+            "numerator": 223
+          }
+        },
+        "NGT": {
+          "lower": {
+            "denominator": 389,
+            "display_fraction": 0.27249357326478146,
+            "display_underflow": false,
+            "numerator": 106
+          },
+          "upper": {
+            "denominator": 389,
+            "display_fraction": 0.7840616966580977,
+            "display_underflow": false,
+            "numerator": 305
+          }
+        }
+      },
+      "death_fraction_bounds": {
+        "lower": {
+          "denominator": 389,
+          "display_fraction": 0.038560411311053984,
+          "display_underflow": false,
+          "numerator": 15
+        },
+        "upper": {
+          "denominator": 389,
+          "display_fraction": 0.5501285347043702,
+          "display_underflow": false,
+          "numerator": 214
+        }
+      },
+      "denominator": 389
+    },
+    "assumptions": {
+      "alive_categories_mutually_exclusive_and_exhaustive": true,
+      "category_death_untraced_partitions_disjoint": true,
+      "independent_missingness_assumed": false,
+      "source_partition_verified_by_math": false,
+      "untraced_people_imputed_alive_or_dead": false
+    },
+    "completion_count_bounds": {
+      "alive_count": {
+        "lower": 175,
+        "upper": 374
+      },
+      "category_counts": {
+        "DM": {
+          "lower": 45,
+          "upper": 244
+        },
+        "IFG": {
+          "lower": 24,
+          "upper": 223
+        },
+        "NGT": {
+          "lower": 106,
+          "upper": 305
+        }
+      },
+      "death_count": {
+        "lower": 15,
+        "upper": 214
+      }
+    },
+    "counts": {
+      "confirmed_deaths": 15,
+      "n": 389,
+      "observed_alive": 175,
+      "observed_category_counts": {
+        "DM": 45,
+        "IFG": 24,
+        "NGT": 106
+      },
+      "untraced": 199
+    },
+    "interpretation": {
+      "ascertainment_clock": "Person-specific source follow-up; mixed elapsed times permitted",
+      "causal_effect_identified": false,
+      "clinical_transition_hazards_identified": false,
+      "common_elapsed_horizon_assumed": false,
+      "count_unit": "people",
+      "cumulative_diagnosis_endpoint": false,
+      "diet_effect_identified": false,
+      "engine_activation_allowed": false,
+      "estimand": "Source categories among people alive at their source follow-up ascertainment",
+      "finite_cohort_identification_bounds": true,
+      "fraction_unit": "dimensionless",
+      "iid_sampling_assumed": false,
+      "metabolic_health_mapping_inferred": false,
+      "sampling_interval": null
+    },
+    "joint_completion_constraint": {
+      "all_coordinate_extrema_jointly_attainable_claimed": false,
+      "allocation_equation": "sum(x_category) + x_death = untraced",
+      "allocations_are_nonnegative_integers": true,
+      "completion_equation": "sum(completed_category_counts) + completed_deaths = N",
+      "coordinate_extrema_are_coupled": true,
+      "known_category_and_death_counts_held_fixed": true,
+      "untraced_allocation_total": 199
+    },
+    "survivor_conditional": {
+      "alive_count_bounds": {
+        "lower": 175,
+        "upper": 374
+      },
+      "bounds_conditioned_on_positive_alive_count": false,
+      "category_fraction_bounds": {
+        "DM": {
+          "lower": {
+            "denominator": 374,
+            "display_fraction": 0.12032085561497326,
+            "display_underflow": false,
+            "numerator": 45
+          },
+          "upper": {
+            "denominator": 187,
+            "display_fraction": 0.6524064171122995,
+            "display_underflow": false,
+            "numerator": 122
+          }
+        },
+        "IFG": {
+          "lower": {
+            "denominator": 187,
+            "display_fraction": 0.06417112299465241,
+            "display_underflow": false,
+            "numerator": 12
+          },
+          "upper": {
+            "denominator": 374,
+            "display_fraction": 0.5962566844919787,
+            "display_underflow": false,
+            "numerator": 223
+          }
+        },
+        "NGT": {
+          "lower": {
+            "denominator": 187,
+            "display_fraction": 0.28342245989304815,
+            "display_underflow": false,
+            "numerator": 53
+          },
+          "upper": {
+            "denominator": 374,
+            "display_fraction": 0.8155080213903744,
+            "display_underflow": false,
+            "numerator": 305
+          }
+        }
+      },
+      "positive_alive_count_bounds": {
+        "lower": 175,
+        "upper": 374
+      },
+      "positive_alive_count_feasible": true,
+      "positive_alive_count_guaranteed": true
+    }
+  },
+  "completion_estimand": {
+    "cumulative_diagnosis_including_before_death_identified": false,
+    "death_bounds": "Disposition-completion fractions, not fixed-horizon mortality",
+    "known_alive_status": "At each recorded assessment only; not through study close",
+    "target": "Hypothetical completion of source follow-up category/death dispositions",
+    "untraced_people_have_observed_ascertainment_dates": false
+  },
+  "dietary_causal_effect_identified": false,
+  "limitations": [
+    "One baseline source-IFG row only; not a complete healthy/prediabetes/diabetes transition matrix.",
+    "Baseline IFG lower threshold is 6.1 mmol/L; follow-up uses 6.0. Preserve this source definition change; do not repair it.",
+    "Source NGT is fasting-only and does not establish OGTT normality, untreated sustained remission or general metabolic health.",
+    "Diabetes uses diagnosis since baseline OR current medication OR follow-up FPG; this is not a type-specific latent state or isolated assay endpoint.",
+    "Known categories, confirmed deaths and wholly untraced people form the reported ascertainment partition. Death and diagnosis histories before an endpoint are not recovered.",
+    "Untraced people may occupy any one source-category/death disposition. Coordinate extremes share one integer allocation; they cannot be combined as an independent table.",
+    "Source follow-up has person-specific mixed elapsed times, not one exact horizon. Completions describe source-ascertainment dispositions, not survival or prevalence at a fixed date.",
+    "Abstract and Results person-years differ. Neither denominator is selected, repaired, annualized or used to fit a transition hazard.",
+    "Reassessed participants differ from those lost. Independent missingness, iid sampling, complete death ascertainment and source-to-US transport are not established.",
+    "Underlying cross-sectional data currently require a repository request/data-sharing agreement; no participant records are acquired or requested.",
+    "No dietary causal coefficient, lag, mortality hazard, clinical calibration, independent holdout validation or engine parameter is activated."
+  ],
+  "participant_records_used": false,
+  "protocol_sha256": "0a1d1b7bbde1bca3f15aecf1b395050b2a0277c9e385f799889a8c6786e5aafb",
+  "report_id": "malawi-public-cohort-ascertainment-v1",
+  "sampling_interval": null,
+  "schema_version": 1,
+  "scientific_gates": {
+    "clinical_fit_allowed": false,
+    "engine_activation_allowed": false,
+    "independent_validation_allowed": false,
+    "scientific_release_ready": false
+  },
+  "source_facts": {
+    "derived": {
+      "untraced_count": 199
+    },
+    "doi": "10.1371/journal.pgph.0001263",
+    "observed": {
+      "abstract_person_years": 714.0,
+      "assessed_count": 175,
+      "baseline_end_year": 2016,
+      "baseline_ifg_lower_mmol_l": 6.1,
+      "baseline_ifg_upper_mmol_l": 7.0,
+      "baseline_start_year": 2013,
+      "cohort_count": 389,
+      "confirmed_deaths_count": 15,
+      "dm_count": 45,
+      "followup_dm_lower_mmol_l": 7.0,
+      "followup_end_year": 2019,
+      "followup_ifg_lower_mmol_l": 6.0,
+      "followup_ifg_upper_mmol_l": 7.0,
+      "followup_iqr_lower_years": 3.4,
+      "followup_iqr_upper_years": 4.7,
+      "followup_median_years": 4.2,
+      "followup_ngt_upper_mmol_l": 6.0,
+      "followup_start_year": 2018,
+      "ifg_count": 24,
+      "ngt_count": 106,
+      "results_person_years": 714.9,
+      "traced_count": 190
+    },
+    "scientific_gates": {
+      "clinical_fit_allowed": false,
+      "engine_activation_allowed": false,
+      "independent_validation_allowed": false,
+      "scientific_release_ready": false
+    },
+    "source_discrepancies": {
+      "ifg_lower_threshold_mmol_l": {
+        "baseline": 6.1,
+        "followup": 6.0
+      },
+      "person_years": {
+        "abstract": 714.0,
+        "results": 714.9
+      }
+    },
+    "source_locators": {
+      "abstract_person_years": "./front/article-meta/abstract/p[1]",
+      "assessed_count": "./body/sec[@id='sec011']/p[1]",
+      "baseline_end_year": "./body/sec[@id='sec002']/sec[@id='sec003']/p[1]",
+      "baseline_ifg_lower_mmol_l": "./body/sec[@id='sec002']/sec[@id='sec003']/p[1]",
+      "baseline_ifg_upper_mmol_l": "./body/sec[@id='sec002']/sec[@id='sec003']/p[1]",
+      "baseline_start_year": "./body/sec[@id='sec002']/sec[@id='sec003']/p[1]",
+      "cohort_count": "./body/sec[@id='sec002']/sec[@id='sec003']/p[1]",
+      "confirmed_deaths_count": "./body/sec[@id='sec011']/p[1]",
+      "dm_count": "./body/sec[@id='sec011']/table-wrap[@id='pgph.0001263.t001']/alternatives/table/thead/tr",
+      "followup_dm_lower_mmol_l": "./body/sec[@id='sec002']/sec[@id='sec005']/sec[@id='sec009']/p[1]",
+      "followup_end_year": "./body/sec[@id='sec011']/p[1]",
+      "followup_ifg_lower_mmol_l": "./body/sec[@id='sec002']/sec[@id='sec005']/sec[@id='sec009']/p[1]",
+      "followup_ifg_upper_mmol_l": "./body/sec[@id='sec002']/sec[@id='sec005']/sec[@id='sec009']/p[1]",
+      "followup_iqr_lower_years": "./front/article-meta/abstract/p[1]",
+      "followup_iqr_upper_years": "./front/article-meta/abstract/p[1]",
+      "followup_median_years": "./body/sec[@id='sec011']/p[1]",
+      "followup_ngt_upper_mmol_l": "./body/sec[@id='sec002']/sec[@id='sec005']/sec[@id='sec009']/p[1]",
+      "followup_start_year": "./body/sec[@id='sec011']/p[1]",
+      "ifg_count": "./body/sec[@id='sec011']/table-wrap[@id='pgph.0001263.t001']/alternatives/table/thead/tr",
+      "ngt_count": "./body/sec[@id='sec011']/table-wrap[@id='pgph.0001263.t001']/alternatives/table/thead/tr",
+      "results_person_years": "./body/sec[@id='sec011']/p[1]",
+      "traced_count": "./body/sec[@id='sec011']/p[1]"
+    },
+    "source_sha256": "0ffa7630f06de10880d9742462202cbcf77bb365e940005097aaf0cedf2afd6d",
+    "source_size_bytes": 142219
+  },
+  "status": "BENCHMARK ONLY \u2014 SOURCE RECORDS, NOT CLINICAL TRANSITION RATES",
+  "working_fit_performed": false
+}
