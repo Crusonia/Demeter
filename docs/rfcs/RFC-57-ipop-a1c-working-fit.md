@@ -60,7 +60,7 @@ mechanisms. Poor prediction or indistinguishable rates are useful results.
 
 ## Identification, uncertainty and evaluation
 
-Freeze and push the protocol and registry before band-path inspection. Earlier
+The original selection protocol and registry were frozen and pushed before band-path inspection. A separately frozen [numerical amendment](../validation/ipop-a1c-numerical-amendment-v1.json) repairs synthetic optimizer and small-probability failures after aggregate band counts were inspected, before empirical fitting. Earlier
 source intake is disclosed; the analysis is adaptive, used-source work. Assign
 all admitted metadata labels by the frozen salted SHA256 rule before assay
 eligibility, keeping every observation of a label in one partition. Never change

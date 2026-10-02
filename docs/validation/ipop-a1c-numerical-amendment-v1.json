@@ -1,0 +1,31 @@
+{
+  "protocol_id": "ipop_a1c_numerical_amendment_v1",
+  "parent_protocol_sha256": "9b7473bb2454934ba82ef9d80c41c4d94a06c8b5eeadbf029f99aacec60e8ea7",
+  "chronology": "Original selection protocol and registry were committed/pushed before band mapping. Aggregate selection/band counts were inspected. No empirical optimization, profiles, prediction scores or bootstrap results were inspected before freezing this amendment. Repairs were identified and validated using synthetic fixtures.",
+  "unchanged": "Source/linkage, band thresholds, selection, whole-label split, models, six prescribed starts, rate bounds, scaling, tolerances, profile grid, evaluation, 200 paired bootstrap draws and all false scientific/engine gates remain unchanged.",
+  "optimizer": {
+    "method": "bounded quasi-Newton with finite-domain Armijo backtracking",
+    "initial_inverse_hessian": "identity in scaled coordinates at each prescribed start",
+    "direction": "Minimize the finite convex BFGS quadratic over actual step bounds using L-BFGS-B; its success flag is not used to establish likelihood convergence. If direction is nonfinite/non-descent or Hessian fails, reset and use projected steepest descent.",
+    "quadratic_maxiter": 100,
+    "quadratic_ftol_gtol": "same frozen outer settings; quadratic supplies direction only",
+    "armijo_constant": 0.0001,
+    "backtracking_factor": 0.5,
+    "backtracking_attempts": 60,
+    "objective_roundoff_budget": "8*machine_epsilon*max(1,abs(current_objective),abs(trial_objective)); no probability/rate floor",
+    "invalid_trial": "count, return infinity with unavailable (NaN internal) gradient, reject and backtrack; never export NaN or exception payload",
+    "curvature_update": "BFGS inverse update only if s dot y > machine_epsilon*norm(s)*norm(y); otherwise reset identity",
+    "success": "Independent infinity norm of true projected scaled-coordinate gradient <= frozen optimizer_gtol. Zero outward components only at exact zero/cap. ftol records consecutive small relative objective changes but never certifies convergence.",
+    "failure": "Iteration limit, no finite initial objective, exhausted finite descent/representable steps, numerical optimizer failure; no fake converged estimate",
+    "direct_final_verification": "Every candidate uses direct scipy expm/expm_frechet for its published log likelihood and a separate final projected scaled free-gradient KKT check at the original frozen gtol. A fast-search success failing this direct check is retained as failed, not accepted."
+  },
+  "kernels": {
+    "exact_support": "Positive-rate graph closure precedes kernels; structurally impossible selected pairs have exact zero likelihood support.",
+    "spectral_roundoff_budget": "maximum of 3*machine_epsilon*einsum(abs(eigenvectors),abs(exp(eigenvalues*gap)),abs(inverse_eigenvectors)) and 3*machine_epsilon*cond(eigenvectors)*(1+gap*infinity_norm(Q)); accounts conservatively for eigendecomposition and long-gap accumulation as well as reconstruction",
+    "relative_check": "For each used likelihood entry, if probability*probability_tolerance <= estimated reconstruction budget, replace the entire gap matrix and all derivatives with direct scipy expm/expm_frechet.",
+    "fallback": "Ill-conditioned/defective, nonfinite or invalid probability/conservation spectral result uses direct kernels. Relative budget is a numerical estimate, not a rigorous error bound.",
+    "design": "Same kernels with all probability entries relevant; boundary difference stencil and SVD controls unchanged."
+  },
+  "scientific_acceptance_changed": false,
+  "engine_activation_allowed": false
+}
