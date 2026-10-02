@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-10-02",
+  "review_scope": "Public source/design appraisal after published-result exposure; not an estimation protocol or clinical value intake.",
+  "used_source": true,
+  "participant_records_acquired": false,
+  "clinical_numerical_value_intake_performed": false,
+  "clinical_fit_performed": false,
+  "empirical_parameters_admitted": false,
+  "engine_activation_allowed": false,
+  "scientific_v0_1_acceptance_completed": false,
+  "sources": {
+    "mauritius_soderberg_2004": {
+      "doi": "10.1111/j.1365-2796.2004.01336.x",
+      "citation": "Soderberg et al. (2004), Journal of Internal Medicine 256:37-47.",
+      "url": "https://onlinelibrary.wiley.com/doi/10.1111/j.1365-2796.2004.01336.x",
+      "inspected_surface": "Publisher-indexed article text and tables; raw layout unverified.",
+      "locators": [
+        "Methods: Background and subjects",
+        "Statistical analysis",
+        "Table 2",
+        "Table 3",
+        "Discussion: incidence-estimate limitations"
+      ],
+      "periods": [
+        "1987-1992",
+        "1992-1998",
+        "1987-1998"
+      ],
+      "recorded_categories": [
+        "NGT",
+        "IFG",
+        "IGT",
+        "diabetes"
+      ],
+      "table_semantics": "Counts and standardized rates coexist; a compatible joint transition/death/nonattendance count table was not verified.",
+      "dating": "Incidence calculation assumes midpoint diagnosis and half-period censored person-time; not verified actual event dates.",
+      "death_and_loss": "Potential diagnosis before death omitted; lost-follow-up sensitivity assumes no diabetes.",
+      "dependence": "Repeat-attender cohorts overlap.",
+      "direct_web_access": {
+        "http_status": 403,
+        "raw_bytes_acquired": false,
+        "raw_sha256": null
+      },
+      "rights_verified": false,
+      "admission": "Unresolved source pin, joint counts/timing and death/nonattendance allocation."
+    },
+    "hamano_2024": {
+      "doi": "10.1111/dom.15922",
+      "citation": "Hamano et al. (2024), Diabetes, Obesity and Metabolism 26:5431-5443.",
+      "url": "https://dom-pubs.onlinelibrary.wiley.com/doi/full/10.1111/dom.15922",
+      "registry_id": "UMIN000049876",
+      "inspected_surface": "Publisher browser representation; source-byte acquisition failed.",
+      "locators": [
+        "Methods 2.1",
+        "Methods 2.4",
+        "Table 1",
+        "Table 3",
+        "Data availability"
+      ],
+      "population": "Young Japanese men without diabetes/routine medication.",
+      "regimen": "Short inpatient UPF/non-UPF crossover menus.",
+      "candidate_measurements": [
+        "fasting glucose",
+        "insulin",
+        "HOMA-IR"
+      ],
+      "comparison": "Paired endpoints versus unpaired within-period-change comparisons.",
+      "joint_covariance_verified": false,
+      "participant_data_access": "Author request only; no request sent.",
+      "death_ascertainment": "Brief-trial completion is not long-term mortality follow-up.",
+      "raw_acquisition_receipt": {
+        "url": "https://dom-pubs.onlinelibrary.wiley.com/doi/full/10.1111/dom.15922",
+        "attempted_at": "2026-10-02T06:37:28.158139+00:00",
+        "http_status": 403,
+        "artifact_kind": "public_article_or_registry_documentation",
+        "participant_file": false,
+        "acquired": false,
+        "raw_sha256": null
+      },
+      "rights_verified": false,
+      "correspondence": [
+        {
+          "doi": "10.1111/dom.16044",
+          "type": "letter",
+          "body_verified": false
+        },
+        {
+          "doi": "10.1111/dom.16063",
+          "type": "letter",
+          "body_verified": false
+        },
+        {
+          "doi": "10.1111/dom.16138",
+          "type": "author reply",
+          "body_verified": false
+        }
+      ],
+      "corrected_result_verified": false,
+      "admission": "Source-specific laboratory benchmark candidate; clinical transition, dose slope, lag and remission unresolved."
+    },
+    "hamano_umin_registry": {
+      "registry_id": "UMIN000049876",
+      "receipt_number": "R000056776",
+      "raw_acquisition_receipt": {
+        "url": "https://center6.umin.ac.jp/cgi-open-bin/ctr_e/ctr_view.cgi?recptno=R000056776",
+        "retrieved_at": "2026-10-02T06:37:28.337102+00:00",
+        "http_status": 200,
+        "content_type": "text/html; charset=UTF-8",
+        "bytes": 17714,
+        "sha256": "f9cd91fbd238061a41963563d5ed7a5a214db55d8eaa5ca7e2cdc866868fc50c",
+        "raw_filename": "umin-registry.html",
+        "artifact_kind": "public_article_or_registry_documentation",
+        "participant_file": false
+      },
+      "raw_sha256_verified_locally": true,
+      "disclosure_date": "2022-12-23",
+      "listed_last_followup_date": "2022-10-04",
+      "listed_enrolled_n": 10,
+      "article_reported_n": 9,
+      "metadata_sample_size_disagreement_preserved": true,
+      "prospective_registration_verified": false,
+      "article_bytes_verified_by_registry_receipt": false,
+      "redistribution_rights_verified": false,
+      "raw_document_distributed": false
+    }
+  },
+  "next_intake_requirements": [
+    "Verify immutable article/supplement bytes and rights; resolve relevant correspondence before selected clinical extraction.",
+    "Freeze selected cells, units, comparison definitions, uncertainty and missingness after recording used-source chronology.",
+    "Resolve sequence/carryover, nutrient differences and covariance before a new dietary estimate.",
+    "Require supported clinical histories or joint aggregates with observation, treatment, death and nonattendance semantics before transition fitting.",
+    "Retain supported population scope, annual-engine compatibility, independent evaluation and scientific assessment."
+  ]
+}

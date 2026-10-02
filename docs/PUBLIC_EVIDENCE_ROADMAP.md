@@ -1,13 +1,17 @@
 # Building Demeter with public evidence
 
-The [Stanford iPOP schema appraisal](IPOP_SOURCE_COVERAGE.md) now verifies eight
-metadata surfaces, producer linkage/clock operations and the publication's A1c
-and glucose measure names. It pins the source bytes and preserved acquisition
-failures separately from inspected content. Subsequent review of Zheng et al.
-(2022) establishes public provenance for the named derivative release. A narrow linked
-laboratory-panel intake can proceed under frozen, explicit measurement/clock
-assumptions; upstream rawness, specimen association and actual record coverage
-remain to be checked. No clinical fit or national calibration has been admitted.
+The [Stanford iPOP working analysis](IPOP_A1C_WORKING_FIT.md) and its
+[predictive uncertainty supplement](IPOP_PREDICTIVE_UNCERTAINTY.md) are completed
+under separately frozen, explicit measurement/clock and reporting assumptions.
+Their rates describe a conditional laboratory process; no clinical fit, dietary
+effect, national calibration or engine activation has been admitted. The
+[source appraisal](IPOP_SOURCE_COVERAGE.md) preserves source identity and
+acquisition failures separately from inspected content.
+
+The [current clinical source checkpoint](PUBLIC_CLINICAL_SOURCE_CHECKPOINT.md)
+adds a Mauritius transition-table lead and a short-term dietary glucose trial.
+It records exactly which missing source, timing, death, covariance and access
+information still prevents their proposed clinical use.
 
 The [Whitehall II endpoint package](WHITEHALL_ENDPOINT.md) now reproduces two
 published FPG follow-up labels and evaluates an explicit conditional binomial
@@ -41,7 +45,7 @@ identify a national causal model. This feeds [#56](https://github.com/Crusonia/D
 | Priority | Public evidence | What it can establish | Next deliverable |
 | --- | --- | --- | --- |
 | 1 | [Chen public cohort](https://doi.org/10.5061/dryad.ft8750v), CC0 data | Source-specific baseline/final glucose and recorded incident diabetes | [Timing audit complete](CHEN_TIMING_AUDIT.md), source disagreements retained; keep descriptive benchmarks and seek compatible observations before a likelihood fit |
-| 1a | [Stanford iPOP public derivative](IPOP_SOURCE_COVERAGE.md) | Author-declared public provenance and documented measurement/linkage surface for repeated native-cohort laboratory observations | Freeze a narrow linked-panel intake with explicit assay/relative-day assumptions; assess coverage and alternatives before fitting; do not substitute class/context labels for glycemic history |
+| 1a | [Stanford iPOP public derivative](IPOP_SOURCE_COVERAGE.md) | Completed [conditional A1C working analysis](IPOP_A1C_WORKING_FIT.md), with immutable failed v1 results, separately repaired v2 and additive uncertainty reporting | Resolve clinical history, treatment, observation/stopping, competing events and annual-engine/population compatibility using appropriate evidence; laboratory-band fitting alone cannot supply them |
 | 2 | Archived NHANES and NCHS linked mortality | U.S. observed glycemic categories and baseline-category mortality prediction | Carry explicit unknown/type categories forward; assess supported initialization and conditional mortality, keeping the frozen prediction evaluation separate |
 | 3 | Public aggregate longitudinal studies, including corrected ARIC and CARRS tables | External comparisons of progression/recovery under each study's definitions | Record intervals, competing-event handling and covariance availability; test whether any package identifies a compatible joint model |
 | 4 | [Hall intake reproduction](FOOD_INTAKE_REPRODUCTION.md), [corrected Reus assessment](REUS_DIABETES_PATHWAY.md) and public trial protocols | Study-compatible food intervention endpoints and explicit source-to-model limits | Define a compatible observation contract, appraise an independent source, and retain null alternatives and overlapping-effect uncertainty before fitting a disease bridge |

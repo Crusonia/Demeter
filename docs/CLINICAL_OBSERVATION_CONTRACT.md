@@ -28,6 +28,12 @@ additive clock origin alone does not block within-person elapsed differences.
 No clinical fit, diagnosed-state mapping or national activation follows from this
 appraisal.
 
+The [completed iPOP working analysis](IPOP_A1C_WORKING_FIT.md) now fits a separate
+conditional laboratory-band process; it does not satisfy the clinical contract.
+The [new public-source checkpoint](PUBLIC_CLINICAL_SOURCE_CHECKPOINT.md) appraises
+additional transition and dietary-laboratory candidates, with unresolved source,
+observation and identification requirements preserved before any new intake.
+
 The [Whitehall II endpoint implementation](WHITEHALL_ENDPOINT.md) reproduces
 published source labels and evaluates a conditional iid binomial working
 likelihood. Its fitted endpoint probability is separate from clinical transition
