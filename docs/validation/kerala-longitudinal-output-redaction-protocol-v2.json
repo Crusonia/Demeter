@@ -1,0 +1,41 @@
+{
+  "protocol_id": "kerala-longitudinal-output-redaction-protocol-v2",
+  "authored_on_utc": "2026-10-02",
+  "source_id": "kerala2018_public_trial_v3",
+  "role": "Post-inspection publication-surface correction; not empirical calibration or independent validation",
+  "parent_representation": {
+    "path": "docs/validation/kerala-selected-source-representation-v1.json",
+    "sha256": "fc2fe0701cdabd176230d4259f120bdd310d290887b6fb8f2b3c41bbf42c1d99",
+    "bytes": 68043,
+    "historical_commit": "1f103307d12a32c87922ea8ba4db6e5cb505d9a2"
+  },
+  "trigger": "PR88 review identified singleton labeled longitudinal histories contradicting the no-individual-path-export promise",
+  "already_inspected": "Source records, aggregate histories and reviewer-observed singleton cells have already been used in development",
+  "allowed_public_surface": [
+    "Same-cohort inclusion and exclusion totals",
+    "Source-native visit marginals and measurement availability",
+    "Assignment-consistency counts without study or cluster keys",
+    "Number of distinct history cells and total represented people",
+    "Unlabeled histogram of history-cell sizes, with no arm, glycemic-label sequence or diagnosis combination"
+  ],
+  "prohibited_public_surface": [
+    "Any labeled longitudinal trajectory tuple, regardless of cell size",
+    "Participant or cluster identifiers, individual measurements and individual paths",
+    "A suppression mask naming omitted clinical trajectory combinations"
+  ],
+  "conservation": "All released eligible people remain represented privately; change only serialization, never trim, rescale or collapse records",
+  "historical_handling": "Preserve exact original report bytes in ignored local storage; replace its current-tree payload with an explicit withdrawal receipt and bind a new representation-v2 artifact. No Git history rewrite or erasure claim.",
+  "required_checks": [
+    "No legacy aggregate_paths or labeled longitudinal combinations in the new public serialization",
+    "Unlabeled history histogram reproduces the distinct-cell count and total represented people",
+    "Actual pinned-public-workbook replay reproduces the revised aggregate exactly",
+    "All existing source/protocol pins and first-inspection chronology remain explicit",
+    "All prior evidence parameters, blockers and model outputs remain unchanged"
+  ],
+  "scientific_gates": {
+    "clinical_fit_allowed": false,
+    "engine_activation_allowed": false,
+    "independent_validation_allowed": false,
+    "scientific_release_ready": false
+  }
+}
