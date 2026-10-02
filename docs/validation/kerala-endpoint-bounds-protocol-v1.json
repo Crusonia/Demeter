@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "protocol_id": "kerala-recorded-endpoint-bounds-v1",
+  "authored_on": "2026-10-02",
+  "chronology": "Written after reading published outcomes and completing the selected-field workbook appraisal; before executable endpoint-bound calculation. Used-source development, not preregistration or independent validation.",
+  "source_id": "kerala2018_primary_publication",
+  "source_sha256": "eace56aae88c2359fc7b57d00a16ff978de51792de47ab78bfb742303dc8727e",
+  "release_id": "kerala2018_public_trial_v3",
+  "parent_representation_sha256": "4f7214155fc0db8d21ca59e9f1e3af06e76f585ae89e201c6df65741c160f7a2",
+  "source_locators": {
+    "assigned": "Primary publication Results: Participants, page 10; Control 507 and Intervention 500.",
+    "recorded_positive_and_known": "Primary publication Results: Incidence of diabetes, page 12; Control 79/463 and Intervention 68/456.",
+    "cumulative_deaths": "Primary publication Figure 1, page 11; Control 1 and Intervention 2 at both nominal follow-up horizons. Do not sum across horizons."
+  },
+  "observations": "Literal total recorded diabetes-incidence Yes/No/absent, not current glucose category, untreated remission, onset date, or latent state.",
+  "all_assigned_estimand": "Finite-cohort fraction positive under every binary completion of unknown recorded endpoints. Death does not erase an earlier recorded diagnosis.",
+  "survivor_estimand": "Separate conditional finite-cohort fraction among survivors, assuming the reported cumulative death counts exhaust the same assigned cohorts; every allocation of unlinked deaths to endpoint groups is admitted. This assumption is explicit and not source-certified linkage.",
+  "contrast": "Intervention minus control; exact extremal count ratios, no independent-binomial sampling model or confidence interval. Between-arm risk differences do not identify an isolated food effect.",
+  "tipping": "Enumerate aggregate missing-positive counts in each arm; classify each pair using integer cross-products. Export counts of compatible pairs only, never participant paths, IDs or cluster keys.",
+  "raw_replay": "Optional pinned public workbooks: verify existing registered aggregate replay, then compare broad arm-by-total-endpoint counts to registered primary-publication counts. No raw record or labeled multiwave trajectory export.",
+  "stop_conditions": [
+    "Invalid or nonconserving counts, unsupported endpoint or assignment labels, source pin mismatch or publication/workbook denominator disagreement stop dependent calculation.",
+    "No independent-censoring assumption, temporal hazard conversion, diagnosis erasure, cluster-independent confidence interval, U.S. transport or engine activation."
+  ],
+  "design_ids": ["I-11", "I-12", "F-08", "T-05", "T-08"],
+  "clinical_fit_ready": false,
+  "causal_effect_identified": false,
+  "national_transport_ready": false,
+  "engine_activation_allowed": false
+}
