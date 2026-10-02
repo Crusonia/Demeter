@@ -42,6 +42,15 @@ def _count(value, maximum, message):
     return value
 
 
+def _roundoff_equal(value, expected, *, ulps):
+    """Audit floating reconstruction only, without an absolute tolerance floor."""
+    if type(value) not in (int, float) or not np.isfinite(value):
+        return False
+    if expected == 0:
+        return value == 0
+    return abs(value - expected) <= ulps * abs(np.spacing(expected))
+
+
 def _covariance_contract(value, dimension):
     covariance = np.asarray(value)
     if covariance.shape != (dimension, dimension) or not np.isfinite(covariance).all():
@@ -180,15 +189,29 @@ def _profile_contract(profile, model, settings, protocol):
     )
     cutoff = float(chi2.ppf(protocol["numerics"]["nominal_profile_support_probability"], 1))
     points = profile["points"]
+    retained_grid = [point["rate"] for point in points]
+    # libm power/inverse-CDF implementations can differ by a few ULPs across
+    # platforms. This audit budget applies only to reconstruction, never to
+    # likelihood convergence or the frozen statistical/numerical controls.
     if (
-        [point["rate"] for point in points] != grid
-        or profile["support_cutoff"] != cutoff
+        len(retained_grid) != len(grid)
+        or any(
+            not _roundoff_equal(value, expected, ulps=4)
+            for value, expected in zip(retained_grid, grid, strict=False)
+        )
+        or any(b <= a for a, b in zip(retained_grid, retained_grid[1:], strict=False))
+        or retained_grid[0] != 0.0
+        or retained_grid[-1] != settings.rate_upper_bounds[index]
+        or model["rates"][index] not in retained_grid
+        or not _roundoff_equal(profile["support_cutoff"], cutoff, ulps=4)
         or profile["rate_unit"] != "per_source_day"
         or profile["support_reference"] != "caller_declared_interior_asymptotic_only"
         or profile["interior_reference_requires_correctly_specified_independent_label_model"]
         is not True
     ):
         raise ValueError("Frozen profile grid or support controls drift")
+    # Annotation arithmetic follows the exact retained values used by the run.
+    grid, cutoff = retained_grid, profile["support_cutoff"]
     accepted, failed, structural, better = [], 0, 0, False
     for point in points:
         if type(point["converged"]) is not bool:
@@ -214,13 +237,18 @@ def _profile_contract(profile, model, settings, protocol):
             continue
         likelihood = point["log_likelihood"]
         rates = point["rates"]
+        # Match _search.expand's actual vector arithmetic exactly. No platform
+        # discrepancy in these two basic operations has been established.
+        scaled = np.zeros(len(model["rates"]))
+        scaled[index] = point["rate"] * settings.day_scale
+        fixed = (scaled / settings.day_scale)[index]
         if (
             impossible
             or likelihood["status"] != "finite"
             or type(likelihood["value"]) not in (float, int)
             or not np.isfinite(likelihood["value"])
             or len(rates) != len(model["rates"])
-            or rates[index] != point["rate"] * settings.day_scale / settings.day_scale
+            or rates[index] != fixed
             or any(
                 type(rate) not in (float, int) or not np.isfinite(rate) or not 0 <= rate <= cap
                 for rate, cap in zip(rates, settings.rate_upper_bounds, strict=True)

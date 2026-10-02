@@ -25,6 +25,27 @@ PROFILE_CONTRACT = run_path(str(ROOT / "scripts/verify_ipop_a1c_working_fit.py")
 ]
 
 
+def _platform_transcendental_roundoff(monkeypatch, ulps):
+    """Simulate libm reconstruction differences; never perturb frozen reports."""
+    logspace, ppf = np.logspace, chi2.ppf
+
+    def platform_logspace(*args, **kwargs):
+        result = logspace(*args, **kwargs).copy()
+        for _ in range(ulps):
+            result[:-1] = np.nextafter(result[:-1], np.inf)
+        # 10**0 is the exact computational cap, not a platform-dependent endpoint.
+        return result
+
+    def platform_ppf(*args, **kwargs):
+        result = float(ppf(*args, **kwargs))
+        for _ in range(ulps):
+            result = float(np.nextafter(result, np.inf))
+        return result
+
+    monkeypatch.setattr(np, "logspace", platform_logspace)
+    monkeypatch.setattr(chi2, "ppf", platform_ppf)
+
+
 def _toy_profiles(paths, rates, structure, likelihood, *, numerical_method="v1"):
     """Complete toy payloads with real toy-path likelihoods, no nuisance fitting.
 
@@ -581,6 +602,71 @@ def test_rehashed_profile_controls_and_annotations_reject(tmp_path, attack):
             point = profile["points"][0]
             assert point["structurally_impossible_for_all_nuisance_rates"] is True
             point["structurally_impossible_for_all_nuisance_rates"] = False
+
+    with pytest.raises(ValueError, match="[Pp]rofile"):
+        ASSESS(_edited_report(tmp_path, edit, synthetic_available=True))
+
+
+@pytest.mark.parametrize("ulps", (1, 2))
+def test_synthetic_profile_accepts_platform_transcendental_roundoff(tmp_path, monkeypatch, ulps):
+    root = _edited_report(tmp_path, lambda report: None, synthetic_available=True)
+    # Freeze the toy envelope first, then change only local reconstruction math.
+    _platform_transcendental_roundoff(monkeypatch, ulps)
+    proof = ASSESS(root)
+    assert proof["passed"] is True
+    assert proof["fit_checks"]["adjacent"]["fit_available"] is True
+    assert proof["actual_source_replay"] is None
+
+
+@pytest.mark.parametrize(
+    "attack",
+    (
+        "grid",
+        "cutoff",
+        "grid_over_ulps",
+        "cutoff_over_ulps",
+        "fitted_coordinate",
+        "fixed_rate",
+        "zero",
+        "cap",
+        "order",
+    ),
+)
+def test_rehashed_profile_roundoff_does_not_admit_material_or_exact_control_drift(tmp_path, attack):
+    def edit(report):
+        profile = report["profiles"]["adjacent"][0]
+        if attack == "grid":
+            profile["points"][1]["rate"] *= 1.01
+        elif attack == "cutoff":
+            profile["support_cutoff"] *= 1.01
+        elif attack in ("grid_over_ulps", "cutoff_over_ulps"):
+            value = (
+                profile["points"][1]["rate"]
+                if attack == "grid_over_ulps"
+                else profile["support_cutoff"]
+            )
+            for _ in range(5):
+                value = float(np.nextafter(value, np.inf))
+            if attack == "grid_over_ulps":
+                profile["points"][1]["rate"] = value
+            else:
+                profile["support_cutoff"] = value
+        elif attack == "fitted_coordinate":
+            fitted = report["models"]["adjacent"]["rates"][0]
+            point = next(point for point in profile["points"] if point["rate"] == fitted)
+            point["rate"] = float(np.nextafter(fitted, np.inf))
+        elif attack == "fixed_rate":
+            point = next(point for point in profile["points"] if point["converged"])
+            point["rates"][0] = float(np.nextafter(point["rates"][0], np.inf))
+        elif attack == "zero":
+            profile["points"][0]["rate"] = float(np.nextafter(0.0, np.inf))
+        elif attack == "cap":
+            profile["points"][-1]["rate"] = float(np.nextafter(1.0, 0.0))
+        else:
+            profile["points"][1], profile["points"][2] = (
+                profile["points"][2],
+                profile["points"][1],
+            )
 
     with pytest.raises(ValueError, match="[Pp]rofile"):
         ASSESS(_edited_report(tmp_path, edit, synthetic_available=True))

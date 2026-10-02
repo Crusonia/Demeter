@@ -26,7 +26,9 @@ from demeter.schema import EvidenceRegistry
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts/verify_ipop_a1c_working_fit.py"
 ASSESS = run_path(str(SCRIPT))["assess"]
-TOY_PROFILES = run_path(str(ROOT / "tests/test_ipop_a1c_verifier.py"))["_toy_profiles"]
+V1_FIXTURES = run_path(str(ROOT / "tests/test_ipop_a1c_verifier.py"))
+TOY_PROFILES = V1_FIXTURES["_toy_profiles"]
+PLATFORM_ROUNDOFF = V1_FIXTURES["_platform_transcendental_roundoff"]
 METHOD = "exact_box_quadratic_v2"
 RESULT_PATH = "docs/validation/ipop-a1c-working-result-v2.json"
 PUBLIC_FILES = (
@@ -247,12 +249,14 @@ def test_default_v1_proof_matches_explicit_selection_and_keeps_schema(monkeypatc
     assert proof["report_sha256"] == a1c.V1_RESULT_SHA256
 
 
-def test_completed_public_v2_aggregate_passes_without_source_replay(monkeypatch):
+@pytest.mark.parametrize("ulps", (0, 1, 2))
+def test_completed_public_v2_aggregate_passes_without_source_replay(monkeypatch, ulps):
     def forbidden(*args, **kwargs):
         pytest.fail("Public aggregate audit must not acquire or replay participant data")
 
     monkeypatch.setattr("urllib.request.urlopen", forbidden)
     monkeypatch.setattr(a1c, "analyze_cache", forbidden)
+    PLATFORM_ROUNDOFF(monkeypatch, ulps)
     proof = ASSESS(numerical_method=METHOD)
     assert proof["passed"] is True
     assert all(check["fit_available"] is True for check in proof["fit_checks"].values())
@@ -375,6 +379,19 @@ def test_rehashed_v2_profile_controls_reject(tmp_path, synthetic_report, attack)
         profile["regular_interior_interpretation_eligible"] = True
     with pytest.raises(ValueError, match="[Pp]rofile"):
         ASSESS(_register(tmp_path, synthetic_report), numerical_method=METHOD)
+
+
+@pytest.mark.parametrize("ulps", (1, 2))
+def test_synthetic_v2_profile_accepts_platform_transcendental_roundoff(
+    tmp_path, synthetic_report, monkeypatch, ulps
+):
+    _forge_available_model(synthetic_report, "adjacent")
+    root = _register(tmp_path, synthetic_report)
+    PLATFORM_ROUNDOFF(monkeypatch, ulps)
+    proof = ASSESS(root, numerical_method=METHOD)
+    assert proof["passed"] is True
+    assert proof["fit_checks"]["adjacent"]["fit_available"] is True
+    assert proof["actual_source_replay"] is None
 
 
 @pytest.mark.parametrize("successful", (0, 1))

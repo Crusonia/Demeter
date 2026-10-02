@@ -58,7 +58,10 @@ Install the [locked environment](GETTING_STARTED.md). The quick offline audit
 checks the committed aggregate report, evidence bindings and mathematical
 consistency for each version, including the explicit unavailable v1 fits. The
 v2 audit also checks the frozen profiles and resampling counts. It does not replay participant records
-or independently validate clinical rates:
+or independently validate clinical rates. When recreating transcendental profile
+grid/cutoff values, the audit permits up to four ULPs of platform roundoff. Grid
+size, ordering, zero/cap endpoints and the fitted coordinate remain exact. The
+estimator's convergence settings and preserved report bytes are unchanged:
 
 ```bash
 uv run python scripts/verify_ipop_a1c_working_fit.py
