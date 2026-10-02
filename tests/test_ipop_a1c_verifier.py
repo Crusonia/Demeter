@@ -10,13 +10,128 @@ from pathlib import Path
 from runpy import run_path
 import shutil
 
+import numpy as np
 import pytest
+from scipy.stats import chi2
 import yaml
 
+from demeter.analysis import ipop_a1c as a1c
 from demeter.analysis import laboratory_panel as lab
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSESS = run_path(str(ROOT / "scripts/verify_ipop_a1c_working_fit.py"))["assess"]
+PROFILE_CONTRACT = run_path(str(ROOT / "scripts/verify_ipop_a1c_working_fit.py"))[
+    "_profile_contract"
+]
+
+
+def _toy_profiles(paths, rates, structure, likelihood, *, numerical_method="v1"):
+    """Complete toy payloads with real toy-path likelihoods, no nuisance fitting.
+
+    Convergence annotations are deliberately forged for semantic branch tests.
+    The positive first grid point of the first profile is an explicit synthetic
+    numerical failure, distinct from any structurally impossible zero point.
+    """
+    protocol = a1c.load_protocol()
+    settings = a1c.settings_for(protocol, structure)
+    spec = protocol["numerics"]["profile_grid"]
+    base = [0.0] + np.logspace(
+        spec["log10_min_per_source_day"], spec["log10_max_per_source_day"], spec["points"]
+    ).tolist()
+    cutoff = float(chi2.ppf(protocol["numerics"]["nominal_profile_support_probability"], 1))
+    profiles = []
+    for index in range(len(rates)):
+        grid, points, accepted = sorted(set(base + [rates[index]])), [], []
+        failed, structural, better = 0, 0, False
+        for value in grid:
+            point_rates = list(rates)
+            # Match the frozen search's scaled-coordinate expansion exactly,
+            # including a possible one-ULP multiplication/division round trip.
+            point_rates[index] = value * settings.day_scale / settings.day_scale
+            log_value = lab.conditional_log_likelihood(
+                paths, point_rates, structure, probability_tolerance=settings.probability_tolerance
+            )
+            synthetic_failure = index == 0 and value == base[1]
+            if not np.isfinite(log_value) or synthetic_failure:
+                impossible = not np.isfinite(log_value)
+                maximal = list(settings.rate_upper_bounds)
+                maximal[index] = value
+                assert (lab._unreachable_pairs(paths, maximal, structure) > 0) is impossible
+                points.append(
+                    {
+                        "rate": value,
+                        "converged": False,
+                        "structurally_impossible_for_all_nuisance_rates": impossible,
+                        "log_likelihood": {
+                            "value": None,
+                            "status": "negative_infinity_zero_probability",
+                        }
+                        if impossible
+                        else None,
+                        "deviance_from_fitted": None,
+                        "deviance_status": "positive_infinity" if impossible else "unavailable",
+                        "multistarts": [
+                            {"converged": False, "synthetic_unavailable_control_only": True}
+                            for _ in settings.initial_rates
+                        ],
+                        "evaluation_failures": {},
+                    }
+                )
+                failed += int(not impossible)
+                structural += int(impossible)
+                continue
+            deviance = 2 * (likelihood["value"] - log_value)
+            better |= deviance < -settings.probability_tolerance
+            if deviance <= cutoff:
+                accepted.append(value)
+            points.append(
+                {
+                    "rate": value,
+                    "converged": True,
+                    "log_likelihood": {"value": log_value, "status": "finite"},
+                    "deviance_from_fitted": deviance,
+                    "rates": point_rates,
+                    "nuisance_zero_indices": [
+                        i for i, rate in enumerate(point_rates) if i != index and rate == 0
+                    ],
+                    "nuisance_cap_indices": [
+                        i for i, rate in enumerate(point_rates) if i != index and rate >= 1
+                    ],
+                    "evaluation_failures": {},
+                }
+            )
+        zero = any(rate == 0 for rate in rates) or 0.0 in accepted
+        cap_hit = any(rate >= 1 for rate in rates) or 1.0 in accepted
+        lower_open, upper_open = (
+            bool(accepted) and grid[0] in accepted,
+            bool(accepted) and grid[-1] in accepted,
+        )
+        profiles.append(
+            {
+                **({"numerical_method": numerical_method} if numerical_method != "v1" else {}),
+                "rate_index": index,
+                "rate_unit": "per_source_day",
+                "points": points,
+                "support_cutoff": cutoff,
+                "support_reference": "caller_declared_interior_asymptotic_only",
+                "supported_grid_rates": accepted,
+                "finite_confidence_interval": None,
+                "lower_grid_limit_open": lower_open,
+                "upper_grid_limit_open": upper_open,
+                "zero_boundary_supported_or_fitted": zero,
+                "computational_cap_hit_or_supported": cap_hit,
+                "failed_grid_points": failed,
+                "structural_zero_probability_grid_points": structural,
+                "baseline_improved_by_profile_search": bool(better),
+                "regular_interior_interpretation_eligible": not (
+                    zero or cap_hit or failed or lower_open or upper_open or better
+                ),
+                "interior_reference_requires_correctly_specified_independent_label_model": True,
+                "clinical_confidence_interval": False,
+                "synthetic_profile_fixture_only": True,
+            }
+        )
+    return profiles
 
 
 def _synthetic_available_primary(report):
@@ -53,10 +168,7 @@ def _synthetic_available_primary(report):
         direct_likelihood_gradient_verified=True,
         projected_gradient_norm=0.0,
     )
-    report["profiles"]["adjacent"] = [
-        {"rate_index": i, "finite_confidence_interval": None, "clinical_confidence_interval": False}
-        for i in range(4)
-    ]
+    report["profiles"]["adjacent"] = _toy_profiles(paths, rates, "adjacent", likelihood)
     report["internal_evaluation"]["scores"]["adjacent"] = lab.score_predictions(
         paths, model, probability_tolerance=1e-10
     )
@@ -312,3 +424,205 @@ def test_frozen_provenance_cannot_change_with_refreshed_outer_binding(tmp_path, 
 
     with pytest.raises(ValueError, match="Frozen provenance"):
         ASSESS(_edited_report(tmp_path, edit))
+
+
+@pytest.mark.parametrize(
+    "attack",
+    (
+        "seed",
+        "joint_quantiles",
+        "predictive_quantiles",
+        "disposition_attempts",
+        "hidden_failures",
+        "successful_count",
+        "predictive_count",
+        "excess_boundary_count",
+        "fractional_count",
+        "resolution",
+    ),
+)
+def test_rehashed_frozen_bootstrap_controls_and_count_closure_reject(tmp_path, attack):
+    def edit(report):
+        joint = report["joint_uncertainty"]
+        if attack == "seed":
+            joint["seed"] = 1
+        elif attack == "joint_quantiles":
+            joint["joint_rate_summary"]["quantile_levels"] = [0.1, 0.5, 0.9]
+        elif attack == "predictive_quantiles":
+            joint["predictive_difference_summaries"]["adjacent"]["quantile_levels"] = [
+                0.1,
+                0.5,
+                0.9,
+            ]
+        elif attack == "disposition_attempts":
+            joint["dispositions"]["attempted"] = 999
+        elif attack == "hidden_failures":
+            joint["dispositions"]["failed_primary_fits"] = 0
+        elif attack == "successful_count":
+            joint["joint_rate_summary"]["successful_draws"] = 999
+        elif attack == "predictive_count":
+            joint["predictive_difference_summaries"]["adjacent"]["successful_draws"] = 0
+        elif attack == "excess_boundary_count":
+            joint["dispositions"]["primary_computational_cap_draws"] = 100
+        elif attack == "fractional_count":
+            joint["dispositions"]["failed_primary_fits"] = 157.0
+        else:
+            joint["dispositions"]["nominal_percentile_resolution"] = 0.5
+
+    with pytest.raises(ValueError, match="[Bb]ootstrap"):
+        ASSESS(_edited_report(tmp_path, edit))
+
+
+@pytest.mark.parametrize("summary_kind", ("joint", "per_model", "predictive"))
+@pytest.mark.parametrize("attack", ("indefinite", "asymmetric"))
+def test_rehashed_every_available_covariance_rejects_impossible_matrix(
+    tmp_path, summary_kind, attack
+):
+    def edit(report):
+        joint = report["joint_uncertainty"]
+        summary = (
+            joint["joint_rate_summary"]
+            if summary_kind == "joint"
+            else joint[
+                "per_model_rate_summaries"
+                if summary_kind == "per_model"
+                else "predictive_difference_summaries"
+            ]["adjacent"]
+        )
+        dimension = 8 if summary_kind == "predictive" else 4
+        covariance = [[1e-20 * int(i == j) for j in range(dimension)] for i in range(dimension)]
+        if attack == "indefinite":
+            covariance[0][0] = -1e-20
+        else:
+            covariance[0][1] = 1e-21
+        summary["covariance"] = covariance
+
+    with pytest.raises(ValueError, match="Invalid joint covariance"):
+        ASSESS(_edited_report(tmp_path, edit))
+
+
+@pytest.mark.parametrize(
+    "attack",
+    (
+        "rate_coordinate_order",
+        "predictive_coordinate_order",
+        "predictive_direction",
+        "noninteger_rate_coordinate",
+        "resampling_unit",
+        "within_path",
+        "independent_labels",
+        "paired_evaluation",
+    ),
+)
+def test_rehashed_frozen_bootstrap_coordinates_and_design_reject(tmp_path, attack):
+    def edit(report):
+        joint = report["joint_uncertainty"]
+        if attack == "rate_coordinate_order":
+            joint["rate_coordinates"].reverse()
+        elif attack == "predictive_coordinate_order":
+            joint["predictive_difference_coordinates"].reverse()
+        elif attack == "predictive_direction":
+            joint["predictive_difference_coordinates"][0]["higher_is_better"] = False
+        elif attack == "noninteger_rate_coordinate":
+            joint["rate_coordinates"][0]["rate_index"] = False
+        elif attack == "resampling_unit":
+            joint["unit_resampled"] = "individual_observation"
+        else:
+            key = {
+                "within_path": "within_path_dependence_preserved",
+                "independent_labels": "independence_across_labels_assumed",
+                "paired_evaluation": "evaluation_resampled_separately_and_paired_across_models",
+            }[attack]
+            joint[key] = False
+
+    with pytest.raises(ValueError, match="Frozen bootstrap"):
+        ASSESS(_edited_report(tmp_path, edit))
+
+
+@pytest.mark.parametrize(
+    "attack",
+    (
+        "grid",
+        "cutoff",
+        "hidden_failure",
+        "hidden_structural_zero",
+        "regularity",
+        "supported_rates",
+        "open_limit",
+        "deviance",
+        "structural_as_numerical_failure",
+    ),
+)
+def test_rehashed_profile_controls_and_annotations_reject(tmp_path, attack):
+    def edit(report):
+        profile = report["profiles"]["adjacent"][0]
+        if attack == "grid":
+            profile["points"] = profile["points"][:1]
+        elif attack == "cutoff":
+            profile["support_cutoff"] = 1.0
+        elif attack == "hidden_failure":
+            assert profile["failed_grid_points"] == 1
+            profile["failed_grid_points"] = 0
+        elif attack == "hidden_structural_zero":
+            assert profile["structural_zero_probability_grid_points"] == 1
+            profile["structural_zero_probability_grid_points"] = 0
+        elif attack == "regularity":
+            assert profile["regular_interior_interpretation_eligible"] is False
+            profile["regular_interior_interpretation_eligible"] = True
+        elif attack == "supported_rates":
+            assert profile["supported_grid_rates"]
+            profile["supported_grid_rates"] = []
+        elif attack == "open_limit":
+            profile["lower_grid_limit_open"] = not profile["lower_grid_limit_open"]
+        elif attack == "deviance":
+            point = next(point for point in profile["points"] if point["converged"])
+            point["deviance_from_fitted"] += 1.0
+        else:
+            point = profile["points"][0]
+            assert point["structurally_impossible_for_all_nuisance_rates"] is True
+            point["structurally_impossible_for_all_nuisance_rates"] = False
+
+    with pytest.raises(ValueError, match="[Pp]rofile"):
+        ASSESS(_edited_report(tmp_path, edit, synthetic_available=True))
+
+
+def test_frozen_profile_builder_roundtrip_passes_with_mocked_toy_search(monkeypatch):
+    """Real profile annotations around a mocked toy search, never an optimizer fit."""
+    protocol = a1c.load_protocol()
+    settings = a1c.settings_for(protocol, "adjacent")
+    paths = (lab.PanelPath((0, 20, 100), (0, 1, 2)), lab.PanelPath((0, 50), (1, 0)))
+    rates = [0.002, 0.003, 0.004, 0.005]
+    baseline = lab.conditional_log_likelihood(
+        paths, rates, "adjacent", probability_tolerance=settings.probability_tolerance
+    )
+    fitted = {
+        "kind": "ctmc",
+        "structure": "adjacent",
+        "fit_performed": True,
+        "rates": rates,
+        "log_likelihood": {"value": baseline, "status": "finite"},
+    }
+
+    def mock_toy_search(paths, config, *, fixed, numerical_method):
+        values = list(rates)
+        values[fixed[0]] = fixed[1] * config.day_scale / config.day_scale
+        value = lab.conditional_log_likelihood(
+            paths, values, config.structure, probability_tolerance=config.probability_tolerance
+        )
+        return (value, np.asarray(values), {}) if np.isfinite(value) else None, [], {}
+
+    monkeypatch.setattr(lab, "_search", mock_toy_search)
+    grid = [0.0] + np.logspace(-7, 0, 29).tolist()
+    profile = lab.profile_rate(
+        paths,
+        fitted,
+        settings,
+        0,
+        grid,
+        support_cutoff=float(chi2.ppf(0.95, 1)),
+        numerical_method="exact_box_quadratic_v2",
+    )
+    assert any(
+        point["converged"] and point["rates"][0] != point["rate"] for point in profile["points"]
+    )
+    PROFILE_CONTRACT(profile, fitted, settings, protocol)

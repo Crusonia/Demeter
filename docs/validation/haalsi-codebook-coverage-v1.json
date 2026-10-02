@@ -1,0 +1,53 @@
+{
+  "clinical_fit_performed": false,
+  "decision": "metadata lead only; do not admit clinical H/P/D/death likelihood or national transport",
+  "engine_activation_allowed": false,
+  "limitations": [
+    "Many variable names are truncated with a tilde; exact executable names cannot be inferred.",
+    "The table has Obs/Unique/Mean/Min/Max/Label columns, not complete value-code or units/clock/missingness semantics.",
+    "Publicly printed codebook counts/means were incidentally inspected before a dictionary protocol; no values were selected as empirical parameters.",
+    "Absence of an HbA1c label in this codebook does not establish absence from all HAALSI releases.",
+    "Point-of-care total hemoglobin is not HbA1c.",
+    "Survival/attrition weights are not individual death/censoring histories; spouse/parent/child death labels are not participant mortality.",
+    "Wave1 fasting labels cannot certify Wave2/3 fasting or specimen-time alignment.",
+    "Exact source-day/last-contact/death/date clocks, respondent status codes, diagnostic confirmation/history and type-specific endpoints need verification.",
+    "Access/redistribution terms and anonymous data acquisition remain unverified."
+  ],
+  "metadata_observed": {
+    "complete_variable_names_available": false,
+    "diabetes_treatment_and_derived_definition_labels_documented": true,
+    "hba1c_or_glycated_label_found": false,
+    "repeated_glucose_labels_documented": true,
+    "stable_identifier_label": "prim_key",
+    "status_value_codes_documented_in_inspected_table": false,
+    "wave1_fasting_labels_documented": true,
+    "wave2_status_label": "w2status",
+    "wave3_status_label": "w3status"
+  },
+  "next_gate": "Inspect official wave questionnaires and status/clock/value-code documentation before any record acquisition or model-ready extraction.",
+  "parameters_admitted": false,
+  "participant_records_acquired": false,
+  "public_ddi_metadata_export_receipt": {
+    "bytes": 6317,
+    "content_type": "application/octet-stream",
+    "http_status": 200,
+    "interpretation": "Public export supplies no variable dictionary; this documentation limitation does not establish that participant data are unavailable.",
+    "resolved_url": "https://data.agincourt.co.za/index.php/metadata/export/243/ddi",
+    "retrieval_completed_at": "2026-10-02T03:22:48.651766+00:00",
+    "sha256": "97ea63842c22dc67bad11b24d816dc79d42137d0e84c67bb1789c791b4b48f3d",
+    "url": "https://data.agincourt.co.za/index.php/metadata/export/243/ddi",
+    "variable_elements": 0,
+    "xml_root": "codeBook"
+  },
+  "review_scope": "Metadata-only source appraisal after public codebook inspection; no admission protocol, participant extraction, clinical likelihood or national transport established.",
+  "source_receipt": {
+    "bytes": 771975,
+    "content_type": "application/octet-stream",
+    "redistribution_rights_verified": false,
+    "retrieved_at": "2026-10-02T03:03:29.277836+00:00",
+    "scope": "Official public codebook only; no participant records acquired",
+    "sha256": "6e2c4a79cd95730c2a0034120b363910f415e9cfdbf9a90ebe388772c7deae7e",
+    "url": "https://data.agincourt.co.za/index.php/catalog/243/download/205"
+  },
+  "source_scope": "Public official longitudinal codebook only; not participant records or a complete released data dictionary."
+}

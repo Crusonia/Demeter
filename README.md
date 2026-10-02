@@ -280,7 +280,11 @@ profiles, internal prediction checks and paired whole-label sampling uncertainty
 The preserved v1 analysis completed, but both full-data CTMC estimates are null:
 all 12 prescribed starts reached the 1000-iteration limit. The IID predictor is
 available; 43 successful bootstrap draws out of 200 cannot replace the missing
-point estimate. Laboratory bands do not establish diagnosis or
+point estimate. The separately frozen adaptive v2 repair now supplies both
+working estimates: all 12 starts and all 200 primary bootstrap fits converged,
+with one unavailable paired prediction comparison retained. Profile boundaries
+and search-cap limitations remain visible, and internal predictive results are
+mixed across metrics and forecast horizons. Laboratory bands do not establish diagnosis or
 remission, and internal prediction does not establish independent clinical
 validation. Clinical calibration, dietary effects and national transport remain
 unresolved; no engine parameter or scientific acceptance gate is activated.

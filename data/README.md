@@ -11,7 +11,10 @@ implements a source-specific likelihood conditional on available laboratory
 measurements and recorded times. Its exact v1 aggregate is preserved: the analysis
 completed, but both full-data CTMC vectors remain null after all 12 prescribed
 starts failed. The IID predictor is available; summaries from 43 successful
-bootstrap draws out of 200 do not substitute for the missing point estimate. Its permitted
+bootstrap draws out of 200 do not substitute for the missing point estimate.
+The separately frozen adaptive v2 result supplies both working vectors and 200
+successful primary bootstrap fits; one unavailable paired prediction remains
+visible. V1 bytes and selection stay unchanged. Its permitted
 outputs are aggregate selection, working-fit and internal prediction diagnostics;
 participant labels, measurements, coordinates and paths remain outside the
 distributed report. Laboratory-band rates do not supply clinical transition

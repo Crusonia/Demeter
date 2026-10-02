@@ -5442,8 +5442,12 @@ datasets:
       - band2_to_band1
       unit: reciprocal source day
       status: estimated
-      estimation_status: unresolved_before_frozen_analysis
-      value: null
+      estimation_status: conditional_working_fit_completed_clinical_use_unresolved
+      value: &id001
+      - 0.00251523557194924
+      - 0.004615237498396666
+      - 0.002255663817251642
+      - 0.03993737986435219
       outcome_definition: Effective recorded-band switching, conditional on first band, recorded times and
         assay availability; not biological/clinical/causal hazards.
       evidence_grade: D
@@ -5455,6 +5459,72 @@ datasets:
       original statistical selection and all outer controls remain frozen.
     engine_activation_allowed: false
     scientific_acceptance_changed: false
+    result:
+      path: docs/validation/ipop-a1c-working-result-v2.json
+      sha256: 30a4cc66a9af406af0ebfac0c2a0237609d1606aecb6f08c9e0b8ca000b0d988
+      estimated_parameters:
+        primary_rates_per_source_day: *id001
+        general_rates_per_source_day:
+        - 0.002515235571956495
+        - 0.004615237497824104
+        - 0.002255663816948716
+        - 0.039937379865895954
+        - 0.0
+        - 0.0
+        iid_followup_band_probabilities:
+        - 0.5573294629898403
+        - 0.41509433962264153
+        - 0.027576197387518143
+      estimated_parameter_metadata:
+        primary_rates_per_source_day:
+          status: estimated
+          evidence_grade: D
+          order:
+          - band0_to_band1
+          - band1_to_band0
+          - band1_to_band2
+          - band2_to_band1
+          unit: reciprocal source day
+          conditioning: First recorded band, available A1C observations and recorded source-day coordinates
+            in the selected calibration labels; association, units/rawness and clock remain working assumptions.
+          uncertainty: All 200 whole-label primary bootstrap fits succeeded; joint covariance and frozen
+            percentiles are sampling summaries under the conditional working model. One boundary draw retained;
+            199 finite paired prediction comparisons. Finite rate-profile grids retain nuisance-cap limitations.
+            Units, linkage, observation selection, treatment, structure and transport uncertainty unresolved.
+          clinical_use_allowed: false
+        general_rates_per_source_day:
+          status: estimated
+          evidence_grade: D
+          order:
+          - band0_to_band1
+          - band1_to_band0
+          - band1_to_band2
+          - band2_to_band1
+          - band0_to_band2
+          - band2_to_band0
+          unit: reciprocal source day
+          conditioning: Same selected calibration labels, first band, available observations and recorded
+            source-day coordinates as the primary process; no biological-state, diagnosis or treatment effect
+            interpretation.
+          uncertainty: Six-rate alternative has two zero-boundary fitted edges; frozen profiles retain zero-boundary,
+            open-grid and nuisance-cap limitations. No general-model bootstrap covariance or clinical confidence
+            interval is claimed. Local numerical rank does not establish global or practical identification.
+          clinical_use_allowed: false
+        iid_followup_band_probabilities:
+          status: estimated
+          evidence_grade: D
+          order:
+          - band0
+          - band1
+          - band2
+          unit: probability
+          conditioning: Pooled post-first-observation A1C bands among the selected calibration labels under
+            an IID categorical working null; first bands are conditioned on, not pooled.
+          uncertainty: Available pooled categorical point vector; 199 finite paired predictive resampling
+            comparisons retained and one unavailable comparison disclosed. No stand-alone IID parameter
+            interval or independence of marginal probabilities is claimed; selection, units/rawness and
+            clock uncertainty unresolved.
+          clinical_use_allowed: false
 
 scientific_blockers:
 - National age-specific metabolic transition hazards are unresolved.

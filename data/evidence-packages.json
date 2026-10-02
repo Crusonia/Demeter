@@ -1138,7 +1138,7 @@
         },
         {
           "path": "docs/IPOP_A1C_WORKING_FIT.md",
-          "sha256": "2a65a0c513d03fb33b0a3cf20cb86d6638e2f7f61b9192074b32a0784181fa44"
+          "sha256": "fd4d55e699b2ff8c45117841c00fef59e39195577ac6af3e5745bc39f9b3e594"
         },
         {
           "path": "docs/validation/ipop-a1c-working-result-v1.json",
@@ -1151,6 +1151,18 @@
         {
           "path": "docs/validation/ipop-a1c-simulation-preservation-v1.json",
           "sha256": "c296599881eb4226a69a47696d21dbc19ad884f33ae72f36ba62622e0ef9f58a"
+        },
+        {
+          "path": "docs/validation/ipop-a1c-working-result-v2.json",
+          "sha256": "30a4cc66a9af406af0ebfac0c2a0237609d1606aecb6f08c9e0b8ca000b0d988"
+        },
+        {
+          "path": "docs/validation/ipop-a1c-working-integrity-v2.json",
+          "sha256": "b6a88516f2e73fad26464c0dc8330e6d55ad3cece531da80c062e5347f137639"
+        },
+        {
+          "path": "docs/validation/ipop-a1c-simulation-preservation-v2.json",
+          "sha256": "12f61aff411683893245a2d7d7cd01997e255214855b93f4b6180cc17050b0f1"
         }
       ],
       "transform_files": [
@@ -1160,12 +1172,13 @@
       ],
       "rebuild": [
         "uv run python scripts/verify_ipop_a1c_working_fit.py",
+        "uv run python scripts/verify_ipop_a1c_working_fit.py --numerical-method exact_box_quadratic_v2",
         "uv run demeter data fetch-ipop --destination data/raw/ipop-a1c-v1",
         "uv run demeter evidence ipop-a1c-working-fit --raw data/raw/ipop-a1c-v1 --output outputs/ipop-a1c-working-v1.json",
         "uv run demeter evidence ipop-a1c-working-fit --numerical-method exact_box_quadratic_v2 --raw data/raw/ipop-a1c-v1 --output outputs/ipop-a1c-working-v2.json"
       ],
       "model_role": "conditional_empirical_working_analysis_only",
-      "redistribution": "Attributed conditional aggregate diagnostics and immutable protocols only. Failed v1 point estimates remain null; successful bootstrap subset is conditional. Adaptive v2 repair is frozen separately after v1 outcomes; no clinical or engine activation. Complete source clinical/metadata bytes remain fetch-only, with no participant identifiers, assays, coordinates, crosswalks or paths bundled."
+      "redistribution": "Attributed conditional aggregate diagnostics and immutable protocols only. Failed v1 point estimates remain null; its successful bootstrap subset is conditional. Adaptive v2 repair is frozen separately after v1 outcomes and supplies working estimates with profile limitations and all resampling dispositions retained. No clinical or engine activation. Complete source clinical/metadata bytes remain fetch-only, with no participant identifiers, assays, coordinates, crosswalks or paths bundled."
     }
   },
   "supporting_artifacts": [
@@ -1260,6 +1273,10 @@
     {
       "path": "docs/validation/ipop-public-provenance-correction-v1.json",
       "sha256": "6278390527f9cbbbc1bf444890a5d44dc089610d78afd5c94b1ac25a64ea9ec2"
+    },
+    {
+      "path": "docs/validation/haalsi-codebook-coverage-v1.json",
+      "sha256": "1258da6841c5f2d543826a545bdb0266a93b0bb1f188eb9c7644ab8fa89f6751"
     }
   ]
 }

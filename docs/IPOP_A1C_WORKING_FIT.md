@@ -6,6 +6,31 @@ between recorded A1C bands adds predictive information beyond persistence or a
 pooled categorical predictor. It evaluates a conditional working process in the
 selected panel, not diabetes onset, remission or a national dietary effect.
 
+The [completed v2 aggregate](validation/ipop-a1c-working-result-v2.json) supplies
+both working rate vectors. All six starts converged for each structure, and all
+200 primary whole-path bootstrap fits succeeded. This explicit numerical repair
+was committed and pushed at `d2f3ac7` before the rerun began; it was selected after
+inspecting the failed original attempt. The likelihood, source selection,
+convergence tolerance, profile grid and resampling design remained frozen.
+
+The alternative's two direct outer-band edges are fitted at zero. Full local
+numerical ranks (four and six) do not establish practical or global identification.
+All ten profile grids completed without numerical failures, but some nuisance
+solutions hit search caps; the alternative also retains zero-boundary and open
+lower-grid limitations. No clinical confidence interval is reported.
+
+The bootstrap retains one zero-boundary primary draw. One prediction comparison
+was unavailable, leaving 200 contributing rate vectors and 199 finite paired
+prediction comparisons. Covariance and percentiles describe sampling under this
+conditional model, without resolving measurement, linkage, treatment, observation
+selection or transport uncertainty. The [offline integrity audit](validation/ipop-a1c-working-integrity-v2.json)
+checks the aggregate's bindings and mathematics. A separate
+[simulation-preservation audit](validation/ipop-a1c-simulation-preservation-v2.json)
+confirms that the four existing scenario outputs, sampling inputs, baseline checks
+and observation reports retain their results apart from declared registry fingerprints.
+
+### Original attempt remains visible
+
 The [preserved v1 aggregate](validation/ipop-a1c-working-result-v1.json) records a
 completed analysis with **both full-data CTMC estimates unresolved**. All six
 prescribed starts for each structure reached the frozen 1000-iteration limit:
@@ -20,7 +45,7 @@ finite estimation. They cannot replace the missing full-data point estimate or
 establish an unconditional confidence interval. This failure is retained rather
 than selecting a bootstrap draw as the reported model. A numerical repair must
 be evaluated under a separate versioned protocol that discloses its post-outcome
-selection; no repaired success is claimed here.
+selection. The completed v2 attempt above preserves this failed report unchanged.
 
 The [program vision](PROJECT_VISION.md) still requires the full health slice
 before agriculture, market and payer modules. This work informs health input
@@ -31,12 +56,13 @@ loops into empirical coefficients.
 
 Install the [locked environment](GETTING_STARTED.md). The quick offline audit
 checks the committed aggregate report, evidence bindings and mathematical
-consistency, including the explicit unavailable fits. Passing this audit does
-not mean that CTMC estimation succeeded. It does not replay participant records
+consistency for each version, including the explicit unavailable v1 fits. The
+v2 audit also checks the frozen profiles and resampling counts. It does not replay participant records
 or independently validate clinical rates:
 
 ```bash
 uv run python scripts/verify_ipop_a1c_working_fit.py
+uv run python scripts/verify_ipop_a1c_working_fit.py --numerical-method exact_box_quadratic_v2
 ```
 
 For full empirical reproduction, fetch the exact public
@@ -84,9 +110,10 @@ cache and select a fresh output path to run the repaired method:
 uv run demeter evidence ipop-a1c-working-fit --numerical-method exact_box_quadratic_v2 --raw data/raw/ipop-a1c-v1 --output outputs/ipop-a1c-working-v2.json
 ```
 
-V2 is a separate evidence-registry attempt. Its result remains unresolved until
-the frozen rerun finishes and its aggregate is registered. The failed v1 report
-and its conditional 43-draw summaries remain immutable.
+V2 is a separate evidence-registry attempt with its completed aggregate registered
+under `ipop_a1c_working_fit_v2`. The failed v1 report and its conditional 43-draw
+summaries remain immutable. Both audits run offline in ordinary CI; full source
+reproduction remains an explicit local operation.
 
 ## What the observations mean
 
@@ -154,6 +181,31 @@ probability vector. Report both equal-label and observation weighting so frequen
 visitors do not silently determine every comparison. There is no sourced clinical
 acceptance tolerance.
 
+### Internal prediction has a mixed result
+
+The table reports the completed v2 evaluation on 16 held-out source labels and
+145 follow-up observations. Higher mean log score and lower Brier score are
+better. Values below use equal label weighting; the aggregate also retains
+observation weighting. These are internal used-source checks, without a clinical
+acceptance threshold or independent-source validation.
+
+| Predictor | One-step log score | One-step Brier | First-only log score | First-only Brier |
+| --- | ---: | ---: | ---: | ---: |
+| Adjacent recorded-band process | -0.522 | 0.294 | -0.712 | 0.433 |
+| Six-edge alternative | -0.522 | 0.294 | -0.712 | 0.433 |
+| Pooled IID bands | -0.840 | 0.529 | -0.840 | 0.529 |
+| Exact persistence | Negative infinity | 0.273 | Negative infinity | 0.273 |
+
+The time-dependent processes score better than IID on these point comparisons.
+Their scores are almost identical because the alternative's direct outer-band
+edges are zero. Persistence has a lower Brier score here but assigns zero
+probability to 18 observed changes, making its log score negative infinity.
+The first-only process forecast loses accuracy as it stops updating on intermediate
+readings. In the 199 finite paired resamples, first-only observation-weighted
+log-score and Brier differences against IID span both signs at the frozen
+2.5th/97.5th percentiles. This panel does not establish reliable long-horizon
+prediction, superiority on every metric or a clinical benefit.
+
 Whole-path bootstrap draws preserve dependence within each label. Joint
 covariance describes the four rates together; separate marginal summaries are
 not independent priors. Paired model comparisons use identical resampled training
@@ -182,3 +234,14 @@ no parameters from them are admitted here. Reconcile source denominators,
 measurement changes, event precedence, follow-up clocks and access conditions
 before defining a likelihood. Aggregate endpoint counts alone do not identify the
 clinical transition process or untreated remission.
+
+The [official HAALSI documentation](https://data.agincourt.co.za/index.php/catalog/243/related-materials)
+offers another public-use lead. A [metadata-only codebook review](validation/haalsi-codebook-coverage-v1.json)
+pins the inspected document bytes. It lists repeated point-of-care glucose,
+diabetes treatment/history definitions and respondent-status fields, but many
+names are truncated and the table does not define complete value codes or
+specimen/death/contact clocks. No HbA1c label was found in this document; this
+does not establish absence from every release. Total hemoglobin is not HbA1c,
+and survival/attrition weights are not event histories. Verify the full dictionary,
+measurement timing and access terms before acquiring records or defining a
+clinical likelihood. No participant files or model parameters were admitted.
