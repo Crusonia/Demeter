@@ -687,7 +687,10 @@ def longitudinal_likelihood_evidence(
     from yaml import YAMLError, safe_load
 
     from demeter.analysis.longitudinal_likelihood_validation import (
+        AMENDMENT_PATH,
         DATASET,
+        PRIOR_AMENDMENT_PATH,
+        PRIOR_REPLAY_PATH,
         PROTOCOL_PATH,
         RFC_PATH,
         likelihood_failure_report,
@@ -695,7 +698,15 @@ def longitudinal_likelihood_evidence(
         load_likelihood_registry,
     )
 
-    protected = [DEFAULT_EVIDENCE, evidence, Path(PROTOCOL_PATH), Path(RFC_PATH)]
+    protected = [
+        DEFAULT_EVIDENCE,
+        evidence,
+        Path(PROTOCOL_PATH),
+        Path(RFC_PATH),
+        Path(AMENDMENT_PATH),
+        Path(PRIOR_AMENDMENT_PATH),
+        Path(PRIOR_REPLAY_PATH),
+    ]
     selected = None
     # Preserve explicitly declared input paths even when a malformed numeric
     # input prevents loading the registry. This inspection cannot authorize a fit.

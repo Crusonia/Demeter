@@ -1,0 +1,58 @@
+{
+  "amendment_id": "longitudinal-probability-contract-v2",
+  "chronology": "Written after defect reproduction, correction, targeted tests and an initial current-code registered-fixture replay. Used-code corrective work, not prospective registration or independent validation.",
+  "current_kernel": {
+    "path": "src/demeter/analysis/longitudinal_likelihood.py",
+    "sha256": "2f541323fb045bad7cbd45f88707c9f22fb6e6cb275943201ab7747e5cf7f278"
+  },
+  "current_replay_comparison": "Re-run unchanged v1 registered fixture; compare all original mathematical outputs except provenance and additive input-deviation diagnostics under unchanged registered numerical tolerances. Original artifacts remain byte-identical.",
+  "design_ids": [
+    "I-01",
+    "I-07",
+    "I-11",
+    "I-12",
+    "F-08",
+    "T-01",
+    "T-02",
+    "T-05",
+    "T-08"
+  ],
+  "panel_parity_contract": "Only synthetic explicitly timed CTMC panel paths and matching joint nominal token channels are compared. No source label is converted to elapsed time; no first-entry-density, annual-engine, clinical state or general nominal embeddability equivalence is asserted.",
+  "parent_protocol": {
+    "path": "docs/validation/longitudinal-likelihood-protocol-v1.json",
+    "sha256": "fb830574b696c623ca00282bda3c31093369c05ddb420458a53a83f27a22910e"
+  },
+  "preserved_original_implementation_sha256": {
+    "src/demeter/analysis/longitudinal_likelihood.py": "b89526ff40c755acb922c767773f84875f3b0d63632359d3c3dd3ae666ce3e86",
+    "src/demeter/analysis/longitudinal_likelihood_validation.py": "9bae107bfbe3365e4b267803776a2ea4cf297f73a1822fb748868f2daed203c0"
+  },
+  "preserved_original_report": {
+    "path": "docs/validation/issue-57-58-longitudinal-likelihood.json",
+    "sha256": "58d79954f7501a1322bb041323e42b7fdebc4860857465311b78c9bc6efbb46e"
+  },
+  "recorded_at_utc": "2026-10-02T21:57:22Z",
+  "registered_numeric_inputs_changed": false,
+  "schema_version": 1,
+  "scientific_gates": {
+    "clinical_fit_allowed": false,
+    "engine_activation_allowed": false,
+    "independent_validation_allowed": false,
+    "scientific_release_ready": false
+  },
+  "scope": {
+    "density_outputs": "Exact-first-entry density has reciprocal-year units and may exceed one.",
+    "diagnostics": "Expose initial sum-minus-one and each generator scaled row sum, alongside existing exponential roundoff-correction and normalizer diagnostics.",
+    "generator_conservation": "Nonnegative off-diagonals and nonpositive diagonal; each full row scaled by its largest absolute hazard before zero-sum check, using the bounded dimensionless caller allowance. Zero rows have zero deviation. No rates repaired.",
+    "initial_and_categorical_mass": "Each entry in [0,1]; row/unit-simplex deviation within caller allowance; no input row repair.",
+    "initial_forward_scaling": "Accepted nonunit initial mass retained explicitly in log likelihood and normalizers, including zero-time terminals. Working forward normalization is likelihood-preserving, not input repair.",
+    "numerical_failures": "A mathematically valid all-state observation can fail because exponential or forward arithmetic yields slight surplus mass. Fail explicitly; do not convert a numerical error into structural impossibility.",
+    "probability_outputs": "Reject non-density contribution with log likelihood >0 or displayed probability >1. Reject exponential entries or interval-event conditional probability >1. No positive mass clamp or silent normalization.",
+    "rank_tolerance": "Separate relative singular-value design choice remains in (0,1); stochastic ceiling does not apply."
+  },
+  "status": "VALIDATION ONLY: numerical input and probability bounds correction",
+  "stochastic_roundoff_ceiling": {
+    "basis": "Existing registered longitudinal_probability_absolute_tolerance; a software ceiling, not clinical uncertainty or empirical acceptance.",
+    "unit": "dimensionless",
+    "value": 1e-10
+  }
+}

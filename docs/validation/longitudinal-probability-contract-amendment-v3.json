@@ -1,0 +1,72 @@
+{
+  "amendment_id": "longitudinal-probability-contract-v3",
+  "chronology": "Written after independent review reproduced nonfinite density at published revision af223600843b8ea40ae9c51a2f87a3a1061a903d and after correction/targeted tests. The failed revision and pre-fix reproduction are retained; used-code correction, not prospective registration or independent validation.",
+  "current_kernel": {
+    "path": "src/demeter/analysis/longitudinal_likelihood.py",
+    "sha256": "6bb891203c30aabb2388eeb639596ee20ac91b482ca8741d357c29bd9d52e1a6"
+  },
+  "current_replay_comparison": "Re-run unchanged v1 registered fixture under v3; original mathematics unchanged at existing tolerances. Preserve v1 results and both published v2 artifact bytes. The v2 receipt remains a historical evaluation of its pinned earlier code, not evidence that this newly identified extreme case passed.",
+  "design_ids": [
+    "I-01",
+    "I-07",
+    "I-11",
+    "I-12",
+    "F-08",
+    "T-01",
+    "T-02",
+    "T-05",
+    "T-08"
+  ],
+  "failed_revision": "af223600843b8ea40ae9c51a2f87a3a1061a903d",
+  "panel_parity_contract": "Only synthetic explicitly timed CTMC panel paths and matching joint nominal token channels are compared. No source label is converted to elapsed time; no first-entry-density, annual-engine, clinical state or general nominal embeddability equivalence is asserted.",
+  "parent_amendment": {
+    "path": "docs/validation/longitudinal-probability-contract-amendment-v2.json",
+    "sha256": "769376aed81d4659945085ae25662e98dcb300e97175e45003a2fee46cf71c5b"
+  },
+  "parent_protocol": {
+    "path": "docs/validation/longitudinal-likelihood-protocol-v1.json",
+    "sha256": "fb830574b696c623ca00282bda3c31093369c05ddb420458a53a83f27a22910e"
+  },
+  "preserved_original_implementation_sha256": {
+    "src/demeter/analysis/longitudinal_likelihood.py": "b89526ff40c755acb922c767773f84875f3b0d63632359d3c3dd3ae666ce3e86",
+    "src/demeter/analysis/longitudinal_likelihood_validation.py": "9bae107bfbe3365e4b267803776a2ea4cf297f73a1822fb748868f2daed203c0"
+  },
+  "preserved_original_report": {
+    "path": "docs/validation/issue-57-58-longitudinal-likelihood.json",
+    "sha256": "58d79954f7501a1322bb041323e42b7fdebc4860857465311b78c9bc6efbb46e"
+  },
+  "preserved_prior_implementation_sha256": {
+    "src/demeter/analysis/longitudinal_likelihood.py": "2f541323fb045bad7cbd45f88707c9f22fb6e6cb275943201ab7747e5cf7f278",
+    "src/demeter/analysis/longitudinal_likelihood_validation.py": "e0d47b9fd296cc00a345f7a8dba1a55ed40170587d53564d901ec1f2077369e8"
+  },
+  "preserved_prior_replay": {
+    "path": "docs/validation/longitudinal-probability-contract-replay-v2.json",
+    "sha256": "297d290b5e203f60fc420ad102cd5b7c35bd1e9da6a13ea785ee64eac0621e43"
+  },
+  "recorded_at_utc": "2026-10-02T22:20:42Z",
+  "registered_numeric_inputs_changed": false,
+  "schema_version": 1,
+  "scientific_gates": {
+    "clinical_fit_allowed": false,
+    "engine_activation_allowed": false,
+    "independent_validation_allowed": false,
+    "scientific_release_ready": false
+  },
+  "scope": {
+    "density_outputs": "Exact-first-entry density has reciprocal-year units and may exceed one.",
+    "diagnostics": "Expose initial sum-minus-one and each generator scaled row sum, alongside existing exponential roundoff-correction and normalizer diagnostics.",
+    "finite_density_representation": "Reject nonfinite aggregate hazards into an exact-event group, nonfinite exact-event factor, nonfinite log likelihood for a nonzero path, and nonfinite displayed likelihood. Finite reciprocal-year densities may still exceed one. Structural zero remains log=-infinity; positive ordinary-probability underflow retains finite log likelihood. No repair, clamp or empirical cap.",
+    "generator_conservation": "Nonnegative off-diagonals and nonpositive diagonal; each full row scaled by its largest absolute hazard before zero-sum check, using the bounded dimensionless caller allowance. Zero rows have zero deviation. No rates repaired.",
+    "initial_and_categorical_mass": "Each entry in [0,1]; row/unit-simplex deviation within caller allowance; no input row repair.",
+    "initial_forward_scaling": "Accepted nonunit initial mass retained explicitly in log likelihood and normalizers, including zero-time terminals. Working forward normalization is likelihood-preserving, not input repair.",
+    "numerical_failures": "A mathematically valid all-state observation can fail because exponential or forward arithmetic yields slight surplus mass. Fail explicitly; do not convert a numerical error into structural impossibility.",
+    "probability_outputs": "Reject non-density contribution with log likelihood >0 or displayed probability >1. Reject exponential entries or interval-event conditional probability >1. No positive mass clamp or silent normalization.",
+    "rank_tolerance": "Separate relative singular-value design choice remains in (0,1); stochastic ceiling does not apply."
+  },
+  "status": "VALIDATION ONLY: nonfinite exact-event density correction following v2",
+  "stochastic_roundoff_ceiling": {
+    "basis": "Existing registered longitudinal_probability_absolute_tolerance; a software ceiling, not clinical uncertainty or empirical acceptance.",
+    "unit": "dimensionless",
+    "value": 1e-10
+  }
+}

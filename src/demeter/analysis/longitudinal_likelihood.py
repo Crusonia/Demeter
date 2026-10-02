@@ -60,6 +60,34 @@ def _tolerance(value: float) -> float:
     return value
 
 
+MAX_STOCHASTIC_ROUNDOFF_TOLERANCE = 1e-10
+
+
+def _stochastic_tolerance(value: float) -> float:
+    """Bound numerical mass checks separately from relative Jacobian rank cutoffs.
+
+    The ceiling preserves the existing registered CTMC software allowance. It
+    cannot be enlarged to admit empirical mass errors. Accepted input deviations
+    are not normalized; an evaluated probability above one still fails.
+    """
+    value = _tolerance(value)
+    if value > MAX_STOCHASTIC_ROUNDOFF_TOLERANCE:
+        raise ValueError("Stochastic roundoff tolerance must be at most 1e-10")
+    return value
+
+
+def _scaled_generator_row_deviations(q: np.ndarray) -> np.ndarray:
+    """Dimensionless conservation error relative to each row's hazard scale.
+
+    Scaling before summation avoids an absolute probability allowance hiding a
+    defective tiny-rate generator, and avoids overflow for finite large rates.
+    A zero-rate row has exactly zero error. No generator entry is changed.
+    """
+    scale = np.max(np.abs(q), axis=1)
+    scaled = np.divide(q, scale[:, None], out=np.zeros_like(q), where=scale[:, None] != 0)
+    return scaled.sum(axis=1)
+
+
 @dataclass(frozen=True)
 class StateSpace:
     """Declared labels/history; death has no required live diagnosis history."""
@@ -212,7 +240,7 @@ class SoftwareObservationContract:
 
 def validate_generator(space: StateSpace, generator, *, tolerance: float) -> np.ndarray:
     """Validate row sums, finite hazards/year, absorbing death and retained history."""
-    tolerance = _tolerance(tolerance)
+    tolerance = _stochastic_tolerance(tolerance)
     if type(space) is not StateSpace:
         raise ValueError("A declared StateSpace is required")
     q = _array(generator, "generator", 2)
@@ -224,7 +252,7 @@ def validate_generator(space: StateSpace, generator, *, tolerance: float) -> np.
     if (
         (off < 0).any()
         or (np.diag(q) > 0).any()
-        or not np.allclose(q.sum(axis=1), 0, atol=tolerance, rtol=0)
+        or not np.allclose(_scaled_generator_row_deviations(q), 0, atol=tolerance, rtol=0)
     ):
         raise ValueError("Row generator requires nonnegative off-diagonals and zero row sums")
     if (q[space.death_index] != 0).any():
@@ -238,7 +266,7 @@ def validate_generator(space: StateSpace, generator, *, tolerance: float) -> np.
 
 def validate_categorical_emissions(matrix, *, state_count: int, tolerance: float) -> np.ndarray:
     """States by mutually exclusive categories; each row is a probability vector."""
-    tolerance = _tolerance(tolerance)
+    tolerance = _stochastic_tolerance(tolerance)
     values = _array(matrix, "categorical emissions", 2)
     if (
         type(state_count) is not int
@@ -265,7 +293,7 @@ def _exponential(
     and nonfinite outputs fail instead of being clipped into an accepted model.
     """
     values = expm(matrix * duration)
-    if not np.isfinite(values).all() or (values < -tolerance).any():
+    if not np.isfinite(values).all() or (values < -tolerance).any() or (values > 1).any():
         raise FloatingPointError("Matrix exponential failed numerical probability checks")
     negative = values < 0
     if corrections is not None and negative.any():
@@ -286,7 +314,7 @@ def transition_matrix(
     space: StateSpace, generator, duration_years: float, *, tolerance: float
 ) -> np.ndarray:
     """Full endpoint occupancy, including death; unlike a killed first-entry kernel."""
-    tolerance = _tolerance(tolerance)
+    tolerance = _stochastic_tolerance(tolerance)
     q = validate_generator(space, generator, tolerance=tolerance)
     duration = _number(duration_years, "duration in years", nonnegative=True)
     return _exponential(q, duration, tolerance, killed=False)
@@ -371,7 +399,7 @@ def _interval_probability(
             block, duration, tolerance, killed=True, corrections=corrections
         )
     probability = float(extended[-1])
-    if not isfinite(probability) or not 0 <= probability <= 1 + tolerance:
+    if not isfinite(probability) or not 0 <= probability <= 1:
         raise FloatingPointError("Interval-event mass failed probability checks")
     if probability == 0 and extended_support[-1]:
         raise FloatingPointError("Positive interval-event probability underflowed")
@@ -403,7 +431,7 @@ def path_likelihood(
     densities have reciprocal-year units and can exceed one. Zero contributions
     retain -inf log likelihood; float underflow retains a finite log value.
     """
-    tolerance = _tolerance(tolerance)
+    tolerance = _stochastic_tolerance(tolerance)
     if type(space) is not StateSpace:
         raise ValueError("A declared StateSpace is required")
     if (
@@ -415,6 +443,7 @@ def path_likelihood(
     if (
         initial.shape != (len(space.labels),)
         or (initial < 0).any()
+        or (initial > 1).any()
         or not np.isclose(initial.sum(), 1, atol=tolerance, rtol=0)
     ):
         raise ValueError("Initial state probabilities must match states and sum to one")
@@ -436,8 +465,10 @@ def path_likelihood(
         raise ValueError(
             "Rate schedule has an unknown origin, gap, overlap or insufficient coverage"
         )
+    generator_deviations = []
     for segment in segments:
-        validate_generator(space, segment.generator, tolerance=tolerance)
+        q = validate_generator(space, segment.generator, tolerance=tolerance)
+        generator_deviations.append(tuple(_scaled_generator_row_deviations(q).tolist()))
     if contract.treatment == "held_fixed" and any(
         item.generator != segments[0].generator for item in segments[1:]
     ):
@@ -494,7 +525,14 @@ def path_likelihood(
         ):
             raise ValueError("Non-event endpoint must explicitly exclude all event states")
 
+    initial_scale = float(alpha.sum())
     log_likelihood, time, normalizers = 0.0, 0.0, []
+    if initial_scale != 1:
+        # Likelihood-preserving forward scaling, including a zero-time terminal.
+        # The original mass remains in log_likelihood; this is not input repair.
+        alpha /= initial_scale
+        log_likelihood = log(initial_scale)
+        normalizers.append(initial_scale)
     support = alpha > 0
     corrections = {"entries_zeroed": 0, "most_negative_entry": 0.0}
     impossible = False
@@ -542,8 +580,14 @@ def path_likelihood(
                 (item for item in segments if item.start_year <= end < item.end_year), segments[-1]
             )
             q = np.asarray(segment.generator)
-            hazards = q[np.ix_(indices, groups[terminal.event])].sum(axis=1)
-            factor = float(alpha @ hazards)
+            with np.errstate(over="ignore", invalid="ignore"):
+                hazards = q[np.ix_(indices, groups[terminal.event])].sum(axis=1)
+            if not np.isfinite(hazards).all():
+                raise FloatingPointError("Exact-event aggregate hazard is not finite")
+            with np.errstate(over="ignore", invalid="ignore"):
+                factor = float(alpha @ hazards)
+            if not isfinite(factor):
+                raise FloatingPointError("Exact-event density factor is not finite")
             if factor == 0 and np.any(support & (hazards > 0)):
                 raise FloatingPointError("Positive exact-event density underflowed")
         elif terminal.kind == "interval_first_entry":
@@ -569,13 +613,21 @@ def path_likelihood(
             log_likelihood += log(factor)
     if impossible:
         log_likelihood = float("-inf")
+    elif not isfinite(log_likelihood):
+        raise FloatingPointError("Log likelihood is outside finite floating-point representation")
     density = terminal.kind == "exact_first_entry"
+    if not density and log_likelihood > 0:
+        raise FloatingPointError("Evaluated probability exceeds one; inputs are not repaired")
     try:
         likelihood = 0.0 if impossible else exp(log_likelihood)
     except OverflowError as error:
         raise FloatingPointError(
             "Likelihood is outside finite floating-point representation"
         ) from error
+    if not isfinite(likelihood):
+        raise FloatingPointError("Likelihood is outside finite floating-point representation")
+    if not density and likelihood > 1:
+        raise FloatingPointError("Evaluated probability exceeds one; inputs are not repaired")
     return {
         "validation_only": True,
         "scope": "Declared mathematical observation contribution; no empirical fit or state inference.",
@@ -594,6 +646,12 @@ def path_likelihood(
         "exact_boundary_convention": "right-hand segment; final schedule end uses left limit",
         "numerical_roundoff_policy": "Only exponential negatives within supplied tolerance become zero; no generator repair.",
         "numerical_roundoff_corrections": corrections,
+        "numerical_input_deviations": {
+            "initial_sum_minus_one": float(initial.sum() - 1),
+            "generator_scaled_row_sums": tuple(generator_deviations),
+            "generator_scaling": "Each row divided by its largest absolute hazard; zero row stays zero",
+            "inputs_repaired": False,
+        },
     }
 
 

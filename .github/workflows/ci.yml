@@ -64,7 +64,9 @@ jobs:
       - name: Validate evidence and authoritative baselines
         run: uv run demeter validate
       - name: Check frozen synthetic longitudinal likelihood
-        run: uv run demeter evidence longitudinal-likelihood --output outputs/longitudinal-likelihood.json
+        run: |
+          uv run demeter evidence longitudinal-likelihood --output outputs/longitudinal-likelihood.json
+          uv run python scripts/verify_longitudinal_probability_contract.py
       - name: Reproduce pinned Geelong label observations offline
         run: |
           uv run demeter evidence geelong-labels --output outputs/geelong-labels.json

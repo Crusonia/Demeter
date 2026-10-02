@@ -1,0 +1,253 @@
+{
+  "amendment_path": "docs/validation/longitudinal-probability-contract-amendment-v3.json",
+  "amendment_sha256": "fd119457b06b05c6463572ecbd04fb860b2d7c301f266a113d04f75fa1506d67",
+  "checks": {
+    "analytic_interval_matches_quadrature": true,
+    "competing_event_death_survival_mass": true,
+    "full_design_local_rank_nine": true,
+    "interval_matches_analytic_competing_hazards": true,
+    "linked_forward_matches_enumeration": true,
+    "restricted_alternative_full_rows_differ": true,
+    "restricted_alternative_nonnegative_and_distinct": true,
+    "restricted_alternative_same_scalar_endpoint": true,
+    "scalar_design_local_rank_one": true,
+    "scaled_log_matches_enumeration": true
+  },
+  "clinical_fit_performed": false,
+  "comparison": {
+    "exclusions": [
+      "provenance",
+      "additive numerical_input_deviations within contributions"
+    ],
+    "original_mathematical_results_exact_on_recorded_platform": true,
+    "portable_log_likelihood_absolute_tolerance": 1e-10,
+    "portable_probability_absolute_tolerance": 1e-10,
+    "tolerances_widened": false
+  },
+  "current_contribution_input_deviations": {
+    "cumulative_competing_death": {
+      "generator_scaled_row_sums": [
+        [
+          8.326672684688674e-17,
+          -5.551115123125783e-17,
+          5.551115123125783e-17,
+          5.551115123125783e-17,
+          0.0
+        ],
+        [
+          8.326672684688674e-17,
+          0.0,
+          5.551115123125783e-17,
+          5.551115123125783e-17,
+          0.0
+        ]
+      ],
+      "generator_scaling": "Each row divided by its largest absolute hazard; zero row stays zero",
+      "initial_sum_minus_one": 0.0,
+      "inputs_repaired": false
+    },
+    "cumulative_diagnosis": {
+      "generator_scaled_row_sums": [
+        [
+          8.326672684688674e-17,
+          -5.551115123125783e-17,
+          5.551115123125783e-17,
+          5.551115123125783e-17,
+          0.0
+        ],
+        [
+          8.326672684688674e-17,
+          0.0,
+          5.551115123125783e-17,
+          5.551115123125783e-17,
+          0.0
+        ]
+      ],
+      "generator_scaling": "Each row divided by its largest absolute hazard; zero row stays zero",
+      "initial_sum_minus_one": 0.0,
+      "inputs_repaired": false
+    },
+    "event_free_lower_endpoint": {
+      "generator_scaled_row_sums": [
+        [
+          8.326672684688674e-17,
+          -5.551115123125783e-17,
+          5.551115123125783e-17,
+          5.551115123125783e-17,
+          0.0
+        ],
+        [
+          8.326672684688674e-17,
+          0.0,
+          5.551115123125783e-17,
+          5.551115123125783e-17,
+          0.0
+        ]
+      ],
+      "generator_scaling": "Each row divided by its largest absolute hazard; zero row stays zero",
+      "initial_sum_minus_one": 0.0,
+      "inputs_repaired": false
+    },
+    "event_free_right_censor": {
+      "generator_scaled_row_sums": [
+        [
+          8.326672684688674e-17,
+          -5.551115123125783e-17,
+          5.551115123125783e-17,
+          5.551115123125783e-17,
+          0.0
+        ],
+        [
+          8.326672684688674e-17,
+          0.0,
+          5.551115123125783e-17,
+          5.551115123125783e-17,
+          0.0
+        ]
+      ],
+      "generator_scaling": "Each row divided by its largest absolute hazard; zero row stays zero",
+      "initial_sum_minus_one": 0.0,
+      "inputs_repaired": false
+    },
+    "exact_death_after_panel": {
+      "generator_scaled_row_sums": [
+        [
+          8.326672684688674e-17,
+          -5.551115123125783e-17,
+          5.551115123125783e-17,
+          5.551115123125783e-17,
+          0.0
+        ],
+        [
+          8.326672684688674e-17,
+          0.0,
+          5.551115123125783e-17,
+          5.551115123125783e-17,
+          0.0
+        ]
+      ],
+      "generator_scaling": "Each row divided by its largest absolute hazard; zero row stays zero",
+      "initial_sum_minus_one": 0.0,
+      "inputs_repaired": false
+    },
+    "exact_diagnosis": {
+      "generator_scaled_row_sums": [
+        [
+          8.326672684688674e-17,
+          -5.551115123125783e-17,
+          5.551115123125783e-17,
+          5.551115123125783e-17,
+          0.0
+        ],
+        [
+          8.326672684688674e-17,
+          0.0,
+          5.551115123125783e-17,
+          5.551115123125783e-17,
+          0.0
+        ]
+      ],
+      "generator_scaling": "Each row divided by its largest absolute hazard; zero row stays zero",
+      "initial_sum_minus_one": 0.0,
+      "inputs_repaired": false
+    },
+    "interval_diagnosis": {
+      "generator_scaled_row_sums": [
+        [
+          8.326672684688674e-17,
+          -5.551115123125783e-17,
+          5.551115123125783e-17,
+          5.551115123125783e-17,
+          0.0
+        ],
+        [
+          8.326672684688674e-17,
+          0.0,
+          5.551115123125783e-17,
+          5.551115123125783e-17,
+          0.0
+        ]
+      ],
+      "generator_scaling": "Each row divided by its largest absolute hazard; zero row stays zero",
+      "initial_sum_minus_one": 0.0,
+      "inputs_repaired": false
+    },
+    "linked_panel": {
+      "generator_scaled_row_sums": [
+        [
+          8.326672684688674e-17,
+          -5.551115123125783e-17,
+          5.551115123125783e-17,
+          5.551115123125783e-17,
+          0.0
+        ],
+        [
+          8.326672684688674e-17,
+          0.0,
+          5.551115123125783e-17,
+          5.551115123125783e-17,
+          0.0
+        ]
+      ],
+      "generator_scaling": "Each row divided by its largest absolute hazard; zero row stays zero",
+      "initial_sum_minus_one": 0.0,
+      "inputs_repaired": false
+    },
+    "linked_prefix_interval_diagnosis": {
+      "generator_scaled_row_sums": [
+        [
+          8.326672684688674e-17,
+          -5.551115123125783e-17,
+          5.551115123125783e-17,
+          5.551115123125783e-17,
+          0.0
+        ],
+        [
+          8.326672684688674e-17,
+          0.0,
+          5.551115123125783e-17,
+          5.551115123125783e-17,
+          0.0
+        ]
+      ],
+      "generator_scaling": "Each row divided by its largest absolute hazard; zero row stays zero",
+      "initial_sum_minus_one": 0.0,
+      "inputs_repaired": false
+    }
+  },
+  "current_implementation_sha256": {
+    "src/demeter/analysis/longitudinal_likelihood.py": "6bb891203c30aabb2388eeb639596ee20ac91b482ca8741d357c29bd9d52e1a6",
+    "src/demeter/analysis/longitudinal_likelihood_validation.py": "bc6b0e9f6c93df8f176779cc1ae77d1ac010f7f9e688d9071c681044fbf66b2c"
+  },
+  "engine_parameters_updated": false,
+  "failed_revision": "af223600843b8ea40ae9c51a2f87a3a1061a903d",
+  "limitations": [
+    "Mathematically valid probability-one paths can fail explicitly on surplus roundoff; no mass repair.",
+    "Synthetic panel parity assumes explicit known times, full matching token channels and shared linked histories; no source clock or state mapping inferred.",
+    "Original frozen artifacts remain unchanged. This receipt follows corrective evaluation; not preregistration or independent validation.",
+    "V2 receipt is retained as historical evidence of its earlier pinned code; independent review subsequently found an extreme grouped-hazard density overflow. V3 rejects nonfinite contributions without changing empirical inputs or ordinary registered mathematics."
+  ],
+  "preserved_original_report": {
+    "path": "docs/validation/issue-57-58-longitudinal-likelihood.json",
+    "sha256": "58d79954f7501a1322bb041323e42b7fdebc4860857465311b78c9bc6efbb46e"
+  },
+  "preserved_prior_replay": {
+    "path": "docs/validation/longitudinal-probability-contract-replay-v2.json",
+    "sha256": "297d290b5e203f60fc420ad102cd5b7c35bd1e9da6a13ea785ee64eac0621e43"
+  },
+  "recorded_at_utc": "2026-10-02T22:22:47.227636Z",
+  "registered_inputs_changed": false,
+  "registered_numeric_input_count": 19,
+  "registered_scope_sha256": "ba26196af79bedc6395ad9e20c155ebe211485537524b4c7fb9bbe0a22334735",
+  "report_id": "longitudinal-probability-contract-replay-v3",
+  "schema_version": 1,
+  "scientific_gates": {
+    "clinical_fit_allowed": false,
+    "engine_activation_allowed": false,
+    "independent_validation_allowed": false,
+    "scientific_release_ready": false
+  },
+  "source_records_read": false,
+  "status": "USED-CODE SYNTHETIC REPLAY AFTER NONFINITE-DENSITY CORRECTION; NOT CLINICAL VALIDATION",
+  "validation_only": true
+}

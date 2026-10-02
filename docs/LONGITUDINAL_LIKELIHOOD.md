@@ -89,3 +89,53 @@ The continuous-time evaluator is separate from the current annual mortality-then
 survivor-transition engine. No agriculture, business-value or healthcare-savings
 conclusion follows from this exercise. The broader phased program remains in the
 [project vision](PROJECT_VISION.md).
+
+## Numerical correction and current-code replay
+
+The [preserved v2 amendment](validation/longitudinal-probability-contract-amendment-v2.json)
+corrects the former ability to admit impossible mass by supplying a loose caller
+tolerance. The original protocol and results remain unchanged. Stochastic checks
+now accept an allowance at most `1e-10`, the existing registered software ceiling;
+the local Jacobian's relative rank cutoff remains a separate design choice.
+Generator conservation is checked after dividing each full row by its largest
+absolute hazard. This dimensionless check detects relative errors even in tiny
+rates without changing any input rate. Diagnostics retain the initial mass
+deviation and each scaled generator row sum.
+
+Accepted roundoff deviations are not repaired. Working forward scaling retains
+the original initial mass in the likelihood and normalizers, including at a
+zero-time terminal. A non-density contribution whose computed log probability is
+positive, or whose displayed probability exceeds one, fails explicitly. Exact
+first-entry densities may exceed one because their units are per year. This
+strict policy can reject a mathematically valid all-state observation when
+matrix-exponential or forward arithmetic produces slight surplus mass. Such a
+failure is numerical, not structural impossibility or a scientific result; the
+library neither clamps the probability nor increases the tolerance to pass it.
+
+The [current v3 amendment](validation/longitudinal-probability-contract-amendment-v3.json)
+also rejects nonfinite exact-event aggregate hazards, density factors, nonzero-path
+log likelihoods and displayed contributions. Finite input edges can overflow when
+summed near the binary64 ceiling; this fails explicitly rather than returning an
+infinite fitted contribution. Finite densities above one and structural zeros keep
+their existing meaning. Independent review found this defect in published revision
+`af223600843b8ea40ae9c51a2f87a3a1061a903d`; its failed case and the original
+[v2 replay](validation/longitudinal-probability-contract-replay-v2.json) remain
+historical records of that earlier code. Neither prior artifact is rewritten to
+claim the extreme input passed.
+
+The [current-code replay](validation/longitudinal-probability-contract-replay-v3.json)
+uses the original 19 registered inputs and compares the old mathematical outputs
+under unchanged tolerances. Run its verifier from the repository root:
+
+```bash
+uv run python scripts/verify_longitudinal_probability_contract.py
+```
+
+Focused tests exhaust token paths for small complete synthetic channels and
+compare CTMC panel contributions with the nominal evaluator and hidden-path
+enumeration. This equality requires caller-known synthetic times and matching
+joint observation definitions. It does not turn source visit labels into years,
+identify a CTMC generator for every nominal matrix, or equate panel probabilities
+with first-entry densities or the annual engine. The amendment follows defect
+inspection and initial corrective tests; it is not prospective registration or
+independent validation. No empirical input or scientific gate changes.
