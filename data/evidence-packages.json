@@ -1892,6 +1892,14 @@
     {
       "path": "docs/design/10_NHIS_SURVEY_WITNESS.md",
       "sha256": "c64ca98f144fe119828918b4b25480dfe2ee6f2557d1cb6d0f5bbf9ed32c7730"
+    },
+    {
+      "path": "docs/NHIS_SELECTED_FIELD_INSPECTION_CONTRACT.md",
+      "sha256": "3ad62da97ee31d994d31035201a07295ca6ad7da798dcac876da6fbfcbe77fa0"
+    },
+    {
+      "path": "docs/validation/nhis2025-selected-field-inspection-contract-v1.json",
+      "sha256": "ee9e79b68ef6e47a18e8641bbe521234f4774c5c4386a551321eb2fa555c5477"
     }
   ]
 }
