@@ -1,0 +1,114 @@
+{
+  "kind": "HRS_synthetic_disposition_contract_documentary_receipt",
+  "created_at": "2026-10-03T07:38:53.538193+00:00",
+  "authored_contract_path": "docs/design/10_HRS_DISPOSITION_WITNESS.md",
+  "authored_contract_sha256": "b98dd8f20540845a7fa66e0dce8ec14c90a5a71833ec594e3cfa8917e2295d04",
+  "source_admission": false,
+  "participant_acquisition": false,
+  "empirical_calculation": false,
+  "source_codebook_original_bytes_available": false,
+  "authored_receipt_is_not_producer_bytes": true,
+  "scientific_gates": {
+    "direct_initialization_allowed": false,
+    "clinical_fit_allowed": false,
+    "engine_activation_allowed": false,
+    "sampling_distribution_assumed": false,
+    "scientific_release_ready": false
+  },
+  "sources": {
+    "tracker": {
+      "url": "https://hrs.isr.umich.edu/sites/default/files/meta/tracker/codebook/trk2022tr_r.htm",
+      "locator": "PALIVE, 2016 vital-status block; HTML displayed lines8485-8504 in this tool rendering",
+      "original_sha256": null,
+      "method": "Ordinary public rendered primary codebook; original HTTP403 preserved",
+      "native_codes": {
+        "1": "Source alive at current wave; may rely on reports",
+        "2": "Presumed alive; can mean no current contact",
+        "5": "Source deceased at current wave; can rely on reports",
+        "6": "Source deceased as of prior wave",
+        "blank": "Not in the sample this wave"
+      },
+      "missing_row": "Not a native blank code; remains no tracker observation",
+      "independent_death_confirmation": false
+    },
+    "core2012": {
+      "url": "https://hrs.isr.umich.edu/sites/default/files/meta/2012/core/codebook/h12c_r.htm",
+      "locator": "NC010 diabetes block; displayed lines443-471",
+      "original_sha256": null,
+      "method": "Ordinary public rendered primary codebook; original HTTP403 preserved",
+      "native_codes": {
+        "1": "Affirmative diabetes/high-blood-sugar report",
+        "3": "Prior record disputed; condition now reported",
+        "4": "Prior record disputed; condition now not reported",
+        "5": "Negative report",
+        "8": "Unknown/not ascertained",
+        "9": "Refused",
+        "blank": "Inapplicable/partial interview"
+      },
+      "prompt_context": "Ever, carried prior record or since last interview depends on source interview/preload context; response alone does not identify it.",
+      "type_or_remission_identified": false
+    },
+    "core2016": {
+      "url": "https://hrs.isr.umich.edu/sites/default/files/meta/2016/core/codebook/h16c_r.htm",
+      "locator": "PC010 diabetes block; displayed lines375-411",
+      "original_sha256": null,
+      "method": "Ordinary public rendered primary codebook; original HTTP403 preserved",
+      "native_codes": "Same explicitly documented response inventory as NC010; no silent pooling of question universes",
+      "prompt_context": "New interview/prior record determines ever, carried prior record or since-last-interview prompt.",
+      "type_or_remission_identified": false
+    }
+  },
+  "ordinary_original_requests": [
+    {
+      "path": "outputs\\hrs-disposition-contract-design-v1\\tracker-ordinary-request-v1.json",
+      "sha256": "dfee8476b8014280f5f6db2ed8d5c5f46a82ccf009dad21e8b361c4bc77bdfd6",
+      "url": "https://hrs.isr.umich.edu/sites/default/files/meta/tracker/codebook/trk2022tr_r.htm",
+      "requested_at": "2026-10-03T07:35:10.934073+00:00",
+      "scope": "Ordinary public documentary HTML request only; no participant request",
+      "original_sha256": null,
+      "source_admission": false,
+      "status": "ordinary_request_refused",
+      "http_status": 403,
+      "error_type": "HTTPError",
+      "error": "HTTP Error 403: Forbidden",
+      "body_read": false,
+      "finished_at": "2026-10-03T07:35:11.148629+00:00"
+    },
+    {
+      "path": "outputs\\hrs-disposition-contract-design-v1\\core2012-ordinary-request-v1.json",
+      "sha256": "a04aae296136657d182c24dcf27f9ef34def46fc493a5b032a2683ff4785ad41",
+      "url": "https://hrs.isr.umich.edu/sites/default/files/meta/2012/core/codebook/h12c_r.htm",
+      "requested_at": "2026-10-03T07:35:11.149630+00:00",
+      "scope": "Ordinary public documentary HTML request only; no participant request",
+      "original_sha256": null,
+      "source_admission": false,
+      "status": "ordinary_request_refused",
+      "http_status": 403,
+      "error_type": "HTTPError",
+      "error": "HTTP Error 403: Forbidden",
+      "body_read": false,
+      "finished_at": "2026-10-03T07:35:11.246839+00:00"
+    },
+    {
+      "path": "outputs\\hrs-disposition-contract-design-v1\\core2016-ordinary-request-v1.json",
+      "sha256": "0c16f20371eeed441239d8870f1ca509c572c7a8d4466ebf972b0329f4e75fd5",
+      "url": "https://hrs.isr.umich.edu/sites/default/files/meta/2016/core/codebook/h16c_r.htm",
+      "requested_at": "2026-10-03T07:35:11.247367+00:00",
+      "scope": "Ordinary public documentary HTML request only; no participant request",
+      "original_sha256": null,
+      "source_admission": false,
+      "status": "ordinary_request_refused",
+      "http_status": 403,
+      "error_type": "HTTPError",
+      "error": "HTTP Error 403: Forbidden",
+      "body_read": false,
+      "finished_at": "2026-10-03T07:35:11.345112+00:00"
+    }
+  ],
+  "scope_of_dictionary_encoding": "Integer values and observed blank are documentary definitions; Boolean/string/undocumented inputs rejected by future synthetic software. No native binary or text decoder is admitted.",
+  "assay_facets": "Caller-defined synthetic selection/availability/unknown or nominal clock; not claimed as HRS native variables.",
+  "used_source_chronology": "Source codebooks and published frequency tables were visible before this contract. No participant file requested and no empirical values computed. This is used-source software design, not blinded preregistration or scientific acceptance.",
+  "independent_review": "Parent automated scoped contract review accepted on October3,2026 before code; no independent human or external expert acceptance.",
+  "synthetic_declaration": "Caller declaration only, not proof of synthetic origin or authorization to process empirical records.",
+  "tracker_scope": "2016 PALIVE only; no meanings extended to other waves."
+}
