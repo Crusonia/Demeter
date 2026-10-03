@@ -408,6 +408,11 @@ explain which linked records or sufficient aggregate tables could unblock clinic
 fitting. Contributors can propose a primary source with its definitions and reuse
 terms; the guide records the gaps found in the latest bounded source search.
 
+The [older NHIS reported-type mortality checkpoint](docs/NHIS_OLDER_REPORTED_TYPE_MORTALITY_SOURCE_CHECKPOINT.md)
+identifies a possible calendar-end mortality check using literal reported types.
+It distinguishes public linkage status from exact death timing and documents
+older question and access limits; no participant intake or clinical rates are admitted.
+
 The [HRS repeat-biomarker checkpoint](docs/HRS_REPEAT_BIOMARKER_SOURCE_CHECKPOINT.md)
 records repeat HbA1c fields and remaining selection, clock and diagnosis gaps.
 It proposes a future observation check; no participant intake or clinical rates

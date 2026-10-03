@@ -1,0 +1,344 @@
+{
+  "kind": "nhis_older_reported_type_mortality_source_checkpoint",
+  "schema_version": 1,
+  "created_at": "2026-10-03T08:22:25.455719+00:00",
+  "used_source_review": true,
+  "participant_files_requested": false,
+  "source_admitted": false,
+  "scientific_gates": {
+    "direct_initialization_allowed": false,
+    "clinical_fit_allowed": false,
+    "engine_activation_allowed": false,
+    "sampling_distribution_assumed": false,
+    "scientific_release_ready": false
+  },
+  "receipts": [
+    {
+      "receipt_filename": "diabetes-atlas-methods.html.receipt.json",
+      "receipt_sha256": "9e182d4303cb1e902faf024730a941b4a5cb7e18b6f4f2c0660a9480cb5ba334",
+      "url": "https://usdss.cdc.gov/diabetes/data/socrata/National_Burden_Magnitude_methods.html",
+      "retrieved_at": "2026-10-03T08:08:51.310118+00:00",
+      "acquired": true,
+      "raw_sha256": "5753f56041d0fc1e1a15d490fdc2e024badc7c4d21a7fb93139ace2b0d906f1a",
+      "raw_bytes": 43810,
+      "failure_type": null,
+      "http_status": 200
+    },
+    {
+      "receipt_filename": "lmf2019-data-dictionary.pdf.receipt.json",
+      "receipt_sha256": "6dce8ada9aa63be383eb3c7c14337b8768f486a1e1fbbd75277803bdee86e3a2",
+      "url": "https://www.cdc.gov/nchs/data/datalinkage/public-use-linked-mortality-files-data-dictionary.pdf",
+      "retrieved_at": "2026-10-03T08:08:50.999689+00:00",
+      "acquired": true,
+      "raw_sha256": "5a62ebb5573030ce448756fc48f0618561d713aa4b48b9b1a2669ff20db7bbd6",
+      "raw_bytes": 112039,
+      "failure_type": null,
+      "http_status": 200
+    },
+    {
+      "receipt_filename": "lmf2019-description.pdf.receipt.json",
+      "receipt_sha256": "7787f8d44ae31edb2c4f69d7b9b87c8bf897abeaf1ccd03dcdc94a126a47428c",
+      "url": "https://www.cdc.gov/nchs/data/datalinkage/public-use-linked-mortality-file-description.pdf",
+      "retrieved_at": "2026-10-03T08:08:50.891293+00:00",
+      "acquired": true,
+      "raw_sha256": "2e9cae2ffd17b276d200f9388860e682f995a7210bb004bdba54f63f412e446c",
+      "raw_bytes": 192881,
+      "failure_type": null,
+      "http_status": 200
+    },
+    {
+      "receipt_filename": "lmf2019-methods.pdf.receipt.json",
+      "receipt_sha256": "d6d1cf371c87c270d33fd63e4a9e09491d011d16eafc4655a9c399da49d25189",
+      "url": "https://www.cdc.gov/nchs/data/datalinkage/2019ndi-linkage-methods-and-analytic-considerations-508.pdf",
+      "retrieved_at": "2026-10-03T08:08:51.111873+00:00",
+      "acquired": true,
+      "raw_sha256": "bd6c958b7b51bb753ba873bdf203961e5e22dabc77d5d30285e4a38e54cbf921",
+      "raw_bytes": 453872,
+      "failure_type": null,
+      "http_status": 200
+    },
+    {
+      "receipt_filename": "lmf2019-read-in-program.sas.receipt.json",
+      "receipt_sha256": "d449e35725c6c7af5884abe96c6ab9482ff5e3037521eea5e54ed0fc115ee1b1",
+      "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/SAS_ReadInProgramAllSurveys.sas",
+      "retrieved_at": "2026-10-03T08:20:09.925581+00:00",
+      "acquired": false,
+      "raw_sha256": null,
+      "raw_bytes": null,
+      "failure_type": "URLError",
+      "http_status": null
+    },
+    {
+      "receipt_filename": "mortality-catalog-2026.html.receipt.json",
+      "receipt_sha256": "1c72af9e5185cf80028ba70457140dbdda4a03bdd9aca18fe009d411c8e040fc",
+      "url": "https://www.cdc.gov/nchs/linked-data/mortality-files/",
+      "retrieved_at": "2026-10-03T08:08:08.496106+00:00",
+      "acquired": true,
+      "raw_sha256": "0d599231ec9d3450066a9d9537b9a83272746b87336c73e6ea45ca2e8aeb55c3",
+      "raw_bytes": 52345,
+      "failure_type": null,
+      "http_status": 200
+    },
+    {
+      "receipt_filename": "nhis2016-catalog.html.receipt.json",
+      "receipt_sha256": "4ed135716484c2f07366c534d766021e97ba233af85d68fa0d71ffef381df363",
+      "url": "https://archive.cdc.gov/www_cdc_gov/nchs/nhis/nhis_2016_data_release.htm",
+      "retrieved_at": "2026-10-03T08:08:08.496106+00:00",
+      "acquired": true,
+      "raw_sha256": "dbdd42cabfb425508d1b46c513ce8888804402982e12c5e3ce3c23e281ec36e6",
+      "raw_bytes": 128756,
+      "failure_type": null,
+      "http_status": 200
+    },
+    {
+      "receipt_filename": "nhis2016-mmwr.html.receipt.json",
+      "receipt_sha256": "390ac88a0b88f201b23371c0848d4d0a17bd329327fd787a76b9ceb4bc3bb4d3",
+      "url": "https://www.cdc.gov/mmwr/volumes/67/wr/mm6712a2.htm",
+      "retrieved_at": "2026-10-03T08:08:51.158038+00:00",
+      "acquired": true,
+      "raw_sha256": "221f78fde56902b2b476540906daba4fcc347bb5a0c6ff386d8363711691b76d",
+      "raw_bytes": 111705,
+      "failure_type": null,
+      "http_status": 200
+    },
+    {
+      "receipt_filename": "nhis2016-samadult-layout.pdf.receipt.json",
+      "receipt_sha256": "74e3e295441c9352705eeb5854700b02e74ab9c778deec67552ec97fe15bbfbe",
+      "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/NHIS/2016/samadult_layout.pdf",
+      "retrieved_at": "2026-10-03T08:08:08.775990+00:00",
+      "acquired": false,
+      "raw_sha256": null,
+      "raw_bytes": null,
+      "failure_type": null,
+      "http_status": null
+    },
+    {
+      "receipt_filename": "nhis2016-samadult.sas.receipt.json",
+      "receipt_sha256": "796908e4b511635967fd15350cf2e28ce31a6dffb918058d3da2f094f3c44ca3",
+      "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Program_Code/NHIS/2016/SAMADULT.sas",
+      "retrieved_at": "2026-10-03T08:08:08.919080+00:00",
+      "acquired": false,
+      "raw_sha256": null,
+      "raw_bytes": null,
+      "failure_type": null,
+      "http_status": null
+    },
+    {
+      "receipt_filename": "nhis2017-catalog.html.receipt.json",
+      "receipt_sha256": "a334ee74cb38f6a8cc96cda83fa56d62a731b214565d2fd81423716f7da33247",
+      "url": "https://archive.cdc.gov/www_cdc_gov/nchs/nhis/nhis_2017_data_release.htm",
+      "retrieved_at": "2026-10-03T08:08:08.497310+00:00",
+      "acquired": true,
+      "raw_sha256": "5d4253ff6241d69fe1e72c4bf3f3a32c4c181ea3415999a6dde486cb45d9f57f",
+      "raw_bytes": 128330,
+      "failure_type": null,
+      "http_status": 200
+    },
+    {
+      "receipt_filename": "nhis2017-samadult-layout.pdf.receipt.json",
+      "receipt_sha256": "3e0593effeb0217149d666c631ee9d445b842be0f4dc694550093f0dfa9fdef0",
+      "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/NHIS/2017/samadult_layout.pdf",
+      "retrieved_at": "2026-10-03T08:08:09.781892+00:00",
+      "acquired": false,
+      "raw_sha256": null,
+      "raw_bytes": null,
+      "failure_type": null,
+      "http_status": null
+    },
+    {
+      "receipt_filename": "nhis2017-samadult.sas.receipt.json",
+      "receipt_sha256": "be8912ff645ca1565bc12efcbb9cfbc78dc449726963d2c7f82f26282b9d4a8f",
+      "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Program_Code/NHIS/2017/SAMADULT.sas",
+      "retrieved_at": "2026-10-03T08:08:29.852494+00:00",
+      "acquired": false,
+      "raw_sha256": null,
+      "raw_bytes": null,
+      "failure_type": null,
+      "http_status": null
+    },
+    {
+      "receipt_filename": "nhis2018-catalog.html.receipt.json",
+      "receipt_sha256": "2c9c23c99fbad9b34d0dbdc156350c5a849ee17178b2a81e740bc2057927f675",
+      "url": "https://archive.cdc.gov/www_cdc_gov/nchs/nhis/nhis_2018_data_release.htm",
+      "retrieved_at": "2026-10-03T08:08:08.767989+00:00",
+      "acquired": true,
+      "raw_sha256": "5c82339ce575dd0efaa98123359e6ed55ad30e62b7ec6ce368b7690f58b5acb1",
+      "raw_bytes": 119243,
+      "failure_type": null,
+      "http_status": 200
+    },
+    {
+      "receipt_filename": "nhis2018-samadult-layout.pdf.receipt.json",
+      "receipt_sha256": "1ac47ab1eb417b66f83656a407fc61ce47a41445d9992ebe5bd951e06c102e09",
+      "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/NHIS/2018/samadult_layout.pdf",
+      "retrieved_at": "2026-10-03T08:08:29.962036+00:00",
+      "acquired": false,
+      "raw_sha256": null,
+      "raw_bytes": null,
+      "failure_type": null,
+      "http_status": null
+    },
+    {
+      "receipt_filename": "nhis2018-samadult.sas.receipt.json",
+      "receipt_sha256": "6ae1c82752b88f002feaf90cfbfeb77b724b0b2fa9a48d47e7946de7e1355ead",
+      "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Program_Code/NHIS/2018/SAMADULT.sas",
+      "retrieved_at": "2026-10-03T08:08:30.831256+00:00",
+      "acquired": false,
+      "raw_sha256": null,
+      "raw_bytes": null,
+      "failure_type": null,
+      "http_status": null
+    }
+  ],
+  "pdf_page_locators": {
+    "lmf2019-description.pdf": [
+      {
+        "page_one_based": 1,
+        "text_sha256": "4167c41047bef9d298a35dff247cf2c932da824399bdab94344f5a55a7810ac8",
+        "normalization": "pypdf extract_text UTF-8, no further normalization"
+      },
+      {
+        "page_one_based": 2,
+        "text_sha256": "538413d6c0ca0a2c20ca98fdcf1dd9605db8e29b60c38d416d04aaefa3dab8ed",
+        "normalization": "pypdf extract_text UTF-8, no further normalization"
+      },
+      {
+        "page_one_based": 3,
+        "text_sha256": "f64ac08f93331fd332add500c12a9e9432c0274b709b632fd505ab3e90379ae4",
+        "normalization": "pypdf extract_text UTF-8, no further normalization"
+      },
+      {
+        "page_one_based": 4,
+        "text_sha256": "5f01e233d5c1b9ab18386a7396a93e1779814d4910a50ce48b261d698660072f",
+        "normalization": "pypdf extract_text UTF-8, no further normalization"
+      },
+      {
+        "page_one_based": 6,
+        "text_sha256": "30b7f8371246aeb79f4cc4be6c71e3b7ef47ad036dd7d54fb3fb981ddcd93db9",
+        "normalization": "pypdf extract_text UTF-8, no further normalization"
+      }
+    ],
+    "lmf2019-data-dictionary.pdf": [
+      {
+        "page_one_based": 1,
+        "text_sha256": "0838cb4c30a0f68d4f0e9f45352841d14468ad721a21f3d5bdcf7416f304a5ef",
+        "normalization": "pypdf extract_text UTF-8, no further normalization"
+      },
+      {
+        "page_one_based": 2,
+        "text_sha256": "ed7b6b98ddd3a3444a8625e8fedca15b4769cb7a1a22f4fe8b244293555dc090",
+        "normalization": "pypdf extract_text UTF-8, no further normalization"
+      },
+      {
+        "page_one_based": 3,
+        "text_sha256": "ee1b55b2c379f3294f6da09acbd0a8a7f4b1802eaac5e6f8af9cdcde019a190b",
+        "normalization": "pypdf extract_text UTF-8, no further normalization"
+      },
+      {
+        "page_one_based": 4,
+        "text_sha256": "b69d66a1b8b61f3ed9c9fa4947a72c2b2bbd1a02c77b91d4b8a637137bdee011",
+        "normalization": "pypdf extract_text UTF-8, no further normalization"
+      }
+    ],
+    "lmf2019-methods.pdf": [
+      {
+        "page_one_based": 12,
+        "text_sha256": "f536bd0d0255a58ab8b4dddd7a0a41d11cb5389495ba6c72673640e4c0388e12",
+        "normalization": "pypdf extract_text UTF-8, no further normalization"
+      },
+      {
+        "page_one_based": 15,
+        "text_sha256": "cb6f0d552177bcf8020cde952cbad485e3a394916a134e9007c30f3079268ac9",
+        "normalization": "pypdf extract_text UTF-8, no further normalization"
+      },
+      {
+        "page_one_based": 30,
+        "text_sha256": "59835f030d7b759207028cead358bcc80a7971e33474388435f60b25e870fe8a",
+        "normalization": "pypdf extract_text UTF-8, no further normalization"
+      }
+    ]
+  },
+  "browser_metadata": [
+    {
+      "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/NHIS/2016/samadult_layout.pdf",
+      "locators": [
+        "page75 DIBEV1 and DIBPRE2",
+        "page77 DIBTYPE"
+      ],
+      "status": "Primary publisher search-rendered documentary text inspected; original GET failed URLError; no raw byte pin",
+      "raw_sha256": null
+    },
+    {
+      "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/NHIS/2017/samadult_layout.pdf",
+      "locators": [
+        "page84 DIBEV1 and DIBPRE2",
+        "page86 DIBTYPE"
+      ],
+      "status": "Primary publisher search-rendered documentary text inspected; original GET failed URLError; no raw byte pin",
+      "raw_sha256": null
+    },
+    {
+      "url": "https://ftp.cdc.gov/pub/health_statistics/nchs/dataset_documentation/NHIS/2017/samadult_summary.pdf",
+      "locators": [
+        "page1 WTFA_SA/PSTRAT/PPSU/SEX/AGE_P, page7 diabetes fields"
+      ],
+      "status": "Primary publisher search-rendered documentary text only; no original byte acquisition",
+      "raw_sha256": null
+    },
+    {
+      "url": "https://ftp.cdc.gov/pub/health_statistics/nchs/Dataset_Documentation/NHIS/2016/srvydesc.pdf",
+      "locators": [
+        "page98 compares 2015 STRAT_P/PSU_P with 2016 PSTRAT/PPSU"
+      ],
+      "status": "Primary publisher search-rendered documentary text only; no original byte acquisition",
+      "raw_sha256": null
+    }
+  ],
+  "confirmed_boundaries": {
+    "typed_survey_years": [
+      2016,
+      2017
+    ],
+    "2018_type_question": "Official CDC Atlas explicitly says not collected",
+    "older_diagnosis": "DIBEV1 includes code3 borderline or prediabetes; do not transplant 2025 classification",
+    "prediabetes": "DIBPRE2 is reported prior professional prediabetes/IFG/IGT/borderline/high-blood-sugar information, not a laboratory band; conditional universe retained",
+    "type": "DIBTYPE is conditional on DIBEV1==1; preserve literal reported type and unknowns, no insulin/age recoding",
+    "join": "Methods page30, NHIS2005-2018: SRVY_YR3-6 HHX7-12 FMX16-17 FPX18-19 concatenate to PUBLICID; source-specific lexical/duplicate admission unresolved",
+    "variance": "2016/17 PSTRAT/PPSU documentary roles verified; WTFA_SA annual survey weight distinct from eligibility-adjusted SA_WGT_NEW",
+    "mortality": "ELIGSTAT1 eligible;2 under18 not public;3 ineligible. MORTSTAT0 assumed alive/1 assumed deceased; ineligible missing not alive",
+    "clock": "NHIS DODQTR/DODYEAR are public quarter/year fields; some follow-up times perturbed. PERMTH_INT/EXM are NHANES-only",
+    "endpoint": "Unperturbed final vital status through December31,2019; fixed calendar end, not equal elapsed follow-up",
+    "scope": "Public NHIS1986-2018 only; later2022 linkage is restricted, not substitute source",
+    "rights": "Metadata originals fetch-only; description page6 permits statistical reporting/analysis and prohibits identification and identifiable-data linkage. No blanket repo redistribution claim"
+  },
+  "recommended_increment": "First freeze source-specific 2016 documentary crosswalk and all-record/eligibility conservation before native acquisition. Later separately admit unchanged native bytes and loaded code, then evaluate recorded-type versus assumed all-cause calendar-end status; no annual hazard, causal effect, or total T2D mapping.",
+  "unresolved": [
+    "Original older SAS/layout bytes and complete age/sex/proxy coding",
+    "Exact native LMF reader/layout bytes and native file framing/source pins",
+    "Version-correct revised 2016 weights and source-specific key lexical/alias policy",
+    "Selection, unknowns, public disclosure, covariance, singleton/df/interval policies",
+    "Clinical type truth, undiagnosed disease, incident changes and non-US unascertained deaths"
+  ],
+  "tracked_checkpoint_proposal": {
+    "files": [
+      "docs/NHIS_OLDER_REPORTED_TYPE_MORTALITY_SOURCE_CHECKPOINT.md",
+      "docs/validation/nhis-older-reported-type-mortality-source-checkpoint-v1.json"
+    ],
+    "scope": "This increment implements authored documentary checkpoint, sanitized receipt, navigation and exact two supporting-artifact pins only. No source admission, parameters, native parser or estimator."
+  },
+  "authored_at": "2026-10-03T08:26:40.247578+00:00",
+  "original_ignored_appraisal_sha256": {
+    "markdown": "48df27c680bf6ffc8ec68e37ebed773f540ffe631efc608b4ff5bc64487d5a4a",
+    "json": "12baaf55a698daa67833a0ce7fb1830b3e221bafd42dc249703eb8db04731213"
+  },
+  "trace_ids": [
+    "I-01",
+    "I-07",
+    "I-11",
+    "I-12",
+    "F-08",
+    "T-05",
+    "T-08"
+  ],
+  "receipt_scope": "Demeter-authored sanitized metadata receipt. Original producer documents and original acquisition receipts remain ignored and unredistributed. No participant or source admission."
+}

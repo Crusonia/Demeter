@@ -1856,6 +1856,14 @@
     {
       "path": "docs/HRS_REPEAT_BIOMARKER_SOURCE_CHECKPOINT.md",
       "sha256": "84f6dcda35bb4f0b815b264cf1a40210a59273ab6d50c8e2295224176b06acc0"
+    },
+    {
+      "path": "docs/NHIS_OLDER_REPORTED_TYPE_MORTALITY_SOURCE_CHECKPOINT.md",
+      "sha256": "f601a6a57099608c215c76b1ca74f8d6abb2d74d0dfa298848ba70b58d8a901a"
+    },
+    {
+      "path": "docs/validation/nhis-older-reported-type-mortality-source-checkpoint-v1.json",
+      "sha256": "236220346ca87863bac477357d9c32d07a2944352db78899ca24c9ee40898b06"
     }
   ]
 }
