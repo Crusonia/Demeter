@@ -40,6 +40,11 @@ feeds I-11 observation design with native/adjusted assay roles and unresolved
 selection, specimen clocks and diabetes type. It is source discovery, not an
 empirical intake or a clinical likelihood.
 
+The [HRS synthetic disposition contract](10_HRS_DISPOSITION_WITNESS.md) freezes
+a proposed baseline-conserving software witness. Native tracker reports, diagnosis
+response universes and synthetic assay/clock facets stay distinct; no empirical
+intake, clinical likelihood or paired weighting is authorized.
+
 ## Methodological basis
 
 This is Demeter's application of a system-dynamics approach informed by Thomas S.
