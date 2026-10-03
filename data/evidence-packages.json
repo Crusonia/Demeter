@@ -1924,6 +1924,22 @@
     {
       "path": "docs/validation/nhis2025-selected-field-manual-run-admission-v1.json",
       "sha256": "cd8ad34bf19bd266c7434562ab09fe8d3b820c0e7d2a733655513ed45e408660"
+    },
+    {
+      "path": "docs/NHIS_REPORTED_ANSWER_BENCHMARK_CONTRACT.md",
+      "sha256": "4fc932b7af10689a66ad2249ea5a443732103f72de4e30267526cb6a0817b1d0"
+    },
+    {
+      "path": "docs/validation/nhis2025-reported-answer-benchmark-contract-v1.json",
+      "sha256": "308d7cfb67a88f891bd79f551135e9d1a75e0167e6e7f2ba53232b484c42b267"
+    },
+    {
+      "path": "docs/PUBLIC_CLINICAL_SOURCE_UPDATE_20261003.md",
+      "sha256": "b3f347e8633fd8b3a0341443242de991e246b0f217f6f5a8566f4d76dfd19caf"
+    },
+    {
+      "path": "docs/validation/public-clinical-source-update-20261003-v1.json",
+      "sha256": "e2e4d234d43d19d9cc27113eb0d252db2ba25f007656af2dcd2963a3d7cba787"
     }
   ]
 }

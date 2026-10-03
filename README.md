@@ -132,6 +132,10 @@ Implemented:
 
 See [acceptance status](docs/V0_1_STATUS.md), [model specification](docs/MODEL_SPEC.md), and [evidence gaps](docs/EVIDENCE_GAPS.md).
 
+The [October 3 public clinical source review](docs/PUBLIC_CLINICAL_SOURCE_UPDATE_20261003.md)
+records additional longitudinal leads and their unresolved clocks, selection and
+access limits. It admits no clinical parameters or findings.
+
 The [Malawi follow-up benchmark](docs/MALAWI_FOLLOWUP_BENCHMARK.md) adds public
 source-category counts with deaths and untraced people accounted for separately.
 Run `uv run demeter evidence malawi-cohort` to inspect the offline benchmark and

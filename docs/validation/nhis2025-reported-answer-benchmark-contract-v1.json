@@ -1,0 +1,460 @@
+{
+  "schema_version": 1,
+  "kind": "nhis2025_reported_answer_benchmark_implementation_contract",
+  "status": "reviewed_contract_before_implementation",
+  "created_at": "2026-10-03T11:07:10.564415+00:00",
+  "authored_checkout_head": "0bc30a0106223f352cb5bfca4abaf67ea3ceb74f",
+  "source_admitted": false,
+  "original_execution_authorized": false,
+  "scientific_gates": {
+    "direct_initialization_allowed": false,
+    "clinical_fit_allowed": false,
+    "engine_activation_allowed": false,
+    "sampling_distribution_assumed": false,
+    "scientific_release_ready": false
+  },
+  "design_trace_ids": [
+    "I-01",
+    "I-07",
+    "I-11",
+    "I-12",
+    "F-08",
+    "T-05",
+    "T-08"
+  ],
+  "rfc": "RFC-56",
+  "chronology": {
+    "evaluation": "used_source_development_not_preregistration_or_independent_holdout",
+    "already_inspected": "primary metadata, publication methods, byte/framing delivery and earlier synthetic software",
+    "preparation": "documentation and code only; no guard/decoder/witness original calls or new empirical statistics",
+    "previous_manual_permission": "consumed; does not authorize new benchmark",
+    "order": [
+      "review_contract",
+      "commit_contract",
+      "implement_and_synthetic_test",
+      "independent_code_review",
+      "commit_code_and_seal_focused_full_platform_preservation",
+      "review_and_commit_separate_original_source_admission",
+      "only_then_reviewed_original_invocation"
+    ],
+    "future_admission": "unresolved; no synthetic unknown hash in current provenance"
+  },
+  "document_sha256": {
+    "docs/validation/nhis2025-native-framing-protocol-v1.json": "e1738706979b9bb2872389def34ea5b0f20d25584310f4af45288bf887fef25d",
+    "docs/validation/nhis2025-native-framing-receipt-v1.json": "d669d2283310f48e29c9aea8a3258f0ab20a6925d082e4affe92f059ef9bc56f",
+    "docs/validation/nhis2025-typed-diagnosis-design-receipts-v1.json": "cbb7e50eb970ecdc470607058f6e1df79a9c1cb37b3dcf82e7c3817096e4b889",
+    "docs/design/11_NHIS_NATIVE_RECORD_CONTRACT.md": "e2df959321139d927108c6094d4b44e3255c473168de52174558e4024f580d7d",
+    "docs/NHIS_SELECTED_FIELD_INSPECTION_CONTRACT.md": "3ad62da97ee31d994d31035201a07295ca6ad7da798dcac876da6fbfcbe77fa0",
+    "docs/validation/nhis2025-selected-field-inspection-contract-v1.json": "ee9e79b68ef6e47a18e8641bbe521234f4774c5c4386a551321eb2fa555c5477",
+    "docs/NHIS_SELECTED_FIELD_PROVENANCE_AMENDMENT.md": "fd5395a22bc1c166fa75f06d9a1311c60776b708932f18e19c8bec25c87deefc",
+    "docs/validation/nhis2025-selected-field-provenance-amendment-v2.json": "1ec78498c07b25ce0dc1a20c60fe1af6286819dc1f80e05ec95390b075708cb7",
+    "docs/design/09_NHIS_REPORTED_DIAGNOSES.md": "2dbb2c1944cc4fed420a54ce5bff3bb63f54d6435347f1ef35690ed0e35a6733",
+    "docs/design/10_NHIS_SURVEY_WITNESS.md": "c64ca98f144fe119828918b4b25480dfe2ee6f2557d1cb6d0f5bbf9ed32c7730"
+  },
+  "helper_sha256": {
+    "src/demeter/data/nhis_source_guard.py": "dcb350b4a604a92c5c80f3f5c18e92c8d2827f1f9ad604f7ce4181633a45725e",
+    "src/demeter/data/nhis_native_records.py": "68042959577ca34bdd8946d8c2b28bf682495a113f79140c35539a7d4bd92511",
+    "src/demeter/data/nhis_diagnosis_labels.py": "0bf79f94ba46acb7efab90922705d226e7a58ae663a95a17a90c776394673d12",
+    "src/demeter/data/nhis_survey_witness.py": "74e1d5a7f8372f5d639d734f55adea644184ce48bab68b49df88822587fd612b",
+    "src/demeter/data/survey_joint.py": "3eed6be120b8ae0947f489c7108fd1dff4c3a863863d4c6e8d192f7224dbba1f"
+  },
+  "producer_metadata": {
+    "nhis-2025-adult-codebook.pdf": {
+      "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/NHIS/2025/adult-codebook.pdf",
+      "sha256": "e112f79ff5575e2900068471529bf884d43423c465c5275c4abf3becc4a818c5",
+      "size_bytes": 16573265,
+      "retrieved_at": "2026-10-03T04:32:56.590374+00:00",
+      "distribution": "fetch_only_documentation",
+      "locators": {
+        "4": "WTFA_A annual adult weight",
+        "7-8": "PSTRAT and PPSU public design labels",
+        "12": "PROXYFLAG_A",
+        "14": "HHSTAT_A",
+        "19/21": "SEX_A; AGEP_A and 85+",
+        "115": "DIBEV_A exclusion wording",
+        "124": "DIBTYPE_A universe HHSTAT_A=1 and DIBEV_A=1"
+      }
+    },
+    "nhis-2025-adult-layout.sas": {
+      "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Program_Code/NHIS/2025/Adult.sas",
+      "sha256": "2a774c19872d66e0847c97ebb3804aca363df46f25d9fa5c3d4031908674507b",
+      "size_bytes": 158349,
+      "retrieved_at": "2026-10-03T04:33:20.592738+00:00",
+      "distribution": "fetch_only_documentation",
+      "locators": {
+        "INPUT": "literal ranges RECTYPE1-2 SRVY_YR3-6 HHX7-13 WTFA_A14-23 PSTRAT26-28 PPSU29-34 PROXYFLAG_A36 HHSTAT_A38 SEX_A46 AGEP_A48-49 DIBEV_A176 DIBTYPE_A187; no implicit w.d scale"
+      }
+    },
+    "nhis-2025-survey-description.pdf": {
+      "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/NHIS/2025/srvydesc-508.pdf",
+      "sha256": "d8a8cc998bcdef46d4408eaaf275373702131042f49efad9b28e1c87dcf2106c",
+      "size_bytes": 2060384,
+      "retrieved_at": "2026-10-03T04:33:19.620422+00:00",
+      "distribution": "fetch_only_documentation",
+      "locators": {
+        "47-49": "WR public design; R svydesign nested stratum/PSU, annual weight",
+        "73-74": "full design domains; MISSUNIT subset equivalence limited to exactly two PSUs per stratum",
+        "35-36": "no universally established PSU-minus-strata inferential df",
+        "14/17/121": "civilian noninstitutionalized population and proxy roles"
+      }
+    },
+    "nhis-2025-pricssa.pdf": {
+      "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/NHIS/2025/2025-NHIS-PRICSSA-508.pdf",
+      "sha256": "81437884a71d3be57aac61dc7d81b50d676e26d8cdd133d0334e7f1d78cc93b5",
+      "size_bytes": 240892,
+      "retrieved_at": "2026-10-03T04:47:06.721698+00:00",
+      "distribution": "fetch_only_documentation",
+      "locators": {
+        "3": "annual weight, Taylor variance, intervals, reliability and MISSUNIT are separate policies"
+      }
+    },
+    "nchs-proportions-standards-2017.pdf": {
+      "url": "https://www.cdc.gov/nchs/media/pdfs/2024/09/sr02_175.pdf",
+      "sha256": "47a0d06b8f79ceb6de2725f1b94eb2320f7f41d64214790395b4bd035bd7b683",
+      "size_bytes": 1627403,
+      "retrieved_at": "2026-10-03T04:47:05.230202+00:00",
+      "distribution": "fetch_only_documentation",
+      "locators": {
+        "9-10/16": "interval and reliability policy requires separate survey-specific decision; not implemented here"
+      }
+    }
+  },
+  "source_identity": {
+    "archive": {
+      "filename": "adult25.zip",
+      "size_bytes": 2837893,
+      "sha256": "1981733845c4d6ede66f4756c34d47b356fbe403820c0ed33825d21e4d8f21e4"
+    },
+    "native": {
+      "filename": "adult25.dat",
+      "size_bytes": 16635705,
+      "sha256": "48b2d91002c9f30e03e87e33d37041dc991ea43a390674045a9ca60c7d004b95",
+      "member_crc32": "a1cc80ff",
+      "payload_bytes": 685,
+      "newline": "CRLF",
+      "final_newline_required": true,
+      "reference_records": 24215
+    },
+    "role": "delivery identity only, not source scientific admission or permission to inspect fields"
+  },
+  "estimand": {
+    "target": "complete fixed delivered 2025 Sample Adult source file",
+    "domain": "full_sample_adult_file",
+    "domain_membership": "True for every record, no age/sex/proxy/answer restriction",
+    "category_order": [
+      "no_reported_diabetes",
+      "reported_type1",
+      "reported_type2",
+      "reported_other_diabetes",
+      "reported_diabetes_type_unknown",
+      "diagnosis_unknown",
+      "inconsistent_type_universe"
+    ],
+    "coordinate_order": [
+      {
+        "domain": "full_sample_adult_file",
+        "membership": "no_reported_diabetes"
+      },
+      {
+        "domain": "full_sample_adult_file",
+        "membership": "reported_type1"
+      },
+      {
+        "domain": "full_sample_adult_file",
+        "membership": "reported_type2"
+      },
+      {
+        "domain": "full_sample_adult_file",
+        "membership": "reported_other_diabetes"
+      },
+      {
+        "domain": "full_sample_adult_file",
+        "membership": "reported_diabetes_type_unknown"
+      },
+      {
+        "domain": "full_sample_adult_file",
+        "membership": "diagnosis_unknown"
+      },
+      {
+        "domain": "full_sample_adult_file",
+        "membership": "inconsistent_type_universe"
+      }
+    ],
+    "ratio": "sum(w*I(category))/sum(w) on every source row",
+    "ratio_unit": "dimensionless",
+    "covariance_unit": "dimensionless_squared",
+    "interpretation": "documented reported answers only; reported_type2 is not total, current, undiagnosed or clinically confirmed T2D",
+    "unknowns": "all seven categories retained; no complete-case denominator",
+    "zero_category": "valid zero category, never dropped",
+    "empty_input": "no estimator result; whole method unavailable"
+  },
+  "source_to_method": {
+    "entry_api": "benchmark_reported_answers(archive: Path, native: Path, *, root: Path) -> PrivateBenchmarkResult",
+    "new_module": "src/demeter/data/nhis_reported_answer_benchmark.py",
+    "call_order": [
+      "independent_contract_documents_and_loaded_helper_checks",
+      "guard.verify_delivery",
+      "decoder.decode_native_records",
+      "private_complete_ledger_and_source_method_preflight",
+      "construct_native_estimator_projection_and_fixed_all_true_domain",
+      "witness.assess_once",
+      "strict_result_schema_and_numeric_validation",
+      "immutable_private_snapshot_and_coarse_technical_envelope"
+    ],
+    "loaded_identity": "exact expected local root paths and byte hashes for all five loaded modules; verify witness imported classifier and kernel callables belong to the verified implementations before guard entry",
+    "forbidden_flow": "do not call inspect_selected_fields, export decoder records, or add a source-loader bypass",
+    "projection_fields": [
+      "DIBEV_A",
+      "DIBTYPE_A",
+      "WTFA_A",
+      "PSTRAT",
+      "PPSU"
+    ],
+    "response_conversion": "only selected native response tokens: strip ordinary ASCII spaces; blank/single-period reader missing -> existing classifier empty missing token; no numeric/bool coercion or Unicode normalization",
+    "response_consistency": "rerun unchanged classifier and require equality with decoder category; retain blank versus period role privately",
+    "frame_retention": "every decoded row exactly once; no row filter, collapse or imputation",
+    "roles": "record type10/year2025 enforced by unchanged decoder; sample_adult status must be known, never resolved by diabetes answer",
+    "private_key_policy": "missing or duplicate interpreted HHX or lexical aliases => whole method unavailable; do not infer unique people or collapse",
+    "demographic_policy": "unknown and topcoded age, sex and proxy roles retained; no hidden domain or eligibility rule",
+    "production_reference_count": "require fixed delivery reference_records; synthetic patched delivery fixtures use explicitly separate expected fixture size, not a production bypass"
+  },
+  "method_policy": {
+    "method": "full_design_with_replacement_first_stage_taylor_joint_ratio_covariance",
+    "weight": "all native Decimal weights finite positive; round explicitly nearest binary64 via float(Decimal), not exact representability",
+    "weight_refusals": [
+      "missing",
+      "zero_or_negative_native",
+      "nonfinite_float",
+      "positive_native_rounds_to_zero",
+      "nonpositive_float",
+      "unsupported_compensated_total",
+      "kernel_arithmetic_refusal"
+    ],
+    "design": "all native stratum/PSU integers known positive and representable without float identity coercion; nested pair grouping",
+    "design_refusals": [
+      "missing_labels",
+      "nonpositive_labels",
+      "full_design_singleton_stratum",
+      "unsupported_integer_projection"
+    ],
+    "refusal_role": "conservative supported-method policy, not producer exclusions or source/clinical identification conclusion",
+    "variance": "complete seven-by-seven covariance including negative off-diagonals and expected partition singularity; all design rows kept",
+    "not_provided": [
+      "inferential_df",
+      "confidence_interval",
+      "standard_error_reliability_claim",
+      "effective_sample_size",
+      "finite_population_correction",
+      "MISSUNIT_emulation",
+      "R_execution_parity",
+      "clinical_mapping",
+      "age_or_sex_domains"
+    ],
+    "no_repairs": [
+      "weight_or_record_trimming",
+      "imputation",
+      "ratio_clipping",
+      "covariance_diagonalization",
+      "jitter",
+      "eigenvalue_repair"
+    ]
+  },
+  "numeric_checks": {
+    "constant_role": "declared binary64 software checks, not empirical parameters or clinical acceptance",
+    "epsilon": "sys.float_info.epsilon",
+    "probability_closure_factor": 32,
+    "probability_closure": "abs(math.fsum(ratios)-1)<=32*epsilon",
+    "bounds": "each finite ratio in [0,1]; every covariance entry finite; diagonal variance nonnegative",
+    "covariance_factor": 64,
+    "covariance_scale": "max(abs(entry) for all covariance entries)",
+    "covariance_closure_and_symmetry": "absolute pair symmetry differences and compensated row/column sums <=64*epsilon*covariance_scale",
+    "all_zero_covariance": "exact zero symmetry and closure",
+    "underflow_edge": "if scale>0 and computed tolerance==0, whole result unavailable; no max(1,scale) absolute floor or repair",
+    "other_failure": "nonfinite compensated result or arithmetic exception => whole joint unavailable"
+  },
+  "private_schema": {
+    "repr": "constant <PrivateNHISReportedAnswerBenchmark>; no record or value repr",
+    "immutable": "frozen private serialized snapshots; accessors return fresh dictionaries; no native bytes, records, keys, raw tokens, paths or exception objects retained",
+    "keys": [
+      "kind",
+      "schema_version",
+      "model_role",
+      "private_aggregate",
+      "source_admitted",
+      "scientific_gates",
+      "record_ledger",
+      "joint"
+    ],
+    "kind": "nhis2025_reported_answer_private_benchmark",
+    "model_role": "benchmark_only",
+    "record_ledger": {
+      "keys": [
+        "kind",
+        "unit",
+        "total_records",
+        "category_counts",
+        "ledger_conserved",
+        "age_roles",
+        "sex_roles",
+        "proxy_roles",
+        "sample_adult_roles",
+        "missing_household_key_records",
+        "duplicate_interpreted_household_key_records",
+        "household_keys_with_lexical_aliases",
+        "missing_weight_records",
+        "nonpositive_weight_records",
+        "missing_design_records",
+        "response_reader_missingness"
+      ],
+      "origin": "only allowlisted fields copied from complete decoder private ledger; inherited synthetic/witness metadata stripped",
+      "category_counts": "exact seven fixed keys incl zero; sum==total_records",
+      "role_counts": "existing fixed decoder age/sex/proxy/sample-adult role vocabularies",
+      "response_reader_missingness": "DIBEV_A and DIBTYPE_A only; each fixed blank/single_period/not_missing counts conserving total_records",
+      "before_decoder_completion": null,
+      "postdecode_method_refusal": "retain complete approved ledger, no partial ratio/covariance"
+    },
+    "joint": {
+      "keys": [
+        "coordinates",
+        "ratios",
+        "covariance",
+        "ratio_unit",
+        "covariance_unit",
+        "software_method"
+      ],
+      "success": "seven fixed coordinates, seven ratios, complete seven-by-seven covariance; no inherited metadata",
+      "failure": "None as a whole; no partial joint snapshots"
+    }
+  },
+  "technical_schema": {
+    "keys": [
+      "kind",
+      "schema_version",
+      "status",
+      "source_delivery_verified",
+      "selected_values_projected",
+      "projection_status",
+      "statistical_estimation_attempted",
+      "empirical_estimate_computed",
+      "estimation_status",
+      "private_result_complete",
+      "source_admitted",
+      "scientific_gates",
+      "provenance",
+      "attribution"
+    ],
+    "kind": "nhis2025_reported_answer_benchmark_technical",
+    "schema_version": 1,
+    "status_values": [
+      "completed",
+      "unavailable"
+    ],
+    "projection_status_values": [
+      "not_attempted",
+      "possibly_partial",
+      "completed"
+    ],
+    "estimation_status_values": [
+      "not_attempted",
+      "possibly_partial",
+      "completed"
+    ],
+    "provenance_keys": [
+      "archive_sha256",
+      "native_sha256",
+      "framing_protocol_sha256",
+      "framing_receipt_sha256",
+      "benchmark_contract_sha256",
+      "helper_sha256"
+    ],
+    "provenance": "only verified fixed source/active contract/helper SHA values; no machine paths or future own-code-admission hash; new implementation identity separately admitted externally",
+    "attribution": "CDC/NCHS official sources available without charge; use/link does not imply CDC/HHS/US government endorsement",
+    "not_exposed": [
+      "count",
+      "category_or_private_role",
+      "household_key",
+      "raw_token",
+      "native_row",
+      "eligibility_reason",
+      "PSU_support",
+      "weight_or_design_value",
+      "ratio",
+      "covariance",
+      "df",
+      "interval",
+      "exception_text_or_path"
+    ],
+    "no_public_writer": true
+  },
+  "failure_chronology": {
+    "before_guard_return": {
+      "source_delivery_verified": false
+    },
+    "after_guard_return": {
+      "source_delivery_verified": true
+    },
+    "before_decoder_entry": {
+      "selected_values_projected": false,
+      "projection_status": "not_attempted"
+    },
+    "decoder_entered_but_failed": {
+      "selected_values_projected": null,
+      "projection_status": "possibly_partial"
+    },
+    "decoder_returned": {
+      "selected_values_projected": true,
+      "projection_status": "completed"
+    },
+    "before_witness_entry": {
+      "statistical_estimation_attempted": false,
+      "empirical_estimate_computed": false,
+      "estimation_status": "not_attempted"
+    },
+    "witness_entered_but_failed": {
+      "statistical_estimation_attempted": true,
+      "empirical_estimate_computed": null,
+      "estimation_status": "possibly_partial"
+    },
+    "witness_returned_even_if_later_validation_fails": {
+      "statistical_estimation_attempted": true,
+      "empirical_estimate_computed": true,
+      "estimation_status": "completed"
+    },
+    "failure_accessor": "sanitized fixed stage only; no raw exception; source-derived eligibility details remain private",
+    "final_success": "private_result_complete True only after all schema/numeric checks; source_admitted and all five gates remain False"
+  },
+  "synthetic_tests": [
+    "independent Fraction unordered PSU-pair oracle for every ratio and covariance entry",
+    "complete seven category conservation with all source unknown/inconsistent answers",
+    "period versus blank response missingness retained without category expansion",
+    "fixed all-True domain; unknown age/sex/proxy and85+ retained",
+    "nested repeated PSU labels across strata; all zero category contributions retained",
+    "row order and common positive weight scale invariance and no input mutation",
+    "source key/status mismatch and full reference count refuse without trimming",
+    "missing/nonpositive weights/design and singleton whole-method refusal",
+    "nearest Decimal binary64 conversion supported; overflow/underflow refused",
+    "loaded module/disk/callable/contract mismatch before guard",
+    "malformed witness schema and tiny covariance relative-error refusal",
+    "no partial joint on failure, complete postdecode ledger preserved",
+    "truthful stage flags before/after each call and returned-but-invalid witness",
+    "constant repr and sanitized errors; allowlisted technical schema; fresh private accessor isolation",
+    "empty input/missing support distinct from zero category; no df/CI/R-parity claims"
+  ],
+  "unresolved_next_stages": [
+    "actual new implementation code hash and engineering checks after contract freeze",
+    "separate reviewed original-source execution admission; previous one-call permission consumed",
+    "public count/ratio/covariance release and disclosure contract",
+    "inferential df, intervals and NCHS reliability/presentation",
+    "any sourced alternative to positive-weight/design/singleton software refusal",
+    "clinical transport, total T2D initialization, health-state mapping and diet effects"
+  ],
+  "promotion_at": "2026-10-03T11:11:52.765262+00:00",
+  "proposal_sha256": {
+    "contract-proposal-v1.md": "3763f3d5aada35130a24990d49524147944003d6419e4afff9045db597841e68",
+    "contract-proposal-v1.json": "9d8161854ae6a16f36b0e0d4cc7cf2866dd8280e4aab08827887b4c53fa1b503"
+  },
+  "contract_document": {
+    "path": "docs/NHIS_REPORTED_ANSWER_BENCHMARK_CONTRACT.md",
+    "sha256": "4fc932b7af10689a66ad2249ea5a443732103f72de4e30267526cb6a0817b1d0"
+  }
+}
