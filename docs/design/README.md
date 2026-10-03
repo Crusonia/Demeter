@@ -42,6 +42,11 @@ The subsequent [native-delivery result](../NHIS_NATIVE_FRAMING_RESULT.md) record
 the exact acquired archive/native identities and physical framing; no participant
 fields were projected or empirical calculation admitted.
 
+The [native NHIS record contract](11_NHIS_NATIVE_RECORD_CONTRACT.md) specifies a
+selected-field decoder and synthetic checks before any real field inspection.
+Unknown responses and reader missing syntax remain distinct; source admission
+and survey interpretation require separate guards and reviewed contracts.
+
 ## Methodological basis
 
 This is Demeter's application of a system-dynamics approach informed by Thomas S.

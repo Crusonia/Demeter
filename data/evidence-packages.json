@@ -1864,6 +1864,10 @@
     {
       "path": "docs/NHIS_NATIVE_FRAMING_RESULT.md",
       "sha256": "e440a41960a572731181c138eb1a9b637929111f8254dc9f93a68e68bce18f21"
+    },
+    {
+      "path": "docs/design/11_NHIS_NATIVE_RECORD_CONTRACT.md",
+      "sha256": "e2df959321139d927108c6094d4b44e3255c473168de52174558e4024f580d7d"
     }
   ]
 }
