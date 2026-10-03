@@ -109,8 +109,10 @@
       "acquired": false,
       "raw_sha256": null,
       "raw_bytes": null,
-      "failure_type": null,
-      "http_status": null
+      "failure_type": "URLError",
+      "http_status": null,
+      "original_limitation": "URLError; no fallback acquisition",
+      "failure_type_provenance": "Exact URLError prefix of preserved original limitation; not a separately recorded exception field"
     },
     {
       "receipt_filename": "nhis2016-samadult.sas.receipt.json",
@@ -120,8 +122,10 @@
       "acquired": false,
       "raw_sha256": null,
       "raw_bytes": null,
-      "failure_type": null,
-      "http_status": null
+      "failure_type": "URLError",
+      "http_status": null,
+      "original_limitation": "URLError; no fallback acquisition",
+      "failure_type_provenance": "Exact URLError prefix of preserved original limitation; not a separately recorded exception field"
     },
     {
       "receipt_filename": "nhis2017-catalog.html.receipt.json",
@@ -142,8 +146,10 @@
       "acquired": false,
       "raw_sha256": null,
       "raw_bytes": null,
-      "failure_type": null,
-      "http_status": null
+      "failure_type": "URLError",
+      "http_status": null,
+      "original_limitation": "URLError; no fallback acquisition",
+      "failure_type_provenance": "Exact URLError prefix of preserved original limitation; not a separately recorded exception field"
     },
     {
       "receipt_filename": "nhis2017-samadult.sas.receipt.json",
@@ -153,8 +159,10 @@
       "acquired": false,
       "raw_sha256": null,
       "raw_bytes": null,
-      "failure_type": null,
-      "http_status": null
+      "failure_type": "URLError",
+      "http_status": null,
+      "original_limitation": "URLError; no fallback acquisition",
+      "failure_type_provenance": "Exact URLError prefix of preserved original limitation; not a separately recorded exception field"
     },
     {
       "receipt_filename": "nhis2018-catalog.html.receipt.json",
@@ -175,8 +183,10 @@
       "acquired": false,
       "raw_sha256": null,
       "raw_bytes": null,
-      "failure_type": null,
-      "http_status": null
+      "failure_type": "URLError",
+      "http_status": null,
+      "original_limitation": "URLError; no fallback acquisition",
+      "failure_type_provenance": "Exact URLError prefix of preserved original limitation; not a separately recorded exception field"
     },
     {
       "receipt_filename": "nhis2018-samadult.sas.receipt.json",
@@ -186,8 +196,10 @@
       "acquired": false,
       "raw_sha256": null,
       "raw_bytes": null,
-      "failure_type": null,
-      "http_status": null
+      "failure_type": "URLError",
+      "http_status": null,
+      "original_limitation": "URLError; no fallback acquisition",
+      "failure_type_provenance": "Exact URLError prefix of preserved original limitation; not a separately recorded exception field"
     }
   ],
   "pdf_page_locators": {
@@ -340,5 +352,13 @@
     "T-05",
     "T-08"
   ],
-  "receipt_scope": "Demeter-authored sanitized metadata receipt. Original producer documents and original acquisition receipts remain ignored and unredistributed. No participant or source admission."
+  "receipt_scope": "Demeter-authored sanitized metadata receipt. Original producer documents and original acquisition receipts remain ignored and unredistributed. No participant or source admission.",
+  "documentary_corrections": [
+    {
+      "authored_at": "2026-10-03T08:34:31.104486+00:00",
+      "previous_checkpoint_sha256": "236220346ca87863bac477357d9c32d07a2944352db78899ca24c9ee40898b06",
+      "previous_checkpoint_commit": "f09db465c5a89f343c6ee7f787632b05fe2cff48",
+      "reason": "Six sanitized failed receipts originally omitted their preserved limitation string. Retain exact original text and derive only its explicitly named URLError prefix; no source reacquisition or interpretation change. Original acquisition receipts and ignored appraisals remain unchanged."
+    }
+  ]
 }
