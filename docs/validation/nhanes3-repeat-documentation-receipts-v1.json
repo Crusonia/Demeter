@@ -1,0 +1,352 @@
+{
+  "automated_independent_review_sha256": "3a0efcb837fd4383ac47a3965397e2bebad9269ac958d714b80d21f729e94ea5",
+  "documentary_sources": [
+    {
+      "original_acquisition_receipt": {
+        "content_type": "text/plain",
+        "filename": "adult-primary.sas",
+        "public_url": "https://wwwn.cdc.gov/nchs/data/nhanes3/1a/adult.sas",
+        "resolved_origin_path": "https://wwwn.cdc.gov/nchs/data/nhanes3/1a/adult.sas",
+        "retrieved_at": "2026-10-03T00:39:36.615568+00:00",
+        "rights": "Official NCHS public-use catalog documentation; notice/use terms retained in raw README. No republication in tracked repository.",
+        "scientific_role": "Used-source metadata appraisal, not source admission or independent validation.",
+        "scope": "Official producer documentation only; no participant data and no SAS execution.",
+        "sha256": "b8d61f5bc56590d95220d88058bb054995f3beb7aeb400af88868c2679f73d4c",
+        "signed_query_omitted": false,
+        "size_bytes": 130935,
+        "status": 200
+      },
+      "source": {
+        "filename": "adult-primary.sas",
+        "public_url": "https://wwwn.cdc.gov/nchs/data/nhanes3/1a/adult.sas",
+        "receipt": "adult-primary.sas.receipt-v1.json",
+        "receipt_sha256": "db5f81d16175cb4c9bc6fe3372ecd6f99f5c6eb8ecac977d03067984294b9fab",
+        "retrieved_at": "2026-10-03T00:39:36.615568+00:00",
+        "sha256": "b8d61f5bc56590d95220d88058bb054995f3beb7aeb400af88868c2679f73d4c",
+        "size_bytes": 130935,
+        "status": 200
+      }
+    },
+    {
+      "original_acquisition_receipt": {
+        "content_type": "text/html; charset=utf-8",
+        "filename": "catalog.html",
+        "public_url": "https://wwwn.cdc.gov/nchs/nhanes/nhanes3/datafiles.aspx",
+        "resolved_origin_path": "https://wwwn.cdc.gov/nchs/nhanes/nhanes3/datafiles.aspx",
+        "retrieved_at": "2026-10-03T00:39:35.724135+00:00",
+        "rights": "Official NCHS public-use catalog documentation; notice/use terms retained in raw README. No republication in tracked repository.",
+        "scientific_role": "Used-source metadata appraisal, not source admission or independent validation.",
+        "scope": "Official producer documentation only; no participant data and no SAS execution.",
+        "sha256": "9d75fb37d3253bad284373f1c2262f58c32b7007b657fc6dd00d8061cc56b4d8",
+        "signed_query_omitted": false,
+        "size_bytes": 434429,
+        "status": 200
+      },
+      "source": {
+        "filename": "catalog.html",
+        "public_url": "https://wwwn.cdc.gov/nchs/nhanes/nhanes3/datafiles.aspx",
+        "receipt": "catalog.html.receipt-v1.json",
+        "receipt_sha256": "5c4ccf3442a577ee24604ae8060d7bea5cd2ce3dd4fb650b0c7c54f50fbbffe3",
+        "retrieved_at": "2026-10-03T00:39:35.724135+00:00",
+        "sha256": "9d75fb37d3253bad284373f1c2262f58c32b7007b657fc6dd00d8061cc56b4d8",
+        "size_bytes": 434429,
+        "status": 200
+      }
+    },
+    {
+      "original_acquisition_receipt": {
+        "content_type": "application/pdf",
+        "filename": "lab-primary-codebook.pdf",
+        "public_url": "https://wwwn.cdc.gov/nchs/data/nhanes3/1a/lab-acc.pdf",
+        "resolved_origin_path": "https://wwwn.cdc.gov/nchs/data/nhanes3/1a/lab-acc.pdf",
+        "retrieved_at": "2026-10-03T00:39:37.682592+00:00",
+        "rights": "Official NCHS public-use catalog documentation; notice/use terms retained in raw README. No republication in tracked repository.",
+        "scientific_role": "Used-source metadata appraisal, not source admission or independent validation.",
+        "scope": "Official producer documentation only; no participant data and no SAS execution.",
+        "sha256": "26784eaf88077dddb1766f7556c13ea8e5b6386c859262e0a7e7e49f2a6b8d0b",
+        "signed_query_omitted": false,
+        "size_bytes": 681142,
+        "status": 200
+      },
+      "source": {
+        "filename": "lab-primary-codebook.pdf",
+        "public_url": "https://wwwn.cdc.gov/nchs/data/nhanes3/1a/lab-acc.pdf",
+        "receipt": "lab-primary-codebook.pdf.receipt-v1.json",
+        "receipt_sha256": "99948eaa01c9858c9ecab0f5941a2254a3b1cbf796cdcc0206980e3bf65cd96f",
+        "retrieved_at": "2026-10-03T00:39:37.682592+00:00",
+        "sha256": "26784eaf88077dddb1766f7556c13ea8e5b6386c859262e0a7e7e49f2a6b8d0b",
+        "size_bytes": 681142,
+        "status": 200
+      }
+    },
+    {
+      "original_acquisition_receipt": {
+        "content_type": "text/plain",
+        "filename": "lab-primary.sas",
+        "public_url": "https://wwwn.cdc.gov/nchs/data/nhanes3/1a/lab.sas",
+        "resolved_origin_path": "https://wwwn.cdc.gov/nchs/data/nhanes3/1a/lab.sas",
+        "retrieved_at": "2026-10-03T00:39:36.315858+00:00",
+        "rights": "Official NCHS public-use catalog documentation; notice/use terms retained in raw README. No republication in tracked repository.",
+        "scientific_role": "Used-source metadata appraisal, not source admission or independent validation.",
+        "scope": "Official producer documentation only; no participant data and no SAS execution.",
+        "sha256": "fe804748e3881bb8f2a92c57af816d603bdd02e1587f835547cbfc4f82ab8304",
+        "signed_query_omitted": false,
+        "size_bytes": 42079,
+        "status": 200
+      },
+      "source": {
+        "filename": "lab-primary.sas",
+        "public_url": "https://wwwn.cdc.gov/nchs/data/nhanes3/1a/lab.sas",
+        "receipt": "lab-primary.sas.receipt-v1.json",
+        "receipt_sha256": "b3eafeb71b21679f88819dee4ca95e7f0a94d5c1c94828c30dda4ba9c6c081b9",
+        "retrieved_at": "2026-10-03T00:39:36.315858+00:00",
+        "sha256": "fe804748e3881bb8f2a92c57af816d603bdd02e1587f835547cbfc4f82ab8304",
+        "size_bytes": 42079,
+        "status": 200
+      }
+    },
+    {
+      "original_acquisition_receipt": {
+        "content_type": "application/pdf",
+        "filename": "lab-repeat-codebook.pdf",
+        "public_url": "https://wwwn.cdc.gov/nchs/data/nhanes3/3a/LABSE-acc.pdf",
+        "resolved_origin_path": "https://wwwn.cdc.gov/nchs/data/nhanes3/3a/LABSE-acc.pdf",
+        "retrieved_at": "2026-10-03T00:39:38.413686+00:00",
+        "rights": "Official NCHS public-use catalog documentation; notice/use terms retained in raw README. No republication in tracked repository.",
+        "scientific_role": "Used-source metadata appraisal, not source admission or independent validation.",
+        "scope": "Official producer documentation only; no participant data and no SAS execution.",
+        "sha256": "a9e7b8ea0a47b770867e83ad72ff092864f5bdba4f41a0bdfad6c9255c8538e2",
+        "signed_query_omitted": false,
+        "size_bytes": 603292,
+        "status": 200
+      },
+      "source": {
+        "filename": "lab-repeat-codebook.pdf",
+        "public_url": "https://wwwn.cdc.gov/nchs/data/nhanes3/3a/LABSE-acc.pdf",
+        "receipt": "lab-repeat-codebook.pdf.receipt-v1.json",
+        "receipt_sha256": "66dccdabaa19ba142172e4d7345ff9c282540fdef2ee0fb5b68bfb2a74c87552",
+        "retrieved_at": "2026-10-03T00:39:38.413686+00:00",
+        "sha256": "a9e7b8ea0a47b770867e83ad72ff092864f5bdba4f41a0bdfad6c9255c8538e2",
+        "size_bytes": 603292,
+        "status": 200
+      }
+    },
+    {
+      "original_acquisition_receipt": {
+        "content_type": "text/plain",
+        "filename": "lab-repeat.sas",
+        "public_url": "https://wwwn.cdc.gov/nchs/data/nhanes3/3a/labse.sas",
+        "resolved_origin_path": "https://wwwn.cdc.gov/nchs/data/nhanes3/3a/labse.sas",
+        "retrieved_at": "2026-10-03T00:39:37.201862+00:00",
+        "rights": "Official NCHS public-use catalog documentation; notice/use terms retained in raw README. No republication in tracked repository.",
+        "scientific_role": "Used-source metadata appraisal, not source admission or independent validation.",
+        "scope": "Official producer documentation only; no participant data and no SAS execution.",
+        "sha256": "d733af58ce19836507f1d287135c1a3511dbe36e8145091564d29386cbf8b786",
+        "signed_query_omitted": false,
+        "size_bytes": 55944,
+        "status": 200
+      },
+      "source": {
+        "filename": "lab-repeat.sas",
+        "public_url": "https://wwwn.cdc.gov/nchs/data/nhanes3/3a/labse.sas",
+        "receipt": "lab-repeat.sas.receipt-v1.json",
+        "receipt_sha256": "e4909b0f2895f507208ec5f15278a3cd36a98eeeb8b70a6079f5d64b3155a801",
+        "retrieved_at": "2026-10-03T00:39:37.201862+00:00",
+        "sha256": "d733af58ce19836507f1d287135c1a3511dbe36e8145091564d29386cbf8b786",
+        "size_bytes": 55944,
+        "status": 200
+      }
+    },
+    {
+      "original_acquisition_receipt": {
+        "content_type": "text/plain",
+        "filename": "readme-3a.txt",
+        "public_url": "https://wwwn.cdc.gov/nchs/data/nhanes3/3a/readme.txt",
+        "resolved_origin_path": "https://wwwn.cdc.gov/nchs/data/nhanes3/3a/readme.txt",
+        "retrieved_at": "2026-10-03T00:39:36.182432+00:00",
+        "rights": "Official NCHS public-use catalog documentation; notice/use terms retained in raw README. No republication in tracked repository.",
+        "scientific_role": "Used-source metadata appraisal, not source admission or independent validation.",
+        "scope": "Official producer documentation only; no participant data and no SAS execution.",
+        "sha256": "7f8b369ead26410b6437341f227ef0d5d76532dcbb0ac3325f328eb03d6f1874",
+        "signed_query_omitted": false,
+        "size_bytes": 14027,
+        "status": 200
+      },
+      "source": {
+        "filename": "readme-3a.txt",
+        "public_url": "https://wwwn.cdc.gov/nchs/data/nhanes3/3a/readme.txt",
+        "receipt": "readme-3a.txt.receipt-v1.json",
+        "receipt_sha256": "ad12209f5b194575a124e433990a6fb30cc07a10ca3d92acff3d3c486cea2c24",
+        "retrieved_at": "2026-10-03T00:39:36.182432+00:00",
+        "sha256": "7f8b369ead26410b6437341f227ef0d5d76532dcbb0ac3325f328eb03d6f1874",
+        "size_bytes": 14027,
+        "status": 200
+      }
+    },
+    {
+      "original_acquisition_receipt": {
+        "content_type": "application/pdf",
+        "filename": "adult-primary-codebook.pdf",
+        "public_url": "https://wwwn.cdc.gov/nchs/data/nhanes3/1a/ADULT-acc.pdf",
+        "resolved_origin_path": "https://wwwn.cdc.gov/nchs/data/nhanes3/1a/ADULT-acc.pdf",
+        "retrieved_at": "2026-10-03T00:39:37.949917+00:00",
+        "rights": "Official NCHS public-use catalog documentation; notice/use terms retained in raw README. No republication in tracked repository.",
+        "scientific_role": "Used-source metadata appraisal, not source admission or independent validation.",
+        "scope": "Official producer documentation only; no participant data and no SAS execution.",
+        "sha256": "a5f03642de78afcaf22f923a6bb91971c485679b3da23d569ef00abe2e6c9b6e",
+        "signed_query_omitted": false,
+        "size_bytes": 2863586,
+        "status": 200
+      },
+      "source": {
+        "filename": "adult-primary-codebook.pdf",
+        "public_url": "https://wwwn.cdc.gov/nchs/data/nhanes3/1a/ADULT-acc.pdf",
+        "receipt": "adult-primary-codebook.pdf.receipt-v1.json",
+        "receipt_sha256": "fb4d15aa752cd4db9303c2b03f504ad591cc2a2f474dbf707a1e492b95d392f6",
+        "retrieved_at": "2026-10-03T00:39:37.949917+00:00",
+        "sha256": "a5f03642de78afcaf22f923a6bb91971c485679b3da23d569ef00abe2e6c9b6e",
+        "size_bytes": 2863586,
+        "status": 200
+      }
+    }
+  ],
+  "external_expert_review": "pending; not an intake or implementation prerequisite",
+  "kind": "nhanes3_repeat_documentation_receipts",
+  "ordinary_publisher_request_limitation": {
+    "access_policy": "One ordinary public GET, no cookies, accounts, challenge workarounds or alternate access routes.",
+    "kind": "ordinary-public-publication-metadata-acquisition",
+    "limitation": "Ordinary public publisher request denied; response body not read or archived. No raw source claim or access workaround.",
+    "participant_files_acquired": false,
+    "purpose": "Definition provenance only; existing outcomes already inspected. No participant source request.",
+    "raw_source_available": false,
+    "requested_at": "2026-10-03T03:01:30.428387+00:00",
+    "requested_url": "https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/412871",
+    "retrieved_at": "2026-10-03T03:01:30.657626+00:00",
+    "source_copyright_scope": "Publisher material fetch-only in ignored cache; no redistribution rights admitted.",
+    "status": 403
+  },
+  "page_text_locators": [
+    {
+      "filename": "lab-primary-codebook.pdf",
+      "pdf_page_one_based": 66,
+      "pypdf_extract_text_utf8_sha256": "d4bbc0612f335aad9bd87bfb1df77cb72e192557be3aedeba9a347c951beb1e8"
+    },
+    {
+      "filename": "lab-primary-codebook.pdf",
+      "pdf_page_one_based": 67,
+      "pypdf_extract_text_utf8_sha256": "fe70b59a762ec13f8e9b68e1ccdca86287dbe97dea53805bbe69084b3510a120"
+    },
+    {
+      "filename": "lab-primary-codebook.pdf",
+      "pdf_page_one_based": 68,
+      "pypdf_extract_text_utf8_sha256": "4ad1019bd35a50d13e1da74cbd45755cafe847f2299a81eb7b4478a0b790b608"
+    },
+    {
+      "filename": "lab-primary-codebook.pdf",
+      "pdf_page_one_based": 69,
+      "pypdf_extract_text_utf8_sha256": "7dccfcfeb4648dbdb3c8a76e6786556f53d2a0f00780a4d184ecc139eae9fe57"
+    },
+    {
+      "filename": "lab-primary-codebook.pdf",
+      "pdf_page_one_based": 93,
+      "pypdf_extract_text_utf8_sha256": "59fb124fccc8959eacd7e66d0b6bd50d70281ddde1e77faaa6dfbf7c8b9336ad"
+    },
+    {
+      "filename": "lab-primary-codebook.pdf",
+      "pdf_page_one_based": 106,
+      "pypdf_extract_text_utf8_sha256": "d59de4a31b636c8a9c7e3ac97f944897d6851d70cfad8043e31da4f2b4d1de91"
+    },
+    {
+      "filename": "lab-primary-codebook.pdf",
+      "pdf_page_one_based": 113,
+      "pypdf_extract_text_utf8_sha256": "13a27bf82ed9fc06ad03cd0e6cdeaf099645a08c22ec1697a4640bb1e36556a7"
+    },
+    {
+      "filename": "lab-primary-codebook.pdf",
+      "pdf_page_one_based": 119,
+      "pypdf_extract_text_utf8_sha256": "4382747034d2c07eb5270aa1fbf7ebba1cad140e1e584309391ef7d8db7e1dcc"
+    },
+    {
+      "filename": "lab-primary-codebook.pdf",
+      "pdf_page_one_based": 129,
+      "pypdf_extract_text_utf8_sha256": "6549250e4426738b5a754f877e7681fb2a6064bb656040c1b935b87420019fd1"
+    },
+    {
+      "filename": "lab-primary-codebook.pdf",
+      "pdf_page_one_based": 133,
+      "pypdf_extract_text_utf8_sha256": "591350cfe048a50aea1a272c1da1cf6004acb8cb2ccd18777484be51774fcd2a"
+    },
+    {
+      "filename": "lab-repeat-codebook.pdf",
+      "pdf_page_one_based": 10,
+      "pypdf_extract_text_utf8_sha256": "862d23eaf0e46787b2c3c031393932ad22858219acdee1c77073f5d872d277b9"
+    },
+    {
+      "filename": "lab-repeat-codebook.pdf",
+      "pdf_page_one_based": 11,
+      "pypdf_extract_text_utf8_sha256": "50b29710b6c5b7e6f8f7d51dfcaf5582e0d4add60c12884dccbca5bb3f126ade"
+    },
+    {
+      "filename": "lab-repeat-codebook.pdf",
+      "pdf_page_one_based": 30,
+      "pypdf_extract_text_utf8_sha256": "05321b7ae1ed9a1b4499a69c191f77960601d8f0ae1359e11debecb05acd09b6"
+    },
+    {
+      "filename": "lab-repeat-codebook.pdf",
+      "pdf_page_one_based": 39,
+      "pypdf_extract_text_utf8_sha256": "fbd2fe9e466734f78076e2d6961f6ba5dab01e490404c1bdabf46463a19f21b1"
+    },
+    {
+      "filename": "lab-repeat-codebook.pdf",
+      "pdf_page_one_based": 41,
+      "pypdf_extract_text_utf8_sha256": "72ab517974b90d80b1938bfcce1ea985adc46f9a514cd3236062c7fa649f620b"
+    },
+    {
+      "filename": "lab-repeat-codebook.pdf",
+      "pdf_page_one_based": 42,
+      "pypdf_extract_text_utf8_sha256": "65387c921f03026dcf7fe06f90b0b31ba5f99c22bd5625229e9face6c2e24127"
+    },
+    {
+      "filename": "lab-repeat-codebook.pdf",
+      "pdf_page_one_based": 65,
+      "pypdf_extract_text_utf8_sha256": "6b981bfa7c625822166102512f52373ef1353285bfe2cdf56bedca37751be625"
+    },
+    {
+      "filename": "lab-repeat-codebook.pdf",
+      "pdf_page_one_based": 71,
+      "pypdf_extract_text_utf8_sha256": "020486d0d4f9381b8efdfb10e0e534318f087fc479a9579b79f77caa1905f934"
+    },
+    {
+      "filename": "lab-repeat-codebook.pdf",
+      "pdf_page_one_based": 72,
+      "pypdf_extract_text_utf8_sha256": "3f15aa9798d54bdf61a1af9b4e62c86614ab863eac758067c8d9c5dc8c536836"
+    },
+    {
+      "filename": "lab-repeat-codebook.pdf",
+      "pdf_page_one_based": 77,
+      "pypdf_extract_text_utf8_sha256": "cde56cc9bf9a59a8c2bd9cf0a4258359d3b5292247261c1ea4a40909d9539952"
+    },
+    {
+      "filename": "lab-repeat-codebook.pdf",
+      "pdf_page_one_based": 87,
+      "pypdf_extract_text_utf8_sha256": "e1f2acac2df04c2f41cf0889658441f64980437c153cf9ad69678632addc1d2f"
+    },
+    {
+      "filename": "adult-primary-codebook.pdf",
+      "pdf_page_one_based": 171,
+      "pypdf_extract_text_utf8_sha256": "a7920f1a686b95bcb21f115bc8d0d99cf41acb5339b7d85ca0af8c4205275206"
+    }
+  ],
+  "participant_acquisition": false,
+  "protocol_proposal_sha256": "e71f03e512a0ae533303612304d7768d40e8edb1aa372b9d87266d24d8caa8df",
+  "schema_version": 1,
+  "scientific_gates": {
+    "clinical_fit_allowed": false,
+    "direct_initialization_allowed": false,
+    "engine_activation_allowed": false,
+    "sampling_distribution_assumed": false,
+    "scientific_release_ready": false
+  },
+  "scientific_scope": "Producer metadata and cited method definitions only; no participant values or statistics. Publisher source bytes are not admitted.",
+  "used_source": true
+}

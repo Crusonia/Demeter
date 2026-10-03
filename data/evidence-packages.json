@@ -1779,6 +1779,14 @@
     {
       "path": "docs/validation/public-clinical-source-checkpoint-v1.json",
       "sha256": "5bb70827eabfd507c410e3474d8b828286dd9e011b9918eb0f8c4f49da8a1a12"
+    },
+    {
+      "path": "docs/validation/nhanes3-repeat-documentation-receipts-v1.json",
+      "sha256": "64e45fa41246d0054a12c7c105bf6be744b72450171beb18803701116a840384"
+    },
+    {
+      "path": "docs/validation/nhanes3-repeat-intake-protocol-v1.json",
+      "sha256": "1728d637312da8fd4911d8152b15275eb70760e351286a2a898e95453786798f"
     }
   ]
 }
