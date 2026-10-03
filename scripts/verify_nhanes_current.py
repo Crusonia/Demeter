@@ -7,11 +7,12 @@ import copy
 from datetime import datetime, timezone
 import hashlib
 import json
+import os
 from pathlib import Path
 import re
 
 from demeter.data.nhanes import encoded
-from demeter.data.nhanes_current_store import DATASET, report
+from demeter.data.nhanes_current_admission import DATASET, report
 from demeter.schema import EvidenceRegistry
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -111,12 +112,21 @@ def verify(registry=None, frozen_path: Path = ARTIFACT) -> dict:
     }
 
 
+def _output_preflight(output: Path) -> None:
+    """Refuse protected paths before replay, including missing frozen files."""
+    destination = output.resolve()
+    protected = [(ROOT / name).resolve() for name in ("data", "src", "docs", "evidence")]
+    if os.path.lexists(output) or any(destination.is_relative_to(path) for path in protected):
+        raise ValueError("Verification output must be new and outside sources and frozen records")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
     parser.add_argument("--output", type=Path, default=Path(f"outputs/nhanes-current-{stamp}.json"))
     args = parser.parse_args()
     try:
+        _output_preflight(args.output)
         result = verify()
         args.output.parent.mkdir(parents=True, exist_ok=True)
         with args.output.open("xb") as stream:

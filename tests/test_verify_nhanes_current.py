@@ -252,3 +252,52 @@ def test_cli_failed_source_validation_exports_no_details_or_proof(
     assert "private" not in text
     assert "assay" not in text
     assert not output.exists()
+
+
+@pytest.mark.parametrize("folder", ["data", "src", "docs", "evidence"])
+def test_new_protected_output_refused_before_replay(verifier, monkeypatch, tmp_path, folder):
+    monkeypatch.setattr(verifier, "ROOT", tmp_path)
+    monkeypatch.setattr(verifier, "verify", lambda: pytest.fail("replay before output preflight"))
+    output = tmp_path / folder / "missing-protected.json"
+    monkeypatch.setattr(sys, "argv", ["verify_nhanes_current.py", "--output", str(output)])
+    assert verifier.main() == 1
+    assert not output.exists() and not output.parent.exists()
+
+
+def test_existing_hardlink_output_refused_before_replay(verifier, monkeypatch, tmp_path):
+    original = tmp_path / "immutable.json"
+    original.write_bytes(b"immutable evidence bytes")
+    alias = tmp_path / "alias.json"
+    alias.hardlink_to(original)
+    monkeypatch.setattr(verifier, "verify", lambda: pytest.fail("replay before output preflight"))
+    monkeypatch.setattr(sys, "argv", ["verify_nhanes_current.py", "--output", str(alias)])
+    assert verifier.main() == 1
+    assert original.read_bytes() == alias.read_bytes() == b"immutable evidence bytes"
+
+
+def test_missing_frozen_filename_refused_before_replay(verifier, monkeypatch, tmp_path):
+    monkeypatch.setattr(verifier, "ROOT", tmp_path)
+    monkeypatch.setattr(verifier, "verify", lambda: pytest.fail("replay before output preflight"))
+    output = tmp_path / "docs/validation/nhanes-2021-2023-glycemic-reconstruction-v1.json"
+    monkeypatch.setattr(sys, "argv", ["verify_nhanes_current.py", "--output", str(output)])
+    assert verifier.main() == 1
+    assert not output.exists() and not output.parent.exists()
+
+
+def test_real_offline_current_replay_is_strict_except_registry_fingerprint(verifier, monkeypatch):
+    from demeter.schema import EvidenceRegistry
+
+    monkeypatch.setattr(
+        "urllib.request.urlopen", lambda *args, **kwargs: pytest.fail("offline replay used network")
+    )
+    original = verifier.ARTIFACT.read_bytes()
+    assert hashlib.sha256(original).hexdigest() == verifier.ARTIFACT_SHA256
+    registry = EvidenceRegistry.from_yaml(ROOT / "evidence/parameters.yaml")
+    result = verifier.verify(registry)
+    assert result["passed"] is True
+    assert result["source_report_exactly_reproduced_excluding_registry_fingerprint"] is True
+    assert result["excluded_paths"] == ["/provenance/evidence_sha256"]
+    assert result["current_registry_sha256"] == registry.content_hash
+    assert result["network_used"] is False
+    assert all(result[gate] is False for gate in verifier.GATES)
+    assert verifier.ARTIFACT.read_bytes() == original

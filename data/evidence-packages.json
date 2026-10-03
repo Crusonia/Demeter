@@ -1618,14 +1618,15 @@
         },
         {
           "path": "docs/NHANES_2021_2023_GLYCEMIC.md",
-          "sha256": "4dfc49cbfc5dd845d7db2b2d1f81b4dc25d7d6b5cc3d79f80ae0abf20bab98c9"
+          "sha256": "8e7e9e721d3e5a07acf32fd70bd1d57e70835f4a7451d4a585e458d3ac023897"
         }
       ],
       "transform_files": [
         "src/demeter/data/nhanes_current.py",
         "src/demeter/data/nhanes_current_store.py",
         "scripts/fetch_nhanes_current.py",
-        "scripts/verify_nhanes_current.py"
+        "scripts/verify_nhanes_current.py",
+        "src/demeter/data/nhanes_current_admission.py"
       ],
       "rebuild": [
         "uv run demeter evidence glycemic-2021-2023 --output outputs/glycemic-2021-2023.json",
