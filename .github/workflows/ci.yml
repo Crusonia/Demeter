@@ -14,8 +14,9 @@ jobs:
   test:
     name: test (${{ matrix.label }})
     runs-on: ${{ matrix.os }}
-    # Retain the complete platform gates as source audits and fixtures grow.
-    timeout-minutes: 30
+    # Retain every platform check as source audits and fixtures grow; the
+    # Windows/3.12 release checks exceeded the previous 30-minute allowance.
+    timeout-minutes: 45
     env:
       # Keep uv run on the matrix version even with the novice .python-version pin.
       UV_PYTHON: ${{ matrix.python-version }}
