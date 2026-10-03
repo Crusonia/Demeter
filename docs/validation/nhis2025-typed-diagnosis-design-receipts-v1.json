@@ -1,0 +1,138 @@
+{
+  "authored_checkout_head": "0bc5f00d0092a5447fc07d548b2f573b51ed5ede",
+  "code_admission_for_empirical_calculation": false,
+  "codebook_version": "29 July2026 (not retrieval time or Last-Modified)",
+  "created_at": "2026-10-03T04:48:38.096705+00:00",
+  "documentary_amendment_before_first_commit": "Added independently acquired reliability/interval/singleton metadata and corrected proxy/df locators; no source calculation or participant acquisition.",
+  "documentation": {
+    "nchs-proportions-standards-2017.pdf": {
+      "content_type": "application/pdf",
+      "distribution": "fetch_only_documentation",
+      "last_modified": "Wed, 18 Dec 2024 18:28:02 GMT",
+      "locators": {
+        "1-2": "Actual cached edition and2018/2021correction notes",
+        "13-16": "Proportion presentation standards and NHIS nationalnormalexample (printed7-10)"
+      },
+      "participant_source_admitted": false,
+      "resolved_url": "https://www.cdc.gov/nchs/media/pdfs/2024/09/sr02_175.pdf",
+      "retrieved_at": "2026-10-03T04:47:05.230202+00:00",
+      "sha256": "47a0d06b8f79ceb6de2725f1b94eb2320f7f41d64214790395b4bd035bd7b683",
+      "size_bytes": 1627403,
+      "url": "https://www.cdc.gov/nchs/media/pdfs/2024/09/sr02_175.pdf"
+    },
+    "nhanes-diq-l.html": {
+      "content_type": "text/html",
+      "distribution": "fetch_only_documentation",
+      "last_modified": "Thu, 31 Jul 2025 15:15:20 GMT",
+      "locators": {
+        "advertised_variable_list": "No explicit diabetes-type question"
+      },
+      "participant_source_admitted": false,
+      "resolved_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/DIQ_L.htm",
+      "retrieved_at": "2026-10-03T04:31:17.095563+00:00",
+      "sha256": "cfc823723f5e37039b39108a614513d6c1f210f30f885a45d6a4ea07a718896a",
+      "size_bytes": 32437,
+      "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/DIQ_L.htm"
+    },
+    "nhis-2025-adult-codebook.pdf": {
+      "content_type": "application/pdf",
+      "distribution": "fetch_only_documentation",
+      "last_modified": "Thu, 13 Aug 2026 15:05:00 GMT",
+      "locators": {
+        "115": "DIBEV_A",
+        "12": "PROXYFLAG_A",
+        "124": "DIBTYPE_A universe",
+        "19": "SEX_A",
+        "21": "AGEP_A topcode",
+        "4": "WTFA_A annualadultweight",
+        "7": "PSTRAT publicstratum",
+        "8": "PPSU publicPSU"
+      },
+      "participant_source_admitted": false,
+      "resolved_url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/NHIS/2025/adult-codebook.pdf",
+      "retrieved_at": "2026-10-03T04:32:56.590374+00:00",
+      "sha256": "e112f79ff5575e2900068471529bf884d43423c465c5275c4abf3becc4a818c5",
+      "size_bytes": 16573265,
+      "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/NHIS/2025/adult-codebook.pdf"
+    },
+    "nhis-2025-adult-layout.sas": {
+      "content_type": "application/x-sas",
+      "distribution": "fetch_only_documentation",
+      "last_modified": "Thu, 27 Aug 2026 18:37:57 GMT",
+      "locators": {
+        "documentary_only": "Producer INPUT/FORMAT field declarations; not executed"
+      },
+      "participant_source_admitted": false,
+      "resolved_url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Program_Code/NHIS/2025/Adult.sas",
+      "retrieved_at": "2026-10-03T04:33:20.592738+00:00",
+      "sha256": "2a774c19872d66e0847c97ebb3804aca363df46f25d9fa5c3d4031908674507b",
+      "size_bytes": 158349,
+      "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Program_Code/NHIS/2025/Adult.sas"
+    },
+    "nhis-2025-pricssa.pdf": {
+      "content_type": "application/pdf",
+      "distribution": "fetch_only_documentation",
+      "last_modified": "Thu, 13 Aug 2026 15:05:00 GMT",
+      "locators": {
+        "3": "Items2.4/2.5/2.6/2.7/2.8/2.10: KG intervals, annualweight, publicvariance/domain, reliability, MISSUNIT"
+      },
+      "participant_source_admitted": false,
+      "resolved_url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/NHIS/2025/2025-NHIS-PRICSSA-508.pdf",
+      "retrieved_at": "2026-10-03T04:47:06.721698+00:00",
+      "sha256": "81437884a71d3be57aac61dc7d81b50d676e26d8cdd133d0334e7f1d78cc93b5",
+      "size_bytes": 240892,
+      "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/NHIS/2025/2025-NHIS-PRICSSA-508.pdf"
+    },
+    "nhis-2025-survey-description.pdf": {
+      "content_type": "application/pdf",
+      "distribution": "fetch_only_documentation",
+      "last_modified": "Tue, 25 Aug 2026 18:26:21 GMT",
+      "locators": {
+        "10": "Redesign/shutdown/annual-file interview exclusion",
+        "117": "Public adult age topcode",
+        "14": "Civilian noninstitutionalized population",
+        "17/121": "Knowledgeableproxy interview roles",
+        "35-36": "NHIS degrees-of-freedom caveat",
+        "47-48": "Annual-weight and public-design WR variance specification",
+        "73-74": "Full-file subpopulation variance",
+        "9": "Statistical-only use and confidentiality restrictions"
+      },
+      "participant_source_admitted": false,
+      "resolved_url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/NHIS/2025/srvydesc-508.pdf",
+      "retrieved_at": "2026-10-03T04:33:19.620422+00:00",
+      "sha256": "d8a8cc998bcdef46d4408eaaf275373702131042f49efad9b28e1c87dcf2106c",
+      "size_bytes": 2060384,
+      "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/NHIS/2025/srvydesc-508.pdf"
+    }
+  },
+  "kind": "nhis2025_reported_diagnosis_design_documentation_receipts",
+  "method_appraisal_sha256": "3b6f027e9640f11bed0c7377c23a5612c2772292841a6c289b025d726bd55714",
+  "model_role": "design_and_synthetic_software_witness",
+  "participant_source_admission": false,
+  "prior_discovery_appraisal_sha256": "f7d5867fba38c0acd0ce8e9112de9a3acd9fcdc5eed293410493bf96f224b164",
+  "raw_publisher_documentation_redistributed": false,
+  "schema_version": 1,
+  "scientific_gates": {
+    "clinical_fit_allowed": false,
+    "direct_initialization_allowed": false,
+    "engine_activation_allowed": false,
+    "sampling_distribution_assumed": false,
+    "scientific_release_ready": false
+  },
+  "unsupported_interpretations": [
+    "Confirmed/current/undiagnosed or all-population T2D prevalence",
+    "Latent metabolic states, clinical remission or annual transition hazards",
+    "Individual NHIS/NHANES joint partition or linkage",
+    "Independent probability draws or NCHS-conforming reliability release from the witness",
+    "Dietary effects, mortality multipliers, healthcare costs or scientific release"
+  ],
+  "used_source_chronology": {
+    "empirical_statistics_calculated": false,
+    "independent_validation": false,
+    "participant_files_acquired": false,
+    "participant_values_inspected": false,
+    "preregistered": false,
+    "producer_descriptions_already_inspected": true,
+    "published_codebook_tabulations_seen_before_design": true
+  }
+}
