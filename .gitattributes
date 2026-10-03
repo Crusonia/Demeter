@@ -19,3 +19,5 @@ docs/validation/aric-*.json -text -whitespace
 
 # Preserve exact NHANES III repeat protocol/admission/report pins.
 docs/validation/nhanes3-*.json -text -whitespace
+# Preserve documentary identities for the proposed NHIS diagnosis benchmark.
+docs/validation/nhis2025-*.json -text -whitespace
