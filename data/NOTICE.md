@@ -255,6 +255,14 @@ conditions; this intake does not establish redistribution rights for the 2013
 protocol. Study-ID consistency does not establish a producer identity crosswalk,
 and undocumented numeric codes do not establish clinical or regimen meanings.
 
+The [UPDATE biomarker snapshot](../docs/UPDATE_PUBLIC_BIOMARKER_BENCHMARK.md)
+attributes limited numerical facts to Dicken SJ et al., Nature Medicine (2025),
+DOI 10.1038/s41591-025-03842-0, current Supplementary Table 5. The article carries
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) with a third-party credit
+exception. HbA1c change units and group identifiers are renamed; statistics and
+displayed precision are preserved. The complete PDF stays fetch-only by project
+choice. The package includes no participant data, full table, text or figures.
+
 Before adding data, review contents, privacy classification, exact terms,
 rights holder and attribution. Add reviewed rights, receipt, registry and package
 records together. If rights or privacy are unresolved, exclude raw data and record

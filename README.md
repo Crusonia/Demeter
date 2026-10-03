@@ -154,6 +154,12 @@ Run `uv run demeter evidence aric-outcomes` for the offline source audit. It
 distinguishes original and selected denominators and retains unknown event
 ordering, observation timing and participant membership before clinical fitting.
 
+The [UPDATE biomarker source replay](docs/UPDATE_PUBLIC_BIOMARKER_BENCHMARK.md)
+preserves published eight-week HbA1c/glucose summaries, paired counts and rounded
+SEs. Run `uv run python scripts/verify_update_biomarker.py` offline. It checks
+source transcription and provenance; it does not validate clinical predictions
+or supply a dietary transition coefficient.
+
 For versioned results, use the [release and replay workflow](docs/RELEASES.md).
 It captures exact source/data bytes, canonical outputs, uncertainty, historical
 diagnostics and a model card while retaining the alpha's scientific limitations.
