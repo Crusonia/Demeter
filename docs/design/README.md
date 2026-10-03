@@ -40,6 +40,11 @@ record-category accounting and dependent survey-ratio arithmetic on in-memory
 fixtures. It reuses the existing covariance kernel without NHANES inference
 metadata; participant admission and NHIS interval policies remain unresolved.
 
+The [HRS repeat-biomarker checkpoint](../HRS_REPEAT_BIOMARKER_SOURCE_CHECKPOINT.md)
+feeds I-11 observation design with native/adjusted assay roles and unresolved
+selection, specimen clocks and diabetes type. It is source discovery, not an
+empirical intake or a clinical likelihood.
+
 ## Methodological basis
 
 This is Demeter's application of a system-dynamics approach informed by Thomas S.
