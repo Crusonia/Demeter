@@ -140,3 +140,8 @@ freezes the now-implemented [private library bridge](../../src/demeter/data/nhis
 and its [synthetic checks](../../tests/test_nhis_reported_answer_benchmark.py). It
 retains unknown answers and the entire design frame; original-source execution,
 public release and clinical interpretation require separate reviewed stages.
+
+The [HAALSI public documentation appraisal](../HAALSI_PUBLIC_DOCUMENTATION_APPRAISAL_20261003.md)
+feeds I-11 observation design with exact repeated-glucose and wave-disposition
+fields. Native encoding, specimen/death clocks and conflicting producer
+definitions remain unresolved; no clinical likelihood or national transport is admitted.

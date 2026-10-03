@@ -1940,6 +1940,22 @@
     {
       "path": "docs/validation/public-clinical-source-update-20261003-v1.json",
       "sha256": "e2e4d234d43d19d9cc27113eb0d252db2ba25f007656af2dcd2963a3d7cba787"
+    },
+    {
+      "path": "docs/NHIS_REPORTED_ANSWER_MANUAL_RUN_ADMISSION.md",
+      "sha256": "cbad418c62ff166ba273c39606dbd28e3708b05115934755790cf390b78513b8"
+    },
+    {
+      "path": "docs/validation/nhis2025-reported-answer-manual-benchmark-admission-v1.json",
+      "sha256": "eb521b46e0e7974809b534d2e927e07a470ddd03a277954f03a1bd1d49b63393"
+    },
+    {
+      "path": "docs/HAALSI_PUBLIC_DOCUMENTATION_APPRAISAL_20261003.md",
+      "sha256": "3cc3005e5f6c0e1c18a525b2acb44034a115843ee5634ddcbba8e4c549917f6b"
+    },
+    {
+      "path": "docs/validation/haalsi-icpsr-v4-documentation-appraisal-v1.json",
+      "sha256": "f066f6f8d9e9bcf95253e4846525e275973551f9a65d4cdf17bf6dba820c459c"
     }
   ]
 }
