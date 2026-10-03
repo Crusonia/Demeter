@@ -23,9 +23,17 @@ for I-01/I-05/I-07/I-11/I-12 and F-04/F-08. It feeds design; it does not impleme
 a clinical observation model or activate a parameter.
 
 The [NHANES III repeat-FPG design](08_NHANES_III_REPEAT_OBSERVATIONS.md)
-specifies a possible next observed-label falsification test, source fields,
-unresolved intake choices and privacy requirements. It admits no participant
-data, parameters or clinical hazards.
+preserves the proposal for an observed-label falsification test, source fields,
+intake choices and privacy requirements. The subsequent
+[offline repeat-FPG benchmark](../NHANES_III_REPEAT_FPG.md) implements a finite
+recorded-label diagnostic under its separately frozen protocol; it admits no
+clinical hazards or engine initialization.
+
+The [NHIS reported-diagnosis design](09_NHIS_REPORTED_DIAGNOSES.md) specifies a
+separate diagnosed-type observation benchmark and a synthetic categorical
+software witness. Unknown type and inconsistent questionnaire responses remain
+explicit; no participant intake, survey estimate or clinical initialization is
+implemented by that witness.
 
 The [HRS repeat-biomarker checkpoint](../HRS_REPEAT_BIOMARKER_SOURCE_CHECKPOINT.md)
 feeds I-11 observation design with native/adjusted assay roles and unresolved

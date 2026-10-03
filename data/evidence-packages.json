@@ -1838,6 +1838,18 @@
       "sha256": "7a1cb60be1fe3b27c1e32a9eaa43d93d05dbb3224c02c0289e03ad66c6933d8b"
     },
     {
+      "path": "docs/validation/nhis2025-typed-diagnosis-design-receipts-v1.json",
+      "sha256": "cbb7e50eb970ecdc470607058f6e1df79a9c1cb37b3dcf82e7c3817096e4b889"
+    },
+    {
+      "path": "docs/PUBLIC_REPEAT_BIOMARKER_SOURCE_CHECKPOINT.md",
+      "sha256": "badb998c33b75251c56d52845ee0e6f2887d7b8a7e7af6d2acb43ae07e4079dc"
+    },
+    {
+      "path": "docs/design/09_NHIS_REPORTED_DIAGNOSES.md",
+      "sha256": "2dbb2c1944cc4fed420a54ce5bff3bb63f54d6435347f1ef35690ed0e35a6733"
+    },
+    {
       "path": "docs/validation/hrs-repeat-biomarker-source-checkpoint-v1.json",
       "sha256": "b53195b540192d8b94cbbe7532b19a0c8607ccd918fc14200d71310ca1e0f059"
     },

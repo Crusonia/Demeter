@@ -65,9 +65,16 @@ inapplicable to this observation contract. Design premises are not empirical
 parameters or implemented capabilities.
 
 The [NHANES III repeat-FPG design](design/08_NHANES_III_REPEAT_OBSERVATIONS.md)
-proposes a narrower test of recorded-label persistence. It records verified
-producer field meanings and remaining eligibility/context/privacy choices;
-no participant intake, empirical reconstruction or clinical fit is implemented.
+preserves the proposal for a narrower test of recorded-label persistence. The
+subsequent [offline benchmark](NHANES_III_REPEAT_FPG.md) implements that finite
+source-label diagnostic under its separately frozen intake and code admissions.
+It identifies no clinical fit, annual hazard or enduring metabolic state.
+
+The [NHIS reported-diagnosis design](design/09_NHIS_REPORTED_DIAGNOSES.md)
+proposes an age/sex benchmark for explicit reported diabetes type. A separate
+synthetic software witness conserves unknown and inconsistent diagnosis/type
+responses. It supplies no participant intake, survey estimate, current clinical
+state or total/undiagnosed T2D initializer.
 
 ## Current mechanics and the missing clinical layer
 
