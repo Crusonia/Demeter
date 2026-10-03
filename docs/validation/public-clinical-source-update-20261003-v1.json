@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "kind": "public_clinical_source_documentary_update",
+  "assessed_on": "2026-10-03",
+  "role": "documentation_only_not_parameter_intake",
+  "chronology": "Publication methods and numerical summaries were visible before appraisal; used-source development, not preregistration or untouched evaluation.",
+  "source_records": [
+    {
+      "doi": "10.1111/joim.12920",
+      "publication_year": 2019,
+      "primary_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6851857/",
+      "inspection": "original_publication_html",
+      "retrieval": {
+        "status": 200,
+        "final_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6851857/",
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "75df653104e93e89d78e332afe4fca443aeaead997d9b672dabe780600631ab2",
+        "size_bytes": 236955,
+        "started_at": "2026-10-03T11:14:23.618483+00:00",
+        "completed_at": "2026-10-03T11:14:24.058752+00:00"
+      },
+      "locators": [
+        "Study population",
+        "Data collection / death registry",
+        "Assessment of prediabetes, diabetes and normoglycaemia",
+        "Statistical analysis",
+        "Abstract; Table 2; Appendix Tables A1-A4",
+        "Availability of data and material"
+      ],
+      "supplement_scope": "Inline appendix tables inspected; no separate participant file",
+      "record_access": "restricted_author_and_study_permission",
+      "raw_distribution": "fetch_only_not_in_repository"
+    },
+    {
+      "doi": "10.1111/joim.70010",
+      "publication_year": 2025,
+      "primary_url": "https://onlinelibrary.wiley.com/doi/10.1111/joim.70010",
+      "inspection": "rendered_primary_publication",
+      "original_artifact_sha256": null,
+      "locators": [
+        "Methods / Study overview and participants / carried-forward missingness",
+        "Statistical analysis / separate glycemic models",
+        "Data availability statement",
+        "Supporting Information inventory"
+      ],
+      "supplement_scope": "inventory_only_not_acquired_or_inspected",
+      "record_access": "corresponding_author_reasonable_request",
+      "raw_distribution": "no_original_bytes_claimed"
+    },
+    {
+      "doi": "10.1016/S2214-109X(25)00237-2",
+      "publication_year": 2025,
+      "deposit_date": "2026-03-13",
+      "primary_url": "https://www.sciencedirect.com/science/article/pii/S2214109X25002372",
+      "public_deposit": "https://zenodo.org/records/18892123",
+      "inspection": "original_publication_pdf",
+      "retrieval": {
+        "source_url": "https://zenodo.org/records/18892123/files/1-s2.0-S2214109X25002372.pdf?download=1",
+        "started_at": "2026-10-03T10:47:19.956174+00:00",
+        "scope": "ordinary_publication_retrieval_no_participant_data_or_parameters",
+        "http_status": 200,
+        "final_url": "https://zenodo.org/records/18892123/files/1-s2.0-S2214109X25002372.pdf?download=1",
+        "bytes": 996590,
+        "sha256": "be21d90832bc166d2d45c4964ad6dd1abbcac93ab17af619e027c9b8c65c5b69",
+        "content_type": "application/octet-stream",
+        "completed_at": "2026-10-03T10:47:22.493878+00:00"
+      },
+      "inspected_pdf_page_text_sha256": {
+        "1": "f3d7496192b686a53ffee4bc9f6a99fcb995683a38a634b0d1fd9047bda45f8e",
+        "3": "c72d9d922070c96f0baa210a5cf9d3b86fb985172e9a69ea10a3935f70d66dea",
+        "5": "3345197af1e572638407a0ece8440eec927d953d3d8646d995d1ec6ee9bb7e4d",
+        "6": "20bc4fa993203e1a14aad0f4c4b2d6e0db568bcecdf3ee9c7dba749a168d75ad",
+        "9": "640d7a597393555bce091a7a3c86e58f629ecf3422facd191f99dbd8fa0ff0da"
+      },
+      "extraction": "pypdf 6.19.0 default extract_text, UTF-8 encoding without normalization",
+      "locators": {
+        "model": "PDF3 Statistical analysis; appendix66-69 is referenced but not acquired",
+        "selection": "PDF5 Results exclusions for no follow-up and missing follow-up",
+        "competing_events": "PDF3 Fine-Gray risk-factor analysis; PDF6 sensitivity appendix37 referenced but not acquired",
+        "access": "PDF9 Data sharing"
+      },
+      "supplement_scope": "referenced_appendix_not_acquired_or_inspected",
+      "record_access": "individual_records_not_public_governance_approval_required",
+      "raw_distribution": "fetch_only_not_in_repository",
+      "related_work": "Distinct from DOI10.1007/s00125-025-06555-8; consortium overlap does not imply independent validation"
+    }
+  ],
+  "participant_records_acquired": false,
+  "parameters_added": false,
+  "empirical_fit_performed": false,
+  "model_semantics_changed": false,
+  "access_requests_made": false,
+  "scientific_gates": {
+    "direct_initialization_allowed": false,
+    "clinical_fit_allowed": false,
+    "engine_activation_allowed": false,
+    "sampling_distribution_assumed": false,
+    "scientific_release_ready": false
+  }
+}
