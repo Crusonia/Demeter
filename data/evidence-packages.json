@@ -1856,6 +1856,14 @@
     {
       "path": "docs/NHIS_NATIVE_SOURCE_ADMISSION.md",
       "sha256": "06174290a2acd3a664f8536cd2927c5f940dcecda8b972dd3a8ed69cfcc86977"
+    },
+    {
+      "path": "docs/validation/nhis2025-native-framing-receipt-v1.json",
+      "sha256": "d669d2283310f48e29c9aea8a3258f0ab20a6925d082e4affe92f059ef9bc56f"
+    },
+    {
+      "path": "docs/NHIS_NATIVE_FRAMING_RESULT.md",
+      "sha256": "e440a41960a572731181c138eb1a9b637929111f8254dc9f93a68e68bce18f21"
     }
   ]
 }

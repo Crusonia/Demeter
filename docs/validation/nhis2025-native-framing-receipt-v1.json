@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "kind": "native_delivery_and_framing_receipt",
+  "protocol_path": "docs/validation/nhis2025-native-framing-protocol-v1.json",
+  "protocol_sha256": "e1738706979b9bb2872389def34ea5b0f20d25584310f4af45288bf887fef25d",
+  "protocol_committed_at_execution_head": "d279409f796428a94a57fe2b0a11bbe447cf377c",
+  "acquisition_script_sha256": "d18cd6028361e3503879d9d00f222dd07cea34c499ed8026046de0be30cc73e5",
+  "started_at": "2026-10-03T06:50:36.509334+00:00",
+  "request_url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/NHIS/2025/adult25.zip",
+  "participant_fields_projected": false,
+  "source_admitted": false,
+  "empirical_estimate_computed": false,
+  "scientific_gates": {
+    "direct_initialization_allowed": false,
+    "clinical_fit_allowed": false,
+    "engine_activation_allowed": false,
+    "sampling_distribution_assumed": false,
+    "scientific_release_ready": false
+  },
+  "distribution": "private_fetch_only_originals",
+  "http_status": 200,
+  "final_url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/NHIS/2025/adult25.zip",
+  "zip": {
+    "size_bytes": 2837893,
+    "sha256": "1981733845c4d6ede66f4756c34d47b356fbe403820c0ed33825d21e4d8f21e4"
+  },
+  "archive_directory": {
+    "member_count": 1,
+    "approved_member": {
+      "filename": "adult25.dat",
+      "size_bytes": 16635705,
+      "compressed_size_bytes": 2837773,
+      "zip_crc32": "a1cc80ff",
+      "encrypted": false
+    }
+  },
+  "native": {
+    "size_bytes": 16635705,
+    "sha256": "48b2d91002c9f30e03e87e33d37041dc991ea43a390674045a9ca60c7d004b95",
+    "zip_crc_consistent": true
+  },
+  "framing": {
+    "ascii_valid": true,
+    "payload_width_frequencies": {
+      "685": 24215
+    },
+    "physical_line_endings": {
+      "CRLF": 24215
+    },
+    "final_newline_present": true,
+    "physical_record_count": 24215
+  },
+  "documentary_delivery_checks": {
+    "native_size_agrees": true,
+    "physical_record_count_agrees": true,
+    "all_payloads_terminal_width": true,
+    "published_checksum_algorithm_verified": false,
+    "published_checksum_compared": false
+  },
+  "status": "framing_observed_stop_before_fields",
+  "finished_at": "2026-10-03T06:50:57.095764+00:00"
+}

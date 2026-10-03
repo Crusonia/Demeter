@@ -38,6 +38,9 @@ implemented by that witness.
 The [native NHIS source protocol](../NHIS_NATIVE_SOURCE_ADMISSION.md) freezes a
 separate acquisition and byte-framing stage before participant fields. Delivery
 checks do not admit a parser, empirical estimate or clinical initializer.
+The subsequent [native-delivery result](../NHIS_NATIVE_FRAMING_RESULT.md) records
+the exact acquired archive/native identities and physical framing; no participant
+fields were projected or empirical calculation admitted.
 
 ## Methodological basis
 
