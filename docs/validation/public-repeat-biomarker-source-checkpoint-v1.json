@@ -1,0 +1,183 @@
+{
+  "authored_at": "2026-10-03T04:01:35.876658+00:00",
+  "base_commit": "e8dfeeaa40bf5635bab2a3bfdb283c351160c561",
+  "browser_metadata_only": [
+    {
+      "raw_bytes_acquired": false,
+      "raw_sha256": null,
+      "role": "Official decedent-only mortality release description",
+      "url": "https://www.icpsr.umich.edu/web/NACDA/studies/37237"
+    },
+    {
+      "raw_bytes_acquired": false,
+      "raw_sha256": null,
+      "role": "Mortality variable names only",
+      "url": "https://www.icpsr.umich.edu/web/NACDA/studies/37237/variables"
+    },
+    {
+      "raw_bytes_acquired": false,
+      "raw_sha256": null,
+      "resolved_url": "https://midus.colectica.org/Account/Login?returnUrl=/",
+      "role": "Advertised portal redirects to login; no authentication attempted",
+      "url": "https://midus.colectica.org/"
+    },
+    {
+      "raw_bytes_acquired": false,
+      "raw_sha256": null,
+      "role": "Producer selection frames and registration description",
+      "url": "https://www.mhasweb.org/DataProducts/AncillaryStudies.aspx"
+    }
+  ],
+  "design_trace_ids": [
+    "I-01",
+    "I-05",
+    "I-07",
+    "I-11",
+    "I-12",
+    "F-04",
+    "F-08",
+    "T-05",
+    "T-08"
+  ],
+  "empirical_calculations_performed": false,
+  "field_roles_verified_in_documentation": {
+    "MHAS": {
+      "exact_assay_fields_verified": false,
+      "hba1c_completion_flags": [
+        "HBA1C_12",
+        "HBA1C_16"
+      ],
+      "hba1c_completion_flags_are_assay_values": false,
+      "interview_date_field": "INT_DATE_XX",
+      "interview_date_is_blooddraw_clock": false,
+      "linkage_field": "UNHHIDNP",
+      "next_of_kin_completion_field": "FALLECIDO_XX",
+      "repeat_biomarker_intersection_verified": false,
+      "zero_means_confirmed_survival": false
+    },
+    "MIDUS": {
+      "all_baseline_contact_frame_verified": false,
+      "decedent_fields": [
+        "DECEASED",
+        "DOD_M"
+      ],
+      "exact_assay_fields_verified": false,
+      "individual_biomarker_clock_fields_verified": false,
+      "linkage_field": "M2ID"
+    }
+  },
+  "full_documents_redistributed": false,
+  "kind": "public_repeat_biomarker_metadata_checkpoint",
+  "participant_records_acquired": false,
+  "participant_records_requested": false,
+  "recommendation": {
+    "assessment": "author_inference_from_metadata_not_clinical_evidence",
+    "next_step": "Current producer per-field assay/date/diagnosis/medication/disposition crosswalk; no participant intake or new publication-count package."
+  },
+  "rights_scope": "Metadata-only producer-document discovery. Cached originals remain ignored and fetch-only; source access conditions are not clinical suitability or model acceptance.",
+  "schema_version": 1,
+  "scientific_gates": {
+    "clinical_fit_allowed": false,
+    "direct_initialization_allowed": false,
+    "engine_activation_allowed": false,
+    "sampling_distribution_assumed": false,
+    "scientific_release_ready": false
+  },
+  "source_admission": false,
+  "source_discovery_only": true,
+  "sources": {
+    "mhas-access-receipt-v1": {
+      "original_authored_receipt_sha256": "7103edd54e504f95fd0998ef5f8c550472ae87205046515b70e9af4af9fa8d5a",
+      "original_metadata_receipt": {
+        "attempted_at": "2026-10-03T03:54:13.004408+00:00",
+        "content_type": "text/html",
+        "filename": "mhas-access.html",
+        "kind": "metadata_only_public_source_discovery",
+        "participant_files_requested": false,
+        "redistribution": "not_assessed_fetch_only_ignored_cache",
+        "resolved_url": "https://www.mhasweb.org/DataProducts/Home.aspx",
+        "retrieved_at": "2026-10-03T03:54:13.525694+00:00",
+        "sha256": "c01e574b44a711286a8545825f8cbf845851384c865f629d20ce43cba5db77eb",
+        "size_bytes": 29933,
+        "source_admission": false,
+        "status": 200,
+        "url": "https://www.mhasweb.org/DataProducts/Home.aspx",
+        "used_source_chronology": "Producer descriptions/search snippets already examined before byte acquisition; not preregistration or independent validation."
+      },
+      "raw_document_committed": false
+    },
+    "mhas-master-followup-receipt-v1": {
+      "original_authored_receipt_sha256": "c823c5eaa8d0d11ba6ea9569a7a8c4a7354d3a789ccc659aa2f46b27313983bc",
+      "original_metadata_receipt": {
+        "attempted_at": "2026-10-03T03:54:13.535424+00:00",
+        "content_type": "application/pdf",
+        "filename": "mhas-master-followup.pdf",
+        "kind": "metadata_only_public_source_discovery",
+        "participant_files_requested": false,
+        "redistribution": "not_assessed_fetch_only_ignored_cache",
+        "resolved_url": "https://www.mhasweb.org/resources/DOCUMENTS/2018/MHAS_Master_Follow_up_File_2001_2003_2012_2015_2018.pdf",
+        "retrieved_at": "2026-10-03T03:54:14.105464+00:00",
+        "sha256": "b92c254dc714f28e606eaf2358043685875775ee34c3d2f4fa9fa6b2e98851a5",
+        "size_bytes": 749730,
+        "source_admission": false,
+        "status": 200,
+        "url": "https://www.mhasweb.org/resources/DOCUMENTS/2018/MHAS_Master_Follow_up_File_2001_2003_2012_2015_2018.pdf",
+        "used_source_chronology": "Producer descriptions/search snippets already examined before byte acquisition; not preregistration or independent validation."
+      },
+      "raw_document_committed": false
+    },
+    "midus-access-receipt-v1": {
+      "original_authored_receipt_sha256": "625cf036df0006ad828df62d0d48d14b88b156cf8f5066d14d4d16cfa618ccf7",
+      "original_metadata_receipt": {
+        "attempted_at": "2026-10-03T03:54:12.447346+00:00",
+        "content_type": "text/html",
+        "filename": "midus-access.html",
+        "kind": "metadata_only_public_source_discovery",
+        "participant_files_requested": false,
+        "redistribution": "not_assessed_fetch_only_ignored_cache",
+        "resolved_url": "https://midus.wisc.edu/data/index.php",
+        "retrieved_at": "2026-10-03T03:54:12.684710+00:00",
+        "sha256": "ca4269243d0ea6c3b10937b95044107e4e236b3c014800a0c594eac911bf4b83",
+        "size_bytes": 12781,
+        "source_admission": false,
+        "status": 200,
+        "url": "https://midus.wisc.edu/data/index.php",
+        "used_source_chronology": "Producer descriptions/search snippets already examined before byte acquisition; not preregistration or independent validation."
+      },
+      "raw_document_committed": false
+    },
+    "midus2-biomarker-catalog-receipt-v1": {
+      "original_authored_receipt_sha256": "fc8ce6956a562daf59aeea0c6b1d6477523b8ac5f8093635675f33af3324a168",
+      "original_metadata_receipt": {
+        "access_limitation": "Ordinary public request refused; no body archived or workaround.",
+        "attempted_at": "2026-10-03T03:54:12.685714+00:00",
+        "kind": "metadata_only_public_source_discovery",
+        "participant_files_requested": false,
+        "raw_bytes_archived": false,
+        "redistribution": "not_assessed_fetch_only_ignored_cache",
+        "source_admission": false,
+        "status": 403,
+        "url": "https://www.icpsr.umich.edu/web/ICPSR/studies/29282",
+        "used_source_chronology": "Producer descriptions/search snippets already examined before byte acquisition; not preregistration or independent validation."
+      },
+      "raw_document_committed": false
+    },
+    "midus3-biomarker-catalog-receipt-v1": {
+      "original_authored_receipt_sha256": "1c6a481a51bb9d294c800bb167b97409f2e3dfe2742b1c65511a9c7979a57357",
+      "original_metadata_receipt": {
+        "access_limitation": "Ordinary public request refused; no body archived or workaround.",
+        "attempted_at": "2026-10-03T03:54:12.898407+00:00",
+        "kind": "metadata_only_public_source_discovery",
+        "participant_files_requested": false,
+        "raw_bytes_archived": false,
+        "redistribution": "not_assessed_fetch_only_ignored_cache",
+        "source_admission": false,
+        "status": 403,
+        "url": "https://www.icpsr.umich.edu/web/NACDA/studies/38837/staff",
+        "used_source_chronology": "Producer descriptions/search snippets already examined before byte acquisition; not preregistration or independent validation."
+      },
+      "raw_document_committed": false
+    }
+  },
+  "used_source_chronology": "Producer descriptions/search snippets were inspected before metadata acquisitions and this checkpoint. Prior authored receipts are preserved below; not preregistration or an independent holdout."
+}
