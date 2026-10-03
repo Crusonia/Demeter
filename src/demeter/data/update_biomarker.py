@@ -19,7 +19,7 @@ from demeter.schema import EvidenceRegistry
 
 SUMMARY_PATH = "docs/validation/update-public-biomarker-summary-v1.json"
 SUMMARY_SHA256 = "c8746886ff1f44b4fec01a155766f5e8e1ebbb410303cfd11b8edc4032cf54b1"
-REGISTRY_RECORDS_SHA256 = "a1cb48213b349d29cf1868f2dee0ca5337355aaea5a03b25c7bc5c24d851783b"
+REGISTRY_RECORDS_SHA256 = "380921f2b5342fe77527e8a4e296b0a2b31166479017ec9b66a6f028c91ba668"
 DATASET = "update_public_biomarker_benchmark"
 SOURCE_ID = "update2025_published_supplement"
 GROUPS = ("mpf", "upf", "paired_mpf_minus_upf")

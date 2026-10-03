@@ -54,6 +54,32 @@ def test_checked_cells_preserve_display_units_pair_counts_and_missing_uncertaint
     } <= missing
 
 
+def test_transformations_match_endpoint_and_quantity_units(package):
+    registry, _ = package
+    for key in module.parameter_keys():
+        parameter = registry.parameters[key]
+        transformation = parameter.transformation
+        if key == "update_table5_followup_weeks":
+            assert parameter.unit == "weeks"
+            assert "assessment window in weeks" in transformation
+            assert "HbA1c" not in transformation
+        elif key.endswith("_n"):
+            assert parameter.unit == "persons"
+            assert "sample-count N in persons" in transformation
+            assert "unit conversion" in transformation
+            assert "percentage_points" not in transformation
+            assert "HbA1c" not in transformation
+        elif "fasting_glucose" in key:
+            assert parameter.unit == "mmol/L"
+            assert "fasting-glucose change value in mmol/L" in transformation
+            assert "No unit conversion" in transformation
+            assert "HbA1c" not in transformation
+            assert "percentage_points" not in transformation
+        else:
+            assert parameter.unit == "percentage_points"
+            assert "HbA1c change unit renamed percentage_points" in transformation
+
+
 def test_offline_replay_is_nonmutating_and_does_not_access_source_or_network(package, monkeypatch):
     registry, root = package
     before = registry.model_dump(mode="json")
@@ -76,6 +102,7 @@ def test_offline_replay_is_nonmutating_and_does_not_access_source_or_network(pac
     [
         ("value", 999),
         ("unit", "mmol/mol"),
+        ("transformation", "wrong endpoint unit conversion"),
         ("source", "wrong group"),
         ("model_role", "health_model"),
         ("population", "United States"),

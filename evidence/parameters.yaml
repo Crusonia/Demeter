@@ -21,8 +21,7 @@ parameters:
       composition is offered, not consumed dose.
     outcome_definition: Published unadjusted biomarker change from each diet baseline to week 8, or source-reported
       paired MPF-minus-UPF change; overnight-fasted venous biomarkers. Not disease transitions.
-    transformation: Literal published value and display preservation only. HbA1c change unit renamed percentage_points.
-      No marginal subtraction, imputation, p-value inference, annualization or sampling distribution.
+    transformation: Literal source-defined baseline-to-week-eight assessment window in weeks. No participant-specific elapsed-time inference or annualization.
     notes: Grade C appraises limited published summary facts for source replay, not clinical causal identification.
       Article CC BY 4.0; attributed factual transcription only. Unknown individual histories/cross-endpoint
       covariance; clinical gates remain closed.
@@ -53,8 +52,7 @@ parameters:
       composition is offered, not consumed dose.
     outcome_definition: Published unadjusted biomarker change from each diet baseline to week 8, or source-reported
       paired MPF-minus-UPF change; overnight-fasted venous biomarkers. Not disease transitions.
-    transformation: Literal published value and display preservation only. HbA1c change unit renamed percentage_points.
-      No marginal subtraction, imputation, p-value inference, annualization or sampling distribution.
+    transformation: Literal published sample-count N in persons; displayed count preserved. No unit conversion, imputation or population inference.
     notes: Grade C appraises limited published summary facts for source replay, not clinical causal identification.
       Article CC BY 4.0; attributed factual transcription only. Unknown individual histories/cross-endpoint
       covariance; clinical gates remain closed.
@@ -152,8 +150,7 @@ parameters:
       composition is offered, not consumed dose.
     outcome_definition: Published unadjusted biomarker change from each diet baseline to week 8, or source-reported
       paired MPF-minus-UPF change; overnight-fasted venous biomarkers. Not disease transitions.
-    transformation: Literal published value and display preservation only. HbA1c change unit renamed percentage_points.
-      No marginal subtraction, imputation, p-value inference, annualization or sampling distribution.
+    transformation: Literal published sample-count N in persons; displayed count preserved. No unit conversion, imputation or population inference.
     notes: Grade C appraises limited published summary facts for source replay, not clinical causal identification.
       Article CC BY 4.0; attributed factual transcription only. Unknown individual histories/cross-endpoint
       covariance; clinical gates remain closed.
@@ -251,8 +248,7 @@ parameters:
       composition is offered, not consumed dose.
     outcome_definition: Published unadjusted biomarker change from each diet baseline to week 8, or source-reported
       paired MPF-minus-UPF change; overnight-fasted venous biomarkers. Not disease transitions.
-    transformation: Literal published value and display preservation only. HbA1c change unit renamed percentage_points.
-      No marginal subtraction, imputation, p-value inference, annualization or sampling distribution.
+    transformation: Literal published sample-count N in persons; displayed count preserved. No unit conversion, imputation or population inference.
     notes: Grade C appraises limited published summary facts for source replay, not clinical causal identification.
       Article CC BY 4.0; attributed factual transcription only. Unknown individual histories/cross-endpoint
       covariance; clinical gates remain closed.
@@ -350,8 +346,7 @@ parameters:
       composition is offered, not consumed dose.
     outcome_definition: Published unadjusted biomarker change from each diet baseline to week 8, or source-reported
       paired MPF-minus-UPF change; overnight-fasted venous biomarkers. Not disease transitions.
-    transformation: Literal published value and display preservation only. HbA1c change unit renamed percentage_points.
-      No marginal subtraction, imputation, p-value inference, annualization or sampling distribution.
+    transformation: Literal published sample-count N in persons; displayed count preserved. No unit conversion, imputation or population inference.
     notes: Grade C appraises limited published summary facts for source replay, not clinical causal identification.
       Article CC BY 4.0; attributed factual transcription only. Unknown individual histories/cross-endpoint
       covariance; clinical gates remain closed.
@@ -384,8 +379,7 @@ parameters:
       composition is offered, not consumed dose.
     outcome_definition: Published unadjusted biomarker change from each diet baseline to week 8, or source-reported
       paired MPF-minus-UPF change; overnight-fasted venous biomarkers. Not disease transitions.
-    transformation: Literal published value and display preservation only. HbA1c change unit renamed percentage_points.
-      No marginal subtraction, imputation, p-value inference, annualization or sampling distribution.
+    transformation: Literal fasting-glucose change value in mmol/L and display preservation. No unit conversion, marginal subtraction, imputation, p-value inference, annualization or sampling distribution.
     notes: Grade C appraises limited published summary facts for source replay, not clinical causal identification.
       Article CC BY 4.0; attributed factual transcription only. Unknown individual histories/cross-endpoint
       covariance; clinical gates remain closed. Printed value -0.09; reported SE display 0.1 is preserved
@@ -416,8 +410,7 @@ parameters:
       composition is offered, not consumed dose.
     outcome_definition: Published unadjusted biomarker change from each diet baseline to week 8, or source-reported
       paired MPF-minus-UPF change; overnight-fasted venous biomarkers. Not disease transitions.
-    transformation: Literal published value and display preservation only. HbA1c change unit renamed percentage_points.
-      No marginal subtraction, imputation, p-value inference, annualization or sampling distribution.
+    transformation: Literal fasting-glucose change value in mmol/L and display preservation. No unit conversion, marginal subtraction, imputation, p-value inference, annualization or sampling distribution.
     notes: Grade C appraises limited published summary facts for source replay, not clinical causal identification.
       Article CC BY 4.0; attributed factual transcription only. Unknown individual histories/cross-endpoint
       covariance; clinical gates remain closed. Printed value 0.1; reported SE display 0.1 is preserved
@@ -449,8 +442,7 @@ parameters:
       composition is offered, not consumed dose.
     outcome_definition: Published unadjusted biomarker change from each diet baseline to week 8, or source-reported
       paired MPF-minus-UPF change; overnight-fasted venous biomarkers. Not disease transitions.
-    transformation: Literal published value and display preservation only. HbA1c change unit renamed percentage_points.
-      No marginal subtraction, imputation, p-value inference, annualization or sampling distribution.
+    transformation: Literal published sample-count N in persons; displayed count preserved. No unit conversion, imputation or population inference.
     notes: Grade C appraises limited published summary facts for source replay, not clinical causal identification.
       Article CC BY 4.0; attributed factual transcription only. Unknown individual histories/cross-endpoint
       covariance; clinical gates remain closed.
@@ -483,8 +475,7 @@ parameters:
       composition is offered, not consumed dose.
     outcome_definition: Published unadjusted biomarker change from each diet baseline to week 8, or source-reported
       paired MPF-minus-UPF change; overnight-fasted venous biomarkers. Not disease transitions.
-    transformation: Literal published value and display preservation only. HbA1c change unit renamed percentage_points.
-      No marginal subtraction, imputation, p-value inference, annualization or sampling distribution.
+    transformation: Literal fasting-glucose change value in mmol/L and display preservation. No unit conversion, marginal subtraction, imputation, p-value inference, annualization or sampling distribution.
     notes: Grade C appraises limited published summary facts for source replay, not clinical causal identification.
       Article CC BY 4.0; attributed factual transcription only. Unknown individual histories/cross-endpoint
       covariance; clinical gates remain closed. Printed value -0.14; reported SE display 0.1 is preserved
@@ -515,8 +506,7 @@ parameters:
       composition is offered, not consumed dose.
     outcome_definition: Published unadjusted biomarker change from each diet baseline to week 8, or source-reported
       paired MPF-minus-UPF change; overnight-fasted venous biomarkers. Not disease transitions.
-    transformation: Literal published value and display preservation only. HbA1c change unit renamed percentage_points.
-      No marginal subtraction, imputation, p-value inference, annualization or sampling distribution.
+    transformation: Literal fasting-glucose change value in mmol/L and display preservation. No unit conversion, marginal subtraction, imputation, p-value inference, annualization or sampling distribution.
     notes: Grade C appraises limited published summary facts for source replay, not clinical causal identification.
       Article CC BY 4.0; attributed factual transcription only. Unknown individual histories/cross-endpoint
       covariance; clinical gates remain closed. Printed value 0.1; reported SE display 0.1 is preserved
@@ -548,8 +538,7 @@ parameters:
       composition is offered, not consumed dose.
     outcome_definition: Published unadjusted biomarker change from each diet baseline to week 8, or source-reported
       paired MPF-minus-UPF change; overnight-fasted venous biomarkers. Not disease transitions.
-    transformation: Literal published value and display preservation only. HbA1c change unit renamed percentage_points.
-      No marginal subtraction, imputation, p-value inference, annualization or sampling distribution.
+    transformation: Literal published sample-count N in persons; displayed count preserved. No unit conversion, imputation or population inference.
     notes: Grade C appraises limited published summary facts for source replay, not clinical causal identification.
       Article CC BY 4.0; attributed factual transcription only. Unknown individual histories/cross-endpoint
       covariance; clinical gates remain closed.
@@ -582,8 +571,7 @@ parameters:
       composition is offered, not consumed dose.
     outcome_definition: Published unadjusted biomarker change from each diet baseline to week 8, or source-reported
       paired MPF-minus-UPF change; overnight-fasted venous biomarkers. Not disease transitions.
-    transformation: Literal published value and display preservation only. HbA1c change unit renamed percentage_points.
-      No marginal subtraction, imputation, p-value inference, annualization or sampling distribution.
+    transformation: Literal fasting-glucose change value in mmol/L and display preservation. No unit conversion, marginal subtraction, imputation, p-value inference, annualization or sampling distribution.
     notes: Grade C appraises limited published summary facts for source replay, not clinical causal identification.
       Article CC BY 4.0; attributed factual transcription only. Unknown individual histories/cross-endpoint
       covariance; clinical gates remain closed. Printed value 0.04; reported SE display 0.1 is preserved
@@ -615,8 +603,7 @@ parameters:
       composition is offered, not consumed dose.
     outcome_definition: Published unadjusted biomarker change from each diet baseline to week 8, or source-reported
       paired MPF-minus-UPF change; overnight-fasted venous biomarkers. Not disease transitions.
-    transformation: Literal published value and display preservation only. HbA1c change unit renamed percentage_points.
-      No marginal subtraction, imputation, p-value inference, annualization or sampling distribution.
+    transformation: Literal fasting-glucose change value in mmol/L and display preservation. No unit conversion, marginal subtraction, imputation, p-value inference, annualization or sampling distribution.
     notes: Grade C appraises limited published summary facts for source replay, not clinical causal identification.
       Article CC BY 4.0; attributed factual transcription only. Unknown individual histories/cross-endpoint
       covariance; clinical gates remain closed. Printed value 0.1; reported SE display 0.1 is preserved
