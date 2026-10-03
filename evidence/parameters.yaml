@@ -1,4 +1,619 @@
 parameters:
+  update_table5_followup_weeks:
+    key: update_table5_followup_weeks
+    value: 8
+    unit: weeks
+    status: observed
+    model_role: benchmark_only
+    evidence_grade: C
+    source_id: update2025_published_supplement
+    source_url: https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41591-025-03842-0/MediaObjects/41591_2025_3842_MOESM1_ESM.pdf
+    citation: 'Dicken SJ et al. Ultraprocessed or minimally processed diets following healthy dietary guidelines
+      on weight and cardiometabolic health: a randomized, crossover trial. Nature Medicine 31, 3297-3308
+      (2025). DOI 10.1038/s41591-025-03842-0. Current Supplementary Table 5, PDF pages 12-13.'
+    population: Eligible England adults with overweight/obesity and high habitual UPF intake; diagnosed
+      T2D/insulin use excluded. Available endpoint/diet changes and paired change subsets in an ITT-labelled
+      table.
+    geography: South East England and London; no U.S. population transport
+    time_period: Trial recruitment 2023-2024; baseline-to-week-8 assigned diet changes; published 2025;
+      current supplement inspected 2026-10-03.
+    exposure_definition: Assigned ad-libitum MPF or UPF supplied diets following UK Eatwell Guide; menu
+      composition is offered, not consumed dose.
+    outcome_definition: Published unadjusted biomarker change from each diet baseline to week 8, or source-reported
+      paired MPF-minus-UPF change; overnight-fasted venous biomarkers. Not disease transitions.
+    transformation: Literal source-defined baseline-to-week-eight assessment window in weeks. No participant-specific elapsed-time inference or annualization.
+    notes: Grade C appraises limited published summary facts for source replay, not clinical causal identification.
+      Article CC BY 4.0; attributed factual transcription only. Unknown individual histories/cross-endpoint
+      covariance; clinical gates remain closed.
+    source: Supplementary Table 5 title, PDF page 12, each-diet baseline to week 8
+    uncertainty:
+      kind: fixed
+      rationale: Source-defined assessment window, not participant-specific elapsed-time measurement or
+        a clinical hazard clock.
+  update_table5_hba1c_mpf_n:
+    key: update_table5_hba1c_mpf_n
+    value: 46
+    unit: persons
+    status: observed
+    model_role: benchmark_only
+    evidence_grade: C
+    source_id: update2025_published_supplement
+    source_url: https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41591-025-03842-0/MediaObjects/41591_2025_3842_MOESM1_ESM.pdf
+    citation: 'Dicken SJ et al. Ultraprocessed or minimally processed diets following healthy dietary guidelines
+      on weight and cardiometabolic health: a randomized, crossover trial. Nature Medicine 31, 3297-3308
+      (2025). DOI 10.1038/s41591-025-03842-0. Current Supplementary Table 5, PDF pages 12-13.'
+    population: Eligible England adults with overweight/obesity and high habitual UPF intake; diagnosed
+      T2D/insulin use excluded. Available endpoint/diet changes and paired change subsets in an ITT-labelled
+      table.
+    geography: South East England and London; no U.S. population transport
+    time_period: Trial recruitment 2023-2024; baseline-to-week-8 assigned diet changes; published 2025;
+      current supplement inspected 2026-10-03.
+    exposure_definition: Assigned ad-libitum MPF or UPF supplied diets following UK Eatwell Guide; menu
+      composition is offered, not consumed dose.
+    outcome_definition: Published unadjusted biomarker change from each diet baseline to week 8, or source-reported
+      paired MPF-minus-UPF change; overnight-fasted venous biomarkers. Not disease transitions.
+    transformation: Literal published sample-count N in persons; displayed count preserved. No unit conversion, imputation or population inference.
+    notes: Grade C appraises limited published summary facts for source replay, not clinical causal identification.
+      Article CC BY 4.0; attributed factual transcription only. Unknown individual histories/cross-endpoint
+      covariance; clinical gates remain closed.
+    source: Supplementary Table 5, PDF page 12, HbA1C (%) row; ordered MPF / UPF / MPF-minus-UPF groups,
+      N / Mean / SE columns; group mpf, column N
+    uncertainty:
+      kind: fixed
+      rationale: Fixed publication sample-count literal in the selected release, not a population sampling
+        distribution or clinical effect.
+    lower_bound: 0
+  update_table5_hba1c_mpf_mean:
+    key: update_table5_hba1c_mpf_mean
+    value: -0.08
+    unit: percentage_points
+    status: estimated
+    model_role: benchmark_only
+    evidence_grade: C
+    source_id: update2025_published_supplement
+    source_url: https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41591-025-03842-0/MediaObjects/41591_2025_3842_MOESM1_ESM.pdf
+    citation: 'Dicken SJ et al. Ultraprocessed or minimally processed diets following healthy dietary guidelines
+      on weight and cardiometabolic health: a randomized, crossover trial. Nature Medicine 31, 3297-3308
+      (2025). DOI 10.1038/s41591-025-03842-0. Current Supplementary Table 5, PDF pages 12-13.'
+    population: Eligible England adults with overweight/obesity and high habitual UPF intake; diagnosed
+      T2D/insulin use excluded. Available endpoint/diet changes and paired change subsets in an ITT-labelled
+      table.
+    geography: South East England and London; no U.S. population transport
+    time_period: Trial recruitment 2023-2024; baseline-to-week-8 assigned diet changes; published 2025;
+      current supplement inspected 2026-10-03.
+    exposure_definition: Assigned ad-libitum MPF or UPF supplied diets following UK Eatwell Guide; menu
+      composition is offered, not consumed dose.
+    outcome_definition: Published unadjusted biomarker change from each diet baseline to week 8, or source-reported
+      paired MPF-minus-UPF change; overnight-fasted venous biomarkers. Not disease transitions.
+    transformation: Literal published value and display preservation only. HbA1c change unit renamed percentage_points.
+      No marginal subtraction, imputation, p-value inference, annualization or sampling distribution.
+    notes: Grade C appraises limited published summary facts for source replay, not clinical causal identification.
+      Article CC BY 4.0; attributed factual transcription only. Unknown individual histories/cross-endpoint
+      covariance; clinical gates remain closed. Printed value -0.08; reported SE display 0.0 is preserved
+      separately in update_table5_hba1c_mpf_reported_se. Underlying uncertainty and rounding rule remain
+      unresolved; null uncertainty is intentional, not zero. No CI or normal SD is inferred.
+    source: Supplementary Table 5, PDF page 12, HbA1C (%) row; ordered MPF / UPF / MPF-minus-UPF groups,
+      N / Mean / SE columns; group mpf, column Mean
+    uncertainty: null
+  update_table5_hba1c_mpf_reported_se:
+    key: update_table5_hba1c_mpf_reported_se
+    value: 0.0
+    unit: percentage_points
+    status: estimated
+    model_role: benchmark_only
+    evidence_grade: C
+    source_id: update2025_published_supplement
+    source_url: https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41591-025-03842-0/MediaObjects/41591_2025_3842_MOESM1_ESM.pdf
+    citation: 'Dicken SJ et al. Ultraprocessed or minimally processed diets following healthy dietary guidelines
+      on weight and cardiometabolic health: a randomized, crossover trial. Nature Medicine 31, 3297-3308
+      (2025). DOI 10.1038/s41591-025-03842-0. Current Supplementary Table 5, PDF pages 12-13.'
+    population: Eligible England adults with overweight/obesity and high habitual UPF intake; diagnosed
+      T2D/insulin use excluded. Available endpoint/diet changes and paired change subsets in an ITT-labelled
+      table.
+    geography: South East England and London; no U.S. population transport
+    time_period: Trial recruitment 2023-2024; baseline-to-week-8 assigned diet changes; published 2025;
+      current supplement inspected 2026-10-03.
+    exposure_definition: Assigned ad-libitum MPF or UPF supplied diets following UK Eatwell Guide; menu
+      composition is offered, not consumed dose.
+    outcome_definition: Published unadjusted biomarker change from each diet baseline to week 8, or source-reported
+      paired MPF-minus-UPF change; overnight-fasted venous biomarkers. Not disease transitions.
+    transformation: Literal published value and display preservation only. HbA1c change unit renamed percentage_points.
+      No marginal subtraction, imputation, p-value inference, annualization or sampling distribution.
+    notes: Grade C appraises limited published summary facts for source replay, not clinical causal identification.
+      Article CC BY 4.0; attributed factual transcription only. Unknown individual histories/cross-endpoint
+      covariance; clinical gates remain closed. Printed value 0.0; reported SE display 0.0 is preserved
+      separately in update_table5_hba1c_mpf_reported_se. Underlying uncertainty and rounding rule remain
+      unresolved; null uncertainty is intentional, not zero. No CI or normal SD is inferred.
+    source: Supplementary Table 5, PDF page 12, HbA1C (%) row; ordered MPF / UPF / MPF-minus-UPF groups,
+      N / Mean / SE columns; group mpf, column SE
+    uncertainty: null
+    lower_bound: 0
+  update_table5_hba1c_upf_n:
+    key: update_table5_hba1c_upf_n
+    value: 47
+    unit: persons
+    status: observed
+    model_role: benchmark_only
+    evidence_grade: C
+    source_id: update2025_published_supplement
+    source_url: https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41591-025-03842-0/MediaObjects/41591_2025_3842_MOESM1_ESM.pdf
+    citation: 'Dicken SJ et al. Ultraprocessed or minimally processed diets following healthy dietary guidelines
+      on weight and cardiometabolic health: a randomized, crossover trial. Nature Medicine 31, 3297-3308
+      (2025). DOI 10.1038/s41591-025-03842-0. Current Supplementary Table 5, PDF pages 12-13.'
+    population: Eligible England adults with overweight/obesity and high habitual UPF intake; diagnosed
+      T2D/insulin use excluded. Available endpoint/diet changes and paired change subsets in an ITT-labelled
+      table.
+    geography: South East England and London; no U.S. population transport
+    time_period: Trial recruitment 2023-2024; baseline-to-week-8 assigned diet changes; published 2025;
+      current supplement inspected 2026-10-03.
+    exposure_definition: Assigned ad-libitum MPF or UPF supplied diets following UK Eatwell Guide; menu
+      composition is offered, not consumed dose.
+    outcome_definition: Published unadjusted biomarker change from each diet baseline to week 8, or source-reported
+      paired MPF-minus-UPF change; overnight-fasted venous biomarkers. Not disease transitions.
+    transformation: Literal published sample-count N in persons; displayed count preserved. No unit conversion, imputation or population inference.
+    notes: Grade C appraises limited published summary facts for source replay, not clinical causal identification.
+      Article CC BY 4.0; attributed factual transcription only. Unknown individual histories/cross-endpoint
+      covariance; clinical gates remain closed.
+    source: Supplementary Table 5, PDF page 12, HbA1C (%) row; ordered MPF / UPF / MPF-minus-UPF groups,
+      N / Mean / SE columns; group upf, column N
+    uncertainty:
+      kind: fixed
+      rationale: Fixed publication sample-count literal in the selected release, not a population sampling
+        distribution or clinical effect.
+    lower_bound: 0
+  update_table5_hba1c_upf_mean:
+    key: update_table5_hba1c_upf_mean
+    value: -0.03
+    unit: percentage_points
+    status: estimated
+    model_role: benchmark_only
+    evidence_grade: C
+    source_id: update2025_published_supplement
+    source_url: https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41591-025-03842-0/MediaObjects/41591_2025_3842_MOESM1_ESM.pdf
+    citation: 'Dicken SJ et al. Ultraprocessed or minimally processed diets following healthy dietary guidelines
+      on weight and cardiometabolic health: a randomized, crossover trial. Nature Medicine 31, 3297-3308
+      (2025). DOI 10.1038/s41591-025-03842-0. Current Supplementary Table 5, PDF pages 12-13.'
+    population: Eligible England adults with overweight/obesity and high habitual UPF intake; diagnosed
+      T2D/insulin use excluded. Available endpoint/diet changes and paired change subsets in an ITT-labelled
+      table.
+    geography: South East England and London; no U.S. population transport
+    time_period: Trial recruitment 2023-2024; baseline-to-week-8 assigned diet changes; published 2025;
+      current supplement inspected 2026-10-03.
+    exposure_definition: Assigned ad-libitum MPF or UPF supplied diets following UK Eatwell Guide; menu
+      composition is offered, not consumed dose.
+    outcome_definition: Published unadjusted biomarker change from each diet baseline to week 8, or source-reported
+      paired MPF-minus-UPF change; overnight-fasted venous biomarkers. Not disease transitions.
+    transformation: Literal published value and display preservation only. HbA1c change unit renamed percentage_points.
+      No marginal subtraction, imputation, p-value inference, annualization or sampling distribution.
+    notes: Grade C appraises limited published summary facts for source replay, not clinical causal identification.
+      Article CC BY 4.0; attributed factual transcription only. Unknown individual histories/cross-endpoint
+      covariance; clinical gates remain closed. Printed value -0.03; reported SE display 0.0 is preserved
+      separately in update_table5_hba1c_upf_reported_se. Underlying uncertainty and rounding rule remain
+      unresolved; null uncertainty is intentional, not zero. No CI or normal SD is inferred.
+    source: Supplementary Table 5, PDF page 12, HbA1C (%) row; ordered MPF / UPF / MPF-minus-UPF groups,
+      N / Mean / SE columns; group upf, column Mean
+    uncertainty: null
+  update_table5_hba1c_upf_reported_se:
+    key: update_table5_hba1c_upf_reported_se
+    value: 0.0
+    unit: percentage_points
+    status: estimated
+    model_role: benchmark_only
+    evidence_grade: C
+    source_id: update2025_published_supplement
+    source_url: https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41591-025-03842-0/MediaObjects/41591_2025_3842_MOESM1_ESM.pdf
+    citation: 'Dicken SJ et al. Ultraprocessed or minimally processed diets following healthy dietary guidelines
+      on weight and cardiometabolic health: a randomized, crossover trial. Nature Medicine 31, 3297-3308
+      (2025). DOI 10.1038/s41591-025-03842-0. Current Supplementary Table 5, PDF pages 12-13.'
+    population: Eligible England adults with overweight/obesity and high habitual UPF intake; diagnosed
+      T2D/insulin use excluded. Available endpoint/diet changes and paired change subsets in an ITT-labelled
+      table.
+    geography: South East England and London; no U.S. population transport
+    time_period: Trial recruitment 2023-2024; baseline-to-week-8 assigned diet changes; published 2025;
+      current supplement inspected 2026-10-03.
+    exposure_definition: Assigned ad-libitum MPF or UPF supplied diets following UK Eatwell Guide; menu
+      composition is offered, not consumed dose.
+    outcome_definition: Published unadjusted biomarker change from each diet baseline to week 8, or source-reported
+      paired MPF-minus-UPF change; overnight-fasted venous biomarkers. Not disease transitions.
+    transformation: Literal published value and display preservation only. HbA1c change unit renamed percentage_points.
+      No marginal subtraction, imputation, p-value inference, annualization or sampling distribution.
+    notes: Grade C appraises limited published summary facts for source replay, not clinical causal identification.
+      Article CC BY 4.0; attributed factual transcription only. Unknown individual histories/cross-endpoint
+      covariance; clinical gates remain closed. Printed value 0.0; reported SE display 0.0 is preserved
+      separately in update_table5_hba1c_upf_reported_se. Underlying uncertainty and rounding rule remain
+      unresolved; null uncertainty is intentional, not zero. No CI or normal SD is inferred.
+    source: Supplementary Table 5, PDF page 12, HbA1C (%) row; ordered MPF / UPF / MPF-minus-UPF groups,
+      N / Mean / SE columns; group upf, column SE
+    uncertainty: null
+    lower_bound: 0
+  update_table5_hba1c_paired_mpf_minus_upf_n:
+    key: update_table5_hba1c_paired_mpf_minus_upf_n
+    value: 45
+    unit: persons
+    status: observed
+    model_role: benchmark_only
+    evidence_grade: C
+    source_id: update2025_published_supplement
+    source_url: https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41591-025-03842-0/MediaObjects/41591_2025_3842_MOESM1_ESM.pdf
+    citation: 'Dicken SJ et al. Ultraprocessed or minimally processed diets following healthy dietary guidelines
+      on weight and cardiometabolic health: a randomized, crossover trial. Nature Medicine 31, 3297-3308
+      (2025). DOI 10.1038/s41591-025-03842-0. Current Supplementary Table 5, PDF pages 12-13.'
+    population: Eligible England adults with overweight/obesity and high habitual UPF intake; diagnosed
+      T2D/insulin use excluded. Available endpoint/diet changes and paired change subsets in an ITT-labelled
+      table.
+    geography: South East England and London; no U.S. population transport
+    time_period: Trial recruitment 2023-2024; baseline-to-week-8 assigned diet changes; published 2025;
+      current supplement inspected 2026-10-03.
+    exposure_definition: Assigned ad-libitum MPF or UPF supplied diets following UK Eatwell Guide; menu
+      composition is offered, not consumed dose.
+    outcome_definition: Published unadjusted biomarker change from each diet baseline to week 8, or source-reported
+      paired MPF-minus-UPF change; overnight-fasted venous biomarkers. Not disease transitions.
+    transformation: Literal published sample-count N in persons; displayed count preserved. No unit conversion, imputation or population inference.
+    notes: Grade C appraises limited published summary facts for source replay, not clinical causal identification.
+      Article CC BY 4.0; attributed factual transcription only. Unknown individual histories/cross-endpoint
+      covariance; clinical gates remain closed.
+    source: Supplementary Table 5, PDF page 12, HbA1C (%) row; ordered MPF / UPF / MPF-minus-UPF groups,
+      N / Mean / SE columns; group paired_mpf_minus_upf, column N
+    uncertainty:
+      kind: fixed
+      rationale: Fixed publication sample-count literal in the selected release, not a population sampling
+        distribution or clinical effect.
+    lower_bound: 0
+  update_table5_hba1c_paired_mpf_minus_upf_mean:
+    key: update_table5_hba1c_paired_mpf_minus_upf_mean
+    value: -0.05
+    unit: percentage_points
+    status: estimated
+    model_role: benchmark_only
+    evidence_grade: C
+    source_id: update2025_published_supplement
+    source_url: https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41591-025-03842-0/MediaObjects/41591_2025_3842_MOESM1_ESM.pdf
+    citation: 'Dicken SJ et al. Ultraprocessed or minimally processed diets following healthy dietary guidelines
+      on weight and cardiometabolic health: a randomized, crossover trial. Nature Medicine 31, 3297-3308
+      (2025). DOI 10.1038/s41591-025-03842-0. Current Supplementary Table 5, PDF pages 12-13.'
+    population: Eligible England adults with overweight/obesity and high habitual UPF intake; diagnosed
+      T2D/insulin use excluded. Available endpoint/diet changes and paired change subsets in an ITT-labelled
+      table.
+    geography: South East England and London; no U.S. population transport
+    time_period: Trial recruitment 2023-2024; baseline-to-week-8 assigned diet changes; published 2025;
+      current supplement inspected 2026-10-03.
+    exposure_definition: Assigned ad-libitum MPF or UPF supplied diets following UK Eatwell Guide; menu
+      composition is offered, not consumed dose.
+    outcome_definition: Published unadjusted biomarker change from each diet baseline to week 8, or source-reported
+      paired MPF-minus-UPF change; overnight-fasted venous biomarkers. Not disease transitions.
+    transformation: Literal published value and display preservation only. HbA1c change unit renamed percentage_points.
+      No marginal subtraction, imputation, p-value inference, annualization or sampling distribution.
+    notes: Grade C appraises limited published summary facts for source replay, not clinical causal identification.
+      Article CC BY 4.0; attributed factual transcription only. Unknown individual histories/cross-endpoint
+      covariance; clinical gates remain closed. Printed value -0.05; reported SE display 0.0 is preserved
+      separately in update_table5_hba1c_paired_mpf_minus_upf_reported_se. Underlying uncertainty and rounding
+      rule remain unresolved; null uncertainty is intentional, not zero. No CI or normal SD is inferred.
+    source: Supplementary Table 5, PDF page 12, HbA1C (%) row; ordered MPF / UPF / MPF-minus-UPF groups,
+      N / Mean / SE columns; group paired_mpf_minus_upf, column Mean
+    uncertainty: null
+  update_table5_hba1c_paired_mpf_minus_upf_reported_se:
+    key: update_table5_hba1c_paired_mpf_minus_upf_reported_se
+    value: 0.0
+    unit: percentage_points
+    status: estimated
+    model_role: benchmark_only
+    evidence_grade: C
+    source_id: update2025_published_supplement
+    source_url: https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41591-025-03842-0/MediaObjects/41591_2025_3842_MOESM1_ESM.pdf
+    citation: 'Dicken SJ et al. Ultraprocessed or minimally processed diets following healthy dietary guidelines
+      on weight and cardiometabolic health: a randomized, crossover trial. Nature Medicine 31, 3297-3308
+      (2025). DOI 10.1038/s41591-025-03842-0. Current Supplementary Table 5, PDF pages 12-13.'
+    population: Eligible England adults with overweight/obesity and high habitual UPF intake; diagnosed
+      T2D/insulin use excluded. Available endpoint/diet changes and paired change subsets in an ITT-labelled
+      table.
+    geography: South East England and London; no U.S. population transport
+    time_period: Trial recruitment 2023-2024; baseline-to-week-8 assigned diet changes; published 2025;
+      current supplement inspected 2026-10-03.
+    exposure_definition: Assigned ad-libitum MPF or UPF supplied diets following UK Eatwell Guide; menu
+      composition is offered, not consumed dose.
+    outcome_definition: Published unadjusted biomarker change from each diet baseline to week 8, or source-reported
+      paired MPF-minus-UPF change; overnight-fasted venous biomarkers. Not disease transitions.
+    transformation: Literal published value and display preservation only. HbA1c change unit renamed percentage_points.
+      No marginal subtraction, imputation, p-value inference, annualization or sampling distribution.
+    notes: Grade C appraises limited published summary facts for source replay, not clinical causal identification.
+      Article CC BY 4.0; attributed factual transcription only. Unknown individual histories/cross-endpoint
+      covariance; clinical gates remain closed. Printed value 0.0; reported SE display 0.0 is preserved
+      separately in update_table5_hba1c_paired_mpf_minus_upf_reported_se. Underlying uncertainty and rounding
+      rule remain unresolved; null uncertainty is intentional, not zero. No CI or normal SD is inferred.
+    source: Supplementary Table 5, PDF page 12, HbA1C (%) row; ordered MPF / UPF / MPF-minus-UPF groups,
+      N / Mean / SE columns; group paired_mpf_minus_upf, column SE
+    uncertainty: null
+    lower_bound: 0
+  update_table5_fasting_glucose_mpf_n:
+    key: update_table5_fasting_glucose_mpf_n
+    value: 46
+    unit: persons
+    status: observed
+    model_role: benchmark_only
+    evidence_grade: C
+    source_id: update2025_published_supplement
+    source_url: https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41591-025-03842-0/MediaObjects/41591_2025_3842_MOESM1_ESM.pdf
+    citation: 'Dicken SJ et al. Ultraprocessed or minimally processed diets following healthy dietary guidelines
+      on weight and cardiometabolic health: a randomized, crossover trial. Nature Medicine 31, 3297-3308
+      (2025). DOI 10.1038/s41591-025-03842-0. Current Supplementary Table 5, PDF pages 12-13.'
+    population: Eligible England adults with overweight/obesity and high habitual UPF intake; diagnosed
+      T2D/insulin use excluded. Available endpoint/diet changes and paired change subsets in an ITT-labelled
+      table.
+    geography: South East England and London; no U.S. population transport
+    time_period: Trial recruitment 2023-2024; baseline-to-week-8 assigned diet changes; published 2025;
+      current supplement inspected 2026-10-03.
+    exposure_definition: Assigned ad-libitum MPF or UPF supplied diets following UK Eatwell Guide; menu
+      composition is offered, not consumed dose.
+    outcome_definition: Published unadjusted biomarker change from each diet baseline to week 8, or source-reported
+      paired MPF-minus-UPF change; overnight-fasted venous biomarkers. Not disease transitions.
+    transformation: Literal published sample-count N in persons; displayed count preserved. No unit conversion, imputation or population inference.
+    notes: Grade C appraises limited published summary facts for source replay, not clinical causal identification.
+      Article CC BY 4.0; attributed factual transcription only. Unknown individual histories/cross-endpoint
+      covariance; clinical gates remain closed.
+    source: Supplementary Table 5, PDF page 12, Fasting glucose (mmol/L) row; ordered MPF / UPF / MPF-minus-UPF
+      groups, N / Mean / SE columns; group mpf, column N
+    uncertainty:
+      kind: fixed
+      rationale: Fixed publication sample-count literal in the selected release, not a population sampling
+        distribution or clinical effect.
+    lower_bound: 0
+  update_table5_fasting_glucose_mpf_mean:
+    key: update_table5_fasting_glucose_mpf_mean
+    value: -0.09
+    unit: mmol/L
+    status: estimated
+    model_role: benchmark_only
+    evidence_grade: C
+    source_id: update2025_published_supplement
+    source_url: https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41591-025-03842-0/MediaObjects/41591_2025_3842_MOESM1_ESM.pdf
+    citation: 'Dicken SJ et al. Ultraprocessed or minimally processed diets following healthy dietary guidelines
+      on weight and cardiometabolic health: a randomized, crossover trial. Nature Medicine 31, 3297-3308
+      (2025). DOI 10.1038/s41591-025-03842-0. Current Supplementary Table 5, PDF pages 12-13.'
+    population: Eligible England adults with overweight/obesity and high habitual UPF intake; diagnosed
+      T2D/insulin use excluded. Available endpoint/diet changes and paired change subsets in an ITT-labelled
+      table.
+    geography: South East England and London; no U.S. population transport
+    time_period: Trial recruitment 2023-2024; baseline-to-week-8 assigned diet changes; published 2025;
+      current supplement inspected 2026-10-03.
+    exposure_definition: Assigned ad-libitum MPF or UPF supplied diets following UK Eatwell Guide; menu
+      composition is offered, not consumed dose.
+    outcome_definition: Published unadjusted biomarker change from each diet baseline to week 8, or source-reported
+      paired MPF-minus-UPF change; overnight-fasted venous biomarkers. Not disease transitions.
+    transformation: Literal fasting-glucose change value in mmol/L and display preservation. No unit conversion, marginal subtraction, imputation, p-value inference, annualization or sampling distribution.
+    notes: Grade C appraises limited published summary facts for source replay, not clinical causal identification.
+      Article CC BY 4.0; attributed factual transcription only. Unknown individual histories/cross-endpoint
+      covariance; clinical gates remain closed. Printed value -0.09; reported SE display 0.1 is preserved
+      separately in update_table5_fasting_glucose_mpf_reported_se. Underlying uncertainty and rounding rule
+      remain unresolved; null uncertainty is intentional, not zero. No CI or normal SD is inferred.
+    source: Supplementary Table 5, PDF page 12, Fasting glucose (mmol/L) row; ordered MPF / UPF / MPF-minus-UPF
+      groups, N / Mean / SE columns; group mpf, column Mean
+    uncertainty: null
+  update_table5_fasting_glucose_mpf_reported_se:
+    key: update_table5_fasting_glucose_mpf_reported_se
+    value: 0.1
+    unit: mmol/L
+    status: estimated
+    model_role: benchmark_only
+    evidence_grade: C
+    source_id: update2025_published_supplement
+    source_url: https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41591-025-03842-0/MediaObjects/41591_2025_3842_MOESM1_ESM.pdf
+    citation: 'Dicken SJ et al. Ultraprocessed or minimally processed diets following healthy dietary guidelines
+      on weight and cardiometabolic health: a randomized, crossover trial. Nature Medicine 31, 3297-3308
+      (2025). DOI 10.1038/s41591-025-03842-0. Current Supplementary Table 5, PDF pages 12-13.'
+    population: Eligible England adults with overweight/obesity and high habitual UPF intake; diagnosed
+      T2D/insulin use excluded. Available endpoint/diet changes and paired change subsets in an ITT-labelled
+      table.
+    geography: South East England and London; no U.S. population transport
+    time_period: Trial recruitment 2023-2024; baseline-to-week-8 assigned diet changes; published 2025;
+      current supplement inspected 2026-10-03.
+    exposure_definition: Assigned ad-libitum MPF or UPF supplied diets following UK Eatwell Guide; menu
+      composition is offered, not consumed dose.
+    outcome_definition: Published unadjusted biomarker change from each diet baseline to week 8, or source-reported
+      paired MPF-minus-UPF change; overnight-fasted venous biomarkers. Not disease transitions.
+    transformation: Literal fasting-glucose change value in mmol/L and display preservation. No unit conversion, marginal subtraction, imputation, p-value inference, annualization or sampling distribution.
+    notes: Grade C appraises limited published summary facts for source replay, not clinical causal identification.
+      Article CC BY 4.0; attributed factual transcription only. Unknown individual histories/cross-endpoint
+      covariance; clinical gates remain closed. Printed value 0.1; reported SE display 0.1 is preserved
+      separately in update_table5_fasting_glucose_mpf_reported_se. Underlying uncertainty and rounding rule
+      remain unresolved; null uncertainty is intentional, not zero. No CI or normal SD is inferred.
+    source: Supplementary Table 5, PDF page 12, Fasting glucose (mmol/L) row; ordered MPF / UPF / MPF-minus-UPF
+      groups, N / Mean / SE columns; group mpf, column SE
+    uncertainty: null
+    lower_bound: 0
+  update_table5_fasting_glucose_upf_n:
+    key: update_table5_fasting_glucose_upf_n
+    value: 46
+    unit: persons
+    status: observed
+    model_role: benchmark_only
+    evidence_grade: C
+    source_id: update2025_published_supplement
+    source_url: https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41591-025-03842-0/MediaObjects/41591_2025_3842_MOESM1_ESM.pdf
+    citation: 'Dicken SJ et al. Ultraprocessed or minimally processed diets following healthy dietary guidelines
+      on weight and cardiometabolic health: a randomized, crossover trial. Nature Medicine 31, 3297-3308
+      (2025). DOI 10.1038/s41591-025-03842-0. Current Supplementary Table 5, PDF pages 12-13.'
+    population: Eligible England adults with overweight/obesity and high habitual UPF intake; diagnosed
+      T2D/insulin use excluded. Available endpoint/diet changes and paired change subsets in an ITT-labelled
+      table.
+    geography: South East England and London; no U.S. population transport
+    time_period: Trial recruitment 2023-2024; baseline-to-week-8 assigned diet changes; published 2025;
+      current supplement inspected 2026-10-03.
+    exposure_definition: Assigned ad-libitum MPF or UPF supplied diets following UK Eatwell Guide; menu
+      composition is offered, not consumed dose.
+    outcome_definition: Published unadjusted biomarker change from each diet baseline to week 8, or source-reported
+      paired MPF-minus-UPF change; overnight-fasted venous biomarkers. Not disease transitions.
+    transformation: Literal published sample-count N in persons; displayed count preserved. No unit conversion, imputation or population inference.
+    notes: Grade C appraises limited published summary facts for source replay, not clinical causal identification.
+      Article CC BY 4.0; attributed factual transcription only. Unknown individual histories/cross-endpoint
+      covariance; clinical gates remain closed.
+    source: Supplementary Table 5, PDF page 12, Fasting glucose (mmol/L) row; ordered MPF / UPF / MPF-minus-UPF
+      groups, N / Mean / SE columns; group upf, column N
+    uncertainty:
+      kind: fixed
+      rationale: Fixed publication sample-count literal in the selected release, not a population sampling
+        distribution or clinical effect.
+    lower_bound: 0
+  update_table5_fasting_glucose_upf_mean:
+    key: update_table5_fasting_glucose_upf_mean
+    value: -0.14
+    unit: mmol/L
+    status: estimated
+    model_role: benchmark_only
+    evidence_grade: C
+    source_id: update2025_published_supplement
+    source_url: https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41591-025-03842-0/MediaObjects/41591_2025_3842_MOESM1_ESM.pdf
+    citation: 'Dicken SJ et al. Ultraprocessed or minimally processed diets following healthy dietary guidelines
+      on weight and cardiometabolic health: a randomized, crossover trial. Nature Medicine 31, 3297-3308
+      (2025). DOI 10.1038/s41591-025-03842-0. Current Supplementary Table 5, PDF pages 12-13.'
+    population: Eligible England adults with overweight/obesity and high habitual UPF intake; diagnosed
+      T2D/insulin use excluded. Available endpoint/diet changes and paired change subsets in an ITT-labelled
+      table.
+    geography: South East England and London; no U.S. population transport
+    time_period: Trial recruitment 2023-2024; baseline-to-week-8 assigned diet changes; published 2025;
+      current supplement inspected 2026-10-03.
+    exposure_definition: Assigned ad-libitum MPF or UPF supplied diets following UK Eatwell Guide; menu
+      composition is offered, not consumed dose.
+    outcome_definition: Published unadjusted biomarker change from each diet baseline to week 8, or source-reported
+      paired MPF-minus-UPF change; overnight-fasted venous biomarkers. Not disease transitions.
+    transformation: Literal fasting-glucose change value in mmol/L and display preservation. No unit conversion, marginal subtraction, imputation, p-value inference, annualization or sampling distribution.
+    notes: Grade C appraises limited published summary facts for source replay, not clinical causal identification.
+      Article CC BY 4.0; attributed factual transcription only. Unknown individual histories/cross-endpoint
+      covariance; clinical gates remain closed. Printed value -0.14; reported SE display 0.1 is preserved
+      separately in update_table5_fasting_glucose_upf_reported_se. Underlying uncertainty and rounding rule
+      remain unresolved; null uncertainty is intentional, not zero. No CI or normal SD is inferred.
+    source: Supplementary Table 5, PDF page 12, Fasting glucose (mmol/L) row; ordered MPF / UPF / MPF-minus-UPF
+      groups, N / Mean / SE columns; group upf, column Mean
+    uncertainty: null
+  update_table5_fasting_glucose_upf_reported_se:
+    key: update_table5_fasting_glucose_upf_reported_se
+    value: 0.1
+    unit: mmol/L
+    status: estimated
+    model_role: benchmark_only
+    evidence_grade: C
+    source_id: update2025_published_supplement
+    source_url: https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41591-025-03842-0/MediaObjects/41591_2025_3842_MOESM1_ESM.pdf
+    citation: 'Dicken SJ et al. Ultraprocessed or minimally processed diets following healthy dietary guidelines
+      on weight and cardiometabolic health: a randomized, crossover trial. Nature Medicine 31, 3297-3308
+      (2025). DOI 10.1038/s41591-025-03842-0. Current Supplementary Table 5, PDF pages 12-13.'
+    population: Eligible England adults with overweight/obesity and high habitual UPF intake; diagnosed
+      T2D/insulin use excluded. Available endpoint/diet changes and paired change subsets in an ITT-labelled
+      table.
+    geography: South East England and London; no U.S. population transport
+    time_period: Trial recruitment 2023-2024; baseline-to-week-8 assigned diet changes; published 2025;
+      current supplement inspected 2026-10-03.
+    exposure_definition: Assigned ad-libitum MPF or UPF supplied diets following UK Eatwell Guide; menu
+      composition is offered, not consumed dose.
+    outcome_definition: Published unadjusted biomarker change from each diet baseline to week 8, or source-reported
+      paired MPF-minus-UPF change; overnight-fasted venous biomarkers. Not disease transitions.
+    transformation: Literal fasting-glucose change value in mmol/L and display preservation. No unit conversion, marginal subtraction, imputation, p-value inference, annualization or sampling distribution.
+    notes: Grade C appraises limited published summary facts for source replay, not clinical causal identification.
+      Article CC BY 4.0; attributed factual transcription only. Unknown individual histories/cross-endpoint
+      covariance; clinical gates remain closed. Printed value 0.1; reported SE display 0.1 is preserved
+      separately in update_table5_fasting_glucose_upf_reported_se. Underlying uncertainty and rounding rule
+      remain unresolved; null uncertainty is intentional, not zero. No CI or normal SD is inferred.
+    source: Supplementary Table 5, PDF page 12, Fasting glucose (mmol/L) row; ordered MPF / UPF / MPF-minus-UPF
+      groups, N / Mean / SE columns; group upf, column SE
+    uncertainty: null
+    lower_bound: 0
+  update_table5_fasting_glucose_paired_mpf_minus_upf_n:
+    key: update_table5_fasting_glucose_paired_mpf_minus_upf_n
+    value: 44
+    unit: persons
+    status: observed
+    model_role: benchmark_only
+    evidence_grade: C
+    source_id: update2025_published_supplement
+    source_url: https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41591-025-03842-0/MediaObjects/41591_2025_3842_MOESM1_ESM.pdf
+    citation: 'Dicken SJ et al. Ultraprocessed or minimally processed diets following healthy dietary guidelines
+      on weight and cardiometabolic health: a randomized, crossover trial. Nature Medicine 31, 3297-3308
+      (2025). DOI 10.1038/s41591-025-03842-0. Current Supplementary Table 5, PDF pages 12-13.'
+    population: Eligible England adults with overweight/obesity and high habitual UPF intake; diagnosed
+      T2D/insulin use excluded. Available endpoint/diet changes and paired change subsets in an ITT-labelled
+      table.
+    geography: South East England and London; no U.S. population transport
+    time_period: Trial recruitment 2023-2024; baseline-to-week-8 assigned diet changes; published 2025;
+      current supplement inspected 2026-10-03.
+    exposure_definition: Assigned ad-libitum MPF or UPF supplied diets following UK Eatwell Guide; menu
+      composition is offered, not consumed dose.
+    outcome_definition: Published unadjusted biomarker change from each diet baseline to week 8, or source-reported
+      paired MPF-minus-UPF change; overnight-fasted venous biomarkers. Not disease transitions.
+    transformation: Literal published sample-count N in persons; displayed count preserved. No unit conversion, imputation or population inference.
+    notes: Grade C appraises limited published summary facts for source replay, not clinical causal identification.
+      Article CC BY 4.0; attributed factual transcription only. Unknown individual histories/cross-endpoint
+      covariance; clinical gates remain closed.
+    source: Supplementary Table 5, PDF page 12, Fasting glucose (mmol/L) row; ordered MPF / UPF / MPF-minus-UPF
+      groups, N / Mean / SE columns; group paired_mpf_minus_upf, column N
+    uncertainty:
+      kind: fixed
+      rationale: Fixed publication sample-count literal in the selected release, not a population sampling
+        distribution or clinical effect.
+    lower_bound: 0
+  update_table5_fasting_glucose_paired_mpf_minus_upf_mean:
+    key: update_table5_fasting_glucose_paired_mpf_minus_upf_mean
+    value: 0.04
+    unit: mmol/L
+    status: estimated
+    model_role: benchmark_only
+    evidence_grade: C
+    source_id: update2025_published_supplement
+    source_url: https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41591-025-03842-0/MediaObjects/41591_2025_3842_MOESM1_ESM.pdf
+    citation: 'Dicken SJ et al. Ultraprocessed or minimally processed diets following healthy dietary guidelines
+      on weight and cardiometabolic health: a randomized, crossover trial. Nature Medicine 31, 3297-3308
+      (2025). DOI 10.1038/s41591-025-03842-0. Current Supplementary Table 5, PDF pages 12-13.'
+    population: Eligible England adults with overweight/obesity and high habitual UPF intake; diagnosed
+      T2D/insulin use excluded. Available endpoint/diet changes and paired change subsets in an ITT-labelled
+      table.
+    geography: South East England and London; no U.S. population transport
+    time_period: Trial recruitment 2023-2024; baseline-to-week-8 assigned diet changes; published 2025;
+      current supplement inspected 2026-10-03.
+    exposure_definition: Assigned ad-libitum MPF or UPF supplied diets following UK Eatwell Guide; menu
+      composition is offered, not consumed dose.
+    outcome_definition: Published unadjusted biomarker change from each diet baseline to week 8, or source-reported
+      paired MPF-minus-UPF change; overnight-fasted venous biomarkers. Not disease transitions.
+    transformation: Literal fasting-glucose change value in mmol/L and display preservation. No unit conversion, marginal subtraction, imputation, p-value inference, annualization or sampling distribution.
+    notes: Grade C appraises limited published summary facts for source replay, not clinical causal identification.
+      Article CC BY 4.0; attributed factual transcription only. Unknown individual histories/cross-endpoint
+      covariance; clinical gates remain closed. Printed value 0.04; reported SE display 0.1 is preserved
+      separately in update_table5_fasting_glucose_paired_mpf_minus_upf_reported_se. Underlying uncertainty
+      and rounding rule remain unresolved; null uncertainty is intentional, not zero. No CI or normal SD
+      is inferred.
+    source: Supplementary Table 5, PDF page 12, Fasting glucose (mmol/L) row; ordered MPF / UPF / MPF-minus-UPF
+      groups, N / Mean / SE columns; group paired_mpf_minus_upf, column Mean
+    uncertainty: null
+  update_table5_fasting_glucose_paired_mpf_minus_upf_reported_se:
+    key: update_table5_fasting_glucose_paired_mpf_minus_upf_reported_se
+    value: 0.1
+    unit: mmol/L
+    status: estimated
+    model_role: benchmark_only
+    evidence_grade: C
+    source_id: update2025_published_supplement
+    source_url: https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41591-025-03842-0/MediaObjects/41591_2025_3842_MOESM1_ESM.pdf
+    citation: 'Dicken SJ et al. Ultraprocessed or minimally processed diets following healthy dietary guidelines
+      on weight and cardiometabolic health: a randomized, crossover trial. Nature Medicine 31, 3297-3308
+      (2025). DOI 10.1038/s41591-025-03842-0. Current Supplementary Table 5, PDF pages 12-13.'
+    population: Eligible England adults with overweight/obesity and high habitual UPF intake; diagnosed
+      T2D/insulin use excluded. Available endpoint/diet changes and paired change subsets in an ITT-labelled
+      table.
+    geography: South East England and London; no U.S. population transport
+    time_period: Trial recruitment 2023-2024; baseline-to-week-8 assigned diet changes; published 2025;
+      current supplement inspected 2026-10-03.
+    exposure_definition: Assigned ad-libitum MPF or UPF supplied diets following UK Eatwell Guide; menu
+      composition is offered, not consumed dose.
+    outcome_definition: Published unadjusted biomarker change from each diet baseline to week 8, or source-reported
+      paired MPF-minus-UPF change; overnight-fasted venous biomarkers. Not disease transitions.
+    transformation: Literal fasting-glucose change value in mmol/L and display preservation. No unit conversion, marginal subtraction, imputation, p-value inference, annualization or sampling distribution.
+    notes: Grade C appraises limited published summary facts for source replay, not clinical causal identification.
+      Article CC BY 4.0; attributed factual transcription only. Unknown individual histories/cross-endpoint
+      covariance; clinical gates remain closed. Printed value 0.1; reported SE display 0.1 is preserved
+      separately in update_table5_fasting_glucose_paired_mpf_minus_upf_reported_se. Underlying uncertainty
+      and rounding rule remain unresolved; null uncertainty is intentional, not zero. No CI or normal SD
+      is inferred.
+    source: Supplementary Table 5, PDF page 12, Fasting glucose (mmol/L) row; ordered MPF / UPF / MPF-minus-UPF
+      groups, N / Mean / SE columns; group paired_mpf_minus_upf, column SE
+    uncertainty: null
+    lower_bound: 0
   aric_panel_original_analytic_count:
     key: aric_panel_original_analytic_count
     value: 3412
@@ -6989,6 +7604,41 @@ parameters:
     source_id: nhanes3_repeat_lab_dictionary
 
 datasets:
+  update_public_biomarker_benchmark:
+    model_role: benchmark_only
+    source_ids:
+    - update2025_published_supplement
+    summary_path: docs/validation/update-public-biomarker-summary-v1.json
+    summary_sha256: c8746886ff1f44b4fec01a155766f5e8e1ebbb410303cfd11b8edc4032cf54b1
+    parameter_keys:
+    - update_table5_followup_weeks
+    - update_table5_hba1c_mpf_n
+    - update_table5_hba1c_mpf_mean
+    - update_table5_hba1c_mpf_reported_se
+    - update_table5_hba1c_upf_n
+    - update_table5_hba1c_upf_mean
+    - update_table5_hba1c_upf_reported_se
+    - update_table5_hba1c_paired_mpf_minus_upf_n
+    - update_table5_hba1c_paired_mpf_minus_upf_mean
+    - update_table5_hba1c_paired_mpf_minus_upf_reported_se
+    - update_table5_fasting_glucose_mpf_n
+    - update_table5_fasting_glucose_mpf_mean
+    - update_table5_fasting_glucose_mpf_reported_se
+    - update_table5_fasting_glucose_upf_n
+    - update_table5_fasting_glucose_upf_mean
+    - update_table5_fasting_glucose_upf_reported_se
+    - update_table5_fasting_glucose_paired_mpf_minus_upf_n
+    - update_table5_fasting_glucose_paired_mpf_minus_upf_mean
+    - update_table5_fasting_glucose_paired_mpf_minus_upf_reported_se
+    comparison: unadjusted_available_pairs_mpf_minus_upf_change
+    cross_endpoint_covariance: null
+    sampling_distribution: null
+    scientific_gates:
+      direct_initialization_allowed: false
+      clinical_fit_allowed: false
+      engine_activation_allowed: false
+      sampling_distribution_assumed: false
+      scientific_release_ready: false
   aric_outcomes_benchmark:
     model_role: benchmark_only
     source_ids:
@@ -13597,6 +14247,22 @@ scientific_blockers:
   benchmark.
 
 sources:
+  update2025_published_supplement:
+    url: https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41591-025-03842-0/MediaObjects/41591_2025_3842_MOESM1_ESM.pdf
+    citation: 'Dicken SJ et al. Ultraprocessed or minimally processed diets following healthy dietary guidelines
+      on weight and cardiometabolic health: a randomized, crossover trial. Nature Medicine 31, 3297-3308
+      (2025). DOI 10.1038/s41591-025-03842-0. Current Supplementary Table 5, PDF pages 12-13.'
+    doi: 10.1038/s41591-025-03842-0
+    raw_filename: update-current-publisher-supplement-original.pdf
+    sha256: 03adc8b7069f8b7b58a3a4bf8882282fc32142d35ea4bb750c14b4a74d5c6a57
+    retrieved_at: '2026-10-03T13:45:12.877518+00:00'
+    license: Article CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/), subject to third-party credit
+      exceptions. Limited attributed numerical facts transcribed; complete original PDF kept fetch-only
+      by project choice.
+    correction_url: https://www.nature.com/articles/s41591-025-03842-0
+    correction_note: 2025-12-15 publisher change history identifies Table 24 energy-density correction;
+      current corrected supplement selected. No numerical Table 24 values selected and no exhaustive revision-history
+      assertion.
   aric_rooney_2021_corrected:
     url: https://pmc.ncbi.nlm.nih.gov/articles/PMC7871207/
     citation: Rooney MR et al. JAMA Internal Medicine. 2021;181(4):511-519.

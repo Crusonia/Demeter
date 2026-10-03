@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "kind": "attributed_published_aggregate_source_summary",
+  "model_role": "benchmark_only",
+  "source": {
+    "source_id": "update2025_published_supplement",
+    "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41591-025-03842-0/MediaObjects/41591_2025_3842_MOESM1_ESM.pdf",
+    "article_url": "https://www.nature.com/articles/s41591-025-03842-0",
+    "doi": "10.1038/s41591-025-03842-0",
+    "citation": "Dicken SJ et al. Ultraprocessed or minimally processed diets following healthy dietary guidelines on weight and cardiometabolic health: a randomized, crossover trial. Nature Medicine 31, 3297-3308 (2025). DOI 10.1038/s41591-025-03842-0. Current Supplementary Table 5, PDF pages 12-13.",
+    "raw_filename": "update-current-publisher-supplement-original.pdf",
+    "sha256": "03adc8b7069f8b7b58a3a4bf8882282fc32142d35ea4bb750c14b4a74d5c6a57",
+    "size_bytes": 4112060,
+    "page_count": 54,
+    "retrieved_at": "2026-10-03T13:45:12.877518+00:00",
+    "observed_http_status": 200,
+    "raw_distribution": "fetch_only",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_note": "Article CC BY 4.0, third-party credit exception applies. Only attributed limited numerical facts distributed here; complete original PDF remains ignored by project choice.",
+    "correction_date": "2025-12-15",
+    "correction_scope": "Publisher identifies Table 24 energy-density correction; corrected current supplement selected. No claim of exhaustive revision history."
+  },
+  "selection_chronology": "Selected after text and visual inspection of published values and method footnote. Root independently visually checked both selected rows. Used-source reproduction, not preregistration.",
+  "comparison": "unadjusted_available_pairs_mpf_minus_upf_change",
+  "time_window": {
+    "followup_weeks": 8,
+    "baseline": "each assigned diet baseline",
+    "endpoint": "week 8 on each assigned diet",
+    "parameter_key": "update_table5_followup_weeks"
+  },
+  "source_method": {
+    "table": "Supplementary Table 5",
+    "pdf_pages_1based": [
+      12,
+      13
+    ],
+    "method": "paired t-test; baseline and between-diet change comparisons; no re-estimation",
+    "source_itt_label_retained": true,
+    "full_itt_N_selected": false,
+    "p_values_selected": false
+  },
+  "endpoints": {
+    "hba1c": {
+      "source_label": "HbA1C (%)",
+      "unit": "percentage_points",
+      "source_locator": "Supplementary Table 5, PDF page 12, HbA1C (%) row; ordered MPF / UPF / MPF-minus-UPF groups, N / Mean / SE columns",
+      "groups": {
+        "mpf": {
+          "n": "46",
+          "mean": "-0.08",
+          "reported_se": "0.0"
+        },
+        "upf": {
+          "n": "47",
+          "mean": "-0.03",
+          "reported_se": "0.0"
+        },
+        "paired_mpf_minus_upf": {
+          "n": "45",
+          "mean": "-0.05",
+          "reported_se": "0.0"
+        }
+      }
+    },
+    "fasting_glucose": {
+      "source_label": "Fasting glucose (mmol/L)",
+      "unit": "mmol/L",
+      "source_locator": "Supplementary Table 5, PDF page 12, Fasting glucose (mmol/L) row; ordered MPF / UPF / MPF-minus-UPF groups, N / Mean / SE columns",
+      "groups": {
+        "mpf": {
+          "n": "46",
+          "mean": "-0.09",
+          "reported_se": "0.1"
+        },
+        "upf": {
+          "n": "46",
+          "mean": "-0.14",
+          "reported_se": "0.1"
+        },
+        "paired_mpf_minus_upf": {
+          "n": "44",
+          "mean": "0.04",
+          "reported_se": "0.1"
+        }
+      }
+    }
+  },
+  "cross_endpoint_covariance": null,
+  "sampling_distribution": null,
+  "scientific_gates": {
+    "direct_initialization_allowed": false,
+    "clinical_fit_allowed": false,
+    "engine_activation_allowed": false,
+    "sampling_distribution_assumed": false,
+    "scientific_release_ready": false
+  },
+  "limitations": [
+    "Published ITT-labelled available-case unadjusted summaries; endpoint-specific N and paired N differ. Not an all-randomized-participant estimand.",
+    "Paired MPF-minus-UPF mean is the source value, not subtraction of separate marginal diet means.",
+    "Reported SE is rounded to one displayed decimal. A printed 0.0 does not identify zero uncertainty. No rounding rule, CI, sampling distribution or covariance is inferred.",
+    "Secondary biomarkers are exploratory; source tests were not adjusted for multiplicity. No significance reanalysis is performed.",
+    "Table 6 sequence/period and first-diet parallel contrasts remain documented, numerically unimplemented and distinct from this paired comparison. Carryover and missing-not-at-random selection are unresolved.",
+    "Assigned supplied dietary regimens meeting UK guidance are not an isolated UPF consumed-dose effect. No annualization, disease-state mapping, clinical hazard or U.S. transport.",
+    "The current article permits author-approved summary sharing only, not individual data. That does not negate these already public published aggregate tables.",
+    "Source-summary replay checks transcription/provenance, not model predictions, independent holdout validation or clinical scientific readiness."
+  ],
+  "attribution_changes": "Limited numerical transcription; HbA1c level label (%) renamed to change unit percentage_points; group identifiers renamed. Source statistics and displayed precision unchanged. No original text/table/figures redistributed."
+}

@@ -559,6 +559,19 @@
       "sha256": "e89dfe23cdb184e9f1fbb04f58678d23e97f2ea8ab5d215df8aa85716799d712",
       "url": "https://link.springer.com/content/pdf/10.1007/s00125-019-4895-0.pdf",
       "vintage": "2019 publication; exact public static PDF snapshots acquired2026"
+    },
+    "update2025_published_supplement": {
+      "alternative": "Offline limited attributed numerical source-summary replay; original PDF optional from authorized public access.",
+      "citation": "Dicken SJ et al. Ultraprocessed or minimally processed diets following healthy dietary guidelines on weight and cardiometabolic health: a randomized, crossover trial. Nature Medicine 31, 3297-3308 (2025). DOI 10.1038/s41591-025-03842-0. Current Supplementary Table 5, PDF pages 12-13.",
+      "distribution": "fetch_only",
+      "notes": "Article CC BY 4.0, third-party credit exception applies; complete PDF remains ignored by project choice, not a claim of restricted access. Selected facts and change-unit/group renaming attributed. No participant records.",
+      "policy": "update_article_cc_by4",
+      "privacy": "publication",
+      "publisher": "Springer Nature; authors in citation",
+      "retrieved_at": "2026-10-03T13:45:12.877518+00:00",
+      "sha256": "03adc8b7069f8b7b58a3a4bf8882282fc32142d35ea4bb750c14b4a74d5c6a57",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41591-025-03842-0/MediaObjects/41591_2025_3842_MOESM1_ESM.pdf",
+      "vintage": "2025 article; current corrected supplement inspected 2026-10-03"
     }
   },
   "documentation_receipts": "docs/validation/dpp-coverage-source-receipts.json",
@@ -1202,6 +1215,21 @@
       ],
       "title": "Whitehall II published aggregate endpoint reproduction; full publications fetch-only",
       "transform": "Limited attributed aggregate counts/proportion and explicit conditional working-likelihood analysis; source PDFs kept local/fetch-only."
+    },
+    "update_article_cc_by4": {
+      "title": "UPDATE article CC BY 4.0; limited attributed fact transcription with original kept fetch-only",
+      "terms_urls": [
+        "https://www.nature.com/articles/s41591-025-03842-0",
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "checked_on": "2026-10-03",
+      "redistribution": "conditional",
+      "download": "Authorized ordinary public publisher access into ignored local storage; no login or participant data.",
+      "transform": "Transcribe attributed numerical facts with exact locators and identify renamed units/groups. Preserve original source bytes.",
+      "conditions": [
+        "Article license: https://creativecommons.org/licenses/by/4.0/; verify third-party credit exceptions before redistributing original material.",
+        "Only limited attributed numerical facts and authored metadata distributed; no complete PDF, images or extracted full text."
+      ]
     }
   },
   "schema_version": 1,

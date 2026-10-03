@@ -85,6 +85,12 @@ The [food-intake reproduction](../FOOD_INTAKE_REPRODUCTION.md) implements the
 upstream menu/intake benchmark from RFC-58. It supplies a traceable paired estimate
 for I-07 while leaving the dose, timing, population and disease-transition bridge open.
 
+The [UPDATE published biomarker replay](../UPDATE_PUBLIC_BIOMARKER_BENCHMARK.md)
+adds a scoped I-11/F-08/T-08 source-summary check of eight-week assigned-regimen
+HbA1c/glucose changes. Printed SEs remain rounded/incomplete; Table 6 period
+comparisons are separate and numerically unimplemented. This checks public-source
+transcription, not model predictions, clinical hazards or the I-05/F-04 bridge.
+
 The [DPP preservation adapter](../DPP_OBSERVATION_ADAPTER.md) implements explicit
 observation objects and aggregate synthetic diagnostics for the health parts of
 I-01/I-05/I-07/I-11/I-12 and F-04/F-08. Public documentation does not establish

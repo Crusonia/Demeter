@@ -1726,6 +1726,54 @@
         "scripts/fetch_nhanes3_repeat.py",
         "scripts/verify_nhanes3_repeat.py"
       ]
+    },
+    "update_public_biomarker_benchmark": {
+      "store": null,
+      "dependencies": [],
+      "registry_datasets": [
+        "update_public_biomarker_benchmark"
+      ],
+      "registry_parameters": [
+        "update_table5_followup_weeks",
+        "update_table5_hba1c_mpf_n",
+        "update_table5_hba1c_mpf_mean",
+        "update_table5_hba1c_mpf_reported_se",
+        "update_table5_hba1c_upf_n",
+        "update_table5_hba1c_upf_mean",
+        "update_table5_hba1c_upf_reported_se",
+        "update_table5_hba1c_paired_mpf_minus_upf_n",
+        "update_table5_hba1c_paired_mpf_minus_upf_mean",
+        "update_table5_hba1c_paired_mpf_minus_upf_reported_se",
+        "update_table5_fasting_glucose_mpf_n",
+        "update_table5_fasting_glucose_mpf_mean",
+        "update_table5_fasting_glucose_mpf_reported_se",
+        "update_table5_fasting_glucose_upf_n",
+        "update_table5_fasting_glucose_upf_mean",
+        "update_table5_fasting_glucose_upf_reported_se",
+        "update_table5_fasting_glucose_paired_mpf_minus_upf_n",
+        "update_table5_fasting_glucose_paired_mpf_minus_upf_mean",
+        "update_table5_fasting_glucose_paired_mpf_minus_upf_reported_se"
+      ],
+      "artifacts": [
+        {
+          "path": "docs/validation/update-public-biomarker-summary-v1.json",
+          "sha256": "c8746886ff1f44b4fec01a155766f5e8e1ebbb410303cfd11b8edc4032cf54b1"
+        },
+        {
+          "path": "docs/UPDATE_PUBLIC_BIOMARKER_BENCHMARK.md",
+          "sha256": "57ec9dbf9744402f098d5cbc0bd7dfddccb4caf65438896aa794ccd3cbd6b8c5"
+        }
+      ],
+      "transform_files": [
+        "src/demeter/data/update_biomarker.py",
+        "scripts/verify_update_biomarker.py"
+      ],
+      "rebuild": [
+        "uv run python scripts/verify_update_biomarker.py",
+        "uv run python scripts/verify_update_biomarker.py --source-pdf data/raw/update/update-current-publisher-supplement-original.pdf"
+      ],
+      "model_role": "benchmark_only",
+      "redistribution": "Limited attributed published numeric facts and authored metadata. Article CC BY 4.0 with third-party credit exception; complete original PDF stays fetch-only by project choice. No participant data, original full text or figures."
     }
   },
   "supporting_artifacts": [
