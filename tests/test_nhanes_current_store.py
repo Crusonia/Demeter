@@ -719,3 +719,169 @@ def test_resealed_manifest_cannot_override_registered_admission(
     with pytest.raises(ValueError, match="admitted immutable"):
         intake.report(registry, store)
     assert called == []
+
+
+@pytest.mark.parametrize(
+    "failure", ["download", "partial_write", "manifest", "verification", "publish"]
+)
+def test_failed_acquisition_preserves_partial_evidence_and_allows_retry(
+    synthetic_store, monkeypatch, tmp_path, failure
+):
+    _, _, _, original_dir, blobs = synthetic_store
+    fetch = fetch_module()
+    destination = tmp_path / "retry"
+    monkeypatch.setattr(fetch, "DEMO_STORE", original_dir)
+    monkeypatch.setattr(fetch, "_committed_protocol", lambda: "a" * 40)
+    monkeypatch.setattr(fetch, "_now", lambda: "2026-10-02T11:00:00+00:00")
+    original_open = Path.open
+    original_json = fetch._write_json
+    original_verify = intake._manifest
+    original_publish = fetch._publish
+
+    def download(name):
+        assert not destination.exists()  # No reader can see an unfinished store.
+        if failure == "download" and name == "GHB_L.xpt":
+            raise ValueError("private download response")
+        return blobs[name]
+
+    def write_json(path, value):
+        if failure == "manifest" and path.name == "manifest.json":
+            raise OSError("synthetic write failure")
+        return original_json(path, value)
+
+    def open_file(path, *args, **kwargs):
+        stream = original_open(path, *args, **kwargs)
+        if (
+            failure != "partial_write"
+            or path.name != "GHB_L.xpt"
+            or (args[0] if args else kwargs.get("mode")) != "xb"
+        ):
+            return stream
+
+        class PartialWrite:
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *args):
+                stream.close()
+
+            def write(self, content):
+                stream.write(content[:10])
+                raise OSError("synthetic interrupted file write")
+
+        return PartialWrite()
+
+    def verify(*args):
+        if failure == "verification":
+            raise ValueError("synthetic corrupt byte")
+        return original_verify(*args)
+
+    def publish(*args):
+        if failure == "publish":
+            raise OSError("synthetic publication failure")
+        return original_publish(*args)
+
+    monkeypatch.setattr(fetch, "_download", download)
+    monkeypatch.setattr(fetch, "_write_json", write_json)
+    monkeypatch.setattr(Path, "open", open_file)
+    monkeypatch.setattr(intake, "_manifest", verify)
+    monkeypatch.setattr(fetch, "_publish", publish)
+    with pytest.raises(ValueError, match="partial bytes/receipts retained") as error:
+        fetch.fetch(destination, original_dir)
+    assert "private download response" not in str(error.value)
+    assert not destination.exists()
+    attempts = list(tmp_path.glob(".retry.attempt-*"))
+    assert len(attempts) == 1
+    attempt = attempts[0]
+    assert str(attempt) in str(error.value)
+    receipt = json.loads((attempt / "failure.json").read_bytes())
+    assert receipt["destination_published"] is False
+    assert receipt["participant_records_parsed"] is False
+    assert (attempt / "source-store/DEMO_L.xpt").read_bytes() == blobs["DEMO_L.xpt"]
+    assert (attempt / "source-store/DIQ_L.xpt").read_bytes() == blobs["DIQ_L.xpt"]
+    if failure == "partial_write":
+        assert (attempt / "source-store/GHB_L.xpt").read_bytes() == blobs["GHB_L.xpt"][:10]
+    retained = {p.relative_to(attempt): p.read_bytes() for p in attempt.rglob("*") if p.is_file()}
+    monkeypatch.setattr(fetch, "_download", lambda name: blobs[name])
+    monkeypatch.setattr(fetch, "_write_json", original_json)
+    monkeypatch.setattr(Path, "open", original_open)
+    monkeypatch.setattr(intake, "_manifest", original_verify)
+    monkeypatch.setattr(fetch, "_publish", original_publish)
+    fetch.fetch(destination, original_dir)
+    assert destination.is_dir() and (destination / "manifest.json").is_file()
+    assert retained == {
+        p.relative_to(attempt): p.read_bytes() for p in attempt.rglob("*") if p.is_file()
+    }
+    assert len(list(tmp_path.glob(".retry.attempt-*"))) == 2
+
+
+@pytest.mark.parametrize("target_kind", ["empty_directory", "nonempty_directory", "file"])
+def test_atomic_publication_refuses_raced_existing_target(tmp_path, target_kind):
+    fetch = fetch_module()
+    staging = tmp_path / "staging"
+    staging.mkdir()
+    (staging / "source").write_bytes(b"synthetic completed bytes")
+    target = tmp_path / "target"
+    if target_kind == "file":
+        target.write_bytes(b"keep")
+    else:
+        target.mkdir()
+        if target_kind == "nonempty_directory":
+            (target / "keep").write_bytes(b"keep")
+    with pytest.raises(OSError):
+        fetch._publish(staging, target)
+    assert (staging / "source").read_bytes() == b"synthetic completed bytes"
+    if target_kind == "file":
+        assert target.read_bytes() == b"keep"
+    elif target_kind == "nonempty_directory":
+        assert (target / "keep").read_bytes() == b"keep"
+    else:
+        assert list(target.iterdir()) == []
+
+
+def test_atomic_publication_moves_complete_directory_on_current_platform(tmp_path):
+    fetch = fetch_module()
+    staging = tmp_path / "staging"
+    staging.mkdir()
+    (staging / "manifest.json").write_bytes(b"synthetic")
+    destination = tmp_path / "new"
+    fetch._publish(staging, destination)
+    assert not staging.exists()
+    assert (destination / "manifest.json").read_bytes() == b"synthetic"
+
+
+@pytest.mark.parametrize(
+    "platform,operation,flags", [("linux", "renameat2", 1), ("darwin", "renamex_np", 4)]
+)
+def test_native_publication_flags_and_errno_are_explicit(monkeypatch, platform, operation, flags):
+    fetch = fetch_module()
+    calls = []
+
+    class NativeOperation:
+        def __call__(self, *args):
+            calls.append(args)
+            return -1
+
+    native = NativeOperation()
+    monkeypatch.setattr(fetch.sys, "platform", platform)
+    monkeypatch.setattr(
+        fetch.ctypes, "CDLL", lambda *args, **kwargs: SimpleNamespace(**{operation: native})
+    )
+    monkeypatch.setattr(fetch.ctypes, "get_errno", lambda: 17)
+    with pytest.raises(OSError) as error:
+        fetch._publish(Path("staging"), Path("destination"))
+    assert error.value.errno == 17
+    assert calls[0][-1] == flags
+    if platform == "linux":
+        assert calls[0][0] == calls[0][2] == -100
+    assert native.restype is fetch.ctypes.c_int
+
+
+@pytest.mark.parametrize("platform", ["linux", "darwin", "unsupported"])
+def test_missing_exclusive_publication_api_never_falls_back(monkeypatch, platform):
+    fetch = fetch_module()
+    monkeypatch.setattr(fetch.sys, "platform", platform)
+    monkeypatch.setattr(fetch.ctypes, "CDLL", lambda *a, **kw: SimpleNamespace())
+    monkeypatch.setattr(fetch.os, "rename", lambda *a: pytest.fail("unsafe rename fallback"))
+    with pytest.raises(OSError, match="unavailable"):
+        fetch._publish(Path("staging"), Path("destination"))
