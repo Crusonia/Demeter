@@ -22,6 +22,11 @@ details the source, measurement, timing, likelihood and evaluation requirements
 for I-01/I-05/I-07/I-11/I-12 and F-04/F-08. It feeds design; it does not implement
 a clinical observation model or activate a parameter.
 
+The [NHANES III repeat-FPG design](08_NHANES_III_REPEAT_OBSERVATIONS.md)
+specifies a possible next observed-label falsification test, source fields,
+unresolved intake choices and privacy requirements. It admits no participant
+data, parameters or clinical hazards.
+
 ## Methodological basis
 
 This is Demeter's application of a system-dynamics approach informed by Thomas S.
