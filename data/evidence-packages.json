@@ -1634,6 +1634,45 @@
       ],
       "model_role": "benchmark_only",
       "redistribution": "Original CDC/NCHS public-use components and Demeter aggregate reconstruction only; retain NCHS statistical-use, attribution and non-endorsement notices. No joined participant export; source data are not relicensed under the MIT software license."
+    },
+    "nhanes_assay_observation": {
+      "store": null,
+      "dependencies": [
+        "nhanes_2021_2023"
+      ],
+      "registry_datasets": [
+        "nhanes_assay_observation_2021_2023"
+      ],
+      "registry_parameters": [],
+      "artifacts": [
+        {
+          "path": "docs/validation/nhanes-assay-mapping-protocol-v1.json",
+          "sha256": "9b520f8b685af1abb58e1d57e05e80229b6ff39db760ec6302b32f74b6a58bd9"
+        },
+        {
+          "path": "docs/validation/nhanes-assay-mapping-code-admission-v1.json",
+          "sha256": "fad9fa6475a33268d379df45d687c70407b5823215daa6783248001fba382f4b"
+        },
+        {
+          "path": "docs/validation/nhanes-assay-mapping-report-v1.json",
+          "sha256": "0cb7e82cbfc108c8cd0dc5bb77053ce84c902a8206fc57a7a99d8ebec04b0bc3"
+        },
+        {
+          "path": "docs/NHANES_ASSAY_OBSERVATION_MAPPING.md",
+          "sha256": "87925922f139324ae1e83ded2648f14e99b8dae68e597591ba6f70267d80b49c"
+        }
+      ],
+      "transform_files": [
+        "src/demeter/data/nhanes_assay_mapping.py",
+        "src/demeter/data/nhanes_assay_admission.py",
+        "scripts/verify_nhanes_assay_mapping.py"
+      ],
+      "rebuild": [
+        "uv run demeter evidence assay-mapping --output outputs/assay-mapping.json",
+        "uv run python scripts/verify_nhanes_assay_mapping.py"
+      ],
+      "model_role": "benchmark_only",
+      "redistribution": "Original Demeter aggregate paired-assay diagnostics/covariance derived from existing CDC/NCHS public-use components. Retain upstream source notices and terms; no joined person-level records, individual assays, clinical diagnosis, latent-state or causal effect claims."
     }
   },
   "supporting_artifacts": [

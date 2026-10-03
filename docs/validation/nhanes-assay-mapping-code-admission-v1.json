@@ -1,0 +1,27 @@
+{
+  "admitted_at": "2026-10-03T00:03:55.264699+00:00",
+  "chronology": "Earlier glycemic benchmark already calculated from these public files; this admission precedes new paired-assay diagnostics. Synthetic-only tests and independent code review passed. No new source acquisition.",
+  "clinical_fit_allowed": false,
+  "direct_initialization_allowed": false,
+  "engine_activation_allowed": false,
+  "implementation_sha256": {
+    "src/demeter/data/nhanes_assay_mapping.py": "441c1c34dfa470cb184066885a8786e4cffaa98866976cc3b6031b9092799eb5"
+  },
+  "kind": "nhanes_assay_mapping_code_admission",
+  "model_role": "benchmark_only",
+  "new_assay_diagnostics_computed_before_code_admission": false,
+  "prior_protocol_commit": "9d08b13da2dce429c48088e324c69c08848be410",
+  "protocol_path": "docs/validation/nhanes-assay-mapping-protocol-v1.json",
+  "protocol_sha256": "9b520f8b685af1abb58e1d57e05e80229b6ff39db760ec6302b32f74b6a58bd9",
+  "sampling_distribution_assumed": false,
+  "schema_version": 1,
+  "scientific_release_ready": false,
+  "source_manifest_sha256": "905d8709e1e5ec24dff8300aa479b3fa9e5848806865b0b00f307d911c606dc5",
+  "source_sha256": {
+    "DEMO_L.xpt": "ca4374a158b493b8b0163e1388da21d57a18d1b9cecff2aa4e2fa2bec494fe23",
+    "DIQ_L.xpt": "9535a023673ae869afae19d842d8679e06f6a464606ac15900686b41ef05090f",
+    "GHB_L.xpt": "67aee0353160e2392dc0a33bece99b90764a630c76d82415ac4639105ad9dd03",
+    "GLU_L.xpt": "70f773ab37e3d8485341f32137e280e05b9279e5fe9b6f0362e4052d8fe9a201"
+  },
+  "used_source": true
+}
