@@ -10,6 +10,11 @@ unclassified remainder alongside each age/sex category and an explicit engine
 crosswalk. It preserves this benchmark's complete-case definition and explains
 why its categories cannot yet initialize the model directly.
 
+The separately versioned [2021–2023 benchmark](NHANES_2021_2023_GLYCEMIC.md)
+adds current-cycle observations and joint uncertainty across complete-case and
+eligible-population denominators. It preserves this reconstruction and its
+clinical mapping boundary.
+
 ## Sources and definitions
 
 Four original CDC/NCHS NHANES 2017-March 2020 files are committed in

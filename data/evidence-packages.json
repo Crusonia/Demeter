@@ -1592,6 +1592,47 @@
       ],
       "model_role": "benchmark_only",
       "redistribution": "Limited attributed publication facts and original Demeter conditional reconstruction. Full PDF/XML/text/figures and all participant records excluded."
+    },
+    "nhanes_2021_2023": {
+      "store": "nhanes_2021_2023",
+      "dependencies": [
+        "glycemic_joint_uncertainty",
+        "dietary_baselines"
+      ],
+      "registry_datasets": [
+        "nhanes_glycemic_2021_2023"
+      ],
+      "registry_parameters": [],
+      "artifacts": [
+        {
+          "path": "docs/validation/nhanes-2021-2023-intake-protocol-v1.json",
+          "sha256": "5dae6588b3953f54e9fc89d5ebae701bf988b8f17a5d38a989f9be6fbc3c6a8c"
+        },
+        {
+          "path": "docs/validation/nhanes-2021-2023-source-admission-v1.json",
+          "sha256": "8d405e7e209eefc04de86b29e40f2c40e1e51f6b3c288398130bb44a97c18165"
+        },
+        {
+          "path": "docs/validation/nhanes-2021-2023-glycemic-reconstruction-v1.json",
+          "sha256": "888593964284e0d8eae32ca82f9f5a64d6bf20a9e98e7d1f271bd57f649f17a9"
+        },
+        {
+          "path": "docs/NHANES_2021_2023_GLYCEMIC.md",
+          "sha256": "4dfc49cbfc5dd845d7db2b2d1f81b4dc25d7d6b5cc3d79f80ae0abf20bab98c9"
+        }
+      ],
+      "transform_files": [
+        "src/demeter/data/nhanes_current.py",
+        "src/demeter/data/nhanes_current_store.py",
+        "scripts/fetch_nhanes_current.py",
+        "scripts/verify_nhanes_current.py"
+      ],
+      "rebuild": [
+        "uv run demeter evidence glycemic-2021-2023 --output outputs/glycemic-2021-2023.json",
+        "uv run python scripts/verify_nhanes_current.py"
+      ],
+      "model_role": "benchmark_only",
+      "redistribution": "Original CDC/NCHS public-use components and Demeter aggregate reconstruction only; retain NCHS statistical-use, attribution and non-endorsement notices. No joined participant export; source data are not relicensed under the MIT software license."
     }
   },
   "supporting_artifacts": [

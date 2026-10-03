@@ -1122,6 +1122,55 @@ def glycemic_uncertainty_evidence(
     )
 
 
+@evidence_app.command("glycemic-2021-2023")
+def glycemic_current_evidence(
+    evidence: Path = DEFAULT_EVIDENCE,
+    source: Path = Path("data/sources/nhanes/2021-2023"),
+    output: Path | None = None,
+) -> None:
+    """Reconstruct the pinned NHANES cycle offline; print an aggregate summary."""
+    from demeter.data.nhanes import encoded
+    from demeter.data.nhanes_current_store import report as current_report
+
+    if output is not None:
+        destination = output.resolve()
+        protected = [Path(folder).resolve() for folder in ("data", "src", "docs", "evidence")]
+        protected.append(source.resolve())
+        if (
+            output.exists()
+            or destination == evidence.resolve()
+            or any(destination.is_relative_to(folder) for folder in protected)
+        ):
+            typer.echo("Output must be new and outside sources and frozen records", err=True)
+            raise typer.Exit(1)
+    try:
+        report = current_report(registry(evidence), source)
+        if output is not None:
+            output.parent.mkdir(parents=True, exist_ok=True)
+            with output.open("xb") as handle:
+                handle.write(encoded(report))
+    except (ValueError, OSError) as exc:
+        typer.echo(str(exc), err=True)
+        raise typer.Exit(1) from None
+    emit(
+        {
+            "output": str(output) if output is not None else None,
+            "kind": report["kind"],
+            "time_period": report["time_period"],
+            "model_role": report["model_role"],
+            "scientific_release_ready": report["scientific_release_ready"],
+            "source_audit_passed": report["source_audit_passed"],
+            "direct_initialization_allowed": report["direct_initialization_allowed"],
+            "counts": report["counts"],
+            "joint_coordinates": len(report["joint"]["coordinates"]),
+            "published_checks": len(report["published_reconstruction"]["checks"]),
+            "published_checks_passed": report["published_reconstruction"]["passed"],
+            "protocol_sha256": report["provenance"]["protocol_sha256"],
+            "source_manifest_sha256": report["provenance"]["source_manifest_sha256"],
+        }
+    )
+
+
 @data_app.command("rebuild-prechronic")
 def rebuild_risk_data(
     evidence: Path = DEFAULT_EVIDENCE,
