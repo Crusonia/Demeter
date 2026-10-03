@@ -1224,6 +1224,46 @@ def assay_mapping_evidence(
     )
 
 
+@evidence_app.command("nhanes3-repeat-fpg")
+def nhanes3_repeat_evidence(
+    evidence: Path = DEFAULT_EVIDENCE,
+    source: Path = Path("data/sources/nhanes3/1988-1994-repeat"),
+    output: Path | None = None,
+) -> None:
+    """Replay the finite historical label diagnostic; publish only its coarse result."""
+    import os
+
+    from demeter.data.nhanes3_repeat_admission import report as repeat_report
+
+    if output is not None:
+        destination = output.resolve()
+        repository = Path(__file__).resolve().parents[2]
+        protected = [(repository / name).resolve() for name in ("data", "src", "docs", "evidence")]
+        protected.extend(Path(name).resolve() for name in ("data", "src", "docs", "evidence"))
+        protected.append(source.resolve())
+        if (
+            os.path.lexists(output)
+            or destination == evidence.resolve()
+            or any(destination.is_relative_to(folder) for folder in protected)
+        ):
+            typer.echo("Output must be new and outside sources and frozen records", err=True)
+            raise typer.Exit(1)
+    try:
+        result = repeat_report(registry(evidence), source)
+        if output is not None:
+            output.parent.mkdir(parents=True, exist_ok=True)
+            with output.open("xb") as stream:
+                stream.write(
+                    (
+                        json.dumps(result, sort_keys=True, ensure_ascii=False, indent=2) + "\n"
+                    ).encode()
+                )
+    except (ValueError, OSError):
+        typer.echo("NHANES III replay failed; no participant records exported", err=True)
+        raise typer.Exit(1) from None
+    emit(result)
+
+
 @data_app.command("rebuild-prechronic")
 def rebuild_risk_data(
     evidence: Path = DEFAULT_EVIDENCE,

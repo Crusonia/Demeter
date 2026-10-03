@@ -270,6 +270,14 @@ dependent survey covariance. Run `uv run demeter evidence glycemic-2021-2023`
 for an offline summary. It supplements the earlier vintage and leaves clinical
 initialization and the scientific release gate closed.
 
+The historical [NHANES III repeat-glucose diagnostic](docs/NHANES_III_REPEAT_FPG.md)
+tests whether a recorded positive fasting-glucose label always persists at the
+repeat measurement. Run `uv run demeter evidence nhanes3-repeat-fpg` offline.
+The admitted finite-source result contradicts that premise; it does not identify
+clinical remission, an annual transition rate or a dietary effect. Its public
+report contains a coarse status and provenance, with all clinical activation
+gates closed.
+
 The [paired assay audit](docs/NHANES_ASSAY_OBSERVATION_MAPPING.md) tests whether
 A1c and fasting glucose yield the same threshold labels for the same people.
 Run `uv run demeter evidence assay-mapping` offline. It retains missingness

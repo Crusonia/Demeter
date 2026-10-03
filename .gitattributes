@@ -16,3 +16,6 @@ docs/validation/malawi-*.json -text -whitespace
 docs/validation/aric-*.json -text -whitespace
 *.xlsx binary
 *.xpt binary
+
+# Preserve exact NHANES III repeat protocol/admission/report pins.
+docs/validation/nhanes3-*.json -text -whitespace

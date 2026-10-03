@@ -202,6 +202,17 @@
       "model_role": "benchmark_only",
       "publisher": "CDC/NCHS",
       "reload": "uv run demeter evidence glycemic-2021-2023 --output outputs/glycemic-2021-2023.json"
+    },
+    {
+      "description": "Original revised NHANES III primary and repeat components; finite recorded-label persistence diagnostic only, no clinical hazard or national transport.",
+      "format": [
+        "fixed-width ASCII"
+      ],
+      "id": "nhanes3_repeat",
+      "manifest": "sources/nhanes3/1988-1994-repeat/manifest.json",
+      "model_role": "benchmark_only",
+      "publisher": "CDC/NCHS",
+      "reload": "uv run demeter evidence nhanes3-repeat-fpg"
     }
   ]
 }

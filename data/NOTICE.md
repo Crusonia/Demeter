@@ -2,7 +2,7 @@
 
 Demeter's MIT license covers its code and original documentation. It does not
 relicense source data, articles, logos, or restricted records. The machine-readable
-[rights inventory](rights.json) identifies all 57 archived artifacts and the
+[rights inventory](rights.json) identifies all 60 archived artifacts and the
 fetch-only sources by URL, publisher, vintage, retrieval time, checksum,
 privacy class and citation. Its policies distinguish download, transformation
 and redistribution conditions. These are packaging decisions; the linked source
@@ -14,6 +14,15 @@ commands. These records describe reproducibility, not scientific acceptance.
 Model outputs retain the existing validation-only boundary.
 
 ## Source-specific conditions
+
+The historical [NHANES III repeat FPG package](../docs/NHANES_III_REPEAT_FPG.md)
+includes three unmodified public CDC/NCHS ASCII components and a coarse recorded
+label diagnostic. Producer documentation remains fetch-only. The NCHS agreement
+permits statistical use under its conditions; identification, linkage to
+identifiable records and attempts to defeat disclosure protection are prohibited.
+Originals remain freely available from the producer. No joined participant
+records are distributed, and no CDC, HHS or U.S. government endorsement is implied.
+Frozen source/code admissions support replay, not clinical calibration.
 
 The separate [NHANES 2021–2023 glycemic benchmark](../docs/NHANES_2021_2023_GLYCEMIC.md)
 includes four original CDC/NCHS public-use components and attributed aggregate

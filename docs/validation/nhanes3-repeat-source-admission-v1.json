@@ -1,0 +1,30 @@
+{
+  "acquisition_invocation_commit": "1393ba9a0efb96aa5747d97f697d838de32bce1b",
+  "empirical_diagnostic_computed": false,
+  "kind": "nhanes3_repeat_source_admission",
+  "model_role": "benchmark_only",
+  "participant_values_decoded_before_admission": false,
+  "protocol_authoring_commit": "1393ba9a0efb96aa5747d97f697d838de32bce1b",
+  "protocol_sha256": "1728d637312da8fd4911d8152b15275eb70760e351286a2a898e95453786798f",
+  "schema_version": 1,
+  "scientific_gates": {
+    "clinical_fit_allowed": false,
+    "direct_initialization_allowed": false,
+    "engine_activation_allowed": false,
+    "sampling_distribution_assumed": false,
+    "scientific_release_ready": false
+  },
+  "scope": "Original public producer bytes only. No selected participant values, eligibility, pair labels or empirical diagnostic examined before this receipt.",
+  "source_manifest_sha256": "4fbb60c55e9448ad68f73ba0ac8294cb8151684c0a51759c1ef3f52943fb20d8",
+  "source_sha256": {
+    "ADULT": "32a93a474cbd3bd0dd2ddc82153c47cf0b9f81eda025e255dd251bb5620a3adf",
+    "LAB": "b87ae166c02e4907b08b7a52a1c01122b4173ec2970b891b624f43cedc038e48",
+    "LABSE": "29f9fc2c63d3191fae86dea8429092cf202a9cf60ba7046b9513440f8841c2fe"
+  },
+  "source_size_bytes": {
+    "ADULT": 67107314,
+    "LAB": 57945628,
+    "LABSE": 1804220
+  },
+  "used_source": true
+}
