@@ -1900,6 +1900,22 @@
     {
       "path": "docs/validation/nhis-older-reported-type-mortality-source-checkpoint-v1.json",
       "sha256": "10f8182139f6a2c5467016d26304bf2e0b0276092cb17adb6e8c4ca435ebccf8"
+    },
+    {
+      "path": "docs/NHIS_SELECTED_FIELD_INSPECTION_CONTRACT.md",
+      "sha256": "3ad62da97ee31d994d31035201a07295ca6ad7da798dcac876da6fbfcbe77fa0"
+    },
+    {
+      "path": "docs/validation/nhis2025-selected-field-inspection-contract-v1.json",
+      "sha256": "ee9e79b68ef6e47a18e8641bbe521234f4774c5c4386a551321eb2fa555c5477"
+    },
+    {
+      "path": "docs/NHIS_SELECTED_FIELD_PROVENANCE_AMENDMENT.md",
+      "sha256": "fd5395a22bc1c166fa75f06d9a1311c60776b708932f18e19c8bec25c87deefc"
+    },
+    {
+      "path": "docs/validation/nhis2025-selected-field-provenance-amendment-v2.json",
+      "sha256": "1ec78498c07b25ce0dc1a20c60fe1af6286819dc1f80e05ec95390b075708cb7"
     }
   ]
 }
