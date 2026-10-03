@@ -64,6 +64,11 @@ business externalities, value capture and stakeholder-belief tests are
 inapplicable to this observation contract. Design premises are not empirical
 parameters or implemented capabilities.
 
+The [NHANES III repeat-FPG design](design/08_NHANES_III_REPEAT_OBSERVATIONS.md)
+proposes a narrower test of recorded-label persistence. It records verified
+producer field meanings and remaining eligibility/context/privacy choices;
+no participant intake, empirical reconstruction or clinical fit is implemented.
+
 ## Current mechanics and the missing clinical layer
 
 The [current model](MODEL_SPEC.md) applies annual mortality, transitions among
