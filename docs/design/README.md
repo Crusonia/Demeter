@@ -35,6 +35,11 @@ software witness. Unknown type and inconsistent questionnaire responses remain
 explicit; no participant intake, survey estimate or clinical initialization is
 implemented by that witness.
 
+The [synthetic NHIS joint-ratio witness](10_NHIS_SURVEY_WITNESS.md) tests complete
+record-category accounting and dependent survey-ratio arithmetic on in-memory
+fixtures. It reuses the existing covariance kernel without NHANES inference
+metadata; participant admission and NHIS interval policies remain unresolved.
+
 ## Methodological basis
 
 This is Demeter's application of a system-dynamics approach informed by Thomas S.
