@@ -46,6 +46,17 @@ records byte pins separately from the
 A new definition, source or implementation checksum requires explicit
 admission; editing a local manifest alone cannot reseal the reporter.
 
+The supported library replay API is
+`demeter.data.nhanes_current_admission.report`. The CLI and strict verifier use
+this guard. It independently pins the original source admission and frozen
+aggregate, using the aggregate's original implementation hashes to verify
+registry, repository and actual loaded code before invoking any v1 calculation
+function. The original source store, calculation modules and report remain
+byte-preserved. Their lower-level replay is a historical implementation, not
+the supported admission API. This guard changes no report fields, observations
+or registry definitions. Verification outputs must also be new files outside
+`data`, `src`, `docs` and `evidence`.
+
 The explicit acquisition script stages each attempt separately. It publishes
 the requested destination only after all four components and the manifest pass
 byte checks, using an atomic operation that refuses an existing target. A

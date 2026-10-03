@@ -1130,7 +1130,7 @@ def glycemic_current_evidence(
 ) -> None:
     """Reconstruct the pinned NHANES cycle offline; print an aggregate summary."""
     from demeter.data.nhanes import encoded
-    from demeter.data.nhanes_current_store import report as current_report
+    from demeter.data.nhanes_current_admission import report as current_report
 
     if output is not None:
         destination = output.resolve()
