@@ -135,6 +135,12 @@ See [acceptance status](docs/V0_1_STATUS.md), [model specification](docs/MODEL_S
 The [October 3 public clinical source review](docs/PUBLIC_CLINICAL_SOURCE_UPDATE_20261003.md)
 records additional longitudinal leads and their unresolved clocks, selection and
 access limits. It admits no clinical parameters or findings.
+The [HAALSI documentation appraisal](docs/HAALSI_PUBLIC_DOCUMENTATION_APPRAISAL_20261003.md)
+adds exact repeated-glucose and follow-up fields while preserving unresolved
+measurement, timing and definition conflicts. The [NHIS manual-run boundary](docs/NHIS_REPORTED_ANSWER_MANUAL_RUN_ADMISSION.md)
+permits a separately reviewed technical invocation without releasing estimates.
+The [observed NHIS technical status](docs/NHIS_REPORTED_ANSWER_TECHNICAL_RUN_STATUS.md)
+records the completed original call without releasing its private statistical result.
 
 The [Malawi follow-up benchmark](docs/MALAWI_FOLLOWUP_BENCHMARK.md) adds public
 source-category counts with deaths and untraced people accounted for separately.

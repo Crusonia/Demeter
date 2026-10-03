@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "kind": "nhis2025_reported_answer_manual_benchmark_admission",
+  "status": "conditional_finite_manual_admission_no_execution_during_preparation",
+  "prepared_at": "2026-10-03T12:15:14.739457+00:00",
+  "preparation_head": "722d817545c723395733e6ab148fa3503b54a777",
+  "source_admitted": false,
+  "scientific_gates": {
+    "direct_initialization_allowed": false,
+    "clinical_fit_allowed": false,
+    "engine_activation_allowed": false,
+    "sampling_distribution_assumed": false,
+    "scientific_release_ready": false
+  },
+  "chronology": "Previously inspected metadata/source delivery and reviewed synthetic code; used-source preparation, not preregistration. No original source function or selected bytes invoked in this preparation. Earlier selected-field manual permission consumed.",
+  "code_sha256": {
+    "src/demeter/data/nhis_source_guard.py": "dcb350b4a604a92c5c80f3f5c18e92c8d2827f1f9ad604f7ce4181633a45725e",
+    "src/demeter/data/nhis_native_records.py": "68042959577ca34bdd8946d8c2b28bf682495a113f79140c35539a7d4bd92511",
+    "src/demeter/data/nhis_diagnosis_labels.py": "0bf79f94ba46acb7efab90922705d226e7a58ae663a95a17a90c776394673d12",
+    "src/demeter/data/nhis_survey_witness.py": "74e1d5a7f8372f5d639d734f55adea644184ce48bab68b49df88822587fd612b",
+    "src/demeter/data/survey_joint.py": "3eed6be120b8ae0947f489c7108fd1dff4c3a863863d4c6e8d192f7224dbba1f",
+    "src/demeter/data/nhis_reported_answer_benchmark.py": "12cdde2103f1ee626795ea335fc8aac41bb599b05a9e28c235f763528ce9a242"
+  },
+  "document_sha256": {
+    "docs/validation/nhis2025-native-framing-protocol-v1.json": "e1738706979b9bb2872389def34ea5b0f20d25584310f4af45288bf887fef25d",
+    "docs/validation/nhis2025-native-framing-receipt-v1.json": "d669d2283310f48e29c9aea8a3258f0ab20a6925d082e4affe92f059ef9bc56f",
+    "docs/validation/nhis2025-typed-diagnosis-design-receipts-v1.json": "cbb7e50eb970ecdc470607058f6e1df79a9c1cb37b3dcf82e7c3817096e4b889",
+    "docs/design/11_NHIS_NATIVE_RECORD_CONTRACT.md": "e2df959321139d927108c6094d4b44e3255c473168de52174558e4024f580d7d",
+    "docs/NHIS_SELECTED_FIELD_INSPECTION_CONTRACT.md": "3ad62da97ee31d994d31035201a07295ca6ad7da798dcac876da6fbfcbe77fa0",
+    "docs/validation/nhis2025-selected-field-inspection-contract-v1.json": "ee9e79b68ef6e47a18e8641bbe521234f4774c5c4386a551321eb2fa555c5477",
+    "docs/NHIS_SELECTED_FIELD_PROVENANCE_AMENDMENT.md": "fd5395a22bc1c166fa75f06d9a1311c60776b708932f18e19c8bec25c87deefc",
+    "docs/validation/nhis2025-selected-field-provenance-amendment-v2.json": "1ec78498c07b25ce0dc1a20c60fe1af6286819dc1f80e05ec95390b075708cb7",
+    "docs/design/09_NHIS_REPORTED_DIAGNOSES.md": "2dbb2c1944cc4fed420a54ce5bff3bb63f54d6435347f1ef35690ed0e35a6733",
+    "docs/design/10_NHIS_SURVEY_WITNESS.md": "c64ca98f144fe119828918b4b25480dfe2ee6f2557d1cb6d0f5bbf9ed32c7730",
+    "docs/NHIS_REPORTED_ANSWER_BENCHMARK_CONTRACT.md": "4fc932b7af10689a66ad2249ea5a443732103f72de4e30267526cb6a0817b1d0",
+    "docs/validation/nhis2025-reported-answer-benchmark-contract-v1.json": "308d7cfb67a88f891bd79f551135e9d1a75e0167e6e7f2ba53232b484c42b267"
+  },
+  "design_equation_sha256": {
+    "docs/design/04_MODEL_INPUTS.md": "ef010f9e45f029a34f579c46049867084a304dfee87bb7e740a26552200c4f1a",
+    "docs/design/05_FORMULATION_AND_TESTS.md": "2124f8d02044f3687cc58ab14a05344db08784bb8fef42317ba729c852c44737",
+    "docs/rfcs/RFC-56-observation-state-mapping.md": "d45dcc9d9a0c7f0c80a3c1963e9c5404dd7d6f444c738a64f9a32f7e5c1442d5"
+  },
+  "source_identity": {
+    "archive": {
+      "filename": "adult25.zip",
+      "size_bytes": 2837893,
+      "sha256": "1981733845c4d6ede66f4756c34d47b356fbe403820c0ed33825d21e4d8f21e4"
+    },
+    "native": {
+      "filename": "adult25.dat",
+      "size_bytes": 16635705,
+      "sha256": "48b2d91002c9f30e03e87e33d37041dc991ea43a390674045a9ca60c7d004b95",
+      "member_crc32": "a1cc80ff",
+      "payload_bytes": 685,
+      "newline": "CRLF",
+      "final_newline_required": true,
+      "reference_records": 24215
+    },
+    "role": "delivery identity only, not source scientific admission or permission to inspect fields"
+  },
+  "existing_finite_engineering": {
+    "author_proof_identity": "final-engineering-proof-v1.json",
+    "sha256": "c527a10a2e86309c365177bb2b75d7b4e75af8deb16df5741fdacebd1e8e6cf0",
+    "head": "8c8d406b12e6d32a40c03d7f82cdb4cf05a1ba5f",
+    "scope": "attributable focused tests, package audit, eight parity and outside-byte preservation only; not full or CI or merge clearance",
+    "focused_junit": {
+      "tests": 595,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 1
+    },
+    "outside_files_preserved": 705,
+    "artifact_count": 228,
+    "eight_parity_comparisons_passed": true
+  },
+  "conditions_before_original_invocation": [
+    "Actual final immutable full suite and four required CI contexts complete successfully at the pinned code/head; bind actual logs/receipts, never infer success from partial progress.",
+    "Actual protected PR111 merge/tree identity and tested-source equality independently verified.",
+    "Independent final review fills only actual pending identities and confirms unchanged source/document/code/design pins; no self-reference to this record future hash or own commit.",
+    "The reviewed finite admission is committed; root preflight independently checks its committed Git blob/working SHA and derives current invocation commit externally.",
+    "Before any source helper, independently verify six actual loaded module origins and hashes plus fixed document/source bytes; no new source pull or source repair.",
+    "Root explicitly selects the single reviewed manual benchmark invocation after those conditions; preparation alone grants no execution permission."
+  ],
+  "single_invocation": {
+    "entry": "demeter.data.nhis_reported_answer_benchmark.benchmark_reported_answers(archive, native, root=checkout_root)",
+    "flow": "unchanged normal independent_preflight -> guard.verify_delivery -> decoder.decode_native_records -> complete private ledger/whole-frame method preflight -> witness.assess -> strict joint checks -> PrivateBenchmarkResult",
+    "maximum_original_calls": 1,
+    "observe_only": "result.technical_envelope, unchanged exact fixed library technical schema",
+    "separate_tool_context": "already committed admission Git/blob identity and current invocation commit may be displayed separately, never injected as a new inner provenance key",
+    "forbidden": [
+      "result.private_result access",
+      "record/ledger/ratio/covariance accessor or introspection",
+      "result repr or generic serialization",
+      "raw native or participant field display/export",
+      "file writer or persisted result",
+      "CLI/writer implementation",
+      "new dataset fetch",
+      "registry/parameter/engine changes",
+      "filtering/deduplication/weight removal/retry/tuning"
+    ]
+  },
+  "failure_policy": {
+    "method_refusal": "Legitimate whole-method result; no trimming, redo or tuning, no private reasons/counts/values inspected. One completed call consumes the permission even when unavailable.",
+    "pre_method": "estimate False; private source projection flags reflect actual control flow",
+    "entered_witness_failure": "estimate None/possibly_partial; never assert no arithmetic",
+    "returned_witness": "estimate True/completed even if later strict validation fails",
+    "delivery_materialization_failure": "projection False/not_attempted before decoder entry; entered decoder failure projection None/possibly_partial; returned decoder projection True/completed",
+    "output": "Only unchanged allowlisted technical envelope. No catch-and-print raw exception/traceback/path; unexpected outer exception yields fixed unavailable notification with projection/estimation unknown, and stops without second invocation.",
+    "scientific_status": "source_admitted False and all five gates False in success or refusal; no public estimates, intervals, findings or total/current/undiagnosed T2D initialization"
+  },
+  "preparation_checks": {
+    "six_actual_loaded_origins_and_code_sha_verified": true,
+    "twelve_document_sha_verified": true,
+    "three_design_equation_sha_verified": true,
+    "tracked_clean": true,
+    "source_functions_called": false,
+    "selected_source_bytes_inspected": false,
+    "empirical_calculation": false,
+    "original_full_ci_merge_bindings_pending": false
+  },
+  "self_reference_policy": "No own future commit/hash field inside final admission; independent invocation preflight binds final committed record externally.",
+  "permission": {
+    "maximum_original_calls": 1,
+    "automatic_execution": false,
+    "requires_separate_committed_record_review_preflight_and_root_selection": true,
+    "execution_during_preparation": false
+  },
+  "actual_engineering_bindings": {
+    "actual_final_tested_head": "8c8d406b12e6d32a40c03d7f82cdb4cf05a1ba5f",
+    "actual_full_completion_receipt_sha256": "625d344b85b2618758bd896dfcb1e270c839de36fa4007926f359573106ddc67",
+    "actual_full_junit_sha256": "962e77ef372a6fa4ccac8ce83231e6eecb90a7931c8c02f6d782964cd54767f8",
+    "actual_full_log_sha256": "1423e98cc74fbbd29d5df4cfa2265ad934d078c49597df44a0a35f87c8ae9535",
+    "actual_full_start_end_current_snapshot_receipt_sha256": "6328adde07e83bdc45ddcf533d4c729e19fadb0cf9a25dc9acd8025f1ad9b785",
+    "independent_full_seal_sha256": "b60eec3ad067ac81b2e5c804bc6a2a61e0ab623a2e540e9daf1b55bf99b3a69d",
+    "actual_four_context_ci_run_id": 37119948749,
+    "actual_four_context_ci_receipt_sha256": "9db4c7dc405e1eaa8be17f6644036f2b2b9f99dad44a01e013f60f3dc4973ed5",
+    "all_four_contexts_success": true,
+    "actual_protected_merge_commit": "e48148212eb0e6b6225ebdab409bf0a2bdd83f35",
+    "actual_merged_tree": "e8d1e332c67681b8ae353a84d1e338faa1d5e30e",
+    "tested_tree_matches_merged_tree": true
+  },
+  "independent_admission_review": {
+    "required_before_invocation": true,
+    "binding": "A separate review/preflight must bind the final committed record externally. No recursive seal hash or own future commit is stored inside this record."
+  },
+  "actual_full_summary": {
+    "passed": 4327,
+    "skipped": 15,
+    "failures": 0,
+    "errors": 0,
+    "existing_warnings": 1,
+    "tracked_files_unchanged": 715,
+    "started_utc": "2026-10-03T11:30:39.930862+00:00",
+    "completed_utc": "2026-10-03T11:58:16.833040+00:00"
+  }
+}

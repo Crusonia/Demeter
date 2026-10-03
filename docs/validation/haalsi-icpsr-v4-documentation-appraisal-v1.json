@@ -1,0 +1,724 @@
+{
+  "schema_version": 1,
+  "kind": "haalsi_icpsr_v4_documentary_appraisal",
+  "prepared_at": "2026-10-03T12:03:53.890148+00:00",
+  "role": "metadata_only_not_parameter_intake",
+  "doi": "10.3886/ICPSR36633.v4",
+  "catalog_url": "https://www.icpsr.umich.edu/web/NACDA/studies/36633",
+  "chronology": "Used-source review; incidental printed frequency summaries visible, no counts/means/ratios selected as targets, no participant acquisition or empirical calculation.",
+  "sources": {
+    "codebook": {
+      "filename": "haalsi-icpsr-v4-codebook-original.pdf",
+      "sha256": "644f652207db177331a440bc71609b920732b8fe7f4d21268e3c7d8693a9e0fc",
+      "size_bytes": 32847472,
+      "acquisition_receipt_filename": "codebook-browser-acquisition-receipt-v1.json",
+      "acquisition_receipt_sha256": "d9403aa0409b947f047ffea1c72a0efb61ff2cb7a7af116980b385d096eebf1f",
+      "catalog_url": "https://www.icpsr.umich.edu/web/NACDA/studies/36633",
+      "document_landing_url": "https://www.icpsr.umich.edu/web/NACDA/studies/36633/versions/V4/datasets/1/files/1397416/downloadDoc/doc?path=/pcms/studies/0/3/6/6/36633/V4/files/1397416",
+      "document_file_id": 1397416,
+      "acquisition": "Root ordinary provided documentation-only browser download; no participant request/account",
+      "browser_http_status": null,
+      "actual_request_or_completion_time": null,
+      "local_capture_time": "2026-10-03T11:44:31.796675+00:00",
+      "distribution": "ignored local documentary use; not redistributed"
+    },
+    "questionnaire": {
+      "filename": "haalsi-icpsr-v4-questionnaire-original.pdf",
+      "sha256": "84f107ee6299da16579abb6c5dd84f80ec048a1dc4e15e6211362a3cbd56f8fe",
+      "size_bytes": 1617672,
+      "acquisition_receipt_filename": "questionnaire-browser-acquisition-receipt-v1.json",
+      "acquisition_receipt_sha256": "a62a852a9492cb79613804c9cb0f549852ce7cf17a6e9479088e93b7d233df45",
+      "catalog_url": "https://www.icpsr.umich.edu/web/NACDA/studies/36633",
+      "document_landing_url": null,
+      "document_file_id": 1397424,
+      "acquisition": "Root ordinary provided documentation-only browser download; no participant request/account",
+      "browser_http_status": null,
+      "actual_request_or_completion_time": null,
+      "local_capture_time": "2026-10-03T11:52:23.533159+00:00",
+      "distribution": "ignored local documentary use; not redistributed"
+    },
+    "crosswalk": {
+      "filename": "haalsi-icpsr-v4-variable-crosswalk-original.xlsx",
+      "sha256": "fcb058057d356176ac3ece3522fbaf355b165587e286060c7371d59fabbfc961",
+      "size_bytes": 174447,
+      "acquisition_receipt_filename": "crosswalk-browser-acquisition-receipt-v1.json",
+      "acquisition_receipt_sha256": "a7acb2f80f0ae3c677e55b00a014114b85526afd2d417a325f43d8fcd384ce79",
+      "catalog_url": "https://www.icpsr.umich.edu/web/NACDA/studies/36633",
+      "document_landing_url": null,
+      "document_file_id": 1397423,
+      "acquisition": "Root ordinary provided documentation-only browser download; no participant request/account",
+      "browser_http_status": null,
+      "actual_request_or_completion_time": null,
+      "local_capture_time": "2026-10-03T11:46:16.383795+00:00",
+      "distribution": "ignored local documentary use; not redistributed"
+    }
+  },
+  "source_page_counts": {
+    "codebook": 3838,
+    "questionnaire": 116
+  },
+  "extraction": {
+    "pypdf_version": "6.19.0",
+    "page_text_hash_method": "Default extract_text(), UTF-8 string bytes, no normalization",
+    "page_hashes": {
+      "codebook": [
+        {
+          "pdf_page_1_based": 1,
+          "printed_page_label": null,
+          "utf8_text_sha256": "82c3934fe571821933607ebf76e52146bf3a8c9222799d6a79658bd971cb50d1"
+        },
+        {
+          "pdf_page_1_based": 2,
+          "printed_page_label": null,
+          "utf8_text_sha256": "a28c41701bb0baa1e013e23731884d16be51d35376baa846f792807da1379f8d"
+        },
+        {
+          "pdf_page_1_based": 3,
+          "printed_page_label": null,
+          "utf8_text_sha256": "e80212f0c1b8f11260921774d673a661d3263bfb7c1a5e49c36e665f3271667b"
+        },
+        {
+          "pdf_page_1_based": 4,
+          "printed_page_label": "1",
+          "utf8_text_sha256": "978b14f76333eef722cdbf57d97f05b4f83285af3a6c71ca33786b91649e2785"
+        },
+        {
+          "pdf_page_1_based": 5,
+          "printed_page_label": "2",
+          "utf8_text_sha256": "b98771ed911923bbf7e5584d398b267df9df845589c59298e608ffe9059af302"
+        },
+        {
+          "pdf_page_1_based": 844,
+          "printed_page_label": "841",
+          "utf8_text_sha256": "81b00066450539e08a0e1a3c8512c24651f7d05cac27099c705d5ddd3d68fa06"
+        },
+        {
+          "pdf_page_1_based": 845,
+          "printed_page_label": "842",
+          "utf8_text_sha256": "216cbc416fcee24ed4ffc35c442feac694acb0fab2829c6661ce3bf92ecdde9b"
+        },
+        {
+          "pdf_page_1_based": 846,
+          "printed_page_label": "843",
+          "utf8_text_sha256": "5ba20f75197341198ef9780bd78d80a7801abcaefeaff56a74f9aec853365439"
+        },
+        {
+          "pdf_page_1_based": 1146,
+          "printed_page_label": "1143",
+          "utf8_text_sha256": "1bb542c5a25239050d63a721e37b41b619be004fac21cbfbd14b1091b391d01c"
+        },
+        {
+          "pdf_page_1_based": 1147,
+          "printed_page_label": "1144",
+          "utf8_text_sha256": "97280acc1352807e8bd1e07c869e0055068bd4537adcb140e5afe3e0cfc44383"
+        },
+        {
+          "pdf_page_1_based": 1165,
+          "printed_page_label": "1162",
+          "utf8_text_sha256": "87ae20c8627b86a22213cd47269e0e51dfcaeb5269a8aaefceefd605396c6f2d"
+        },
+        {
+          "pdf_page_1_based": 1172,
+          "printed_page_label": "1169",
+          "utf8_text_sha256": "9c2d8422773b02dd5c5eec08cd4860afeed936a19deb70590adb2a42301e1674"
+        },
+        {
+          "pdf_page_1_based": 1173,
+          "printed_page_label": "1170",
+          "utf8_text_sha256": "62b854d32eb02ec701a55a768084ec7b1720048a5b2963c0a46dd15e1c685737"
+        },
+        {
+          "pdf_page_1_based": 1176,
+          "printed_page_label": "1173",
+          "utf8_text_sha256": "2043a3fc08fd11c76d86a19ef877e3cd62c47ae140b599ca4ddbd697af583e51"
+        },
+        {
+          "pdf_page_1_based": 1177,
+          "printed_page_label": "1174",
+          "utf8_text_sha256": "b90c5f1eff2087b276e8243a3b99d967d649f0fa35557b6be787f5f4016899da"
+        },
+        {
+          "pdf_page_1_based": 1326,
+          "printed_page_label": "1323",
+          "utf8_text_sha256": "b4dd14d4b9055e0943fc767b3705a6856b353a54ab7c3744905b66f8c3d81b89"
+        },
+        {
+          "pdf_page_1_based": 2214,
+          "printed_page_label": "2211",
+          "utf8_text_sha256": "a887a035488e53b488bd24b0e4c9182bb7cc6146ce2433d7fe0483a0b5c8d570"
+        },
+        {
+          "pdf_page_1_based": 2215,
+          "printed_page_label": "2212",
+          "utf8_text_sha256": "09cac97d1cb57a5d1f76a90af426d95f3793056dde45d1928e5bfe8b49ddeaaf"
+        },
+        {
+          "pdf_page_1_based": 2216,
+          "printed_page_label": "2213",
+          "utf8_text_sha256": "8a2b862781778f18918308ee28e535a591690ce1af9f56b66d056b75574b3f91"
+        },
+        {
+          "pdf_page_1_based": 2220,
+          "printed_page_label": "2217",
+          "utf8_text_sha256": "465640c0f834c2a74f21320318ea5dc1b550d276f7949ebf9211e3c09b9970af"
+        },
+        {
+          "pdf_page_1_based": 2221,
+          "printed_page_label": "2218",
+          "utf8_text_sha256": "7372f601b1a8bb8f5c48b7c1cf7fdbfef0aa0358c6650a7b8144e7ccc2a300db"
+        },
+        {
+          "pdf_page_1_based": 2222,
+          "printed_page_label": "2219",
+          "utf8_text_sha256": "8e67a852b1a0eba386e343b1daf2234fa1b1e8c7b8d5e6a2e373b083a4ea1673"
+        },
+        {
+          "pdf_page_1_based": 2450,
+          "printed_page_label": "2447",
+          "utf8_text_sha256": "110d6183bfeb5ec2aa0df26db6f24d27cb5d250f51e8542d1ab8143f506d63e1"
+        },
+        {
+          "pdf_page_1_based": 2451,
+          "printed_page_label": "2448",
+          "utf8_text_sha256": "b6f02a2a16364c12f1ef10b783682434e8c273a2d73780139158bdb54445f1cc"
+        },
+        {
+          "pdf_page_1_based": 2547,
+          "printed_page_label": "2544",
+          "utf8_text_sha256": "7bcccc786cf35ab5144f4035b4a79994089ba54e8cfccaf164cbb9f3f35797a4"
+        },
+        {
+          "pdf_page_1_based": 2548,
+          "printed_page_label": "2545",
+          "utf8_text_sha256": "152e249e694092c1c5e1115276faacbf859d4690dcc3575651768656c7acc843"
+        },
+        {
+          "pdf_page_1_based": 2549,
+          "printed_page_label": "2546",
+          "utf8_text_sha256": "f934fce30ad441417ea555fcb815e95cd994e20fa3755a3812add6ccf4197533"
+        },
+        {
+          "pdf_page_1_based": 2566,
+          "printed_page_label": "2563",
+          "utf8_text_sha256": "5a063f7dc5127cf954f8e44dad4a1a8bd3d7017abf7da13c1432d3a6f8e881c6"
+        },
+        {
+          "pdf_page_1_based": 2567,
+          "printed_page_label": "2564",
+          "utf8_text_sha256": "fd83d6b15990b23dc1912bc0bd9211146ca31b742469a75d78fbb4ca422597e7"
+        },
+        {
+          "pdf_page_1_based": 2570,
+          "printed_page_label": "2567",
+          "utf8_text_sha256": "4ccfd4d70b156e6f662a828b1a8cad884a92404e943ef7e37c485f244b3a2862"
+        },
+        {
+          "pdf_page_1_based": 2571,
+          "printed_page_label": "2568",
+          "utf8_text_sha256": "08d7a7eac0645defdd668fb1130b127a119d79c237b15b306b823c04f03967b9"
+        },
+        {
+          "pdf_page_1_based": 2599,
+          "printed_page_label": "2596",
+          "utf8_text_sha256": "559d29196796f5766f5e1b8507d1e369b733dd37ed56594f1c9adb5d5cee8506"
+        },
+        {
+          "pdf_page_1_based": 2789,
+          "printed_page_label": "2786",
+          "utf8_text_sha256": "4855e66ffc70ee358fb028fd17dc01363472902ea99b15c8062c1682abb3760d"
+        },
+        {
+          "pdf_page_1_based": 3061,
+          "printed_page_label": "3058",
+          "utf8_text_sha256": "74a729c7c2f5b0cddea7720b4292bb968b764f4e2d2bfb6fb8a9136aa6778d16"
+        },
+        {
+          "pdf_page_1_based": 3062,
+          "printed_page_label": "3059",
+          "utf8_text_sha256": "29e643e5a2f17b6da9f69eae7c74b6993b90662f64f0a8bbf15c79a1106d5b2c"
+        },
+        {
+          "pdf_page_1_based": 3063,
+          "printed_page_label": "3060",
+          "utf8_text_sha256": "bc1f92565012ab7537cb6ad4044d4afa86b5d451ee182b05d9b17f1eefeda980"
+        },
+        {
+          "pdf_page_1_based": 3817,
+          "printed_page_label": "3814",
+          "utf8_text_sha256": "f4acd677d951d3ed7e5d1bf91c1da7672bffa580a3e21725f128cfb04e6fc051"
+        },
+        {
+          "pdf_page_1_based": 3818,
+          "printed_page_label": "3815",
+          "utf8_text_sha256": "fb7807ce52cd99e2d41c09638c3f61ece0d7f63e55096614b1a1fecda92e1405"
+        },
+        {
+          "pdf_page_1_based": 3819,
+          "printed_page_label": "3816",
+          "utf8_text_sha256": "f9b8a09d95d6c94b58a792fe298eeaffe5527911afe4464b3cdb27646ac7cc8d"
+        },
+        {
+          "pdf_page_1_based": 3832,
+          "printed_page_label": "3829",
+          "utf8_text_sha256": "048fbef7f99a340ad01edb845d8cf1f037fcdc46767b9b6bc8ba9d1ae4d5816b"
+        },
+        {
+          "pdf_page_1_based": 3833,
+          "printed_page_label": "3830",
+          "utf8_text_sha256": "37d7d946254b8e274081178d674760267673206a5ffcd09efca66eab3776b0c7"
+        },
+        {
+          "pdf_page_1_based": 3836,
+          "printed_page_label": "3833",
+          "utf8_text_sha256": "398862a5ddcda0f996c1d9530953b0adc6a7d779253005daa1ea5076d8a2b9e3"
+        }
+      ],
+      "questionnaire": [
+        {
+          "pdf_page_1_based": 1,
+          "printed_page_label": null,
+          "utf8_text_sha256": "ffbab67cb19cd3e7454d1987b4b70ea5d985be6a79bd4ece3c8ed41b1a64177a"
+        },
+        {
+          "pdf_page_1_based": 2,
+          "printed_page_label": null,
+          "utf8_text_sha256": "a28c41701bb0baa1e013e23731884d16be51d35376baa846f792807da1379f8d"
+        },
+        {
+          "pdf_page_1_based": 3,
+          "printed_page_label": null,
+          "utf8_text_sha256": "17788db4e6d0d2844ddc9c9bdbe458a94813e11271ef4de4b78cea7776e0416f"
+        },
+        {
+          "pdf_page_1_based": 60,
+          "printed_page_label": null,
+          "utf8_text_sha256": "5ecc671e18fb897fb389961d9b54141dc451e3cd7bc64a811f74114122773bbc"
+        },
+        {
+          "pdf_page_1_based": 61,
+          "printed_page_label": null,
+          "utf8_text_sha256": "7cc6e4db0326d0b721a1778d883305090009f905fd6b89a6808c5b11cc05571e"
+        },
+        {
+          "pdf_page_1_based": 62,
+          "printed_page_label": null,
+          "utf8_text_sha256": "0852ae1b22538e712d38fed6812945ee759524be5802f35b824c9d2013e8a008"
+        },
+        {
+          "pdf_page_1_based": 64,
+          "printed_page_label": null,
+          "utf8_text_sha256": "205102180ee9b75335e238bc23989407fe57152c731ab5fd110dd88d67804cbf"
+        },
+        {
+          "pdf_page_1_based": 98,
+          "printed_page_label": null,
+          "utf8_text_sha256": "b2a9ce5b8cb5d434d9f23a13e7f30c324690ae64ee5599866789ee263cb8bb9b"
+        },
+        {
+          "pdf_page_1_based": 115,
+          "printed_page_label": null,
+          "utf8_text_sha256": "2edfe600a760500731d7715e93fd99d673720761ae7622ec538ffa3d64638ce0"
+        },
+        {
+          "pdf_page_1_based": 116,
+          "printed_page_label": null,
+          "utf8_text_sha256": "a0769eb9adff61df64ea85c1bcef20ca874da3b640daa62893d0def031503e3f"
+        }
+      ]
+    },
+    "scope": "6157 bookmarked headers searched; only selected codebook pages parsed, not all 3838 pages. Questionnaire scanned for finite instrument identifiers."
+  },
+  "field_metadata": [
+    {
+      "ids": [
+        "PRIM_KEY"
+      ],
+      "pages": [
+        5
+      ],
+      "role": "Character primary key, width 5, location 1-5",
+      "unresolved": "Opaque linkage, row unit, uniqueness and lexical aliases need source admission; No participant file acquired or identifiers extracted/matched; no linkage performed"
+    },
+    {
+      "ids": [
+        "W2STATUS"
+      ],
+      "pages": [
+        1326
+      ],
+      "role": "Respondent status as of wave 2",
+      "value_labels": {
+        "0": "Died",
+        "1": "Completed",
+        "2": "Refused",
+        "3": "Not Found",
+        "4": "Incomplete"
+      },
+      "missing_labels": {
+        "-99": ".e = Empty",
+        "-98": ".d = Don't Know",
+        "-97": ".r = Refused"
+      },
+      "unresolved": "Not a dated mortality event; status 2 differs from missing placeholder -97"
+    },
+    {
+      "ids": [
+        "W3STATUS"
+      ],
+      "pages": [
+        2599
+      ],
+      "role": "Respondent status as of wave 3",
+      "value_labels": {
+        "0": "Died",
+        "1": "Completed",
+        "2": "Refused",
+        "3": "Not Found",
+        "4": "Incomplete"
+      },
+      "missing_labels": {
+        "-99": ".e = Empty",
+        "-98": ".d = Don't Know",
+        "-97": ".r = Refused"
+      },
+      "unresolved": "Cumulative versus interval death/persistence semantics not established"
+    },
+    {
+      "ids": [
+        "W2INTERVIEW_TYPE"
+      ],
+      "pages": [
+        1326
+      ],
+      "value_labels": {
+        "0": "Interview Not Completed",
+        "1": "In-Person Interview",
+        "2": "Telephone Interview"
+      }
+    },
+    {
+      "ids": [
+        "W3INTERVIEW_TYPE"
+      ],
+      "pages": [
+        2599
+      ],
+      "value_labels": {
+        "1": "Face-to-Face",
+        "2": "Telephone",
+        "3": "Self-Administered"
+      }
+    },
+    {
+      "ids": [
+        "W1C_BS_GLUCOSE"
+      ],
+      "pages": [
+        1146,
+        1147
+      ],
+      "role": "Cleaned point-of-care glucose",
+      "unit": "mmol/L",
+      "type": "numeric",
+      "location": "5891-5896",
+      "declared_decimal": 2,
+      "displayed_missing_labels": {
+        "-99": ".e = Empty",
+        "-98": ".d = Don't Know",
+        "-97": ".r = Refused"
+      }
+    },
+    {
+      "ids": [
+        "W2C_BS_GLUCOSE"
+      ],
+      "pages": [
+        2547,
+        2548,
+        2549
+      ],
+      "role": "Cleaned point-of-care glucose",
+      "unit": "mmol/L",
+      "type": "numeric",
+      "location": "13776-13781",
+      "declared_decimal": 2,
+      "displayed_missing_labels": {
+        "-99": ".e = Empty",
+        "-98": ".d = Don't Know",
+        "-97": ".r = Refused"
+      }
+    },
+    {
+      "ids": [
+        "W3C_BS_GLUCOSE"
+      ],
+      "pages": [
+        3817,
+        3818,
+        3819
+      ],
+      "role": "Cleaned point-of-care glucose",
+      "unit": "mmol/L",
+      "type": "numeric",
+      "location": "21414-21418",
+      "declared_decimal": 2,
+      "unresolved": "Do not transplant W1/W2 missing dictionaries or infer validity from first-50 continuous frequencies"
+    },
+    {
+      "ids": [
+        "W1FL_C_BS_GLUCOSE",
+        "W2FL_C_BS_GLUCOSE"
+      ],
+      "pages": [
+        1165,
+        2450,
+        2451
+      ],
+      "value_labels": {
+        "1": "Yes",
+        "2": "No"
+      },
+      "missing_labels": {
+        "-99": ".e = Empty",
+        "-98": ".d = Don't Know",
+        "-97": ".r = Refused"
+      },
+      "unresolved": "Affirmative flag meaning/cleaning rule must be separately verified; flag is not a glucose category"
+    },
+    {
+      "ids": [
+        "W3FL_C_BS_GLUCOSE"
+      ],
+      "pages": [
+        3817
+      ],
+      "role": "Numeric flag, width 1",
+      "unresolved": "Complete labelled codes/direction not verified; no wave-1/2 code transplant"
+    },
+    {
+      "ids": [
+        "W1C_BS_HEMOGLOBIN",
+        "W2C_BS_HEMOGLOBIN",
+        "W3C_BS_HEMOGLOBIN"
+      ],
+      "pages": [
+        1147,
+        2549,
+        3819
+      ],
+      "unit": "g/dL",
+      "role": "Point-of-care hemoglobin, not HbA1c"
+    },
+    {
+      "ids": [
+        "W1C_BS_HRSLASTATE"
+      ],
+      "pages": [
+        1172
+      ],
+      "unit": "hours",
+      "role": "Elapsed intake time at DBS collection start",
+      "location": "6041-6055",
+      "declared_decimal": 12,
+      "unresolved": "Alignment to actual POC-glucose specimen time"
+    },
+    {
+      "ids": [
+        "W1C_BS_FASTING8HR"
+      ],
+      "pages": [
+        1172
+      ],
+      "value_labels": {
+        "1": "Yes",
+        "2": "No"
+      },
+      "missing_labels": {
+        "-99": ".e = Empty",
+        "-98": ".d = Don't Know",
+        "-97": ".r = Refused"
+      },
+      "role": "At least 8 hours fasting at DBS start; not normalized to questionnaire strictly greater than 8 hours"
+    },
+    {
+      "ids": [
+        "W2BS051"
+      ],
+      "pages": [
+        2214,
+        2215,
+        2216
+      ],
+      "type": "character",
+      "location": "11856-11870",
+      "width": 15,
+      "role": "Last-eaten response",
+      "unresolved": "Serialized time/elapsed grammar and wave-specific instrument mapping"
+    },
+    {
+      "ids": [
+        "W1C_INT_MONTH",
+        "W1C_INT_YEAR"
+      ],
+      "pages": [
+        1176,
+        1177
+      ],
+      "role": "Interview month/year",
+      "locations": [
+        "6076-6077",
+        "6078-6081"
+      ]
+    },
+    {
+      "ids": [
+        "W2C_INT_YEAR"
+      ],
+      "pages": [
+        2566,
+        2567
+      ],
+      "role": "Interview year",
+      "location": "13865-13868"
+    },
+    {
+      "ids": [
+        "W2C_INT_MONTH"
+      ],
+      "pages": [
+        2567
+      ],
+      "location": "13869-13870",
+      "role": "Name says MONTH, label says interview day",
+      "unresolved": "Do not choose month/day silently"
+    },
+    {
+      "ids": [
+        "W3C_INT_YEAR",
+        "W3C_INT_MONTH"
+      ],
+      "pages": [
+        3836
+      ],
+      "role": "Interview year/month",
+      "locations": [
+        "21516-21519",
+        "21520-21521"
+      ]
+    },
+    {
+      "ids": [
+        "W1C_CM_DIABETES_SRTRT",
+        "W1C_CM_DIABETES_SRDIAG"
+      ],
+      "pages": [
+        1172,
+        1173
+      ],
+      "value_labels": {
+        "1": "Yes",
+        "2": "No"
+      },
+      "missing_labels": {
+        "-99": ".e = Empty",
+        "-98": ".d = Don't Know",
+        "-97": ".r = Refused"
+      },
+      "role": "Codebook narrow/current-treatment versus broad/ever-diagnosed labels; source pointer/operator contradictions retained"
+    },
+    {
+      "ids": [
+        "W2C_CM_DIABETES_SRTRT",
+        "W2C_CM_DIABETES_SRDIAG"
+      ],
+      "pages": [
+        2570,
+        2571
+      ],
+      "role": "Same displayed narrow/broad labels",
+      "unresolved": "Complete value coding and producer name/question-pointer crosswalk"
+    },
+    {
+      "ids": [
+        "W3C_CM_DIABETES_SRTRT",
+        "W3C_CM_DIABETES_SRDIAG"
+      ],
+      "pages": [
+        3832,
+        3833
+      ],
+      "role": "Narrow/current-treatment and broad labels; SRDIAG wording mixes diagnosis/treatment",
+      "unresolved": "Not T2D-specific confirmation"
+    }
+  ],
+  "questionnaire_notes": {
+    "pdf3": "Wave 2 / 2021-2022 heading, but W3 weak-ties note; instrument variables can be omitted for confidentiality/limitations. Not safely baseline-only or verified for every wave.",
+    "pdf60": "BS051 hours-since 0-24 and minutes-since 0-59 prompts; no released W2 character serialization proven. Card-date instruction is not a released timestamp.",
+    "pdf61_64": "CareSens glucose versus HEMOCUE 201+ hemoglobin; created glucose points to bs028, hemoglobin to bs026. Units and assays distinct.",
+    "pdf62": "Results-given-to-subject date instruction does not establish released specimen date.",
+    "pdf98": {
+      "questionnaire_operators": ">= 7 mmol/L fasting; >= 11.1 mmol/L nonfasting",
+      "crosswalk_operators": "Root verified source text says greater than 7 / 11.1; not silently corrected",
+      "fasting": "Strictly > 8 hours; missing fasting treated as nonfasting; differs from codebook at-least-8-hour label",
+      "labels": "Questionnaire SRDIAG broad/ever-diagnosed, SRTRT narrow/current-treatment; crosswalk rows 2847/2848 reverse broad/narrow associations",
+      "pointers": "Questionnaire calls cm007 male/female treatment and cm010 diagnosis, opposite the questions' meanings; no chosen swap"
+    },
+    "pdf115": "CE201_form4 HbA1c consent exists; not a concentration/result or evidence of public assay release. Created month refers w3endtime.",
+    "pdf116": "Created year also refers w3endtime; c_int_time is labelled begin time but refers to that end-time source. No matching released specimen/event clock verified."
+  },
+  "root_crosswalk_metadata_sha256": "bb17cdf0e96b4730b38c468f34cdab3b2fc8b994de6b9b96c85b580103f2de43",
+  "crosswalk_version_limit": "About_this_doc B6 states June 2022 file does not yet reflect wave 3; not a complete V4 three-wave crosswalk.",
+  "bounded_negative_findings": {
+    "HbA1c": "No assay-value field identified in bookmarked codebook headers; questionnaire consent found. No claim of absence across HAALSI.",
+    "death_contact_clock": "No respondent death-date, last-contact, censoring-time or vital clock field identified by bounded header search; relatives' death questions excluded.",
+    "survey_weight": "No sampling/survey/longitudinal weight field identified by bounded header search; body weight is not a design weight or event history.",
+    "specimen_clock": "Interview month/year, card-date instructions and DBS fasting context do not establish individual glucose-draw/death clocks."
+  },
+  "interpretation_limits": "POC glucose not inherently fasting, OGTT, plasma-confirmed or T2D; no model clinical states or annual generator follows from wave statuses and nominal intervals.",
+  "access_terms": {
+    "url": "https://www.icpsr.umich.edu/web/ICPSR/studies/36633/terms",
+    "basis": "Root ordinary browser-rendered inspection after automatic verification; no reviewer HTTP/raw terms receipt",
+    "http_status": null,
+    "raw_terms_sha256": null,
+    "limits": "Research/statistical use, no subject identification; redistribution of data or other materials prohibited absent agreement except stated exceptions; citation required.",
+    "actions": "No account, assent, participant request or challenge interaction; originals remain ignored local documentary material."
+  },
+  "next_scope": "Conditional private repeated-recorded-glucose/diagnosis and wave-disposition comparator, only after permitted source use and finite source/observation/privacy admission.",
+  "remaining_admission_premises": [
+    "Native row/linkage/missingness and all wave dispositions",
+    "Wave-specific fasting grammar and specimen alignment",
+    "Producer derived-variable labels/pointers/operators",
+    "Actual dated observation/death/last-contact anchors or explicitly coarsened clocks",
+    "Source permission and population/repeat-selection transport; survey weights distinct from event histories"
+  ],
+  "scientific_gates": {
+    "direct_initialization_allowed": false,
+    "clinical_fit_allowed": false,
+    "engine_activation_allowed": false,
+    "sampling_distribution_assumed": false,
+    "scientific_release_ready": false
+  },
+  "source_admitted": false,
+  "participant_data_acquired": false,
+  "numeric_outcome_estimates": false,
+  "preparation_errors": [
+    "Metadata console CP1252 display failed at U2265; remaining snippets repeated ASCII-safe, source unchanged",
+    "Initial receipt generator assumed common document_landing_url; KeyError before artifact write; fixed by preserving null plus actually supplied file ID"
+  ],
+  "interpretation_policy": {
+    "missing_handling": "Future unlabelled/system missing must remain unknown; it is not death or a healthy state. This is project handling policy, not a printed source value label.",
+    "native_encoding_unresolved": "Printed ICPSR placeholder codes and .e/.d/.r labels are documentary metadata only. Actual native Stata/delimited missing encoding has not been verified across formats.",
+    "linkage_scope": "No participant file acquired or identifiers extracted/matched; no linkage performed. Printed pseudonymous values may have been incidentally visible in the reviewed documentary pages."
+  },
+  "revision": {
+    "version": 2,
+    "prepared_at": "2026-10-03T12:07:53.065232+00:00",
+    "parent_json_sha256": "47a6c698aeb71e1c48e08d01db18714ed27b57c9f331250624b1d2d587924f12",
+    "parent_markdown_sha256": "af1d8f6be59770ae0099dd4e1c82ae213b6e3a2672a252d0a201f89c3f7486b3",
+    "corrections": [
+      "Removed unverified period entries from source-labelled missing dictionaries; retained separate conservative future handling policy.",
+      "Qualified identifier-inspection wording to no participant acquisition, extraction, matching or linkage."
+    ],
+    "source_bytes_or_page_hashes_changed": false
+  }
+}
