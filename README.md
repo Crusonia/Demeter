@@ -139,6 +139,8 @@ The [HAALSI documentation appraisal](docs/HAALSI_PUBLIC_DOCUMENTATION_APPRAISAL_
 adds exact repeated-glucose and follow-up fields while preserving unresolved
 measurement, timing and definition conflicts. The [NHIS manual-run boundary](docs/NHIS_REPORTED_ANSWER_MANUAL_RUN_ADMISSION.md)
 permits a separately reviewed technical invocation without releasing estimates.
+The [observed NHIS technical status](docs/NHIS_REPORTED_ANSWER_TECHNICAL_RUN_STATUS.md)
+records the completed original call without releasing its private statistical result.
 
 The [Malawi follow-up benchmark](docs/MALAWI_FOLLOWUP_BENCHMARK.md) adds public
 source-category counts with deaths and untraced people accounted for separately.

@@ -1956,6 +1956,10 @@
     {
       "path": "docs/validation/haalsi-icpsr-v4-documentation-appraisal-v1.json",
       "sha256": "f066f6f8d9e9bcf95253e4846525e275973551f9a65d4cdf17bf6dba820c459c"
+    },
+    {
+      "path": "docs/NHIS_REPORTED_ANSWER_TECHNICAL_RUN_STATUS.md",
+      "sha256": "36171c09325a8f4ed5a6cd0f0928346f094c8e27c7e2ca6c8b067de65119c80b"
     }
   ]
 }
