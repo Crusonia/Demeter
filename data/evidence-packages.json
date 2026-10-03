@@ -1894,6 +1894,14 @@
       "sha256": "c64ca98f144fe119828918b4b25480dfe2ee6f2557d1cb6d0f5bbf9ed32c7730"
     },
     {
+      "path": "docs/NHIS_OLDER_REPORTED_TYPE_MORTALITY_SOURCE_CHECKPOINT.md",
+      "sha256": "f601a6a57099608c215c76b1ca74f8d6abb2d74d0dfa298848ba70b58d8a901a"
+    },
+    {
+      "path": "docs/validation/nhis-older-reported-type-mortality-source-checkpoint-v1.json",
+      "sha256": "10f8182139f6a2c5467016d26304bf2e0b0276092cb17adb6e8c4ca435ebccf8"
+    },
+    {
       "path": "docs/NHIS_SELECTED_FIELD_INSPECTION_CONTRACT.md",
       "sha256": "3ad62da97ee31d994d31035201a07295ca6ad7da798dcac876da6fbfcbe77fa0"
     },
