@@ -1,0 +1,33 @@
+{
+  "diagnostic_status": "contradicted",
+  "kind": "nhanes3_repeat_fpg_nominal_diagnostic",
+  "ledger_conserved": true,
+  "model_role": "benchmark_only",
+  "provenance": {
+    "code_admission_sha256": "2c8c9f2c054b64cb86a05880743d42e909630be0a5c1ad1cfea62b003aefa587",
+    "evidence_sha256": "2eb56df341df5d8e2dcd596f26831b41f569c639802e42cfc9d85634f6aa2b3c",
+    "implementation_sha256": {
+      "src/demeter/data/nhanes3_repeat.py": "19acfc02f8f712c320c2bb4fdf581aa13bb42c8031a75957f2d293af8913a541",
+      "src/demeter/data/nhanes3_repeat_store.py": "99a07375362093a7b40f1f881801144c08db8592509b450cad8b378ece36d3cf",
+      "src/demeter/schema.py": "775a20669001cf146e75a5011e8e684b4ad75ee0e94b55685a10beea288eb782"
+    },
+    "protocol_sha256": "1728d637312da8fd4911d8152b15275eb70760e351286a2a898e95453786798f",
+    "source_admission_sha256": "d05784c3df09957b1a03f0afc10dfd4caafef33f5f8f6735f2bf40bef8fd2a5d",
+    "source_sha256": {
+      "ADULT": "32a93a474cbd3bd0dd2ddc82153c47cf0b9f81eda025e255dd251bb5620a3adf",
+      "LAB": "b87ae166c02e4907b08b7a52a1c01122b4173ec2970b891b624f43cedc038e48",
+      "LABSE": "29f9fc2c63d3191fae86dea8429092cf202a9cf60ba7046b9513440f8841c2fe"
+    }
+  },
+  "schema_version": 1,
+  "scientific_gates": {
+    "clinical_fit_allowed": false,
+    "direct_initialization_allowed": false,
+    "engine_activation_allowed": false,
+    "sampling_distribution_assumed": false,
+    "scientific_release_ready": false
+  },
+  "source_audit_passed": true,
+  "source_vintage": "NHANES III 1988-1994; revised primary1A and repeat3A ASCII",
+  "validation_only": true
+}

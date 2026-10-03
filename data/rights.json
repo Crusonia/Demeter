@@ -287,6 +287,110 @@
       "url": "https://journals.plos.org/globalpublichealth/article/file?id=10.1371/journal.pgph.0001263&type=manuscript",
       "vintage": "Published September 27, 2023; historical XML retrieved October 2, 2026"
     },
+    "nhanes3_repeat_adult_dictionary": {
+      "alternative": "Use attributed frozen method definitions/locators and exact source-receipt hashes offline; optionally fetch matching producer documentation. No complete document distributed.",
+      "citation": "CDC/NCHS. NHANES III revised primary release1A and second-exam release3A: adult-primary-codebook.pdf.",
+      "distribution": "fetch_only",
+      "notes": "Exact producer documentary source reviewed before participant acquisition; no participant records or clinical effects in this source. Original receipt and selected locators are committed separately.",
+      "policy": "nhanes3_repeat_public",
+      "privacy": "metadata",
+      "publisher": "CDC/NCHS",
+      "retrieved_at": "2026-10-03T00:39:37.949917+00:00",
+      "sha256": "a5f03642de78afcaf22f923a6bb91971c485679b3da23d569ef00abe2e6c9b6e",
+      "url": "https://wwwn.cdc.gov/nchs/data/nhanes3/1a/ADULT-acc.pdf",
+      "vintage": "NHANES III 1988-1994; revised primary1A ASCII July1997 and second-exam3A ASCII July1999"
+    },
+    "nhanes3_repeat_adult_layout": {
+      "alternative": "Use attributed frozen method definitions/locators and exact source-receipt hashes offline; optionally fetch matching producer documentation. No complete document distributed.",
+      "citation": "CDC/NCHS. NHANES III revised primary release1A and second-exam release3A: adult-primary.sas.",
+      "distribution": "fetch_only",
+      "notes": "Exact producer documentary source reviewed before participant acquisition; no participant records or clinical effects in this source. Original receipt and selected locators are committed separately.",
+      "policy": "nhanes3_repeat_public",
+      "privacy": "metadata",
+      "publisher": "CDC/NCHS",
+      "retrieved_at": "2026-10-03T00:39:36.615568+00:00",
+      "sha256": "b8d61f5bc56590d95220d88058bb054995f3beb7aeb400af88868c2679f73d4c",
+      "url": "https://wwwn.cdc.gov/nchs/data/nhanes3/1a/adult.sas",
+      "vintage": "NHANES III 1988-1994; revised primary1A ASCII July1997 and second-exam3A ASCII July1999"
+    },
+    "nhanes3_repeat_catalog": {
+      "alternative": "Use attributed frozen method definitions/locators and exact source-receipt hashes offline; optionally fetch matching producer documentation. No complete document distributed.",
+      "citation": "CDC/NCHS. NHANES III revised primary release1A and second-exam release3A: catalog.html.",
+      "distribution": "fetch_only",
+      "notes": "Exact producer documentary source reviewed before participant acquisition; no participant records or clinical effects in this source. Original receipt and selected locators are committed separately.",
+      "policy": "nhanes3_repeat_public",
+      "privacy": "metadata",
+      "publisher": "CDC/NCHS",
+      "retrieved_at": "2026-10-03T00:39:35.724135+00:00",
+      "sha256": "9d75fb37d3253bad284373f1c2262f58c32b7007b657fc6dd00d8061cc56b4d8",
+      "url": "https://wwwn.cdc.gov/nchs/nhanes/nhanes3/datafiles.aspx",
+      "vintage": "NHANES III 1988-1994; revised primary1A ASCII July1997 and second-exam3A ASCII July1999"
+    },
+    "nhanes3_repeat_lab_dictionary": {
+      "alternative": "Use attributed frozen method definitions/locators and exact source-receipt hashes offline; optionally fetch matching producer documentation. No complete document distributed.",
+      "citation": "CDC/NCHS. NHANES III revised primary release1A and second-exam release3A: lab-primary-codebook.pdf.",
+      "distribution": "fetch_only",
+      "notes": "Exact producer documentary source reviewed before participant acquisition; no participant records or clinical effects in this source. Original receipt and selected locators are committed separately.",
+      "policy": "nhanes3_repeat_public",
+      "privacy": "metadata",
+      "publisher": "CDC/NCHS",
+      "retrieved_at": "2026-10-03T00:39:37.682592+00:00",
+      "sha256": "26784eaf88077dddb1766f7556c13ea8e5b6386c859262e0a7e7e49f2a6b8d0b",
+      "url": "https://wwwn.cdc.gov/nchs/data/nhanes3/1a/lab-acc.pdf",
+      "vintage": "NHANES III 1988-1994; revised primary1A ASCII July1997 and second-exam3A ASCII July1999"
+    },
+    "nhanes3_repeat_lab_layout": {
+      "alternative": "Use attributed frozen method definitions/locators and exact source-receipt hashes offline; optionally fetch matching producer documentation. No complete document distributed.",
+      "citation": "CDC/NCHS. NHANES III revised primary release1A and second-exam release3A: lab-primary.sas.",
+      "distribution": "fetch_only",
+      "notes": "Exact producer documentary source reviewed before participant acquisition; no participant records or clinical effects in this source. Original receipt and selected locators are committed separately.",
+      "policy": "nhanes3_repeat_public",
+      "privacy": "metadata",
+      "publisher": "CDC/NCHS",
+      "retrieved_at": "2026-10-03T00:39:36.315858+00:00",
+      "sha256": "fe804748e3881bb8f2a92c57af816d603bdd02e1587f835547cbfc4f82ab8304",
+      "url": "https://wwwn.cdc.gov/nchs/data/nhanes3/1a/lab.sas",
+      "vintage": "NHANES III 1988-1994; revised primary1A ASCII July1997 and second-exam3A ASCII July1999"
+    },
+    "nhanes3_repeat_readme": {
+      "alternative": "Use attributed frozen method definitions/locators and exact source-receipt hashes offline; optionally fetch matching producer documentation. No complete document distributed.",
+      "citation": "CDC/NCHS. NHANES III revised primary release1A and second-exam release3A: readme-3a.txt.",
+      "distribution": "fetch_only",
+      "notes": "Exact producer documentary source reviewed before participant acquisition; no participant records or clinical effects in this source. Original receipt and selected locators are committed separately.",
+      "policy": "nhanes3_repeat_public",
+      "privacy": "metadata",
+      "publisher": "CDC/NCHS",
+      "retrieved_at": "2026-10-03T00:39:36.182432+00:00",
+      "sha256": "7f8b369ead26410b6437341f227ef0d5d76532dcbb0ac3325f328eb03d6f1874",
+      "url": "https://wwwn.cdc.gov/nchs/data/nhanes3/3a/readme.txt",
+      "vintage": "NHANES III 1988-1994; revised primary1A ASCII July1997 and second-exam3A ASCII July1999"
+    },
+    "nhanes3_repeat_second_lab_dictionary": {
+      "alternative": "Use attributed frozen method definitions/locators and exact source-receipt hashes offline; optionally fetch matching producer documentation. No complete document distributed.",
+      "citation": "CDC/NCHS. NHANES III revised primary release1A and second-exam release3A: lab-repeat-codebook.pdf.",
+      "distribution": "fetch_only",
+      "notes": "Exact producer documentary source reviewed before participant acquisition; no participant records or clinical effects in this source. Original receipt and selected locators are committed separately.",
+      "policy": "nhanes3_repeat_public",
+      "privacy": "metadata",
+      "publisher": "CDC/NCHS",
+      "retrieved_at": "2026-10-03T00:39:38.413686+00:00",
+      "sha256": "a9e7b8ea0a47b770867e83ad72ff092864f5bdba4f41a0bdfad6c9255c8538e2",
+      "url": "https://wwwn.cdc.gov/nchs/data/nhanes3/3a/LABSE-acc.pdf",
+      "vintage": "NHANES III 1988-1994; revised primary1A ASCII July1997 and second-exam3A ASCII July1999"
+    },
+    "nhanes3_repeat_second_lab_layout": {
+      "alternative": "Use attributed frozen method definitions/locators and exact source-receipt hashes offline; optionally fetch matching producer documentation. No complete document distributed.",
+      "citation": "CDC/NCHS. NHANES III revised primary release1A and second-exam release3A: lab-repeat.sas.",
+      "distribution": "fetch_only",
+      "notes": "Exact producer documentary source reviewed before participant acquisition; no participant records or clinical effects in this source. Original receipt and selected locators are committed separately.",
+      "policy": "nhanes3_repeat_public",
+      "privacy": "metadata",
+      "publisher": "CDC/NCHS",
+      "retrieved_at": "2026-10-03T00:39:37.201862+00:00",
+      "sha256": "d733af58ce19836507f1d287135c1a3511dbe36e8145091564d29386cbf8b786",
+      "url": "https://wwwn.cdc.gov/nchs/data/nhanes3/3a/labse.sas",
+      "vintage": "NHANES III 1988-1994; revised primary1A ASCII July1997 and second-exam3A ASCII July1999"
+    },
     "preview_esm2025": {
       "alternative": "Fetch public publication bytes locally and retain exact source receipts. Full participant records require a separate authorized application; none requested or acquired.",
       "citation": "Zhu R et al. Electronic supplementary material to Diabetologia DOI 10.1007/s00125-025-06560-x, 2025.",
@@ -987,6 +1091,24 @@
       "title": "NCHS public-use survey data",
       "transform": "Statistical analysis/reporting with documented survey design, weights and transformations."
     },
+    "nhanes3_repeat_public": {
+      "checked_on": "2026-10-03",
+      "conditions": [
+        "Acknowledge CDC/NCHS and retain source vintage and exact originals; these data are also available free at the official URLs.",
+        "Use and links imply no endorsement by CDC, HHS or the United States Government.",
+        "No identity discovery, identifiable linkage, or research to defeat producer disclosure protection.",
+        "Producer documentation remains fetch-only here; public availability creates no blanket third-party article rights."
+      ],
+      "download": "Original public-use native files and producer documents only. No restricted access, accounts or access-control workarounds.",
+      "redistribution": "conditional",
+      "terms_urls": [
+        "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+        "https://www.cdc.gov/other/agencymaterials.html",
+        "https://wwwn.cdc.gov/nchs/data/nhanes3/3a/readme.txt"
+      ],
+      "title": "CDC/NCHS historical NHANES III public-use observations and producer metadata",
+      "transform": "Statistical aggregate analysis only; source-designated repeat linkage, no identifiable external linkage or participant export. No primary survey weights for the repeat subsample."
+    },
     "niddk": {
       "checked_on": "2026-09-28",
       "conditions": [
@@ -1093,7 +1215,7 @@
       "retrieved_at": "2026-09-26T02:18:20.265271+00:00",
       "sha256": "6436d4f6972d415caf14cb20776807bc031fc9f1bfc9d6ff26055d592a2b0230",
       "url": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/national/asrh/nc-est2025-agesex-res.csv",
-      "vintage": "2025 (using 2022\u20132024 estimates)"
+      "vintage": "2025 (using 2022–2024 estimates)"
     },
     "data/sources/baseline/2026-09-26/nchs_2022_all.xlsx": {
       "citation": "CDC/NCHS. United States Life Tables, 2022, Table 1",
@@ -1666,6 +1788,39 @@
       "sha256": "70f773ab37e3d8485341f32137e280e05b9279e5fe9b6f0362e4052d8fe9a201",
       "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/GLU_L.xpt",
       "vintage": "August 2021-August 2023"
+    },
+    "data/sources/nhanes3/1988-1994-repeat/ADULT.DAT": {
+      "citation": "CDC/NCHS NHANES III 1988-1994 original revised ASCII ADULT.DAT.",
+      "notes": "Unmodified original public-use component. Statistical use only; no identify/link-identifiable-record or disclosure-defeat use. NCHS acknowledgement; freely available at official URL; no government endorsement. No joined person-level export.",
+      "policy": "nhanes3_repeat_public",
+      "privacy": "public_use_microdata",
+      "publisher": "CDC/NCHS",
+      "retrieved_at": "2026-10-03T03:36:51.534896+00:00",
+      "sha256": "32a93a474cbd3bd0dd2ddc82153c47cf0b9f81eda025e255dd251bb5620a3adf",
+      "url": "https://wwwn.cdc.gov/nchs/data/nhanes3/1a/adult.dat",
+      "vintage": "NHANES III 1988-1994; revised primary1A and second exam3A"
+    },
+    "data/sources/nhanes3/1988-1994-repeat/LAB.DAT": {
+      "citation": "CDC/NCHS NHANES III 1988-1994 original revised ASCII LAB.DAT.",
+      "notes": "Unmodified original public-use component. Statistical use only; no identify/link-identifiable-record or disclosure-defeat use. NCHS acknowledgement; freely available at official URL; no government endorsement. No joined person-level export.",
+      "policy": "nhanes3_repeat_public",
+      "privacy": "public_use_microdata",
+      "publisher": "CDC/NCHS",
+      "retrieved_at": "2026-10-03T03:36:45.766558+00:00",
+      "sha256": "b87ae166c02e4907b08b7a52a1c01122b4173ec2970b891b624f43cedc038e48",
+      "url": "https://wwwn.cdc.gov/nchs/data/nhanes3/1a/lab.dat",
+      "vintage": "NHANES III 1988-1994; revised primary1A and second exam3A"
+    },
+    "data/sources/nhanes3/1988-1994-repeat/LABSE.DAT": {
+      "citation": "CDC/NCHS NHANES III 1988-1994 original revised ASCII LABSE.DAT.",
+      "notes": "Unmodified original public-use component. Statistical use only; no identify/link-identifiable-record or disclosure-defeat use. NCHS acknowledgement; freely available at official URL; no government endorsement. No joined person-level export.",
+      "policy": "nhanes3_repeat_public",
+      "privacy": "public_use_microdata",
+      "publisher": "CDC/NCHS",
+      "retrieved_at": "2026-10-03T03:36:52.111122+00:00",
+      "sha256": "29f9fc2c63d3191fae86dea8429092cf202a9cf60ba7046b9513440f8841c2fe",
+      "url": "https://wwwn.cdc.gov/nchs/data/nhanes3/3a/labse.dat",
+      "vintage": "NHANES III 1988-1994; revised primary1A and second exam3A"
     },
     "data/sources/official-json/2026-09-27/cdc_diabetes.json": {
       "citation": "CDC/NCHS. cdc_diabetes.json",
