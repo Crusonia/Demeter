@@ -1963,11 +1963,11 @@
     },
     {
       "path": "docs/HAALSI_ASCII_ACQUISITION_PROTOCOL.md",
-      "sha256": "9feed4f95cdbb739e35d917c8bad8114c0fc5a4c2007902f2d6cbdb1408036b9"
+      "sha256": "94eb5a8f11f6a69fcd888100f901a94d7e6683f8d41de5b9b77bf027667cfbf1"
     },
     {
       "path": "docs/validation/haalsi-v4-ascii-acquisition-only-protocol-v1.json",
-      "sha256": "83422631094bdd687b995739d052d1a2888eb96e0cde0cdb69ee4dccecdda5d7"
+      "sha256": "28575a63879e85e97eed64ccc48a1ef84b6bef605076729b7ed657d43ff15abc"
     }
   ]
 }

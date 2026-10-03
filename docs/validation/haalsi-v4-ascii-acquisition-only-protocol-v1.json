@@ -105,7 +105,8 @@
       "Not recognizable ZIP end/central-directory metadata",
       "Declared encryption flag or unsupported compression method",
       "Declared count/size limit exceeded or central metadata inconsistent",
-      "Duplicate declared member names or unsafe absolute/traversal/symlink path metadata"
+      "Duplicate declared member names or unsafe absolute/traversal/symlink path metadata",
+      "Declared UNIX symbolic link, unsupported host/type encoding, unavailable/unusable attributes or unknown host-scoped type classification"
     ],
     "refusal_scope": "These are refusals based only on available directory metadata. Absence of an encryption flag or duplicate in that directory is not proof about local headers or member bodies. No extraction occurs even for safe-looking names."
   },
@@ -133,6 +134,8 @@
       "partial_bytes_available",
       "zip_directory_metadata_complete",
       "member_body_integrity_verified",
+      "archive_metadata_review_disposition",
+      "archive_metadata_review_reasons",
       "members",
       "participant_fields_projected",
       "source_admitted",
@@ -145,13 +148,58 @@
       "declared_compressed_size_bytes",
       "declared_uncompressed_size_bytes",
       "declared_crc32",
-      "declared_encryption_flag"
+      "declared_encryption_flag",
+      "declared_create_system",
+      "declared_external_attributes",
+      "derived_unix_mode",
+      "derived_member_type_from_host_attributes",
+      "member_metadata_review_disposition",
+      "member_metadata_review_reasons"
     ],
     "unknown_observations": "Null. A browser completion signal/local capture does not establish network-level completeness. Central-directory parsing alone does not establish transport_complete.",
     "member_body_integrity_verified": false,
-    "member_type_scope": "Name/extension label only, not verified content.",
+    "member_type_scope": "apparent_member_type_from_name_only is a name/extension label; derived_member_type_from_host_attributes is declared host-scoped central-directory metadata. Neither verifies member content.",
     "signed_queries": "Never persist transient signed query tokens; public landing and actual observed origin/path only.",
-    "participant_fields_projected": false
+    "participant_fields_projected": false,
+    "host_attribute_review_policy": {
+      "raw_attribute_fields": "Retain the central-directory create_system and external_attr integers as declared_create_system and declared_external_attributes. These are host/type metadata, separate from apparent_member_type_from_name_only.",
+      "supported_host_encoding": "Interpret file-type bits only for UNIX create_system 3. Other host encodings, including FAT, NTFS and Darwin, are unsupported in this finite review and must not be interpreted as a negative symlink result.",
+      "derived_unix_mode": "For supported UNIX metadata, derive the mode from the high 16 bits of external_attr. Otherwise leave derived_unix_mode null. Classify only the declared file-type bits using stat.S_ISLNK, stat.S_ISREG and stat.S_ISDIR semantics.",
+      "derived_member_type_values": [
+        "declared_symbolic_link",
+        "declared_regular_file",
+        "declared_directory",
+        "unsupported_unix_file_type",
+        "unknown"
+      ],
+      "unknown_policy": "Unavailable or unusable attributes, unsupported host encodings, or missing/unrecognized UNIX file-type bits produce unknown and refuse directory-metadata admission. Do not turn unknown into a negative symlink result or infer type from a name.",
+      "refusal_policy": "Refuse declared symbolic links, unsupported UNIX types and unknown classification, recording the member disposition and reasons. Archive metadata disposition is refused if any member or archive-level check refuses; accepted_directory_metadata_only requires every declared metadata check to pass.",
+      "review_disposition_values": [
+        "accepted_directory_metadata_only",
+        "refused",
+        "not_reviewed"
+      ],
+      "review_reasons": "Retain explicit reasons for each refusal or non-review, such as declared_symbolic_link, unsupported_create_system, unavailable_or_unusable_external_attributes, missing_or_unrecognized_unix_file_type, unsupported_unix_file_type, unsafe_member_name, duplicate_member_name, declared_encryption, unsupported_compression, inconsistent_directory_metadata, or declared_resource_limit_exceeded. Keep archive-level reasons alongside member-level reasons; no private names in a public status.",
+      "interpretation_scope": "Declared central-directory metadata only. An accepted declared regular file/directory is not a verified member-body type, safe extraction guarantee, transport/body-integrity proof, or authorization to read a local header or member body.",
+      "references": [
+        {
+          "url": "https://docs.python.org/3.12/library/zipfile.html#zipfile.ZipInfo.create_system",
+          "scope": "ZipInfo central-directory host identifier"
+        },
+        {
+          "url": "https://docs.python.org/3.12/library/zipfile.html#zipfile.ZipInfo.external_attr",
+          "scope": "ZipInfo external attributes"
+        },
+        {
+          "url": "https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT",
+          "scope": "APPNOTE 6.3.10 sections 4.4.2 and 4.4.15: host identifier and host-dependent external-attribute interpretation"
+        },
+        {
+          "url": "https://docs.python.org/3.12/library/stat.html",
+          "scope": "UNIX mode file-type predicates"
+        }
+      ]
+    }
   },
   "failure_policy": "Retain any supported completed or available partial original bytes and a private honest receipt; fixed sanitized public unavailable status if needed. No automatic retry, raw exception/member/path dump, guessed mirror or source repair. Unavailable transport observations remain null.",
   "separate_future_field_contract_required": [
