@@ -265,6 +265,12 @@ dependent survey covariance. Run `uv run demeter evidence glycemic-2021-2023`
 for an offline summary. It supplements the earlier vintage and leaves clinical
 initialization and the scientific release gate closed.
 
+The [paired assay audit](docs/NHANES_ASSAY_OBSERVATION_MAPPING.md) tests whether
+A1c and fasting glucose yield the same threshold labels for the same people.
+Run `uv run demeter evidence assay-mapping` offline. It retains missingness
+and dependent uncertainty; observed agreement or disagreement does not identify
+latent clinical states, assay accuracy, diabetes type or transition hazards.
+
 ## Interpret outputs correctly
 
 - **Period life expectancy** is the result of freezing a mortality schedule. It is not a forecast of an individual's lifespan.

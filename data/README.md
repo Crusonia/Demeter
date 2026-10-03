@@ -262,6 +262,10 @@ alternative definitions, survey uncertainty and missing-data limitations.
   add a newer adult benchmark, explicit missingness and dependent survey
   covariance. Run `uv run demeter evidence glycemic-2021-2023` for a compact
   offline summary; this benchmark does not initialize the engine.
+- The [paired assay mapping audit](../docs/NHANES_ASSAY_OBSERVATION_MAPPING.md)
+  reuses those source bytes to test a specific observation-equivalence assumption.
+  Run `uv run demeter evidence assay-mapping` for the paired comparison and its
+  limitations. Missing assays are never counted as agreement.
 
 Reload and verify without changing committed files:
 

@@ -112,8 +112,8 @@ def test_real_packages_cover_every_source_and_bundle_without_network(monkeypatch
     report = verify_packages()
     assert report["passed"], [c for c in report["checks"] if not c["passed"]]
     assert len(report["sources"]) == 91
-    assert len(report["artifacts"]) == 191
-    assert len(report["packages"]) == 38
+    assert len(report["artifacts"]) == 195
+    assert len(report["packages"]) == 39
     assert not report["network_used"]
     assert report["documentation"]["metadata_passed"]
     assert len(report["documentation"]["source_checks"]) == 15
@@ -125,6 +125,11 @@ def test_real_packages_cover_every_source_and_bundle_without_network(monkeypatch
     assert current_nhanes["registry_parameters"] == []
     assert current_nhanes["registry_datasets"] == ["nhanes_glycemic_2021_2023"]
     assert len(current_nhanes["artifacts"]) == 4
+    mapping = report["packages"]["nhanes_assay_observation"]
+    assert mapping["model_role"] == "benchmark_only"
+    assert mapping["registry_parameters"] == []
+    assert mapping["registry_datasets"] == ["nhanes_assay_observation_2021_2023"]
+    assert len(mapping["artifacts"]) == 4
     aric = report["packages"]["aric_outcomes_benchmark"]
     assert aric["model_role"] == "benchmark_only"
     assert len(aric["registry_parameters"]) == 58

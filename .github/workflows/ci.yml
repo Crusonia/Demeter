@@ -14,8 +14,9 @@ jobs:
   test:
     name: test (${{ matrix.label }})
     runs-on: ${{ matrix.os }}
-    # Retain the complete platform gates as source audits and fixtures grow.
-    timeout-minutes: 30
+    # Retain every platform check as source audits and fixtures grow; the
+    # Windows/3.12 release checks exceeded the previous 30-minute allowance.
+    timeout-minutes: 45
     env:
       # Keep uv run on the matrix version even with the novice .python-version pin.
       UV_PYTHON: ${{ matrix.python-version }}
@@ -81,6 +82,8 @@ jobs:
           uv run python scripts/verify_joint_glycemic_uncertainty.py
           uv run demeter evidence glycemic-2021-2023 --output outputs/glycemic-2021-2023.json
           uv run python scripts/verify_nhanes_current.py
+          uv run demeter evidence assay-mapping --output outputs/assay-mapping.json
+          uv run python scripts/verify_nhanes_assay_mapping.py
           uv run demeter data rebuild-linked-mortality
           uv run demeter evidence linked-mortality --output outputs/linked-mortality-evidence.json
           uv run python scripts/fit_mortality_development.py
