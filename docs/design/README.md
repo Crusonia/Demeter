@@ -134,3 +134,8 @@ and [v0.1 boundary](../../AGENTS.md) remain authoritative. Broad loops can be
 documented now; agriculture, behavioral agents, healthcare-cost models, policy,
 and commercial valuation are not activated by this design work. The current
 [model specification](../MODEL_SPEC.md) describes what actually runs.
+
+The [NHIS full-file reported-answer benchmark contract](../NHIS_REPORTED_ANSWER_BENCHMARK_CONTRACT.md)
+freezes a private source-to-ratio/covariance bridge before implementation. It
+retains unknown answers and the entire design frame; original-source execution,
+public release and clinical interpretation require separate reviewed stages.
