@@ -1832,6 +1832,10 @@
     {
       "path": "docs/validation/public-clinical-source-checkpoint-v1.json",
       "sha256": "5bb70827eabfd507c410e3474d8b828286dd9e011b9918eb0f8c4f49da8a1a12"
+    },
+    {
+      "path": "docs/validation/hrs-repeat-biomarker-source-checkpoint-v1.json",
+      "sha256": "b53195b540192d8b94cbbe7532b19a0c8607ccd918fc14200d71310ca1e0f059"
     }
   ]
 }

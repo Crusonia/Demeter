@@ -27,6 +27,11 @@ specifies a possible next observed-label falsification test, source fields,
 unresolved intake choices and privacy requirements. It admits no participant
 data, parameters or clinical hazards.
 
+The [HRS repeat-biomarker checkpoint](../HRS_REPEAT_BIOMARKER_SOURCE_CHECKPOINT.md)
+feeds I-11 observation design with native/adjusted assay roles and unresolved
+selection, specimen clocks and diabetes type. It is source discovery, not an
+empirical intake or a clinical likelihood.
+
 ## Methodological basis
 
 This is Demeter's application of a system-dynamics approach informed by Thomas S.

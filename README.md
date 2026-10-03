@@ -403,6 +403,11 @@ explain which linked records or sufficient aggregate tables could unblock clinic
 fitting. Contributors can propose a primary source with its definitions and reuse
 terms; the guide records the gaps found in the latest bounded source search.
 
+The [HRS repeat-biomarker checkpoint](docs/HRS_REPEAT_BIOMARKER_SOURCE_CHECKPOINT.md)
+records repeat HbA1c fields and remaining selection, clock and diagnosis gaps.
+It proposes a future observation check; no participant intake or clinical rates
+are admitted.
+
 The [Kerala public trial intake](docs/KERALA_SOURCE_COVERAGE.md) checks a versioned
 producer release with candidate repeated glucose observations. Exact source and
 protocol pins, typed linked-record coverage, unexplained codes and measurement

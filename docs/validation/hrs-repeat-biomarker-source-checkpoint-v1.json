@@ -1,0 +1,364 @@
+{
+  "schema_version": 1,
+  "kind": "hrs_repeat_biomarker_documentary_checkpoint",
+  "created_at": "2026-10-03T05:41:33.214300+00:00",
+  "status": "source_discovery_only",
+  "source_admission": false,
+  "participant_acquisition": false,
+  "empirical_calculation": false,
+  "model_parameters_added": false,
+  "design_trace_ids": [
+    "I-01",
+    "I-07",
+    "I-11",
+    "I-12",
+    "F-08",
+    "T-05",
+    "T-08"
+  ],
+  "scientific_gates": {
+    "direct_initialization_allowed": false,
+    "clinical_fit_allowed": false,
+    "engine_activation_allowed": false,
+    "sampling_distribution_assumed": false,
+    "scientific_release_ready": false
+  },
+  "chronology": "Used-source documentary evaluation, not preregistration. Earlier appraisals and failed requests preserved. This checkpoint adds reported-versus-presumed-alive wording without claiming complete ascertainment.",
+  "inspection_scope": "Chosen anonymous metadata-only scout, not a restriction on broader public-source preferences. Ordinary web display, no account, agreement, participant request or access workaround.",
+  "products": [
+    {
+      "title": "2012 DBS",
+      "url": "https://hrsdata.isr.umich.edu/data-products/2012-biomarker-data",
+      "release_as_inspected": "April 2015 Final V1.0",
+      "doi": "10.7826/UVTJ1509",
+      "inspection": "browser-rendered official metadata",
+      "original_sha256": null,
+      "original_bytes_acquired": false
+    },
+    {
+      "title": "2016 DBS",
+      "url": "https://hrsdata.isr.umich.edu/data-products/2016-biomarker-data",
+      "release_as_inspected": "November 2020 Early V1.0",
+      "doi": "10.7826/GDSJ6138",
+      "inspection": "browser-rendered official metadata",
+      "original_sha256": null,
+      "original_bytes_acquired": false
+    },
+    {
+      "title": "Tracker",
+      "url": "https://hrsdata.isr.umich.edu/data-products/cross-wave-tracker-file",
+      "release_as_inspected": "December 2025 Final 2022 V1.0",
+      "doi": "10.7826/OZGE2932",
+      "inspection": "browser-rendered official metadata",
+      "original_sha256": null,
+      "original_bytes_acquired": false
+    },
+    {
+      "title": "2016 VBS",
+      "url": "https://hrsdata.isr.umich.edu/data-products/2016-venous-blood-study-vbs",
+      "release_as_inspected": "April 2025 Final V3.0",
+      "doi": "10.7826/ORTM1684",
+      "inspection": "browser-rendered official metadata",
+      "original_sha256": null,
+      "original_bytes_acquired": false
+    }
+  ],
+  "field_roles": [
+    {
+      "role": "native_2012",
+      "fields": [
+        "NA1CUW"
+      ],
+      "url": "https://hrs.isr.umich.edu/sites/default/files/meta/bio2012/codebook/biomk12bl_r.htm",
+      "locator": "BL, NA1CUW, lines 40-47",
+      "meaning_and_limits": "Native University of Washington HbA1c; actual pairs uninspected.",
+      "inspection": "browser-rendered official metadata",
+      "original_sha256": null
+    },
+    {
+      "role": "native_2016",
+      "fields": [
+        "PA1CUW",
+        "HHID",
+        "PN"
+      ],
+      "url": "https://hrs.isr.umich.edu/sites/default/files/meta/bio2016/codebook/biomk16bl_r.htm",
+      "locator": "BL, lines 7-21 and 44-47",
+      "meaning_and_limits": "Native HbA1c and character cross-wave identifiers; no participant linkage inspected.",
+      "inspection": "browser-rendered official metadata",
+      "original_sha256": null
+    },
+    {
+      "role": "adjusted",
+      "fields": [
+        "NA1C_ADJ",
+        "PA1C_ADJ"
+      ],
+      "url": "https://hrs.isr.umich.edu/sites/default/files/meta/bio2016/codebook/biomk16bl_r.htm",
+      "locator": "BL, PA1C_ADJ lines 60-62; 2012 counterpart BL",
+      "meaning_and_limits": "NHANES-equivalent values are separate from native observations.",
+      "inspection": "browser-rendered official metadata",
+      "original_sha256": null
+    },
+    {
+      "role": "selection",
+      "fields": [
+        "PPMELIG",
+        "PI922",
+        "PI923"
+      ],
+      "url": "https://hrs.isr.umich.edu/sites/default/files/meta/2016/core/codebook/h16i_r.htm",
+      "locator": "I, lines 165-176, 4534-4544, 4826-4837",
+      "meaning_and_limits": "Wave eligibility, consent and attempted completion differ from valid assay. No universal age or eligibility transport inferred.",
+      "inspection": "browser-rendered official metadata",
+      "original_sha256": null
+    },
+    {
+      "role": "multiple_disposition",
+      "fields": [
+        "PI924M1",
+        "PI924M2",
+        "PI924M3",
+        "PI943M1",
+        "PI943M2",
+        "PI943M3",
+        "PI943M4",
+        "PI943M5",
+        "PI943M6",
+        "PI926M1",
+        "PI926M2",
+        "PI926M3"
+      ],
+      "url": "https://hrs.isr.umich.edu/sites/default/files/meta/2016/core/codebook/h16i_r.htm",
+      "locator": "I, noncompletion, no-consent and collection-problem entries",
+      "meaning_and_limits": "Multiple reason slots need dictionaries and overlap rules; not an exclusive attrition partition.",
+      "inspection": "browser-rendered official metadata",
+      "original_sha256": null
+    },
+    {
+      "role": "history_2012",
+      "fields": [
+        "NC010",
+        "NC214",
+        "NC011",
+        "NC012"
+      ],
+      "url": "https://hrs.isr.umich.edu/sites/default/files/meta/2012/core/codebook/h12c_r.htm",
+      "locator": "C, lines 443-540",
+      "meaning_and_limits": "Broad diabetes/high blood sugar, carry-forward and disputed history; conditional onset and medication. Blank onset is not no history.",
+      "inspection": "browser-rendered official metadata",
+      "original_sha256": null
+    },
+    {
+      "role": "history_2016",
+      "fields": [
+        "PC010",
+        "PC285",
+        "PC214",
+        "PC011",
+        "PC012"
+      ],
+      "url": "https://hrs.isr.umich.edu/sites/default/files/meta/2016/core/codebook/h16c_r.htm",
+      "locator": "C, lines 375-525",
+      "meaning_and_limits": "PC285 is reported sugar-condition stage, not diabetes type. No explicit type question verified in inspected blocks; medication is not type.",
+      "inspection": "browser-rendered official metadata",
+      "original_sha256": null
+    },
+    {
+      "role": "wave_weights",
+      "fields": [
+        "NBIOWGTR",
+        "PBIOWGTR"
+      ],
+      "url": "https://hrs.isr.umich.edu/sites/default/files/meta/tracker/codebook/trk2022tr_r.htm",
+      "locator": "TR, PBIOWGTR lines 8508-8516; 2012 BL NBIOWGTR lines 182-189",
+      "meaning_and_limits": "Separate wave biomarker weights; paired-panel prescription unresolved.",
+      "inspection": "browser-rendered official metadata",
+      "original_sha256": null
+    },
+    {
+      "role": "status",
+      "fields": [
+        "PALIVE"
+      ],
+      "url": "https://hrs.isr.umich.edu/sites/default/files/meta/tracker/codebook/trk2022tr_r.htm",
+      "locator": "TR, lines 8485-8504",
+      "meaning_and_limits": "Alive can be report-based; presumed alive can mean no contact. Neither establishes complete ascertainment.",
+      "inspection": "browser-rendered official metadata",
+      "original_sha256": null
+    },
+    {
+      "role": "death_sources",
+      "fields": [
+        "EXDEATHMO",
+        "EXDEATHYR",
+        "EXDODSOURCE",
+        "KNOWNDECEASEDMO",
+        "KNOWNDECEASEDYR",
+        "KNOWNDECEASEDSOURCE",
+        "LASTALIVEMO",
+        "LASTALIVEYR",
+        "LASTALIVESOURCE"
+      ],
+      "url": "https://hrs.isr.umich.edu/sites/default/files/meta/tracker/codebook/trk2022tr_r.htm",
+      "locator": "TR, exit-death, known-deceased and last-alive entries",
+      "meaning_and_limits": "Reported versus imputed event dates retain sources; last alive is not completed follow-up.",
+      "inspection": "browser-rendered official metadata",
+      "original_sha256": null
+    },
+    {
+      "role": "clock",
+      "fields": [
+        "NIWYEAR",
+        "NIWMONTH",
+        "PIWYEAR",
+        "PIWMONTH"
+      ],
+      "url": "https://hrs.isr.umich.edu/sites/default/files/meta/tracker/codebook/trk2022tr_r.htm",
+      "locator": "TR, wave interview year/month entries; DBS BL and 2016 I inventory separately inspected",
+      "meaning_and_limits": "Interview starts are not specimen times. No DBS draw-time field verified in inspected inventories, not all HRS.",
+      "inspection": "browser-rendered official metadata",
+      "original_sha256": null
+    },
+    {
+      "role": "separate_vbs",
+      "fields": [
+        "PGLUFF",
+        "PFASTYN",
+        "PVBS_N_DAYS",
+        "PVBSCOLTM"
+      ],
+      "url": "https://hrs.isr.umich.edu/sites/default/files/meta/vbs/2016/codebook/vbs16v3a_r.htm",
+      "locator": "2016 V3, A entries",
+      "meaning_and_limits": "VBS offset and collection time do not establish DBS clocks or a released repeat VBS assay.",
+      "inspection": "browser-rendered official metadata",
+      "original_sha256": null
+    }
+  ],
+  "producer_procedure": {
+    "url": "https://hrsdata.isr.umich.edu/sites/default/files/documentation/data-descriptions/1789588906/HRS%20Data%20Documentation%20for%202016%20DBS%20Release.pdf",
+    "locators": {
+      "repeat_groups": "page 2",
+      "context_and_units": "pages 3-4",
+      "adjustment_warning": "pages 7-8"
+    },
+    "repeat_selection": "Rotating groups: 2006/2010/2014 and 2008/2012/2016. Actual paired membership uninspected.",
+    "units": "HbA1c percent",
+    "warning": "Native versus NHANES-equivalent observations remain distinct; longitudinal adjusted changes can reflect the NHANES reference.",
+    "original_sha256": null,
+    "original_bytes_acquired": false
+  },
+  "ordinary_documentary_requests": [
+    {
+      "url": "https://hrsdata.isr.umich.edu/data-products/2016-venous-blood-study-vbs",
+      "requested_at": "2026-10-03T05:07:35.529933+00:00",
+      "http_status": 403,
+      "status": "not_acquired",
+      "original_sha256": null,
+      "original_size_bytes": null,
+      "participant_file_requested": false
+    },
+    {
+      "url": "https://hrsdata.isr.umich.edu/sites/default/files/documentation/data-descriptions/1747258152/HRS2016VBSDD.pdf",
+      "requested_at": "2026-10-03T05:07:35.776285+00:00",
+      "http_status": 403,
+      "status": "not_acquired",
+      "original_sha256": null,
+      "original_size_bytes": null,
+      "participant_file_requested": false
+    },
+    {
+      "url": "https://hrs.isr.umich.edu/sites/default/files/meta/vbs/2016/codebook/vbs16v3a_r.htm",
+      "requested_at": "2026-10-03T05:07:35.888302+00:00",
+      "http_status": 403,
+      "status": "not_acquired",
+      "original_sha256": null,
+      "original_size_bytes": null,
+      "participant_file_requested": false
+    },
+    {
+      "url": "https://hrsdata.isr.umich.edu/data-products/cross-wave-tracker-file",
+      "requested_at": "2026-10-03T05:07:36.051463+00:00",
+      "http_status": 403,
+      "status": "not_acquired",
+      "original_sha256": null,
+      "original_size_bytes": null,
+      "participant_file_requested": false
+    },
+    {
+      "url": "https://hrsdata.isr.umich.edu/sites/default/files/documentation/data-descriptions/1789686449/trk22_DataDescription_Final_V1_rm.pdf",
+      "requested_at": "2026-10-03T05:07:36.168965+00:00",
+      "http_status": 403,
+      "status": "not_acquired",
+      "original_sha256": null,
+      "original_size_bytes": null,
+      "participant_file_requested": false
+    },
+    {
+      "url": "https://hrs.isr.umich.edu/sites/default/files/meta/tracker/codebook/trk2022tr_r.htm",
+      "requested_at": "2026-10-03T05:07:36.280321+00:00",
+      "http_status": 403,
+      "status": "not_acquired",
+      "original_sha256": null,
+      "original_size_bytes": null,
+      "participant_file_requested": false
+    },
+    {
+      "url": "https://hrs.isr.umich.edu/sites/default/files/meta/2022/core/codebook/h22c_r.htm",
+      "requested_at": "2026-10-03T05:07:36.384951+00:00",
+      "http_status": 403,
+      "status": "not_acquired",
+      "original_sha256": null,
+      "original_size_bytes": null,
+      "participant_file_requested": false
+    },
+    {
+      "url": "https://hrsdata.isr.umich.edu/data-products/2024-hrs-core",
+      "requested_at": "2026-10-03T05:07:36.487518+00:00",
+      "http_status": 403,
+      "status": "not_acquired",
+      "original_sha256": null,
+      "original_size_bytes": null,
+      "participant_file_requested": false
+    },
+    {
+      "url": "https://hrsdata.isr.umich.edu/data-products/sensitive-health/1000",
+      "requested_at": "2026-10-03T05:07:36.579344+00:00",
+      "http_status": 403,
+      "status": "not_acquired",
+      "original_sha256": null,
+      "original_size_bytes": null,
+      "participant_file_requested": false
+    }
+  ],
+  "rights": "Metadata visibility does not establish participant processing or redistribution rights. Sensitive-health registration/access conditions remain separate. No account, agreement, data or publisher full text obtained or redistributed.",
+  "required_before_intake": [
+    "Exact source bytes, format, linkage grammar and missing/sentinel rules",
+    "Applicable processing, reuse and disclosure terms",
+    "Committed used-source protocol followed by reviewed source/code admission before diagnostics",
+    "Specimen-clock evidence or explicit nominal untimed scope",
+    "Paired eligibility, disposition and justified population design/weights",
+    "Conditional diagnosis universes and fixed nonreconstructive public schema"
+  ],
+  "narrow_next_design": "Synthetic observation/disposition witness. A future repeat-label benchmark is conditional on linked selected respondents, with nominal wave labels until elapsed specimen time is verified. Empty or zero first-label support is not evaluable.",
+  "unidentified": [
+    "Actual elapsed DBS specimen time",
+    "Type-specific or latent metabolic states",
+    "Biological versus measurement change from two assays",
+    "Unobserved outcomes and independent censoring",
+    "Population repeat probabilities without a paired design",
+    "Clinical hazards and causal dietary effects"
+  ],
+  "historical_authored_research_sha256": {
+    "literal-field-crosswalk-appraisal-v1.json": "23a93abbc53c670b5ee689a7811cedc11cb9fc3e34711d3add0dabd96a66eac1",
+    "literal-field-crosswalk-appraisal-v1.md": "23e5210bc5cbe41f6ad04fd0dcddbbfa7212d7e090613d1959e9d5a86c82a514",
+    "ordinary-documentary-acquisition-receipts-v1.json": "fec143e4497dff60fb55309452f6f4fd2eacc92f25976ed7f523b0c561ca1077",
+    "supplemental-clock-selection-diagnosis-v3.json": "b7c3d3efab37c430a3c5dd09b8db0b2a2599c29aa6f02f3094d530a190822041",
+    "supplemental-clock-selection-diagnosis-v3.md": "9e120444cc08e5106e8da0d8c82b88694c5fed3afa7ed8deac9f851353c80f50",
+    "supplemental-counterpart-proof-v1.json": "ae534810caeb0255e23f725a6952b0534bf11716b7c1d4a6fc53a39bbff0e51f",
+    "supplemental-counterpart-proof-v1.md": "46812fd4887b0d762312c39ef8ddc2c772b85bbbffb8c54bbb22ce2e980e11b5",
+    "supplemental-native-binding-v2.json": "c1bf37399f773e11be81f21932bbcbf918edb205d29eda3022dac5b6f017dfbb",
+    "supplemental-native-binding-v2.md": "688a5414cda1b59ceea4e0d943c23a34576b72f2a3564fcdfd2f197c96e3e4ca"
+  },
+  "hash_scope": "Research hashes identify authored ignored notes, not original producer bytes. Chronology references only, not runtime dependencies."
+}
