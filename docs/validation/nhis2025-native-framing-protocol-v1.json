@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "status": "frozen_used_source_acquisition_and_framing_protocol",
+  "created_at": "2026-10-03T06:42:19.579635+00:00",
+  "authored_before_commit_at_head": "bd9dd1836db9fff220b4943985bbcdf9c50d0ab3",
+  "design_trace_ids": [
+    "I-01",
+    "I-07",
+    "I-11",
+    "I-12",
+    "F-08",
+    "T-01",
+    "T-02",
+    "T-05",
+    "T-08"
+  ],
+  "question": "Which native bytes and physical record boundaries does the advertised NHIS 2025 Sample Adult ASCII delivery provide?",
+  "empirical_estimand_admitted": false,
+  "prior_participant_acquisition": false,
+  "used_source_chronology": "The metadata and publication summaries were examined before this protocol; no participant ZIP or native file was requested. This is not preregistration or an independent holdout.",
+  "selected_delivery": {
+    "catalog_url": "https://www.cdc.gov/nchs/nhis/documentation/2025-nhis.html",
+    "catalog_sha256": "d1a6249df56903e3bb92eb3df52ec2daec5a01de7dbbee96cc895669014e97ab",
+    "catalog_retrieved_at": "2026-10-03T06:02:09.533251+00:00",
+    "request_url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/NHIS/2025/adult25.zip",
+    "documentary_native_filename": "adult25.dat",
+    "native_file_sha256": null,
+    "zip_sha256": null,
+    "format_members_and_framing_unverified": true,
+    "producer_file_metadata": {
+      "source_url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/NHIS/2025/Checksum-filelist.pdf",
+      "source_sha256": "2b67d8316d99e18be64c4cd5ac4d7198a07800a4c99e66f7f3546e8fd73daa37",
+      "source_retrieved_at": "2026-10-03T06:03:58.340336+00:00",
+      "page": 1,
+      "native_record_length_bytes": 685,
+      "ascii_file_size_bytes": 16635705,
+      "csv_file_size_bytes": 22038942,
+      "record_count": 24215,
+      "ascii_published_checksum": "6b3686c19b2e0851eb141a837362de77",
+      "csv_published_checksum": "d8c359ca161e0bd3ef51345626308d72",
+      "checksum_algorithm": "Not named on inspected page; do not promote a guessed algorithm. These are metadata, not acquired file facts."
+    }
+  },
+  "documentary_identity": {
+    "authored_receipt_path": "docs/validation/nhis2025-typed-diagnosis-design-receipts-v1.json",
+    "authored_receipt_sha256": "cbb7e50eb970ecdc470607058f6e1df79a9c1cb37b3dcf82e7c3817096e4b889",
+    "originals": {
+      "nchs-proportions-standards-2017.pdf": {
+        "url": "https://www.cdc.gov/nchs/media/pdfs/2024/09/sr02_175.pdf",
+        "sha256": "47a0d06b8f79ceb6de2725f1b94eb2320f7f41d64214790395b4bd035bd7b683",
+        "size_bytes": 1627403,
+        "retrieved_at": "2026-10-03T04:47:05.230202+00:00",
+        "distribution": "fetch_only_documentation",
+        "locators": {
+          "1-2": "Actual cached edition and2018/2021correction notes",
+          "13-16": "Proportion presentation standards and NHIS nationalnormalexample (printed7-10)"
+        }
+      },
+      "nhanes-diq-l.html": {
+        "url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/DIQ_L.htm",
+        "sha256": "cfc823723f5e37039b39108a614513d6c1f210f30f885a45d6a4ea07a718896a",
+        "size_bytes": 32437,
+        "retrieved_at": "2026-10-03T04:31:17.095563+00:00",
+        "distribution": "fetch_only_documentation",
+        "locators": {
+          "advertised_variable_list": "No explicit diabetes-type question"
+        }
+      },
+      "nhis-2025-adult-codebook.pdf": {
+        "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/NHIS/2025/adult-codebook.pdf",
+        "sha256": "e112f79ff5575e2900068471529bf884d43423c465c5275c4abf3becc4a818c5",
+        "size_bytes": 16573265,
+        "retrieved_at": "2026-10-03T04:32:56.590374+00:00",
+        "distribution": "fetch_only_documentation",
+        "locators": {
+          "115": "DIBEV_A",
+          "12": "PROXYFLAG_A",
+          "124": "DIBTYPE_A universe",
+          "19": "SEX_A",
+          "21": "AGEP_A topcode",
+          "4": "WTFA_A annualadultweight",
+          "7": "PSTRAT publicstratum",
+          "8": "PPSU publicPSU"
+        }
+      },
+      "nhis-2025-adult-layout.sas": {
+        "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Program_Code/NHIS/2025/Adult.sas",
+        "sha256": "2a774c19872d66e0847c97ebb3804aca363df46f25d9fa5c3d4031908674507b",
+        "size_bytes": 158349,
+        "retrieved_at": "2026-10-03T04:33:20.592738+00:00",
+        "distribution": "fetch_only_documentation",
+        "locators": {
+          "documentary_only": "Producer INPUT/FORMAT field declarations; not executed"
+        }
+      },
+      "nhis-2025-pricssa.pdf": {
+        "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/NHIS/2025/2025-NHIS-PRICSSA-508.pdf",
+        "sha256": "81437884a71d3be57aac61dc7d81b50d676e26d8cdd133d0334e7f1d78cc93b5",
+        "size_bytes": 240892,
+        "retrieved_at": "2026-10-03T04:47:06.721698+00:00",
+        "distribution": "fetch_only_documentation",
+        "locators": {
+          "3": "Items2.4/2.5/2.6/2.7/2.8/2.10: KG intervals, annualweight, publicvariance/domain, reliability, MISSUNIT"
+        }
+      },
+      "nhis-2025-survey-description.pdf": {
+        "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/NHIS/2025/srvydesc-508.pdf",
+        "sha256": "d8a8cc998bcdef46d4408eaaf275373702131042f49efad9b28e1c87dcf2106c",
+        "size_bytes": 2060384,
+        "retrieved_at": "2026-10-03T04:33:19.620422+00:00",
+        "distribution": "fetch_only_documentation",
+        "locators": {
+          "10": "Redesign/shutdown/annual-file interview exclusion",
+          "117": "Public adult age topcode",
+          "14": "Civilian noninstitutionalized population",
+          "17/121": "Knowledgeableproxy interview roles",
+          "35-36": "NHIS degrees-of-freedom caveat",
+          "47-48": "Annual-weight and public-design WR variance specification",
+          "73-74": "Full-file subpopulation variance",
+          "9": "Statistical-only use and confidentiality restrictions"
+        }
+      }
+    }
+  },
+  "permitted_stage": [
+    "After committed automated review, ordinary unsigned GET only to the literal advertised ASCII archive; preserve originals and receipts without overwrite.",
+    "Record requested/final URL, HTTP result, retrieval timestamp, byte size and our SHA256; record failures without guessing source exclusion.",
+    "Inspect archive directory before data: one exact adult25.dat member, no duplicates, encryption, unsafe paths or unexpected members. Do not extract to filesystem. Resource-policy cap: archive and declared uncompressed member at most 100 MiB before reading; not a scientific parameter.",
+    "Read selected member to validate ZIP CRC and preserve exact native bytes privately with independent SHA256; CRC is not cryptographic origin proof.",
+    "Byte-only framing pass: ASCII validity, line-ending aggregate counts, payload-width histogram and final-newline presence. No native field projection or participant values.",
+    "Preserve disagreement/uncertainty and stop before fields. Freeze an additive source/framing receipt and reviewed parsing admission before selected-value inspection."
+  ],
+  "technical_public_output_allowlist": [
+    "literal source URLs and retrieval status/time",
+    "archive/native sizes and SHA256 identities",
+    "Approved literal adult25.dat name and numeric directory metadata only; redact unexpected names and omit archive/member comments.",
+    "CRC consistency, ASCII validity, physical line-ending counts, payload-width frequencies, final-newline status",
+    "documentary size/count comparisons identified as delivery checks only",
+    "stage status and sanitized failure reasons"
+  ],
+  "forbidden_in_this_stage": [
+    "selected native fields, identifiers, substrings, rows or row-level errors",
+    "categorical classification, weights/design projection or demographic domain counts",
+    "trimming, padding, newline rewriting, recoding or original overwrite",
+    "CSV substitution, guessed mirror, account/login, challenge bypass or identity linkage",
+    "participant redistribution, source admission, empirical calculation, clinical parameter or engine activation"
+  ],
+  "future_admissions_required": [
+    "Exact archive/member identity and accepted physical framing with immutable raw receipts.",
+    "Reviewed lexical/native-field/record-role parser and actual loaded-code/helper admission; synthetic integrity/privacy/conservation tests before diagnosis diagnostics.",
+    "A separately frozen recorded-answer estimand, target/domains, weight and full-design rules, interval/df/presentation and disclosure policies before estimation."
+  ],
+  "rights_scope": {
+    "data_user_agreement_url": "https://www.cdc.gov/nchs/policy/data-user-agreement.html",
+    "agency_materials_url": "https://www.cdc.gov/other/agencymaterials.html",
+    "inspection_date": "2026-10-03",
+    "scope": "Statistical delivery inspection only; no identification, identifiable linkage or disclosure-protection research. Acquired originals private/fetch-only; no participant redistribution.",
+    "attribution": "Source: CDC/NCHS. Official source available at no charge. No endorsement by CDC, HHS or the U.S. government.",
+    "copyright_exceptions": "Specific exceptions remain to be checked before any future redistribution; public web visibility is not blanket permission."
+  },
+  "scientific_gates": {
+    "direct_initialization_allowed": false,
+    "clinical_fit_allowed": false,
+    "engine_activation_allowed": false,
+    "sampling_distribution_assumed": false,
+    "scientific_release_ready": false
+  },
+  "review_context": "Codex-assisted author and software review; external domain/method review pending; no independent human approval claimed.",
+  "unchanged": [
+    "model equations",
+    "evidence registry and numeric parameters",
+    "existing raw archives",
+    "all frozen protocols, receipts and reports"
+  ]
+}
