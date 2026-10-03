@@ -62,6 +62,10 @@ documentary and loaded-decoder identities before returning private native bytes.
 It invokes no decoder, exports no records and admits no empirical calculation.
 Its tests use synthetic delivery identities; clinical gates remain closed.
 
+The [selected-field provenance amendment](../NHIS_SELECTED_FIELD_PROVENANCE_AMENDMENT.md)
+preserves the original contract while specifying the exact five current technical
+hashes; a future original-source execution receipt remains a separate prerequisite.
+
 The [selected-field NHIS inspection contract](../NHIS_SELECTED_FIELD_INSPECTION_CONTRACT.md)
 defines the next library-only, in-memory diagnostic boundary. It preserves every
 record and unknown response, separates literal question routing from clinical
