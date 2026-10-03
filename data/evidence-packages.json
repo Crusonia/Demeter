@@ -1673,6 +1673,59 @@
       ],
       "model_role": "benchmark_only",
       "redistribution": "Original Demeter aggregate paired-assay diagnostics/covariance derived from existing CDC/NCHS public-use components. Retain upstream source notices and terms; no joined person-level records, individual assays, clinical diagnosis, latent-state or causal effect claims."
+    },
+    "nhanes_iii_repeat_fpg_observation": {
+      "artifacts": [
+        {
+          "path": "docs/validation/nhanes3-repeat-intake-protocol-v1.json",
+          "sha256": "1728d637312da8fd4911d8152b15275eb70760e351286a2a898e95453786798f"
+        },
+        {
+          "path": "docs/validation/nhanes3-repeat-documentation-receipts-v1.json",
+          "sha256": "64e45fa41246d0054a12c7c105bf6be744b72450171beb18803701116a840384"
+        },
+        {
+          "path": "docs/validation/nhanes3-repeat-source-admission-v1.json",
+          "sha256": "d05784c3df09957b1a03f0afc10dfd4caafef33f5f8f6735f2bf40bef8fd2a5d"
+        },
+        {
+          "path": "docs/validation/nhanes3-repeat-code-admission-v1.json",
+          "sha256": "2c8c9f2c054b64cb86a05880743d42e909630be0a5c1ad1cfea62b003aefa587"
+        },
+        {
+          "path": "docs/validation/nhanes3-repeat-fpg-report-v1.json",
+          "sha256": "1b583ad4ce3a211f1af0518e4be7b67d11652d242ec5e1ed8a428c3029dfbc7f"
+        },
+        {
+          "path": "docs/NHANES_III_REPEAT_FPG.md",
+          "sha256": "052edcbda1363dd43b735023bf95565c98c8f2ed0b02251c52cdb8bf9d130c72"
+        }
+      ],
+      "dependencies": [],
+      "model_role": "benchmark_only",
+      "rebuild": [
+        "uv run demeter evidence nhanes3-repeat-fpg",
+        "uv run python scripts/verify_nhanes3_repeat.py"
+      ],
+      "redistribution": "Attributed frozen method definitions and coarse logical report only; original public-use components separately archived with NCHS restrictions. Producer full documents and third-party article remain fetch-only.",
+      "registry_datasets": [
+        "nhanes_iii_repeat_fpg_observation"
+      ],
+      "registry_parameters": [
+        "nhanes3_repeat_adult_min_years",
+        "nhanes3_repeat_adult_min_months",
+        "nhanes3_repeat_fasting_min_hours",
+        "nhanes3_repeat_fpg_positive_min",
+        "nhanes3_repeat_mec_age_topcode"
+      ],
+      "store": "nhanes3_repeat",
+      "transform_files": [
+        "src/demeter/data/nhanes3_repeat.py",
+        "src/demeter/data/nhanes3_repeat_store.py",
+        "src/demeter/data/nhanes3_repeat_admission.py",
+        "scripts/fetch_nhanes3_repeat.py",
+        "scripts/verify_nhanes3_repeat.py"
+      ]
     }
   },
   "supporting_artifacts": [

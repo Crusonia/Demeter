@@ -12,6 +12,7 @@ build/
 data/raw/*
 !data/raw/.gitkeep
 data/processed/
+data/sources/nhanes3/.*.attempt-*/
 outputs/*
 !outputs/.gitkeep
 

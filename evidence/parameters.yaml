@@ -6849,6 +6849,145 @@ parameters:
       rationale: Exact source cohort crosscheck count, not an independent validation target or population
         estimate.
     lower_bound: 0
+  nhanes3_repeat_adult_min_years:
+    key: nhanes3_repeat_adult_min_years
+    value: 20
+    unit: years
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: Cited fixed analyst-selected observation-method definition, supported
+      by Selvin2007 Methods Study Population/Definitions/Table3
+    source_url: https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/412871
+    citation: Selvin E, Crainiceanu CM, Brancati FL, Coresh J. Arch Intern Med.2007;167(14):1545-1551.
+      DOI10.1001/archinte.167.14.1545.
+    population: Selected historical NHANES III source-designated repeat respondents;
+      exact declared FPG-only cohort is not the publication cohort
+    geography: United States, selected repeat sample; no national transport
+    time_period: 1988-1994 observations; revised primary1997/repeat1999 ASCII releases
+    outcome_definition: Recorded-label diagnostic definition, not diagnosed diabetes
+      or a clinical transition
+    uncertainty:
+      kind: fixed
+      rationale: Exactly recorded source code or fixed method definition/unit conversion.
+        No biological, causal or population uncertainty distribution is asserted.
+    transformation: Literal cited method definition/source code; no numerical effect
+      fitting
+    notes: GradeC denotes this limited observational/definition use, not causal strength.
+      Criteria were read from the public primary publication; ordinary archive GET403
+      is preserved. No publisher-byte admission/replay claim or EvidenceSource raw
+      hash is fabricated.
+  nhanes3_repeat_adult_min_months:
+    key: nhanes3_repeat_adult_min_months
+    value: 240
+    unit: months
+    status: derived
+    evidence_grade: C
+    model_role: benchmark_only
+    source: Cited fixed analyst-selected observation-method definition, supported
+      by Selvin2007 Methods Study Population/Definitions/Table3
+    source_url: https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/412871
+    citation: Selvin E, Crainiceanu CM, Brancati FL, Coresh J. Arch Intern Med.2007;167(14):1545-1551.
+      DOI10.1001/archinte.167.14.1545.
+    population: Selected historical NHANES III source-designated repeat respondents;
+      exact declared FPG-only cohort is not the publication cohort
+    geography: United States, selected repeat sample; no national transport
+    time_period: 1988-1994 observations; revised primary1997/repeat1999 ASCII releases
+    outcome_definition: Recorded-label diagnostic definition, not diagnosed diabetes
+      or a clinical transition
+    uncertainty:
+      kind: fixed
+      rationale: Exactly recorded source code or fixed method definition/unit conversion.
+        No biological, causal or population uncertainty distribution is asserted.
+    transformation: 20years*12months/year; fixed unit conversion
+    notes: GradeC denotes this limited observational/definition use, not causal strength.
+      Criteria were read from the public primary publication; ordinary archive GET403
+      is preserved. No publisher-byte admission/replay claim or EvidenceSource raw
+      hash is fabricated.
+  nhanes3_repeat_fasting_min_hours:
+    key: nhanes3_repeat_fasting_min_hours
+    value: 8
+    unit: hours
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: Cited fixed analyst-selected observation-method definition, supported
+      by Selvin2007 Methods Study Population/Definitions/Table3
+    source_url: https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/412871
+    citation: Selvin E, Crainiceanu CM, Brancati FL, Coresh J. Arch Intern Med.2007;167(14):1545-1551.
+      DOI10.1001/archinte.167.14.1545.
+    population: Selected historical NHANES III source-designated repeat respondents;
+      exact declared FPG-only cohort is not the publication cohort
+    geography: United States, selected repeat sample; no national transport
+    time_period: 1988-1994 observations; revised primary1997/repeat1999 ASCII releases
+    outcome_definition: Recorded-label diagnostic definition, not diagnosed diabetes
+      or a clinical transition
+    uncertainty:
+      kind: fixed
+      rationale: Exactly recorded source code or fixed method definition/unit conversion.
+        No biological, causal or population uncertainty distribution is asserted.
+    transformation: Literal cited method definition/source code; no numerical effect
+      fitting
+    notes: GradeC denotes this limited observational/definition use, not causal strength.
+      Criteria were read from the public primary publication; ordinary archive GET403
+      is preserved. No publisher-byte admission/replay claim or EvidenceSource raw
+      hash is fabricated.
+  nhanes3_repeat_fpg_positive_min:
+    key: nhanes3_repeat_fpg_positive_min
+    value: 126
+    unit: mg/dL
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: Cited fixed analyst-selected observation-method definition, supported
+      by Selvin2007 Methods Study Population/Definitions/Table3
+    source_url: https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/412871
+    citation: Selvin E, Crainiceanu CM, Brancati FL, Coresh J. Arch Intern Med.2007;167(14):1545-1551.
+      DOI10.1001/archinte.167.14.1545.
+    population: Selected historical NHANES III source-designated repeat respondents;
+      exact declared FPG-only cohort is not the publication cohort
+    geography: United States, selected repeat sample; no national transport
+    time_period: 1988-1994 observations; revised primary1997/repeat1999 ASCII releases
+    outcome_definition: Recorded-label diagnostic definition, not diagnosed diabetes
+      or a clinical transition
+    uncertainty:
+      kind: fixed
+      rationale: Exactly recorded source code or fixed method definition/unit conversion.
+        No biological, causal or population uncertainty distribution is asserted.
+    transformation: Literal cited method definition/source code; no numerical effect
+      fitting
+    notes: GradeC denotes this limited observational/definition use, not causal strength.
+      Criteria were read from the public primary publication; ordinary archive GET403
+      is preserved. No publisher-byte admission/replay claim or EvidenceSource raw
+      hash is fabricated.
+  nhanes3_repeat_mec_age_topcode:
+    key: nhanes3_repeat_mec_age_topcode
+    value: 1080
+    unit: months_lower_bound
+    status: observed
+    evidence_grade: C
+    model_role: benchmark_only
+    source: 'CDC/NCHS source coding: LAB PDF pages67/106'
+    source_url: https://wwwn.cdc.gov/nchs/data/nhanes3/1a/lab-acc.pdf
+    citation: 'CDC/NCHS. NHANES III revised primary release1A and second-exam release3A:
+      lab-primary-codebook.pdf.'
+    population: Selected historical NHANES III source-designated repeat respondents;
+      exact declared FPG-only cohort is not the publication cohort
+    geography: United States, selected repeat sample; no national transport
+    time_period: 1988-1994 observations; revised primary1997/repeat1999 ASCII releases
+    outcome_definition: Recorded-label diagnostic definition, not diagnosed diabetes
+      or a clinical transition
+    uncertainty:
+      kind: fixed
+      rationale: Exactly recorded source code or fixed method definition/unit conversion.
+        No biological, causal or population uncertainty distribution is asserted.
+    transformation: Literal cited method definition/source code; no numerical effect
+      fitting
+    notes: GradeC denotes this limited observational/definition use, not causal strength.
+      1080 is a lower-bound age code, not exactly90years. Original producer source/receipt
+      is pinned in the documentation artifact.
+    source_id: nhanes3_repeat_lab_dictionary
+
 datasets:
   aric_outcomes_benchmark:
     model_role: benchmark_only
@@ -13118,6 +13257,336 @@ datasets:
       GLU_L.xpt: 70f773ab37e3d8485341f32137e280e05b9279e5fe9b6f0362e4052d8fe9a201
     implementation_sha256:
       src/demeter/data/nhanes_assay_mapping.py: 441c1c34dfa470cb184066885a8786e4cffaa98866976cc3b6031b9092799eb5
+  nhanes_iii_repeat_fpg_observation:
+    status: derived
+    evidence_grade: C
+    model_role: benchmark_only
+    population: Finite released historical LABSE repeat frame, privately linked to
+      LAB and ADULT; explicit FPG-only eligibility and unknowns. Nonrandom repeat
+      subsample, not a national sample.
+    geography: United States
+    time_period: NHANES III 1988-1994; revised primary1A ASCII July1997 and second-exam3A
+      ASCII July1999
+    unit: Finite logical observation status; no rate, prevalence or sampling interval
+    protocol_path: docs/validation/nhanes3-repeat-intake-protocol-v1.json
+    protocol_sha256: 1728d637312da8fd4911d8152b15275eb70760e351286a2a898e95453786798f
+    documentation_receipts:
+      path: docs/validation/nhanes3-repeat-documentation-receipts-v1.json
+      sha256: 64e45fa41246d0054a12c7c105bf6be744b72450171beb18803701116a840384
+    documentation_source_ids:
+    - nhanes3_repeat_adult_layout
+    - nhanes3_repeat_catalog
+    - nhanes3_repeat_lab_dictionary
+    - nhanes3_repeat_lab_layout
+    - nhanes3_repeat_second_lab_dictionary
+    - nhanes3_repeat_second_lab_layout
+    - nhanes3_repeat_readme
+    - nhanes3_repeat_adult_dictionary
+    definition_parameters:
+      adult_min_months: nhanes3_repeat_adult_min_months
+      age_topcode_months: nhanes3_repeat_mec_age_topcode
+      fasting_min_hours: nhanes3_repeat_fasting_min_hours
+      fpg_positive_min: nhanes3_repeat_fpg_positive_min
+    definition_numeric_records:
+    - proposed_key: nhanes3_repeat_adult_min_years
+      source_role: published selection definition, not clinical effect
+      status: observed
+      unit: years
+      value: 20
+    - proposed_key: nhanes3_repeat_adult_min_months
+      status: derived
+      transform: 20years*12months/year; fixed unit conversion
+      unit: months
+      value: 240
+    - proposed_key: nhanes3_repeat_fasting_min_hours
+      source_role: published selection definition
+      status: observed
+      unit: hours
+      value: 8
+    - proposed_key: nhanes3_repeat_fpg_positive_min
+      source_role: published threshold definition, not diagnosed diabetes
+      status: observed
+      unit: mg/dL
+      value: 126
+    - proposed_key: nhanes3_repeat_mec_age_topcode
+      source_role: producer metadata coding
+      status: observed
+      unit: months_lower_bound
+      value: 1080
+    selected_components:
+      ADULT:
+        archive_filename: ADULT.DAT
+        minimum_selected_prefix_width: 1561
+        participant_acquisition_permitted_after_protocol_commit: true
+        producer_data_max_width_excluding_newline: 3346
+        raw_sha256: null
+        raw_size_bytes: null
+        selected_columns_one_based_inclusive:
+          HAD1:
+          - 1561
+          - 1561
+          SEQN:
+          - 1
+          - 5
+        url: https://wwwn.cdc.gov/nchs/data/nhanes3/1a/adult.dat
+      LAB:
+        archive_filename: LAB.DAT
+        minimum_selected_prefix_width: 1870
+        participant_acquisition_permitted_after_protocol_commit: true
+        producer_data_max_width_excluding_newline: 1977
+        raw_sha256: null
+        raw_size_bytes: null
+        selected_columns_one_based_inclusive:
+          G1P:
+          - 1866
+          - 1870
+          MXPAXTMR:
+          - 1236
+          - 1239
+          MXPSESSR:
+          - 1234
+          - 1234
+          PHPFAST:
+          - 1263
+          - 1267
+          SEQN:
+          - 1
+          - 5
+        url: https://wwwn.cdc.gov/nchs/data/nhanes3/1a/lab.dat
+      LABSE:
+        archive_filename: LABSE.DAT
+        minimum_selected_prefix_width: 599
+        participant_acquisition_permitted_after_protocol_commit: true
+        producer_data_max_width_excluding_newline: 693
+        raw_sha256: null
+        raw_size_bytes: null
+        selected_columns_one_based_inclusive:
+          G1R:
+          - 595
+          - 599
+          MXPRDAYS:
+          - 9
+          - 10
+          MXRSESSR:
+          - 6
+          - 6
+          PHRFAST:
+          - 28
+          - 32
+          SEQN:
+          - 1
+          - 5
+        url: https://wwwn.cdc.gov/nchs/data/nhanes3/3a/labse.dat
+    field_decoders:
+      G1P_G1R:
+        '88888': applicable_blank
+        blank: missing
+        supported_positive_decimal: recorded positive reference FPG; classification
+          at126, no biological maximum
+        unit: mg/dL
+        zero: nonpositive_assay_unavailable under declared analytic validity policy
+      HAD1:
+        '1': known_failed_history_clause
+        '2': literal No, includes borderline/prediabetic; does not establish lifetime
+          absence or treatment-free status
+        '8': 'Blank but applicable: unknown history response, not No'
+        '9': 'Don''t know: unknown history response, not No'
+        blank: unknown_source_response
+        other_digit: unknown_undocumented_history_code
+        source_locator: ADULT PDF page171, columns1561,1Yes/2No/8Blank but applicable/9Dontknow/whitespaceblank;
+          borderline/prediabetic explicitly code2.
+      MXPAXTMR:
+        '1080': lower bound1080 months, sufficient for proposed240-month eligibility
+        blank: unknown_age
+        integer_above1080: unknown_age_definition_conflict, since published90+months
+          are recoded1080; not guessed exact age or borrowed missing code
+        integer_below1080: recorded exact months, including values outside displayed
+          observed span
+      MXPRDAYS:
+        '00': none_never
+        blank: unknown_recorded_interval
+        positive_integer: positive_recorded_exam_days, including values above observed52
+          without treating that frequency maximum as a bound
+        unit: recorded days between designated exams, not collection time
+      MXPSESSR:
+        '1': Morning
+        '2': Afternoon
+        '3': Evening
+        blank: unknown_context
+        other_digit: unknown_undocumented_context_code
+      MXRSESSR:
+        '1': Morning
+        '2': Afternoon
+        '3': Evening
+        blank: unknown_context_unlisted_by_dictionary
+        other_digit: unknown_undocumented_context_code
+      PHPFAST_PHRFAST:
+        '88888': applicable_blank
+        blank: missing
+        other_supported_decimal: recorded hours, no observed-range cap
+        unit: hours
+        zero: valid recorded short fast, known failure of8-hour clause
+    record_adapter_policy:
+      decimal_lexeme: After ASCII-space trimming and exact88888 missing decode, [0-9]+(?:\.[0-9]+)?
+        only. No implied divide-by10 from display FORMAT. Signs, exponents, SAS dot/special-missing
+        syntax, commas and other undocumented lexemes refuse pending additive admission;
+        no guessed interpretation.
+      encoding: ASCII bytes; no BOM, NUL, tabs, DOS EOF marker or other undocumented
+        control/non-ASCII bytes. Scan framing without decoding unselected field contents.
+      final_record: Permit exactly one unterminated final record only if it satisfies
+        the same admitted selected-prefix and maximum-width constraints; never append
+        bytes to raw source.
+      integer_lexeme: After ASCII-space trimming, [0-9]+ only in native integer fields.
+        Empty token is source blank. Any other syntax refuses with sanitized field-role
+        error.
+      line_endings: Uniform CRLF or uniform LF, preserved in raw archive. BareCR,
+        mixed newline forms and internal blank records refuse. One terminal separator
+        is not a blank data record.
+      numeric_limits: No producer observed minimum/maximum is a parser or biological
+        bound. Physical field width is structural. Negative/unsupported syntax is
+        refused, not turned into absence or an outcome.
+      row_length: Require minimum_selected_prefix_width <= actual data bytes <= producer_data_max_width_excluding_newline.
+        Omitted unselected suffix allowed as an explicit selected-field policy, not
+        proof the native download uses variable-length rows. No selected-field padding/truncation.
+      selected_projection: Exactly the declared fields; no weights, dates, assays,
+        pregnancy, screening, medication or free-text fields beyond this projection.
+      seqn: 'Strip only external ASCIIspaces from the5-byte field; require [0-9]+,
+        preserve leadingzero lexeme and original bytes privately. Exactlexeme linkage;
+        never floatcoerce or silently merge numeric-looking aliases. Check duplicate
+        exactkeys and numeric-looking aliases only for integrity: same numeric value
+        with distinct zero spellings triggers sanitized unresolved-key-format refusal
+        before diagnostics, not an automatic join. Ordinary unmatched keys remain
+        unknown coverage.'
+      source_semantics_limit: Producer MISSOVER is not a mandate for this adapter.
+        Any observed unsupported framing stops before selected-value decoding; retain
+        raw and metadata-only failure receipt. Do not infer framing or participant
+        counts from HEAD lengths.
+      space_padding: Preserve all original file bytes. ASCIIspaces inside native fields
+        are source padding and are stripped only at selected-field ends; never synthesize
+        or pad a short selected field. No rewrite of raw line endings or EOF.
+    estimand:
+      age_rule: MXPAXTMR>=240 using1080+ lower bound; no interview/ADULT-age substitution
+      assay_rule: Eligible and both native reference assays supported and strictlypositive
+        => qualifying_pair. No screening/treatment eligibility; not treatment-free.
+      clause_logic: Evaluate all available clauses before disposition. Any knownfalse
+        => excluded by first false clause. Otherwise anyunknown => unknown by first
+        unknown clause. Only alltrue => eligible. Missing links propagate unknown
+        fields, never zero.
+      clock_rule: Diagnostic is nominal/source-role repeat-label persistence; MXPRDAYS
+        is not an eligibility clause or elapsed-biological clock. Partition every
+        qualifying pair privately into positive recorded exam days, none_never00 or
+        blankunknown; retain untimed pairs. No timed-subset result, timestamp or hazard.
+      eligibility_clauses_order:
+      - mec_age_at_least240_months
+      - literal_HAD1_equals2
+      - primary_fasting_at_least8_hours
+      - repeat_fasting_at_least8_hours
+      - primary_context_session_in123
+      - repeat_context_session_in123
+      procedure_context: Declare inference from producer reference-FPG procedure scope
+        and known source session roles. It does not prove independently observed per-record
+        location, exact date or actual draw session.
+      question: Does a threshold-positive first source-labelled reference FPG necessarily
+        remain threshold-positive in its linked designated repeat record, within the
+        declared finite source subset?
+      source_subset_not_paper_reproduction: FPG-only/HAD1No; no A1c completeness or
+        unreproduced pregnancy-history exclusion, and no tuning to publication cohort
+        or outcomes.
+      universe: Released LABSE records with unique exact source keys; primary and
+        adult linkage inspected privately. Not an invitation frame.
+    private_ledger:
+      first_false_clause_order:
+      - mec_age_at_least240_months
+      - literal_HAD1_equals2
+      - primary_fasting_at_least8_hours
+      - repeat_fasting_at_least8_hours
+      - primary_context_session_in123
+      - repeat_context_session_in123
+      first_unknown_order:
+      - primary_link_unavailable
+      - adult_link_unavailable
+      - mec_age_unknown
+      - HAD1_unknown
+      - primary_fasting_unknown
+      - repeat_fasting_unknown
+      - primary_context_unknown
+      - repeat_context_unknown
+      key_storage: Opaque lexemes/private records in memory only; no debug repr, output,
+        database, joined file or persistent record cache.
+      partitions:
+      - released_repeat=excluded_eligibility+unknown_eligibility+eligible
+      - eligible=both_assays_valid+primary_only_valid+repeat_only_valid+neither_valid
+      - qualifying_pairs=positive_recorded_exam_days+none_never00+blank_unknown_interval
+      - qualifying_pairs=private_four_label_cells
+      rule: A missing link is not an orphan structural error; it remains explicit
+        unknown unless another known false excludes the record. Extra primary/ADULT
+        records are outside the repeat frame. Do not collapse, trim or delete rows
+        to clear eligibility/privacy. Overlapping clause coverage is not added as
+        people. Link counts are nonadditive coverage; assign exactly one mutuallyexclusive
+        final disposition per repeat record after all available clause checks.
+    public_output_policy:
+      allowed_keys:
+      - kind
+      - schema_version
+      - source_vintage
+      - model_role
+      - validation_only
+      - source_audit_passed
+      - scientific_gates
+      - diagnostic_status
+      - ledger_conserved
+      - provenance
+      delete_one_comparison: Compare unredacted internal diagnostic statuses before
+        any privacy transformation. Do not recursively apply withholding during deletion
+        comparisons.
+      diagnostic_status_enum:
+      - not_evaluable
+      - contradicted
+      - not_contradicted_in_observed_pairs
+      - withheld
+      minimality: Uses singleton and individual-sensitivity logic rather than an arbitrary
+        larger cell minimum. Logical constants0/1 are fixed method definitions, not
+        empirical/clinical effects. No labelled paired tuples are ever published,
+        even in large cells.
+      never_export:
+      - Opaque keys or record fields
+      - Assay values
+      - Labelled paired cells, witness examples or marginal/conditional counts
+      - Any qualifying/support/counterexample count, histogram or reason for withheld
+        status
+      - Private ledger counts/reasons or positive-support flags
+      - Sex/age or other subgroups that split the source cohort
+      - Absolute local paths or private source errors
+      privacy_candidate: Compute complete internal result first. Publicstatus=withheld
+        whenever eligible_count==1, any nonempty private qualifying-pair label cell
+        has cardinality1, or removing any one qualifying pair changes the internal
+        status. Apply this to all internal statuses, including not_evaluable. No withheld
+        reason, support, counts, cells, margins, histogram or subgroup output. Otherwise
+        publish only the internal coarse status. Keep all records/ledgers unchanged.
+      unresolved_before_freeze: No extra external signoff gate. This deterministic
+        rule implements singleton and individual-sensitivity withholding for the fixed
+        pooled schema. It is limited disclosure control, not differential privacy
+        or blanket anonymity against other public records. Broader scientific review
+        remains separate from permitted implementation/evidence collection.
+    scientific_gates:
+      clinical_fit_allowed: false
+      direct_initialization_allowed: false
+      engine_activation_allowed: false
+      sampling_distribution_assumed: false
+      scientific_release_ready: false
+    source_store: data/sources/nhanes3/1988-1994-repeat
+    source_admission_path: docs/validation/nhanes3-repeat-source-admission-v1.json
+    code_admission_path: docs/validation/nhanes3-repeat-code-admission-v1.json
+    frozen_report_path: docs/validation/nhanes3-repeat-fpg-report-v1.json
+    transformation: demeter.data.nhanes3_repeat_admission.report (independent guard)
+      -> demeter.data.nhanes3_repeat.analyze/public_result
+    uncertainty: Finite selected-source logical diagnostic only. No iid, weights,
+      sampling distribution or clinical/transport uncertainty model.
+    restrictions:
+    - No latent-state mapping, clinical confirmation, T2D-subtype claim, measurement-error
+      identification, causal dietary effect, annualization, population weights, mortality
+      process or national transport.
+
 scientific_blockers:
 - National age-specific metabolic transition hazards are unresolved.
 - Age-specific T2D/prediabetes initial prevalence is not calibrated; CDC total diabetes includes
@@ -13602,3 +14071,83 @@ sources:
       Table2/supplement eTable3 and KeyPoints. No explicit eTable2count replacement claimed. The current
       advertised object and NLM metadata are distinct pinned sources; a filename does not establish
       correction status for every table. Publisher HTML acquisition denied; no access bypass.
+  nhanes3_repeat_adult_layout:
+    url: https://wwwn.cdc.gov/nchs/data/nhanes3/1a/adult.sas
+    citation: 'CDC/NCHS. NHANES III revised primary release1A and second-exam release3A:
+      adult-primary.sas.'
+    doi: ''
+    raw_filename: adult-primary.sas
+    sha256: b8d61f5bc56590d95220d88058bb054995f3beb7aeb400af88868c2679f73d4c
+    retrieved_at: '2026-10-03T00:39:36.615568+00:00'
+    license: CDC/NCHS producer metadata; agency-materials policy has exceptions. Fetch-only
+      packaging, NCHS acknowledgement; no third-party article rights inferred.
+  nhanes3_repeat_catalog:
+    url: https://wwwn.cdc.gov/nchs/nhanes/nhanes3/datafiles.aspx
+    citation: 'CDC/NCHS. NHANES III revised primary release1A and second-exam release3A:
+      catalog.html.'
+    doi: ''
+    raw_filename: catalog.html
+    sha256: 9d75fb37d3253bad284373f1c2262f58c32b7007b657fc6dd00d8061cc56b4d8
+    retrieved_at: '2026-10-03T00:39:35.724135+00:00'
+    license: CDC/NCHS producer metadata; agency-materials policy has exceptions. Fetch-only
+      packaging, NCHS acknowledgement; no third-party article rights inferred.
+  nhanes3_repeat_lab_dictionary:
+    url: https://wwwn.cdc.gov/nchs/data/nhanes3/1a/lab-acc.pdf
+    citation: 'CDC/NCHS. NHANES III revised primary release1A and second-exam release3A:
+      lab-primary-codebook.pdf.'
+    doi: ''
+    raw_filename: lab-primary-codebook.pdf
+    sha256: 26784eaf88077dddb1766f7556c13ea8e5b6386c859262e0a7e7e49f2a6b8d0b
+    retrieved_at: '2026-10-03T00:39:37.682592+00:00'
+    license: CDC/NCHS producer metadata; agency-materials policy has exceptions. Fetch-only
+      packaging, NCHS acknowledgement; no third-party article rights inferred.
+  nhanes3_repeat_lab_layout:
+    url: https://wwwn.cdc.gov/nchs/data/nhanes3/1a/lab.sas
+    citation: 'CDC/NCHS. NHANES III revised primary release1A and second-exam release3A:
+      lab-primary.sas.'
+    doi: ''
+    raw_filename: lab-primary.sas
+    sha256: fe804748e3881bb8f2a92c57af816d603bdd02e1587f835547cbfc4f82ab8304
+    retrieved_at: '2026-10-03T00:39:36.315858+00:00'
+    license: CDC/NCHS producer metadata; agency-materials policy has exceptions. Fetch-only
+      packaging, NCHS acknowledgement; no third-party article rights inferred.
+  nhanes3_repeat_second_lab_dictionary:
+    url: https://wwwn.cdc.gov/nchs/data/nhanes3/3a/LABSE-acc.pdf
+    citation: 'CDC/NCHS. NHANES III revised primary release1A and second-exam release3A:
+      lab-repeat-codebook.pdf.'
+    doi: ''
+    raw_filename: lab-repeat-codebook.pdf
+    sha256: a9e7b8ea0a47b770867e83ad72ff092864f5bdba4f41a0bdfad6c9255c8538e2
+    retrieved_at: '2026-10-03T00:39:38.413686+00:00'
+    license: CDC/NCHS producer metadata; agency-materials policy has exceptions. Fetch-only
+      packaging, NCHS acknowledgement; no third-party article rights inferred.
+  nhanes3_repeat_second_lab_layout:
+    url: https://wwwn.cdc.gov/nchs/data/nhanes3/3a/labse.sas
+    citation: 'CDC/NCHS. NHANES III revised primary release1A and second-exam release3A:
+      lab-repeat.sas.'
+    doi: ''
+    raw_filename: lab-repeat.sas
+    sha256: d733af58ce19836507f1d287135c1a3511dbe36e8145091564d29386cbf8b786
+    retrieved_at: '2026-10-03T00:39:37.201862+00:00'
+    license: CDC/NCHS producer metadata; agency-materials policy has exceptions. Fetch-only
+      packaging, NCHS acknowledgement; no third-party article rights inferred.
+  nhanes3_repeat_readme:
+    url: https://wwwn.cdc.gov/nchs/data/nhanes3/3a/readme.txt
+    citation: 'CDC/NCHS. NHANES III revised primary release1A and second-exam release3A:
+      readme-3a.txt.'
+    doi: ''
+    raw_filename: readme-3a.txt
+    sha256: 7f8b369ead26410b6437341f227ef0d5d76532dcbb0ac3325f328eb03d6f1874
+    retrieved_at: '2026-10-03T00:39:36.182432+00:00'
+    license: CDC/NCHS producer metadata; agency-materials policy has exceptions. Fetch-only
+      packaging, NCHS acknowledgement; no third-party article rights inferred.
+  nhanes3_repeat_adult_dictionary:
+    url: https://wwwn.cdc.gov/nchs/data/nhanes3/1a/ADULT-acc.pdf
+    citation: 'CDC/NCHS. NHANES III revised primary release1A and second-exam release3A:
+      adult-primary-codebook.pdf.'
+    doi: ''
+    raw_filename: adult-primary-codebook.pdf
+    sha256: a5f03642de78afcaf22f923a6bb91971c485679b3da23d569ef00abe2e6c9b6e
+    retrieved_at: '2026-10-03T00:39:37.949917+00:00'
+    license: CDC/NCHS producer metadata; agency-materials policy has exceptions. Fetch-only
+      packaging, NCHS acknowledgement; no third-party article rights inferred.
