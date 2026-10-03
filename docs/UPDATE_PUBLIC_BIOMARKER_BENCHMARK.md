@@ -40,6 +40,19 @@ Table 5, PDF page 12, supplies only these selected rows:
 | HbA1C (%) | percentage points | MPF, UPF, paired MPF-minus-UPF: N, mean, reported SE |
 | Fasting glucose (mmol/L) | mmol/L | MPF, UPF, paired MPF-minus-UPF: N, mean, reported SE |
 
+The published paired contrasts are:
+
+| Endpoint | Paired participants | MPF-minus-UPF change | Printed standard error |
+| --- | ---: | ---: | ---: |
+| HbA1c | 45 | -0.05 percentage points | 0.0 percentage points |
+| Fasting glucose | 44 | +0.04 mmol/L | 0.1 mmol/L |
+
+For these source summaries, a negative contrast means the change during MPF was
+lower than the change during UPF; a positive contrast means it was higher. The
+printed standard errors are rounded, and `0.0` does not mean zero uncertainty.
+These are paired source contrasts, not differences calculated from the separate
+group averages. They do not establish disease-transition or longevity effects.
+
 The window is each diet's baseline to week eight. Page 13 identifies paired
 t-tests. Preserve the source's ITT table label alongside endpoint-specific
 available-case and paired counts; these are not all randomized participants.

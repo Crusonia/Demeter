@@ -139,6 +139,8 @@ The [HAALSI documentation appraisal](docs/HAALSI_PUBLIC_DOCUMENTATION_APPRAISAL_
 adds exact repeated-glucose and follow-up fields while preserving unresolved
 measurement, timing and definition conflicts. The [NHIS manual-run boundary](docs/NHIS_REPORTED_ANSWER_MANUAL_RUN_ADMISSION.md)
 permits a separately reviewed technical invocation without releasing estimates.
+The [HAALSI acquisition protocol](docs/HAALSI_ASCII_ACQUISITION_PROTOCOL.md) defines a single package-delivery and ZIP-metadata review after explicit terms confirmation. It admits no participant decoding or clinical parameters.
+
 The [observed NHIS technical status](docs/NHIS_REPORTED_ANSWER_TECHNICAL_RUN_STATUS.md)
 records the completed original call without releasing its private statistical result.
 

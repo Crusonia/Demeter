@@ -1761,7 +1761,7 @@
         },
         {
           "path": "docs/UPDATE_PUBLIC_BIOMARKER_BENCHMARK.md",
-          "sha256": "69235bf6f4919478dc228b7f904852599e668e6b723c0dfc141d8adacecd5af4"
+          "sha256": "57ec9dbf9744402f098d5cbc0bd7dfddccb4caf65438896aa794ccd3cbd6b8c5"
         }
       ],
       "transform_files": [
@@ -2008,6 +2008,14 @@
     {
       "path": "docs/NHIS_REPORTED_ANSWER_TECHNICAL_RUN_STATUS.md",
       "sha256": "36171c09325a8f4ed5a6cd0f0928346f094c8e27c7e2ca6c8b067de65119c80b"
+    },
+    {
+      "path": "docs/HAALSI_ASCII_ACQUISITION_PROTOCOL.md",
+      "sha256": "94eb5a8f11f6a69fcd888100f901a94d7e6683f8d41de5b9b77bf027667cfbf1"
+    },
+    {
+      "path": "docs/validation/haalsi-v4-ascii-acquisition-only-protocol-v1.json",
+      "sha256": "28575a63879e85e97eed64ccc48a1ef84b6bef605076729b7ed657d43ff15abc"
     }
   ]
 }
