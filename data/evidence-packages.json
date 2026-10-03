@@ -1960,6 +1960,14 @@
     {
       "path": "docs/NHIS_REPORTED_ANSWER_TECHNICAL_RUN_STATUS.md",
       "sha256": "36171c09325a8f4ed5a6cd0f0928346f094c8e27c7e2ca6c8b067de65119c80b"
+    },
+    {
+      "path": "docs/HAALSI_ASCII_ACQUISITION_PROTOCOL.md",
+      "sha256": "9feed4f95cdbb739e35d917c8bad8114c0fc5a4c2007902f2d6cbdb1408036b9"
+    },
+    {
+      "path": "docs/validation/haalsi-v4-ascii-acquisition-only-protocol-v1.json",
+      "sha256": "83422631094bdd687b995739d052d1a2888eb96e0cde0cdb69ee4dccecdda5d7"
     }
   ]
 }
