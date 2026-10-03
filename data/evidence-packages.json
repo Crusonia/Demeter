@@ -1840,6 +1840,10 @@
     {
       "path": "docs/validation/hrs-repeat-biomarker-source-checkpoint-v1.json",
       "sha256": "b53195b540192d8b94cbbe7532b19a0c8607ccd918fc14200d71310ca1e0f059"
+    },
+    {
+      "path": "docs/HRS_REPEAT_BIOMARKER_SOURCE_CHECKPOINT.md",
+      "sha256": "84f6dcda35bb4f0b815b264cf1a40210a59273ab6d50c8e2295224176b06acc0"
     }
   ]
 }
