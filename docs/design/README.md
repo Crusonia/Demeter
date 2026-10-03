@@ -35,6 +35,10 @@ software witness. Unknown type and inconsistent questionnaire responses remain
 explicit; no participant intake, survey estimate or clinical initialization is
 implemented by that witness.
 
+The [native NHIS source protocol](../NHIS_NATIVE_SOURCE_ADMISSION.md) freezes a
+separate acquisition and byte-framing stage before participant fields. Delivery
+checks do not admit a parser, empirical estimate or clinical initializer.
+
 ## Methodological basis
 
 This is Demeter's application of a system-dynamics approach informed by Thomas S.

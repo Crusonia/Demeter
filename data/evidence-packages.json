@@ -1848,6 +1848,14 @@
     {
       "path": "docs/design/09_NHIS_REPORTED_DIAGNOSES.md",
       "sha256": "2dbb2c1944cc4fed420a54ce5bff3bb63f54d6435347f1ef35690ed0e35a6733"
+    },
+    {
+      "path": "docs/validation/nhis2025-native-framing-protocol-v1.json",
+      "sha256": "e1738706979b9bb2872389def34ea5b0f20d25584310f4af45288bf887fef25d"
+    },
+    {
+      "path": "docs/NHIS_NATIVE_SOURCE_ADMISSION.md",
+      "sha256": "06174290a2acd3a664f8536cd2927c5f940dcecda8b972dd3a8ed69cfcc86977"
     }
   ]
 }
