@@ -259,6 +259,11 @@ and Census JSON services, with verified access requirements.
 
 The manifests record source URLs, retrieval times, vintages, hashes, and transforms. Dataset definitions are registered in `evidence/parameters.yaml`. NHANES inputs are deidentified public-use survey records; source data-use terms remain applicable. The [NHANES reconstruction](docs/NHANES_PREVALENCE.md) matches 12 published diabetes prevalence cells and their sample sizes, but remains a benchmark: all-type diabetes does not identify the engine's T2D stock, and same-source agreement is not an independent health holdout.
 
+The [repeated-biomarker source checkpoint](docs/PUBLIC_REPEAT_BIOMARKER_SOURCE_CHECKPOINT.md)
+records MIDUS/MHAS public-access checks and unresolved assay, timing, diagnosis,
+death and nonattendance fields. It is metadata discovery, not participant-data
+admission or clinical calibration.
+
 The separate [August 2021–August 2023 benchmark](docs/NHANES_2021_2023_GLYCEMIC.md)
 reconstructs 18 newer published diabetes cells with explicit missingness and
 dependent survey covariance. Run `uv run demeter evidence glycemic-2021-2023`
