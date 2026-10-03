@@ -1858,6 +1858,14 @@
       "sha256": "84f6dcda35bb4f0b815b264cf1a40210a59273ab6d50c8e2295224176b06acc0"
     },
     {
+      "path": "docs/design/10_HRS_DISPOSITION_WITNESS.md",
+      "sha256": "b98dd8f20540845a7fa66e0dce8ec14c90a5a71833ec594e3cfa8917e2295d04"
+    },
+    {
+      "path": "docs/validation/hrs-disposition-witness-contract-v1.json",
+      "sha256": "7662dd1242ec79aa483340b2509a0cde8872498ae6da97385c44c954442fddd3"
+    },
+    {
       "path": "docs/validation/nhis2025-native-framing-protocol-v1.json",
       "sha256": "e1738706979b9bb2872389def34ea5b0f20d25584310f4af45288bf887fef25d"
     },

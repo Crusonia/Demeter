@@ -61,6 +61,10 @@ The [NHIS verified-delivery guard](../NHIS_SOURCE_GUARD.md) checks frozen source
 documentary and loaded-decoder identities before returning private native bytes.
 It invokes no decoder, exports no records and admits no empirical calculation.
 Its tests use synthetic delivery identities; clinical gates remain closed.
+The [HRS synthetic disposition contract](10_HRS_DISPOSITION_WITNESS.md) freezes
+a proposed baseline-conserving software witness. Native tracker reports, diagnosis
+response universes and synthetic assay/clock facets stay distinct; no empirical
+intake, clinical likelihood or paired weighting is authorized.
 
 ## Methodological basis
 
