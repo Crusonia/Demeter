@@ -1,0 +1,233 @@
+{
+  "schema_version": 1,
+  "kind": "haalsi_v4_acquisition_only_protocol",
+  "status": "committed_scope_requires_independent_review_terms_confirmation_and_selection",
+  "chronology": "Used-source documentary development. V4 codebook, questionnaire, crosswalk and incidental printed summaries already inspected; no participant dataset acquired, no field projection or empirical calculation in this preparation.",
+  "catalog": {
+    "url": "https://www.icpsr.umich.edu/web/NACDA/studies/36633",
+    "study_id": 36633,
+    "version": "V4",
+    "dataset_id": 1,
+    "doi": "10.3886/ICPSR36633.v4",
+    "route": "Only actual producer-provided UI ASCII package link for V4 dataset 1; no guessed download endpoint or signed-link persistence."
+  },
+  "reviewed_documentary_appraisal": {
+    "markdown_path": "docs/HAALSI_PUBLIC_DOCUMENTATION_APPRAISAL_20261003.md",
+    "markdown_sha256": "3cc3005e5f6c0e1c18a525b2acb44034a115843ee5634ddcbba8e4c549917f6b",
+    "metadata_path": "docs/validation/haalsi-icpsr-v4-documentation-appraisal-v1.json",
+    "metadata_sha256": "f066f6f8d9e9bcf95253e4846525e275973551f9a65d4cdf17bf6dba820c459c"
+  },
+  "documentary_original_identities": [
+    {
+      "filename": "haalsi-icpsr-v4-codebook-original.pdf",
+      "sha256": "644f652207db177331a440bc71609b920732b8fe7f4d21268e3c7d8693a9e0fc",
+      "size_bytes": 32847472,
+      "acquisition_receipt_filename": "codebook-browser-acquisition-receipt-v1.json",
+      "acquisition_receipt_sha256": "d9403aa0409b947f047ffea1c72a0efb61ff2cb7a7af116980b385d096eebf1f"
+    },
+    {
+      "filename": "haalsi-icpsr-v4-questionnaire-original.pdf",
+      "sha256": "84f107ee6299da16579abb6c5dd84f80ec048a1dc4e15e6211362a3cbd56f8fe",
+      "size_bytes": 1617672,
+      "acquisition_receipt_filename": "questionnaire-browser-acquisition-receipt-v1.json",
+      "acquisition_receipt_sha256": "a62a852a9492cb79613804c9cb0f549852ce7cf17a6e9479088e93b7d233df45"
+    },
+    {
+      "filename": "haalsi-icpsr-v4-variable-crosswalk-original.xlsx",
+      "sha256": "fcb058057d356176ac3ece3522fbaf355b165587e286060c7371d59fabbfc961",
+      "size_bytes": 174447,
+      "acquisition_receipt_filename": "crosswalk-browser-acquisition-receipt-v1.json",
+      "acquisition_receipt_sha256": "a7acb2f80f0ae3c677e55b00a014114b85526afd2d417a325f43d8fcd384ce79"
+    }
+  ],
+  "prepared_at": "2026-10-03T12:49:16.580359+00:00",
+  "access_and_terms": {
+    "terms_url": "https://www.icpsr.umich.edu/web/ICPSR/studies/36633/terms",
+    "basis": "Root ordinary browser-rendered terms inspection, not reviewer HTTP terms verification. Public catalog/document access does not prove dataset availability, no login, or redistribution permission.",
+    "binding_action_prerequisite": "Actual human confirmation immediately before agreeing to binding ICPSR terms. This protocol and its review are not that confirmation.",
+    "redistribution": "Known terms prohibit redistribution of data or other materials absent agreement except stated exceptions. Original archive and instruments remain ignored local material; no GitHub/source archive publication.",
+    "unresolved": [
+      "Actual binding action and whether acceptance itself starts delivery",
+      "Actual anonymous/login/institution requirements and permitted local use under applicable terms",
+      "Actual package identity and format before delivery"
+    ],
+    "actions_not_authorized_by_protocol_alone": [
+      "agree or accept binding terms",
+      "login or create account",
+      "request/download original participant package",
+      "access challenge handling or bypass"
+    ]
+  },
+  "eventual_acquisition_scope": {
+    "maximum_explicit_transfer_initiating_actions": 1,
+    "automatic_retry": false,
+    "fallback": false,
+    "requires_before_action": [
+      "Independent review of a finite committed acquisition-only protocol",
+      "Actual human confirmation at the binding terms action",
+      "Root explicit selection recorded before any action that may start delivery, including Agree if it initiates delivery"
+    ],
+    "request_meaning": "One explicit producer-provided transfer-initiating browser action, not a guarantee about browser-internal network requests or redirects. Preparatory navigation is not participant-package delivery.",
+    "route": "Displayed normal producer V4 dataset 1 ASCII route only. Stop on any new login/account/access challenge; no guessed endpoint, mirror or source repair.",
+    "format_expected": "Producer-labelled ASCII package; ZIP format and members remain unverified before delivery.",
+    "destination": "Fresh exclusive ignored attempt directory selected and verified by root; do not overwrite original bytes. Browser-supplied completed file may be copied verbatim into that directory.",
+    "operations_allowed": [
+      "Retain supplied original bytes privately, hash and measure them without inspecting content",
+      "Record only actually observed browser completion/local capture times, status and origin/path; unavailable observations are null",
+      "Read only ZIP central-directory and end-directory metadata, including declared member names/type labels/compression/sizes/CRC; inspect no local header or member body"
+    ],
+    "operations_forbidden": [
+      "Open/read/decompress/extract any archive member, including setup or documentation members",
+      "Run ZipFile.testzip or verify member CRC/body integrity by decompression",
+      "Project/classify/link/decode participant fields or calculate statistics",
+      "Execute SAS/Stata/setup code, normalize/repair/deduplicate source",
+      "Publish private member names/paths, raw exceptions, original archive or instruments",
+      "Add clinical parameters/fit, connect engine or open scientific gates"
+    ]
+  },
+  "software_resource_policy": {
+    "completed_archive_admission_limit_bytes": 134217728,
+    "zip_declared_total_uncompressed_limit_bytes": 536870912,
+    "zip_declared_member_limit": 10000,
+    "allowed_declared_compression_methods": [
+      {
+        "code": 0,
+        "label": "stored"
+      },
+      {
+        "code": 8,
+        "label": "deflated"
+      }
+    ],
+    "meaning": "Software review/admission limits only. Browser-managed download has no promised live streaming cap or cancellation capability. Apply archive-byte cap after browser delivery; preserve completed oversized originals privately, stop without further archive review or retry. Declared size/count limits are central-directory claims, not verified body sizes.",
+    "partial_download_policy": "Preserve partial original bytes only when the supported browser API makes them available. Otherwise record unavailable/null, never claim partial preservation or download completeness.",
+    "metadata_refusals": [
+      "Not recognizable ZIP end/central-directory metadata",
+      "Declared encryption flag or unsupported compression method",
+      "Declared count/size limit exceeded or central metadata inconsistent",
+      "Duplicate declared member names or unsafe absolute/traversal/symlink path metadata",
+      "Declared UNIX symbolic link, unsupported host/type encoding, unavailable/unusable attributes or unknown host-scoped type classification"
+    ],
+    "refusal_scope": "These are refusals based only on available directory metadata. Absence of an encryption flag or duplicate in that directory is not proof about local headers or member bodies. No extraction occurs even for safe-looking names."
+  },
+  "private_receipt_schema": {
+    "fields": [
+      "schema_version",
+      "catalog_url",
+      "study_id",
+      "version",
+      "dataset_id",
+      "requested_format",
+      "human_terms_confirmation_reference",
+      "root_selection_time",
+      "explicit_transfer_initiating_action",
+      "observed_browser_completion_time",
+      "local_capture_time",
+      "observed_http_status",
+      "public_landing_url",
+      "resolved_origin_and_path",
+      "signed_query_omitted",
+      "archive_sha256",
+      "archive_size_bytes",
+      "download_api_completion_observed",
+      "transport_complete",
+      "partial_bytes_available",
+      "zip_directory_metadata_complete",
+      "member_body_integrity_verified",
+      "archive_metadata_review_disposition",
+      "archive_metadata_review_reasons",
+      "members",
+      "participant_fields_projected",
+      "source_admitted",
+      "scientific_gates"
+    ],
+    "member_fields": [
+      "member_name_private",
+      "apparent_member_type_from_name_only",
+      "declared_compression_method",
+      "declared_compressed_size_bytes",
+      "declared_uncompressed_size_bytes",
+      "declared_crc32",
+      "declared_encryption_flag",
+      "declared_create_system",
+      "declared_external_attributes",
+      "derived_unix_mode",
+      "derived_member_type_from_host_attributes",
+      "member_metadata_review_disposition",
+      "member_metadata_review_reasons"
+    ],
+    "unknown_observations": "Null. A browser completion signal/local capture does not establish network-level completeness. Central-directory parsing alone does not establish transport_complete.",
+    "member_body_integrity_verified": false,
+    "member_type_scope": "apparent_member_type_from_name_only is a name/extension label; derived_member_type_from_host_attributes is declared host-scoped central-directory metadata. Neither verifies member content.",
+    "signed_queries": "Never persist transient signed query tokens; public landing and actual observed origin/path only.",
+    "participant_fields_projected": false,
+    "host_attribute_review_policy": {
+      "raw_attribute_fields": "Retain the central-directory create_system and external_attr integers as declared_create_system and declared_external_attributes. These are host/type metadata, separate from apparent_member_type_from_name_only.",
+      "supported_host_encoding": "Interpret file-type bits only for UNIX create_system 3. Other host encodings, including FAT, NTFS and Darwin, are unsupported in this finite review and must not be interpreted as a negative symlink result.",
+      "derived_unix_mode": "For supported UNIX metadata, derive the mode from the high 16 bits of external_attr. Otherwise leave derived_unix_mode null. Classify only the declared file-type bits using stat.S_ISLNK, stat.S_ISREG and stat.S_ISDIR semantics.",
+      "derived_member_type_values": [
+        "declared_symbolic_link",
+        "declared_regular_file",
+        "declared_directory",
+        "unsupported_unix_file_type",
+        "unknown"
+      ],
+      "unknown_policy": "Unavailable or unusable attributes, unsupported host encodings, or missing/unrecognized UNIX file-type bits produce unknown and refuse directory-metadata admission. Do not turn unknown into a negative symlink result or infer type from a name.",
+      "refusal_policy": "Refuse declared symbolic links, unsupported UNIX types and unknown classification, recording the member disposition and reasons. Archive metadata disposition is refused if any member or archive-level check refuses; accepted_directory_metadata_only requires every declared metadata check to pass.",
+      "review_disposition_values": [
+        "accepted_directory_metadata_only",
+        "refused",
+        "not_reviewed"
+      ],
+      "review_reasons": "Retain explicit reasons for each refusal or non-review, such as declared_symbolic_link, unsupported_create_system, unavailable_or_unusable_external_attributes, missing_or_unrecognized_unix_file_type, unsupported_unix_file_type, unsafe_member_name, duplicate_member_name, declared_encryption, unsupported_compression, inconsistent_directory_metadata, or declared_resource_limit_exceeded. Keep archive-level reasons alongside member-level reasons; no private names in a public status.",
+      "interpretation_scope": "Declared central-directory metadata only. An accepted declared regular file/directory is not a verified member-body type, safe extraction guarantee, transport/body-integrity proof, or authorization to read a local header or member body.",
+      "references": [
+        {
+          "url": "https://docs.python.org/3.12/library/zipfile.html#zipfile.ZipInfo.create_system",
+          "scope": "ZipInfo central-directory host identifier"
+        },
+        {
+          "url": "https://docs.python.org/3.12/library/zipfile.html#zipfile.ZipInfo.external_attr",
+          "scope": "ZipInfo external attributes"
+        },
+        {
+          "url": "https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT",
+          "scope": "APPNOTE 6.3.10 sections 4.4.2 and 4.4.15: host identifier and host-dependent external-attribute interpretation"
+        },
+        {
+          "url": "https://docs.python.org/3.12/library/stat.html",
+          "scope": "UNIX mode file-type predicates"
+        }
+      ]
+    }
+  },
+  "failure_policy": "Retain any supported completed or available partial original bytes and a private honest receipt; fixed sanitized public unavailable status if needed. No automatic retry, raw exception/member/path dump, guessed mirror or source repair. Unavailable transport observations remain null.",
+  "separate_future_field_contract_required": [
+    "Native format-specific missing encodings and exact selected columns",
+    "Private key semantics and complete wave linkage/disposition",
+    "Derived diagnosis names/question pointers and conflicting thresholds/operators",
+    "Wave-specific fasting grammar and specimen alignment",
+    "Measurement/death/last-contact clocks and event ordering or explicitly unknown clocks",
+    "Selection/population transport, weights and observation likelihood",
+    "Pre-value disclosure/privacy rules plus independently admitted parser code"
+  ],
+  "source_admitted": false,
+  "scientific_gates": {
+    "direct_initialization_allowed": false,
+    "clinical_fit_allowed": false,
+    "engine_activation_allowed": false,
+    "sampling_distribution_assumed": false,
+    "scientific_release_ready": false
+  },
+  "participant_data_acquired": false,
+  "participant_fields_projected": false,
+  "empirical_calculation": false,
+  "execution_authorized": false,
+  "pending_actual_source_identity": {
+    "archive_sha256": null,
+    "archive_size_bytes": null,
+    "observed_status": null,
+    "members": null
+  },
+  "review_boundary": "Finite acquisition-only protocol. It does not accept terms or authorize execution by itself. Independent review, actual human terms confirmation and recorded root selection precede any transfer-initiating action. No participant intake or clinical observation contract; no own future commit/hash or recursive review seal."
+}
