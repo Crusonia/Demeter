@@ -1,0 +1,48 @@
+{
+  "empirical_diagnostic_computed_before_code_admission": false,
+  "framing_only_preflight_passed": true,
+  "implementation_sha256": {
+    "src/demeter/data/nhanes3_repeat.py": "19acfc02f8f712c320c2bb4fdf581aa13bb42c8031a75957f2d293af8913a541",
+    "src/demeter/data/nhanes3_repeat_store.py": "99a07375362093a7b40f1f881801144c08db8592509b450cad8b378ece36d3cf",
+    "src/demeter/schema.py": "775a20669001cf146e75a5011e8e684b4ad75ee0e94b55685a10beea288eb782"
+  },
+  "kind": "nhanes3_repeat_code_admission",
+  "model_role": "benchmark_only",
+  "protocol_sha256": "1728d637312da8fd4911d8152b15275eb70760e351286a2a898e95453786798f",
+  "registry_dataset_sha256": "5a6822721c8d356ad9325ed914f2f0db134231c69b72942b2baf0227c2e422fe",
+  "registry_documentary_source_sha256": {
+    "nhanes3_repeat_adult_dictionary": "23d7f8d74adcfc88441322d2c8d5112fc890c0fd96913867c6b0e2915a90c9ff",
+    "nhanes3_repeat_adult_layout": "1985f61cc6d2f4162ca45169259e0caeb840fc51066c744232c6a2f173ae9bc7",
+    "nhanes3_repeat_catalog": "32b081b24977eb1d6cee2a02b4770422187e6db6f7f50e64acebf79530532a19",
+    "nhanes3_repeat_lab_dictionary": "16dbf5a13fc89581313c6f6b774c24ca5a6ed47c99d627143fbf7c122d1273cc",
+    "nhanes3_repeat_lab_layout": "123324703212604665569753971b00f38a50f43eaa301d3ae8272d67f4b97968",
+    "nhanes3_repeat_readme": "507148d141483cae8af6e49e3c2ee3dd4e87ebfd29a9d08de401eb7c54c79457",
+    "nhanes3_repeat_second_lab_dictionary": "44ff63b86e401201a7c4062209dede4fceeea85a05b292ce7d421d87a5397ed6",
+    "nhanes3_repeat_second_lab_layout": "8f046d630da325706c2378423ff4653ca23992d4bdf9668eaa6c1a0ca1f125e5"
+  },
+  "registry_parameter_sha256": {
+    "nhanes3_repeat_adult_min_months": "d8dde2439f9c5d48765fd7809330db68483b106ab82d37682cd239b26539c1a5",
+    "nhanes3_repeat_adult_min_years": "4e2c8b9d7b05c8735f3c2a0465eb3dc02cd759e35635199a760716cc5d5322ee",
+    "nhanes3_repeat_fasting_min_hours": "82851fb8a7fded0d57308b2763e08c72553ca4b416a10bf11ac973af75bb7083",
+    "nhanes3_repeat_fpg_positive_min": "4064ddc733c60546ac2b42036d1ca03f18e553d10ec6ccc58fcd4528621730dc",
+    "nhanes3_repeat_mec_age_topcode": "1f919adae744819518e6dc5578f8f3d36580b31dd9cb6d1b191df73e7dca70ff"
+  },
+  "schema_version": 1,
+  "scientific_gates": {
+    "clinical_fit_allowed": false,
+    "direct_initialization_allowed": false,
+    "engine_activation_allowed": false,
+    "sampling_distribution_assumed": false,
+    "scientific_release_ready": false
+  },
+  "scope": "Loaded calculation, store verification and registry schema bytes; selected complete evidence records. Frozen before empirical diagnostic. Public entry guard independently binds these receipts and checks disk/loaded implementation bytes before invoked helpers. No clinical fitting, hazard activation or empirical precision claimed.",
+  "source_admission_commit": "d3489fa",
+  "source_admission_sha256": "d05784c3df09957b1a03f0afc10dfd4caafef33f5f8f6735f2bf40bef8fd2a5d",
+  "source_manifest_sha256": "4fbb60c55e9448ad68f73ba0ac8294cb8151684c0a51759c1ef3f52943fb20d8",
+  "source_sha256": {
+    "ADULT": "32a93a474cbd3bd0dd2ddc82153c47cf0b9f81eda025e255dd251bb5620a3adf",
+    "LAB": "b87ae166c02e4907b08b7a52a1c01122b4173ec2970b891b624f43cedc038e48",
+    "LABSE": "29f9fc2c63d3191fae86dea8429092cf202a9cf60ba7046b9513440f8841c2fe"
+  },
+  "used_source": true
+}
