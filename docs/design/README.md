@@ -35,6 +35,11 @@ software witness. Unknown type and inconsistent questionnaire responses remain
 explicit; no participant intake, survey estimate or clinical initialization is
 implemented by that witness.
 
+The [HRS repeat-biomarker checkpoint](../HRS_REPEAT_BIOMARKER_SOURCE_CHECKPOINT.md)
+feeds I-11 observation design with native/adjusted assay roles and unresolved
+selection, specimen clocks and diabetes type. It is source discovery, not an
+empirical intake or a clinical likelihood.
+
 The [native NHIS source protocol](../NHIS_NATIVE_SOURCE_ADMISSION.md) freezes a
 separate acquisition and byte-framing stage before participant fields. Delivery
 checks do not admit a parser, empirical estimate or clinical initializer.
