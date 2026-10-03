@@ -46,6 +46,13 @@ records byte pins separately from the
 A new definition, source or implementation checksum requires explicit
 admission; editing a local manifest alone cannot reseal the reporter.
 
+The explicit acquisition script stages each attempt separately. It publishes
+the requested destination only after all four components and the manifest pass
+byte checks, using an atomic operation that refuses an existing target. A
+failed attempt retains partial bytes and receipts in the reported attempt
+directory; retry the same requested destination without deleting evidence.
+Offline reconstruction does not invoke this script.
+
 ## Two denominators answer different questions
 
 | View | Denominator | Interpretation |

@@ -3,10 +3,14 @@
 from __future__ import annotations
 
 import argparse
+import ctypes
 from datetime import datetime, timezone
 import json
+import os
 from pathlib import Path
 import subprocess
+import sys
+import tempfile
 from urllib.parse import urlparse
 from urllib.request import urlopen
 
@@ -72,6 +76,41 @@ def _download(name: str) -> bytes:
     return content
 
 
+def _publish(staging: Path, destination: Path) -> None:
+    """Atomic directory rename with an exclusive destination, including races.
+
+    POSIX rename alone can overwrite an existing empty directory. Use native
+    no-replace operations; unsupported systems/filesystems fail closed.
+    APIs: man7.org/linux/man-pages/man2/rename.2.html; Apple renamex_np(2)
+    RENAME_EXCL; docs.python.org/3/library/os.html#os.rename (Windows).
+    """
+    if sys.platform == "win32":
+        os.rename(staging, destination)  # Windows refuses any existing target.
+        return
+    library = ctypes.CDLL(None, use_errno=True)
+    source, target = os.fsencode(staging), os.fsencode(destination)
+    if sys.platform.startswith("linux"):
+        operation = getattr(library, "renameat2", None)
+        arguments = (-100, source, -100, target, 1)  # AT_FDCWD, RENAME_NOREPLACE.
+        signature = [ctypes.c_int, ctypes.c_char_p, ctypes.c_int, ctypes.c_char_p, ctypes.c_uint]
+    elif sys.platform == "darwin":
+        operation = getattr(library, "renamex_np", None)
+        arguments = (source, target, 4)  # RENAME_EXCL.
+        signature = [ctypes.c_char_p, ctypes.c_char_p, ctypes.c_uint]
+    else:
+        operation = None
+    if operation is None:
+        raise OSError("Exclusive atomic source-store publication unavailable")
+    operation.argtypes, operation.restype = signature, ctypes.c_int
+    if operation(*arguments) != 0:
+        raise OSError(ctypes.get_errno(), "Exclusive atomic source-store publication failed")
+
+
+def _write_json(path: Path, value: dict) -> None:
+    with path.open("xb") as stream:
+        stream.write((json.dumps(value, sort_keys=True, indent=2) + "\n").encode("utf-8"))
+
+
 def fetch(destination: Path = intake.STORE, demographics: Path = DEMO_STORE) -> dict:
     """Fetch once without parsing records. Existing destinations are never overwritten."""
     protocol = intake.verify_protocol()
@@ -81,58 +120,96 @@ def fetch(destination: Path = intake.STORE, demographics: Path = DEMO_STORE) -> 
     original = original_manifest["sources"]["DEMO_L.xpt"]
     demo_content = intake._read(demographics / "DEMO_L.xpt", "reuse component")
     intake.verify_demographics_reuse(protocol, original_manifest_content, original, demo_content)
-    if destination.exists():
+    if os.path.lexists(destination):
         raise ValueError("NHANES acquisition destination already exists; overwrite refused")
     destination.parent.mkdir(parents=True, exist_ok=True)
-    destination.mkdir(exist_ok=False)
+    attempt = Path(tempfile.mkdtemp(prefix=f".{destination.name}.attempt-", dir=destination.parent))
+    staging = attempt / "source-store"
     receipts = {}
     started_at = _now()
-    for name in intake.COLUMNS:
-        content = demo_content if name == "DEMO_L.xpt" else _download(name)
-        with (destination / name).open("xb") as file:
-            file.write(content)
-        receipt = {
-            "url": intake.PUBLIC_BASE + name,
-            "codebook_url": intake.PUBLIC_BASE + name.replace(".xpt", ".htm"),
-            "publisher": "CDC/NCHS",
-            "title": TITLES[name],
-            "vintage": "August 2021-August 2023",
-            "format": "SAS XPORT",
-            "bytes": len(content),
-            "sha256": intake.digest(content),
-            "use_terms": intake.USE_TERMS,
-            "model_role": "benchmark_only",
-            "acquisition_kind": "download",
-            "retrieved_at": _now(),
+    try:
+        _write_json(
+            attempt / "attempt.json",
+            {
+                "kind": "nhanes_current_acquisition_attempt",
+                "protocol_sha256": intake.PROTOCOL_SHA256,
+                "prior_protocol_commit": parent_commit,
+                "destination": str(destination),
+                "started_at": started_at,
+                "participant_records_parsed": False,
+            },
+        )
+        staging.mkdir(exist_ok=False)
+        for name in intake.COLUMNS:
+            content = demo_content if name == "DEMO_L.xpt" else _download(name)
+            with (staging / name).open("xb") as file:
+                file.write(content)
+            receipt = {
+                "url": intake.PUBLIC_BASE + name,
+                "codebook_url": intake.PUBLIC_BASE + name.replace(".xpt", ".htm"),
+                "publisher": "CDC/NCHS",
+                "title": TITLES[name],
+                "vintage": "August 2021-August 2023",
+                "format": "SAS XPORT",
+                "bytes": len(content),
+                "sha256": intake.digest(content),
+                "use_terms": intake.USE_TERMS,
+                "model_role": "benchmark_only",
+                "acquisition_kind": "download",
+                "retrieved_at": _now(),
+            }
+            if name == "DEMO_L.xpt":
+                receipt.update(
+                    acquisition_kind="reuse",
+                    retrieved_at=original["retrieved_at"],
+                    reused_at=_now(),
+                    original_acquisition={
+                        "source_store": DEMO_STORE.as_posix(),
+                        "source_manifest_sha256": intake.digest(original_manifest_content),
+                        "url": original["url"],
+                        "retrieved_at": original["retrieved_at"],
+                        "sha256": original["sha256"],
+                        "bytes": original["bytes"],
+                    },
+                )
+            receipts[name] = receipt
+        manifest = {
+            "schema_version": 1,
+            "protocol_path": intake.PROTOCOL_PATH.as_posix(),
+            "protocol_sha256": intake.PROTOCOL_SHA256,
+            "source_store": intake.STORE.as_posix(),
+            "acquisition_started_at": started_at,
+            "acquisition_finished_at": _now(),
+            "prior_protocol_commit": parent_commit,
+            "participant_records_parsed": False,
+            "sources": receipts,
         }
-        if name == "DEMO_L.xpt":
-            receipt.update(
-                acquisition_kind="reuse",
-                retrieved_at=original["retrieved_at"],
-                reused_at=_now(),
-                original_acquisition={
-                    "source_store": DEMO_STORE.as_posix(),
-                    "source_manifest_sha256": intake.digest(original_manifest_content),
-                    "url": original["url"],
-                    "retrieved_at": original["retrieved_at"],
-                    "sha256": original["sha256"],
-                    "bytes": original["bytes"],
+        _write_json(staging / "manifest.json", manifest)
+        intake._manifest(
+            staging, protocol
+        )  # Verify every completed byte/receipt before publication.
+        _publish(staging, destination)
+    except Exception as exc:
+        # Never delete partial raw bytes. Even if storage is exhausted, the
+        # attempt directory remains uniquely identifiable and retry is safe.
+        try:
+            _write_json(
+                attempt / "failure.json",
+                {
+                    "kind": "nhanes_current_acquisition_failure",
+                    "failed_at": _now(),
+                    "failure_type": type(exc).__name__,
+                    "completed_source_receipts": receipts,
+                    "participant_records_parsed": False,
+                    "destination_published": False,
                 },
             )
-        receipts[name] = receipt
-    manifest = {
-        "schema_version": 1,
-        "protocol_path": intake.PROTOCOL_PATH.as_posix(),
-        "protocol_sha256": intake.PROTOCOL_SHA256,
-        "source_store": intake.STORE.as_posix(),
-        "acquisition_started_at": started_at,
-        "acquisition_finished_at": _now(),
-        "prior_protocol_commit": parent_commit,
-        "participant_records_parsed": False,
-        "sources": receipts,
-    }
-    with (destination / "manifest.json").open("xb") as file:
-        file.write((json.dumps(manifest, sort_keys=True, indent=2) + "\n").encode("utf-8"))
+        except OSError:
+            pass
+        raise ValueError(
+            f"NHANES acquisition failed; partial bytes/receipts retained at {attempt}; "
+            "the requested destination was not published. Retry with the same destination."
+        ) from None
     return manifest
 
 
@@ -148,10 +225,12 @@ def main() -> int:
         parser.error("Use --download for this explicit online acquisition")
     try:
         manifest = fetch(args.destination, args.demographics_store)
-    except (ValueError, OSError, KeyError):
+    except (ValueError, OSError, KeyError) as exc:
         print(
             "Public NHANES acquisition failed; source files are never overwritten. No records exported."
         )
+        if isinstance(exc, ValueError):
+            print(str(exc))  # Acquisition messages contain no parsed participant values.
         return 1
     print(
         json.dumps(
