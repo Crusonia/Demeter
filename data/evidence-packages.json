@@ -1864,6 +1864,34 @@
     {
       "path": "docs/validation/hrs-disposition-witness-contract-v1.json",
       "sha256": "7662dd1242ec79aa483340b2509a0cde8872498ae6da97385c44c954442fddd3"
+    },
+    {
+      "path": "docs/validation/nhis2025-native-framing-protocol-v1.json",
+      "sha256": "e1738706979b9bb2872389def34ea5b0f20d25584310f4af45288bf887fef25d"
+    },
+    {
+      "path": "docs/NHIS_NATIVE_SOURCE_ADMISSION.md",
+      "sha256": "06174290a2acd3a664f8536cd2927c5f940dcecda8b972dd3a8ed69cfcc86977"
+    },
+    {
+      "path": "docs/validation/nhis2025-native-framing-receipt-v1.json",
+      "sha256": "d669d2283310f48e29c9aea8a3258f0ab20a6925d082e4affe92f059ef9bc56f"
+    },
+    {
+      "path": "docs/NHIS_NATIVE_FRAMING_RESULT.md",
+      "sha256": "e440a41960a572731181c138eb1a9b637929111f8254dc9f93a68e68bce18f21"
+    },
+    {
+      "path": "docs/design/11_NHIS_NATIVE_RECORD_CONTRACT.md",
+      "sha256": "e2df959321139d927108c6094d4b44e3255c473168de52174558e4024f580d7d"
+    },
+    {
+      "path": "docs/NHIS_SOURCE_GUARD.md",
+      "sha256": "54d9916700b3c291d7606f1a9fc2264a687461948914b4fbbbdde7759d9e6f97"
+    },
+    {
+      "path": "docs/design/10_NHIS_SURVEY_WITNESS.md",
+      "sha256": "c64ca98f144fe119828918b4b25480dfe2ee6f2557d1cb6d0f5bbf9ed32c7730"
     }
   ]
 }

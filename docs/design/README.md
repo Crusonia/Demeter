@@ -35,11 +35,32 @@ software witness. Unknown type and inconsistent questionnaire responses remain
 explicit; no participant intake, survey estimate or clinical initialization is
 implemented by that witness.
 
+The [synthetic NHIS joint-ratio witness](10_NHIS_SURVEY_WITNESS.md) tests complete
+record-category accounting and dependent survey-ratio arithmetic on in-memory
+fixtures. It reuses the existing covariance kernel without NHANES inference
+metadata; participant admission and NHIS interval policies remain unresolved.
+
 The [HRS repeat-biomarker checkpoint](../HRS_REPEAT_BIOMARKER_SOURCE_CHECKPOINT.md)
 feeds I-11 observation design with native/adjusted assay roles and unresolved
 selection, specimen clocks and diabetes type. It is source discovery, not an
 empirical intake or a clinical likelihood.
 
+The [native NHIS source protocol](../NHIS_NATIVE_SOURCE_ADMISSION.md) freezes a
+separate acquisition and byte-framing stage before participant fields. Delivery
+checks do not admit a parser, empirical estimate or clinical initializer.
+The subsequent [native-delivery result](../NHIS_NATIVE_FRAMING_RESULT.md) records
+the exact acquired archive/native identities and physical framing; no participant
+fields were projected or empirical calculation admitted.
+
+The [native NHIS record contract](11_NHIS_NATIVE_RECORD_CONTRACT.md) specifies a
+selected-field decoder and synthetic checks before any real field inspection.
+Unknown responses and reader missing syntax remain distinct; source admission
+and survey interpretation require separate guards and reviewed contracts.
+
+The [NHIS verified-delivery guard](../NHIS_SOURCE_GUARD.md) checks frozen source,
+documentary and loaded-decoder identities before returning private native bytes.
+It invokes no decoder, exports no records and admits no empirical calculation.
+Its tests use synthetic delivery identities; clinical gates remain closed.
 The [HRS synthetic disposition contract](10_HRS_DISPOSITION_WITNESS.md) freezes
 a proposed baseline-conserving software witness. Native tracker reports, diagnosis
 response universes and synthetic assay/clock facets stay distinct; no empirical
