@@ -52,6 +52,11 @@ selected-field decoder and synthetic checks before any real field inspection.
 Unknown responses and reader missing syntax remain distinct; source admission
 and survey interpretation require separate guards and reviewed contracts.
 
+The [NHIS verified-delivery guard](../NHIS_SOURCE_GUARD.md) checks frozen source,
+documentary and loaded-decoder identities before returning private native bytes.
+It invokes no decoder, exports no records and admits no empirical calculation.
+Its tests use synthetic delivery identities; clinical gates remain closed.
+
 ## Methodological basis
 
 This is Demeter's application of a system-dynamics approach informed by Thomas S.

@@ -1876,6 +1876,10 @@
     {
       "path": "docs/design/11_NHIS_NATIVE_RECORD_CONTRACT.md",
       "sha256": "e2df959321139d927108c6094d4b44e3255c473168de52174558e4024f580d7d"
+    },
+    {
+      "path": "docs/NHIS_SOURCE_GUARD.md",
+      "sha256": "54d9916700b3c291d7606f1a9fc2264a687461948914b4fbbbdde7759d9e6f97"
     }
   ]
 }
