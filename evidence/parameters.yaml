@@ -13110,6 +13110,14 @@ datasets:
     - whitehall_main2019
 
 
+    source_manifest_sha256: 905d8709e1e5ec24dff8300aa479b3fa9e5848806865b0b00f307d911c606dc5
+    source_sha256:
+      DEMO_L.xpt: ca4374a158b493b8b0163e1388da21d57a18d1b9cecff2aa4e2fa2bec494fe23
+      DIQ_L.xpt: 9535a023673ae869afae19d842d8679e06f6a464606ac15900686b41ef05090f
+      GHB_L.xpt: 67aee0353160e2392dc0a33bece99b90764a630c76d82415ac4639105ad9dd03
+      GLU_L.xpt: 70f773ab37e3d8485341f32137e280e05b9279e5fe9b6f0362e4052d8fe9a201
+    implementation_sha256:
+      src/demeter/data/nhanes_assay_mapping.py: 441c1c34dfa470cb184066885a8786e4cffaa98866976cc3b6031b9092799eb5
 scientific_blockers:
 - National age-specific metabolic transition hazards are unresolved.
 - Age-specific T2D/prediabetes initial prevalence is not calibrated; CDC total diabetes includes
