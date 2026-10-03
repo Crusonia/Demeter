@@ -1,0 +1,13 @@
+# NHIS selected-field inspection: technical run boundary
+
+The callable library and synthetic software checks are complete in [PR109](https://github.com/Crusonia/Demeter/pull/109). The reviewed source commit `def7aaafabbed919825d8cdc7f576d1952da0400` and protected merge `3457c200d722a3375b38d548e15f31af4141a089` have identical trees. The full local Studio suite passed with 4,286 passed, 15 skipped and one existing warning; all four required CI contexts and eight exact model parity checks passed. These are software checks, not clinical validation.
+
+The [finite admission record](validation/nhis2025-selected-field-manual-run-admission-v1.json) binds the known original delivery, eight immutable documents, four invoked implementations and actual engineering proofs. After independent automated review and commit of its exact bytes, it permits one manual call to `inspect_selected_fields` using explicit archive, native and verified repository-root paths. Before invocation, independently derive the committed admission identity and current commit, verify source/document/code hashes, and verify actually loaded module origins. The record cannot bind its own future commit or authorize itself through a mutable hash update.
+
+No original selected-field call occurred during preparation of this record. A later execution must report its actual technical status separately; this admission is not an execution result. Earlier immutable inspection and amendment documents preserve their historical pending status and must not be rewritten.
+
+Display only the unchanged library technical envelope and the separate committed admission identity. Keep private diagnostics in memory; never call their accessor or save records, counts, estimates or result files. Do not add an inner provenance key, writer or CLI. Preserve honest no-attempt, possibly-partial and completed decoding flags on failure. A failed call must not be silently retried or repaired under this one-run permission.
+
+The technical envelope can establish delivery verification, completed decoding and all-record marginal conservation. It supplies no survey estimate, initializer, clinical transition or dietary causal effect. Scientific source admission and all five activation gates remain false. Any statistical calculation or public estimate needs its own finite method and disclosure contract.
+
+Design trace: I-01/I-07/I-11/I-12 -> F-08 -> T-01/T-02/T-05/T-08, RFC-56 and the current v0.1 health slice. No model semantics or evidence-registry parameters change. Independent automated review is not independent human scientific review; external expert review remains pending.

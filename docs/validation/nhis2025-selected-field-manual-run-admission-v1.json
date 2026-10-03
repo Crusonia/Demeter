@@ -1,0 +1,208 @@
+{
+  "schema_version": 1,
+  "kind": "nhis2025_selected_field_manual_run_admission",
+  "prepared_at": "2026-10-03T10:28:49.629828+00:00",
+  "status": "finite_technical_admission_requires_independent_review_and_commit_before_call",
+  "used_source_chronology": "Documentary and synthetic software results already inspected. Known original source delivery was acquired for prior framing only; no original selected-field inspection or participant-result calculation performed during this preparation. Not preregistration or independent holdout.",
+  "execution_authorized_now": false,
+  "source_admitted": false,
+  "scientific_gates": {
+    "direct_initialization_allowed": false,
+    "clinical_fit_allowed": false,
+    "engine_activation_allowed": false,
+    "sampling_distribution_assumed": false,
+    "scientific_release_ready": false
+  },
+  "known_source_delivery": {
+    "adult25.zip": {
+      "sha256": "1981733845c4d6ede66f4756c34d47b356fbe403820c0ed33825d21e4d8f21e4",
+      "bytes": 2837893
+    },
+    "adult25.dat": {
+      "sha256": "48b2d91002c9f30e03e87e33d37041dc991ea43a390674045a9ca60c7d004b95",
+      "bytes": 16635705
+    }
+  },
+  "document_sha256": {
+    "docs/validation/nhis2025-native-framing-protocol-v1.json": "e1738706979b9bb2872389def34ea5b0f20d25584310f4af45288bf887fef25d",
+    "docs/validation/nhis2025-native-framing-receipt-v1.json": "d669d2283310f48e29c9aea8a3258f0ab20a6925d082e4affe92f059ef9bc56f",
+    "docs/validation/nhis2025-typed-diagnosis-design-receipts-v1.json": "cbb7e50eb970ecdc470607058f6e1df79a9c1cb37b3dcf82e7c3817096e4b889",
+    "docs/design/11_NHIS_NATIVE_RECORD_CONTRACT.md": "e2df959321139d927108c6094d4b44e3255c473168de52174558e4024f580d7d",
+    "docs/NHIS_SELECTED_FIELD_INSPECTION_CONTRACT.md": "3ad62da97ee31d994d31035201a07295ca6ad7da798dcac876da6fbfcbe77fa0",
+    "docs/validation/nhis2025-selected-field-inspection-contract-v1.json": "ee9e79b68ef6e47a18e8641bbe521234f4774c5c4386a551321eb2fa555c5477",
+    "docs/NHIS_SELECTED_FIELD_PROVENANCE_AMENDMENT.md": "fd5395a22bc1c166fa75f06d9a1311c60776b708932f18e19c8bec25c87deefc",
+    "docs/validation/nhis2025-selected-field-provenance-amendment-v2.json": "1ec78498c07b25ce0dc1a20c60fe1af6286819dc1f80e05ec95390b075708cb7"
+  },
+  "implementation_sha256": {
+    "src/demeter/data/nhis_source_guard.py": "dcb350b4a604a92c5c80f3f5c18e92c8d2827f1f9ad604f7ce4181633a45725e",
+    "src/demeter/data/nhis_native_records.py": "68042959577ca34bdd8946d8c2b28bf682495a113f79140c35539a7d4bd92511",
+    "src/demeter/data/nhis_diagnosis_labels.py": "0bf79f94ba46acb7efab90922705d226e7a58ae663a95a17a90c776394673d12",
+    "src/demeter/data/nhis_selected_field_inspection.py": "9583b94a63f107e2e6cdb84f2c94e807a2e97dbe8074a59b625f7d4b35931190"
+  },
+  "reviewed_source_head": {
+    "commit": "def7aaafabbed919825d8cdc7f576d1952da0400",
+    "tree": "ad02e459b0162800097b732a73c436892e08e8a1"
+  },
+  "existing_engineering_proofs": {
+    "final-focused-v1.xml": {
+      "sha256": "75ccc4eb06cbe877690cbd1fb0741acfa6e383ae911e7c2477e82ece2058292b",
+      "original_location": "outputs/selected-field-contract-preparation-v1/final-focused-v1.xml",
+      "scope": "engineering_only_no_original_selected_field_execution"
+    },
+    "final-model-parity-v1.json": {
+      "sha256": "7f6533eb29f8c42d19dd0ad3a12124710619d64b80bd3d168c8b0bdd0c44cdaa",
+      "original_location": "outputs/selected-field-contract-preparation-v1/final-model-parity-v1.json",
+      "scope": "engineering_only_no_original_selected_field_execution"
+    },
+    "final-package-audit-v1.json": {
+      "sha256": "6331486de8da96ac18f105878db900acbbbe6aa20f50561f1caba74696921ddb",
+      "original_location": "outputs/selected-field-contract-preparation-v1/final-package-audit-v1.json",
+      "scope": "engineering_only_no_original_selected_field_execution"
+    },
+    "final-integration-preservation-v1.json": {
+      "sha256": "935986fe47e7bebbdeed12c0d2daff9e5d6aa88ad45cc2b36635f023d3652f2a",
+      "original_location": "outputs/selected-field-contract-preparation-v1/final-integration-preservation-v1.json",
+      "scope": "engineering_only_no_original_selected_field_execution"
+    },
+    "independent-implementation-review-v1.json": {
+      "sha256": "1de3dcfd175a14cfc5eb44f5ddf01307059d4568bcfefe4f2a6290bd7af82900",
+      "original_location": "outputs/selected-field-contract-preparation-v1/independent-implementation-review-v1.json",
+      "scope": "engineering_only_no_original_selected_field_execution"
+    },
+    "independent-final-integrated-review-v1.json": {
+      "sha256": "c10f126815d1cdb91ef03b35971d36d045638364725227508f0db0982d530f45",
+      "original_location": "outputs/selected-field-contract-preparation-v1/independent-final-integrated-review-v1.json",
+      "scope": "engineering_only_no_original_selected_field_execution"
+    },
+    "independent-integrated-owned-blob-proof-v1.json": {
+      "sha256": "267d08e8f124bd27bd18ce21ca61f299c7b6f4d094157eae78ecb50317d4092c",
+      "original_location": "outputs/selected-field-contract-preparation-v1/independent-integrated-owned-blob-proof-v1.json",
+      "scope": "engineering_only_no_original_selected_field_execution"
+    },
+    "full-completion-v1.json": {
+      "sha256": "d428d9a0903b25b103a42bb3fdfaac4dbe765e0c814efc2e53ec6f8bf084ec1d",
+      "original_location": "outputs/selected-field-contract-preparation-v1/full-completion-v1.json",
+      "scope": "actual_immutable_software_full_validation_no_original_selected_field_execution"
+    },
+    "full-v1.xml": {
+      "sha256": "140ebcb903d2c03f7a774b371f37f9128a4c225093e78dbff4adc173797e0d54",
+      "original_location": "outputs/selected-field-contract-preparation-v1/full-v1.xml",
+      "scope": "actual_immutable_software_full_validation_no_original_selected_field_execution"
+    },
+    "full-v1.log": {
+      "sha256": "7edb474aaec6fa2d416e8ae92af8b5dc64c689bb9a5203e0fe9b76a7e2224e5e",
+      "original_location": "outputs/selected-field-contract-preparation-v1/full-v1.log",
+      "scope": "actual_immutable_software_full_validation_no_original_selected_field_execution"
+    },
+    "full-independent-seal-v1.json": {
+      "sha256": "292a232dd312b3fc09cf8b57608b957d33fc1e8871ca53662a69e0b665c865a1",
+      "original_location": "outputs/selected-field-contract-preparation-v1/full-independent-seal-v1.json",
+      "scope": "actual_immutable_software_full_validation_no_original_selected_field_execution"
+    },
+    "root-full-independent-seal-v1.json": {
+      "sha256": "c0fdb70671a318ac3a7de9ee3faa2f82939abdbe6fed663c5d79564e92013674",
+      "original_location": "outputs/selected-field-contract-preparation-v1/root-full-independent-seal-v1.json",
+      "scope": "engineering_only_no_original_selected_field_execution"
+    },
+    "independent-actual-full-verification-v3.json": {
+      "sha256": "31e2cc5914aca50c8bb20c70676abe7b451c55da918454e774173ebc17bc824d",
+      "original_location": "outputs/selected-field-contract-preparation-v1/independent-actual-full-verification-v3.json",
+      "scope": "independent_automated_engineering_review_not_human_scientific_review"
+    }
+  },
+  "proposed_permission_after_completion_review_and_commit": {
+    "manual_invocations": 1,
+    "library_function": "demeter.data.nhis_selected_field_inspection.inspect_selected_fields",
+    "explicit_arguments": [
+      "archive path",
+      "native path",
+      "verified repository root"
+    ],
+    "before_call": [
+      "independently verify committed admission identity",
+      "verify all source/document/code byte identities",
+      "verify loaded inspection, guard, decoder and classifier origins and bytes",
+      "check invocation source commit and tracked preservation"
+    ],
+    "unchanged_flow": [
+      "verify frozen documents and helper disk/loaded origins",
+      "verify_delivery",
+      "read returned immutable native bytes",
+      "unchanged decoder",
+      "all-record fixed private aggregate conservation"
+    ],
+    "display_only": [
+      "unchanged current result.technical_envelope",
+      "separate already committed admission identity"
+    ],
+    "inner_provenance_exact_keys": [
+      "archive_sha256",
+      "native_sha256",
+      "framing_protocol_sha256",
+      "framing_receipt_sha256",
+      "selected_field_contract_sha256"
+    ],
+    "new_inner_provenance_key": false,
+    "private_diagnostics": "memory only; no private accessor invocation or persistence",
+    "prohibited": [
+      "source record or result-object export",
+      "private counts, keys, native tokens, exact ages, weights or design labels",
+      "file writer, CLI, result file or diagnostic persistence",
+      "empirical estimates, survey-witness call, clinical mapping, registry changes or engine use",
+      "retry or repair without separate reviewed disposition"
+    ]
+  },
+  "failure_policy": {
+    "source_code_or_document_mismatch": "refuse before selected-value projection; no dynamic paths or exceptions displayed",
+    "projection_chronology": {
+      "not_attempted": "false before successful decoder invocation",
+      "possibly_partial": "null when decoder may have accessed records before failure",
+      "completed": "true after successful decoding even if private aggregation fails"
+    },
+    "allowlisted_output": "unchanged current library technical envelope only, with independent admission identity kept separate; no added fields or private sanitized_failure accessor",
+    "partial_result": "never access, display or save a private partial diagnostic",
+    "external_preflight_failure": "stop without original call; communicate a fixed technical refusal and the already committed admission identity only, without inventing a library envelope or its projection state"
+  },
+  "parent_template_sha256": "47f8254a832b9b853d65d732c652c8b55f72325c500fe1e6eac8f8b6fdf1c4a1",
+  "verified_bindings": {
+    "authored_actual_full_completion_receipt": {
+      "status": "actual_completed_exit_zero_independently_reconciled",
+      "head": "def7aaafabbed919825d8cdc7f576d1952da0400",
+      "pytest_counts": {
+        "tests": 4301,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 15,
+        "passed": 4286
+      },
+      "existing_warning_count": 1,
+      "elapsed_seconds": 1662.7350000000006,
+      "tracked_files_verified": 707,
+      "all_before_after_current_tracked_sha256_identical": true,
+      "source_fields_inspected_by_this_increment": false,
+      "author_independent_seal_sha256": "292a232dd312b3fc09cf8b57608b957d33fc1e8871ca53662a69e0b665c865a1",
+      "root_independent_seal_sha256": "c0fdb70671a318ac3a7de9ee3faa2f82939abdbe6fed663c5d79564e92013674"
+    },
+    "final_four_context_ci": {
+      "head": "def7aaafabbed919825d8cdc7f576d1952da0400",
+      "run_id": 37114704025,
+      "required_contexts": {
+        "test (3.11)": "SUCCESS",
+        "test (3.12)": "SUCCESS",
+        "test (macOS)": "SUCCESS",
+        "test (Windows)": "SUCCESS"
+      },
+      "observed_snapshot_sha256": "af7e5e01c33e5ab39dfc711f12016a2105af23ec5fd0f625d2dd98686f9c6f56"
+    },
+    "actual_protected_merge": {
+      "commit": "3457c200d722a3375b38d548e15f31af4141a089",
+      "merged_at": "2026-10-03T10:32:52Z",
+      "tree": "ad02e459b0162800097b732a73c436892e08e8a1",
+      "reviewed_and_merged_trees_identical": true,
+      "receipt_sha256": "6b0ffbea7b4d981b03e0d325aa882f13ddd0888ff033c1151c16c552aab8a770"
+    }
+  },
+  "execution_permission": "One manual technical invocation after this exact record is independently reviewed and committed; root verifies its committed identity externally before invocation. No call occurred during preparation.",
+  "admission_identity_rule": "The admission does not hash or name its own future commit. Before the call, independently derive the current commit and committed admission blob, verify working bytes equal that blob, and bind its SHA256 externally. Refuse tracked drift or unreviewed code differences.",
+  "review_scope": "Independent automated review of actual implementation, full receipts and this finite admission; no independent human scientific approval or clinical acceptance is claimed."
+}
