@@ -1916,6 +1916,14 @@
     {
       "path": "docs/validation/nhis2025-selected-field-provenance-amendment-v2.json",
       "sha256": "1ec78498c07b25ce0dc1a20c60fe1af6286819dc1f80e05ec95390b075708cb7"
+    },
+    {
+      "path": "docs/NHIS_SELECTED_FIELD_MANUAL_RUN_STATUS.md",
+      "sha256": "9b39afe48293a8142567686c2fe50c0ce574708c758882d12a9bdafd0056f6e6"
+    },
+    {
+      "path": "docs/validation/nhis2025-selected-field-manual-run-admission-v1.json",
+      "sha256": "cd8ad34bf19bd266c7434562ab09fe8d3b820c0e7d2a733655513ed45e408660"
     }
   ]
 }

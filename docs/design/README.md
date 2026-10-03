@@ -70,7 +70,10 @@ The [selected-field NHIS inspection contract](../NHIS_SELECTED_FIELD_INSPECTION_
 defines the next library-only, in-memory diagnostic boundary. It preserves every
 record and unknown response, separates literal question routing from clinical
 answers, and introduces no writer, public diagnostic counts or survey estimate.
-Implementation and independent actual code/source admission remain pending.
+The callable library implementation and synthetic checks are complete. The
+[manual-run boundary](../NHIS_SELECTED_FIELD_MANUAL_RUN_STATUS.md) permits one
+technical invocation only after its exact admission is independently reviewed and
+committed; scientific admission remains separate.
 The [HRS synthetic disposition contract](10_HRS_DISPOSITION_WITNESS.md) freezes
 a proposed baseline-conserving software witness. Native tracker reports, diagnosis
 response universes and synthetic assay/clock facets stay distinct; no empirical
