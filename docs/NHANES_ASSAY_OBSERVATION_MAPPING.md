@@ -89,6 +89,15 @@ without ridge repair or independent draws.
 
 ## Observed check
 
+The supported library replay API is
+`demeter.data.nhanes_assay_admission.report`. The CLI and verifier use this
+guard, which independently pins the original code-admission receipt and binds
+its implementation hash to the registry and actual loaded calculation before
+parsing. The original `nhanes_assay_mapping.py` remains a byte-preserved v1
+calculation record; its lower-level replay is not the supported admission API.
+This review correction changes no source bytes, thresholds or report fields.
+Verifier outputs must be new files outside `data`, `src`, `docs` and `evidence`.
+
 The first [frozen aggregate](validation/nhanes-assay-mapping-report-v1.json)
 contains 2,418 eligible adult pairs in the literal No-response group, of which
 969 receive different bands. The survey-weighted discordance estimate is 38.1%

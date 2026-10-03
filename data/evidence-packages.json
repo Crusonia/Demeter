@@ -1658,11 +1658,12 @@
         },
         {
           "path": "docs/NHANES_ASSAY_OBSERVATION_MAPPING.md",
-          "sha256": "66b5ca1cef49f09eea76daf6772ad9671124db991b86d9e9d7759639ebb96f39"
+          "sha256": "87925922f139324ae1e83ded2648f14e99b8dae68e597591ba6f70267d80b49c"
         }
       ],
       "transform_files": [
         "src/demeter/data/nhanes_assay_mapping.py",
+        "src/demeter/data/nhanes_assay_admission.py",
         "scripts/verify_nhanes_assay_mapping.py"
       ],
       "rebuild": [

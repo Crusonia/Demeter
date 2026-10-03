@@ -8,7 +8,7 @@ import pytest
 from typer.testing import CliRunner
 
 from demeter.cli import app
-from demeter.data import nhanes_assay_mapping as mapping
+from demeter.data import nhanes_assay_admission as mapping
 from demeter.data.nhanes import encoded
 from demeter.schema import EvidenceRegistry
 

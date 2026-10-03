@@ -298,3 +298,52 @@ def test_frozen_pin_is_the_admitted_assay_report(verifier):
         == "0cb7e82cbfc108c8cd0dc5bb77053ce84c902a8206fc57a7a99d8ebec04b0bc3"
     )
     assert verifier.ARTIFACT.name == "nhanes-assay-mapping-report-v1.json"
+
+
+@pytest.mark.parametrize("folder", ["data", "src", "docs", "evidence"])
+def test_new_protected_output_refused_before_replay(verifier, monkeypatch, tmp_path, folder):
+    monkeypatch.setattr(verifier, "ROOT", tmp_path)
+    monkeypatch.setattr(verifier, "verify", lambda: pytest.fail("replay started before preflight"))
+    output = tmp_path / folder / "missing-protected.json"
+    monkeypatch.setattr(sys, "argv", ["verify_nhanes_assay_mapping.py", "--output", str(output)])
+    assert verifier.main() == 1
+    assert not output.parent.exists() and not output.exists()
+
+
+def test_missing_frozen_filename_cannot_be_replaced_with_verification_receipt(
+    verifier, monkeypatch, tmp_path
+):
+    monkeypatch.setattr(verifier, "ROOT", tmp_path)
+    monkeypatch.setattr(verifier, "verify", lambda: pytest.fail("replay started before preflight"))
+    output = tmp_path / "docs/validation/nhanes-assay-mapping-report-v1.json"
+    assert not output.exists()
+    monkeypatch.setattr(sys, "argv", ["verify_nhanes_assay_mapping.py", "--output", str(output)])
+    assert verifier.main() == 1
+    assert not output.exists() and not output.parent.exists()
+
+
+def test_existing_hardlink_output_refused_before_replay(verifier, monkeypatch, tmp_path):
+    original = tmp_path / "original.json"
+    original.write_bytes(b"immutable existing bytes")
+    alias = tmp_path / "alias.json"
+    alias.hardlink_to(original)
+    monkeypatch.setattr(verifier, "verify", lambda: pytest.fail("replay started before preflight"))
+    monkeypatch.setattr(sys, "argv", ["verify_nhanes_assay_mapping.py", "--output", str(alias)])
+    assert verifier.main() == 1
+    assert alias.read_bytes() == original.read_bytes() == b"immutable existing bytes"
+
+
+def test_protected_absolute_output_remains_refused_from_another_working_directory(
+    verifier, monkeypatch, tmp_path
+):
+    repository = tmp_path / "repository"
+    repository.mkdir()
+    caller = tmp_path / "caller"
+    caller.mkdir()
+    monkeypatch.chdir(caller)
+    monkeypatch.setattr(verifier, "ROOT", repository)
+    monkeypatch.setattr(verifier, "verify", lambda: pytest.fail("replay started before preflight"))
+    output = repository / "data/missing.json"
+    monkeypatch.setattr(sys, "argv", ["verify_nhanes_assay_mapping.py", "--output", str(output)])
+    assert verifier.main() == 1
+    assert not output.exists() and not output.parent.exists()

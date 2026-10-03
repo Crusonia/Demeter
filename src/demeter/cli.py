@@ -1179,7 +1179,7 @@ def assay_mapping_evidence(
 ) -> None:
     """Audit paired assay observation agreement offline; no clinical state fit."""
     from demeter.data.nhanes import encoded
-    from demeter.data.nhanes_assay_mapping import report as mapping_report
+    from demeter.data.nhanes_assay_admission import report as mapping_report
 
     if output is not None:
         destination = output.resolve()
