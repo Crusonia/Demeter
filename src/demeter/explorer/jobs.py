@@ -51,7 +51,16 @@ def write_json(path: Path, value: dict) -> None:
 
 
 def read_json(path: Path) -> dict:
-    return json.loads(path.read_bytes())
+    for attempt in range(20):
+        try:
+            return json.loads(path.read_bytes())
+        except PermissionError as exc:
+            # Opening the receipt can also race Windows replacement or a
+            # scanner's handle. Retry only known sharing/access violations;
+            # missing files, invalid JSON and other errors retain their meaning.
+            if getattr(exc, "winerror", None) not in (5, 32, 33) or attempt == 19:
+                raise
+            time.sleep(0.05)
 
 
 def code_fingerprint(root: Path | None = None) -> str:

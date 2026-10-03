@@ -161,17 +161,57 @@ def test_interval_endpoints_use_active_module_validators(family, key, nominal, h
 def completed(tmp_path_factory):
     destination = tmp_path_factory.mktemp("explorer-jobs")
     jobs = Jobs(ROOT, destination)
-    receipt = jobs.start(request_for(years=2))
-    deadline = time.monotonic() + 180
-    while time.monotonic() < deadline:
-        jobs.refresh()
-        saved = read_json(jobs.path(receipt["id"]) / "run.json")
-        if saved["status"] not in ("queued", "running"):
-            break
-        time.sleep(0.1)
-    jobs.close()
+    try:
+        receipt = jobs.start(request_for(years=2))
+        deadline = time.monotonic() + 180
+        while time.monotonic() < deadline:
+            jobs.refresh()
+            saved = read_json(jobs.path(receipt["id"]) / "run.json")
+            if saved["status"] not in ("queued", "running"):
+                break
+            time.sleep(0.1)
+    finally:
+        jobs.close()
     assert saved["status"] == "complete", saved
     return destination, receipt["id"]
+
+
+@pytest.mark.parametrize("failure_phase", ["start", "poll"])
+def test_completed_fixture_closes_jobs_on_failure(tmp_path_factory, monkeypatch, failure_phase):
+    import sys
+
+    module = sys.modules[__name__]
+    closed = []
+    failure = PermissionError("Synthetic receipt polling failure")
+
+    class FailingJobs:
+        def __init__(self, root, destination):
+            self.destination = destination
+
+        def start(self, request):
+            if failure_phase == "start":
+                raise failure
+            return {"id": "synthetic"}
+
+        def refresh(self):
+            pass
+
+        def path(self, key):
+            return self.destination
+
+        def close(self):
+            closed.append(True)
+
+    def fail_read(path):
+        raise failure
+
+    monkeypatch.setattr(module, "Jobs", FailingJobs)
+    monkeypatch.setattr(module, "request_for", lambda **kwargs: None)
+    monkeypatch.setattr(module, "read_json", fail_read)
+    with pytest.raises(PermissionError) as caught:
+        completed.__wrapped__(tmp_path_factory)
+    assert caught.value is failure
+    assert closed == [True]
 
 
 def test_worker_parity_reference_charts_and_saved_metadata(completed):
