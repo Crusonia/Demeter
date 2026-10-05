@@ -32,6 +32,8 @@ documents. The existing [transition calibration #57](https://github.com/Crusonia
 and [dietary pathway #58](https://github.com/Crusonia/Demeter/issues/58) remain
 the scientific umbrellas; completing a child appraisal does not close them.
 
+| Priority | Community issue | Who can help |
+| --- | --- | --- |
 | First | [#115: Find a timed longitudinal glycemic dataset with death and attrition accounting](https://github.com/Crusonia/Demeter/issues/115) | Cohort investigators / data stewards |
 | First | [#116: Appraise U.S. age/sex metabolic-state initialization](https://github.com/Crusonia/Demeter/issues/116) | Survey statisticians / clinicians |
 | First | [#117: Appraise one causal dietary exposure-to-health pathway](https://github.com/Crusonia/Demeter/issues/117) | Trial investigators / nutrition and causal-inference researchers |
