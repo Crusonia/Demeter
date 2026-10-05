@@ -12,6 +12,18 @@ are welcome; agreement with a preferred conclusion is never a review criterion.
 
 ## Choose a contribution
 
+Start with the [community backlog](docs/COMMUNITY_BACKLOG.md) for prioritized,
+bounded tasks with completion criteria. It includes data/evidence gaps,
+independent validation, beginner setup and provenance checks, and future
+design-only work. Comment with the small piece you want to tackle; one source,
+one equation or one platform is enough to begin.
+
+Use the **Dataset offer or source lead** form to describe data you can access,
+and the **Independent validation report** form for a planned or completed check.
+Metadata and lawful local analysis can be useful even when participant records
+cannot be shared. Source availability, software verification and scientific
+acceptance are separate checkpoints.
+
 Use [issues](https://github.com/Crusonia/Demeter/issues/new/choose) for setup bugs,
 questions, evidence, and scenario proposals. You do not need a finished solution.
 For a new scientific mechanism, propose the decision/question, causal path,

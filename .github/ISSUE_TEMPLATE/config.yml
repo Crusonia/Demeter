@@ -1,5 +1,8 @@
 blank_issues_enabled: true
 contact_links:
+  - name: Community tasks and dataset contributions
+    url: https://github.com/Crusonia/Demeter/blob/main/docs/COMMUNITY_BACKLOG.md
+    about: Prioritized evidence gaps, independent tests, beginner tasks and data-offer guidance.
   - name: New to Demeter?
     url: https://github.com/Crusonia/Demeter/blob/main/docs/START_HERE.md
     about: Purpose, staged roadmap, first exercise, and beginner questions.

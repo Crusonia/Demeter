@@ -1,0 +1,62 @@
+name: Dataset offer or source lead
+description: Describe a useful public or controlled-access source. No coding or file upload required.
+title: "[Dataset offer] "
+labels: ["help wanted"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Start with metadata and links. **Do not post participant records, linkage
+        keys, credentials, restricted files or confidential outputs.** Public
+        access to an article does not establish rights to its underlying data.
+        A source offer does not authorize acquisition, analysis or parameter
+        activation. See the [community backlog](https://github.com/Crusonia/Demeter/blob/main/docs/COMMUNITY_BACKLOG.md)
+        and [longitudinal checklist](https://github.com/Crusonia/Demeter/blob/main/docs/PUBLIC_LONGITUDINAL_DATA_REQUIREMENTS.md).
+        Unknowns and incompatible sources are useful to record.
+  - type: textarea
+    id: source
+    attributes:
+      label: Source and version
+      description: Publisher/cohort, release/version, primary publication, repository and dictionary links, corrections and exact fields/tables if known. A link is enough to start.
+    validations:
+      required: true
+  - type: textarea
+    id: relevance
+    attributes:
+      label: What could this help us test?
+      description: Link a community issue or design ID if possible. State the question, measured outcomes/exposures, population, geography, period, units and selection. "Not sure" is welcome.
+    validations:
+      required: true
+  - type: textarea
+    id: observations
+    attributes:
+      label: Measurements, timing and missing information
+      description: For clinical data describe linkage, collection times, assay/fasting conditions, diagnosis/type, medication history, deaths, missed visits, contact/withdrawal, sampling weights and uncertainty. List unavailable fields; do not paste records.
+  - type: dropdown
+    id: access
+    attributes:
+      label: Known access route
+      options:
+        - Public release or published aggregate tables
+        - Controlled-access application or data-use agreement
+        - Institution-held source with a possible lawful local analysis
+        - Access or permissions are not yet known
+    validations:
+      required: true
+  - type: textarea
+    id: rights
+    attributes:
+      label: Access, redistribution and output permissions
+      description: Link license/terms or summarize nonconfidential conditions. Distinguish analysis access, sharing files/code, and publishing aggregates. Describe a lawful access route or permitted local-analysis option; mark unknowns explicitly.
+    validations:
+      required: true
+  - type: textarea
+    id: limitations
+    attributes:
+      label: Limitations, conflicting evidence and relevant interests
+      description: Include missing clocks, selection, overlap, population mismatch or competing interpretations. Disclose relevant authorship, funding or employment if applicable; omit confidential details.
+  - type: textarea
+    id: next_step
+    attributes:
+      label: A small next contribution
+      description: Examples include one dictionary mapping, a permissions clarification, a source appraisal, or a proposed synthetic adapter test. A complete dataset or fitted model is not required.

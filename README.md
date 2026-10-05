@@ -94,6 +94,12 @@ The [Substack](https://foodishealth.substack.com/) is the home for the broader c
 
 Demeter is released under the [MIT License](LICENSE). Contributions should preserve reproducibility, document uncertainty, and make disagreement testable. Anyone can propose a pull request; Carter Williams ([@jcarterwil](https://github.com/jcarterwil)) reviews and merges community changes. See [contributing](CONTRIBUTING.md) and [governance](GOVERNANCE.md).
 
+**Help strengthen the model:** the [community backlog](docs/COMMUNITY_BACKLOG.md)
+links concrete issues for dataset holders, clinicians, statisticians, independent
+testers and beginners. Offer one source, test one calculation, or reproduce a
+first run. Data offers begin with metadata and permissions; do not post private
+health records. Null results and challenges to our assumptions are welcome.
+
 ## Project vision
 
 The program vision and phased roadmap are documented in [docs/PROJECT_VISION.md](docs/PROJECT_VISION.md). The mature module/runtime architecture is in [docs/SYSTEM_ARCHITECTURE.md](docs/SYSTEM_ARCHITECTURE.md), and the long-term scenario surface is preserved in [docs/SCENARIO_CATALOG.md](docs/SCENARIO_CATALOG.md).
