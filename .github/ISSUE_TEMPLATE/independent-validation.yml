@@ -1,0 +1,74 @@
+name: Independent validation report
+description: Propose or report a reproducibility, numerical, clinical or historical check.
+title: "[Independent validation] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Planned checks, failed tests and inconclusive results are welcome.
+        See the [community testing tasks](https://github.com/Crusonia/Demeter/blob/main/docs/COMMUNITY_BACKLOG.md#if-you-can-independently-test-the-model).
+        Distinguish reproducibility, arithmetic and clinical validity. Synthetic
+        tests and implementation parity alone do not validate dietary effects.
+        Do not post private records, credentials or confidential outputs.
+        Use the bug form for a simple software defect, and the scientific-change
+        form/RFC for a material change to model semantics or evidence.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What are you checking?
+      options:
+        - Newcomer installation or offline replay
+        - Public-source transcription or provenance
+        - Independent numerical calculation or conservation
+        - Uncertainty, dependence or convergence
+        - Clinical definitions or identifiability
+        - Independent historical prediction or backtest
+    validations:
+      required: true
+  - type: dropdown
+    id: status
+    attributes:
+      label: Check status
+      options:
+        - Planned - no result yet
+        - PASS - declared criterion met
+        - FAIL - discrepancy or criterion failure
+        - BLOCKED - cannot execute the check
+        - UNRESOLVED - evidence is inconclusive
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Bounded target and expected result
+      description: Name the equation, source, platform or prediction; link the community issue/design IDs. Give the expected value, analytical argument, comparison or prespecified failure criterion. Mark unknowns.
+    validations:
+      required: true
+  - type: textarea
+    id: versions
+    attributes:
+      label: Model, evidence and environment versions
+      description: Exact commit, source releases/hashes, OS, Python/uv and relevant dependencies. For a planned check say what will be pinned. Exclude credentials and private local paths.
+    validations:
+      required: true
+  - type: textarea
+    id: independence
+    attributes:
+      label: Independence and data separation
+      description: How were expected results derived? Identify shared code/libraries and whether evaluation data or summaries influenced equations, selection or fitting. Previously inspected data are not an untouched holdout.
+    validations:
+      required: true
+  - type: textarea
+    id: procedure
+    attributes:
+      label: Reproduction steps and actual results
+      description: Commands, minimal synthetic case, expected/actual values, tolerances and sanitized output. Label planned work, synthetic data, skipped steps and failures explicitly. Do not upload participant data.
+    validations:
+      required: true
+  - type: textarea
+    id: interpretation
+    attributes:
+      label: What does this establish, and what remains uncertain?
+      description: Separate software correctness from evidence applicability, causality and national transport. List unresolved assumptions, limitations, relevant interests and a proposed small follow-up.
+    validations:
+      required: true
