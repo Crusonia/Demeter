@@ -7,6 +7,11 @@ and help a newcomer reproduce a run. You do not need to agree with the Food is
 Health thesis. A null result, an adverse trade-off or a well-documented failure
 can improve the model as much as a successful prediction.
 
+The [October 9 ODCDC source review](ODCDC_REGRESSION_SOURCE_APPRAISAL_20261009.md)
+provides a concrete cohort example for dataset holders: exact public locators,
+unreconciled source totals and the linked timing/death/selection information
+still needed for clinical calibration. It acquires no participant records.
+
 The current implementation priority is the health vertical slice:
 dietary exposure → metabolic states → mortality → life expectancy and healthy
 life expectancy. The broader value-chain ambition remains in the

@@ -2016,6 +2016,14 @@
     {
       "path": "docs/validation/haalsi-v4-ascii-acquisition-only-protocol-v1.json",
       "sha256": "28575a63879e85e97eed64ccc48a1ef84b6bef605076729b7ed657d43ff15abc"
+    },
+    {
+      "path": "docs/ODCDC_REGRESSION_SOURCE_APPRAISAL_20261009.md",
+      "sha256": "03a17074211ee6f7cdcd0b8440c5b481a3fae994eda33f17c58416048aa3711c"
+    },
+    {
+      "path": "docs/validation/odcdc-regression-source-review-20261009-v1.json",
+      "sha256": "1de0cfb7b7df7c0d162d91d71a098b90627692dac6d6e7be5b9640b2c4ddbbea"
     }
   ]
 }
