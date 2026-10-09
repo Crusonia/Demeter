@@ -1,0 +1,215 @@
+{
+  "schema_version": 1,
+  "kind": "public_clinical_source_documentary_appraisal",
+  "assessed_on": "2026-10-09",
+  "doi": "10.1007/s00125-025-06555-8",
+  "publication_online": "2025-10-18",
+  "issue_year": 2026,
+  "role": "documentation_only_not_parameter_intake",
+  "chronology": "Main text and published numerical results were visible before this supplement review; used-source work, not preregistration or independent evaluation.",
+  "primary_url": "https://link.springer.com/article/10.1007/s00125-025-06555-8",
+  "source_records": [
+    {
+      "retrieval": {
+        "name": "article.pdf",
+        "url": "https://link.springer.com/content/pdf/10.1007/s00125-025-06555-8.pdf",
+        "started_utc": "2026-10-09T11:42:02.994786+00:00",
+        "scope": "Public publication documentation only; no participant records",
+        "http_status": 200,
+        "final_url": "https://link.springer.com/content/pdf/10.1007/s00125-025-06555-8.pdf?error=cookies_not_supported&code=7f1d72f2-a68e-46e5-b9a7-8642f4a3c063",
+        "content_type": "application/pdf",
+        "size_bytes": 1399390,
+        "sha256": "835c965047d6b3632ba38f9c7fa0ee2fdba3f0ff445f1259ab8bf8649c5ef20b",
+        "status": "acquired",
+        "completed_utc": "2026-10-09T11:42:05.600521+00:00"
+      },
+      "pdf_pages": 12,
+      "page_text_sha256": {
+        "1": "4356b0135b004d57201736997c68ac4e2629ea3c0b2b4fa650c641dba9abad51",
+        "2": "7795fc36808b9e4e6f24d08efe97077819a65abb9a975bb44bb78cc6b2db4327",
+        "3": "1f33cbfcdc37fdb76d3c56d336e60a73c97861d6298cfc49df66c99bd324515f",
+        "4": "18a75f3fae75d2dee4c71dd909f695012d13a43bb24816ea819d3015564a84b8",
+        "5": "3e167b2909e59fe7644213e3d5c956a4bc778feabbac63d54e52273f979a55f8",
+        "6": "05a667af8a799880e5ec3419715089e131353cfb02add05657bf786268d9bbf3",
+        "7": "299b972d20e0afc544e12c3f1ae03fbb6c252101640a5510202492dca0114f5e",
+        "8": "1fcef49622cc8be5f07000cd3b93bbb991214cdb7466080661824b02fb4cf027",
+        "9": "a0420bac29f7e7249c1ce5546f2fa97b1c80a46721a9ab4f7a85f4a3bd8344f2",
+        "10": "dfb4b652208bf07c596d88c04f0dd11e8530b1aa9a88066c943b51ac65e57304",
+        "11": "5ce1045e954075f61f22334f1f5098afad61c26ea8e451043a3cc9cde66666b4",
+        "12": "944cf488f3552dbb96e19fc6bed1b7245cb060fb1bbe9b8d9b698253c481ab73"
+      },
+      "extraction": "pypdf 6.19.0 default extract_text; UTF-8 without normalization",
+      "raw_distribution": "fetch_only_not_in_repository"
+    },
+    {
+      "retrieval": {
+        "name": "supplement.pdf",
+        "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1007%2Fs00125-025-06555-8/MediaObjects/125_2025_6555_MOESM1_ESM.pdf",
+        "started_utc": "2026-10-09T11:42:05.600541+00:00",
+        "scope": "Public publication documentation only; no participant records",
+        "http_status": 200,
+        "final_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1007%2Fs00125-025-06555-8/MediaObjects/125_2025_6555_MOESM1_ESM.pdf",
+        "content_type": "application/pdf",
+        "size_bytes": 1266989,
+        "sha256": "a41793307283d4278ffb0b0719d504d987456e0f58b3a4c6c200842274949797",
+        "status": "acquired",
+        "completed_utc": "2026-10-09T11:42:07.607788+00:00"
+      },
+      "pdf_pages": 21,
+      "page_text_sha256": {
+        "1": "891cd8d74e2f9a54bd68e3e12f59a0145772449605655f21733c1de8cefdb63d",
+        "2": "f64eb5a732116f4b85a3de2ac6aded6fa191971601dbd24ce41dad79940b87b9",
+        "3": "ecec4d1434fc15646b391ed9e5ffa3e81cf50bd9555273c5641343a072fe141f",
+        "4": "4c7b797230c2bfaa58f696f96e016add83107f04c77055535cd32b371e20e97b",
+        "5": "fcee522a4b5f3c580426ab861cff7849d2fe969005645c5ed39c561345926d8a",
+        "6": "6e1e020bd7a30d38e5689e58b69bbcc0a1f4c9771872f3e16207aad43cd1c67b",
+        "7": "57aaacf4d861e517b33b33be295473916c2e8b53ec87ce3ae47b2c2f8cb21db1",
+        "8": "df5e33be04fac80fbbb7109cab5248fed0eb420d6948e3c68471e967b53f57e9",
+        "9": "81c193962b8eaf0b66d35fce12753750ef5fd854bfdc3876ddbda2775ade0e29",
+        "10": "6579739b6756ad407a5c35082ddb3138fa739d742dbed9128067119de3d9f3f5",
+        "11": "d1689d709eb185806dc7e2c8e1af0ff0945eeb0dae9283423f3e60e0cbc408d7",
+        "12": "bd30bb33b3de36b0b49d85b9a9f793726a83caae9ba88d38135d05774963ccd2",
+        "13": "ab6ec43c897bcbfb97b4fad444f604f8c542cfdce45c4a37d01290ec2093d788",
+        "14": "965b9f786c2fab0d1699465d411b74fab4c258c3d46c4f158b998cf357f7b9a5",
+        "15": "313a6829c1f30e6ff4d5ea31153262bcf59062d2807e6738eb4f8257ee5a8e51",
+        "16": "464a2856266f2ad859122a522d299484b0b5701435cc42f21d1d3dad6187a13f",
+        "17": "01ad72937fa21f913a74a773f0860ec9eabc30d4d5dc41abf7fa0cd754044e74",
+        "18": "82fa4781ca82da3fa9aee33ee1be8ec83372ab2a748da1b48739e4ed4350719d",
+        "19": "531d3c64470a67abcdd8b9027da786048c350a77bd3612e34032721f569be424",
+        "20": "9ecc8bca22aa0d88bab64ec14fd617270b94e83d197377255d30339c44985ef5",
+        "21": "c353069486ecf2a2076289a06c5ebb72b191cf10d60403da5ff9d8788979ecbe"
+      },
+      "extraction": "pypdf 6.19.0 default extract_text; UTF-8 without normalization",
+      "raw_distribution": "fetch_only_not_in_repository"
+    }
+  ],
+  "visual_review": {
+    "supplement_pdf_pages": [
+      4,
+      5,
+      6,
+      11,
+      13,
+      14,
+      15
+    ],
+    "method": "Poppler pdftoppm renders inspected alongside original extracted text",
+    "diagram_text_is_visual": true,
+    "article_pdf_pages": [
+      1,
+      3,
+      4,
+      10
+    ]
+  },
+  "locators": {
+    "selection": "Article Methods PDF3; supplement Fig2 PDF14",
+    "history": "Article Ascertainment PDF3",
+    "timing": "Article Abstract PDF1 versus Methods PDF3; supplement Table3 PDF5 and Fig1 PDF13",
+    "death": "Article Sensitivity analyses PDF4; supplement Table9 PDF11",
+    "denominators": "Supplement Table2 PDF4, Table4 PDF6, Fig2 PDF14",
+    "rights_and_access": "Article Data availability PDF10; Open Access PDF11; publisher article rights statement"
+  },
+  "source_questions": [
+    {
+      "id": "ODCDC-R-01",
+      "locator": "Supplement ESM Table2 PDF4 versus ESM Fig2 PDF14",
+      "observed_region_counts": [
+        4986,
+        2727,
+        395
+      ],
+      "derived_sum": 8108,
+      "reported_after_followup_exclusion": 8191,
+      "disposition": "Denominator relationship unresolved; no correction or person allocation"
+    },
+    {
+      "id": "ODCDC-R-02",
+      "locator": "Supplement ESM Table4 PDF6 versus ESM Fig2 PDF14",
+      "observed_cohort_counts": {
+        "Aichi": 459,
+        "ARIC": 4088,
+        "AUSDIAB": 1157,
+        "JHS": 204,
+        "MESA": 694,
+        "NWAHS": 329,
+        "TLGS": 395,
+        "TOYAMA": 782
+      },
+      "derived_sum": 8108,
+      "reported_final_analysis": 6861,
+      "disposition": "Table membership and filtering cannot be inferred from total alone"
+    },
+    {
+      "id": "ODCDC-R-03",
+      "locator": "Supplement ESM Table9 PDF11; Negative FH vs positive / P value",
+      "displayed_value": "1.66",
+      "disposition": "Outside p-value domain; preserve literal, no decimal repair"
+    },
+    {
+      "id": "ODCDC-R-04",
+      "locator": "Article Abstract PDF1 versus Study design PDF3",
+      "first_followup_iqr_abstract_years": [
+        "2.3",
+        "9.0"
+      ],
+      "first_followup_iqr_methods_years": [
+        "2.3",
+        "3.6"
+      ],
+      "disposition": "Preserve both; neither supplies individual visit clocks"
+    },
+    {
+      "id": "ODCDC-R-05",
+      "locator": "Supplement ESM Table3 PDF5",
+      "observed_rows": {
+        "Aichi": {
+          "total": 8944,
+          "male": 6885,
+          "female": 2104
+        },
+        "ARIC": {
+          "total": 14832,
+          "male": 6723,
+          "female": 7970
+        },
+        "NWAHS": {
+          "total": 4059,
+          "male": 1932,
+          "female": 2124
+        }
+      },
+      "disposition": "Displayed sex subtotals do not equal displayed totals; selection/unknown encoding unresolved"
+    },
+    {
+      "id": "ODCDC-R-06",
+      "locator": "Supplement ESM Fig1 PDF13; Table3 PDF5",
+      "disposition": "Schematic next-five-followups label cannot establish a common schedule for cohorts with different reported visit counts; require cohort/person clocks"
+    }
+  ],
+  "fit_disposition": "No compatible clinical likelihood admitted; published association models and Fine-Gray subhazard ratios do not supply joint observation-pattern counts with visit/death/contact histories.",
+  "participant_record_access": "Not public; original-cohort and ODCDC governance approvals required by article. No request or contact initiated.",
+  "participant_records_acquired": false,
+  "parameters_added": false,
+  "empirical_fit_performed": false,
+  "model_semantics_changed": false,
+  "scientific_gates": {
+    "direct_initialization_allowed": false,
+    "clinical_fit_allowed": false,
+    "engine_activation_allowed": false,
+    "sampling_distribution_assumed": false,
+    "scientific_release_ready": false
+  },
+  "numeric_scope": "Documentary source literals and consistency arithmetic only; these are not model parameters, empirical intake, fitted estimates or sampling distributions.",
+  "design_trace": [
+    "I-01",
+    "I-05",
+    "I-07",
+    "I-11",
+    "I-12",
+    "F-04",
+    "F-08",
+    "T-05",
+    "T-08"
+  ]
+}
