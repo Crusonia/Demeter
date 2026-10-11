@@ -170,3 +170,35 @@ def test_changed_archive_fails_before_participant_decoder(tmp_path, monkeypatch)
     root = Path(__file__).resolve().parents[1]
     with pytest.raises(ValueError, match="source differs"):
         hutelin_coverage.audit_hutelin_coverage(tmp_path, root)
+
+
+def test_original_aggregate_receipt_reconciles_without_participant_intake():
+    root = Path(__file__).resolve().parents[1]
+    report = json.loads(
+        (root / "docs/validation/hutelin2026-blood-coverage-result-v1.json").read_bytes()
+    )
+    assert report["physical_rows"] == report["valid_key_rows"] + report["invalid_key_rows"]
+    assert report["valid_key_rows"] == report["unique_valid_keys"] + report["extra_duplicate_rows"]
+    assert (
+        report["participants_with_valid_keys"]
+        == report["paired_condition_participants"] + report["single_condition_participants"]
+    )
+    assert (
+        sum(sum(values.values()) for values in report["valid_key_time_support"].values())
+        == report["valid_key_rows"]
+    )
+    for field, counts in report["assay_token_accounting"].items():
+        assert sum(counts.values()) == report["physical_rows"]
+        for condition, support in report["valid_key_assay_token_support"].items():
+            for time, fields in support.items():
+                assert (
+                    sum(fields[field].values()) == report["valid_key_time_support"][condition][time]
+                )
+    assert report["protocol_sha256"] == hutelin_coverage.PROTOCOL_SHA256
+    assert (
+        report["runtime_source_sha256"]
+        == hutelin_coverage.hashlib.sha256(Path(hutelin_coverage.__file__).read_bytes()).hexdigest()
+    )
+    assert report["participant_records_exported"] is False
+    assert report["outcome_estimates"] is None
+    assert report["clinical_parameters_admitted"] is False

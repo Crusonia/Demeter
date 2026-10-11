@@ -2039,11 +2039,15 @@
     },
     {
       "path": "docs/HUTELIN_BLOOD_COVERAGE.md",
-      "sha256": "abf0d5c226cdc84cd1d96a303031c6d44134478deb6198320088667f67014fa2"
+      "sha256": "6d2379f0d0e319dc9bf603b9f0cf876bcd290894dc074b51f89320fabf1e618b"
     },
     {
       "path": "docs/validation/hutelin2026-blood-coverage-protocol-v1.json",
       "sha256": "00baba7b9a0579d15595f51f88309b2199ab63e0535575696d17972b3df326bd"
+    },
+    {
+      "path": "docs/validation/hutelin2026-blood-coverage-result-v1.json",
+      "sha256": "7de41ba7562560b4f7eaac3ef4c3a000a0fd330797a65106d1547c502870ac9f"
     }
   ]
 }

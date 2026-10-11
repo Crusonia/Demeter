@@ -55,10 +55,60 @@ clinical fitting. The output consists of source identities and aggregate
 record/key/time/assay coverage. Technical bounds are not scientific parameters.
 
 The protocol and synthetic implementation are committed before the first real
-row inspection. Ordinary tests use constructed records and byte streams, including
+row inspection in [cce1927](https://github.com/Crusonia/Demeter/commit/cce1927).
+Ordinary tests use constructed records and byte streams, including
 private-marker checks and independently counted examples. CI must not open the
 excluded source ZIP. A source-specific empirical receipt is a subsequent stage;
 it cannot be inferred from synthetic tests.
+
+## Actual source coverage
+
+The [original-source receipt](validation/hutelin2026-blood-coverage-result-v1.json)
+records the completed October 11 local invocation after the frozen commit.
+It verifies the source, one selected member's full decompression/CRC, the protocol
+and executing module identity. No individual record appears in the receipt.
+
+There are 466 supported-key records, 466 unique keys, no duplicates and no
+invalid-key records. The records cover 32 distinct people: 28 have records in
+both source conditions and four have records in one condition only. This describes
+the delivered blood table, not trial enrollment, attendance or confirmed assay
+coverage. It must not silently replace the publication's session denominator.
+
+| Recorded label | `mpf` records | `upf` records |
+| --- | ---: | ---: |
+| 0 | 32 | 28 |
+| 5 | 32 | 27 |
+| 10 | 0 | 0 |
+| 20 | 32 | 27 |
+| 40 | 32 | 27 |
+| 60 | 32 | 27 |
+| 90 | 31 | 27 |
+| 120 | 29 | 27 |
+| 180 | 29 | 27 |
+
+The extra code label 10 is absent from this table. Baseline code 0 still requires
+reconciliation with the method's pre-meal clock and the display shift; the absence
+of label 10 alone does not validate all timing or imputation choices.
+
+| Prepared source column | Finite numeric cells | Literal missing cells | Unclassified cells |
+| --- | ---: | ---: | ---: |
+| `glucose` | 466 | 0 | 0 |
+| `insulin` | 421 | 45 | 0 |
+| `insulin_w0` | 459 | 7 | 0 |
+| `insulin_impute` | 459 | 7 | 0 |
+
+Cell missingness and absent records are different. Having no missing glucose
+cells among delivered rows does not establish complete blood follow-up.
+Matching availability counts in two insulin columns do not establish equal
+values, common assay lineage or a valid imputation. No comparison of their
+measurements was performed.
+
+Among delivered condition sessions, the eight-label reference is fully supported
+by finite cells without duplicate keys in 55 sessions for glucose, 35 for insulin,
+and 53 each for the other two insulin columns. The nine-label reference has no
+fully supported session. These are coverage diagnostics; they do not select an
+analysis subset, an observation clock or an AUC estimand. All original records and
+unknown preparation/timing issues remain in the next analysis design.
 
 ## What this does not resolve
 
