@@ -2024,6 +2024,18 @@
     {
       "path": "docs/validation/odcdc-regression-source-review-20261009-v1.json",
       "sha256": "1de0cfb7b7df7c0d162d91d71a098b90627692dac6d6e7be5b9640b2c4ddbbea"
+    },
+    {
+      "path": "docs/HUTELIN_PUBLIC_FOOD_RESPONSE_INTAKE.md",
+      "sha256": "61e3b605566c73f1289a8a4aa46be773d70a90b50960efd13c6fe375657ce0d8"
+    },
+    {
+      "path": "docs/validation/hutelin2026-preflight-contract-v1.json",
+      "sha256": "8d7caec48404816c0382db08052c5f5a4f55e252e5d0b686d8da7d899ab3d2bf"
+    },
+    {
+      "path": "docs/validation/hutelin2026-preflight-result-v1.json",
+      "sha256": "fe1ad6b540d227ca6510a7d9591e2d5ffc175ba2a0dd2a03db3dd48ee6466fc9"
     }
   ]
 }

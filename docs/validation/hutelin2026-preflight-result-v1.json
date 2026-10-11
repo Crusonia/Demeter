@@ -1,0 +1,114 @@
+{
+  "contract_sha256": "8d7caec48404816c0382db08052c5f5a4f55e252e5d0b686d8da7d899ab3d2bf",
+  "schema_version": 1,
+  "contract_id": "hutelin2026-documentary-header-preflight-v1",
+  "record_doi": "10.7294/32077803.v2",
+  "source_identities_verified": [
+    {
+      "filename": "catalog-original.json",
+      "bytes": 14301,
+      "sha256": "554877cbfd90209d3f400afb90b4d92a891c582897ee1e0d3ae363c40557916c"
+    },
+    {
+      "filename": "0_data_cleaning_code.zip",
+      "bytes": 9069,
+      "sha256": "c56375364bea97ac3193c68b4f3eb5ed7c5a0f877e7ba62cd0f3637f40725491"
+    },
+    {
+      "filename": "1_analysis_code.zip",
+      "bytes": 20892,
+      "sha256": "fc10fc7387907f220531e0de92cf3badefef7800e2a5b4763a6a03178a404c50"
+    },
+    {
+      "filename": "data-original.zip",
+      "bytes": 3684502,
+      "sha256": "47420ee3fcbdae1e9f96f0b5e9562d66f19aa3544b8079b4b92b86eec12a0109"
+    },
+    {
+      "filename": "protocol-original.pdf",
+      "bytes": 3187203,
+      "sha256": "6a7d8fe227e0be5d501cc378f08c6f65426257f0d0ccdaaeaf1534d4690022e3"
+    },
+    {
+      "filename": "README.rtf",
+      "bytes": 8384,
+      "sha256": "285343a9a943b1fd7910c52f296cec8ebc87cac1389a983449a453d220ec33b5"
+    }
+  ],
+  "selected_headers_verified": [
+    {
+      "member": "data/raw/blood.csv",
+      "header_sha256": "91cd3ca363663a834d46dd51516752fef3b89537840a63092eee6bb251e0f70e",
+      "header_bytes": 101,
+      "columns": [
+        "id",
+        "condition",
+        "time",
+        "a1c",
+        "time_fac",
+        "gluc1",
+        "gluc2",
+        "gluc3",
+        "gluc_ave",
+        "glucose",
+        "insulin",
+        "insulin_w0",
+        "insulin_impute"
+      ]
+    },
+    {
+      "member": "data/raw/chamber_internal_states.csv",
+      "header_sha256": "ae7e5ceb96ecdb7016ca8e9aaa6ca2c304956861bce7411bf3af8607d62d88f9",
+      "header_bytes": 179,
+      "columns": [
+        "id",
+        "chamber_condition",
+        "time",
+        "session",
+        "chamber_sleep_history",
+        "want_post",
+        "rated_liking",
+        "hung",
+        "full",
+        "thirst",
+        "fast_time",
+        "session_date",
+        "date_lastmeal",
+        "date_lastexercise"
+      ]
+    }
+  ],
+  "selected_code_identities_verified": [
+    {
+      "archive": "0_data_cleaning_code.zip",
+      "member": "0_data_cleaning_code/1_clean_blood_data.R",
+      "bytes": 2513,
+      "sha256": "c9fe5df2a0911f3517f36b1a59444362d1e4d67612f430010b3bba22897499f5"
+    },
+    {
+      "archive": "0_data_cleaning_code.zip",
+      "member": "0_data_cleaning_code/3_imputation.R",
+      "bytes": 5405,
+      "sha256": "320160607fede5a6b13314b6a1808fd80c07b10f809fa6ebfe1e560874d9202b"
+    },
+    {
+      "archive": "1_analysis_code.zip",
+      "member": "1_analysis_code/1_figure_1.R",
+      "bytes": 22641,
+      "sha256": "8b2bc87d2524cc77ee6d29bde03d2f12b5c9e7c6161696c3842c966e8e8104f4"
+    },
+    {
+      "archive": "1_analysis_code.zip",
+      "member": "1_analysis_code/0_functions.R",
+      "bytes": 8068,
+      "sha256": "bc73b7a98d70962fdfcf0eac8584154efd3cefe903940568dab02989056dcf72"
+    }
+  ],
+  "participant_rows_decoded": false,
+  "full_data_member_crc_verified": false,
+  "author_code_executed": false,
+  "outcome_estimates": null,
+  "clinical_parameters_admitted": false,
+  "scientific_release_ready": false,
+  "interpretation": "Source/header reproduction only; not clinical or independent validation."
+}
