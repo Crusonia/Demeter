@@ -37,6 +37,12 @@ documents. The existing [transition calibration #57](https://github.com/Crusonia
 and [dietary pathway #58](https://github.com/Crusonia/Demeter/issues/58) remain
 the scientific umbrellas; completing a child appraisal does not close them.
 
+The [Hutelin public food-response intake](HUTELIN_PUBLIC_FOOD_RESPONSE_INTAKE.md)
+pins a newly released CC0 source and implements a header-only replay for #117.
+Contributors can help resolve assay provenance, observation clocks and paired
+missingness before an acute whole-meal response analysis. Its source checks do
+not supply the clinical bridge required by #58.
+
 | Priority | Community issue | Who can help |
 | --- | --- | --- |
 | First | [#115: Find a timed longitudinal glycemic dataset with death and attrition accounting](https://github.com/Crusonia/Demeter/issues/115) | Cohort investigators / data stewards |
