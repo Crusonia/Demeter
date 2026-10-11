@@ -2036,6 +2036,14 @@
     {
       "path": "docs/validation/hutelin2026-preflight-result-v1.json",
       "sha256": "fe1ad6b540d227ca6510a7d9591e2d5ffc175ba2a0dd2a03db3dd48ee6466fc9"
+    },
+    {
+      "path": "docs/HUTELIN_BLOOD_COVERAGE.md",
+      "sha256": "abf0d5c226cdc84cd1d96a303031c6d44134478deb6198320088667f67014fa2"
+    },
+    {
+      "path": "docs/validation/hutelin2026-blood-coverage-protocol-v1.json",
+      "sha256": "00baba7b9a0579d15595f51f88309b2199ab63e0535575696d17972b3df326bd"
     }
   ]
 }
