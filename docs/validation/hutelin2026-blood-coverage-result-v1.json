@@ -1,0 +1,487 @@
+{
+  "protocol_sha256": "00baba7b9a0579d15595f51f88309b2199ab63e0535575696d17972b3df326bd",
+  "preflight_contract_sha256": "8d7caec48404816c0382db08052c5f5a4f55e252e5d0b686d8da7d899ab3d2bf",
+  "archive_sha256": "47420ee3fcbdae1e9f96f0b5e9562d66f19aa3544b8079b4b92b86eec12a0109",
+  "selected_member_sha256": "7f1c77fba7cad8fa1e62b88ba71e1bb8fbd16d92da0c32c952f7936313243c71",
+  "selected_member_crc_verified": true,
+  "participant_rows_decoded": true,
+  "participant_records_exported": false,
+  "runtime_source_sha256": "9ded91350f335ae9a64be819f907f8411c76d727fef5cb3226e9c48a15d156c3",
+  "assay_provenance": "Finite numeric prepared values; not verified raw assay observations.",
+  "interpretation": "Descriptive source coverage only; no AUC, clinical rate or causal effect.",
+  "physical_rows": 466,
+  "valid_key_rows": 466,
+  "invalid_key_rows": 0,
+  "nonexclusive_invalid_reason_counts": {},
+  "unique_valid_keys": 466,
+  "duplicate_key_count": 0,
+  "extra_duplicate_rows": 0,
+  "duplicate_affected_sessions": 0,
+  "participants_with_valid_keys": 32,
+  "paired_condition_participants": 28,
+  "single_condition_participants": 4,
+  "valid_key_time_support": {
+    "mpf": {
+      "0": 32,
+      "5": 32,
+      "10": 0,
+      "20": 32,
+      "40": 32,
+      "60": 32,
+      "90": 31,
+      "120": 29,
+      "180": 29
+    },
+    "upf": {
+      "0": 28,
+      "5": 27,
+      "10": 0,
+      "20": 27,
+      "40": 27,
+      "60": 27,
+      "90": 27,
+      "120": 27,
+      "180": 27
+    }
+  },
+  "assay_token_accounting": {
+    "glucose": {
+      "literal_missing": 0,
+      "finite_numeric": 466,
+      "unclassified": 0
+    },
+    "insulin": {
+      "literal_missing": 45,
+      "finite_numeric": 421,
+      "unclassified": 0
+    },
+    "insulin_w0": {
+      "literal_missing": 7,
+      "finite_numeric": 459,
+      "unclassified": 0
+    },
+    "insulin_impute": {
+      "literal_missing": 7,
+      "finite_numeric": 459,
+      "unclassified": 0
+    }
+  },
+  "reference_grid_coverage_sessions_finite_without_duplicate_keys": {
+    "code_suffix_grid": {
+      "glucose": 0,
+      "insulin": 0,
+      "insulin_w0": 0,
+      "insulin_impute": 0
+    },
+    "published_postmeal_grid_with_unverified_source0_baseline": {
+      "glucose": 55,
+      "insulin": 35,
+      "insulin_w0": 53,
+      "insulin_impute": 53
+    }
+  },
+  "valid_key_assay_token_support": {
+    "mpf": {
+      "0": {
+        "glucose": {
+          "literal_missing": 0,
+          "finite_numeric": 32,
+          "unclassified": 0
+        },
+        "insulin": {
+          "literal_missing": 9,
+          "finite_numeric": 23,
+          "unclassified": 0
+        },
+        "insulin_w0": {
+          "literal_missing": 1,
+          "finite_numeric": 31,
+          "unclassified": 0
+        },
+        "insulin_impute": {
+          "literal_missing": 1,
+          "finite_numeric": 31,
+          "unclassified": 0
+        }
+      },
+      "5": {
+        "glucose": {
+          "literal_missing": 0,
+          "finite_numeric": 32,
+          "unclassified": 0
+        },
+        "insulin": {
+          "literal_missing": 5,
+          "finite_numeric": 27,
+          "unclassified": 0
+        },
+        "insulin_w0": {
+          "literal_missing": 1,
+          "finite_numeric": 31,
+          "unclassified": 0
+        },
+        "insulin_impute": {
+          "literal_missing": 1,
+          "finite_numeric": 31,
+          "unclassified": 0
+        }
+      },
+      "10": {
+        "glucose": {
+          "literal_missing": 0,
+          "finite_numeric": 0,
+          "unclassified": 0
+        },
+        "insulin": {
+          "literal_missing": 0,
+          "finite_numeric": 0,
+          "unclassified": 0
+        },
+        "insulin_w0": {
+          "literal_missing": 0,
+          "finite_numeric": 0,
+          "unclassified": 0
+        },
+        "insulin_impute": {
+          "literal_missing": 0,
+          "finite_numeric": 0,
+          "unclassified": 0
+        }
+      },
+      "20": {
+        "glucose": {
+          "literal_missing": 0,
+          "finite_numeric": 32,
+          "unclassified": 0
+        },
+        "insulin": {
+          "literal_missing": 1,
+          "finite_numeric": 31,
+          "unclassified": 0
+        },
+        "insulin_w0": {
+          "literal_missing": 1,
+          "finite_numeric": 31,
+          "unclassified": 0
+        },
+        "insulin_impute": {
+          "literal_missing": 1,
+          "finite_numeric": 31,
+          "unclassified": 0
+        }
+      },
+      "40": {
+        "glucose": {
+          "literal_missing": 0,
+          "finite_numeric": 32,
+          "unclassified": 0
+        },
+        "insulin": {
+          "literal_missing": 1,
+          "finite_numeric": 31,
+          "unclassified": 0
+        },
+        "insulin_w0": {
+          "literal_missing": 1,
+          "finite_numeric": 31,
+          "unclassified": 0
+        },
+        "insulin_impute": {
+          "literal_missing": 1,
+          "finite_numeric": 31,
+          "unclassified": 0
+        }
+      },
+      "60": {
+        "glucose": {
+          "literal_missing": 0,
+          "finite_numeric": 32,
+          "unclassified": 0
+        },
+        "insulin": {
+          "literal_missing": 1,
+          "finite_numeric": 31,
+          "unclassified": 0
+        },
+        "insulin_w0": {
+          "literal_missing": 1,
+          "finite_numeric": 31,
+          "unclassified": 0
+        },
+        "insulin_impute": {
+          "literal_missing": 1,
+          "finite_numeric": 31,
+          "unclassified": 0
+        }
+      },
+      "90": {
+        "glucose": {
+          "literal_missing": 0,
+          "finite_numeric": 31,
+          "unclassified": 0
+        },
+        "insulin": {
+          "literal_missing": 1,
+          "finite_numeric": 30,
+          "unclassified": 0
+        },
+        "insulin_w0": {
+          "literal_missing": 0,
+          "finite_numeric": 31,
+          "unclassified": 0
+        },
+        "insulin_impute": {
+          "literal_missing": 0,
+          "finite_numeric": 31,
+          "unclassified": 0
+        }
+      },
+      "120": {
+        "glucose": {
+          "literal_missing": 0,
+          "finite_numeric": 29,
+          "unclassified": 0
+        },
+        "insulin": {
+          "literal_missing": 1,
+          "finite_numeric": 28,
+          "unclassified": 0
+        },
+        "insulin_w0": {
+          "literal_missing": 0,
+          "finite_numeric": 29,
+          "unclassified": 0
+        },
+        "insulin_impute": {
+          "literal_missing": 0,
+          "finite_numeric": 29,
+          "unclassified": 0
+        }
+      },
+      "180": {
+        "glucose": {
+          "literal_missing": 0,
+          "finite_numeric": 29,
+          "unclassified": 0
+        },
+        "insulin": {
+          "literal_missing": 6,
+          "finite_numeric": 23,
+          "unclassified": 0
+        },
+        "insulin_w0": {
+          "literal_missing": 1,
+          "finite_numeric": 28,
+          "unclassified": 0
+        },
+        "insulin_impute": {
+          "literal_missing": 1,
+          "finite_numeric": 28,
+          "unclassified": 0
+        }
+      }
+    },
+    "upf": {
+      "0": {
+        "glucose": {
+          "literal_missing": 0,
+          "finite_numeric": 28,
+          "unclassified": 0
+        },
+        "insulin": {
+          "literal_missing": 8,
+          "finite_numeric": 20,
+          "unclassified": 0
+        },
+        "insulin_w0": {
+          "literal_missing": 0,
+          "finite_numeric": 28,
+          "unclassified": 0
+        },
+        "insulin_impute": {
+          "literal_missing": 0,
+          "finite_numeric": 28,
+          "unclassified": 0
+        }
+      },
+      "5": {
+        "glucose": {
+          "literal_missing": 0,
+          "finite_numeric": 27,
+          "unclassified": 0
+        },
+        "insulin": {
+          "literal_missing": 4,
+          "finite_numeric": 23,
+          "unclassified": 0
+        },
+        "insulin_w0": {
+          "literal_missing": 0,
+          "finite_numeric": 27,
+          "unclassified": 0
+        },
+        "insulin_impute": {
+          "literal_missing": 0,
+          "finite_numeric": 27,
+          "unclassified": 0
+        }
+      },
+      "10": {
+        "glucose": {
+          "literal_missing": 0,
+          "finite_numeric": 0,
+          "unclassified": 0
+        },
+        "insulin": {
+          "literal_missing": 0,
+          "finite_numeric": 0,
+          "unclassified": 0
+        },
+        "insulin_w0": {
+          "literal_missing": 0,
+          "finite_numeric": 0,
+          "unclassified": 0
+        },
+        "insulin_impute": {
+          "literal_missing": 0,
+          "finite_numeric": 0,
+          "unclassified": 0
+        }
+      },
+      "20": {
+        "glucose": {
+          "literal_missing": 0,
+          "finite_numeric": 27,
+          "unclassified": 0
+        },
+        "insulin": {
+          "literal_missing": 0,
+          "finite_numeric": 27,
+          "unclassified": 0
+        },
+        "insulin_w0": {
+          "literal_missing": 0,
+          "finite_numeric": 27,
+          "unclassified": 0
+        },
+        "insulin_impute": {
+          "literal_missing": 0,
+          "finite_numeric": 27,
+          "unclassified": 0
+        }
+      },
+      "40": {
+        "glucose": {
+          "literal_missing": 0,
+          "finite_numeric": 27,
+          "unclassified": 0
+        },
+        "insulin": {
+          "literal_missing": 0,
+          "finite_numeric": 27,
+          "unclassified": 0
+        },
+        "insulin_w0": {
+          "literal_missing": 0,
+          "finite_numeric": 27,
+          "unclassified": 0
+        },
+        "insulin_impute": {
+          "literal_missing": 0,
+          "finite_numeric": 27,
+          "unclassified": 0
+        }
+      },
+      "60": {
+        "glucose": {
+          "literal_missing": 0,
+          "finite_numeric": 27,
+          "unclassified": 0
+        },
+        "insulin": {
+          "literal_missing": 0,
+          "finite_numeric": 27,
+          "unclassified": 0
+        },
+        "insulin_w0": {
+          "literal_missing": 0,
+          "finite_numeric": 27,
+          "unclassified": 0
+        },
+        "insulin_impute": {
+          "literal_missing": 0,
+          "finite_numeric": 27,
+          "unclassified": 0
+        }
+      },
+      "90": {
+        "glucose": {
+          "literal_missing": 0,
+          "finite_numeric": 27,
+          "unclassified": 0
+        },
+        "insulin": {
+          "literal_missing": 1,
+          "finite_numeric": 26,
+          "unclassified": 0
+        },
+        "insulin_w0": {
+          "literal_missing": 1,
+          "finite_numeric": 26,
+          "unclassified": 0
+        },
+        "insulin_impute": {
+          "literal_missing": 1,
+          "finite_numeric": 26,
+          "unclassified": 0
+        }
+      },
+      "120": {
+        "glucose": {
+          "literal_missing": 0,
+          "finite_numeric": 27,
+          "unclassified": 0
+        },
+        "insulin": {
+          "literal_missing": 0,
+          "finite_numeric": 27,
+          "unclassified": 0
+        },
+        "insulin_w0": {
+          "literal_missing": 0,
+          "finite_numeric": 27,
+          "unclassified": 0
+        },
+        "insulin_impute": {
+          "literal_missing": 0,
+          "finite_numeric": 27,
+          "unclassified": 0
+        }
+      },
+      "180": {
+        "glucose": {
+          "literal_missing": 0,
+          "finite_numeric": 27,
+          "unclassified": 0
+        },
+        "insulin": {
+          "literal_missing": 7,
+          "finite_numeric": 20,
+          "unclassified": 0
+        },
+        "insulin_w0": {
+          "literal_missing": 0,
+          "finite_numeric": 27,
+          "unclassified": 0
+        },
+        "insulin_impute": {
+          "literal_missing": 0,
+          "finite_numeric": 27,
+          "unclassified": 0
+        }
+      }
+    }
+  },
+  "clinical_parameters_admitted": false,
+  "outcome_estimates": null
+}

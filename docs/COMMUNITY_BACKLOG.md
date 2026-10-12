@@ -43,6 +43,12 @@ Contributors can help resolve assay provenance, observation clocks and paired
 missingness before an acute whole-meal response analysis. Its source checks do
 not supply the clinical bridge required by #58.
 
+Its subsequent [blood-record coverage](HUTELIN_BLOOD_COVERAGE.md) preserves
+absent condition/time records separately from missing assay cells. The delivered
+table has fewer complete condition pairs than the study's metabolic-session
+denominator. Help resolve the insulin preparation rules and source clocks before
+selecting a paired response analysis; no clinical coefficient has been admitted.
+
 | Priority | Community issue | Who can help |
 | --- | --- | --- |
 | First | [#115: Find a timed longitudinal glycemic dataset with death and attrition accounting](https://github.com/Crusonia/Demeter/issues/115) | Cohort investigators / data stewards |

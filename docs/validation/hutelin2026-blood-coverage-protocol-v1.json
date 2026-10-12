@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "id": "hutelin2026-blood-coverage-v1",
+  "status": "frozen used-source coverage stage before first participant-row inspection",
+  "source_archive_sha256": "47420ee3fcbdae1e9f96f0b5e9562d66f19aa3544b8079b4b92b86eec12a0109",
+  "selected_member": "data/raw/blood.csv",
+  "scope": "Descriptive record/key/time support and literal assay availability only. Used-source development following published methods and header inspection; no participant rows have been inspected when this draft was created.",
+  "private_key_fields": [
+    "id",
+    "condition",
+    "time"
+  ],
+  "availability_fields": [
+    "glucose",
+    "insulin",
+    "insulin_w0",
+    "insulin_impute"
+  ],
+  "nonselected_fields": [
+    "a1c",
+    "time_fac",
+    "gluc1",
+    "gluc2",
+    "gluc3",
+    "gluc_ave"
+  ],
+  "condition_codes": [
+    "mpf",
+    "upf"
+  ],
+  "source_time_labels_to_audit": [
+    0,
+    5,
+    10,
+    20,
+    40,
+    60,
+    90,
+    120,
+    180
+  ],
+  "time_semantics": "Recorded labels only, not verified collection times. Baseline source0, method-60 and display-20 stay distinct.",
+  "missing_tokens": [
+    "",
+    "NA"
+  ],
+  "unclassified_tokens": "Any other nonfinite, malformed or nonnumeric assay/time value stays unclassified. Unknown IDs/conditions/times are never printed.",
+  "duplicate_policy": "Count duplicate valid person/condition/time keys and affected sessions; do not silently deduplicate. Duplicates preclude downstream AUC until adjudicated.",
+  "disclosure": "Only dataset-level and condition/time-level counts. No identifiers, measurements, dates, filenames containing participant IDs or record examples. No person-linked output.",
+  "key_accounting": "Every physical data row belongs to exactly one valid-key or invalid-key category. Missing identifiers, unknown conditions, malformed time and unexpected time are separate invalid-key reasons. Retain nonexclusive reason counts as such.",
+  "assay_accounting": "Every selected assay token belongs to exactly one literal missing, finite numeric or unclassified category. Finite numeric means available prepared source value, not verified observation or proof of assay provenance.",
+  "pair_accounting": "Use valid keys privately to count distinct participants and conditions. Complete condition pairs are separate from complete per-assay/time coverage. No condition pairing from malformed keys.",
+  "not_admitted": [
+    "session-date intake",
+    "demographics intake",
+    "biomarker means or AUC",
+    "glucose threshold or diabetes labels",
+    "participant exclusion or imputation",
+    "author code execution",
+    "clinical fit",
+    "active model parameters"
+  ],
+  "next_stage": "Resolve lineage/timing/key issues from this coverage audit before freezing a paired acute-response estimand and uncertainty/missingness policy. This does not satisfy the food-to-clinical-state bridge.",
+  "reference_grid_coverage": {
+    "code_suffix_grid": [
+      0,
+      5,
+      10,
+      20,
+      40,
+      60,
+      90,
+      120,
+      180
+    ],
+    "published_postmeal_grid_with_unverified_source0_baseline": [
+      0,
+      5,
+      20,
+      40,
+      60,
+      90,
+      120,
+      180
+    ]
+  },
+  "reference_grid_interpretation": "Finite prepared values covering a declared label set, without duplicate keys. Neither grid establishes actual collection clocks, assay lineage, completeness of all visits or an AUC estimand.",
+  "limits": {
+    "member_bytes": 1048576,
+    "data_rows": 10000,
+    "fields_per_row": 13
+  },
+  "decoder_boundary": "The bounded UTF-8 CSV decoder transiently reads complete row strings before selecting seven declared fields. Nonselected values receive no numeric interpretation, linkage, output or persistence. Do not describe this as never decoding nonselected CSV text.",
+  "framing_policy": "Require exact pinned header, flat records of exactly thirteen fields, strict UTF-8, no NULs/embedded record newlines/blank rows, bounded original member bytes and row count. Reject malformed framing without publishing partial counts. No truncation or source repair.",
+  "design_ids": [
+    "I-07",
+    "I-11",
+    "F-08",
+    "T-08"
+  ],
+  "scientific_release_ready": false,
+  "source_preflight_contract_sha256": "8d7caec48404816c0382db08052c5f5a4f55e252e5d0b686d8da7d899ab3d2bf"
+}
