@@ -1789,11 +1789,15 @@
       "artifacts": [
         {
           "path": "docs/HUTELIN_PREPARATION_PATTERNS.md",
-          "sha256": "1dacbb68db1af1852c0e108799b0aa5a14ae097c59e4220bc90fa7bbad9a43b5"
+          "sha256": "6a7681bbd2f776aeaab11b710aadffe0e558e644fce4ef7a6550e497e1b52e88"
         },
         {
           "path": "docs/validation/hutelin2026-preparation-pattern-protocol-v1.json",
           "sha256": "df4f550ddb2a7e5b7e37a3568a1939e7a00a23a9695675a7ab084efc7750302d"
+        },
+        {
+          "path": "docs/validation/hutelin2026-preparation-pattern-result-v1.json",
+          "sha256": "4d73e309c72a859cbbf96ac807307e6290119030e446548f1e08da659acb095c"
         }
       ],
       "transform_files": [

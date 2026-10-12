@@ -68,11 +68,25 @@ registry role/definitions, original documents, ZIP/header/member identities and
 framing are checked before extra value interpretation. The source file is read
 in memory; no identifiers, dates or concentrations appear in the report.
 
-The contract and synthetic implementation precede the first such invocation.
+The contract and synthetic implementation precede the first such invocation in
+[6a70af3](https://github.com/Crusonia/Demeter/commit/6a70af3).
 Publication, code, source headers and aggregate coverage were already known:
 this is used-source development, not preregistration or independent validation.
 Ordinary tests use constructed rows and guards. They do not open excluded raw
 records or establish actual assay provenance.
+
+The [actual original-source result](validation/hutelin2026-preparation-pattern-result-v1.json)
+accounts for all 466 records: 421 have equal finite values across all three
+columns, 38 have a missing native-labelled cell with the zero-and-replacement
+compatibility pattern, and seven have all three cells missing. No unclassified
+token or other discrepancy pattern occurred under this frozen diagnostic.
+The result pins the executing module, source member, registry and protocol.
+It exports no individual value or identifier.
+
+This explains the previously reported availability difference without treating
+prepared cells as measurements. It does not verify the hypothesized rounding
+policy, the cause of each missing cell, or a source censor flag. Counts do not
+select participants for a clinical analysis or qualify concentrations.
 
 ## Remaining interpretation requirements
 

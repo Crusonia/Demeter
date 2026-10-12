@@ -100,3 +100,23 @@ def test_changed_method_document_fails_before_record_interpretation(tmp_path, mo
     monkeypatch.setattr(hutelin_preparation, "diagnostic", forbidden)
     with pytest.raises(ValueError, match="method document mismatch"):
         hutelin_preparation.audit_preparation(tmp_path, root, registry)
+
+
+def test_actual_receipt_accounting_and_runtime_identity_offline():
+    import hashlib
+
+    root = Path(__file__).resolve().parents[1]
+    report = json.loads(
+        (root / "docs/validation/hutelin2026-preparation-pattern-result-v1.json").read_bytes()
+    )
+    assert sum(report["exclusive_pattern_counts"].values()) == report["records"]
+    assert set(report["exclusive_pattern_counts"]) == set(hutelin_preparation.CATEGORIES)
+    assert report["protocol_sha256"] == hutelin_preparation.PROTOCOL_SHA256
+    assert (
+        report["runtime_source_sha256"]
+        == hashlib.sha256(Path(hutelin_preparation.__file__).read_bytes()).hexdigest()
+    )
+    assert report["clinical_parameters_admitted"] is False
+    assert report["source_rounding_verified"] is False
+    assert report["assay_flags_qualified"] is False
+    assert report["participant_values_exported"] is False

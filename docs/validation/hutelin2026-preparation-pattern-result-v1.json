@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "protocol_sha256": "df4f550ddb2a7e5b7e37a3568a1939e7a00a23a9695675a7ab084efc7750302d",
+  "registry_scope_sha256": "a30b5247792263300e9035835b25528e7ce5f65249ef9acb4619a455589308b6",
+  "archive_sha256": "47420ee3fcbdae1e9f96f0b5e9562d66f19aa3544b8079b4b92b86eec12a0109",
+  "member_sha256": "7f1c77fba7cad8fa1e62b88ba71e1bb8fbd16d92da0c32c952f7936313243c71",
+  "runtime_source_sha256": "1b7970494084c0fce6066e0fc9489a14ee7a602769af13edb98a432f2535d224",
+  "participant_values_exported": false,
+  "source_rounding_verified": false,
+  "assay_flags_qualified": false,
+  "scientific_release_ready": false,
+  "records": 466,
+  "exclusive_pattern_counts": {
+    "unclassified_token": 0,
+    "all_insulin_cells_missing": 7,
+    "native_missing_zero_and_replacement_compatible": 38,
+    "native_missing_other_prepared_pattern": 0,
+    "native_present_prepared_equal": 421,
+    "native_present_prepared_missing": 0,
+    "native_present_prepared_discrepant": 0
+  },
+  "interpretation": "Prepared-source patterns only; no verified censor flag, assay lineage or clinical use.",
+  "clinical_parameters_admitted": false
+}
