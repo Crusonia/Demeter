@@ -1,4 +1,89 @@
 parameters:
+  hutelin2026_insulin_reported_loq:
+    key: hutelin2026_insulin_reported_loq
+    value: 3
+    unit: microIU_per_mL
+    status: observed
+    source: 'Supplementary Protocols: Missing data from Metabolic Sessions, PDF page
+      9'
+    transformation: Literal reported quantification limit in Supplementary Protocols,
+      PDF page 9.
+    model_role: benchmark_only
+    evidence_grade: C
+    source_id: hutelin2026_preparation_supplement
+    source_url: https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs42255-026-01619-4/MediaObjects/42255_2026_1619_MOESM1_ESM.pdf
+    citation: 'Hutelin Z, Ahrens M, Baugh ME et al. Metabolic and neural responses to
+      ultraprocessed foods: a randomized, controlled, crossover study. Nature Metabolism
+      (2026), DOI 10.1038/s42255-026-01619-4. Supplementary Protocols, PDF page 9.'
+    population: Selected healthy-weight 18-45-year-old participants in the acute whole-meal
+      metabolic study; prepared assay methods only
+    geography: Roanoke, Virginia; no national or clinical-state transport
+    time_period: 2026 publication; acute metabolic sessions reported 2023-2025
+    exposure_definition: Two nutritionally matched whole-meal conditions; no continuous
+      UPF dose or annual intervention mapping
+    outcome_definition: Reported insulin preparation method; not a clinical state or
+      biological effect
+    notes: Method definition only, not observed concentration. No clinical gate or active
+      engine input.
+    uncertainty:
+      kind: fixed
+      rationale: Fixed declaration of the published source preparation method; not zero
+        biological, assay, imputation or effect uncertainty.
+  hutelin2026_low_value_replacement:
+    key: hutelin2026_low_value_replacement
+    value: 2.1213203435596424
+    unit: microIU_per_mL
+    status: derived
+    source: 'Supplementary Protocols: Missing data from Metabolic Sessions, PDF page
+      9'
+    transformation: Published 3/sqrt(2) replacement rule evaluated in binary64; a prepared
+      value, not a measured concentration.
+    model_role: benchmark_only
+    evidence_grade: C
+    source_id: hutelin2026_preparation_supplement
+    source_url: https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs42255-026-01619-4/MediaObjects/42255_2026_1619_MOESM1_ESM.pdf
+    citation: 'Hutelin Z, Ahrens M, Baugh ME et al. Metabolic and neural responses to
+      ultraprocessed foods: a randomized, controlled, crossover study. Nature Metabolism
+      (2026), DOI 10.1038/s42255-026-01619-4. Supplementary Protocols, PDF page 9.'
+    population: Selected healthy-weight 18-45-year-old participants in the acute whole-meal
+      metabolic study; prepared assay methods only
+    geography: Roanoke, Virginia; no national or clinical-state transport
+    time_period: 2026 publication; acute metabolic sessions reported 2023-2025
+    exposure_definition: Two nutritionally matched whole-meal conditions; no continuous
+      UPF dose or annual intervention mapping
+    outcome_definition: Reported insulin preparation method; not a clinical state or
+      biological effect
+    notes: Method definition only, not observed concentration. No clinical gate or active
+      engine input.
+    uncertainty:
+      kind: fixed
+      rationale: Fixed declaration of the published source preparation method; not zero
+        biological, assay, imputation or effect uncertainty.
+  hutelin2026_storage_half_quantum:
+    key: hutelin2026_storage_half_quantum
+    value: 0.5
+    unit: last_printed_decimal_quantum
+    status: derived
+    evidence_grade: D
+    model_role: benchmark_only
+    source: 'Demeter preparation-pattern protocol: proposed nearest-last-printed-decimal
+      compatibility interval'
+    population: Selected healthy-weight 18-45-year-old participants in the acute whole-meal
+      metabolic study; prepared assay methods only
+    geography: Roanoke, Virginia; no national or clinical-state transport
+    time_period: Frozen used-source software convention, 2026-10-11
+    exposure_definition: Two nutritionally matched whole-meal conditions; no continuous
+      UPF dose or annual intervention mapping
+    outcome_definition: Compatibility with a storage-rounding hypothesis; not a verified
+      source rounding policy or assay/censor flag
+    transformation: Half of the last printed decimal quantum; ties included at either
+      boundary. A definition of the chosen diagnostic, not a source-estimated tolerance.
+    uncertainty:
+      kind: fixed
+      rationale: Fixed software diagnostic definition. Storage rounding hypothesis itself
+        remains unverified; this is not a biological interval.
+    notes: Benchmark-only modelling convention; no invented external citation, source
+      censor classification or active clinical effect.
   update_table5_followup_weeks:
     key: update_table5_followup_weeks
     value: 8
@@ -7604,6 +7689,18 @@ parameters:
     source_id: nhanes3_repeat_lab_dictionary
 
 datasets:
+  hutelin2026_preparation_patterns:
+    model_role: benchmark_only
+    source_ids:
+    - hutelin2026_preparation_supplement
+    parameter_keys:
+    - hutelin2026_insulin_reported_loq
+    - hutelin2026_low_value_replacement
+    - hutelin2026_storage_half_quantum
+    protocol_path: docs/validation/hutelin2026-preparation-pattern-protocol-v1.json
+    interpretation: Prepared-source pattern accounting under a declared storage hypothesis;
+      no clinical state, effect, AUC or imputation.
+    scientific_release_ready: false
   update_public_biomarker_benchmark:
     model_role: benchmark_only
     source_ids:
@@ -14247,6 +14344,21 @@ scientific_blockers:
   benchmark.
 
 sources:
+  hutelin2026_preparation_supplement:
+    url: https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs42255-026-01619-4/MediaObjects/42255_2026_1619_MOESM1_ESM.pdf
+    citation: 'Hutelin Z, Ahrens M, Baugh ME et al. Metabolic and neural responses to
+      ultraprocessed foods: a randomized, controlled, crossover study. Nature Metabolism
+      (2026), DOI 10.1038/s42255-026-01619-4. Supplementary Protocols, PDF page 9.'
+    doi: 10.1038/s42255-026-01619-4
+    raw_filename: publisher-supplement-original-20261011.pdf
+    sha256: a24fa26be5828b108b1522586d7791b2de8cc8e1d6c0ba0056c451c72d8f44f8
+    retrieved_at: '2026-10-11T22:45:33.825313+00:00'
+    license: Article notice CC BY-NC-ND 4.0 (https://creativecommons.org/licenses/by-nc-nd/4.0/),
+      with third-party exceptions. Full article/supplement stays fetch-only. Limited
+      attributed factual method quantities only; no article adaptation or expression
+      redistributed. Producer dataset separately CC0.
+    correction_note: Public current supplement acquired 2026-10-11 via literal publisher
+      hyperlink. No exhaustive revision-history assertion.
   update2025_published_supplement:
     url: https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41591-025-03842-0/MediaObjects/41591_2025_3842_MOESM1_ESM.pdf
     citation: 'Dicken SJ et al. Ultraprocessed or minimally processed diets following healthy dietary guidelines
