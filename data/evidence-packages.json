@@ -1774,6 +1774,41 @@
       ],
       "model_role": "benchmark_only",
       "redistribution": "Limited attributed published numeric facts and authored metadata. Article CC BY 4.0 with third-party credit exception; complete original PDF stays fetch-only by project choice. No participant data, original full text or figures."
+    },
+    "hutelin2026_preparation_patterns": {
+      "store": null,
+      "dependencies": [],
+      "registry_datasets": [
+        "hutelin2026_preparation_patterns"
+      ],
+      "registry_parameters": [
+        "hutelin2026_insulin_reported_loq",
+        "hutelin2026_low_value_replacement",
+        "hutelin2026_storage_half_quantum"
+      ],
+      "artifacts": [
+        {
+          "path": "docs/HUTELIN_PREPARATION_PATTERNS.md",
+          "sha256": "6a7681bbd2f776aeaab11b710aadffe0e558e644fce4ef7a6550e497e1b52e88"
+        },
+        {
+          "path": "docs/validation/hutelin2026-preparation-pattern-protocol-v1.json",
+          "sha256": "df4f550ddb2a7e5b7e37a3568a1939e7a00a23a9695675a7ab084efc7750302d"
+        },
+        {
+          "path": "docs/validation/hutelin2026-preparation-pattern-result-v1.json",
+          "sha256": "4d73e309c72a859cbbf96ac807307e6290119030e446548f1e08da659acb095c"
+        }
+      ],
+      "transform_files": [
+        "src/demeter/data/hutelin_preparation.py",
+        "scripts/verify_hutelin_preparation.py"
+      ],
+      "rebuild": [
+        "uv run python scripts/verify_hutelin_preparation.py --raw-dir data/raw/clinical/hutelin2026-documentation-20261011 --output outputs/hutelin-preparation.json"
+      ],
+      "model_role": "benchmark_only",
+      "redistribution": "Independently authored diagnostic, limited attributed method facts and aggregate counts only. Full publisher NC-ND article/supplement and participant data stay outside GitHub; producer dataset independently CC0."
     }
   },
   "supporting_artifacts": [

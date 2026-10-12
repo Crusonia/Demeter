@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "id": "hutelin2026-preparation-patterns-v1",
+  "stage": "Frozen used-source diagnostic before first additional value-pattern interpretation; not preregistration or clinical admission",
+  "preflight_contract_sha256": "8d7caec48404816c0382db08052c5f5a4f55e252e5d0b686d8da7d899ab3d2bf",
+  "archive_sha256": "47420ee3fcbdae1e9f96f0b5e9562d66f19aa3544b8079b4b92b86eec12a0109",
+  "member": "data/raw/blood.csv",
+  "member_sha256": "7f1c77fba7cad8fa1e62b88ba71e1bb8fbd16d92da0c32c952f7936313243c71",
+  "source_id": "hutelin2026_preparation_supplement",
+  "registry_parameters": [
+    "hutelin2026_insulin_reported_loq",
+    "hutelin2026_low_value_replacement",
+    "hutelin2026_storage_half_quantum"
+  ],
+  "registry_scope_sha256": "a30b5247792263300e9035835b25528e7ce5f65249ef9acb4619a455589308b6",
+  "numeric_policy": {
+    "kind": "Hypothesized nearest-last-printed-decimal compatibility interval around a finite scalar token",
+    "context_decimal_precision": 80,
+    "maximum_scalar_characters": 64,
+    "maximum_absolute_decimal_exponent": 300,
+    "target": "Binary64 calculation of the source-declared LOQ/sqrt(2) replacement; registered value must match",
+    "half_quantum_parameter": "hutelin2026_storage_half_quantum",
+    "ties": "Both interval boundaries included; not a verified source rounding policy",
+    "no_tolerance_tuning": true
+  },
+  "interpretation": "Exclusive source-column pattern counts only. Compatible patterns are not verified censor flags, raw assay measurements, collection reasons, selection rules or clinical observations.",
+  "selected_numeric_fields": [
+    "insulin",
+    "insulin_w0",
+    "insulin_impute"
+  ],
+  "projection": "Complete bounded CSV row strings are transiently decoded before projecting three numeric fields; other values receive no interpretation, output or persistence.",
+  "limits": {
+    "archive_bytes": 8388608,
+    "member_bytes": 1048576,
+    "rows": 10000
+  },
+  "categories": [
+    "unclassified_token",
+    "all_insulin_cells_missing",
+    "native_missing_zero_and_replacement_compatible",
+    "native_missing_other_prepared_pattern",
+    "native_present_prepared_equal",
+    "native_present_prepared_missing",
+    "native_present_prepared_discrepant"
+  ],
+  "not_admitted": [
+    "individual identifiers/values export",
+    "assay/censor-flag qualification",
+    "clinical-state allocation",
+    "minimum-successful-collection eligibility inference",
+    "imputation",
+    "AUC",
+    "effect estimation",
+    "annual hazard",
+    "national transport",
+    "active engine input"
+  ],
+  "scientific_release_ready": false
+}
