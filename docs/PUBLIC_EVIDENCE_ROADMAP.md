@@ -1,5 +1,11 @@
 # Building Demeter with public evidence
 
+The [CORDIOPREV and MIDUS follow-up appraisal](CLINICAL_SOURCE_FOLLOWUP.md)
+identifies what would make two public sources usable. CORDIOPREV needs a joint
+account of diagnosis, death and missed visits by assigned diet and interval.
+MIDUS needs recruitment, follow-up and mortality coverage tied to the baseline
+biomarker cohort. The appraisal specifies the smallest tables to request.
+
 The [Kerala public trial intake](KERALA_SOURCE_COVERAGE.md) adds a versioned
 producer release with candidate repeated glucose assessments. Its source,
 header and representation checks preserve used-source chronology, typed linkage,
